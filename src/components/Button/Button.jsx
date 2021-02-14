@@ -9,7 +9,16 @@ const defaultTags = {
   button: 'button',
 };
 
-const Button = ({ to, tag, type, primary, disabled, children, ...rest }) => {
+const Button = ({
+  to,
+  tag,
+  type,
+  primary,
+  small,
+  disabled,
+  children,
+  ...rest
+}) => {
   const selectedTag = defaultTags[tag || `button`] || tag;
 
   const props = {
@@ -24,9 +33,10 @@ const Button = ({ to, tag, type, primary, disabled, children, ...rest }) => {
       as={selectedTag}
       disabled={disabled}
       $primary={primary}
+      $small={small}
       {...props}
     >
-      children
+      {children}
     </StyledButton>
   );
 };
@@ -49,6 +59,10 @@ Button.propTypes = {
    */
   primary: PropTypes.bool,
   /**
+   * Specifies if the button is small or regular size
+   */
+  small: PropTypes.bool,
+  /**
    * Specifies the button should be disabled
    */
   disabled: PropTypes.bool,
@@ -64,6 +78,7 @@ Button.defaultProps = {
   to: undefined,
   type: undefined,
   primary: false,
+  small: false,
   disabled: false,
 };
 
