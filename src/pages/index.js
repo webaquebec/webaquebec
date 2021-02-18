@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 // components
 import SEO from '../components/SEO';
@@ -10,7 +10,10 @@ import { h1Style } from '../styles/global';
 const IndexPage = () => {
   return (
     <Layout>
-      <SEO description='Le plus grand événement numérique francophone en Amérique du Nord.' />
+      <SEO
+        title='Accueil'
+        description='Le plus grand événement numérique francophone en Amérique du Nord.'
+      />
 
       <h1 css={h1Style}>Bienvenue au Web à Québec!</h1>
     </Layout>
