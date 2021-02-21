@@ -13,7 +13,7 @@ import breakpoints from './breakpoints';
 import breakpointsRange from '../utils/breakpointsRange';
 import colors from './colors';
 
-export const rootStyles = css`
+export const rootStyle = css`
   --container-gutter: 16px;
   --min-container-width: 320px;
   --max-container-width: 1280px;
@@ -31,24 +31,24 @@ export const rootStyles = css`
   /* --font-size: calc(1rem + 0.41666667vw - 1.33333333px); */
 `;
 
-export const htmlStyles = css`
+export const htmlStyle = css`
   scroll-behavior: smooth;
 `;
 
-export const bodyStyles = css`
+export const bodyStyle = css`
   font-weight: ${fontWeights.regular};
   font-family: ${fontFamilies.body};
   line-height: ${25 / 16};
   letter-spacing: 0.1px;
 `;
 
-export const bodyMediumStyles = css`
-  ${bodyStyles};
+export const bodyMediumStyle = css`
+  ${bodyStyle};
 
   font-weight: ${fontWeights.bold};
 `;
 
-export const bodyAltStyles = css`
+export const bodyAltStyle = css`
   font-weight: ${fontWeights.regular};
   font-size: 1.05em;
   font-family: ${fontFamilies.redaction35};
@@ -56,8 +56,8 @@ export const bodyAltStyles = css`
   letter-spacing: 0.1px;
 `;
 
-export const bodyAltMediumStyles = css`
-  ${bodyAltStyles};
+export const bodyAltMediumStyle = css`
+  ${bodyAltStyle};
 
   font-weight: ${fontWeights.bold};
 `;
@@ -237,14 +237,14 @@ export const GlobalStyle = createGlobalStyle`
   ${Redaction};
 
   :root {
-    ${rootStyles};
+    ${rootStyle};
   }
 
   html {
-    ${htmlStyles};
+    ${htmlStyle};
   }
 
   body {
-    ${bodyStyles};
+    ${bodyStyle};
   }
 `;
