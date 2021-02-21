@@ -4,7 +4,9 @@ import { rem } from 'polished';
 
 // styles
 import colors from '../../styles/colors';
-import fontWeights from '../../styles/typography';
+import { fontWeights } from '../../styles/typography';
+import breakpoints from '../../styles/breakpoints';
+import breakpointsRange from '../../utils/breakpointsRange';
 
 export const primaryStyle = css`
   color: ${colors.bleu80};
@@ -23,6 +25,15 @@ export const smallStyle = css`
   padding: 12px 30px;
 
   font-size: ${rem(16)};
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [14, 16], bases: 20 }],
+    breakpoints.spacings
+  )};
+
+  ${breakpointsRange(
+    [{ prop: 'lineHeight', sizes: [20, 24], bases: 20 }],
+    breakpoints.spacings
+  )};
 `;
 
 /* Default button styled */
@@ -33,8 +44,16 @@ const StyledButton = styled.button`
   color: ${colors.turquoise80};
 
   font-weight: ${fontWeights.medium};
-  font-size: ${rem(24)};
-  line-height: ${rem(24)};
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [16, 24], bases: 20 }],
+    breakpoints.spacings
+  )};
+
+  ${breakpointsRange(
+    [{ prop: 'lineHeight', sizes: [20, 24], bases: 20 }],
+    breakpoints.spacings
+  )};
 
   background-color: ${colors.bleu80};
   border: 0;
