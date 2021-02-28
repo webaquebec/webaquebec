@@ -17,6 +17,7 @@ const IndexPage = () => {
       />
 
       <h1 css={h1Style}>Bienvenue au Web à Québec!</h1>
+
       <StatsSection />
     </Layout>
   );

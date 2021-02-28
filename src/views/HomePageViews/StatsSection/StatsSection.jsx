@@ -4,7 +4,7 @@ import {
   StatsList,
   StatItem,
   StatImg,
-  StatDesc,
+  StatDescription,
 } from './StatsSection.styles';
 import Center from '../../../components/LayoutSections/Center';
 import Switcher from '../../../components/LayoutSections/Switcher';
@@ -20,16 +20,21 @@ const Stats = () => {
   ];
 
   return (
-    <Center maxWidth='1280px' gutters='50px' withText>
+    <Center
+      maxWidth='var(--max-container-width)'
+      gutters='50px'
+      withText
+      intrinsic
+    >
       <StatsIntro>
         le plus grand évènement numérique francophone en Amérique du Nord
       </StatsIntro>
-      <Switcher threshold='768px' space='2rem' limit='3'>
+      <Switcher threshold='768px' space='2rem' limit={3}>
         <StatsList>
           {data.map((stat) => (
             <StatItem key={`stat-item-${stat.number}`}>
               <StatImg src={stat.img} alt={stat.number} />
-              <StatDesc>{stat.description}</StatDesc>
+              <StatDescription>{stat.description}</StatDescription>
             </StatItem>
           ))}
         </StatsList>
