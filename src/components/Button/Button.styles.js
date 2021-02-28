@@ -25,13 +25,9 @@ export const smallStyle = css`
   padding: 12px 30px;
 
   font-size: ${rem(16)};
-  ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [14, 16], bases: 20 }],
-    breakpoints.spacings
-  )};
 
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [20, 24], bases: 20 }],
+    [{ prop: 'lineHeight', sizes: [20, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -46,12 +42,12 @@ const StyledButton = styled.button`
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 24], bases: 20 }],
+    [{ prop: 'fontSize', sizes: [16, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [20, 24], bases: 20 }],
+    [{ prop: 'lineHeight', sizes: [20, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
