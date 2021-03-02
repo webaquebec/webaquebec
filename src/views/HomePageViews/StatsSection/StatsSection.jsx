@@ -15,7 +15,7 @@ import stat50 from '../../../images/stats/50.svg';
 const Stats = () => {
   const data = [
     { number: 80, img: stat80, description: 'conférences, ateliers et plus' },
-    { number: 3, img: stat3, description: 'journées intensives' },
+    { number: 3, img: stat3, description: 'journées<br />intensives' },
     { number: 50, img: stat50, description: 'bénévoles annuels passionnés' },
   ];
 
@@ -34,7 +34,9 @@ const Stats = () => {
           {data.map((stat) => (
             <StatItem key={`stat-item-${stat.number}`}>
               <StatImg src={stat.img} alt={stat.number} />
-              <StatDescription>{stat.description}</StatDescription>
+              <StatDescription
+                dangerouslySetInnerHTML={{ __html: stat.description }}
+              />
             </StatItem>
           ))}
         </StatsList>
