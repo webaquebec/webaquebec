@@ -1,6 +1,5 @@
 // vendors
 import styled, { css } from 'styled-components';
-import { rem } from 'polished';
 
 // styles
 import colors from '../../styles/colors';
@@ -22,12 +21,15 @@ export const primaryStyle = css`
 `;
 
 export const smallStyle = css`
-  padding: 12px 30px;
-
-  font-size: ${rem(16)};
-
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [20, 24], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [20, 24], bases: 16, unit: '' },
+      { prop: 'paddingTop', sizes: [12, 12], bases: [16, 20] },
+      { prop: 'paddingRight', sizes: [30, 30], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [12, 12], bases: [16, 20] },
+      { prop: 'paddingLeft', sizes: [30, 30], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -35,19 +37,20 @@ export const smallStyle = css`
 /* Default button styled */
 const StyledButton = styled.button`
   display: inline-block;
-  padding: 28px 34px;
 
   color: ${colors.turquoise80};
 
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 24], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-
-  ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [20, 24], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [16, 20], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [19, 24], bases: [16, 20], unit: '' },
+      { prop: 'paddingTop', sizes: [28, 28], bases: [16, 20] },
+      { prop: 'paddingRight', sizes: [34, 34], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [28, 28], bases: [16, 20] },
+      { prop: 'paddingLeft', sizes: [34, 34], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 
