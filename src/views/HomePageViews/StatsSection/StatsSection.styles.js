@@ -15,7 +15,7 @@ export const StatsIntro = styled.p`
   margin-bottom: 130px;
 
   color: ${colors.bleu80};
-  font-weight: 700;
+  font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [24, 40], bases: [16, 20] }],
@@ -23,7 +23,7 @@ export const StatsIntro = styled.p`
   )};
 
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [28, 48], bases: [16, 20] }],
+    [{ prop: 'lineHeight', sizes: [29, 48], bases: [24, 40], unit: '' }],
     breakpoints.spacings
   )};
 
@@ -48,7 +48,7 @@ export const StatItem = styled.li`
 `;
 
 export const StatImg = styled.img`
-  width: auto;
+  width: 100%;
 
   ${breakpointsRange(
     [{ prop: 'height', sizes: [100, 200], bases: [16, 20] }],
@@ -60,6 +60,7 @@ export const StatDescription = styled.p`
   color: ${colors.gris30};
   font-weight: ${fontWeights.bold};
   text-align: center;
+  word-break: normal;
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [24, 40], bases: [16, 20] }],
@@ -67,7 +68,7 @@ export const StatDescription = styled.p`
   )};
 
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [28, 48], bases: [16, 20] }],
+    [{ prop: 'lineHeight', sizes: [29, 48], bases: [24, 40], unit: '' }],
     breakpoints.spacings
   )};
 
