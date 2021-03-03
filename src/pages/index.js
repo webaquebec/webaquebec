@@ -3,6 +3,7 @@ import React from 'react';
 // components
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
+import StatsSection from '../views/HomePageViews/StatsSection';
 
 // styles
 import { h1Style } from '../styles/global';
@@ -16,6 +17,8 @@ const IndexPage = () => {
       />
 
       <h1 css={h1Style}>Bienvenue au Web à Québec!</h1>
+
+      <StatsSection />
     </Layout>
   );
 };
