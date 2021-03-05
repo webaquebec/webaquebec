@@ -39,7 +39,10 @@ export const htmlStyle = css`
 export const bodyStyle = css`
   font-weight: ${fontWeights.regular};
   font-family: ${fontFamilies.body};
-  line-height: ${25 / 16};
+  ${breakpointsRange(
+    [{ prop: 'lineHeight', sizes: [26, 24], bases: [16, 20], unit: '' }],
+    breakpoints.spacings
+  )};
   letter-spacing: 0.1px;
 `;
 
@@ -53,7 +56,11 @@ export const bodyAltStyle = css`
   font-weight: ${fontWeights.regular};
   font-size: 1.05em;
   font-family: ${fontFamilies.redaction35};
-  line-height: ${28 / 23};
+  ${breakpointsRange(
+    [{ prop: 'lineHeight', sizes: [26, 28], bases: [16, 23], unit: '' }],
+    breakpoints.spacings
+  )};
+  /* line-height: ${28 / 23}; */
   letter-spacing: 0.1px;
 `;
 
@@ -66,94 +73,103 @@ export const bodyAltMediumStyle = css`
 export const h1Style = css`
   font-weight: ${fontWeights.bold};
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [48, 60] }],
+    [
+      { prop: 'fontSize', sizes: [48, 60], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [52, 66], bases: [48, 60], unit: '' },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${66 / 60};
 `;
 
 export const h1AltStyle = css`
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction35};
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [54, 68] }],
+    [
+      { prop: 'fontSize', sizes: [54, 68], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [59, 75], bases: [54, 68], unit: '' },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${75 / 68};
 `;
 
 export const h2Style = css`
   font-weight: ${fontWeights.bold};
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [32, 40] }],
+    [
+      { prop: 'fontSize', sizes: [32, 40], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [38, 48], bases: [32, 40], unit: '' },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${48 / 40};
 `;
 
 export const h3Style = css`
   font-weight: ${fontWeights.bold};
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [28, 36] }],
+    [
+      { prop: 'fontSize', sizes: [28, 36], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [32, 42], bases: [28, 36], unit: '' },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${42 / 36};
 `;
 
 export const h4Style = css`
   font-weight: ${fontWeights.bold};
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [25, 32] }],
+    [
+      { prop: 'fontSize', sizes: [25, 32], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [29, 38], bases: [25, 32], unit: '' },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${38 / 32};
 `;
 
 export const h5Style = css`
   font-weight: ${fontWeights.bold};
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [23, 28] }],
+    [
+      { prop: 'fontSize', sizes: [23, 28], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [28, 34], bases: [23, 28], unit: '' },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${34 / 28};
 `;
 
 export const h6Style = css`
   font-weight: ${fontWeights.medium};
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [19, 24] }],
+    [
+      { prop: 'fontSize', sizes: [19, 24], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [22, 28], bases: [19, 24], unit: '' },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${28 / 24};
 `;
 
 export const h6AltStyle = css`
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction35};
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [21, 27] }],
+    [
+      { prop: 'fontSize', sizes: [21, 27], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [25, 32], bases: [21, 27], unit: '' },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${32 / 27};
 `;
 
 export const introStyle = css`
   color: ${colors.bleu90};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [18, 20] }],
+    [
+      { prop: 'fontSize', sizes: [18, 20], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [27, 30], bases: [18, 20], unit: '' },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${30 / 20};
 `;
 
 export const magnifyStyle = css`
@@ -161,11 +177,12 @@ export const magnifyStyle = css`
 
   font-weight: ${fontWeights.bold};
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [24, 40] }],
+    [
+      { prop: 'fontSize', sizes: [24, 40], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [30, 48], bases: [24, 40], unit: '' },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${52 / 40};
 `;
 
 export const unbreakableStringStyle = css`
@@ -181,8 +198,13 @@ export const titleStyle = css``;
 
 export const caption1Style = css`
   font-weight: ${fontWeights.regular};
-  font-size: ${rem(16)};
-  line-height: ${19 / 16};
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [19, 19], bases: [16, 16], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
 `;
 
 export const caption1MediumStyle = css`
@@ -193,8 +215,13 @@ export const caption1MediumStyle = css`
 
 export const caption2Style = css`
   font-weight: ${fontWeights.regular};
-  font-size: ${rem(12)};
-  line-height: ${16 / 12};
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [12, 12], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [16, 16], bases: [12, 12], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
 `;
 
 export const caption2MediumStyle = css`
@@ -205,14 +232,47 @@ export const caption2MediumStyle = css`
 
 export const caption3Style = css`
   font-weight: ${fontWeights.regular};
-  font-size: ${rem(11)};
-  line-height: ${13 / 11};
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [11, 11], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [13, 13], bases: [11, 11], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
 `;
 
 export const caption3MediumStyle = css`
   ${caption3Style};
 
   font-weight: ${fontWeights.medium};
+`;
+
+export const pixelatedStyle = css`
+  font-family: ${fontFamilies.redaction};
+`;
+
+export const pixelated10Style = css`
+  font-family: ${fontFamilies.redaction10};
+`;
+
+export const pixelated20Style = css`
+  font-family: ${fontFamilies.redaction20};
+`;
+
+export const pixelated35Style = css`
+  font-family: ${fontFamilies.redaction35};
+`;
+
+export const pixelated50Style = css`
+  font-family: ${fontFamilies.redaction50};
+`;
+
+export const pixelated70Style = css`
+  font-family: ${fontFamilies.redaction70};
+`;
+
+export const pixelated100Style = css`
+  font-family: ${fontFamilies.redaction100};
 `;
 
 export const linkStyle = css``;
