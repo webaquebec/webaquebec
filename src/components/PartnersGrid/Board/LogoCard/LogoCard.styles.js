@@ -1,10 +1,16 @@
+// vendors
 import styled, { css } from 'styled-components';
-import colors from '../../../../styles/colors';
+
+// components
+import Cover from '../../../LayoutSections/Cover';
+
+// utils
 import breakpointsRange from '../../../../utils/breakpointsRange';
 import { lessThan } from '../../../../utils/mediaQuery';
+
+// styles
+import colors from '../../../../styles/colors';
 import breakpoints from '../../../../styles/breakpoints';
-// import selfBreakpoints from '../../shared/selfBreakpoints';
-import Cover from '../../../LayoutSections/Cover';
 
 // 576, 768, 1280
 export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[6]];

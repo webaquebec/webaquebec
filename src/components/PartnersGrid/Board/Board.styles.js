@@ -1,10 +1,14 @@
+// vendors
 import styled from 'styled-components';
 
+// components
 import Box from '../../LayoutSections/Box';
-import colors from '../../../styles/colors';
 
+// utils
 import { lessThan } from '../../../utils/mediaQuery';
 
+// styles
+import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 
 // 576, 768, 1280
