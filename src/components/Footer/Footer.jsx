@@ -1,14 +1,8 @@
+// vendors
 import React from 'react';
 import { Link } from 'gatsby';
 
 // styles
-
-// components
-import Center from '../LayoutSections/Center';
-import Switcher from '../LayoutSections/Switcher';
-
-// images
-import logo from '../../images/logo.svg';
 import {
   FooterTitle,
   ContactLink,
@@ -17,6 +11,13 @@ import {
   ArchiveItem,
   ArchiveLink,
 } from './Footer.styles';
+
+// components
+import Center from '../LayoutSections/Center';
+import Switcher from '../LayoutSections/Switcher';
+
+// images
+import logo from '../../images/logo.svg';
 
 const Footer = () => {
   // @TODO: Ajouter les bons liens
