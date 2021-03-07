@@ -1,8 +1,20 @@
 // vendors
 import React from 'react';
 import { Link } from 'gatsby';
+import { css } from 'styled-components';
+
+// utils
+import breakpointsRange from '../../utils/breakpointsRange';
+
+// components
+import Center from '../LayoutSections/Center';
+import Switcher from '../LayoutSections/Switcher';
+
+// images
+import logo from '../../images/logo.svg';
 
 // styles
+import breakpoints from '../../styles/breakpoints';
 import {
   FooterTitle,
   ContactLink,
@@ -12,12 +24,12 @@ import {
   ArchiveLink,
 } from './Footer.styles';
 
-// components
-import Center from '../LayoutSections/Center';
-import Switcher from '../LayoutSections/Switcher';
-
-// images
-import logo from '../../images/logo.svg';
+const footerWrapper = css`
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [60, 90], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
 
 const Footer = () => {
   // @TODO: Ajouter les bons liens
@@ -34,7 +46,7 @@ const Footer = () => {
   ];
 
   return (
-    <Center maxWidth='1064px' gutters='32px'>
+    <Center css={footerWrapper} maxWidth='1064px' gutters='32px'>
       <Switcher threshold='768px' space='2rem' limit={3}>
         <div>
           <div>
