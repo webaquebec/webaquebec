@@ -1,10 +1,12 @@
 // vendors
 import styled, { css } from 'styled-components';
 
+// utils
+import breakpointsRange from '../../utils/breakpointsRange';
+
 // styles
 import colors from '../../styles/colors';
 import breakpoints from '../../styles/breakpoints';
-import breakpointsRange from '../../utils/breakpointsRange';
 
 export const ContactTitle = styled.h2`
   margin: 0;
@@ -18,6 +20,8 @@ export const ContactTitle = styled.h2`
 `;
 
 export const ContactText = styled.p`
+  margin-bottom: 20px;
+
   text-align: center;
 
   ${breakpointsRange(

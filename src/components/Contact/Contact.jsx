@@ -90,7 +90,9 @@ const Contact = () => {
               et contenus exclusifs t’y attendent!
             </ContactText>
             {/* @TODO: Ajouter le lien vers l'abonnement */}
-            <Button>Je veux m&apos;abonner!</Button>
+            <Button primary small>
+              Je veux m&apos;abonner!
+            </Button>
           </Center>
         </Paper>
       </Center>
