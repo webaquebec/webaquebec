@@ -68,7 +68,7 @@ export const ArchiveLink = css`
   )};
 
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [24, 32], bases: [16, 20] }],
+    [{ prop: 'lineHeight', sizes: [24, 32], bases: [16, 20], unit: '' }],
     breakpoints.spacings
   )};
 `;
