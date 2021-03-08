@@ -32,6 +32,8 @@ export const rootStyle = css`
 `;
 
 export const htmlStyle = css`
+  position: relative;
+
   background-color: ${colors.gris};
   scroll-behavior: smooth;
 `;
