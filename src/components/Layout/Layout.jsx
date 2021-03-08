@@ -8,6 +8,8 @@ import 'sanitize.css';
 import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
 
+import Header from '../Header';
+
 /**
  * The common Layout shared across all pages
  *
@@ -18,6 +20,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyle />
+
+      <Header />
 
       <main>{children}</main>
     </>
