@@ -8,8 +8,6 @@ import 'sanitize.css';
 import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
 
-import Contact from '../Contact';
-
 /**
  * The common Layout shared across all pages
  *
@@ -22,8 +20,6 @@ const Layout = ({ children }) => {
       <GlobalStyle />
 
       <main>{children}</main>
-
-      <Contact />
     </>
   );
 };
