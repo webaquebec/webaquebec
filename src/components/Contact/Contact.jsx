@@ -49,7 +49,7 @@ const Contact = () => {
   ];
 
   return (
-    <Switcher threshold='768px' space='2rem' limit={2}>
+    <Switcher threshold='832px' space='2rem' limit={2}>
       <Center maxWidth='1064px'>
         <Paper
           lightColor={colors.gris30}
@@ -62,10 +62,12 @@ const Contact = () => {
             <ContactTitle color={colors.gris90}>
               Suivez-nous sur les médias sociaux
             </ContactTitle>
+
             <ContactText css={MediaText}>
               Annonces, évènements à venir, Lorem ipsum dolor sit amet,
               consectetur.
             </ContactText>
+
             <MediaList>
               {socialMedia.map((media) => (
                 <li key={`media-item-${media.name}`}>
@@ -77,6 +79,7 @@ const Contact = () => {
             </MediaList>
           </Center>
         </Paper>
+
         <Paper
           lightColor={colors.bleu80}
           darkColor={colors.gris30}
@@ -85,12 +88,14 @@ const Contact = () => {
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer}>
             <ContactTitle>Abonnes-toi à l’infolettre</ContactTitle>
+
             <ContactText>
               Pour une bonne dose de WAQ, inscris-toi à l’infolettre! Promotions
               et contenus exclusifs t’y attendent!
             </ContactText>
+
             {/* @TODO: Ajouter le lien vers l'abonnement */}
-            <Button primary small>
+            <Button to='/' tag='href' primary small>
               Je veux m&apos;abonner!
             </Button>
           </Center>
