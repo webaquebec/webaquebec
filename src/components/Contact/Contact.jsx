@@ -1,5 +1,6 @@
 // vendors
 import React from 'react';
+import { hideVisually } from 'polished';
 
 // styles
 import {
@@ -9,6 +10,7 @@ import {
   MediaList,
   BlocContainer,
   ContentContainer,
+  SectionContainer,
 } from './Contact.styles';
 import colors from '../../styles/colors';
 
@@ -49,59 +51,63 @@ const Contact = () => {
   ];
 
   return (
-    <Switcher threshold='832px' space='2rem' limit={2}>
-      <Center maxWidth='1064px'>
-        <Paper
-          lightColor={colors.gris30}
-          darkColor={colors.bleu80}
-          rounded
-          overlaid
-          css={BlocContainer}
-        >
-          <Center maxWidth='290px' intrinsic css={ContentContainer}>
-            <ContactTitle color={colors.gris90}>
-              Suivez-nous sur les médias sociaux
-            </ContactTitle>
+    <SectionContainer>
+      <h2 css={hideVisually}>Pour rester en contact</h2>
 
-            <ContactText css={MediaText}>
-              Annonces, évènements à venir, Lorem ipsum dolor sit amet,
-              consectetur.
-            </ContactText>
+      <Switcher threshold='832px' space='2rem' limit={2}>
+        <Center maxWidth='1064px'>
+          <Paper
+            lightColor={colors.gris30}
+            darkColor={colors.bleu80}
+            rounded
+            overlaid
+            css={BlocContainer}
+          >
+            <Center maxWidth='290px' intrinsic css={ContentContainer}>
+              <ContactTitle color={colors.gris90}>
+                Suivez-nous sur les médias sociaux
+              </ContactTitle>
 
-            <MediaList>
-              {socialMedia.map((media) => (
-                <li key={`media-item-${media.name}`}>
-                  <a href={media.link}>
-                    <img src={media.img} alt={media.name} />
-                  </a>
-                </li>
-              ))}
-            </MediaList>
-          </Center>
-        </Paper>
+              <ContactText css={MediaText}>
+                Annonces, évènements à venir, Lorem ipsum dolor sit amet,
+                consectetur.
+              </ContactText>
 
-        <Paper
-          lightColor={colors.bleu80}
-          darkColor={colors.gris30}
-          rounded
-          css={BlocContainer}
-        >
-          <Center maxWidth='290px' intrinsic css={ContentContainer}>
-            <ContactTitle>Abonnes-toi à l’infolettre</ContactTitle>
+              <MediaList>
+                {socialMedia.map((media) => (
+                  <li key={`media-item-${media.name}`}>
+                    <a href={media.link}>
+                      <img src={media.img} alt={media.name} />
+                    </a>
+                  </li>
+                ))}
+              </MediaList>
+            </Center>
+          </Paper>
 
-            <ContactText>
-              Pour une bonne dose de WAQ, inscris-toi à l’infolettre! Promotions
-              et contenus exclusifs t’y attendent!
-            </ContactText>
+          <Paper
+            lightColor={colors.bleu80}
+            darkColor={colors.gris30}
+            rounded
+            css={BlocContainer}
+          >
+            <Center maxWidth='290px' intrinsic css={ContentContainer}>
+              <ContactTitle>Abonnes-toi à l’infolettre</ContactTitle>
 
-            {/* @TODO: Ajouter le lien vers l'abonnement */}
-            <Button to='/' tag='href' primary small>
-              Je veux m&apos;abonner!
-            </Button>
-          </Center>
-        </Paper>
-      </Center>
-    </Switcher>
+              <ContactText>
+                Pour une bonne dose de WAQ, inscris-toi à l’infolettre!
+                Promotions et contenus exclusifs t’y attendent!
+              </ContactText>
+
+              {/* @TODO: Ajouter le lien vers l'abonnement */}
+              <Button to='/' tag='href' primary small>
+                Je veux m&apos;abonner!
+              </Button>
+            </Center>
+          </Paper>
+        </Center>
+      </Switcher>
+    </SectionContainer>
   );
 };
 

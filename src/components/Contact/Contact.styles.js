@@ -8,6 +8,8 @@ import breakpointsRange from '../../utils/breakpointsRange';
 import colors from '../../styles/colors';
 import breakpoints from '../../styles/breakpoints';
 
+export const SectionContainer = styled.section``;
+
 export const ContactTitle = styled.h2`
   margin: 0;
 
