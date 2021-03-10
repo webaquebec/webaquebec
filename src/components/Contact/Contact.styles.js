@@ -46,7 +46,7 @@ export const MediaList = styled.ul`
   list-style: none;
 `;
 
-export const BlocContainer = css`
+export const blockContainerStyle = css`
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [32, 80] },

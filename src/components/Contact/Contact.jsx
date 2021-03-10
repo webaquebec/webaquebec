@@ -8,9 +8,9 @@ import {
   ContactText,
   MediaText,
   MediaList,
-  BlocContainer,
   ContentContainer,
   SectionContainer,
+  blockContainerStyle,
 } from './Contact.styles';
 import colors from '../../styles/colors';
 
@@ -61,7 +61,7 @@ const Contact = () => {
             darkColor={colors.bleu80}
             rounded
             overlaid
-            css={BlocContainer}
+            css={blockContainerStyle}
           >
             <Center maxWidth='290px' intrinsic css={ContentContainer}>
               <ContactTitle color={colors.gris90}>
@@ -89,7 +89,7 @@ const Contact = () => {
             lightColor={colors.bleu80}
             darkColor={colors.gris30}
             rounded
-            css={BlocContainer}
+            css={blockContainerStyle}
           >
             <Center maxWidth='290px' intrinsic css={ContentContainer}>
               <ContactTitle>Abonnes-toi à l’infolettre</ContactTitle>
