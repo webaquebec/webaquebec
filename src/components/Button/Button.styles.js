@@ -41,6 +41,7 @@ const StyledButton = styled.button`
   color: ${colors.turquoise80};
 
   font-weight: ${fontWeights.medium};
+  text-decoration: none;
 
   ${breakpointsRange(
     [
