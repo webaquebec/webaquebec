@@ -6,8 +6,8 @@ import Layout from '../components/Layout';
 import StatsSection from '../views/HomePageViews/StatsSection';
 import HeroSection from '../views/HomePageViews/HeroSection';
 
-// styles
-import { h1Style } from '../styles/global';
+// views
+import PartnersGridSection from '../views/HomePageView/PartnersSection';
 
 const IndexPage = () => {
   return (
@@ -17,11 +17,11 @@ const IndexPage = () => {
         description='Le plus grand événement numérique francophone en Amérique du Nord.'
       />
 
-      <h1 css={h1Style}>Bienvenue au Web à Québec!</h1>
-
       <HeroSection />
 
       <StatsSection />
+
+      <PartnersGridSection />
     </Layout>
   );
 };
