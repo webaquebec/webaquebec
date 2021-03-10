@@ -8,6 +8,8 @@ import 'sanitize.css';
 import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
 
+import Footer from '../Footer';
+
 /**
  * The common Layout shared across all pages
  *
@@ -20,6 +22,8 @@ const Layout = ({ children }) => {
       <GlobalStyle />
 
       <main>{children}</main>
+
+      <Footer />
     </>
   );
 };
