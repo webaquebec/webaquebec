@@ -40,6 +40,11 @@ export const HomeBlock = styled.div`
   text-align: center;
 `;
 
+export const Logo = styled.img`
+  width: 100%;
+  max-height: 32px;
+`;
+
 export const ArchivesBlock = styled.div`
   color: ${colors.gris90};
 `;
@@ -69,6 +74,13 @@ export const ArchiveLink = css`
 
   ${breakpointsRange(
     [{ prop: 'lineHeight', sizes: [24, 32], bases: [16, 20], unit: '' }],
+    breakpoints.spacings
+  )};
+`;
+
+export const StyledFooter = styled.footer`
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [60, 90], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
