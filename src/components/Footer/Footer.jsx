@@ -59,12 +59,11 @@ const Footer = () => {
 
             <div>
               <FooterTitle>Archives</FooterTitle>
+
               <ArchivesList>
                 {archives.map((year) => (
                   <ArchiveItem key={year.year}>
-                    <Link to={year.link} css={ArchiveLink}>
-                      {year.year}
-                    </Link>
+                    <ArchiveLink href={year.link}>{year.year}</ArchiveLink>
                   </ArchiveItem>
                 ))}
               </ArchivesList>

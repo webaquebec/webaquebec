@@ -1,5 +1,5 @@
 // vendors
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
@@ -62,7 +62,7 @@ export const ArchiveItem = styled.li`
   margin-right: 40px;
 `;
 
-export const ArchiveLink = css`
+export const ArchiveLink = styled.a`
   color: ${colors.bleu80};
   font-weight: ${fontWeights.bold};
   text-decoration: none;
