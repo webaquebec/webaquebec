@@ -8,7 +8,9 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 import { magnifyStyle } from '../../../styles/global';
 import breakpoints from '../../../styles/breakpoints';
 
-const Heading = styled.h2`
+export const SectionContainer = styled.section``;
+
+export const Title = styled.h2`
   ${magnifyStyle};
 
   max-width: 533px;
@@ -18,5 +20,3 @@ const Heading = styled.h2`
     breakpoints.spacings
   )};
 `;
-
-export default Heading;

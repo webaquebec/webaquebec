@@ -6,24 +6,25 @@ import PartnersGrid from '../../../components/PartnersGrid';
 
 // styles
 import { pixelated20Style } from '../../../styles/global';
-import Heading from './PartnersSection.styles';
+import { SectionContainer, Title } from './PartnersSection.styles';
 
 const PartnersSection = () => {
   return (
-    <Center
-      as='section'
-      maxWidth='var(--max-container-width)'
-      gutters='32px'
-      withText
-      intrinsic
-    >
-      <Heading>
-        merci aux <span css={pixelated20Style}>partenaires</span> qui rendent
-        tout possible
-      </Heading>
+    <SectionContainer>
+      <Center
+        maxWidth='var(--max-container-width)'
+        gutters='32px'
+        withText
+        intrinsic
+      >
+        <Title>
+          merci aux <span css={pixelated20Style}>partenaires</span> qui rendent
+          tout possible
+        </Title>
 
-      <PartnersGrid />
-    </Center>
+        <PartnersGrid />
+      </Center>
+    </SectionContainer>
   );
 };
 
