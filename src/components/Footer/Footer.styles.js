@@ -34,7 +34,7 @@ export const ContactLink = styled.a`
   )};
 `;
 
-export const HomeBlock = styled.div`
+export const LogoWrapper = styled.div`
   align-self: center;
 
   text-align: center;
@@ -80,7 +80,10 @@ export const ArchiveLink = styled.a`
 
 export const StyledFooter = styled.footer`
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 90], bases: [16, 20] }],
+    [
+      { prop: 'paddingTop', sizes: [60, 134], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [60, 96], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;

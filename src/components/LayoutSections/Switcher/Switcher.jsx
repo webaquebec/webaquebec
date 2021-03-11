@@ -30,7 +30,7 @@ const Switcher = styled.div`
     flex-wrap: wrap;
     margin: calc(${({ space }) => selectSpace(space)} / 2 * -1);
 
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 
   > * > * {

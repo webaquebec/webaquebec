@@ -133,6 +133,7 @@ const Board = () => {
     setLogos(
       images.reduce((acc, curr, index) => {
         acc.push({
+          id: positions[index] && positions[index][0] + index,
           index: positions[index] && positions[index][0],
           vertical: positions[index] && positions[index][1],
           horizontal: positions[index] && positions[index][2],
@@ -163,6 +164,7 @@ const Board = () => {
                 .filter((l) => l.index === index)
                 .map((logo) => (
                   <LogoCard
+                    key={logo.id}
                     image={logo.image}
                     verticalPosition={logo.vertical}
                     horizontalPosition={logo.horizontal}

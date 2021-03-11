@@ -23,7 +23,7 @@ export const primaryStyle = css`
 export const smallStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [12, 16], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [20, 24], bases: 16, unit: '' },
       { prop: 'paddingTop', sizes: [12, 12], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [30, 30], bases: [16, 20] },

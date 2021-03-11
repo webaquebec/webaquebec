@@ -1,3 +1,4 @@
+const background = -1000;
 const dropdown = 1000;
 const sticky = 1020;
 const fixed = 1030;
@@ -7,6 +8,7 @@ const popover = 1060;
 const tooltip = 1070;
 
 export default {
+  background,
   dropdown,
   sticky,
   fixed,

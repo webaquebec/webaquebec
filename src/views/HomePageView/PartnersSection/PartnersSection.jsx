@@ -1,4 +1,5 @@
 import React from 'react';
+import { hideVisually } from 'polished';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
@@ -11,6 +12,8 @@ import { SectionContainer, Title } from './PartnersSection.styles';
 const PartnersSection = () => {
   return (
     <SectionContainer>
+      <h2 css={hideVisually}>Partenaires</h2>
+
       <Center
         maxWidth='var(--max-container-width)'
         gutters='32px'

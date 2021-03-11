@@ -59,7 +59,7 @@ export const leftPositionStyle = css`
 
 export const Container = styled.div`
   position: absolute;
-  z-index: 1000;
+  z-index: 100;
 
   ${({ $verticalPosition }) => $verticalPosition === 'top' && topPositionStyle};
 

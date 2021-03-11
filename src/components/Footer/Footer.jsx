@@ -5,16 +5,18 @@ import { Link } from 'gatsby';
 // components
 import Center from '../LayoutSections/Center';
 import Switcher from '../LayoutSections/Switcher';
+import Stack from '../LayoutSections/Stack/Stack';
+import SocialNews from '../SocialNews';
 
 // images
-import logo from '../../images/logo-waq-2021.svg';
+import logo from '../../images/logo-waq-21.svg';
 
 // styles
 import {
   StyledFooter,
   FooterTitle,
   ContactLink,
-  HomeBlock,
+  LogoWrapper,
   Logo,
   ArchivesList,
   ArchiveItem,
@@ -38,38 +40,42 @@ const Footer = () => {
   return (
     <StyledFooter>
       <Center maxWidth='1064px' gutters='32px'>
-        <Switcher threshold='768px' space='2rem' limit={3}>
-          <div>
+        <Stack space='94px'>
+          <SocialNews />
+
+          <Switcher threshold='768px' space='2rem' limit={3}>
             <div>
-              <FooterTitle>Pour nous contacter</FooterTitle>
+              <div>
+                <FooterTitle>Pour nous contacter</FooterTitle>
 
-              <ContactLink href='tel:1-877-334-2547'>
-                1-877-334-2547
-              </ContactLink>
-              <ContactLink href='mailto:info@webaquebec.org'>
-                info@webaquebec.org
-              </ContactLink>
+                <ContactLink href='tel:1-877-334-2547'>
+                  1-877-334-2547
+                </ContactLink>
+                <ContactLink href='mailto:info@webaquebec.org'>
+                  info@webaquebec.org
+                </ContactLink>
+              </div>
+
+              <LogoWrapper>
+                <Link to='/'>
+                  <Logo src={logo} alt='Accueil' />
+                </Link>
+              </LogoWrapper>
+
+              <div>
+                <FooterTitle>Archives</FooterTitle>
+
+                <ArchivesList>
+                  {archives.map((year) => (
+                    <ArchiveItem key={year.year}>
+                      <ArchiveLink href={year.link}>{year.year}</ArchiveLink>
+                    </ArchiveItem>
+                  ))}
+                </ArchivesList>
+              </div>
             </div>
-
-            <HomeBlock>
-              <Link to='/'>
-                <Logo src={logo} alt='Accueil' />
-              </Link>
-            </HomeBlock>
-
-            <div>
-              <FooterTitle>Archives</FooterTitle>
-
-              <ArchivesList>
-                {archives.map((year) => (
-                  <ArchiveItem key={year.year}>
-                    <ArchiveLink href={year.link}>{year.year}</ArchiveLink>
-                  </ArchiveItem>
-                ))}
-              </ArchivesList>
-            </div>
-          </div>
-        </Switcher>
+          </Switcher>
+        </Stack>
       </Center>
     </StyledFooter>
   );
