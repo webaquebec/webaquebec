@@ -42,9 +42,7 @@ const primaryNavigation = [
   },
 ];
 
-const Header = ({ location }) => {
-  const isHomePage = !!location.pathname && location.pathname === '/';
-
+const Header = ({ isHomePage }) => {
   const [opened, setOpened] = useState(false);
 
   const handleClick = () => {
@@ -93,15 +91,11 @@ const Header = ({ location }) => {
 };
 
 Header.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }),
+  isHomePage: PropTypes.bool,
 };
 
 Header.defaultProps = {
-  location: {
-    pathname: undefined,
-  },
+  isHomePage: false,
 };
 
 export default Header;

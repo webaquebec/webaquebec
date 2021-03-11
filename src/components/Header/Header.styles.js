@@ -122,15 +122,6 @@ export const BurgerImg = styled.img`
 `;
 
 export const StyledHeader = styled.header`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  width: 100%;
-  height: auto;
-
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [20, 57], bases: [16, 20] },
