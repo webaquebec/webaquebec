@@ -8,15 +8,16 @@ import breakpointsRange from '../../utils/breakpointsRange';
 import colors from '../../styles/colors';
 import breakpoints from '../../styles/breakpoints';
 
-export const SectionContainer = styled.section``;
-
 export const ContactTitle = styled.h2`
   margin: 0;
 
   text-align: center;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [18, 24], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [18, 24], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 32], bases: [18, 24], unit: '' },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -27,7 +28,10 @@ export const ContactText = styled.p`
   text-align: center;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [14, 16], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [14, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [26, 24], bases: [14, 16], unit: '' },
+    ],
     breakpoints.spacings
   )};
 `;
