@@ -47,6 +47,12 @@ const Header = ({ isHomePage }) => {
 
   const handleClick = () => {
     setOpened(!opened);
+
+    if (!opened) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   };
 
   return (
