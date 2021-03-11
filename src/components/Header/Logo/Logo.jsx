@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { hideVisually } from 'polished';
 
 // images
-import LogoSVG from '../../../images/logo-waq-2021.svg';
+import LogoSVG from '../../../images/logo-waq-2021-sticker.svg';
 
 // styles
 import { Img, LogoWrapperStyle } from './Logo.styles';

@@ -7,7 +7,7 @@ import Center from '../../LayoutSections/Center';
 import Grid from '../../LayoutSections/Grid';
 
 // images
-import logoSVG from '../../../images/logo-waq-2021.svg';
+import logoSVG from '../../../images/logo-waq-2021-sticker.svg';
 
 // styles
 import colors from '../../../styles/colors';
