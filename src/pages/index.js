@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 // components
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
-import StatsSection from '../views/HomePageViews/StatsSection';
-import HeroSection from '../views/HomePageViews/HeroSection';
 
 // views
+import HeroSection from '../views/HomePageView/HeroSection';
+import StatsSection from '../views/HomePageView/StatsSection';
 import PartnersGridSection from '../views/HomePageView/PartnersSection';
+import ApplicationSection from '../views/HomePageView/ApplicationSection';
 
 const IndexPage = ({ location }) => {
   return (
@@ -21,6 +22,8 @@ const IndexPage = ({ location }) => {
       <HeroSection />
 
       <StatsSection />
+
+      <ApplicationSection />
 
       <PartnersGridSection />
     </Layout>
