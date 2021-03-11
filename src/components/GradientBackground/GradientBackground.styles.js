@@ -12,13 +12,17 @@ export const Overlay = styled.div`
   left: 0;
 
   width: 100%;
-  height: 40%;
+  height: 20%;
 
   background-image: linear-gradient(
     to var(--overlay-position),
     rgba(235, 235, 235, 0) 0%,
     ${colors.gris} 100%
   );
+
+  ${greaterThan(832)} {
+    height: 50%;
+  }
 `;
 
 export const StyledBackground = styled(Img)`
@@ -37,7 +41,7 @@ export const StyledBackground = styled(Img)`
 `;
 
 export const topBackgroundStyle = css`
-  --max-height: ${({ isHomePage }) => (isHomePage ? `2077px` : `488px`)};
+  --max-height: ${({ isHomePage }) => (isHomePage ? `2170px` : `688px`)};
   --overlay-position: bottom;
 
   top: 0;
@@ -46,6 +50,10 @@ export const topBackgroundStyle = css`
 
   ${Overlay} {
     bottom: 0;
+  }
+
+  ${greaterThan(576)} {
+    --max-height: 2877px;
   }
 `;
 
