@@ -6,6 +6,7 @@ import { greaterThan } from '../../utils/mediaQuery';
 
 // styles
 import colors from '../../styles/colors';
+import zIndexes from '../../styles/zIndexes';
 
 export const Overlay = styled.div`
   position: absolute;
@@ -74,7 +75,7 @@ export const Container = styled.div`
   position: absolute;
   left: 0;
 
-  z-index: -1000;
+  z-index: ${zIndexes.background};
 
   width: 100%;
   height: 100%;

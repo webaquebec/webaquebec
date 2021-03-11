@@ -11,6 +11,7 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 // styles
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
+import zIndexes from '../../../styles/zIndexes';
 
 export const Top = styled.div`
   display: grid;
@@ -136,7 +137,7 @@ export const Container = styled(Box)`
   bottom: 0;
   left: 0;
 
-  z-index: 1000;
+  z-index: ${zIndexes.modal};
 
   width: 100%;
   height: 100%;

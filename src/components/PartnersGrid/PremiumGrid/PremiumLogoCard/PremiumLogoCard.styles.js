@@ -65,7 +65,7 @@ export const Link = styled.a`
 
 export const Container = styled.div`
   position: relative;
-  z-index: 1000;
+  z-index: 100;
 
   display: flex;
 
