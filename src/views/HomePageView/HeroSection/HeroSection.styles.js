@@ -9,8 +9,18 @@ import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontFamilies, fontWeights } from '../../../styles/typography';
 
-export const StyledHeroSection = styled.section`
+export const StyledHeroSection = styled.header`
   position: relative;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [86, 130], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [128, 173], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 export const Dates = styled.p`
@@ -20,12 +30,12 @@ export const Dates = styled.p`
   white-space: nowrap;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [94, 32], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [32, 94], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [94, 32], bases: [16, 20] }],
+    [{ prop: 'marginBottom', sizes: [32, 94], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
