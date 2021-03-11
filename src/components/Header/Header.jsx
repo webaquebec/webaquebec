@@ -51,7 +51,10 @@ const Header = ({ isHomePage }) => {
 
   return (
     <StyledHeader opened={opened}>
-      <Center maxWidth='var(--max-container-width)' gutters='16px'>
+      <Center
+        maxWidth='var(--max-container-width)'
+        gutters='var(--container-gutter)'
+      >
         <Container>
           <StyledNav aria-label='Header Menu'>
             <PrimaryNavList>
