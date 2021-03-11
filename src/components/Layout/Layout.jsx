@@ -10,6 +10,7 @@ import 'sanitize.css/typography.css';
 
 import Footer from '../Footer';
 import Header from '../Header';
+import StaticGradientBackground from '../GradientBackground';
 
 /**
  * The common Layout shared across all pages
@@ -17,25 +18,42 @@ import Header from '../Header';
  * @see [Layout Components](https://www.gatsbyjs.com/docs/how-to/routing/layout-components/)
  *
  */
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
+  const isHomePage = !!location.pathname && location.pathname === '/';
+
   return (
     <>
       <GlobalStyle />
 
-      <Header />
+      {/** Only temporary until having a full dynamic gradient background */}
+      <StaticGradientBackground isHomePage={isHomePage} position='top' />
+
+      <Header isHomePage={isHomePage} />
 
       <main>{children}</main>
 
       <Footer />
+
+      {/** Only temporary until having a full dynamic gradient background */}
+      <StaticGradientBackground position='bottom' />
     </>
   );
 };
 
 Layout.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }),
   /**
    * Child node elements
    */
   children: PropTypes.node.isRequired,
+};
+
+Layout.defaultProps = {
+  location: {
+    pathname: undefined,
+  },
 };
 
 export default Layout;
