@@ -34,7 +34,10 @@ const faqItem = css`
   margin: 0;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [19, 19], bases: [16, 16] },
+    ],
     breakpoints.spacings
   )};
 `;
