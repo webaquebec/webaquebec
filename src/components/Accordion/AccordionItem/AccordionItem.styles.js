@@ -113,7 +113,7 @@ export const Button = styled.button`
       { prop: 'paddingLeft', sizes: [22, 32] },
     ],
     breakpoints.spacings,
-    { bases: 20 }
+    { bases: [16, 20] }
   )};
 
   border: 0;
@@ -139,7 +139,7 @@ export const Panel = styled.section`
       { prop: 'paddingLeft', sizes: [22, 32] },
     ],
     breakpoints.spacings,
-    { bases: 20 }
+    { bases: [16, 20] }
   )};
 
   overflow: hidden;
@@ -166,6 +166,7 @@ export const PanelContent = styled.div`
 `;
 
 export const Toggle = styled(IconChevron)`
+  width: 100%;
   max-width: 24px;
   margin-left: 20px;
 

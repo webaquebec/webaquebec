@@ -42,7 +42,7 @@ export const StyledBackground = styled(Img)`
 `;
 
 export const topBackgroundStyle = css`
-  --max-height: ${({ isHomePage }) => (isHomePage ? `2170px` : `688px`)};
+  --max-height: ${({ isHomePage }) => (isHomePage ? `2170px` : `256px`)};
   --overlay-position: bottom;
 
   top: 0;
@@ -54,7 +54,11 @@ export const topBackgroundStyle = css`
   }
 
   ${greaterThan(576)} {
-    --max-height: 2877px;
+    --max-height: ${({ isHomePage }) => (isHomePage ? `2477px` : `326px`)};
+  }
+
+  ${greaterThan(768)} {
+    --max-height: ${({ isHomePage }) => (isHomePage ? `2877px` : `488px`)};
   }
 `;
 

@@ -31,10 +31,13 @@ const AccordionItem = ({
   onToggleClick,
 }) => {
   const [maxHeight, setMaxHeight] = useState(null);
-
-  const accordionItemId = randomString();
+  const [accordionItemId, setAccordionItemId] = useState('');
 
   const headingRef = useRef(null);
+
+  useEffect(() => {
+    setAccordionItemId(randomString());
+  }, []);
 
   useEffect(() => {
     if (headingRef.current) {

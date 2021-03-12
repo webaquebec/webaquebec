@@ -28,7 +28,7 @@ const primaryNavigation = [
   {
     id: 'faq',
     label: 'FAQ',
-    slug: '/foire-aux-questions',
+    slug: '/faq',
   },
   {
     id: 'devenir-conferencier',
