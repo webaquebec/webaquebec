@@ -54,6 +54,7 @@ const Menu = ({ opened, onClose, primaryNavigation }) => {
                   to={item.slug}
                   activeClassName='active'
                   partiallyActive
+                  onClick={onClose}
                 >
                   {item.label}
                 </NavLink>
