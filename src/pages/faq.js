@@ -106,9 +106,14 @@ const FaqPage = () => {
 
   return (
     <Layout>
-      <SEO title='Faq' description='Tout ce que tu dois savoir sur le WAQ21.' />
+      <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ21.' />
 
-      <Center maxWidth='625px' gutters='16px' withText intrinsic>
+      <Center
+        maxWidth='625px'
+        gutters='var(--container-gutter)'
+        withText
+        intrinsic
+      >
         <FaqTitle css={h1AltStyle}>FAQ</FaqTitle>
         <FaqIntro css={introStyle}>
           L’édition 2021 du Web à Québec (WAQ) est reportée aux 15, 16 et 17
@@ -118,7 +123,7 @@ const FaqPage = () => {
         </FaqIntro>
       </Center>
 
-      <Center maxWidth='850px' gutters='16px'>
+      <Center maxWidth='850px' gutters='var(--container-gutter)'>
         <Accordion multiple collapsible>
           {data.map((item) => (
             <AccordionItem
