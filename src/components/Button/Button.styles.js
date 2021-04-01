@@ -14,9 +14,8 @@ export const primaryStyle = css`
 
   :focus,
   :hover:not(:disabled) {
-    color: ${colors.turquoise80};
-
-    background-color: ${colors.bleu80};
+    background-color: ${colors.turquoise40};
+    transform: rotate(3deg);
   }
 `;
 
@@ -70,9 +69,8 @@ const StyledButton = styled.button`
 
   :focus,
   :hover:not(:disabled) {
-    color: ${colors.bleu80};
-
-    background-color: ${colors.turquoise80};
+    background-color: ${colors.bleu90};
+    transform: rotate(-3deg);
   }
 
   appearance: none;
