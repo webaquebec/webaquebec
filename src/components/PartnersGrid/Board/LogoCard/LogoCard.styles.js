@@ -16,6 +16,8 @@ import breakpoints from '../../../../styles/breakpoints';
 export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[6]];
 
 export const Wrapper = styled(Cover)`
+  align-items: center;
+
   padding-right: 15px;
   padding-left: 15px;
 `;
@@ -25,7 +27,10 @@ export const Image = styled.img`
   height: auto;
 
   ${breakpointsRange(
-    [{ prop: 'maxHeight', sizes: [53, 60], bases: [16, 20] }],
+    [
+      { prop: 'maxHeight', sizes: [53, 60], bases: [16, 20] },
+      { prop: 'maxWidth', sizes: [80, 100], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
