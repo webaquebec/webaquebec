@@ -18,9 +18,9 @@ export const rootStyle = css`
   --min-container-width: 320px;
   --max-container-width: 1280px;
 
-  font-size: ${interpolate(16, 20, 320, 1280)};
+  font-size: ${interpolate(16, 20, 480, 1280)};
 
-  ${lessThan(320)} {
+  ${lessThan(480)} {
     font-size: ${rem(16)};
   }
 
