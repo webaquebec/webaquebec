@@ -13,16 +13,6 @@ export const primaryStyle = css`
 
   background-color: ${colors.turquoise80};
 
-  transform: rotate3d(0);
-
-  will-change: transform;
-
-  /* Pour ne pas effectuer l'animation si l'utilisateur a coché l'option de minimiser 
-  la quantité d'animation ou de mouvement dans les paramètres de l'OS ou du navigateur. */
-  @media (prefers-reduced-motion: no-preference) {
-    transition: transform ${speed.fast}; /* ease comme timing-function par défaut */
-  }
-
   :focus,
   :hover:not(:disabled) {
     background-color: ${colors.turquoise40};
@@ -76,10 +66,8 @@ const StyledButton = styled.button`
 
   will-change: transform;
 
-  /* Pour ne pas effectuer l'animation si l'utilisateur a coché l'option de minimiser 
-  la quantité d'animation ou de mouvement dans les paramètres de l'OS ou du navigateur. */
   @media (prefers-reduced-motion: no-preference) {
-    transition: transform ${speed.fast}; /* ease comme timing-function par défaut */
+    transition: transform ${speed.fast};
   }
 
   :focus,
