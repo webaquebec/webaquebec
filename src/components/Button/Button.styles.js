@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 // styles
 import colors from '../../styles/colors';
 import { fontWeights } from '../../styles/typography';
+import { speed } from '../../styles/animation';
 import breakpoints from '../../styles/breakpoints';
 import breakpointsRange from '../../utils/breakpointsRange';
 
@@ -14,9 +15,8 @@ export const primaryStyle = css`
 
   :focus,
   :hover:not(:disabled) {
-    color: ${colors.turquoise80};
-
-    background-color: ${colors.bleu80};
+    background-color: ${colors.turquoise40};
+    transform: rotate3d(0, 0, 1, 4deg);
   }
 `;
 
@@ -59,7 +59,22 @@ const StyledButton = styled.button`
   border: 0;
   border-radius: 16px;
   outline: 0;
+  transform: rotate3d(0);
   cursor: pointer;
+
+  appearance: none;
+
+  will-change: transform;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform ${speed.fast};
+  }
+
+  :focus,
+  :hover:not(:disabled) {
+    background-color: ${colors.bleu90};
+    transform: rotate3d(0, 0, 1, -4deg);
+  }
 
   :disabled {
     color: ${colors.gris100};
@@ -67,15 +82,6 @@ const StyledButton = styled.button`
     background-color: ${colors.gris40};
     cursor: not-allowed;
   }
-
-  :focus,
-  :hover:not(:disabled) {
-    color: ${colors.bleu80};
-
-    background-color: ${colors.turquoise80};
-  }
-
-  appearance: none;
 
   /* Apply primary style when primary props defined */
   ${({ $primary }) => $primary && primaryStyle}

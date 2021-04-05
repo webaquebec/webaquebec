@@ -1,13 +1,21 @@
 // vendors
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // utils
+import { em } from 'polished';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
 import { fontWeights } from '../../styles/typography';
 import colors from '../../styles/colors';
+
+export const FooterWrapper = css`
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [56, 94], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
 
 export const FooterTitle = styled.h2`
   margin-top: 0;
@@ -28,8 +36,10 @@ export const ContactLink = styled.a`
   font-weight: ${fontWeights.bold};
   text-decoration: none;
 
+  word-break: normal;
+
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [18, 24], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [20, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -38,6 +48,10 @@ export const LogoWrapper = styled.div`
   align-self: center;
 
   text-align: center;
+
+  @media (max-width: ${em(846)}) {
+    order: -1;
+  }
 `;
 
 export const Logo = styled.img`
@@ -68,7 +82,7 @@ export const ArchiveLink = styled.a`
   text-decoration: none;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [14, 12], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [12, 12], bases: [16, 20] }],
     breakpoints.spacings
   )};
 

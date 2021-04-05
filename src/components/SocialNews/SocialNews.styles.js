@@ -2,6 +2,7 @@
 import styled, { css } from 'styled-components';
 
 // utils
+import { em } from 'polished';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 // styles
@@ -15,7 +16,7 @@ export const ContactTitle = styled.h2`
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [18, 24], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [24, 24], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [24, 32], bases: [18, 24], unit: '' },
     ],
     breakpoints.spacings
@@ -23,14 +24,14 @@ export const ContactTitle = styled.h2`
 `;
 
 export const ContactText = styled.p`
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   text-align: center;
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [14, 16], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [26, 24], bases: [14, 16], unit: '' },
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 24], bases: [14, 16], unit: '' },
     ],
     breakpoints.spacings
   )};
@@ -48,19 +49,28 @@ export const MediaList = styled.ul`
   padding: 0;
 
   list-style: none;
+
+  @media (max-width: ${em(846)}) {
+    max-width: 216px;
+  }
 `;
 
 export const blockContainerStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [32, 80] },
+      { prop: 'paddingTop', sizes: [56, 80] },
       { prop: 'paddingRight', sizes: [32, 80] },
-      { prop: 'paddingBottom', sizes: [32, 80] },
+      { prop: 'paddingBottom', sizes: [56, 80] },
       { prop: 'paddingLeft', sizes: [32, 80] },
     ],
     breakpoints.spacings,
     { bases: [16, 20] }
   )};
+
+  @media (max-width: ${em(846)}) {
+    margin-right: 0;
+    margin-left: 0;
+  }
 `;
 
 export const ContentContainer = css`

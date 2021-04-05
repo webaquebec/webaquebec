@@ -9,7 +9,6 @@ import Layout from '../components/Layout';
 import HeroSection from '../views/HomePageView/HeroSection';
 import StatsSection from '../views/HomePageView/StatsSection';
 import PartnersGridSection from '../views/HomePageView/PartnersSection';
-import ApplicationSection from '../views/HomePageView/ApplicationSection';
 
 const IndexPage = ({ location }) => {
   return (
@@ -22,8 +21,6 @@ const IndexPage = ({ location }) => {
       <HeroSection />
 
       <StatsSection />
-
-      <ApplicationSection />
 
       <PartnersGridSection />
     </Layout>

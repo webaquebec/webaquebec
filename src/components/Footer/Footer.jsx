@@ -14,6 +14,7 @@ import logo from '../../images/logo-waq-21.svg';
 // styles
 import {
   StyledFooter,
+  FooterWrapper,
   FooterTitle,
   ContactLink,
   LogoWrapper,
@@ -43,7 +44,12 @@ const Footer = () => {
         <Stack space='94px'>
           <SocialNews />
 
-          <Switcher threshold='768px' space='2rem' limit={3}>
+          <Switcher
+            threshold='768px'
+            space='2rem'
+            limit={3}
+            css={FooterWrapper}
+          >
             <div>
               <div>
                 <FooterTitle>Pour nous contacter</FooterTitle>
