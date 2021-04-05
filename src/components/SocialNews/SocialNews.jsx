@@ -97,7 +97,12 @@ const SocialNews = () => {
             </ContactText>
 
             {/* @TODO: Ajouter le lien vers l'abonnement */}
-            <Button to='/' tag='href' primary small>
+            <Button
+              to='https://webaquebec.us7.list-manage.com/subscribe/post?u=6e13c5c9b7e26599fb0ed84a3&id=273f8e5ded'
+              tag='href'
+              primary
+              small
+            >
               Je veux m&apos;abonner!
             </Button>
           </Center>

@@ -31,11 +31,6 @@ const primaryNavigation = [
     slug: '/faq',
   },
   {
-    id: 'devenir-conferencier',
-    label: 'devenir conférencier',
-    slug: '/devenir-conferencier',
-  },
-  {
     id: 'covid-19',
     label: 'covid-19',
     slug: '/covid-19',
