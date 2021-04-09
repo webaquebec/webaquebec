@@ -1,5 +1,6 @@
 // vendors
 import styled from 'styled-components';
+// import { em } from 'polished';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
@@ -13,14 +14,19 @@ export const StyledHeroSection = styled.header`
   position: relative;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [86, 130], bases: [16, 20] }],
+    [
+      { prop: 'marginTop', sizes: [86, 130], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [128, 173], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
+`;
 
-  ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [128, 173], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
+export const MarqueeWrapper = styled.div`
+  position: relative;
+
+  width: 100%;
+  height: 100%;
 `;
 
 export const Dates = styled.p`
@@ -30,34 +36,22 @@ export const Dates = styled.p`
   white-space: nowrap;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [32, 94], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-
-  ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [32, 94], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-
-  ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [64, 164], bases: [16, 20] }],
+    [
+      { prop: 'marginTop', sizes: [32, 94], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [32, 94], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [64, 164], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
 
 export const StarSeparator = styled.img`
   ${breakpointsRange(
-    [{ prop: 'marginLeft', sizes: [12, 64], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-
-  ${breakpointsRange(
-    [{ prop: 'marginRight', sizes: [12, 64], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-
-  ${breakpointsRange(
-    [{ prop: 'width', sizes: [24, 50], bases: [16, 20] }],
+    [
+      { prop: 'marginLeft', sizes: [12, 64], bases: [16, 20] },
+      { prop: 'marginRight', sizes: [12, 64], bases: [16, 20] },
+      { prop: 'width', sizes: [24, 50], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -91,4 +85,20 @@ export const AddressSecondLine = styled.p`
     [{ prop: 'fontSize', sizes: [12, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
+`;
+
+export const StickerImg = styled.img`
+  ${({ $minWidth, $maxWidth }) =>
+    $minWidth &&
+    $maxWidth &&
+    breakpointsRange(
+      [
+        {
+          prop: 'width',
+          sizes: [$minWidth, $maxWidth],
+          bases: [16, 20],
+        },
+      ],
+      breakpoints.spacings
+    )};
 `;

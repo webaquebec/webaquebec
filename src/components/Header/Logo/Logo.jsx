@@ -4,11 +4,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { hideVisually } from 'polished';
 
+import LazyAnimation from '../../LazyAnimation';
+
 // images
 import LogoSVG from '../../../images/logo-waq-21-sticker.svg';
 
 // styles
 import { Img, LogoWrapperStyle } from './Logo.styles';
+import { easing } from '../../../styles/animation';
 
 const Logo = ({ isHomePage }) => {
   if (isHomePage) {
@@ -16,7 +19,19 @@ const Logo = ({ isHomePage }) => {
       <h1 css={LogoWrapperStyle}>
         <span css={hideVisually}>Web à Québec</span>
 
-        <Img src={LogoSVG} alt='' role='presentation' />
+        <LazyAnimation
+          transition={{
+            duration: '250ms',
+            easing: easing.outCustom,
+            scale: { initial: '0', final: '1' },
+            rotate: {
+              initial: '-5deg',
+              final: '0deg',
+            },
+          }}
+        >
+          <Img src={LogoSVG} alt='' role='presentation' />
+        </LazyAnimation>
       </h1>
     );
   }

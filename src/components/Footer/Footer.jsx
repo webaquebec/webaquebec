@@ -1,12 +1,14 @@
 // vendors
 import React from 'react';
 import { Link } from 'gatsby';
+import { useInView } from 'react-intersection-observer';
 
 // components
 import Center from '../LayoutSections/Center';
 import Switcher from '../LayoutSections/Switcher';
 import Stack from '../LayoutSections/Stack/Stack';
 import SocialNews from '../SocialNews';
+// import LazyAnimation from '../LazyAnimation';
 
 // images
 import logo from '../../images/logo-waq-21.svg';
@@ -22,6 +24,8 @@ import {
   ArchivesList,
   ArchiveItem,
   ArchiveLink,
+  StickerWrapper,
+  Sticker,
 } from './Footer.styles';
 
 const Footer = () => {
@@ -38,11 +42,29 @@ const Footer = () => {
     { year: '2012', link: '' },
   ];
 
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
   return (
     <StyledFooter>
       <Center maxWidth='1064px' gutters='32px'>
         <Stack space='94px'>
-          <SocialNews />
+          <div
+            ref={ref}
+            css={`
+              position: relative;
+            `}
+          >
+            <StickerWrapper>
+              <Sticker
+                style={{ '--playState': inView ? 'running' : 'paused' }}
+              />
+            </StickerWrapper>
+
+            <SocialNews />
+          </div>
 
           <Switcher
             threshold='768px'

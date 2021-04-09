@@ -66,17 +66,12 @@ export const StatDescription = styled.p`
   word-break: normal;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [24, 40], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
+    [
+      { prop: 'fontSize', sizes: [24, 40], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [29, 48], bases: [24, 40], unit: '' },
+      { prop: 'margin-top', sizes: [4, -16], bases: [16, 20] },
+    ],
 
-  ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [29, 48], bases: [24, 40], unit: '' }],
-    breakpoints.spacings
-  )};
-
-  ${breakpointsRange(
-    [{ prop: 'margin-top', sizes: [4, -16], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
