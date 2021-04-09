@@ -1,9 +1,13 @@
 // vendors
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+import { em } from 'polished';
+
+// images
+import Sticker21 from '../../images/stickers/Sticker21';
 
 // utils
-import { em } from 'polished';
 import breakpointsRange from '../../utils/breakpointsRange';
+import { lessThan } from '../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
@@ -100,4 +104,70 @@ export const StyledFooter = styled.footer`
     ],
     breakpoints.spacings
   )};
+`;
+
+export const StickerWrapper = styled.div`
+  position: absolute;
+  top: -${350 / 2 - 5}px;
+  left: -${350 / 2 + 30}px;
+
+  width: 350px;
+  height: auto;
+
+  ${lessThan(breakpoints.spacings[2])} {
+    top: -${250 / 2 + 50}px;
+    left: -${250 / 2 - 50}px;
+
+    width: 290px;
+  }
+
+  ${lessThan(breakpoints.spacings[1])} {
+    top: -${250 / 2 + 40}px;
+    left: -${250 / 2 - 60}px;
+
+    width: 250px;
+  }
+`;
+
+const template = (i) => {
+  return `
+        &:nth-child(${i}) {
+          animation-delay: ${i * 30}ms;
+         }
+      `;
+};
+
+const setAnimationDelays = () => {
+  let str = '';
+  for (let index = 0; index <= 69; index += 1) {
+    str += template(index);
+  }
+  return str;
+};
+
+const appear = keyframes`
+  from { 
+    transform: translate3d(10px, 0, 0) rotate3d(0, 0, 1, -40deg);
+    visibility: hidden; 
+  }
+  
+  to {
+    transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
+    visibility: show; 
+  }
+`;
+
+export const Sticker = styled(Sticker21)`
+  .pog {
+    transform-origin: center;
+    transform-box: fill-box;
+
+    animation: ${appear} 500ms cubic-bezier(0.64, 0.57, 0.67, 1.53);
+    animation-play-state: var(--playState, paused);
+    animation-fill-mode: both;
+
+    will-change: visibility, transform;
+
+    ${setAnimationDelays()};
+  }
 `;
