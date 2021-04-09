@@ -25,7 +25,7 @@ const FaqTitle = styled.h1`
 
 const FaqIntro = styled.p`
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [100, 120], bases: [16, 20] }],
+    [{ prop: 'marginBottom', sizes: [50, 120], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
