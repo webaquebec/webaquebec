@@ -167,8 +167,8 @@ export const introStyle = css`
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [18, 20], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [27, 30], bases: [18, 20], unit: '' },
+      { prop: 'fontSize', sizes: [16, 20], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 30], bases: [18, 20], unit: '' },
     ],
     breakpoints.spacings
   )};

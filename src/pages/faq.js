@@ -28,11 +28,6 @@ const FaqIntro = styled.p`
     [{ prop: 'marginBottom', sizes: [50, 120], bases: [16, 20] }],
     breakpoints.spacings
   )};
-
-  ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 20], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
 `;
 
 const faqItem = css`
