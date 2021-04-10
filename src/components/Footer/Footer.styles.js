@@ -145,15 +145,23 @@ const setAnimationDelays = () => {
   return str;
 };
 
-const appear = keyframes`
+const moving = keyframes`
   from { 
     transform: translate3d(10px, 0, 0) rotate3d(0, 0, 1, -40deg);
-    visibility: hidden; 
   }
   
   to {
     transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
-    visibility: show; 
+  }
+`;
+
+const appear = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 `;
 
@@ -162,11 +170,12 @@ export const Sticker = styled(Sticker21)`
     transform-origin: center;
     transform-box: fill-box;
 
-    animation: ${appear} 500ms cubic-bezier(0.64, 0.57, 0.67, 1.53);
+    animation: ${moving} 500ms cubic-bezier(0.64, 0.57, 0.67, 1.53),
+      ${appear} 0s;
     animation-play-state: var(--playState, paused);
     animation-fill-mode: both;
 
-    will-change: visibility, transform;
+    will-change: opacity, transform;
 
     ${setAnimationDelays()};
   }
