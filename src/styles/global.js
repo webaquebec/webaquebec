@@ -34,6 +34,12 @@ export const rootStyle = css`
 export const htmlStyle = css`
   position: relative;
 
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
   background-color: ${colors.gris};
   scroll-behavior: smooth;
 `;
