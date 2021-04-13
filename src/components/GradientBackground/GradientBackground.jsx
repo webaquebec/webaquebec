@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 
 // styles
-import {
-  Container,
-  StyledBackground,
-  Overlay,
-} from './GradientBackground.styles';
+import { Container, StyledBackground } from './GradientBackground.styles';
 
 const GradientBackground = ({ position, isHomePage, ...rest }) => {
   const data = useStaticQuery(
@@ -62,8 +58,6 @@ const GradientBackground = ({ position, isHomePage, ...rest }) => {
   return (
     <Container isHomePage={isHomePage} position={position} {...rest}>
       <StyledBackground fluid={source} />
-
-      <Overlay />
     </Container>
   );
 };

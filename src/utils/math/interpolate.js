@@ -7,5 +7,5 @@ export default (from, to, fromWidth, toWidth) => {
   const slope = (to - from) / (toWidth - fromWidth);
   const base = to - slope * fromWidth - from;
 
-  return `calc(1rem + ${100 * slope}vw + ${base}px)`;
+  return `calc(1rem + ${100 * slope}vw - ${base}px)`;
 };

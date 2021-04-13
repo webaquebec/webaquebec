@@ -5,26 +5,7 @@ import Img from 'gatsby-image';
 import { greaterThan } from '../../utils/mediaQuery';
 
 // styles
-import colors from '../../styles/colors';
 import zIndexes from '../../styles/zIndexes';
-
-export const Overlay = styled.div`
-  position: absolute;
-  left: 0;
-
-  width: 100%;
-  height: 20%;
-
-  background-image: linear-gradient(
-    to var(--overlay-position),
-    rgba(235, 235, 235, 0) 0%,
-    ${colors.gris} 100%
-  );
-
-  ${greaterThan(832)} {
-    height: 50%;
-  }
-`;
 
 export const StyledBackground = styled(Img)`
   height: 100%;
@@ -42,37 +23,27 @@ export const StyledBackground = styled(Img)`
 `;
 
 export const topBackgroundStyle = css`
-  --max-height: ${({ isHomePage }) => (isHomePage ? `2170px` : `256px`)};
-  --overlay-position: bottom;
+  --max-height: ${({ isHomePage }) => (isHomePage ? `2247px` : `556px`)};
 
   top: 0;
 
   max-height: var(--max-height);
 
-  ${Overlay} {
-    bottom: 0;
-  }
-
   ${greaterThan(576)} {
-    --max-height: ${({ isHomePage }) => (isHomePage ? `2477px` : `326px`)};
+    --max-height: ${({ isHomePage }) => (isHomePage ? `2477px` : `556px`)};
   }
 
   ${greaterThan(768)} {
-    --max-height: ${({ isHomePage }) => (isHomePage ? `2877px` : `488px`)};
+    --max-height: ${({ isHomePage }) => (isHomePage ? `2877px` : `556px`)};
   }
 `;
 
 export const bottomBackgroundStyle = css`
-  --max-height: 1247px;
-  --overlay-position: top;
+  --max-height: 1847px;
 
   bottom: 0;
 
   max-height: var(--max-height);
-
-  ${Overlay} {
-    top: 0;
-  }
 `;
 
 export const Container = styled.div`

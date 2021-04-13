@@ -9,6 +9,7 @@ import { lessThan } from '../../utils/mediaQuery';
 // styles
 import breakpoints from '../../styles/breakpoints';
 import colors from '../../styles/colors';
+import { fontWeights } from '../../styles/typography';
 
 export const StyledNav = styled.nav`
   position: relative;
@@ -42,11 +43,22 @@ export const NavLink = styled(Link)`
 
   height: 45px;
 
-  color: ${colors.gris};
+  color: ${colors.bleu};
+  font-weight: ${fontWeights.bold};
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
   text-decoration: none;
 
   :focus {
     outline: 0;
+  }
+
+  &.active,
+  :focus,
+  :hover {
+    color: ${colors.gris};
   }
 
   ::before,
