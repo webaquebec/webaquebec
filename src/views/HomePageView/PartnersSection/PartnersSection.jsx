@@ -11,7 +11,7 @@ import { SectionContainer, Title } from './PartnersSection.styles';
 
 const PartnersSection = () => {
   return (
-    <SectionContainer>
+    <SectionContainer faded>
       <h2 css={hideVisually}>Partenaires</h2>
 
       <Center

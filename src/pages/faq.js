@@ -8,6 +8,7 @@ import Layout from '../components/Layout';
 import Center from '../components/LayoutSections/Center';
 import Accordion from '../components/Accordion';
 import AccordionItem from '../components/Accordion/AccordionItem';
+import SectionContainer from '../components/SectionContainer';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
@@ -24,10 +25,31 @@ const FaqTitle = styled.h1`
 `;
 
 const FaqIntro = styled.p`
+  margin-bottom: 0;
+`;
+
+const Container = styled(SectionContainer)`
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [50, 120], bases: [16, 20] }],
+    [
+      { prop: 'paddingTop', sizes: [98, 105], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [148, 114], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [48, 68], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
+
+  ::before,
+  ::after {
+    height: 30vh;
+  }
+
+  ::before {
+    top: -30vh;
+  }
+
+  ::after {
+    bottom: -30vh;
+  }
 `;
 
 const faqItem = css`
@@ -126,22 +148,24 @@ const FaqPage = () => {
         </FaqIntro>
       </Center>
 
-      <Center maxWidth='850px' gutters='var(--container-gutter)'>
-        <Accordion multiple collapsible>
-          {data.map((item) => (
-            <AccordionItem
-              key={`faq-${item.id}`}
-              titleAs='h2'
-              title={item.question}
-            >
-              <p
-                css={faqItem}
-                dangerouslySetInnerHTML={{ __html: item.answer }}
-              />
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </Center>
+      <Container forwardedAs='div' faded>
+        <Center maxWidth='850px' gutters='var(--container-gutter)'>
+          <Accordion multiple collapsible>
+            {data.map((item) => (
+              <AccordionItem
+                key={`faq-${item.id}`}
+                titleAs='h2'
+                title={item.question}
+              >
+                <p
+                  css={faqItem}
+                  dangerouslySetInnerHTML={{ __html: item.answer }}
+                />
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Center>
+      </Container>
     </Layout>
   );
 };

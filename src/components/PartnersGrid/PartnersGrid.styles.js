@@ -4,12 +4,6 @@ import styled from 'styled-components';
 // utils
 import { lessThan } from '../../utils/mediaQuery';
 
-// export const SectionContainer = styled.section`
-//   ${lessThan(1280)} {
-//     --max-container-width: 768px;
-//   }
-// `;
-
 const Wrapper = styled.div`
   position: relative;
 
