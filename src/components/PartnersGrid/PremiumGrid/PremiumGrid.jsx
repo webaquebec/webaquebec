@@ -5,10 +5,14 @@ import React from 'react';
 import LogoCard from './PremiumLogoCard';
 
 // images
-import logoLgs from '../../../images/LogoPartners/logo-lgs.svg';
-import logoRobic from '../../../images/LogoPartners/logo-robic.svg';
-import logoIneat from '../../../images/LogoPartners/logo-ineat.svg';
-import logoIxmedia from '../../../images/LogoPartners/logo-ixmedia.svg';
+import logoKabane from '../../../images/logoPartners/premium/logo-kabane.svg';
+import logoLibeo from '../../../images/logoPartners/premium/logo-libeo.svg';
+import logoLevio from '../../../images/logoPartners/premium/logo-levio.svg';
+import logoNventive from '../../../images/logoPartners/premium/logo-nventive.svg';
+import logoEquisoft from '../../../images/logoPartners/premium/logo-equisoft.svg';
+import logoIxmedia from '../../../images/logoPartners/premium/logo-ixmedia.svg';
+import logoFinaltaCapital from '../../../images/logoPartners/premium/logo-finalta-capital.svg';
+import logoBeet from '../../../images/logoPartners/premium/logo-beet.svg';
 
 // utils
 import { lessThan } from '../../../utils/mediaQuery';
@@ -20,26 +24,46 @@ import colors from '../../../styles/colors';
 const PremiumGrid = () => {
   const images = [
     {
-      src: logoLgs,
-      alt: 'LGS, une société IBM',
-      url: 'http://www.lgs.com',
-    },
-    {
-      src: logoRobic,
-      alt:
-        'ROBIC, Spécialistes en propriété intellectuelle | Droit, brevets, marques',
-      url: 'https://www.robic.ca/',
-    },
-    {
-      src: logoIneat,
-      alt:
-        "Ineat Group | L'innovation au coeur de votre transformation digitale",
-      url: 'https://www.lgs.com',
+      src: logoKabane,
+      alt: 'Kabane - Agence de Marques. Québec - Montréal',
+      url: 'https://www.kabane.ca',
     },
     {
       src: logoIxmedia,
       alt: 'iXmédia | Agence numérique. Experts sympathiques',
-      url: 'https://www.lgs.com',
+      url: 'https://www.ixmedia.com/',
+    },
+    {
+      src: logoNventive,
+      alt:
+        'nventive | Agence innovatrice en transformation numérique à Montréal et Québec',
+      url: 'https://nventive.com/fr/',
+    },
+    {
+      src: logoLibeo,
+      alt: 'Libéo | Innover pour simplifier votre transformation numérique',
+      url: 'https://libeo.com',
+    },
+    {
+      src: logoFinaltaCapital,
+      alt: 'Finalta Capital',
+      url: 'https://finaltacapital.com/',
+    },
+    {
+      src: logoEquisoft,
+      alt: "Equisoft | Solutions logicielles d'assurance et d'investissement",
+      url: 'https://www.equisoft.com/fr/',
+    },
+    {
+      src: logoLevio,
+      alt:
+        'Levio affaires et technologies - Au coeur de la transformation numérique',
+      url: 'https://levio.ca/',
+    },
+    {
+      src: logoBeet,
+      alt: 'Beet agence à Québec – Création de sites web et production vidéo',
+      url: 'https://boitebeet.com/',
     },
   ];
 
@@ -103,14 +127,14 @@ const PremiumGrid = () => {
             grid-row: 1 / span 2;
 
             ${lessThan(selfBreakpoints[2])} {
-              align-items: baseline;
+              align-items: normal;
 
               grid-column: 1;
               grid-row: 2;
             }
 
             ${lessThan(selfBreakpoints[1])} {
-              align-items: baseline;
+              align-items: normal;
 
               grid-column: 1;
               grid-row: 2;
@@ -176,7 +200,7 @@ const PremiumGrid = () => {
           `}
         >
           <LogoCard
-            image={images[0]}
+            image={images[4]}
             accentBgColor={colors.ciel}
             primary
             css={`
@@ -194,7 +218,7 @@ const PremiumGrid = () => {
             grid-row: 1 / span 2;
 
             ${lessThan(selfBreakpoints[2])} {
-              align-items: baseline;
+              align-items: normal;
 
               grid-column: 1;
               grid-row: 3;
@@ -209,7 +233,7 @@ const PremiumGrid = () => {
           `}
         >
           <LogoCard
-            image={images[1]}
+            image={images[5]}
             accentBgColor={colors.rose}
             primary
             css={`
@@ -237,7 +261,7 @@ const PremiumGrid = () => {
           `}
         >
           <LogoCard
-            image={images[2]}
+            image={images[6]}
             accentBgColor={colors.mauve}
             primary
             css={`
@@ -267,7 +291,7 @@ const PremiumGrid = () => {
           `}
         >
           <LogoCard
-            image={images[3]}
+            image={images[7]}
             accentBgColor={colors.turquoise}
             primary
             css={`

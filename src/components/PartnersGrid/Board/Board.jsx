@@ -6,9 +6,11 @@ import { useMedia } from 'react-use';
 import LogoCard from './LogoCard';
 
 // images
-import logoPwc from '../../../images/LogoPartners/logo-pwc.svg';
-import logoLevio from '../../../images/LogoPartners/logo-levio.svg';
-import logoFernandez from '../../../images/LogoPartners/logo-fernandez.svg';
+import logoBdc from '../../../images/logoPartners/associates/logo-bdc.svg';
+import logoLeCamp from '../../../images/logoPartners/associates/logo-le-camp.svg';
+import logoMauvaisGarcons from '../../../images/logoPartners/associates/logo-mauvais-garcons.svg';
+import logoPwc from '../../../images/logoPartners/associates/logo-pwc.svg';
+import logoRobic from '../../../images/logoPartners/associates/logo-robic.svg';
 
 // utils
 import { lessThanCondition } from '../../../utils/mediaQuery';
@@ -19,57 +21,56 @@ import { selfBreakpoints, Container, Wrapper, Square } from './Board.styles';
 
 const images = [
   {
+    src: logoBdc,
+    alt: 'BDC - Banque de développement du Canada | BDC.ca',
+    url: 'https://www.bdc.ca/fr',
+  },
+  {
+    src: logoLeCamp,
+    alt: 'Incubateur d’entreprises technologiques à Québec | LE CAMP',
+    url: 'https://lecampquebec.com',
+  },
+  {
+    src: logoMauvaisGarcons,
+    alt: 'Les Mauvais Garçons - Culture de marque',
+    url: 'https://lesmauvaisgarcons.ca/',
+  },
+  {
     src: logoPwc,
     alt: 'PwC Canada',
     url: 'https://www.pwc.com/ca/fr/',
   },
   {
-    src: logoLevio,
+    src: logoRobic,
     alt:
-      'Levio affaires et technologies - Au coeur de la transformation numérique',
-    url: 'https://levio.ca/',
+      'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
+    url: 'https://www.robic.ca/',
   },
   {
-    src: logoFernandez,
-    alt: 'Fernandez, relations publiques',
-    url: 'https://fernandezrp.ca/',
+    src: logoBdc,
+    alt: 'BDC - Banque de développement du Canada | BDC.ca',
+    url: 'https://www.bdc.ca/fr',
   },
   {
-    src: logoLevio,
+    src: logoLeCamp,
+    alt: 'Incubateur d’entreprises technologiques à Québec | LE CAMP',
+    url: 'https://lecampquebec.com',
+  },
+  {
+    src: logoMauvaisGarcons,
+    alt: 'Les Mauvais Garçons - Culture de marque',
+    url: 'https://lesmauvaisgarcons.ca/',
+  },
+  {
+    src: logoPwc,
+    alt: 'PwC Canada',
+    url: 'https://www.pwc.com/ca/fr/',
+  },
+  {
+    src: logoRobic,
     alt:
-      'Levio affaires et technologies - Au coeur de la transformation numérique',
-    url: 'https://levio.ca/',
-  },
-  {
-    src: logoPwc,
-    alt: 'PwC Canada',
-    url: 'https://www.pwc.com/ca/fr/',
-  },
-  {
-    src: logoPwc,
-    alt: 'PwC Canada',
-    url: 'https://www.pwc.com/ca/fr/',
-  },
-  {
-    src: logoFernandez,
-    alt: 'Fernandez, relations publiques',
-    url: 'https://fernandezrp.ca/',
-  },
-  {
-    src: logoFernandez,
-    alt: 'Fernandez, relations publiques',
-    url: 'https://fernandezrp.ca/',
-  },
-  {
-    src: logoLevio,
-    alt:
-      'Levio affaires et technologies - Au coeur de la transformation numérique',
-    url: 'https://levio.ca/',
-  },
-  {
-    src: logoPwc,
-    alt: 'PwC Canada',
-    url: 'https://www.pwc.com/ca/fr/',
+      'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
+    url: 'https://www.robic.ca/',
   },
 ];
 

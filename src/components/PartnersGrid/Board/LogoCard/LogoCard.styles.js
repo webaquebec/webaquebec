@@ -33,6 +33,9 @@ export const Image = styled.img`
     ],
     breakpoints.spacings
   )};
+
+  filter: invert(14%) sepia(100%) saturate(4664%) hue-rotate(221deg)
+    brightness(61%) contrast(148%);
 `;
 
 export const Link = styled.a`
@@ -44,6 +47,10 @@ export const Link = styled.a`
   :hover {
     background-color: ${colors.white};
     outline: 0;
+
+    img {
+      filter: none;
+    }
   }
 `;
 
