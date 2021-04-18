@@ -26,6 +26,11 @@ import {
 
 const primaryNavigation = [
   {
+    id: 'blog',
+    label: 'blogue',
+    slug: '/blog',
+  },
+  {
     id: 'faq',
     label: 'FAQ',
     slug: '/faq',
