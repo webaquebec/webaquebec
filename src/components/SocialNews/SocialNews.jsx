@@ -62,12 +62,12 @@ const SocialNews = () => {
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer}>
             <ContactTitle color={colors.gris90}>
-              Suivez-nous sur les médias sociaux
+              Suis-nous sur les médias sociaux
             </ContactTitle>
 
             <ContactText css={MediaText}>
-              Annonces, évènements à venir, Lorem ipsum dolor sit amet,
-              consectetur.
+              Annonces, événements, concours, anecdotes, contenu inédit et une
+              belle communauté t’y attendent.
             </ContactText>
 
             <MediaList>
@@ -89,21 +89,20 @@ const SocialNews = () => {
           css={blockContainerStyle}
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer}>
-            <ContactTitle>Abonnes-toi à l’infolettre</ContactTitle>
+            <ContactTitle>Ne manque rien!</ContactTitle>
 
             <ContactText>
-              Pour une bonne dose de WAQ, inscris-toi à l’infolettre! Promotions
-              et contenus exclusifs t’y attendent!
+              Pour des nouveautés, des promotions, du contenu exclusif et une
+              bonne dose de WAQ, abonne-toi à notre infolettre.
             </ContactText>
 
-            {/* @TODO: Ajouter le lien vers l'abonnement */}
             <Button
               to='https://webaquebec.us7.list-manage.com/subscribe/post?u=6e13c5c9b7e26599fb0ed84a3&id=273f8e5ded'
               tag='href'
               primary
               small
             >
-              Je veux m&apos;abonner!
+              M&apos;abonner
             </Button>
           </Center>
         </Paper>

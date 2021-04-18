@@ -125,8 +125,8 @@ const HeroSection = () => {
 
       <Center maxWidth='var(--max-container-width)' gutters='50px' withText>
         <MapPin src={vectorMapPin} role='presentation' alt='' />
-        <AddressFirstLine>au coeur de la Ville de Québec</AddressFirstLine>
-        <AddressSecondLine>et/ou en ligne (à suivre...)</AddressSecondLine>
+        <AddressFirstLine>Au cœur de la Ville de Québec</AddressFirstLine>
+        <AddressSecondLine>et/ou dans le confort de chez soi</AddressSecondLine>
       </Center>
     </StyledHeroSection>
   );
