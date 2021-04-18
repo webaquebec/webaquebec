@@ -31,15 +31,15 @@ import {
 const Footer = () => {
   // @TODO: Ajouter les bons liens
   const archives = [
-    { year: '2020', link: '' },
-    { year: '2019', link: '' },
-    { year: '2018', link: '' },
-    { year: '2017', link: '' },
-    { year: '2016', link: '' },
-    { year: '2015', link: '' },
-    { year: '2014', link: '' },
-    { year: '2013', link: '' },
-    { year: '2012', link: '' },
+    { year: '2020', link: 'http://2020.webaquebec.org/programmation/2020/0' },
+    { year: '2019', link: 'http://2019.webaquebec.org/programmation/2019/0' },
+    { year: '2018', link: 'http://2018.webaquebec.org/programmation/2018/0' },
+    { year: '2017', link: 'http://2017.webaquebec.org/programmation/2017/0' },
+    { year: '2016', link: 'http://2016.webaquebec.org/' },
+    { year: '2015', link: 'http://2015.webaquebec.org/' },
+    { year: '2014', link: 'http://2014.webaquebec.org/' },
+    { year: '2013', link: 'http://2013.webaquebec.org/' },
+    { year: '2012', link: 'http://2012.webaquebec.org/' },
   ];
 
   const [ref, inView] = useInView({

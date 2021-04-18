@@ -33,7 +33,7 @@ const primaryNavigation = [
   {
     id: 'covid-19',
     label: 'covid-19',
-    slug: '/covid-19',
+    slug: '/blogue/on-va-se-dire-les-vraies-affaires',
   },
 ];
 
