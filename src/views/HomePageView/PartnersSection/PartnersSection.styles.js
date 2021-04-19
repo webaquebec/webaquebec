@@ -24,7 +24,7 @@ export const SectionContainer = styled(StyledSectionContainer)`
 export const Title = styled.p`
   ${magnifyStyle};
 
-  max-width: 533px;
+  max-width: 587px;
   margin-top: 0;
 
   ${breakpointsRange(

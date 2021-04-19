@@ -22,7 +22,7 @@ const PartnersSection = () => {
       >
         <Title>
           Merci à nos <span css={pixelated20Style}>partenaires</span> qui
-          rendent possible la réalisation de cette 10e édition!
+          rendent possible la réalisation de cette 10<sup>e</sup> édition!
         </Title>
 
         <PartnersGrid />
