@@ -21,8 +21,8 @@ const PartnersSection = () => {
         intrinsic
       >
         <Title>
-          merci aux <span css={pixelated20Style}>partenaires</span> qui rendent
-          tout possible
+          Merci à nos <span css={pixelated20Style}>partenaires</span> qui
+          rendent possible la réalisation de cette 10<sup>e</sup> édition!
         </Title>
 
         <PartnersGrid />

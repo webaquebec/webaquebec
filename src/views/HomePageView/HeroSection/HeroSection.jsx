@@ -1,6 +1,7 @@
 // vendors
 import React from 'react';
 import Marquee from 'react-fast-marquee';
+import { hideVisually } from 'polished';
 
 // styles
 import { easing } from '../../../styles/animation';
@@ -68,6 +69,8 @@ const HeroSection = () => {
 
   return (
     <StyledHeroSection>
+      <h2 css={hideVisually}>15 au 17 juin 2021</h2>
+
       <MarqueeWrapper>
         <Marquee gradient={false} speed={75}>
           <StarSeparator src={vectorStarSeparator} role='presentation' alt='' />
