@@ -14,7 +14,7 @@ const IndexPage = ({ location }) => {
   return (
     <Layout location={location}>
       <SEO
-        title='Accueil'
+        title='Le Web à Québec | 15 au 17 juin 2021'
         description='Le plus grand événement numérique francophone en Amérique du Nord.'
       />
 
