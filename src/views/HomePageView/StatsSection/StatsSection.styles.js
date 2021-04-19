@@ -20,7 +20,7 @@ export const SectionContainer = styled.section`
   )};
 `;
 
-export const StatsIntro = styled.p`
+export const StatsIntro = styled.h3`
   margin-top: 0;
 
   color: ${colors.bleu80};
