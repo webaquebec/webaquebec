@@ -31,4 +31,8 @@ export const Title = styled.p`
     [{ prop: 'marginBottom', sizes: [31, 47], bases: [16, 20] }],
     breakpoints.spacings
   )};
+
+  > sup {
+    line-height: 1;
+  }
 `;
