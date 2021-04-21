@@ -102,6 +102,7 @@ const SocialNews = () => {
               tag='href'
               primary
               small
+              animated
             >
               Je veux m&apos;abonner!
             </Button>
