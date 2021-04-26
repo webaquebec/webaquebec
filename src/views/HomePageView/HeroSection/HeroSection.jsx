@@ -1,6 +1,7 @@
 // vendors
 import React from 'react';
 import Marquee from 'react-fast-marquee';
+import { hideVisually } from 'polished';
 
 // styles
 import { easing } from '../../../styles/animation';
@@ -68,6 +69,8 @@ const HeroSection = () => {
 
   return (
     <StyledHeroSection>
+      <h2 css={hideVisually}>15 au 17 juin 2021</h2>
+
       <MarqueeWrapper>
         <Marquee gradient={false} speed={75}>
           <StarSeparator src={vectorStarSeparator} role='presentation' alt='' />
@@ -125,8 +128,8 @@ const HeroSection = () => {
 
       <Center maxWidth='var(--max-container-width)' gutters='50px' withText>
         <MapPin src={vectorMapPin} role='presentation' alt='' />
-        <AddressFirstLine>au coeur de la Ville de Québec</AddressFirstLine>
-        <AddressSecondLine>et/ou en ligne (à suivre...)</AddressSecondLine>
+        <AddressFirstLine>Au cœur de la Ville de Québec</AddressFirstLine>
+        <AddressSecondLine>et/ou dans le confort de chez soi</AddressSecondLine>
       </Center>
     </StyledHeroSection>
   );

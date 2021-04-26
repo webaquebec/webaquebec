@@ -24,11 +24,15 @@ export const SectionContainer = styled(StyledSectionContainer)`
 export const Title = styled.p`
   ${magnifyStyle};
 
-  max-width: 533px;
+  max-width: 587px;
   margin-top: 0;
 
   ${breakpointsRange(
     [{ prop: 'marginBottom', sizes: [31, 47], bases: [16, 20] }],
     breakpoints.spacings
   )};
+
+  > sup {
+    line-height: 1;
+  }
 `;
