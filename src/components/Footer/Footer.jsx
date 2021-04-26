@@ -29,12 +29,11 @@ import {
 } from './Footer.styles';
 
 const Footer = () => {
-  // @TODO: Ajouter les bons liens
   const archives = [
-    { year: '2020', link: 'http://2020.webaquebec.org/programmation/2020/0' },
-    { year: '2019', link: 'http://2019.webaquebec.org/programmation/2019/0' },
-    { year: '2018', link: 'http://2018.webaquebec.org/programmation/2018/0' },
-    { year: '2017', link: 'http://2017.webaquebec.org/programmation/2017/0' },
+    { year: '2020', link: 'https://2020.webaquebec.org/programmation/2020/0' },
+    { year: '2019', link: 'https://2019.webaquebec.org/programmation/2019/0' },
+    { year: '2018', link: 'https://2018.webaquebec.org/programmation/2018/0' },
+    { year: '2017', link: 'https://2017.webaquebec.org/programmation/2017/0' },
     { year: '2016', link: 'http://2016.webaquebec.org/' },
     { year: '2015', link: 'http://2015.webaquebec.org/' },
     { year: '2014', link: 'http://2014.webaquebec.org/' },
