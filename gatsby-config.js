@@ -34,6 +34,5 @@ module.exports = {
         },
       },
     },
-    'react-fast-marquee',
   ],
 };

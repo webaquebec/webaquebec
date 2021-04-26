@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import StyledButton from './Button.styles';
+import StyledButton, {
+  TextWrapper,
+  IconContainer,
+  IconWrapper,
+} from './Button.styles';
 
 const defaultTags = {
   link: Link,
@@ -14,7 +18,11 @@ const Button = ({
   tag,
   type,
   primary,
+  outlined,
   small,
+  renderIcon,
+  iconFirst,
+  animated,
   disabled,
   children,
   ...rest
@@ -34,9 +42,23 @@ const Button = ({
       disabled={disabled}
       $primary={primary}
       $small={small}
+      $hasIcon={!!renderIcon}
+      $iconFirst={iconFirst}
+      $outlined={outlined}
+      $animated={animated}
       {...props}
     >
-      {children}
+      {renderIcon ? (
+        <>
+          <TextWrapper>{children}</TextWrapper>
+
+          <IconContainer>
+            <IconWrapper>{renderIcon}</IconWrapper>
+          </IconContainer>
+        </>
+      ) : (
+        children
+      )}
     </StyledButton>
   );
 };
@@ -59,13 +81,29 @@ Button.propTypes = {
    */
   primary: PropTypes.bool,
   /**
-   * Specifies if the button is small or regular size
+   * Specifies the outlined style should be applied to the button
+   */
+  outlined: PropTypes.bool,
+  /**
+   * Specifies whether the button is small or regular size
    */
   small: PropTypes.bool,
   /**
    * Specifies the button should be disabled
    */
   disabled: PropTypes.bool,
+  /**
+   * Specifies the button should be animated
+   */
+  animated: PropTypes.bool,
+  /**
+   * Specifies whether the icon is positioned before or after the text content
+   */
+  iconFirst: PropTypes.bool,
+  /**
+   * Specifies the icon element applied to the button
+   */
+  renderIcon: PropTypes.node,
   /**
    * Specifies the content of the button
    */
@@ -78,8 +116,12 @@ Button.defaultProps = {
   to: undefined,
   type: undefined,
   primary: false,
+  outlined: false,
   small: false,
   disabled: false,
+  animated: false,
+  iconFirst: false,
+  renderIcon: undefined,
 };
 
 export default Button;
