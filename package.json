@@ -52,7 +52,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": ">=4",
+    "husky": "^4.3.8",
     "lint-staged": ">=10",
     "prettier": "2.1.2",
     "rimraf": "^3.0.2",
@@ -80,7 +80,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "clean:modules": "rimraf /node_modules"
+    "clean:modules": "rimraf node_modules yarn.lock"
   },
   "husky": {
     "hooks": {
