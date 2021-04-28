@@ -53,7 +53,7 @@ const Stats = () => {
           rotate: { initial: '-12deg', final: '0deg' },
         },
       },
-      description: 'bénévoles annuels passionnés',
+      description: "bénévoles fantastiques à l'année",
     },
   ];
 
@@ -68,7 +68,7 @@ const Stats = () => {
         intrinsic
       >
         <StatsIntro>
-          le plus grand évènement numérique francophone en Amérique du Nord
+          Le plus grand événement numérique francophone en Amérique du Nord
         </StatsIntro>
 
         <Switcher threshold='768px' space='2rem' limit={3}>

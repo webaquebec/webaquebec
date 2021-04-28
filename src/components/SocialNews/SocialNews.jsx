@@ -89,7 +89,7 @@ const SocialNews = () => {
           css={blockContainerStyle}
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer}>
-            <ContactTitle>Ne manque rien!</ContactTitle>
+            <ContactTitle>Ne manque rien</ContactTitle>
 
             <ContactText>
               Pour des nouveautés, des promotions, du contenu exclusif et une
