@@ -72,7 +72,7 @@ const FaqPage = () => {
       answer: `L’équipe a évalué deux scénarios. La décision finale sera prise le 4
       mai, mais en attendant, tu peux consulter notre article
       <a href="https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires"
-      target="_blank">On va se dire les vraies affaires</a>, dans lequel on explique
+      target="_blank" rel='noopener noreferrer'>On va se dire les vraies affaires</a>, dans lequel on explique
       les deux scénarios envisagés pour le WAQ21.`,
     },
     {
@@ -110,7 +110,7 @@ const FaqPage = () => {
       question: `Est-ce possible de participer à la Semaine numériQC avec un billet du WAQ?`,
       answer: `Non. Les seules personnes qui peuvent assister aux deux événements sont celles
       qui se sont procurées une passe all-access l’année dernière. Des billets seront cependant
-      mis en vente pour la <a href="https://www.semainenumeriqc.com/" target="_blank">Semaine
+      mis en vente pour la <a href="https://www.semainenumeriqc.com/" target="_blank" rel='noopener noreferrer'>Semaine
       numériQC</a> dans les mois à venir.`,
     },
     {
