@@ -1,6 +1,5 @@
 // vendors
 import styled, { css } from 'styled-components';
-import { Link } from 'gatsby';
 
 // components
 import Box from '../../LayoutSections/Box';
@@ -89,7 +88,7 @@ export const PrimaryNavList = styled.ul`
   }
 `;
 
-export const NavLink = styled(Link)`
+export const NavLink = styled.a`
   font-weight: ${fontWeights.semiBold};
   ${breakpointsRange(
     [

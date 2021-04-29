@@ -1,6 +1,7 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 // components
 import Center from '../../LayoutSections/Center';
@@ -50,14 +51,26 @@ const Menu = ({ opened, onClose, primaryNavigation }) => {
           <PrimaryNavList>
             {primaryNavigation.map((item) => (
               <li key={item.id}>
-                <NavLink
-                  to={item.slug}
-                  activeClassName='active'
-                  partiallyActive
-                  onClick={onClose}
-                >
-                  {item.label}
-                </NavLink>
+                {item.type === 'internal' ? (
+                  <NavLink
+                    as={Link}
+                    to={item.slug}
+                    activeClassName='active'
+                    partiallyActive
+                    onClick={onClose}
+                  >
+                    {item.label}
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    href={item.slug}
+                    activeClassName='active'
+                    partiallyActive
+                    onClick={onClose}
+                  >
+                    {item.label}
+                  </NavLink>
+                )}
               </li>
             ))}
           </PrimaryNavList>

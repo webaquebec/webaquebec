@@ -71,7 +71,7 @@ const FaqPage = () => {
       question: 'Quelle sera la forme du WAQ21?',
       answer: `L’équipe a évalué deux scénarios. La décision finale sera prise le 4
       mai, mais en attendant, tu peux consulter notre article
-      <a href="https://www.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires"
+      <a href="https://2020.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires"
       target="_blank">On va se dire les vraies affaires</a>, dans lequel on explique
       les deux scénarios envisagés pour le WAQ21.`,
     },
