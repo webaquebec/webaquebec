@@ -13,7 +13,6 @@ import {
   StarSeparator,
   MapPin,
   AddressFirstLine,
-  AddressSecondLine,
   StickerImg,
 } from './HeroSection.styles';
 
@@ -128,8 +127,7 @@ const HeroSection = () => {
 
       <Center maxWidth='var(--max-container-width)' gutters='50px' withText>
         <MapPin src={vectorMapPin} role='presentation' alt='' />
-        <AddressFirstLine>Au cœur de la Ville de Québec</AddressFirstLine>
-        <AddressSecondLine>et/ou dans le confort de chez soi</AddressSecondLine>
+        <AddressFirstLine>Dans le confort de chez soi</AddressFirstLine>
       </Center>
     </StyledHeroSection>
   );

@@ -76,17 +76,6 @@ export const AddressFirstLine = styled.p`
   )};
 `;
 
-export const AddressSecondLine = styled.p`
-  margin: 0;
-
-  color: ${colors.gris30};
-
-  ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [12, 16], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
-
 export const StickerImg = styled.img`
   ${({ $minWidth, $maxWidth }) =>
     $minWidth &&
