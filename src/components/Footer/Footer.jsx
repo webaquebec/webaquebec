@@ -46,11 +46,11 @@ const Footer = () => {
       year: '2017',
       link: 'https://archives.webaquebec.org/programmation/2017/0',
     },
-    { year: '2016', link: 'https://archives.webaquebec.org/' },
-    { year: '2015', link: 'https://archives.webaquebec.org/' },
-    { year: '2014', link: 'https://archives.webaquebec.org/' },
-    { year: '2013', link: 'https://archives.webaquebec.org/' },
-    { year: '2012', link: 'https://archives.webaquebec.org/' },
+    { year: '2016', link: 'https://2016.webaquebec.org/' },
+    { year: '2015', link: 'https://2015.webaquebec.org/' },
+    { year: '2014', link: 'https://2014.webaquebec.org/' },
+    { year: '2013', link: 'https://2013.webaquebec.org/' },
+    { year: '2012', link: 'https://2012.webaquebec.org/' },
   ];
 
   const [ref, inView] = useInView({
