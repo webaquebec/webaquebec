@@ -1,6 +1,6 @@
 // vendors
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
@@ -35,7 +35,7 @@ export const NavListItem = styled.li`
   overflow: hidden;
 `;
 
-export const NavLink = styled(Link)`
+export const NavLink = styled.a`
   position: relative;
 
   display: flex;

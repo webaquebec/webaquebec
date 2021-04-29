@@ -1,6 +1,7 @@
 // vendors
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 // components
 import Center from '../LayoutSections/Center';
@@ -29,12 +30,14 @@ const primaryNavigation = [
     id: 'faq',
     label: 'FAQ',
     slug: '/faq',
+    type: 'internal',
   },
   {
     id: 'covid-19',
     label: 'covid-19',
     slug:
       'https://2020.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
+    type: 'external',
   },
 ];
 
@@ -62,13 +65,24 @@ const Header = ({ isHomePage }) => {
             <PrimaryNavList>
               {primaryNavigation.map((item) => (
                 <NavListItem key={item.id}>
-                  <NavLink
-                    to={item.slug}
-                    activeClassName='active'
-                    partiallyActive
-                  >
-                    {item.label}
-                  </NavLink>
+                  {item.type === 'internal' ? (
+                    <NavLink
+                      as={Link}
+                      to={item.slug}
+                      activeClassName='active'
+                      partiallyActive
+                    >
+                      {item.label}
+                    </NavLink>
+                  ) : (
+                    <NavLink
+                      href={item.slug}
+                      activeClassName='active'
+                      partiallyActive
+                    >
+                      {item.label}
+                    </NavLink>
+                  )}
                 </NavListItem>
               ))}
             </PrimaryNavList>
