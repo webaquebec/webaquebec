@@ -36,7 +36,7 @@ const primaryNavigation = [
     id: 'covid-19',
     label: 'covid-19',
     slug:
-      'https://2020.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
+      'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
     type: 'external',
   },
 ];
