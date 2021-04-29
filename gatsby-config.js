@@ -1,12 +1,48 @@
 module.exports = {
   siteMetadata: {
-    title: 'Web à Québec',
+    title: 'Le Web à Québec',
+    description:
+      'Le plus grand événement numérique francophone en Amérique du Nord.',
+    siteUrl: 'https://www.webaquebec.org',
   },
   plugins: [
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-KHD8ZJR',
+        // Include GTM in development.
+        //
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false,
+
+        // datalayer to be set before GTM is loaded
+        // should be an object or a function that is executed in the browser
+        //
+        // Defaults to null
+        defaultDataLayer: { platform: 'gatsby' },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        // your google analytics tracking id
+        trackingId: `UA-20043510-1`,
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // enable ip anonymization
+        anonymize: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: '758649984324647',
+      },
+    },
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -34,5 +70,6 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 };
