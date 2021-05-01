@@ -18,7 +18,7 @@ import StaticGradientBackground from '../GradientBackground';
  * @see [Layout Components](https://www.gatsbyjs.com/docs/how-to/routing/layout-components/)
  *
  */
-const Layout = ({ children, location }) => {
+const Layout = ({ children, location, asGradient }) => {
   const isHomePage = !!location.pathname && location.pathname === '/';
 
   return (
@@ -26,7 +26,9 @@ const Layout = ({ children, location }) => {
       <GlobalStyle />
 
       {/** Only temporary until having a full dynamic gradient background */}
-      <StaticGradientBackground isHomePage={isHomePage} position='top' />
+      {asGradient && (
+        <StaticGradientBackground isHomePage={isHomePage} position='top' />
+      )}
 
       <Header isHomePage={isHomePage} />
 
@@ -45,6 +47,10 @@ Layout.propTypes = {
     pathname: PropTypes.string,
   }),
   /**
+   * Whether to apply a gradient
+   */
+  asGradient: PropTypes.bool,
+  /**
    * Child node elements
    */
   children: PropTypes.node.isRequired,
@@ -54,6 +60,7 @@ Layout.defaultProps = {
   location: {
     pathname: undefined,
   },
+  asGradient: true,
 };
 
 export default Layout;

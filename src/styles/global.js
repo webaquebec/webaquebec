@@ -289,6 +289,18 @@ export const externalLinkStyle = css``;
 
 export const paragraphStyle = css``;
 
+export const blockquoteStyle = css`
+  color: ${colors.bleu80};
+
+  font-weight: ${fontWeights.bold};
+  text-align: center;
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [24, 32], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
 export const unstyledListStyle = css`
   margin: 0;
   padding: 0;
@@ -315,5 +327,92 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     ${bodyStyle};
+  }
+
+  blockquote {
+    ${blockquoteStyle};
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .blog-post {
+    ul {
+      padding-left: 32px;
+      
+      list-style: none;
+
+      ul {
+        margin-top: 16px;
+      }
+
+      li {
+        margin-bottom: 16px;
+      }
+      
+      li::before {
+        display: inline-block;
+
+        width: 1em;
+        margin-left: -1em;
+
+        color: ${colors.bleu80};
+        font-weight: ${fontWeights.bold};
+
+        content: '•';
+      }
+
+      li li::before {
+        content: '○';
+      }
+      
+      li li li::before {
+        content: '-';
+      }
+    }
+    
+    ol {
+      padding-left: 32px;
+
+      list-style: none;
+
+      counter-reset: li;
+
+      ol {
+        margin-top: 16px;
+      }
+
+      li {
+        margin-bottom: 16px;
+
+        counter-increment: li;
+      }
+
+      li::before {
+        display: inline-block;
+
+        width: 1.3em;
+        margin-left: -1.3em;
+
+        color: ${colors.bleu80};
+        font-weight: ${fontWeights.bold};
+
+        direction: rtl;
+
+        content: '.' counter(li);
+      }
+
+      li li::before {
+        content: '.' counter(li, lower-alpha);
+      }
+      
+      li li li::before {
+        width: 1.8em;
+        margin-left: -1.8em;
+
+        content: '(' counter(li) ')';
+      }
+    }
   }
 `;
