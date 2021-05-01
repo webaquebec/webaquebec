@@ -1,5 +1,9 @@
 [build]
   publish = "public"
 
+# Prevent indexing branch deploy (i.e develop, staging)
+[context.branch-deploy]
+  command = "npm run build:noindex"
+
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"

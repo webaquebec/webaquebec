@@ -77,9 +77,10 @@
     "lint:fix": "eslint . --fix",
     "lint:style": "npx stylelint \"**/*.{css,jsx,js}\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "build:noindex": "npm run build && echo '/*\n\tX-Robots-Tag: noindex' >> public/_headers",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "clean:modules": "rimraf node_modules yarn.lock"
