@@ -444,7 +444,7 @@ export const GlobalStyle = createGlobalStyle`
       )};
     }
 
-    .picture-bloc {
+    .picture-block {
       ${breakpointsRange(
         [
           { prop: 'marginTop', sizes: [60, 80], bases: [16, 20] },

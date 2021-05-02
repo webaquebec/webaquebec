@@ -49,7 +49,7 @@ const BlogPostPage = () => {
               gravida.
             </p>
           </Center>
-          <div className='picture-bloc'>
+          <div className='picture-block'>
             <img src='https://via.placeholder.com/1080x520' alt='' />
           </div>
           <Center maxWidth='854px'>
@@ -101,7 +101,7 @@ const BlogPostPage = () => {
               </li>
             </ul>
           </Center>
-          <div className='picture-bloc'>
+          <div className='picture-block'>
             <Grid minWidth='350px' space='2rem'>
               <img src='https://via.placeholder.com/624x446' alt='' />
               <img src='https://via.placeholder.com/624x446' alt='' />
@@ -164,7 +164,7 @@ const BlogPostPage = () => {
               </li>
             </ol>
           </Center>
-          <div className='picture-bloc'>
+          <div className='picture-block'>
             <Grid minWidth='250px' space='2rem'>
               <img src='https://via.placeholder.com/288x217' alt='' />
               <img src='https://via.placeholder.com/288x217' alt='' />
