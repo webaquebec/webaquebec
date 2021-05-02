@@ -1,6 +1,7 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import { hideVisually } from 'polished';
 
 // components
 import Center from '../LayoutSections/Center';
@@ -18,7 +19,6 @@ import {
   GridTitleWrapper,
   YearSticker,
 } from './HeroGrid.styles';
-import { visuallyHidden } from '../../styles/global';
 
 const HeroGrid = ({ title, displayYear }) => {
   return (
@@ -28,7 +28,7 @@ const HeroGrid = ({ title, displayYear }) => {
         <GridTitleWrapper>
           <GridTitle>
             {title}
-            {displayYear && <span css={visuallyHidden}>2021</span>}
+            {displayYear && <span css={hideVisually}>2021</span>}
           </GridTitle>
           {displayYear && (
             <YearSticker src={vectorYear2021} alt='' role='presentation' />
