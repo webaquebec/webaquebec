@@ -296,7 +296,11 @@ export const blockquoteStyle = css`
   text-align: center;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [24, 32], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [24, 32], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [32, 40], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [32, 40], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -338,6 +342,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .blog-post {
+    blockquote {
+      max-width: 1066px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
     ul {
       padding-left: 32px;
       
@@ -412,6 +422,44 @@ export const GlobalStyle = createGlobalStyle`
         margin-left: -1.8em;
 
         content: '(' counter(li) ')';
+      }
+    }
+    
+    p {
+      margin-bottom: 32px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      ${breakpointsRange(
+        [
+          { prop: 'marginTop', sizes: [60, 80], bases: [16, 20] },
+          { prop: 'marginBottom', sizes: [24, 40], bases: [16, 20] },
+        ],
+        breakpoints.spacings
+      )};
+    }
+
+    .picture-bloc {
+      ${breakpointsRange(
+        [
+          { prop: 'marginTop', sizes: [60, 80], bases: [16, 20] },
+          { prop: 'marginBottom', sizes: [60, 80], bases: [16, 20] },
+        ],
+        breakpoints.spacings
+      )};
+
+      img {
+        display: block;
+        width: 100%;
+        max-width: 1066px;
+        margin: 0 auto;
+
+        border-radius: 12px;
       }
     }
   }
