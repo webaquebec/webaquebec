@@ -73,7 +73,11 @@ const SocialNews = () => {
             <MediaList>
               {socialMedia.map((media) => (
                 <li key={`media-item-${media.name}`}>
-                  <a href={media.link}>
+                  <a
+                    href={media.link}
+                    rel='noopener noreferrer'
+                    target='_blank'
+                  >
                     <img src={media.img} alt={media.name} />
                   </a>
                 </li>
