@@ -6,7 +6,6 @@ import Center from '../../../components/LayoutSections/Center';
 import PartnersGrid from '../../../components/PartnersGrid';
 
 // styles
-import { pixelated20Style } from '../../../styles/global';
 import { SectionContainer, Title } from './PartnersSection.styles';
 
 const PartnersSection = () => {
@@ -21,8 +20,8 @@ const PartnersSection = () => {
         intrinsic
       >
         <Title>
-          Merci à nos <span css={pixelated20Style}>partenaires</span> qui
-          rendent possible la réalisation de cette 10<sup>e</sup> édition!
+          Merci à nos partenaires qui rendent possible la réalisation de cette
+          10<sup>e</sup> édition!
         </Title>
 
         <PartnersGrid />
