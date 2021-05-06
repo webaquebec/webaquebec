@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2025px" height="539px" viewBox="0 0 2025 539" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>vectorBlogPostHeroGrid</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="vectorBlogPostHeroGrid" transform="translate(2.000000, 2.000000)" stroke="#000CA0" stroke-width="4">
+            <line x1="640" y1="0" x2="640" y2="535" id="Path"></line>
+            <line x1="320" y1="0" x2="320" y2="535" id="Path"></line>
+            <line x1="960" y1="0" x2="960" y2="535" id="Path"></line>
+            <line x1="2021" y1="321" x2="0" y2="321" id="Path"></line>
+            <line x1="2021" y1="107" x2="0" y2="107" id="Path"></line>
+            <line x1="2021" y1="428" x2="0" y2="428" id="Path"></line>
+            <line x1="2021" y1="214" x2="0" y2="214" id="Path"></line>
+            <line x1="747" y1="0" x2="747" y2="535" id="Path"></line>
+            <line x1="427" y1="0" x2="427" y2="535" id="Path"></line>
+            <line x1="1067" y1="0" x2="1067" y2="535" id="Path"></line>
+            <line x1="1173" y1="0" x2="1173" y2="535" id="Path"></line>
+            <line x1="1279" y1="0" x2="1279" y2="535" id="Path"></line>
+            <line x1="1385" y1="0" x2="1385" y2="535" id="Path"></line>
+            <line x1="1491" y1="0" x2="1491" y2="535" id="Path"></line>
+            <line x1="1597" y1="0" x2="1597" y2="535" id="Path"></line>
+            <line x1="1703" y1="0" x2="1703" y2="535" id="Path"></line>
+            <line x1="853" y1="0" x2="853" y2="535" id="Path"></line>
+            <line x1="533" y1="0" x2="533" y2="535" id="Path"></line>
+            <line x1="1173" y1="0" x2="1173" y2="535" id="Path"></line>
+            <polygon id="Path" points="2021 0 0 0 0 535 2021 535"></polygon>
+        </g>
+    </g>
+</svg>
