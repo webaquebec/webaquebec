@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledTag, TagIcon, TalkerInfo } from './Tag.styles';
+import { StyledTag, TagIcon, SpeakerInfo } from './Tag.styles';
 
 // images
 import IconRoom from '../../images/tags/IconRoom';
 import vectorEventType from '../../images/tags/vectorEventType.svg';
-import vectorTalker from '../../images/tags/vectorTalker.svg';
+import vectorSpeaker from '../../images/tags/vectorSpeaker.svg';
 
 /**
  *
@@ -15,15 +15,15 @@ import vectorTalker from '../../images/tags/vectorTalker.svg';
  * <Tag>Design UX</Tag>
  * <Tag eventType='talk' />
  * <Tag room='design' />
- * <Tag talker={talker} />
+ * <Tag speaker={speaker} />
  */
 
-const Tag = ({ room, talker, eventType, children }) => {
+const Tag = ({ room, speaker, eventType, children }) => {
   let tagType = 'default';
   if (room) {
     tagType = 'room';
-  } else if (talker) {
-    tagType = 'talker';
+  } else if (speaker) {
+    tagType = 'speaker';
   } else if (eventType) {
     tagType = 'eventType';
   }
@@ -48,7 +48,7 @@ const Tag = ({ room, talker, eventType, children }) => {
       $commRoom={tagType === 'room' && room === 'communication'}
       $devRoom={tagType === 'room' && room === 'development'}
       $innovationRoom={tagType === 'room' && room === 'innovation'}
-      $talker={tagType === 'talker'}
+      $speaker={tagType === 'speaker'}
       $eventType={tagType === 'eventType'}
     >
       {tagType === 'room' && (
@@ -59,13 +59,13 @@ const Tag = ({ room, talker, eventType, children }) => {
           <span>{rooms[room]}</span>
         </>
       )}
-      {tagType === 'talker' && (
+      {tagType === 'speaker' && (
         <>
-          <img css={TagIcon} src={vectorTalker} alt='' role='presentation' />
+          <img css={TagIcon} src={vectorSpeaker} alt='' role='presentation' />
           <div>
-            <TalkerInfo>{talker.name}</TalkerInfo>
-            <TalkerInfo>{talker.job}</TalkerInfo>
-            <TalkerInfo>{talker.company}</TalkerInfo>
+            <SpeakerInfo>{speaker.name}</SpeakerInfo>
+            <SpeakerInfo>{speaker.job}</SpeakerInfo>
+            <SpeakerInfo>{speaker.company}</SpeakerInfo>
           </div>
         </>
       )}
@@ -91,9 +91,9 @@ Tag.propTypes = {
     'innovation',
   ]),
   /**
-   * Specifies which data to show if the tag is a talker one
+   * Specifies which data to show if the tag is a speaker one
    */
-  talker: PropTypes.shape({
+  speaker: PropTypes.shape({
     name: PropTypes.string,
     job: PropTypes.string,
     company: PropTypes.string,
@@ -107,7 +107,7 @@ Tag.propTypes = {
 
 Tag.defaultProps = {
   room: undefined,
-  talker: undefined,
+  speaker: undefined,
   eventType: undefined,
   children: undefined,
 };

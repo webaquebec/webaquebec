@@ -29,12 +29,12 @@ export const innovationRoomStyle = css`
   background-color: ${colors.turquoise10};
 `;
 
-export const talkerStyle = css`
+export const speakerStyle = css`
   color: ${colors.bleu80};
   font-weight: ${fontWeights.normal};
 `;
 
-export const TalkerInfo = styled.span`
+export const SpeakerInfo = styled.span`
   :first-child {
     font-weight: ${fontWeights.bold};
   }
@@ -92,8 +92,8 @@ export const StyledTag = styled.div`
   /* Apply innovationRoom style when innovationRoom props defined */
   ${({ $innovationRoom }) => $innovationRoom && innovationRoomStyle}
 
-  /* Apply talker style when talker props defined */
-  ${({ $talker }) => $talker && talkerStyle}
+  /* Apply speaker style when speaker props defined */
+  ${({ $speaker }) => $speaker && speakerStyle}
   
   /* Apply eventType style when eventType props defined */
   ${({ $eventType }) => $eventType && eventTypeStyle}
