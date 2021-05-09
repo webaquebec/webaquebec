@@ -11,10 +11,12 @@ import breakpoints from '../../styles/breakpoints';
 // import { greaterThan } from '../../utils/mediaQuery';
 import breakpointsRange from '../../utils/breakpointsRange';
 
+/* Default browser radio button visually hidden to allow customizing */
 export const HiddenRadioButton = styled.input.attrs({ type: 'radio' })`
   ${hideVisually()};
 `;
 
+/* Custom radio input label style */
 export const RadioButtonLabel = styled.label`
   position: relative;
 
@@ -22,7 +24,8 @@ export const RadioButtonLabel = styled.label`
   align-items: center;
   justify-content: left;
 
-  /* color:  $color 
+  /* 
+   color:  $color 
    font-weight: $font-weight 
    font-size: $font-size 
    line-height: $line-height
@@ -34,6 +37,7 @@ export const RadioButtonLabel = styled.label`
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 `;
 
+/* Custom radio button style */
 const StyledRadioButton = styled.div`
   position: relative;
 
@@ -57,6 +61,7 @@ const StyledRadioButton = styled.div`
   cursor: pointer;
 
   ::before {
+    /* Focus styles go there  */
     position: absolute;
 
     width: calc(100% + 12px);
@@ -79,6 +84,7 @@ const StyledRadioButton = styled.div`
   }
 
   ::after {
+    /* Checked styles go there */
     position: absolute;
 
     ${breakpointsRange(
@@ -101,6 +107,7 @@ const StyledRadioButton = styled.div`
     will-change: opacity, transform;
   }
 
+  /* Handle displaying whether it is checked or on focus */
   ${HiddenRadioButton}:not(:checked) ~ &::after {
     transform: scale(0);
     opacity: 0;
@@ -116,6 +123,7 @@ const StyledRadioButton = styled.div`
     opacity: 1;
   }
 
+  /* Disabled style */
   ${HiddenRadioButton}:disabled ~ & {
     background-color: lightgrey;
 

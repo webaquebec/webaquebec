@@ -11,7 +11,7 @@ import breakpoints from '../../styles/breakpoints';
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
 
-/* Default browser checkbox */
+/* Default browser checkbox visually hidden to allow customizing */
 export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   ${hideVisually}
 `;
