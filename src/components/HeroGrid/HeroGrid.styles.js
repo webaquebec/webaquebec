@@ -1,5 +1,5 @@
 // vendors
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
@@ -8,18 +8,12 @@ import { lessThan } from '../../utils/mediaQuery';
 // styles
 import breakpoints from '../../styles/breakpoints';
 
-export const GridWrapper = css`
+export const GridWrapper = styled.div`
   position: relative;
 `;
 
 export const GridVector = styled.img`
-  position: absolute;
-  top: 0;
-  left: 50%;
-
   width: 100%;
-
-  transform: translateX(-50%);
 
   ${lessThan(breakpoints[3])} {
     width: 150%;
@@ -31,6 +25,11 @@ export const GridVector = styled.img`
 `;
 
 export const GridContent = styled.div`
+  position: absolute;
+  top: 0;
+
+  width: 100%;
+
   text-align: center;
 
   ${breakpointsRange(

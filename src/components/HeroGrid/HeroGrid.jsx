@@ -14,11 +14,13 @@ import { GridWrapper, GridVector, GridContent } from './HeroGrid.styles';
 
 const HeroGrid = ({ title, displayYear }) => {
   return (
-    <Center maxWidth='1080px' css={GridWrapper}>
-      <GridVector src={vectorHeroGrid} alt='' role='presentation' />
-      <GridContent>
-        <Hero title={title} displayYear={displayYear} />
-      </GridContent>
+    <Center maxWidth='1080px'>
+      <GridWrapper>
+        <GridVector src={vectorHeroGrid} alt='' role='presentation' />
+        <GridContent>
+          <Hero title={title} displayYear={displayYear} />
+        </GridContent>
+      </GridWrapper>
     </Center>
   );
 };

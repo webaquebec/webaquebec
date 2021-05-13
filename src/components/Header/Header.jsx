@@ -27,10 +27,17 @@ import {
 
 const primaryNavigation = [
   {
-    id: 'blog',
-    label: 'blogue',
-    slug: '/blog',
+    id: 'prog',
+    label: 'programmation',
+    slug: '/programmation',
+    type: 'internal',
   },
+  // {
+  //   id: 'blog',
+  //   label: 'blogue',
+  //   slug: '/blogue',
+  //   type: 'internal',
+  // },
   {
     id: 'faq',
     label: 'FAQ',

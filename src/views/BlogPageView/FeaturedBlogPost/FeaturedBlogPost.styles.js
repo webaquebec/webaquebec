@@ -18,6 +18,7 @@ export const PostWrapper = css`
   ${breakpointsRange(
     [
       { prop: 'padding', sizes: [16, 32], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [-150, -50], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [60, 50], bases: [16, 20] },
     ],
     breakpoints.spacings
