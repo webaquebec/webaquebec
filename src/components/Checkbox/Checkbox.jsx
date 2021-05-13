@@ -21,6 +21,7 @@ const customId = randomString();
  *    value='bonjour'
  *    checked={values.greeting === 'bonjour'}
  *    onChange={handleChange}
+ *    darkTheme
  * >
  *    Bonjour 👋
  * </Checkbox>
@@ -42,10 +43,17 @@ const Checkbox = ({
   disabled,
   onChange,
   onBlur,
+  darkTheme,
   ...rest
 }) => {
   return (
-    <CheckboxLabel htmlFor={customId} disabled={disabled} {...rest}>
+    <CheckboxLabel
+      $darkTheme={darkTheme}
+      $checked={checked}
+      htmlFor={customId}
+      disabled={disabled}
+      {...rest}
+    >
       <HiddenCheckbox
         id={customId}
         name={name}
@@ -55,7 +63,7 @@ const Checkbox = ({
         onChange={onChange}
         onBlur={onBlur}
       />
-      <StyledCheckbox>
+      <StyledCheckbox $darkTheme={darkTheme} $checked={checked}>
         <CheckMark />
       </StyledCheckbox>
       {children}
@@ -92,12 +100,17 @@ Checkbox.propTypes = {
    * The event handler called when the input loses focus
    */
   onBlur: PropTypes.func,
+  /**
+   * Specifies whether it is for dark theme or not (default for light)
+   */
+  darkTheme: PropTypes.bool,
 };
 Checkbox.defaultProps = {
   checked: false,
   disabled: false,
   onChange: () => {},
   onBlur: () => {},
+  darkTheme: false,
 };
 
 export default Checkbox;

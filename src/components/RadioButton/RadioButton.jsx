@@ -20,6 +20,7 @@ const customId = randomString();
  *    value='chargedup'
  *    checked={values.excitementLevel === 'chargedup'}
  *    onChange={handleChange}
+ *    darkTheme
  * >
  *    Low 🙂
  * </RadioButton>
@@ -31,6 +32,7 @@ const customId = randomString();
  *    onChange={handleChange}
  * >
  *    Normal 😃
+ * </RadioButton>
  *
  * <RadioButton
  *    name='excitement-level'
@@ -49,10 +51,17 @@ const RadioButton = ({
   disabled,
   onChange,
   onBlur,
+  darkTheme,
   ...rest
 }) => {
   return (
-    <RadioButtonLabel htmlFor={customId} disabled={disabled} {...rest}>
+    <RadioButtonLabel
+      $darkTheme={darkTheme}
+      $checked={checked}
+      htmlFor={customId}
+      disabled={disabled}
+      {...rest}
+    >
       <HiddenRadioButton
         id={customId}
         name={name}
@@ -62,7 +71,7 @@ const RadioButton = ({
         onChange={onChange}
         onBlur={onBlur}
       />
-      <StyledRadioButton />
+      <StyledRadioButton $darkTheme={darkTheme} $checked={checked} />
       {children}
     </RadioButtonLabel>
   );
@@ -97,12 +106,17 @@ RadioButton.propTypes = {
    * The event handler called when the input loses focus
    */
   onBlur: PropTypes.func,
+  /**
+   * Specifies whether it is for dark theme or not (default for light)
+   */
+  darkTheme: PropTypes.bool,
 };
 RadioButton.defaultProps = {
   checked: false,
   disabled: false,
   onChange: () => {},
   onBlur: () => {},
+  darkTheme: false,
 };
 
 export default RadioButton;
