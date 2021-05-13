@@ -15,7 +15,7 @@ module.exports = {
         // Defaults to false meaning GTM will only be loaded in production.
         includeInDevelopment: false,
 
-        // datalayer to be set before GTM is loaded
+        // Datalayer to be set before GTM is loaded
         // should be an object or a function that is executed in the browser
         //
         // Defaults to null
@@ -25,11 +25,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
-        // your google analytics tracking id
         trackingId: `UA-20043510-1`,
         // Puts tracking script in the head instead of the body
         head: false,
-        // enable ip anonymization
+        // Enable ip anonymization
         anonymize: true,
       },
     },
@@ -90,5 +89,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    'gatsby-plugin-netlify',
   ],
 };

@@ -10,6 +10,8 @@ import breakpoints from '../../styles/breakpoints';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 export const IconContainer = styled.div`
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,27 +75,51 @@ export const outlinedIconStyle = css`
   ${IconContainer} {
     ${breakpointsRange(
       [
-        { prop: 'marginTop', sizes: [-31, -31], bases: [16, 20] },
-        { prop: 'marginBottom', sizes: [-31, -31], bases: [16, 20] },
+        // { prop: 'marginTop', sizes: [-31, -31], bases: [16, 20] },
+        // { prop: 'marginBottom', sizes: [-31, -31], bases: [16, 20] },
         { prop: 'paddingLeft', sizes: [32, 32], bases: [16, 20] },
       ],
       breakpoints.spacings
     )};
 
-    border-left: 3px solid;
+    ::before {
+      position: absolute;
+      left: 0;
+
+      width: 3px;
+      height: calc(100% + var(--padding-vertical) * 2 + 2 * 3px);
+
+      background-color: currentColor;
+
+      content: '';
+    }
   }
 `;
 
 export const outlinedIconFirstStyle = css`
   ${IconContainer} {
     padding: 0;
+
     ${breakpointsRange(
       [{ prop: 'paddingRight', sizes: [32, 32], bases: [16, 20] }],
       breakpoints.spacings
     )};
 
-    border: 0;
-    border-right: 3px solid;
+    ::before {
+      display: none;
+    }
+
+    ::after {
+      position: absolute;
+      right: 0;
+
+      width: 3px;
+      height: calc(100% + var(--padding-vertical) * 2 + 2 * 3px);
+
+      background-color: currentColor;
+
+      content: '';
+    }
   }
 `;
 
@@ -121,13 +147,13 @@ export const smallStyle = css`
     [
       { prop: 'fontSize', sizes: [12, 16], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [20, 24], bases: 16, unit: '' },
-      { prop: 'paddingTop', sizes: [12, 12], bases: [16, 20] },
-      { prop: 'paddingRight', sizes: [30, 30], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [12, 12], bases: [16, 20] },
-      { prop: 'paddingLeft', sizes: [30, 30], bases: [16, 20] },
+      { prop: '--paddingVertical', sizes: [12, 12], bases: [16, 20] },
+      { prop: '--paddingHorizontal', sizes: [30, 30], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
+
+  padding: var(--padding-vertical) var(--padding-horizontal);
 `;
 
 export const iconFirstStyle = css`
@@ -184,23 +210,24 @@ export const animatedStyle = css`
 /* Default button styled */
 const StyledButton = styled.button`
   display: inline-flex;
-
-  color: ${colors.turquoise80};
-
-  font-weight: ${fontWeights.medium};
-  text-decoration: none;
+  align-items: center;
 
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [16, 20], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [19, 24], bases: [16, 20], unit: '' },
-      { prop: 'paddingTop', sizes: [28, 28], bases: [16, 20] },
-      { prop: 'paddingRight', sizes: [32, 32], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [28, 28], bases: [16, 20] },
-      { prop: 'paddingLeft', sizes: [32, 32], bases: [16, 20] },
+      { prop: '--paddingVertical', sizes: [28, 28], bases: [16, 20] },
+      { prop: '--paddingHorizontal', sizes: [32, 32], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
+
+  padding: var(--padding-vertical) var(--padding-horizontal);
+
+  color: ${colors.turquoise80};
+
+  font-weight: ${fontWeights.medium};
+  text-decoration: none;
 
   background-color: ${colors.bleu80};
   border: 0;

@@ -67,6 +67,8 @@ const Menu = ({ opened, onClose, primaryNavigation }) => {
                     activeClassName='active'
                     partiallyActive
                     onClick={onClose}
+                    rel='noopener noreferrer'
+                    target='_blank'
                   >
                     {item.label}
                   </NavLink>

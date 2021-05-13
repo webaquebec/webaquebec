@@ -84,6 +84,8 @@ const Header = ({ isHomePage }) => {
                       href={item.slug}
                       activeClassName='active'
                       partiallyActive
+                      rel='noopener noreferrer'
+                      target='_blank'
                     >
                       {item.label}
                     </NavLink>
