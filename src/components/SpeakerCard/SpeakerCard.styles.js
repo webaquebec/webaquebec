@@ -1,11 +1,9 @@
 // vendors
 import styled, { css } from 'styled-components';
-// import { em } from 'polished';
 
 // styles
 import colors from '../../styles/colors';
 import { fontWeights } from '../../styles/typography';
-// import { speed } from '../../styles/animation';
 import breakpoints from '../../styles/breakpoints';
 import breakpointsRange from '../../utils/breakpointsRange';
 
@@ -43,7 +41,10 @@ export const SpeakerHeader = styled.p`
   color: ${colors.bleu80};
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [16, 0], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [16, 0], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -71,5 +72,8 @@ export const HeaderInfo = styled.span`
 
 export const SpeakerDescription = styled.div`
   color: ${colors.gris90};
-  font-size: 14px;
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [14, 14], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;

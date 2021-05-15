@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+// styles
 import {
   StyledSpeakerCard,
   SpeakerPicture,
@@ -85,23 +87,7 @@ SpeakerCard.propTypes = {
       })
     ).isRequired,
     description: PropTypes.string.isRequired,
-  }),
-};
-
-SpeakerCard.defaultProps = {
-  speaker: {
-    name: '',
-    job: '',
-    company: '',
-    picture: '',
-    links: [
-      {
-        src: '',
-        type: 'email',
-      },
-    ],
-    description: '',
-  },
+  }).isRequired,
 };
 
 export default SpeakerCard;
