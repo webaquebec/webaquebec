@@ -156,6 +156,17 @@ export const smallStyle = css`
   padding: var(--padding-vertical) var(--padding-horizontal);
 `;
 
+export const mediumStyle = css`
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [14, 18], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [16, 20], bases: 16, unit: '' },
+      { prop: 'padding', sizes: [12, 24], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
 export const iconFirstStyle = css`
   ${TextWrapper} {
     order: 1;
@@ -261,6 +272,9 @@ const StyledButton = styled.button`
 
   /* Apply small style when small props defined */
   ${({ $small }) => $small && smallStyle}
+  
+  /* Apply small style when medium props defined */
+  ${({ $medium }) => $medium && mediumStyle}
 
   /* Apply outlined style when outlined props defined */
   ${({ $outlined }) => $outlined && outlinedStyle}

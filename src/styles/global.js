@@ -45,6 +45,8 @@ export const htmlStyle = css`
 `;
 
 export const bodyStyle = css`
+  overflow-x: hidden;
+
   font-weight: ${fontWeights.regular};
   font-family: ${fontFamilies.body};
   ${breakpointsRange(
