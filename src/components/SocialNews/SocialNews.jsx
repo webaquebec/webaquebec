@@ -21,10 +21,10 @@ import Paper from '../Paper';
 import Button from '../Button';
 
 // images
-import facebook from '../../images/socialMedia/Facebook.svg';
-import twitter from '../../images/socialMedia/Twitter.svg';
-import instagram from '../../images/socialMedia/Instagram.svg';
-import linkedin from '../../images/socialMedia/Linkedin.svg';
+import facebook from '../../images/socialMedia/facebook.svg';
+import twitter from '../../images/socialMedia/twitter.svg';
+import instagram from '../../images/socialMedia/instagram.svg';
+import linkedin from '../../images/socialMedia/linkedin.svg';
 
 const SocialNews = () => {
   const socialMedia = [
@@ -73,7 +73,11 @@ const SocialNews = () => {
             <MediaList>
               {socialMedia.map((media) => (
                 <li key={`media-item-${media.name}`}>
-                  <a href={media.link}>
+                  <a
+                    href={media.link}
+                    rel='noopener noreferrer'
+                    target='_blank'
+                  >
                     <img src={media.img} alt={media.name} />
                   </a>
                 </li>
