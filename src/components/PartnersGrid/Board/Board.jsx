@@ -46,32 +46,6 @@ const images = [
       'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
     url: 'https://www.robic.ca/',
   },
-  {
-    src: logoBdc,
-    alt: 'BDC - Banque de développement du Canada | BDC.ca',
-    url: 'https://www.bdc.ca/fr',
-  },
-  {
-    src: logoLeCamp,
-    alt: 'Incubateur d’entreprises technologiques à Québec | LE CAMP',
-    url: 'https://lecampquebec.com',
-  },
-  {
-    src: logoMauvaisGarcons,
-    alt: 'Les Mauvais Garçons - Culture de marque',
-    url: 'https://lesmauvaisgarcons.ca/',
-  },
-  {
-    src: logoPwc,
-    alt: 'PwC Canada',
-    url: 'https://www.pwc.com/ca/fr/',
-  },
-  {
-    src: logoRobic,
-    alt:
-      'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
-    url: 'https://www.robic.ca/',
-  },
 ];
 
 const Board = () => {
@@ -85,20 +59,15 @@ const Board = () => {
     setSquaresNbr(84);
 
     let positions = [
-      [39, 'top', 'left', undefined, undefined],
       [56, 'top', 'left', undefined, undefined],
-      [62, 'bottom', 'right', undefined, undefined],
       [63, 'bottom', 'left', undefined, undefined],
-      [66, 'bottom', 'right', undefined, undefined],
       [74, 'top', 'right', undefined, undefined],
       [78, 'top', 'right', undefined, undefined],
-      [80, 'bottom', 'left', undefined, undefined],
       [82, 'bottom', 'right', undefined, undefined],
-      [82, 'bottom', 'right', undefined, '-164px'],
     ];
 
     if (tablet) {
-      setSquaresNbr(78);
+      setSquaresNbr(54);
 
       positions = [
         [38, 'bottom', 'right', undefined, undefined],
@@ -106,16 +75,11 @@ const Board = () => {
         [45, 'top', 'left', undefined, undefined],
         [46, 'top', 'left', '29px', undefined],
         [49, 'top', 'left', undefined, undefined],
-        [55, 'top', 'left', undefined, '28px'],
-        [64, 'bottom', 'left', undefined, undefined],
-        [69, 'top', 'right', undefined, undefined],
-        [70, 'top', 'left', undefined, undefined],
-        [75, 'top', 'right', undefined, '28px'],
       ];
     }
 
     if (mobile) {
-      setSquaresNbr(138);
+      setSquaresNbr(102);
 
       positions = [
         [67, 'top', 'left', undefined, undefined],
@@ -123,11 +87,6 @@ const Board = () => {
         [81, 'top', 'left', undefined, undefined],
         [93, 'top', 'left', undefined, undefined],
         [96, 'top', 'left', undefined, undefined],
-        [108, 'top', 'left', undefined, undefined],
-        [112, 'top', 'left', undefined, undefined],
-        [122, 'top', 'left', undefined, undefined],
-        [124, 'top', 'left', undefined, undefined],
-        [134, 'top', 'left', undefined, undefined],
       ];
     }
 
