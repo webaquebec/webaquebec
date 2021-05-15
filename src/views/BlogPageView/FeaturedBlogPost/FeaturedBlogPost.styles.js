@@ -10,6 +10,9 @@ import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
 
+// images
+import VectorStar from '../../../images/VectorStar';
+
 export const PostWrapper = css`
   @media (min-width: ${em(992)}) {
     transform: rotate3d(0, 0, 1, -1.12deg);
@@ -48,6 +51,8 @@ export const PostPicture = styled.img`
 `;
 
 export const PostTitle = styled.h2`
+  display: flex;
+  align-items: center;
   margin: 0;
 
   ${breakpointsRange(
@@ -56,12 +61,20 @@ export const PostTitle = styled.h2`
   )};
 `;
 
-export const StarDecoration = styled.img`
+export const Star = styled(VectorStar)`
   margin-right: 8px;
+
+  ${breakpointsRange(
+    [
+      { prop: 'width', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'height', sizes: [16, 16], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
 `;
 
 export const PostDate = styled.p`
-  color: ${colors.jaune90};
+  color: ${colors.jaune80};
 
   font-weight: ${fontWeights.bold};
 

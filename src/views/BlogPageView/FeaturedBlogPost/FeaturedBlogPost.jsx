@@ -6,9 +6,6 @@ import Switcher from '../../../components/LayoutSections/Switcher';
 import Button from '../../../components/Button';
 import Paper from '../../../components/Paper';
 
-// images
-import vectorStarDecoration from '../../../images/vectorStarDecoration.svg';
-
 // styles
 import {
   PostWrapper,
@@ -16,7 +13,7 @@ import {
   PostPictureWrapper,
   PostPicture,
   PostTitle,
-  StarDecoration,
+  Star,
   PostDate,
   PostSummary,
 } from './FeaturedBlogPost.styles';
@@ -49,11 +46,7 @@ const FeaturedBlogPost = () => {
           <PostContent>
             <PostTitle>{data.title}</PostTitle>
             <PostDate>
-              <StarDecoration
-                src={vectorStarDecoration}
-                role='presentation'
-                alt=''
-              />
+              <Star color={colors.yellow80} />
               {data.publishDate}
             </PostDate>
             <PostSummary>{data.summary}</PostSummary>
