@@ -10,8 +10,6 @@ import logoBeet from '../../../images/logoPartners/associates/logo-beet.svg';
 import logoFinaltaCapital from '../../../images/logoPartners/associates/logo-finalta-capital.svg';
 import logoMauvaisGarcons from '../../../images/logoPartners/associates/logo-mauvais-garcons.svg';
 import logoFernandezRp from '../../../images/logoPartners/associates/logo-fernandez-rp.svg';
-// import logoPwc from '../../../images/logoPartners/associates/logo-pwc.svg';
-// import logoRobic from '../../../images/logoPartners/associates/logo-robic.svg';
 
 // utils
 import { lessThanCondition } from '../../../utils/mediaQuery';
