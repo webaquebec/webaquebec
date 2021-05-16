@@ -9,9 +9,9 @@ const PremiumLogoCard = ({ image, accentBgColor, ...rest }) => (
   <Container {...rest}>
     <Link
       href={image.url}
-      $accentBgColor={accentBgColor}
-      rel='noopener noreferrer'
       target='_blank'
+      rel='noopener noreferrer'
+      $accentBgColor={accentBgColor}
     >
       <Wrapper centered='img' minHeight='218px' noPadding>
         <Image src={image.src} alt={image.alt} />

@@ -11,8 +11,10 @@ import logoLevio from '../../../images/logoPartners/premium/logo-levio.svg';
 import logoNventive from '../../../images/logoPartners/premium/logo-nventive.svg';
 import logoEquisoft from '../../../images/logoPartners/premium/logo-equisoft.svg';
 import logoIxmedia from '../../../images/logoPartners/premium/logo-ixmedia.svg';
-import logoFinaltaCapital from '../../../images/logoPartners/premium/logo-finalta-capital.svg';
-import logoBeet from '../../../images/logoPartners/premium/logo-beet.svg';
+import logoRobic from '../../../images/logoPartners/premium/logo-robic.svg';
+import logoPwc from '../../../images/logoPartners/premium/logo-pwc.svg';
+import logoBdc from '../../../images/logoPartners/premium/logo-bdc.svg';
+import logoLeCamp from '../../../images/logoPartners/premium/logo-le-camp.svg';
 
 // utils
 import { lessThan } from '../../../utils/mediaQuery';
@@ -40,19 +42,30 @@ const PremiumGrid = () => {
       url: 'https://nventive.com/fr/',
     },
     {
+      src: logoBdc,
+      alt: 'BDC - Banque de développement du Canada | BDC.ca',
+      url: 'https://www.bdc.ca/fr',
+    },
+    {
       src: logoLibeo,
       alt: 'Libéo | Innover pour simplifier votre transformation numérique',
       url: 'https://libeo.com',
     },
     {
-      src: logoFinaltaCapital,
-      alt: 'Finalta Capital',
-      url: 'https://finaltacapital.com/',
+      src: logoRobic,
+      alt:
+        'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
+      url: 'https://www.robic.ca/',
     },
     {
       src: logoEquisoft,
       alt: "Equisoft | Solutions logicielles d'assurance et d'investissement",
       url: 'https://www.equisoft.com/fr/',
+    },
+    {
+      src: logoLeCamp,
+      alt: 'Incubateur d’entreprises technologiques à Québec | LE CAMP',
+      url: 'https://lecampquebec.com',
     },
     {
       src: logoLevio,
@@ -61,9 +74,9 @@ const PremiumGrid = () => {
       url: 'https://levio.ca/',
     },
     {
-      src: logoBeet,
-      alt: 'Beet agence à Québec – Création de sites web et production vidéo',
-      url: 'https://boitebeet.com/',
+      src: logoPwc,
+      alt: 'PwC Canada',
+      url: 'https://www.pwc.com/ca/fr/',
     },
   ];
 
@@ -96,8 +109,8 @@ const PremiumGrid = () => {
             grid-row: 2;
 
             ${lessThan(selfBreakpoints[2])} {
-              grid-column: 3;
-              grid-row: 1;
+              grid-column: 1;
+              grid-row: 2;
             }
 
             ${lessThan(selfBreakpoints[1])} {
@@ -121,21 +134,16 @@ const PremiumGrid = () => {
         <div
           css={`
             display: flex;
-            align-items: center;
 
             grid-column: 2;
-            grid-row: 1 / span 2;
+            grid-row: 1;
 
             ${lessThan(selfBreakpoints[2])} {
-              align-items: normal;
-
-              grid-column: 1;
+              grid-column: 2;
               grid-row: 2;
             }
 
             ${lessThan(selfBreakpoints[1])} {
-              align-items: normal;
-
               grid-column: 1;
               grid-row: 2;
             }
@@ -155,19 +163,19 @@ const PremiumGrid = () => {
           css={`
             display: flex;
 
-            grid-column: 3;
-            grid-row: 1;
+            grid-column: 2;
+            grid-row: 2;
 
             ${lessThan(selfBreakpoints[2])} {
               grid-column: 2;
-              grid-row: 2;
+              grid-row: 3;
             }
 
             ${lessThan(selfBreakpoints[1])} {
               align-items: flex-end;
 
               grid-column: 2;
-              grid-row: 2;
+              grid-row: 4;
             }
           `}
         >
@@ -186,42 +194,11 @@ const PremiumGrid = () => {
             display: flex;
 
             grid-column: 3;
-            grid-row: 2;
+            grid-row: 1;
 
             ${lessThan(selfBreakpoints[2])} {
-              grid-column: 3;
-              grid-row: 2;
-            }
-
-            ${lessThan(selfBreakpoints[1])} {
-              grid-column: 1;
-              grid-row: 3;
-            }
-          `}
-        >
-          <LogoCard
-            image={images[4]}
-            accentBgColor={colors.ciel}
-            primary
-            css={`
-              flex-grow: 1;
-            `}
-          />
-        </div>
-
-        <div
-          css={`
-            display: flex;
-            align-items: center;
-
-            grid-column: 4;
-            grid-row: 1 / span 2;
-
-            ${lessThan(selfBreakpoints[2])} {
-              align-items: normal;
-
-              grid-column: 1;
-              grid-row: 3;
+              grid-column: 2;
+              grid-row: 1;
             }
 
             ${lessThan(selfBreakpoints[1])} {
@@ -233,8 +210,94 @@ const PremiumGrid = () => {
           `}
         >
           <LogoCard
-            image={images[5]}
+            image={images[4]}
             accentBgColor={colors.rose}
+            primary
+            css={`
+              flex-grow: 1;
+            `}
+          />
+        </div>
+
+        <div
+          css={`
+            display: flex;
+
+            grid-column: 3;
+            grid-row: 2;
+
+            ${lessThan(selfBreakpoints[2])} {
+              grid-column: 1;
+              grid-row: 3;
+            }
+
+            ${lessThan(selfBreakpoints[1])} {
+              grid-column: 1;
+              grid-row: 5;
+            }
+          `}
+        >
+          <LogoCard
+            image={images[5]}
+            accentBgColor={colors.ciel}
+            primary
+            css={`
+              flex-grow: 1;
+            `}
+          />
+        </div>
+
+        <div
+          css={`
+            display: flex;
+
+            grid-column: 4;
+            grid-row: 1;
+
+            ${lessThan(selfBreakpoints[2])} {
+              grid-column: 3;
+              grid-row: 1;
+            }
+
+            ${lessThan(selfBreakpoints[1])} {
+              align-items: flex-end;
+
+              grid-column: 2;
+              grid-row: 2;
+            }
+          `}
+        >
+          <LogoCard
+            image={images[6]}
+            accentBgColor={colors.turquoise}
+            primary
+            css={`
+              flex-grow: 1;
+            `}
+          />
+        </div>
+
+        <div
+          css={`
+            display: flex;
+
+            grid-column: 4;
+            grid-row: 2;
+
+            ${lessThan(selfBreakpoints[2])} {
+              grid-column: 3;
+              grid-row: 3;
+            }
+
+            ${lessThan(selfBreakpoints[1])} {
+              grid-column: 1;
+              grid-row: 4;
+            }
+          `}
+        >
+          <LogoCard
+            image={images[7]}
+            accentBgColor={colors.mauve}
             primary
             css={`
               flex-grow: 1;
@@ -250,19 +313,19 @@ const PremiumGrid = () => {
             grid-row: 1;
 
             ${lessThan(selfBreakpoints[2])} {
-              grid-column: 2;
-              grid-row: 3;
+              grid-column: 3;
+              grid-row: 2;
             }
 
             ${lessThan(selfBreakpoints[1])} {
               grid-column: 1;
-              grid-row: 4;
+              grid-row: 3;
             }
           `}
         >
           <LogoCard
-            image={images[6]}
-            accentBgColor={colors.mauve}
+            image={images[8]}
+            accentBgColor={colors.ciel}
             primary
             css={`
               flex-grow: 1;
@@ -278,21 +341,21 @@ const PremiumGrid = () => {
             grid-row: 2;
 
             ${lessThan(selfBreakpoints[2])} {
-              grid-column: 3;
-              grid-row: 3;
+              grid-column: 2;
+              grid-row: 4;
             }
 
             ${lessThan(selfBreakpoints[1])} {
               align-items: flex-end;
 
               grid-column: 2;
-              grid-row: 4;
+              grid-row: 5;
             }
           `}
         >
           <LogoCard
-            image={images[7]}
-            accentBgColor={colors.turquoise}
+            image={images[9]}
+            accentBgColor={colors.rose}
             primary
             css={`
               flex-grow: 1;
