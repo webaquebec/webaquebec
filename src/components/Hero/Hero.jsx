@@ -9,10 +9,10 @@ import { GridTitle, GridTitleWrapper, YearSticker } from './Hero.styles';
 // images
 import vectorYear2021 from '../../images/vectorYear2021.svg';
 
-const Hero = ({ title, displayYear }) => {
+const Hero = ({ title, displayYear, tag }) => {
   return (
     <GridTitleWrapper>
-      <GridTitle>
+      <GridTitle as={tag}>
         {title}
         {displayYear && <span css={hideVisually}>2021</span>}
       </GridTitle>
@@ -25,9 +25,13 @@ const Hero = ({ title, displayYear }) => {
 
 Hero.propTypes = {
   /**
+   * Specifies how the hero itself should be rendered.
+   */
+  tag: PropTypes.string,
+  /**
    * Specifies the page title to display in the grid
    */
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   /**
    * Specifies whether the year is displayed or not
    */
@@ -35,7 +39,7 @@ Hero.propTypes = {
 };
 
 Hero.defaultProps = {
-  title: '',
+  tag: 'h1',
   displayYear: false,
 };
 

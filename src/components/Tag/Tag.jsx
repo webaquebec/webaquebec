@@ -13,12 +13,13 @@ import vectorSpeaker from '../../images/tags/vectorSpeaker.svg';
  *
  * @example
  * <Tag>Design UX</Tag>
+ * <Tag outlined>Design UX</Tag>
  * <Tag eventType='talk' />
  * <Tag room='design' />
  * <Tag speaker={speaker} />
  */
 
-const Tag = ({ room, speaker, eventType, children }) => {
+const Tag = ({ room, speaker, eventType, outlined, children }) => {
   let tagType = 'default';
   if (room) {
     tagType = 'room';
@@ -50,6 +51,7 @@ const Tag = ({ room, speaker, eventType, children }) => {
       $innovationRoom={tagType === 'room' && room === 'innovation'}
       $speaker={tagType === 'speaker'}
       $eventType={tagType === 'eventType'}
+      $outlined={outlined}
     >
       {tagType === 'room' && (
         <>
@@ -102,6 +104,13 @@ Tag.propTypes = {
    * Specifies the type of event if the tag is a type one
    */
   eventType: PropTypes.oneOf(['talk', 'workshop']),
+  /**
+   * Specifies whether the tag is outlined or not
+   */
+  outlined: PropTypes.bool,
+  /**
+   * Child node elements within the tag content
+   */
   children: PropTypes.node,
 };
 
@@ -109,6 +118,7 @@ Tag.defaultProps = {
   room: undefined,
   speaker: undefined,
   eventType: undefined,
+  outlined: false,
   children: undefined,
 };
 
