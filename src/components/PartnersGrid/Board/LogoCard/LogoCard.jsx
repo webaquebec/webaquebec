@@ -22,7 +22,7 @@ const LogoCard = ({
     $borderWidth={borderWidth}
     {...rest}
   >
-    <Link href={image.url}>
+    <Link rel='noopener noreferrer' target='_blank' href={image.url}>
       <Wrapper centered='img' minHeight='100%' noPadding>
         <Image src={image.src} alt={image.alt} />
       </Wrapper>

@@ -27,6 +27,18 @@ import {
 
 const primaryNavigation = [
   {
+    id: 'prog',
+    label: 'programmation',
+    slug: '/programmation',
+    type: 'internal',
+  },
+  // {
+  //   id: 'blog',
+  //   label: 'blogue',
+  //   slug: '/blogue',
+  //   type: 'internal',
+  // },
+  {
     id: 'faq',
     label: 'FAQ',
     slug: '/faq',
@@ -79,6 +91,8 @@ const Header = ({ isHomePage }) => {
                       href={item.slug}
                       activeClassName='active'
                       partiallyActive
+                      rel='noopener noreferrer'
+                      target='_blank'
                     >
                       {item.label}
                     </NavLink>
