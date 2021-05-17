@@ -20,6 +20,7 @@ const Button = ({
   primary,
   outlined,
   small,
+  medium,
   renderIcon,
   iconFirst,
   animated,
@@ -42,6 +43,7 @@ const Button = ({
       disabled={disabled}
       $primary={primary}
       $small={small}
+      $medium={medium}
       $hasIcon={!!renderIcon}
       $iconFirst={iconFirst}
       $outlined={outlined}
@@ -89,6 +91,10 @@ Button.propTypes = {
    */
   small: PropTypes.bool,
   /**
+   * Specifies whether the button is medium or regular size
+   */
+  medium: PropTypes.bool,
+  /**
    * Specifies the button should be disabled
    */
   disabled: PropTypes.bool,
@@ -118,6 +124,7 @@ Button.defaultProps = {
   primary: false,
   outlined: false,
   small: false,
+  medium: false,
   disabled: false,
   animated: false,
   iconFirst: false,

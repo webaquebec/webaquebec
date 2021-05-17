@@ -107,7 +107,13 @@ const Footer = () => {
                 <ArchivesList>
                   {archives.map((year) => (
                     <ArchiveItem key={year.year}>
-                      <ArchiveLink href={year.link}>{year.year}</ArchiveLink>
+                      <ArchiveLink
+                        rel='noopener noreferrer'
+                        target='_blank'
+                        href={year.link}
+                      >
+                        {year.year}
+                      </ArchiveLink>
                     </ArchiveItem>
                   ))}
                 </ArchivesList>
