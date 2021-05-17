@@ -57,8 +57,8 @@ const EventContainer = styled.div`
 
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [40, 105], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [50, 120], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [16, 105], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [16, 120], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -69,8 +69,8 @@ const EventTitle = styled.h1`
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [20, 24], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [24, 32], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [24, 24], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [32, 32], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [16, 16], bases: [16, 20] },
     ],
     breakpoints.spacings
