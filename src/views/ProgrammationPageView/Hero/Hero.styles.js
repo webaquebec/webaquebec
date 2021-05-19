@@ -15,13 +15,32 @@ export const DateList = styled.ul`
   margin: 0;
   padding: 0;
 
+  overflow-x: auto;
+
   list-style: none;
   transform: translateY(-50%);
+  scroll-snap-type: x mandatory;
+`;
+
+export const DateListItem = styled.li`
+  scroll-snap-align: center;
+
+  text-align: center;
+
+  @media screen and (max-width: 40em) {
+    flex: 0 0 120px;
+  }
 `;
 
 export const DateTab = css`
+  height: 100%;
+
   background-color: ${colors.white};
   border-radius: 16px;
+
+  @media screen and (max-width: 40em) {
+    width: calc(100% - 8px);
+  }
 `;
 
 export const ActiveDateTab = css`
