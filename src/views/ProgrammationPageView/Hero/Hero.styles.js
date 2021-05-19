@@ -22,13 +22,13 @@ export const DateList = styled.ul`
 export const DateTab = css`
   background-color: ${colors.white};
   border-radius: 16px;
-`;
 
-export const ActiveDateTab = css`
-  color: ${colors.white};
-  font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
+  &.active-date-tab {
+    color: ${colors.white};
+    font-weight: ${fontWeights.bold};
+    font-family: ${fontFamilies.redaction35};
 
-  background-color: ${colors.bleu80};
-  border-color: ${colors.bleu80};
+    background-color: ${colors.bleu80};
+    border-color: ${colors.bleu80};
+  }
 `;
