@@ -35,6 +35,8 @@ export const speakerStyle = css`
 `;
 
 export const SpeakerInfo = styled.span`
+  font-weight: ${fontWeights.regular};
+
   :first-child {
     font-weight: ${fontWeights.bold};
   }
@@ -69,7 +71,9 @@ export const TagIcon = css`
 export const StyledTag = styled.div`
   display: inline-flex;
   align-items: center;
-  margin: 0 16px 16px 0;
+
+  /* margin: 0 16px 16px 0; */
+
   padding: 12px;
 
   color: ${colors.gris90};

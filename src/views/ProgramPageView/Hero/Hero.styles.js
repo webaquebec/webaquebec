@@ -16,19 +16,21 @@ export const DateList = styled.ul`
   padding: 0;
 
   list-style: none;
-  transform: translateY(-50%);
 `;
 
-export const DateTab = css`
+export const dateTabStyle = css`
   background-color: ${colors.white};
   border-radius: 16px;
-`;
 
-export const ActiveDateTab = css`
-  color: ${colors.white};
-  font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
+  /* &.active,
+  :focus,
+  :hover:not(:disabled) {
+    color: ${colors.white};
 
-  background-color: ${colors.bleu80};
-  border-color: ${colors.bleu80};
+    font-weight: ${fontWeights.bold};
+    font-family: ${fontFamilies.redaction35};
+
+    background-color: ${colors.bleu80};
+    border-color: ${colors.bleu80};
+  } */
 `;

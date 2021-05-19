@@ -10,7 +10,7 @@ import 'sanitize.css/typography.css';
 
 import Footer from '../Footer';
 import Header from '../Header';
-import StaticGradientBackground from '../GradientBackground';
+// import StaticGradientBackground from '../GradientBackground';
 
 /**
  * The common Layout shared across all pages
@@ -26,7 +26,7 @@ const Layout = ({ children, location }) => {
       <GlobalStyle />
 
       {/** Only temporary until having a full dynamic gradient background */}
-      <StaticGradientBackground isHomePage={isHomePage} position='top' />
+      {/* <StaticGradientBackground isHomePage={isHomePage} position='top' /> */}
 
       <Header isHomePage={isHomePage} />
 
@@ -35,7 +35,7 @@ const Layout = ({ children, location }) => {
       <Footer />
 
       {/** Only temporary until having a full dynamic gradient background */}
-      <StaticGradientBackground position='bottom' />
+      {/* <StaticGradientBackground position='bottom' /> */}
     </>
   );
 };

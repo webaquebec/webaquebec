@@ -12,9 +12,9 @@ import vectorHeroGrid from '../../images/vectorHeroGrid.svg';
 // styles
 import { GridWrapper, GridVector, GridContent } from './HeroGrid.styles';
 
-const HeroGrid = ({ title, displayYear }) => {
+const HeroGrid = React.forwardRef(({ title, displayYear }, ref) => {
   return (
-    <Center maxWidth='1080px'>
+    <Center ref={ref} maxWidth='1080px'>
       <GridWrapper>
         <GridVector src={vectorHeroGrid} alt='' role='presentation' />
         <GridContent>
@@ -23,7 +23,7 @@ const HeroGrid = ({ title, displayYear }) => {
       </GridWrapper>
     </Center>
   );
-};
+});
 
 HeroGrid.propTypes = {
   /**
