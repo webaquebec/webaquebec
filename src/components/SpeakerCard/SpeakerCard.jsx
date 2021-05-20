@@ -30,6 +30,8 @@ import groupBy from '../../utils/groupBy';
 const SpeakerCard = ({ speaker }) => {
   const socialNetworksGroupByType = groupBy(speaker.socialNetworks, 'type');
 
+  const picture = speaker.photoUrlSharp?.childImageSharp?.fixed;
+
   const contactLinks = [
     {
       email: { name: 'Adresse courriel', icon: iconEmail, url: speaker.email },
@@ -66,7 +68,7 @@ const SpeakerCard = ({ speaker }) => {
     <Sidebar css={StyledSpeakerCard} contentMin='75%' sideWidth='8ch'>
       <div>
         <CardMobileHeader>
-          <SpeakerPicture src={speaker.photoUrl} alt={fullName} />
+          <SpeakerPicture fixed={picture} alt={fullName} />
           <div>
             <SpeakerInfo>
               <HeaderInfo>{fullName}</HeaderInfo>
@@ -88,8 +90,10 @@ const SpeakerCard = ({ speaker }) => {
         <div>
           <SpeakerHeader>
             <HeaderInfo>{fullName}</HeaderInfo>
-            <HeaderInfo>{speaker.jobTitle}</HeaderInfo>
-            <HeaderInfo>{speaker.organization}</HeaderInfo>
+            {speaker.jobTitle && <HeaderInfo>{speaker.jobTitle}</HeaderInfo>}
+            {speaker.organization && (
+              <HeaderInfo>{speaker.organization}</HeaderInfo>
+            )}
           </SpeakerHeader>
           <SpeakerDescription
             dangerouslySetInnerHTML={{ __html: speaker.biography }}
@@ -113,6 +117,15 @@ SpeakerCard.propTypes = {
     email: PropTypes.string,
     websiteUrl: PropTypes.string,
     photoUrl: PropTypes.string,
+    photoUrlSharp: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fixed: PropTypes.shape({
+          src: PropTypes.string.isRequired,
+          srcSet: PropTypes.string.isRequired,
+          srcSetWebp: PropTypes.string.isRequired,
+        }),
+      }),
+    }),
     socialNetworks: PropTypes.arrayOf(
       PropTypes.shape({
         profile: PropTypes.string,

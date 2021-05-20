@@ -52,15 +52,17 @@ const ScheduleCard = ({
       {...rest}
     >
       <Container lightColor={colors.white} darkColor={colors.gris90}>
-        <div
-          css={`
-            position: absolute;
-            top: 40px;
-            left: -8px;
-          `}
-        >
-          <StyledTimeStamp beginsAt={time.beginsAt} endsAt={time.endsAt} />
-        </div>
+        {time && (
+          <div
+            css={`
+              position: absolute;
+              top: 40px;
+              left: -8px;
+            `}
+          >
+            <StyledTimeStamp beginsAt={time.beginsAt} endsAt={time.endsAt} />
+          </div>
+        )}
 
         <Stack>
           <Title as={titleAs}>{title}</Title>

@@ -1,6 +1,6 @@
 const path = require(`path`);
-const groupBy = require(`lodash/groupBy`);
 const moment = require(`moment`);
+const groupBy = require(`../src/utils/groupBy.js`);
 const slugify = require(`../src/utils/strings/slugify.js`);
 
 /**  This function queries Gatsby's GraphQL server and asks for
@@ -50,10 +50,19 @@ const createSession = async ({ plannings, actions, reporter, variables }) => {
 
   const { eventId, page, pageSize } = variables;
 
+  const dayNumber = (item) => moment(item.beginsAt, 'YYYY-MM-DD').format('DD');
+
+  const planningsGroupByDate = groupBy(plannings, dayNumber);
+  const eventDates = Object.keys(planningsGroupByDate);
+
   reporter.info('creating session pages:');
 
-  plannings.map(async ({ id, title }) => {
+  plannings.map(async (planning) => {
+    const { title, id } = planning;
+
     const sessionPath = `/programmation/${slugify(title)}/`;
+
+    const pageIndex = eventDates.findIndex((d) => d === dayNumber(planning));
 
     reporter.info(sessionPath);
 
@@ -65,6 +74,7 @@ const createSession = async ({ plannings, actions, reporter, variables }) => {
         page,
         pageSize,
         planningIds: [id],
+        pageNumber: pageIndex + 1,
       },
     });
   });
@@ -88,8 +98,6 @@ const createProgram = async ({ plannings, actions, reporter, variables }) => {
   const eventDates = Object.keys(planningsGroupByDate);
   const totalPages = eventDates.length;
 
-  // console.log(eventDates);
-
   reporter.info('creating Program pages:');
 
   eventDates.forEach(async (date, index, array) => {
@@ -105,15 +113,9 @@ const createProgram = async ({ plannings, actions, reporter, variables }) => {
 
     reporter.info(getPagePath(pageNumber));
 
-    // const planningIds = planningsGroupByDate[date].reduce((ids, current) => {
-    //   ids.push(current.id);
-    //   return ids;
-    // }, []);
     const planningIds = planningsGroupByDate[date].map((current) => current.id);
 
     const pagePaths = array.map((_, i) => getPagePath(i + 1));
-
-    // console.log(planningIds, pagePaths);
 
     const { eventId, page, pageSize } = variables;
     // createPage is an action passed to createPages
@@ -129,6 +131,7 @@ const createProgram = async ({ plannings, actions, reporter, variables }) => {
         eventId,
         page,
         pageSize,
+        pageNumber,
         planningIds,
         nextPagePath: getPagePath(pageNumber + 1),
         previousPagePath: getPagePath(pageNumber - 1),
