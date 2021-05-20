@@ -34,8 +34,8 @@ export const GridContent = styled.div`
 
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [60, 120], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [60, 120], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [100, 120], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [100, 120], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};

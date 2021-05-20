@@ -7,7 +7,7 @@ import Center from '../../../components/LayoutSections/Center';
 import Button from '../../../components/Button';
 
 // styles
-import { DateList, DateTab } from './Hero.styles';
+import { DateList, DateListItem, DateTab } from './Hero.styles';
 
 const Hero = () => {
   const dates = [
@@ -23,7 +23,7 @@ const Hero = () => {
       <Center maxWidth='736px' gutters='var(--container-gutter)'>
         <DateList>
           {dates.map((item) => (
-            <li key={`date-${item.id}`}>
+            <DateListItem key={`date-${item.id}`}>
               <Button
                 to={`/programmation?d=${item.id}`}
                 outlined
@@ -33,7 +33,7 @@ const Hero = () => {
               >
                 {item.date}
               </Button>
-            </li>
+            </DateListItem>
           ))}
         </DateList>
       </Center>
