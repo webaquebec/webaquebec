@@ -10,7 +10,7 @@ import Center from '../../../components/LayoutSections/Center';
 import Button from '../../../components/Button';
 
 // styles
-import { DateList, dateTabStyle } from './Hero.styles';
+import { DateList, DateListItem, dateTabStyle } from './Hero.styles';
 import zIndexes from '../../../styles/zIndexes';
 import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 
@@ -38,10 +38,10 @@ const Hero = ({ datePaths }) => {
       <Wrapper>
         {!inView && <HeaderGradient />}
 
-        <Center maxWidth='736px' gutters='var(--container-gutter)'>
+        <Center maxWidth='736px'>
           <DateList>
             {datePaths.map((item) => (
-              <li key={item.dateNumber}>
+              <DateListItem key={item.dateNumber}>
                 <Button
                   to={item.path}
                   activeClassName='active'
@@ -50,9 +50,9 @@ const Hero = ({ datePaths }) => {
                   tag='link'
                   css={dateTabStyle}
                 >
-                  {item.date}
+                  <span>{item.date}</span>
                 </Button>
-              </li>
+              </DateListItem>
             ))}
           </DateList>
         </Center>
