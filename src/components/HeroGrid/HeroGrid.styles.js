@@ -10,6 +10,8 @@ import breakpoints from '../../styles/breakpoints';
 
 export const GridWrapper = styled.div`
   position: relative;
+
+  overflow: hidden;
 `;
 
 export const GridVector = styled.img`
