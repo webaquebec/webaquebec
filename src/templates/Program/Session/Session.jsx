@@ -119,7 +119,7 @@ const EventDescription = styled.div`
  * @param {Object} pageContext — Received context from the automatically created pages
  * (@Link gatsby/createScheduleSessionPages.js) and use that as variables GraphQL query.
  */
-const Session = ({ data }) => {
+const Session = ({ data, pageContext: { pageNumber } }) => {
   /**
    * Query to fetch data from Swapcard API at client side only.
    * Useful if we want to get up-to-date data that may change during an event (e.g. time, room)
@@ -139,18 +139,19 @@ const Session = ({ data }) => {
     swapcard: { plannings },
   } = data;
 
-  const getFormattedDate = (date) => {
+  const getFormattedLocaleDate = (date) => {
     moment.locale('fr_ca');
     return moment(date, 'YYYY-MM-DD').format('dddd DD MMMM');
   };
 
-  const getFormattedTime = (date) => {
-    return moment(date).format('HH:mm');
-  };
+  const getFormattedTime = (date) => moment(date).format('HH:mm');
+
+  const getDateYear = (date) => moment(date, 'YYYY-MM-DD').format('YYYY');
 
   // Re-arrange values from the plannings array the way we want to use it in our template
   const modifiedPlannings = plannings.map((planning) => ({
-    date: getFormattedDate(planning.beginsAt),
+    edition: getDateYear(planning.beginsAt),
+    date: getFormattedLocaleDate(planning.beginsAt),
     time: {
       beginsAt: getFormattedTime(planning.beginsAt),
       endsAt: getFormattedTime(planning.endsAt),
@@ -162,6 +163,7 @@ const Session = ({ data }) => {
   const session = modifiedPlannings[0];
 
   const {
+    edition,
     date,
     time,
     title,
@@ -172,6 +174,11 @@ const Session = ({ data }) => {
     place,
     speakers,
   } = session;
+
+  const pagePath =
+    pageNumber === 1
+      ? `/programmation/${edition}`
+      : `/programmation/${edition}/${pageNumber}`;
 
   return (
     <Layout>
@@ -189,7 +196,7 @@ const Session = ({ data }) => {
       <Container forwardedAs='div' faded padded>
         <Center maxWidth='1064px' gutters='var(--container-gutter)' intrinsic>
           <Button
-            to='/programmation/2021'
+            to={pagePath}
             tag='link'
             outlined
             iconFirst
@@ -250,6 +257,7 @@ Session.propTypes = {
     eventId: PropTypes.string,
     page: PropTypes.number,
     pageSize: PropTypes.number,
+    pageNumber: PropTypes.number,
     planningIds: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
 };
@@ -303,18 +311,18 @@ export const sessionQuery = graphql`
           websiteUrl
           organization
           jobTitle
-          photoUrl
           socialNetworks {
             profile
             type
           }
-          # photoUrlSharp {
-          #   childImageSharp {
-          #     fluid(maxWidth: 400, maxHeight: 400, quality: 100) {
-          #       ...GatsbyImageSharpFluid_withWebp
-          #     }
-          #   }
-          # }
+          photoUrl
+          photoUrlSharp {
+            childImageSharp {
+              fixed(width: 100, height: 100, quality: 90) {
+                ...GatsbyImageSharpFixed_withWebp
+              }
+            }
+          }
         }
       }
     }

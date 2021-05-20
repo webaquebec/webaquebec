@@ -42,13 +42,11 @@ const SectionContainer = styled(StyledSectionContainer)`
 const Program = ({
   location,
   data,
-  pageContext: { eventDates, pagePaths },
+  pageContext: { eventDates, pagePaths, pageNumber },
 }) => {
   const {
     swapcard: { plannings },
   } = data;
-
-  // console.log(plannings);
 
   // Re-arrange event dates the way we want to display them in the UI
   const displayableDates = eventDates.reduce((acc, current, index, array) => {
@@ -102,7 +100,9 @@ const Program = ({
                 title={current.title}
                 content={current.description}
                 place={current.place}
-                time={current.time}
+                time={
+                  pageNumber !== eventDates.length ? current.time : undefined
+                }
                 type={current.type}
                 category={current.categories[0]}
                 speakers={current.speakers}
@@ -133,6 +133,7 @@ Program.propTypes = {
     previousPagePath: PropTypes.string,
     eventDates: PropTypes.arrayOf(PropTypes.string),
     pagePaths: PropTypes.arrayOf(PropTypes.string),
+    pageNumber: PropTypes.number,
   }).isRequired,
 };
 

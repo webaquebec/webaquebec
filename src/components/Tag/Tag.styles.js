@@ -70,7 +70,7 @@ export const eventTypeStyle = css`
 export const outlinedStyle = css`
   color: ${colors.gris80};
 
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeights.regular};
 
   background-color: transparent;
   border: 2px solid ${colors.gris30};

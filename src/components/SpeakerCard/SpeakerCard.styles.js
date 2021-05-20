@@ -1,5 +1,6 @@
 // vendors
 import styled, { css } from 'styled-components';
+import Img from 'gatsby-image';
 
 // utils
 import { greaterThan } from '../../utils/mediaQuery';
@@ -28,7 +29,7 @@ export const CardMobileHeader = styled.div`
   }
 `;
 
-export const SpeakerPicture = styled.img`
+export const SpeakerPicture = styled(Img)`
   margin-right: 12px;
 
   border-radius: 6px;
@@ -102,12 +103,9 @@ export const LinkIcon = styled.img`
 export const SpeakerHeader = styled.p`
   display: none;
 
-  color: ${colors.bleu80};
+  margin-top: 0;
 
-  ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [16, 0], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
+  color: ${colors.bleu80};
 
   ${greaterThan(768)} {
     display: block;
@@ -124,7 +122,7 @@ export const HeaderInfo = styled.span`
   ${greaterThan(768)} {
     display: inline-block;
 
-    ::after {
+    ::before {
       display: inline-block;
       margin: 0 8px;
 
@@ -133,8 +131,8 @@ export const HeaderInfo = styled.span`
       content: '|';
     }
 
-    :last-child {
-      &::after {
+    :first-child {
+      &::before {
         display: none;
       }
     }
