@@ -5,7 +5,7 @@
  * @param  {String|Function} criteria The criteria to group by
  * @return {Object}                   The grouped object
  */
-export default (arr, criteria) => {
+module.exports = (arr, criteria) => {
   return arr.reduce((obj, item) => {
     // Check if the criteria is a function to run on the item or a property of it
     const key =
