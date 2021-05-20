@@ -7,14 +7,14 @@ import { hideVisually } from 'polished';
 import { easing } from '../../../styles/animation';
 import zIndexes from '../../../styles/zIndexes';
 import {
-  StyledHeroSection,
+  StyledHero,
   MarqueeWrapper,
   Dates,
   StarSeparator,
   MapPin,
   AddressFirstLine,
   StickerImg,
-} from './HeroSection.styles';
+} from './Hero.styles';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
@@ -26,7 +26,7 @@ import vectorMapPin from '../../../images/vectorMapPin.svg';
 import vectorStickerFlameMonitor from '../../../images/stickers/vectorStickerFlameMonitor.svg';
 import vectorStickerRainbowDoor from '../../../images/stickers/vectorStickerRainbowDoor.svg';
 
-const HeroSection = () => {
+const Hero = () => {
   const stickers = [
     {
       src: vectorStickerRainbowDoor,
@@ -67,7 +67,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <StyledHeroSection>
+    <StyledHero>
       <h2 css={hideVisually}>15 au 17 juin 2021</h2>
 
       <MarqueeWrapper>
@@ -129,8 +129,8 @@ const HeroSection = () => {
         <MapPin src={vectorMapPin} role='presentation' alt='' />
         <AddressFirstLine>Dans le confort de chez soi</AddressFirstLine>
       </Center>
-    </StyledHeroSection>
+    </StyledHero>
   );
 };
 
-export default HeroSection;
+export default Hero;

@@ -42,6 +42,7 @@ export const primaryStyle = css`
 
   background-color: ${colors.turquoise80};
 
+  &.active,
   :focus,
   :hover:not(:disabled) {
     background-color: ${colors.turquoise40};
@@ -62,6 +63,7 @@ export const outlinedPrimaryStyle = css`
 
   background-color: transparent;
 
+  &.active,
   :focus,
   :hover:not(:disabled) {
     ${outlinedPrimaryFocusHoverStyle};
@@ -140,6 +142,7 @@ export const outlinedStyle = css`
   border: 3px solid currentColor;
   border-radius: 5px;
 
+  &.active,
   :focus,
   :hover:not(:disabled) {
     ${outlinedFocusHoverStyle}
@@ -262,6 +265,7 @@ const StyledButton = styled.button`
     transition: transform ${speed.fast};
   }
 
+  &.active,
   :focus,
   :hover:not(:disabled) {
     background-color: ${colors.bleu90};

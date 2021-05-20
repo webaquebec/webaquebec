@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: 'Le Web à Québec',
@@ -90,5 +92,33 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
+    `gatsby-plugin-graphql-loader`,
+    {
+      /**
+       * The plugin that allows us to connect Gatsby to the Swapcard API
+       */
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: 'Swapcard',
+        fieldName: 'swapcard',
+        url: process.env.SWAPCARD_GRAPHQL_ENDPOINT,
+        headers: {
+          Authorization: process.env.SWAPCARD_API_ACCESS_TOKEN,
+        },
+      },
+    },
+    {
+      /**
+       * This plugin generates fileNodes in your graphQL schema
+       * and add File type to it. You can now use gatsby-plugin-sharp and gatsby-transformer-sharp
+       * in your GraphQL schema.
+       * See https://www.gatsbyjs.com/plugins/gatsby-image-graphql-schema
+       */
+      resolve: 'gatsby-image-graphql-schema',
+      options: {
+        imageNames: ['Swapcard_Speaker.photoUrl'],
+        schemaTypeName: 'Swapcard',
+      },
+    },
   ],
 };

@@ -6,6 +6,7 @@ import { StyledTag, TagIcon, SpeakerInfo } from './Tag.styles';
 import IconRoom from '../../images/tags/IconRoom';
 import vectorEventType from '../../images/tags/vectorEventType.svg';
 import vectorSpeaker from '../../images/tags/vectorSpeaker.svg';
+import unSlugify from '../../utils/strings/unSlugify';
 
 /**
  *
@@ -15,66 +16,90 @@ import vectorSpeaker from '../../images/tags/vectorSpeaker.svg';
  * <Tag>Design UX</Tag>
  * <Tag outlined>Design UX</Tag>
  * <Tag eventType='talk' />
- * <Tag room='design' />
+ * <Tag category='design' />
  * <Tag speaker={speaker} />
+ * <Tag place={place} />
  */
 
-const Tag = ({ room, speaker, eventType, outlined, children }) => {
+const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
   let tagType = 'default';
-  if (room) {
-    tagType = 'room';
+  if (category) {
+    tagType = 'category';
   } else if (speaker) {
     tagType = 'speaker';
   } else if (eventType) {
     tagType = 'eventType';
+  } else if (place) {
+    tagType = 'place';
   }
 
   // Room tag
-  const rooms = {
+  const categories = {
     design: 'Design',
-    communication: 'Communication & marketing',
-    development: 'Développement',
+    developpement: 'Développement',
     innovation: 'Innovation',
+    'communication-et-marketing': 'Communication & marketing',
   };
 
   // Event type tag
   const eventTypes = {
-    talk: 'Conférence',
-    workshop: 'Atelier',
+    conference: 'Conférence',
+    atelier: 'Atelier',
+    reseautage: 'Réseautage',
+    qanda: 'Q&A',
+    keynote: 'Keynote',
+    'contenu-sur-demande': 'Contenu sur demande',
+    'pitch-ton-waq': 'Pitch ton WAQ',
   };
 
   return (
     <StyledTag
-      $designRoom={tagType === 'room' && room === 'design'}
-      $commRoom={tagType === 'room' && room === 'communication'}
-      $devRoom={tagType === 'room' && room === 'development'}
-      $innovationRoom={tagType === 'room' && room === 'innovation'}
+      $designRoom={tagType === 'category' && category === 'design'}
+      $commRoom={
+        tagType === 'category' && category === 'communication-et-marketing'
+      }
+      $devRoom={tagType === 'category' && category === 'developpement'}
+      $innovationRoom={tagType === 'category' && category === 'innovation'}
       $speaker={tagType === 'speaker'}
       $eventType={tagType === 'eventType'}
       $outlined={outlined}
     >
-      {tagType === 'room' && (
-        <>
-          <span css={TagIcon}>
-            <IconRoom />
-          </span>
-          <span>{rooms[room]}</span>
-        </>
-      )}
+      {tagType === 'category' && <span>{categories[category]}</span>}
       {tagType === 'speaker' && (
         <>
           <img css={TagIcon} src={vectorSpeaker} alt='' role='presentation' />
           <div>
-            <SpeakerInfo>{speaker.name}</SpeakerInfo>
-            <SpeakerInfo>{speaker.job}</SpeakerInfo>
-            <SpeakerInfo>{speaker.company}</SpeakerInfo>
+            <SpeakerInfo>
+              {`${speaker.firstName} ${speaker.lastName}`}
+            </SpeakerInfo>
+
+            {speaker.jobTitle && <SpeakerInfo>{speaker.jobTitle}</SpeakerInfo>}
+
+            {speaker.organization && (
+              <SpeakerInfo> {speaker.organization}</SpeakerInfo>
+            )}
           </div>
         </>
       )}
       {tagType === 'eventType' && (
         <>
-          <img css={TagIcon} src={vectorEventType} alt='' role='presentation' />
+          <span>
+            <img
+              css={TagIcon}
+              src={vectorEventType}
+              alt=''
+              role='presentation'
+            />
+          </span>
           <span>{eventTypes[eventType]}</span>
+        </>
+      )}
+      {tagType === 'place' && (
+        <>
+          <span css={TagIcon}>
+            <IconRoom />
+          </span>
+          <span>{unSlugify(place)}</span>
         </>
       )}
       {tagType === 'default' && children}
@@ -84,26 +109,39 @@ const Tag = ({ room, speaker, eventType, outlined, children }) => {
 
 Tag.propTypes = {
   /**
-   * Specifies which room to display if the tag is a room one
+   * Specifies which category to display if the tag is a category one
    */
-  room: PropTypes.oneOf([
+  category: PropTypes.oneOf([
     'design',
-    'communication',
-    'development',
+    'developpement',
     'innovation',
+    'communication-et-marketing',
   ]),
   /**
    * Specifies which data to show if the tag is a speaker one
    */
   speaker: PropTypes.shape({
-    name: PropTypes.string,
-    job: PropTypes.string,
-    company: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    jobTitle: PropTypes.string,
+    organization: PropTypes.string,
   }),
   /**
    * Specifies the type of event if the tag is a type one
    */
-  eventType: PropTypes.oneOf(['talk', 'workshop']),
+  eventType: PropTypes.oneOf([
+    'conference',
+    'atelier',
+    'reseautage',
+    'qanda',
+    'keynote',
+    'contenu-sur-demande',
+    'pitch-ton-waq',
+  ]),
+  /**
+   * Specifies where the event takes place
+   */
+  place: PropTypes.string,
   /**
    * Specifies whether the tag is outlined or not
    */
@@ -115,9 +153,10 @@ Tag.propTypes = {
 };
 
 Tag.defaultProps = {
-  room: undefined,
+  category: undefined,
   speaker: undefined,
   eventType: undefined,
+  place: undefined,
   outlined: false,
   children: undefined,
 };

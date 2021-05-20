@@ -29,7 +29,7 @@ const primaryNavigation = [
   {
     id: 'prog',
     label: 'programmation',
-    slug: '/programmation',
+    slug: '/programmation/2021',
     type: 'internal',
   },
   // {

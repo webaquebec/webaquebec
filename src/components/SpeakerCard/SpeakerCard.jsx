@@ -1,3 +1,4 @@
+// vendors
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -19,40 +20,65 @@ import {
 import Sidebar from '../LayoutSections/Sidebar';
 
 // images
-import email from '../../images/socialMedia/email.svg';
-import instagram from '../../images/socialMedia/instagram.svg';
-import linkedin from '../../images/socialMedia/linkedin.svg';
-import twitter from '../../images/socialMedia/twitter.svg';
-import website from '../../images/socialMedia/website.svg';
+import iconEmail from '../../images/socialMedia/email.svg';
+import iconInstagram from '../../images/socialMedia/instagram.svg';
+import iconLinkedin from '../../images/socialMedia/linkedin.svg';
+import iconTwitter from '../../images/socialMedia/twitter.svg';
+import iconWebsite from '../../images/socialMedia/website.svg';
+import groupBy from '../../utils/groupBy';
 
 const SpeakerCard = ({ speaker }) => {
-  const linkTypes = {
-    email: { name: 'Adresse courriel', icon: email },
-    instagram: { name: 'Compte Instagram', icon: instagram },
-    linkedin: { name: 'Compte LinkedIn', icon: linkedin },
-    twitter: { name: 'Compte Twitter', icon: twitter },
-    website: { name: 'Site Web', icon: website },
-  };
+  const socialNetworksGroupByType = groupBy(speaker.socialNetworks, 'type');
+
+  const contactLinks = [
+    {
+      email: { name: 'Adresse courriel', icon: iconEmail, url: speaker.email },
+    },
+    {
+      instagram: {
+        name: 'Compte Instagram',
+        icon: iconInstagram,
+        url: socialNetworksGroupByType.instagram?.profile,
+      },
+    },
+    {
+      linkedin: {
+        name: 'Compte LinkedIn',
+        icon: iconLinkedin,
+        url: socialNetworksGroupByType.linkedin?.profile,
+      },
+    },
+    {
+      twitter: {
+        name: 'Compte Twitter',
+        icon: iconTwitter,
+        url: socialNetworksGroupByType.twitter?.profile,
+      },
+    },
+    {
+      website: { name: 'Site Web', icon: iconWebsite, url: speaker.websiteUrl },
+    },
+  ];
+
+  const fullName = `${speaker.firstName} ${speaker.lastName}`;
 
   return (
     <Sidebar css={StyledSpeakerCard} contentMin='75%' sideWidth='8ch'>
       <div>
         <CardMobileHeader>
-          <SpeakerPicture src={speaker.picture} alt={speaker.name} />
+          <SpeakerPicture src={speaker.photoUrl} alt={fullName} />
           <div>
             <SpeakerInfo>
-              <HeaderInfo>{speaker.name}</HeaderInfo>
-              <HeaderInfo>{speaker.job}</HeaderInfo>
-              <HeaderInfo>{speaker.company}</HeaderInfo>
+              <HeaderInfo>{fullName}</HeaderInfo>
+              <HeaderInfo>{speaker.jobTitle}</HeaderInfo>
+              <HeaderInfo>{speaker.organization}</HeaderInfo>
             </SpeakerInfo>
+
             <SpeakerLinks>
-              {speaker.links.map((link) => (
+              {contactLinks.map((link) => (
                 <SpeakerLinkItem key={link.type}>
-                  <a href={link.src} rel='noopener noreferrer' target='_blank'>
-                    <LinkIcon
-                      src={linkTypes[link.type].icon}
-                      alt={linkTypes[link.type].name}
-                    />
+                  <a href={link.url} rel='noopener noreferrer' target='_blank'>
+                    <LinkIcon src={link.icon} alt={link.name} />
                   </a>
                 </SpeakerLinkItem>
               ))}
@@ -61,12 +87,12 @@ const SpeakerCard = ({ speaker }) => {
         </CardMobileHeader>
         <div>
           <SpeakerHeader>
-            <HeaderInfo>{speaker.name}</HeaderInfo>
-            <HeaderInfo>{speaker.job}</HeaderInfo>
-            <HeaderInfo>{speaker.company}</HeaderInfo>
+            <HeaderInfo>{fullName}</HeaderInfo>
+            <HeaderInfo>{speaker.jobTitle}</HeaderInfo>
+            <HeaderInfo>{speaker.organization}</HeaderInfo>
           </SpeakerHeader>
           <SpeakerDescription
-            dangerouslySetInnerHTML={{ __html: speaker.description }}
+            dangerouslySetInnerHTML={{ __html: speaker.biography }}
           />
         </div>
       </div>
@@ -76,26 +102,23 @@ const SpeakerCard = ({ speaker }) => {
 
 SpeakerCard.propTypes = {
   /**
-   * Specifies the speaker's informations
+   * Specifies the speaker's information
    */
   speaker: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    job: PropTypes.string.isRequired,
-    company: PropTypes.string.isRequired,
-    picture: PropTypes.string.isRequired,
-    links: PropTypes.arrayOf(
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    jobTitle: PropTypes.string.isRequired,
+    organization: PropTypes.string.isRequired,
+    biography: PropTypes.string.isRequired,
+    email: PropTypes.string,
+    websiteUrl: PropTypes.string,
+    photoUrl: PropTypes.string,
+    socialNetworks: PropTypes.arrayOf(
       PropTypes.shape({
-        src: PropTypes.string,
-        type: PropTypes.oneOf([
-          'email',
-          'instagram',
-          'linkedin',
-          'twitter',
-          'website',
-        ]),
+        profile: PropTypes.string,
+        type: PropTypes.string,
       })
-    ).isRequired,
-    description: PropTypes.string.isRequired,
+    ),
   }).isRequired,
 };
 
