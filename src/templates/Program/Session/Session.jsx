@@ -10,6 +10,7 @@ import { graphql } from 'gatsby';
 
 // components
 import Layout from '../../../components/Layout';
+import SectionContainer from '../../../components/SectionContainer';
 
 // styles
 // ...
@@ -41,17 +42,11 @@ const Session = ({
 
   return (
     <Layout>
-      {/* {error ? (
-        <p>Error: ${error}</p>
-      ) : (
+      <SectionContainer forwardedAs='div' faded padded>
         <pre>
-          <code>{JSON.stringify(dataClient, null, 2)}</code>
+          <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
-      )} */}
-
-      <pre>
-        <code>{JSON.stringify(data, null, 2)}</code>
-      </pre>
+      </SectionContainer>
     </Layout>
   );
 };
@@ -64,7 +59,6 @@ Session.propTypes = {
     pageSize: PropTypes.number,
     planningIds: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
-  dataClient: PropTypes.shape({}).isRequired,
 };
 
 export default Session;

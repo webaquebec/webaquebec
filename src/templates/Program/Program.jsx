@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 import moment from 'moment';
 
 // components
@@ -10,13 +11,27 @@ import SEO from '../../components/SEO';
 import Center from '../../components/LayoutSections/Center';
 import ScheduleCardList from '../../components/ScheduleCardList';
 import ScheduleCard from '../../components/ScheduleCardList/ScheduleCard';
-import SectionContainer from '../../components/SectionContainer';
+import StyledSectionContainer from '../../components/SectionContainer';
 
 // views
 import Hero from '../../views/ProgramPageView/Hero';
 
 // utils
 import slugify from '../../utils/strings/slugify';
+import breakpointsRange from '../../utils/breakpointsRange';
+
+// styles
+import breakpoints from '../../styles/breakpoints';
+
+const SectionContainer = styled(StyledSectionContainer)`
+  margin-top: -60px;
+  padding: 0 16px;
+
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [168, 134], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
 
 /**
  * Template used to display daily plannings from Swapcard API
@@ -24,12 +39,16 @@ import slugify from '../../utils/strings/slugify';
  * @param {Object} pageContext — Received context from the automatically created pages
  * (@Link gatsby/createProgramSessionPages.js) and use that as variables GraphQL query.
  */
-const Program = ({ data, pageContext: { eventDates, pagePaths } }) => {
+const Program = ({
+  location,
+  data,
+  pageContext: { eventDates, pagePaths },
+}) => {
   const {
     swapcard: { plannings },
   } = data;
 
-  console.log(plannings);
+  // console.log(plannings);
 
   // Re-arrange event dates the way we want to display them in the UI
   const displayableDates = eventDates.reduce((acc, current, index, array) => {
@@ -42,15 +61,7 @@ const Program = ({ data, pageContext: { eventDates, pagePaths } }) => {
     return acc;
   }, []);
 
-  // Re-arrange values from the programDatesPath array the way we want to use it in our template
-  // const dates = programDatesPath.map((current) => ({
-  //   dayNumber: current.date.split(':')[0],
-  //   dayName: current.date.split(':')[1],
-  //   ...current,
-  // }));
-
-  const getFormattedTime = (str) => {
-    const date = new Date(str);
+  const getFormattedTime = (date) => {
     return moment(date).format('HH:mm');
   };
 
@@ -74,18 +85,12 @@ const Program = ({ data, pageContext: { eventDates, pagePaths } }) => {
   }));
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title='Programmation 2021' />
 
       <Hero datePaths={datePaths} />
 
-      <SectionContainer
-        as='div'
-        faded
-        css={`
-          margin-top: -60px;
-        `}
-      >
+      <SectionContainer forwardedAs='div' faded>
         <Center maxWidth='850px'>
           <ScheduleCardList>
             {program.map((current) => (
@@ -112,6 +117,9 @@ const Program = ({ data, pageContext: { eventDates, pagePaths } }) => {
  * https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes
  */
 Program.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
   data: PropTypes.shape({
     swapcard: PropTypes.shape({
       plannings: PropTypes.arrayOf(PropTypes.shape({})),

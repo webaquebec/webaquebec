@@ -69,7 +69,7 @@ const ScheduleCard = ({
             <Content
               as={contentAs}
               dangerouslySetInnerHTML={{
-                __html: truncate(content, 138, true),
+                __html: truncate(content, 168, true),
               }}
             />
           )}
