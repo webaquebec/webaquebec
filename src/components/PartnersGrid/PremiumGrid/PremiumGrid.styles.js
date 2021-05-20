@@ -36,7 +36,7 @@ export const Wrapper = styled.div`
   ${lessThan(selfBreakpoints[1])} {
     grid-row-gap: 5px;
     grid-column-gap: 34px;
-    grid-template-rows: repeat(4, 155px);
+    grid-template-rows: repeat(5, 155px);
     grid-template-columns: repeat(2, 130px);
   }
 `;
