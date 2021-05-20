@@ -14,13 +14,14 @@ import unSlugify from '../../utils/strings/unSlugify';
  *
  * @example
  * <Tag>Design UX</Tag>
+ * <Tag outlined>Design UX</Tag>
  * <Tag eventType='talk' />
  * <Tag category='design' />
  * <Tag speaker={speaker} />
  * <Tag place={place} />
  */
 
-const Tag = ({ category, speaker, eventType, place, children }) => {
+const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
   let tagType = 'default';
   if (category) {
     tagType = 'category';
@@ -61,6 +62,7 @@ const Tag = ({ category, speaker, eventType, place, children }) => {
       $innovationRoom={tagType === 'category' && category === 'innovation'}
       $speaker={tagType === 'speaker'}
       $eventType={tagType === 'eventType'}
+      $outlined={outlined}
     >
       {tagType === 'category' && <span>{categories[category]}</span>}
       {tagType === 'speaker' && (
@@ -140,6 +142,13 @@ Tag.propTypes = {
    * Specifies where the event takes place
    */
   place: PropTypes.string,
+  /**
+   * Specifies whether the tag is outlined or not
+   */
+  outlined: PropTypes.bool,
+  /**
+   * Child node elements within the tag content
+   */
   children: PropTypes.node,
 };
 
@@ -148,6 +157,7 @@ Tag.defaultProps = {
   speaker: undefined,
   eventType: undefined,
   place: undefined,
+  outlined: false,
   children: undefined,
 };
 

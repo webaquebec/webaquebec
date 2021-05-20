@@ -10,7 +10,6 @@ import LazyAnimation from '../../../components/LazyAnimation';
 // images
 import vectorStickerStat3 from '../../../images/stats/vectorStickerStat3.svg';
 import vectorStickerStat50 from '../../../images/stats/vectorStickerStat50.svg';
-import vectorStickerStat80 from '../../../images/stats/vectorStickerStat80.svg';
 
 // styles
 import { easing } from '../../../styles/animation';
@@ -26,16 +25,18 @@ import {
 const Stats = () => {
   const data = [
     {
-      number: 80,
+      id: 0,
+      number: 50,
       img: {
-        src: vectorStickerStat80,
+        src: vectorStickerStat50,
         transform: {
-          rotate: { initial: '12deg', final: '0deg' },
+          rotate: { initial: '-12deg', final: '-24deg' },
         },
       },
       description: 'conférences, ateliers et plus',
     },
     {
+      id: 1,
       number: 3,
       img: {
         src: vectorStickerStat3,
@@ -46,6 +47,7 @@ const Stats = () => {
       description: 'journées<br />intensives',
     },
     {
+      id: 2,
       number: 50,
       img: {
         src: vectorStickerStat50,
@@ -74,7 +76,7 @@ const Stats = () => {
         <Switcher threshold='768px' space='2rem' limit={3}>
           <StatsList>
             {data.map((stat, index) => (
-              <StatItem key={`stat-item-${stat.number}`}>
+              <StatItem key={`stat-item-${stat.id}`}>
                 <LazyAnimation
                   transition={{
                     duration: '400ms',
