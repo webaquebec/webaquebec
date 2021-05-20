@@ -86,7 +86,10 @@ const Program = ({
 
   return (
     <Layout location={location}>
-      <SEO title='Programmation 2021' />
+      <SEO
+        title='Programmation — Le Web à Québec'
+        descripiont='Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec.'
+      />
 
       <Hero datePaths={datePaths} />
 
