@@ -1,5 +1,6 @@
 // vendors
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 // components
@@ -64,7 +65,7 @@ const faqItem = css`
   )};
 `;
 
-const FaqPage = () => {
+const FaqPage = ({ location }) => {
   const data = [
     {
       id: 1,
@@ -129,7 +130,7 @@ const FaqPage = () => {
   ];
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ21.' />
 
       <Center
@@ -167,6 +168,12 @@ const FaqPage = () => {
       </Container>
     </Layout>
   );
+};
+
+FaqPage.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default FaqPage;
