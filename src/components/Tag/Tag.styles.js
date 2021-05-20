@@ -1,9 +1,13 @@
 // vendors
 import styled, { css } from 'styled-components';
 
+// utils
+import breakpointsRange from '../../utils/breakpointsRange';
+
 // styles
 import colors from '../../styles/colors';
 import { fontWeights } from '../../styles/typography';
+import breakpoints from '../../styles/breakpoints';
 
 export const designRoomStyle = css`
   color: ${colors.mauve80};
@@ -61,6 +65,23 @@ export const eventTypeStyle = css`
   background-color: ${colors.bleu10};
 `;
 
+export const outlinedStyle = css`
+  color: ${colors.gris80};
+
+  font-weight: ${fontWeights.bold};
+
+  background-color: transparent;
+  border: 2px solid ${colors.gris30};
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [12, 16], bases: [16, 20] },
+      { prop: 'padding', sizes: [16, 16], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
 export const TagIcon = css`
   height: 15px;
   margin-right: 8px;
@@ -70,15 +91,21 @@ export const StyledTag = styled.div`
   display: inline-flex;
   align-items: center;
   margin: 0 16px 16px 0;
-  padding: 12px;
 
   color: ${colors.gris90};
   font-weight: ${fontWeights.medium};
-  font-size: 12px;
   vertical-align: top;
 
   background-color: ${colors.gris20};
   border-radius: 8px;
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [12, 12], bases: [16, 20] },
+      { prop: 'padding', sizes: [12, 12], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
 
   /* Apply designRoom style when designRoom props defined */
   ${({ $designRoom }) => $designRoom && designRoomStyle}
@@ -97,6 +124,9 @@ export const StyledTag = styled.div`
   
   /* Apply eventType style when eventType props defined */
   ${({ $eventType }) => $eventType && eventTypeStyle}
+  
+  /* Apply eventType style when eventType props defined */
+  ${({ $outlined }) => $outlined && outlinedStyle}
 `;
 
 export const Design = css`

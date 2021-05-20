@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 // styles
 import {
   StyledSpeakerCard,
+  CardMobileHeader,
   SpeakerPicture,
+  SpeakerInfo,
   SpeakerLinks,
   SpeakerLinkItem,
   LinkIcon,
@@ -35,21 +37,28 @@ const SpeakerCard = ({ speaker }) => {
   return (
     <Sidebar css={StyledSpeakerCard} contentMin='75%' sideWidth='8ch'>
       <div>
-        <div>
+        <CardMobileHeader>
           <SpeakerPicture src={speaker.picture} alt={speaker.name} />
-          <SpeakerLinks>
-            {speaker.links.map((link) => (
-              <SpeakerLinkItem key={link.type}>
-                <a href={link.src} rel='noopener noreferrer' target='_blank'>
-                  <LinkIcon
-                    src={linkTypes[link.type].icon}
-                    alt={linkTypes[link.type].name}
-                  />
-                </a>
-              </SpeakerLinkItem>
-            ))}
-          </SpeakerLinks>
-        </div>
+          <div>
+            <SpeakerInfo>
+              <HeaderInfo>{speaker.name}</HeaderInfo>
+              <HeaderInfo>{speaker.job}</HeaderInfo>
+              <HeaderInfo>{speaker.company}</HeaderInfo>
+            </SpeakerInfo>
+            <SpeakerLinks>
+              {speaker.links.map((link) => (
+                <SpeakerLinkItem key={link.type}>
+                  <a href={link.src} rel='noopener noreferrer' target='_blank'>
+                    <LinkIcon
+                      src={linkTypes[link.type].icon}
+                      alt={linkTypes[link.type].name}
+                    />
+                  </a>
+                </SpeakerLinkItem>
+              ))}
+            </SpeakerLinks>
+          </div>
+        </CardMobileHeader>
         <div>
           <SpeakerHeader>
             <HeaderInfo>{speaker.name}</HeaderInfo>
