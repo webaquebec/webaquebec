@@ -39,7 +39,7 @@ export const topBackgroundStyle = css`
 `;
 
 export const bottomBackgroundStyle = css`
-  --max-height: 1340px;
+  --max-height: 1390px;
 
   bottom: 0;
 

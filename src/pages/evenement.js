@@ -37,7 +37,7 @@ const heroWrapper = css`
 `;
 
 const backArrow = css`
-  transform: rotate3d(0, 0, 1, 180deg);
+  transform: rotate(180deg);
 `;
 
 const backButton = css`

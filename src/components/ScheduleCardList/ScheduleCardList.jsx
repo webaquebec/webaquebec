@@ -50,9 +50,9 @@ const ScheduleCardList = ({ children }) => {
   const nodes = React.Children.toArray(children);
 
   return (
-    <List as='ul'>
+    <List>
       {nodes.map(({ key, props }, index) => (
-        <li key={key}>
+        <li key={`schedule-card-${key}`}>
           <ScheduleCard
             css={`
               ${index === 0 && borderTopRadiusStyle}
@@ -68,13 +68,7 @@ const ScheduleCardList = ({ children }) => {
 };
 
 ScheduleCardList.propTypes = {
-  children: PropTypes.arrayOf(
-    PropTypes.shape({
-      props: PropTypes.shape({
-        /* Defined other props here */
-      }),
-    })
-  ).isRequired,
+  children: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default ScheduleCardList;

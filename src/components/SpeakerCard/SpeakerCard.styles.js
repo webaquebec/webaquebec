@@ -143,7 +143,7 @@ export const HeaderInfo = styled.span`
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [20, 22], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [20, 22], bases: [16, 16], unit: '' },
     ],
     breakpoints.spacings
   )};
@@ -153,7 +153,10 @@ export const SpeakerDescription = styled.div`
   color: ${colors.gris90};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [12, 14], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [12, 14], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [16, 18], bases: [12, 14], unit: '' },
+    ],
     breakpoints.spacings
   )};
 
