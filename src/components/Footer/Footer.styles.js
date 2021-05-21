@@ -74,6 +74,11 @@ export const ArchivesList = styled.ul`
   padding: 0;
 
   list-style: none;
+
+  ${breakpointsRange(
+    [{ prop: 'marginRight', sizes: [0, -40], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 export const ArchiveItem = styled.li`
