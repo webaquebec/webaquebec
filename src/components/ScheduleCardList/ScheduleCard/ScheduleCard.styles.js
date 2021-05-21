@@ -20,10 +20,17 @@ export const Container = styled(Paper)`
       { prop: 'padding-top', sizes: [40, 40], bases: [16, 20] },
       { prop: 'padding-right', sizes: [16, 40], bases: [16, 20] },
       { prop: 'padding-bottom', sizes: [40, 40], bases: [16, 20] },
-      { prop: 'padding-left', sizes: [66, 80], bases: [16, 20] },
+      { prop: 'padding-left', sizes: [75, 80], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
+
+  &.no-time {
+    ${breakpointsRange(
+      [{ prop: 'padding-left', sizes: [16, 40], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
 `;
 
 export const StyledTimeStamp = styled(TimeStamp)``;

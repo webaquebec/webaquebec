@@ -51,7 +51,11 @@ const ScheduleCard = ({
       $accentColor={categoryColors[category]}
       {...rest}
     >
-      <Container lightColor={colors.white} darkColor={colors.gris90}>
+      <Container
+        lightColor={colors.white}
+        darkColor={colors.gris90}
+        className={!time && 'no-time'}
+      >
         {time && (
           <div
             css={`
