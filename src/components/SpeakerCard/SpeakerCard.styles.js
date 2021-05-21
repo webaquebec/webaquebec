@@ -121,10 +121,12 @@ export const HeaderInfo = styled.span`
 
   ${greaterThan(768)} {
     display: inline-block;
+    margin-right: 8px;
 
     ::before {
       display: inline-block;
-      margin: 0 8px;
+      margin: 0;
+      margin-right: 8px;
 
       color: ${colors.gris40};
 
