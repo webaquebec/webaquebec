@@ -1,5 +1,5 @@
 // vendors
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 
 // components
@@ -24,13 +24,13 @@ export const Container = styled(Paper)`
     ],
     breakpoints.spacings
   )};
+`;
 
-  &.no-time {
-    ${breakpointsRange(
-      [{ prop: 'padding-left', sizes: [16, 40], bases: [16, 20] }],
-      breakpoints.spacings
-    )};
-  }
+export const noTimeStyle = css`
+  ${breakpointsRange(
+    [{ prop: 'padding-left', sizes: [16, 40], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 export const StyledTimeStamp = styled(TimeStamp)``;

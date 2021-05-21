@@ -18,6 +18,7 @@ import {
   StyledTimeStamp,
   StyledScheduleCard,
   Title,
+  noTimeStyle,
 } from './ScheduleCard.styles';
 
 /**
@@ -54,7 +55,7 @@ const ScheduleCard = ({
       <Container
         lightColor={colors.white}
         darkColor={colors.gris90}
-        className={!time && 'no-time'}
+        css={!time && noTimeStyle}
       >
         {time && (
           <div
