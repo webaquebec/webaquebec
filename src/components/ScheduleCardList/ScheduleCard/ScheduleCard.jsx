@@ -18,6 +18,7 @@ import {
   StyledTimeStamp,
   StyledScheduleCard,
   Title,
+  noTimeStyle,
 } from './ScheduleCard.styles';
 
 /**
@@ -51,7 +52,11 @@ const ScheduleCard = ({
       $accentColor={categoryColors[category]}
       {...rest}
     >
-      <Container lightColor={colors.white} darkColor={colors.gris90}>
+      <Container
+        lightColor={colors.white}
+        darkColor={colors.gris90}
+        css={!time && noTimeStyle}
+      >
         {time && (
           <div
             css={`
