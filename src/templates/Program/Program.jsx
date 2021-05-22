@@ -12,9 +12,11 @@ import Center from '../../components/LayoutSections/Center';
 import ScheduleCardList from '../../components/ScheduleCardList';
 import ScheduleCard from '../../components/ScheduleCardList/ScheduleCard';
 import StyledSectionContainer from '../../components/SectionContainer';
+import Switcher from '../../components/LayoutSections/Switcher';
 
 // views
 import Hero from '../../views/ProgramPageView/Hero';
+import Filters from '../../views/ProgramPageView/Filters';
 
 // utils
 import slugify from '../../utils/strings/slugify';
@@ -31,6 +33,10 @@ const SectionContainer = styled(StyledSectionContainer)`
     [{ prop: 'marginBottom', sizes: [168, 134], bases: [16, 20] }],
     breakpoints.spacings
   )};
+`;
+
+const FiltersWrapper = styled.div`
+  max-width: 320px;
 `;
 
 /**
@@ -92,23 +98,34 @@ const Program = ({
       <Hero datePaths={datePaths} />
 
       <SectionContainer forwardedAs='div' faded>
-        <Center maxWidth='850px'>
-          <ScheduleCardList>
-            {program.map((current) => (
-              <ScheduleCard
-                to={`/programmation/${slugify(current.title)}/`}
-                title={current.title}
-                content={current.description}
-                place={current.place}
-                time={
-                  pageNumber !== eventDates.length ? current.time : undefined
-                }
-                type={current.type}
-                category={current.categories[0]}
-                speakers={current.speakers}
-              />
-            ))}
-          </ScheduleCardList>
+        <Center maxWidth='1066px' gutters='16px'>
+          <Switcher threshold='768px' space='1.5rem'>
+            <div>
+              <FiltersWrapper>
+                <Filters rooms={[]} themes={[]} types={[]} />
+              </FiltersWrapper>
+              <div>
+                <ScheduleCardList>
+                  {program.map((current) => (
+                    <ScheduleCard
+                      to={`/programmation/${slugify(current.title)}/`}
+                      title={current.title}
+                      content={current.description}
+                      place={current.place}
+                      time={
+                        pageNumber !== eventDates.length
+                          ? current.time
+                          : undefined
+                      }
+                      type={current.type}
+                      category={current.categories[0]}
+                      speakers={current.speakers}
+                    />
+                  ))}
+                </ScheduleCardList>
+              </div>
+            </div>
+          </Switcher>
         </Center>
       </SectionContainer>
     </Layout>

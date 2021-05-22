@@ -9,10 +9,14 @@ import randomString from '../../../utils/math/randomString';
 // styles
 import {
   Container,
+  grayContainer,
   Heading,
+  grayHeading,
   Button,
+  grayButton,
   TitleWrapper,
   Panel,
+  grayPanel,
   PanelContent,
   Toggle,
 } from './AccordionItem.styles';
@@ -26,6 +30,7 @@ import colors from '../../../styles/colors';
 const AccordionItem = ({
   titleAs,
   title,
+  grayStyle,
   children,
   expanded,
   onToggleClick,
@@ -65,13 +70,20 @@ const AccordionItem = ({
       darkColor={colors.bleu}
       $maxHeight={maxHeight}
       $expanded={expanded}
+      css={grayStyle && grayContainer}
     >
-      <Heading as={titleAs} $expanded={expanded} ref={headingRef}>
+      <Heading
+        as={titleAs}
+        $expanded={expanded}
+        ref={headingRef}
+        css={grayStyle && grayHeading}
+      >
         <Button
           id={`${accordionItemId}-header`}
           aria-controls={`${accordionItemId}-panel`}
           aria-expanded={expanded}
           onClick={onToggleClick}
+          css={grayStyle && grayButton}
         >
           <TitleWrapper>{title}</TitleWrapper>
 
@@ -87,6 +99,7 @@ const AccordionItem = ({
         aria-labelledby={`${accordionItemId}-header`}
         aria-hidden={!expanded}
         $expanded={expanded}
+        css={grayStyle && grayPanel}
       >
         <PanelContent>{children}</PanelContent>
       </Panel>
@@ -106,6 +119,10 @@ AccordionItem.propTypes = {
    */
   title: PropTypes.node.isRequired,
   /**
+   * Whether the accordion has gray style or not (style used for filters)
+   */
+  grayStyle: PropTypes.bool,
+  /**
    * Child node elements within the item panel content
    */
   children: PropTypes.node.isRequired,
@@ -120,6 +137,7 @@ AccordionItem.propTypes = {
 };
 
 AccordionItem.defaultProps = {
+  grayStyle: false,
   expanded: false,
   onToggleClick: () => {},
 };

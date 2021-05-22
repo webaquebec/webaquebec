@@ -1,11 +1,23 @@
 // vendors
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'styled-components';
 
 // components
 import AccordionItem from './AccordionItem';
 import Stack from '../LayoutSections/Stack';
 import { unstyledListStyle } from '../../styles/global';
+
+// styles
+import colors from '../../styles/colors';
+
+const grayBorder = css`
+  border-bottom: 2px solid ${colors.gris30};
+
+  &:last-child {
+    border-bottom: 0;
+  }
+`;
 
 /**
  *
@@ -22,7 +34,7 @@ import { unstyledListStyle } from '../../styles/global';
  *   </AccordionItem>
  * </Accordion>
  */
-const Accordion = ({ multiple, collapsible, space, children }) => {
+const Accordion = ({ multiple, collapsible, space, children, grayStyle }) => {
   const [expandedItems, setExpandedItems] = useState([]);
 
   const items = React.Children.toArray(children);
@@ -53,11 +65,12 @@ const Accordion = ({ multiple, collapsible, space, children }) => {
   return (
     <Stack as='ul' space={space} css={unstyledListStyle}>
       {items.map((item) => (
-        <li key={item.key}>
+        <li key={item.key} css={grayStyle && grayBorder}>
           <AccordionItem
             {...item.props}
             onToggleClick={() => handleToggle(item.key)}
             expanded={expandedItems.includes(item.key)}
+            grayStyle
           />
         </li>
       ))}
@@ -82,9 +95,14 @@ Accordion.propTypes = {
    * The space (margin) between successive sibling items
    */
   space: PropTypes.string,
+  /**
+   * Whether the accordion has gray style or not (style used for filters)
+   */
+  grayStyle: PropTypes.bool,
 };
 
 Accordion.defaultProps = {
+  grayStyle: false,
   collapsible: false,
   multiple: false,
   space: undefined,

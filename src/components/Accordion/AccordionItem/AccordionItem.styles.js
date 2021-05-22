@@ -57,6 +57,14 @@ export const Container = styled(Box)`
   }
 `;
 
+export const grayContainer = css`
+  border-radius: 0;
+
+  ::before {
+    display: none;
+  }
+`;
+
 export const Heading = styled.div`
   position: relative;
 
@@ -89,6 +97,29 @@ export const Heading = styled.div`
   }
 
   border-bottom: ${({ $expanded }) => ($expanded ? `2px solid` : `0`)};
+`;
+
+export const grayHeading = css`
+  color: ${colors.gris80};
+
+  border: 0;
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [20, 20], bases: [16, 20] },
+      {
+        prop: 'lineHeight',
+        sizes: [26, 26],
+        bases: [16, 18],
+        unit: '',
+      },
+    ],
+    breakpoints.spacings
+  )};
+
+  ::after {
+    display: none;
+  }
 `;
 
 export const TitleWrapper = styled.span`
@@ -128,6 +159,19 @@ export const Button = styled.button`
   }
 `;
 
+export const grayButton = css`
+  ${breakpointsRange(
+    [
+      { prop: 'paddingTop', sizes: [32, 32] },
+      { prop: 'paddingRight', sizes: [40, 40] },
+      { prop: 'paddingBottom', sizes: [32, 32] },
+      { prop: 'paddingLeft', sizes: [40, 40] },
+    ],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
+`;
+
 export const Panel = styled.section`
   position: relative;
 
@@ -153,6 +197,20 @@ export const Panel = styled.section`
     transition-duration: ${speed.default};
     transition-property: transform, opacity;
   }
+`;
+
+export const grayPanel = css`
+  ${breakpointsRange(
+    [
+      { prop: 'paddingTop', sizes: [0, 0] },
+      { prop: 'paddingRight', sizes: [40, 40] },
+      { prop: 'paddingBottom', sizes: [32, 32] },
+      { prop: 'paddingLeft', sizes: [40, 40] },
+      { prop: 'marginTop', sizes: [-14, -14] },
+    ],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
 `;
 
 export const PanelContent = styled.div`
