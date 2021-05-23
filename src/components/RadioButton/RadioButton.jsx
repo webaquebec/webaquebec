@@ -1,12 +1,17 @@
+// vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 
+// utils
+import randomString from '../../utils/math/randomString';
+
+// styles
 import StyledRadioButton, {
   RadioButtonLabel,
   HiddenRadioButton,
 } from './RadioButton.styles';
-
-import randomString from '../../utils/math/randomString';
+import colors from '../../styles/colors';
 
 const customId = randomString();
 
@@ -20,7 +25,7 @@ const customId = randomString();
  *    value='chargedup'
  *    checked={values.excitementLevel === 'chargedup'}
  *    onChange={handleChange}
- *    darkTheme
+ *    primary
  * >
  *    Low 🙂
  * </RadioButton>
@@ -51,29 +56,53 @@ const RadioButton = ({
   disabled,
   onChange,
   onBlur,
-  darkTheme,
+  primary,
   ...rest
 }) => {
+  const defaultTheme = {
+    color: {
+      label: checked ? colors.bleu80 : colors.gris80,
+      radio: checked && colors.bleu80,
+    },
+  };
+
+  const primaryTheme = {
+    color: {
+      label: checked ? colors.turquoise80 : colors.gris80,
+      radio: checked && colors.turquoise80,
+    },
+  };
+
+  const disabledTheme = {
+    color: {
+      label: colors.gris40,
+      radio: colors.gris80,
+    },
+  };
+
+  let theme;
+  if (disabled) {
+    theme = { ...disabledTheme };
+  } else {
+    theme = primary ? { ...primaryTheme } : { ...defaultTheme };
+  }
+
   return (
-    <RadioButtonLabel
-      $darkTheme={darkTheme}
-      $checked={checked}
-      htmlFor={customId}
-      disabled={disabled}
-      {...rest}
-    >
-      <HiddenRadioButton
-        id={customId}
-        name={name}
-        value={value}
-        checked={checked}
-        disabled={disabled}
-        onChange={onChange}
-        onBlur={onBlur}
-      />
-      <StyledRadioButton $darkTheme={darkTheme} $checked={checked} />
-      {children}
-    </RadioButtonLabel>
+    <ThemeProvider theme={theme}>
+      <RadioButtonLabel htmlFor={customId} disabled={disabled} {...rest}>
+        <HiddenRadioButton
+          id={customId}
+          name={name}
+          value={value}
+          checked={checked}
+          disabled={disabled}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
+        <StyledRadioButton />
+        {children}
+      </RadioButtonLabel>
+    </ThemeProvider>
   );
 };
 
@@ -107,16 +136,16 @@ RadioButton.propTypes = {
    */
   onBlur: PropTypes.func,
   /**
-   * Specifies whether it is for dark theme or not (default for light)
+   * Specifies whether it is primary style or not (default)
    */
-  darkTheme: PropTypes.bool,
+  primary: PropTypes.bool,
 };
 RadioButton.defaultProps = {
   checked: false,
   disabled: false,
   onChange: () => {},
   onBlur: () => {},
-  darkTheme: false,
+  primary: false,
 };
 
 export default RadioButton;

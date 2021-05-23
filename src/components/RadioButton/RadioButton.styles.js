@@ -1,12 +1,11 @@
 /* stylelint-disable no-descending-specificity */
 // vendors
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { hideVisually } from 'polished';
 
 // styles
 import { speed, easing } from '../../styles/animation';
 import breakpoints from '../../styles/breakpoints';
-import colors from '../../styles/colors';
 
 // utils
 // import { greaterThan } from '../../utils/mediaQuery';
@@ -17,14 +16,6 @@ export const HiddenRadioButton = styled.input.attrs({ type: 'radio' })`
   ${hideVisually()};
 `;
 
-const colorTeal = css`
-  color: ${colors.turquoise80};
-`;
-
-const colorBlue = css`
-  color: ${colors.bleu80};
-`;
-
 /* Custom radio input label style */
 export const RadioButtonLabel = styled.label`
   position: relative;
@@ -33,7 +24,7 @@ export const RadioButtonLabel = styled.label`
   align-items: center;
   justify-content: left;
 
-  color: ${colors.gris80};
+  color: ${({ theme }) => theme.color.label};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
@@ -44,9 +35,6 @@ export const RadioButtonLabel = styled.label`
   word-break: keep-all;
 
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-
-  ${({ $checked }) => $checked && colorBlue}
-  ${({ $darkTheme, $checked }) => $darkTheme && $checked && colorTeal}
 `;
 
 /* Custom radio button style */
@@ -56,6 +44,8 @@ const StyledRadioButton = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  color: ${({ theme }) => theme.color.radio};
 
   ${breakpointsRange(
     [
@@ -145,9 +135,6 @@ const StyledRadioButton = styled.div`
   ${HiddenRadioButton}:disabled ~ &::after {
     background-color: lightgrey;
   }
-
-  ${({ $checked }) => $checked && colorBlue}
-  ${({ $darkTheme, $checked }) => $darkTheme && $checked && colorTeal}
 `;
 
 export default StyledRadioButton;

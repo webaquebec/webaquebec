@@ -1,5 +1,5 @@
 // vendors
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { hideVisually } from 'polished';
 
 // images
@@ -17,22 +17,6 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   ${hideVisually}
 `;
 
-const colorTeal = css`
-  color: ${colors.turquoise80};
-`;
-
-const backgroundTeal = css`
-  background-color: ${colors.turquoise80};
-`;
-
-const colorBlue = css`
-  color: ${colors.bleu80};
-`;
-
-const backgroundBlue = css`
-  background-color: ${colors.bleu80};
-`;
-
 /* CheckMark style */
 export const CheckMark = styled(IconCheckMark)`
   position: absolute;
@@ -41,13 +25,10 @@ export const CheckMark = styled(IconCheckMark)`
 
   margin-top: 3%;
 
-  color: ${colors.white};
+  color: ${({ theme }) => theme.color.checkmark};
 
   transform: scale(0);
   opacity: 0;
-
-  ${({ $checked }) => $checked && colorBlue}
-  ${({ $darkTheme, $checked }) => $darkTheme && $checked && colorTeal}
 `;
 
 /* Checkbox label style */
@@ -58,7 +39,7 @@ export const CheckboxLabel = styled.label`
   align-items: center;
   justify-content: left;
 
-  color: ${colors.gris80};
+  color: ${({ theme }) => theme.color.label};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
@@ -66,10 +47,6 @@ export const CheckboxLabel = styled.label`
   )};
 
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-
-  /* Other checkbox label styles go there */
-  ${({ $checked }) => $checked && colorBlue}
-  ${({ $darkTheme, $checked }) => $darkTheme && $checked && colorTeal}
 `;
 
 /* Custom checkbox style */
@@ -89,6 +66,7 @@ const StyledCheckbox = styled.div`
     breakpoints.spacings
   )};
 
+  background-color: ${({ theme }) => theme.color.background};
   border: 2px solid;
   border-radius: 2px;
 
@@ -122,9 +100,6 @@ const StyledCheckbox = styled.div`
   ${HiddenCheckbox}:checked {
     background-color: ${colors.bleu80};
   }
-
-  ${({ $checked }) => $checked && backgroundBlue}
-  ${({ $darkTheme, $checked }) => $darkTheme && $checked && backgroundTeal}
 `;
 
 export default StyledCheckbox;

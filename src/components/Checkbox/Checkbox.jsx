@@ -1,13 +1,18 @@
+// vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 
+// utils
 import randomString from '../../utils/math/randomString';
 
+// styles
 import StyledCheckbox, {
   HiddenCheckbox,
   CheckboxLabel,
   CheckMark,
 } from './Checkbox.styles';
+import colors from '../../styles/colors';
 
 const customId = randomString();
 
@@ -21,7 +26,7 @@ const customId = randomString();
  *    value='bonjour'
  *    checked={values.greeting === 'bonjour'}
  *    onChange={handleChange}
- *    darkTheme
+ *    primary
  * >
  *    Bonjour 👋
  * </Checkbox>
@@ -43,31 +48,58 @@ const Checkbox = ({
   disabled,
   onChange,
   onBlur,
-  darkTheme,
+  primary,
   ...rest
 }) => {
+  const defaultTheme = {
+    color: {
+      label: checked ? colors.bleu80 : colors.gris80,
+      checkmark: colors.white,
+      background: checked ? colors.bleu80 : 'transparent',
+    },
+  };
+
+  const primaryTheme = {
+    color: {
+      label: checked ? colors.turquoise80 : colors.gris80,
+      checkmark: colors.bleu80,
+      background: checked ? colors.turquoise : 'transparent',
+    },
+  };
+
+  const disabledTheme = {
+    color: {
+      label: colors.gris40,
+      checkmark: colors.gris80,
+      background: checked ? colors.gris40 : 'transparent',
+    },
+  };
+
+  let theme;
+  if (disabled) {
+    theme = { ...disabledTheme };
+  } else {
+    theme = primary ? { ...primaryTheme } : { ...defaultTheme };
+  }
+
   return (
-    <CheckboxLabel
-      $darkTheme={darkTheme}
-      $checked={checked}
-      htmlFor={customId}
-      disabled={disabled}
-      {...rest}
-    >
-      <HiddenCheckbox
-        id={customId}
-        name={name}
-        value={value}
-        checked={checked}
-        disabled={disabled}
-        onChange={onChange}
-        onBlur={onBlur}
-      />
-      <StyledCheckbox $darkTheme={darkTheme} $checked={checked}>
-        <CheckMark />
-      </StyledCheckbox>
-      {children}
-    </CheckboxLabel>
+    <ThemeProvider theme={theme}>
+      <CheckboxLabel htmlFor={customId} disabled={disabled} {...rest}>
+        <HiddenCheckbox
+          id={customId}
+          name={name}
+          value={value}
+          checked={checked}
+          disabled={disabled}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
+        <StyledCheckbox>
+          <CheckMark />
+        </StyledCheckbox>
+        {children}
+      </CheckboxLabel>
+    </ThemeProvider>
   );
 };
 
@@ -101,16 +133,16 @@ Checkbox.propTypes = {
    */
   onBlur: PropTypes.func,
   /**
-   * Specifies whether it is for dark theme or not (default for light)
+   * Specifies whether it is primary style or not (default)
    */
-  darkTheme: PropTypes.bool,
+  primary: PropTypes.bool,
 };
 Checkbox.defaultProps = {
   checked: false,
   disabled: false,
   onChange: () => {},
   onBlur: () => {},
-  darkTheme: false,
+  primary: false,
 };
 
 export default Checkbox;
