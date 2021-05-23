@@ -19,17 +19,17 @@ const Filters = ({ rooms, themes, types }) => {
       <Accordion grayStyle multiple collapsible space='0'>
         <AccordionItem titleAs='h3' title='Salle'>
           {rooms.map((item) => (
-            <p>{item.name}</p>
+            <p key={item}>{item}</p>
           ))}
         </AccordionItem>
         <AccordionItem titleAs='h3' title='Thématique'>
           {themes.map((item) => (
-            <p>{item.name}</p>
+            <p key={item}>{item}</p>
           ))}
         </AccordionItem>
         <AccordionItem titleAs='h3' title='Type'>
           {types.map((item) => (
-            <p>{item.name}</p>
+            <p key={item}>{item}</p>
           ))}
         </AccordionItem>
       </Accordion>

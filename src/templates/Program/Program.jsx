@@ -54,6 +54,26 @@ const Program = ({
     swapcard: { plannings },
   } = data;
 
+  const rooms = [];
+  const themes = [];
+  const types = [];
+  data.swapcard.plannings.forEach((event) => {
+    // Get all rooms for filters
+    if (rooms.indexOf(event.place) === -1 && event.place !== null) {
+      rooms.push(event.place);
+    }
+    // Get all themes for filters
+    event.categories.forEach((categorie) => {
+      if (themes.indexOf(categorie) === -1) {
+        themes.push(categorie);
+      }
+    });
+    // Get all types for filters
+    if (types.indexOf(event.type) === -1) {
+      types.push(event.type);
+    }
+  });
+
   // Re-arrange event dates the way we want to display them in the UI
   const displayableDates = eventDates.reduce((acc, current, index, array) => {
     let item = current;
@@ -102,7 +122,7 @@ const Program = ({
           <Switcher threshold='768px' space='1.5rem'>
             <div>
               <FiltersWrapper>
-                <Filters rooms={[]} themes={[]} types={[]} />
+                <Filters rooms={rooms} themes={themes} types={types} />
               </FiltersWrapper>
               <div>
                 <ScheduleCardList>
