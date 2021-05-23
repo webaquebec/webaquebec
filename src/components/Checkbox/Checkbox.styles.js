@@ -24,6 +24,8 @@ export const CheckMark = styled(IconCheckMark)`
 
   margin-top: 3%;
 
+  color: ${({ theme }) => theme.color.checkmark};
+
   transform: scale(0);
   opacity: 0;
 `;
@@ -36,9 +38,14 @@ export const CheckboxLabel = styled.label`
   align-items: center;
   justify-content: left;
 
-  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+  color: ${({ theme }) => theme.color.label};
 
-  /* Other checkbox label styles go there */
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 `;
 
 /* Custom checkbox style */
@@ -51,14 +58,16 @@ const StyledCheckbox = styled.div`
 
   ${breakpointsRange(
     [
-      { prop: 'width', sizes: [20, 20], bases: [16, 20] },
-      { prop: 'height', sizes: [20, 20], bases: [16, 20] },
+      { prop: 'width', sizes: [12, 12], bases: [16, 20] },
+      { prop: 'height', sizes: [12, 12], bases: [16, 20] },
       { prop: 'marginRight', sizes: [8, 8], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 
+  background-color: ${({ theme }) => theme.color.background};
   border: 2px solid;
+  border-radius: 2px;
 
   outline: 0;
 
