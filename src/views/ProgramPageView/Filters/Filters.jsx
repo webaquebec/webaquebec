@@ -8,8 +8,27 @@ import { Container, Header, Title, Button } from './Filters.styles';
 // components
 import Accordion from '../../../components/Accordion';
 import AccordionItem from '../../../components/Accordion/AccordionItem';
+import Checkbox from '../../../components/Checkbox';
 
 const Filters = ({ rooms, themes, types }) => {
+  const filters = [
+    {
+      id: 0,
+      name: 'Salle',
+      choices: rooms,
+    },
+    {
+      id: 1,
+      name: 'Thématique',
+      choices: themes,
+    },
+    {
+      id: 2,
+      name: 'Type',
+      choices: types,
+    },
+  ];
+
   return (
     <Container>
       <Header>
@@ -17,21 +36,17 @@ const Filters = ({ rooms, themes, types }) => {
         <Button type='button'>Réinitialiser</Button>
       </Header>
       <Accordion grayStyle multiple collapsible space='0'>
-        <AccordionItem titleAs='h3' title='Salle'>
-          {rooms.map((item) => (
-            <p key={item}>{item}</p>
-          ))}
-        </AccordionItem>
-        <AccordionItem titleAs='h3' title='Thématique'>
-          {themes.map((item) => (
-            <p key={item}>{item}</p>
-          ))}
-        </AccordionItem>
-        <AccordionItem titleAs='h3' title='Type'>
-          {types.map((item) => (
-            <p key={item}>{item}</p>
-          ))}
-        </AccordionItem>
+        {filters.map((filter) => (
+          <AccordionItem
+            key={`filter-${filter.id}`}
+            titleAs='h3'
+            title={filter.name}
+          >
+            {filter.choices.map((item) => (
+              <Checkbox key={item}>{item}</Checkbox>
+            ))}
+          </AccordionItem>
+        ))}
       </Accordion>
     </Container>
   );

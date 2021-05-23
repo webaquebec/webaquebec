@@ -16,6 +16,7 @@ export const DateList = styled.ul`
   display: flex;
   justify-content: space-between;
 
+  width: 100%;
   margin: 0;
   padding: 0;
 

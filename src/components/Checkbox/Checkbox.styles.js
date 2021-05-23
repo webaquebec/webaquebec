@@ -34,9 +34,10 @@ export const CheckMark = styled(IconCheckMark)`
 export const CheckboxLabel = styled.label`
   position: relative;
 
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: left;
+  margin-bottom: 8px;
 
   color: ${({ theme }) => theme.color.label};
 
@@ -46,6 +47,10 @@ export const CheckboxLabel = styled.label`
   )};
 
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 /* Custom checkbox style */
@@ -53,6 +58,7 @@ const StyledCheckbox = styled.div`
   position: relative;
 
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
 

@@ -14,16 +14,32 @@ import { DateList, DateListItem, dateTabStyle } from './Hero.styles';
 import zIndexes from '../../../styles/zIndexes';
 import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 
+// images
+import vectorYear2021 from '../../../images/vectorYear2021.svg';
+
 const Wrapper = styled.div`
   position: sticky;
   top: 60px;
   z-index: ${zIndexes.sticky};
 
-  /* margin-top: 60px; */
-
   padding: 2rem 0;
 
   transform: translateY(-50%);
+`;
+
+const HeaderContent = styled(Center)`
+  display: flex;
+`;
+
+const StickyTitle = styled.div`
+  position: relative;
+
+  display: flex;
+`;
+
+const YearSticker = styled.img`
+  width: 70px;
+  margin-left: 12px;
 `;
 
 const Hero = ({ datePaths }) => {
@@ -38,7 +54,13 @@ const Hero = ({ datePaths }) => {
       <Wrapper>
         {!inView && <HeaderGradient />}
 
-        <Center maxWidth='736px'>
+        <HeaderContent maxWidth={!inView ? '1066px' : '736px'}>
+          {!inView && (
+            <StickyTitle>
+              programmation
+              <YearSticker src={vectorYear2021} alt='2021' />
+            </StickyTitle>
+          )}
           <DateList>
             {datePaths.map((item) => (
               <DateListItem key={item.dateNumber}>
@@ -55,7 +77,7 @@ const Hero = ({ datePaths }) => {
               </DateListItem>
             ))}
           </DateList>
-        </Center>
+        </HeaderContent>
       </Wrapper>
     </>
   );

@@ -10,6 +10,9 @@ import breakpoints from '../../../styles/breakpoints';
 import { fontFamilies } from '../../../styles/typography';
 
 export const Container = styled.div`
+  position: sticky;
+  top: 160px;
+
   overflow: hidden;
 
   background-color: ${colors.white};
