@@ -7,7 +7,12 @@ import { Container, Link, Wrapper, Image } from './PremiumLogoCard.styles';
 
 const PremiumLogoCard = ({ image, accentBgColor, ...rest }) => (
   <Container {...rest}>
-    <Link href={image.url} $accentBgColor={accentBgColor}>
+    <Link
+      href={image.url}
+      target='_blank'
+      rel='noopener noreferrer'
+      $accentBgColor={accentBgColor}
+    >
       <Wrapper centered='img' minHeight='218px' noPadding>
         <Image src={image.src} alt={image.alt} />
       </Wrapper>

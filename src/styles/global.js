@@ -38,13 +38,14 @@ export const htmlStyle = css`
 
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 
   background-color: ${colors.gris};
   scroll-behavior: smooth;
 `;
 
 export const bodyStyle = css`
+  overflow-x: hidden;
+
   font-weight: ${fontWeights.regular};
   font-family: ${fontFamilies.body};
   ${breakpointsRange(

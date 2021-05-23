@@ -23,23 +23,23 @@ export const StyledBackground = styled(Img)`
 `;
 
 export const topBackgroundStyle = css`
-  --max-height: ${({ isHomePage }) => (isHomePage ? `2247px` : `556px`)};
+  --max-height: ${({ isHomePage }) => (isHomePage ? `2247px` : `856px`)};
 
   top: 0;
 
   max-height: var(--max-height);
 
   ${greaterThan(576)} {
-    --max-height: ${({ isHomePage }) => (isHomePage ? `2477px` : `556px`)};
+    --max-height: ${({ isHomePage }) => (isHomePage ? `2477px` : `856px`)};
   }
 
   ${greaterThan(768)} {
-    --max-height: ${({ isHomePage }) => (isHomePage ? `2877px` : `556px`)};
+    --max-height: ${({ isHomePage }) => (isHomePage ? `2877px` : `856px`)};
   }
 `;
 
 export const bottomBackgroundStyle = css`
-  --max-height: 1847px;
+  --max-height: 1390px;
 
   bottom: 0;
 

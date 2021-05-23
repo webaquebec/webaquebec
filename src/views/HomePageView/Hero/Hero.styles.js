@@ -10,7 +10,7 @@ import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontFamilies, fontWeights } from '../../../styles/typography';
 
-export const StyledHeroSection = styled.header`
+export const StyledHero = styled.header`
   position: relative;
 
   ${breakpointsRange(

@@ -6,11 +6,10 @@ import { useMedia } from 'react-use';
 import LogoCard from './LogoCard';
 
 // images
-import logoBdc from '../../../images/logoPartners/associates/logo-bdc.svg';
-import logoLeCamp from '../../../images/logoPartners/associates/logo-le-camp.svg';
+import logoBeet from '../../../images/logoPartners/associates/logo-beet.svg';
+import logoFinaltaCapital from '../../../images/logoPartners/associates/logo-finalta-capital.svg';
 import logoMauvaisGarcons from '../../../images/logoPartners/associates/logo-mauvais-garcons.svg';
-import logoPwc from '../../../images/logoPartners/associates/logo-pwc.svg';
-import logoRobic from '../../../images/logoPartners/associates/logo-robic.svg';
+import logoFernandezRp from '../../../images/logoPartners/associates/logo-fernandez-rp.svg';
 
 // utils
 import { lessThanCondition } from '../../../utils/mediaQuery';
@@ -21,40 +20,14 @@ import { selfBreakpoints, Container, Wrapper, Square } from './Board.styles';
 
 const images = [
   {
-    src: logoBdc,
-    alt: 'BDC - Banque de développement du Canada | BDC.ca',
-    url: 'https://www.bdc.ca/fr',
+    src: logoBeet,
+    alt: 'Beet agence à Québec – Création de sites web et production vidéo',
+    url: 'https://boitebeet.com/',
   },
   {
-    src: logoLeCamp,
-    alt: 'Incubateur d’entreprises technologiques à Québec | LE CAMP',
-    url: 'https://lecampquebec.com',
-  },
-  {
-    src: logoMauvaisGarcons,
-    alt: 'Les Mauvais Garçons - Culture de marque',
-    url: 'https://lesmauvaisgarcons.ca/',
-  },
-  {
-    src: logoPwc,
-    alt: 'PwC Canada',
-    url: 'https://www.pwc.com/ca/fr/',
-  },
-  {
-    src: logoRobic,
-    alt:
-      'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
-    url: 'https://www.robic.ca/',
-  },
-  {
-    src: logoBdc,
-    alt: 'BDC - Banque de développement du Canada | BDC.ca',
-    url: 'https://www.bdc.ca/fr',
-  },
-  {
-    src: logoLeCamp,
-    alt: 'Incubateur d’entreprises technologiques à Québec | LE CAMP',
-    url: 'https://lecampquebec.com',
+    src: logoFinaltaCapital,
+    alt: 'Finalta Capital',
+    url: 'https://finaltacapital.com/',
   },
   {
     src: logoMauvaisGarcons,
@@ -62,15 +35,9 @@ const images = [
     url: 'https://lesmauvaisgarcons.ca/',
   },
   {
-    src: logoPwc,
-    alt: 'PwC Canada',
-    url: 'https://www.pwc.com/ca/fr/',
-  },
-  {
-    src: logoRobic,
-    alt:
-      'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
-    url: 'https://www.robic.ca/',
+    src: logoFernandezRp,
+    alt: 'Fernandez relations publiques',
+    url: 'https://fernandezrp.ca/',
   },
 ];
 
@@ -85,49 +52,31 @@ const Board = () => {
     setSquaresNbr(84);
 
     let positions = [
-      [39, 'top', 'left', undefined, undefined],
       [56, 'top', 'left', undefined, undefined],
-      [62, 'bottom', 'right', undefined, undefined],
       [63, 'bottom', 'left', undefined, undefined],
-      [66, 'bottom', 'right', undefined, undefined],
       [74, 'top', 'right', undefined, undefined],
       [78, 'top', 'right', undefined, undefined],
-      [80, 'bottom', 'left', undefined, undefined],
-      [82, 'bottom', 'right', undefined, undefined],
-      [82, 'bottom', 'right', undefined, '-164px'],
     ];
 
     if (tablet) {
-      setSquaresNbr(78);
+      setSquaresNbr(60);
 
       positions = [
-        [38, 'bottom', 'right', undefined, undefined],
-        [39, 'bottom', 'left', undefined, undefined],
-        [45, 'top', 'left', undefined, undefined],
-        [46, 'top', 'left', '29px', undefined],
-        [49, 'top', 'left', undefined, undefined],
-        [55, 'top', 'left', undefined, '28px'],
-        [64, 'bottom', 'left', undefined, undefined],
-        [69, 'top', 'right', undefined, undefined],
-        [70, 'top', 'left', undefined, undefined],
-        [75, 'top', 'right', undefined, '28px'],
+        [50, 'bottom', 'right', undefined, undefined],
+        [51, 'bottom', 'left', undefined, undefined],
+        [57, 'top', 'left', undefined, undefined],
+        [58, 'top', 'left', '29px', undefined],
       ];
     }
 
     if (mobile) {
-      setSquaresNbr(138);
+      setSquaresNbr(120);
 
       positions = [
-        [67, 'top', 'left', undefined, undefined],
-        [79, 'top', 'left', undefined, undefined],
-        [81, 'top', 'left', undefined, undefined],
-        [93, 'top', 'left', undefined, undefined],
-        [96, 'top', 'left', undefined, undefined],
-        [108, 'top', 'left', undefined, undefined],
-        [112, 'top', 'left', undefined, undefined],
-        [122, 'top', 'left', undefined, undefined],
-        [124, 'top', 'left', undefined, undefined],
-        [134, 'top', 'left', undefined, undefined],
+        [91, 'top', 'left', undefined, undefined],
+        [103, 'top', 'left', undefined, undefined],
+        [105, 'top', 'left', undefined, undefined],
+        [117, 'top', 'left', undefined, undefined],
       ];
     }
 
