@@ -7,7 +7,6 @@ import IconCheckMark from '../../images/IconCheckMark';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
-import colors from '../../styles/colors';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
@@ -95,10 +94,6 @@ const StyledCheckbox = styled.div`
   ${HiddenCheckbox}:checked ~ & > svg {
     transform: scale(1);
     opacity: 1;
-  }
-
-  ${HiddenCheckbox}:checked {
-    background-color: ${colors.bleu80};
   }
 `;
 
