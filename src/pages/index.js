@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 // components
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
+import SectionContainer from '../components/SectionContainer';
 
 // views
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
 import PartnersGridSection from '../views/HomePageView/PartnersSection';
+import KeynoteSection from '../views/HomePageView/KeynoteSection/KeynoteSection';
 
 const IndexPage = ({ location }) => {
   return (
@@ -22,7 +24,10 @@ const IndexPage = ({ location }) => {
 
       <StatsSection />
 
-      <PartnersGridSection />
+      <SectionContainer forwardedAs='div' faded>
+        <KeynoteSection />
+        <PartnersGridSection />
+      </SectionContainer>
     </Layout>
   );
 };

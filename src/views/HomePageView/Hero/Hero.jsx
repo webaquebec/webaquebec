@@ -4,7 +4,6 @@ import Marquee from 'react-fast-marquee';
 import { hideVisually } from 'polished';
 
 // styles
-import { easing } from '../../../styles/animation';
 import zIndexes from '../../../styles/zIndexes';
 import {
   StyledHero,
@@ -13,12 +12,11 @@ import {
   StarSeparator,
   MapPin,
   AddressFirstLine,
-  StickerImg,
 } from './Hero.styles';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
-import LazyAnimation from '../../../components/LazyAnimation';
+import Sticker from '../../../components/Sticker';
 
 // images
 import vectorStarSeparator from '../../../images/vectorStarSeparator.svg';
@@ -91,36 +89,7 @@ const Hero = () => {
           `}
         >
           {stickers.map((sticker, index) => (
-            <LazyAnimation
-              key={sticker.src}
-              transition={{
-                threshold: 1,
-                duration: '400ms',
-                delay: `${(index + 1) * 250}ms`,
-                easing: easing.outCustom,
-                scale: { initial: '0', final: '1' },
-                rotate: {
-                  initial: sticker.transform.rotate.initial,
-                  final: sticker.transform.rotate.final,
-                },
-              }}
-              css={`
-                position: absolute;
-                top: ${sticker.position.top || ''};
-                right: ${sticker.position.right || ''};
-                bottom: ${sticker.position.bottom || ''};
-                left: ${sticker.position.left || ''};
-                z-index: ${sticker.zIndex || ''};
-              `}
-            >
-              <StickerImg
-                src={sticker.src}
-                role='presentation'
-                alt=''
-                $minWidth={sticker.size.minWidth}
-                $maxWidth={sticker.size.maxWidth}
-              />
-            </LazyAnimation>
+            <Sticker key={sticker.src} sticker={sticker} index={index} />
           ))}
         </Center>
       </MarqueeWrapper>
