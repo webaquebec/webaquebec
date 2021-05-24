@@ -4,10 +4,53 @@ import styled, { css } from 'styled-components';
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
 
+// components
+import Center from '../../../components/LayoutSections/Center';
+
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
-// import { fontFamilies, fontWeights } from '../../../styles/typography';
+import { fontFamilies, fontWeights } from '../../../styles/typography';
+import zIndexes from '../../../styles/zIndexes';
+
+export const Wrapper = styled.div`
+  position: sticky;
+  top: 70px;
+  z-index: ${zIndexes.sticky};
+
+  padding: 2rem 0;
+
+  transform: translateY(-50%);
+`;
+
+export const HeaderContent = styled(Center)`
+  display: flex;
+`;
+
+export const StickyTitle = styled.div`
+  position: relative;
+
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+
+  width: 320px;
+  margin-right: 1.5rem;
+
+  color: ${colors.bleu80};
+  font-weight: ${fontWeights.bold};
+  font-family: ${fontFamilies.redaction20};
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [24, 24], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+export const YearSticker = styled.img`
+  width: 70px;
+  margin-left: 12px;
+`;
 
 export const DateList = styled.ul`
   position: relative;

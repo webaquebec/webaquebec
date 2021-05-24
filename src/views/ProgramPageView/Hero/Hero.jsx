@@ -2,45 +2,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
-import styled from 'styled-components';
 
 // components
 import HeroGrid from '../../../components/HeroGrid/HeroGrid';
-import Center from '../../../components/LayoutSections/Center';
 import Button from '../../../components/Button';
 
 // styles
-import { DateList, DateListItem, dateTabStyle } from './Hero.styles';
-import zIndexes from '../../../styles/zIndexes';
+import {
+  Wrapper,
+  HeaderContent,
+  StickyTitle,
+  YearSticker,
+  DateList,
+  DateListItem,
+  dateTabStyle,
+} from './Hero.styles';
 import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 
 // images
 import vectorYear2021 from '../../../images/vectorYear2021.svg';
-
-const Wrapper = styled.div`
-  position: sticky;
-  top: 60px;
-  z-index: ${zIndexes.sticky};
-
-  padding: 2rem 0;
-
-  transform: translateY(-50%);
-`;
-
-const HeaderContent = styled(Center)`
-  display: flex;
-`;
-
-const StickyTitle = styled.div`
-  position: relative;
-
-  display: flex;
-`;
-
-const YearSticker = styled.img`
-  width: 70px;
-  margin-left: 12px;
-`;
 
 const Hero = ({ datePaths }) => {
   const [ref, inView] = useInView({
@@ -54,7 +34,7 @@ const Hero = ({ datePaths }) => {
       <Wrapper>
         {!inView && <HeaderGradient />}
 
-        <HeaderContent maxWidth={!inView ? '1066px' : '736px'}>
+        <HeaderContent maxWidth={!inView ? '1066px' : '736px'} gutters='32px'>
           {!inView && (
             <StickyTitle>
               programmation
