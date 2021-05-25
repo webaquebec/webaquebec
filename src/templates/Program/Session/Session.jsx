@@ -146,11 +146,10 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
 
   const getFormattedTime = (date) => moment(date).format('HH:mm');
 
-  const getDateYear = (date) => moment(date, 'YYYY-MM-DD').format('YYYY');
+  // const getDateYear = (date) => moment(date, 'YYYY-MM-DD').format('YYYY');
 
   // Re-arrange values from the plannings array the way we want to use it in our template
   const modifiedPlannings = plannings.map((planning) => ({
-    edition: getDateYear(planning.beginsAt),
     date: getFormattedLocaleDate(planning.beginsAt),
     time: {
       beginsAt: getFormattedTime(planning.beginsAt),
@@ -163,7 +162,6 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
   const session = modifiedPlannings[0];
 
   const {
-    edition,
     date,
     time,
     title,
@@ -176,9 +174,7 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
   } = session;
 
   const pagePath =
-    pageNumber === 1
-      ? `/programmation/${edition}`
-      : `/programmation/${edition}/${pageNumber}`;
+    pageNumber === 1 ? `/programmation` : `/programmation/${pageNumber}`;
 
   return (
     <Layout>
