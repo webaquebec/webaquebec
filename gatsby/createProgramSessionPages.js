@@ -75,6 +75,7 @@ const createSession = async ({ plannings, actions, reporter, variables }) => {
         pageSize,
         planningIds: [id],
         pageNumber: pageIndex + 1,
+        isLastPage: eventDates.length === pageIndex + 1,
       },
     });
   });

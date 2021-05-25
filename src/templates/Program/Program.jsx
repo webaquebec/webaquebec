@@ -13,6 +13,9 @@ import ScheduleCardList from '../../components/ScheduleCardList';
 import ScheduleCard from '../../components/ScheduleCardList/ScheduleCard';
 import StyledSectionContainer from '../../components/SectionContainer';
 
+// images
+import ogImgProgram from '../../images/og/og-img-program-disponible.jpg';
+
 // views
 import Hero from '../../views/ProgramPageView/Hero';
 
@@ -87,6 +90,7 @@ const Program = ({
       <SEO
         title='Programmation'
         description='Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec.'
+        image={ogImgProgram}
       />
 
       <Hero datePaths={datePaths} />
@@ -104,7 +108,7 @@ const Program = ({
                   pageNumber !== eventDates.length ? current.time : undefined
                 }
                 type={current.type}
-                category={current.categories[0]}
+                categories={current.categories}
                 speakers={current.speakers}
               />
             ))}
