@@ -8,9 +8,9 @@ import {
   CardMobileHeader,
   SpeakerPicture,
   SpeakerInfo,
-  SpeakerLinks,
-  SpeakerLinkItem,
-  LinkIcon,
+  // SpeakerLinks,
+  // SpeakerLinkItem,
+  // LinkIcon,
   SpeakerHeader,
   HeaderInfo,
   SpeakerDescription,
@@ -20,47 +20,47 @@ import {
 import Sidebar from '../LayoutSections/Sidebar';
 
 // images
-import iconEmail from '../../images/socialMedia/email.svg';
-import iconInstagram from '../../images/socialMedia/instagram.svg';
-import iconLinkedin from '../../images/socialMedia/linkedin.svg';
-import iconTwitter from '../../images/socialMedia/twitter.svg';
-import iconWebsite from '../../images/socialMedia/website.svg';
-import groupBy from '../../utils/groupBy';
+// import iconEmail from '../../images/socialMedia/email.svg';
+// import iconInstagram from '../../images/socialMedia/instagram.svg';
+// import iconLinkedin from '../../images/socialMedia/linkedin.svg';
+// import iconTwitter from '../../images/socialMedia/twitter.svg';
+// import iconWebsite from '../../images/socialMedia/website.svg';
+// import groupBy from '../../utils/groupBy';
 
 const SpeakerCard = ({ speaker }) => {
-  const socialNetworksGroupByType = groupBy(speaker.socialNetworks, 'type');
+  // const socialNetworksGroupByType = groupBy(speaker.socialNetworks, 'type');
 
   const picture = speaker.photoUrlSharp?.childImageSharp?.fixed;
 
-  const contactLinks = [
-    {
-      email: { name: 'Adresse courriel', icon: iconEmail, url: speaker.email },
-    },
-    {
-      instagram: {
-        name: 'Compte Instagram',
-        icon: iconInstagram,
-        url: socialNetworksGroupByType.instagram?.profile,
-      },
-    },
-    {
-      linkedin: {
-        name: 'Compte LinkedIn',
-        icon: iconLinkedin,
-        url: socialNetworksGroupByType.linkedin?.profile,
-      },
-    },
-    {
-      twitter: {
-        name: 'Compte Twitter',
-        icon: iconTwitter,
-        url: socialNetworksGroupByType.twitter?.profile,
-      },
-    },
-    {
-      website: { name: 'Site Web', icon: iconWebsite, url: speaker.websiteUrl },
-    },
-  ];
+  // const contactLinks = [
+  //   {
+  //     email: { name: 'Adresse courriel', icon: iconEmail, url: speaker.email },
+  //   },
+  //   {
+  //     instagram: {
+  //       name: 'Compte Instagram',
+  //       icon: iconInstagram,
+  //       url: socialNetworksGroupByType.instagram?.profile,
+  //     },
+  //   },
+  //   {
+  //     linkedin: {
+  //       name: 'Compte LinkedIn',
+  //       icon: iconLinkedin,
+  //       url: socialNetworksGroupByType.linkedin?.profile,
+  //     },
+  //   },
+  //   {
+  //     twitter: {
+  //       name: 'Compte Twitter',
+  //       icon: iconTwitter,
+  //       url: socialNetworksGroupByType.twitter?.profile,
+  //     },
+  //   },
+  //   {
+  //     website: { name: 'Site Web', icon: iconWebsite, url: speaker.websiteUrl },
+  //   },
+  // ];
 
   const fullName = `${speaker.firstName} ${speaker.lastName}`;
 
@@ -76,7 +76,7 @@ const SpeakerCard = ({ speaker }) => {
               <HeaderInfo>{speaker.organization}</HeaderInfo>
             </SpeakerInfo>
 
-            <SpeakerLinks>
+            {/* <SpeakerLinks>
               {contactLinks.map((link) => (
                 <SpeakerLinkItem key={link.type}>
                   <a href={link.url} rel='noopener noreferrer' target='_blank'>
@@ -84,7 +84,7 @@ const SpeakerCard = ({ speaker }) => {
                   </a>
                 </SpeakerLinkItem>
               ))}
-            </SpeakerLinks>
+            </SpeakerLinks> */}
           </div>
         </CardMobileHeader>
         <div>
