@@ -34,7 +34,7 @@ const ScheduleCard = ({
   place,
   time,
   type,
-  category,
+  categories,
   speakers,
   to,
   ...rest
@@ -49,7 +49,7 @@ const ScheduleCard = ({
   return (
     <StyledScheduleCard
       to={to}
-      $accentColor={categoryColors[category]}
+      $accentColor={categoryColors[categories[0]]}
       {...rest}
     >
       <Container
@@ -87,10 +87,12 @@ const ScheduleCard = ({
             </div>
           ))}
 
-          {(category || type || place) && (
+          {(categories.length > 0 || type || place) && (
             <Cluster>
               <div>
-                {category && <Tag category={category} />}
+                {categories.map((category) => (
+                  <Tag category={category} />
+                ))}
 
                 {type && <Tag eventType={type} />}
 
@@ -147,12 +149,14 @@ ScheduleCard.propTypes = {
   /**
    * Specifies which categories a session is attached to
    */
-  category: PropTypes.oneOf([
-    'design',
-    'communication-et-marketing',
-    'developpement',
-    'innovation',
-  ]),
+  categories: PropTypes.arrayOf(
+    PropTypes.oneOf([
+      'design',
+      'communication-et-marketing',
+      'developpement',
+      'innovation',
+    ])
+  ),
   /**
    * Specifies speakers identity information
    */
@@ -173,7 +177,7 @@ ScheduleCard.defaultProps = {
   time: undefined,
   place: null,
   type: null,
-  category: null,
+  categories: [],
   speakers: [],
 };
 
