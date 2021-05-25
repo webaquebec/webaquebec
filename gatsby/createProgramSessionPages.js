@@ -85,8 +85,8 @@ const createProgram = async ({ plannings, actions, reporter, variables }) => {
   const template = path.resolve('src/templates/Program/Program.jsx');
 
   // Group plannings by date
-  // const eventDate = new Date(plannings[0].beginsAt);
-  // const eventYear = eventDate.getFullYear();
+  const eventDate = new Date(plannings[0].beginsAt);
+  const eventYear = eventDate.getFullYear();
 
   // change default language
   moment.locale('fr_ca');
@@ -106,7 +106,9 @@ const createProgram = async ({ plannings, actions, reporter, variables }) => {
     const getPagePath = (page) => {
       if (page <= 0 || page > totalPages) return null;
 
-      return page === 1 ? `/programmation` : `/programmation/${page}`;
+      return page === 1
+        ? `/programmation/${eventYear}`
+        : `/programmation/${eventYear}/${page}`;
     };
 
     reporter.info(getPagePath(pageNumber));
