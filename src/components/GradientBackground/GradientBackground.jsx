@@ -6,11 +6,20 @@ import { graphql, useStaticQuery } from 'gatsby';
 // styles
 import { Container, StyledBackground } from './GradientBackground.styles';
 
-const GradientBackground = ({ position, isHomePage, ...rest }) => {
+const GradientBackground = ({ position, pathName, ...rest }) => {
   const data = useStaticQuery(
     graphql`
       query {
-        top: file(relativePath: { eq: "img-gradient-background-top.jpg" }) {
+        topDefault: file(
+          relativePath: { eq: "img-gradient-background-top-default.jpg" }
+        ) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 1440) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        topFaq: file(relativePath: { eq: "img-gradient-background-top.jpg" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 1440) {
               ...GatsbyImageSharpFluid_withWebp
@@ -40,8 +49,11 @@ const GradientBackground = ({ position, isHomePage, ...rest }) => {
   );
 
   const {
-    top: {
-      childImageSharp: { fluid: topBackground },
+    topDefault: {
+      childImageSharp: { fluid: topDefaultBackground },
+    },
+    topFaq: {
+      childImageSharp: { fluid: topFaqBackground },
     },
     topHome: {
       childImageSharp: { fluid: topHomeBackground },
@@ -51,9 +63,21 @@ const GradientBackground = ({ position, isHomePage, ...rest }) => {
     },
   } = data;
 
-  const initTopBackground = isHomePage ? topHomeBackground : topBackground;
+  // const initTopBackground = isHomePage ? topHomeBackground : topBackground;
 
-  const source = position === 'top' ? initTopBackground : bottomBackground;
+  // const source = position === 'top' ? initTopBackground : bottomBackground;
+
+  const isHomePage = !!pathName && pathName === '/';
+
+  const initTopBackground = () => {
+    if (isHomePage) {
+      return topHomeBackground;
+    }
+
+    return pathName === '/faq' ? topFaqBackground : topDefaultBackground;
+  };
+
+  const source = position === 'top' ? initTopBackground() : bottomBackground;
 
   return (
     <Container isHomePage={isHomePage} position={position} {...rest}>
@@ -66,10 +90,14 @@ export default GradientBackground;
 
 GradientBackground.propTypes = {
   position: PropTypes.oneOf(['top', 'bottom']),
-  isHomePage: PropTypes.bool,
+  // isHomePage: PropTypes.bool,
+
+  pathName: PropTypes.string,
 };
 
 GradientBackground.defaultProps = {
   position: 'top',
-  isHomePage: false,
+  // isHomePage: false,
+
+  pathName: undefined,
 };
