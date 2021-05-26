@@ -26,10 +26,36 @@ function SEO({ description, lang, meta, title, image, langLinks }) {
     `
   );
 
-  const metaImage = `${site.siteMetadata.siteUrl}${
-    image || site.siteMetadata.image
-  }`;
+  const metaImage =
+    (image || site.siteMetadata.image) &&
+    `${site.siteMetadata.siteUrl}${image || site.siteMetadata.image}`;
   const metaDescription = description || site.siteMetadata.description;
+
+  const siteMeta = [
+    {
+      name: `description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:title`,
+      content: title,
+    },
+    {
+      property: `og:description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:type`,
+      content: `website`,
+    },
+  ];
+
+  if (metaImage) {
+    siteMeta.push({
+      property: `og:image`,
+      content: metaImage,
+    });
+  }
 
   return (
     <Helmet
@@ -38,28 +64,7 @@ function SEO({ description, lang, meta, title, image, langLinks }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:image`,
-          content: metaImage,
-        },
-      ].concat(meta)}
+      meta={siteMeta.concat(meta)}
     >
       {langLinks.map((link) => (
         <link
