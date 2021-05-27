@@ -12,7 +12,7 @@ import Button from '../../../components/Button';
 // styles
 import { DateList, DateListItem, dateTabStyle } from './Hero.styles';
 import zIndexes from '../../../styles/zIndexes';
-import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
+import HeaderGradient from '../../../components/HeaderGradient';
 
 const Wrapper = styled.div`
   position: sticky;
@@ -36,7 +36,7 @@ const Hero = ({ datePaths }) => {
       <HeroGrid ref={ref} title='programmation' displayYear />
 
       <Wrapper>
-        {!inView && <HeaderGradient />}
+        <HeaderGradient visible={!inView} />
 
         <Center maxWidth='736px'>
           <DateList>
