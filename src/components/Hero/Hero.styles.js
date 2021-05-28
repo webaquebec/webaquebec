@@ -1,11 +1,13 @@
 // vendors
 import styled from 'styled-components';
 
+// utils
+import breakpointsRange from '../../utils/breakpointsRange';
+
 // styles
 import colors from '../../styles/colors';
 import { fontFamilies, fontWeights } from '../../styles/typography';
 import breakpoints from '../../styles/breakpoints';
-import breakpointsRange from '../../utils/breakpointsRange';
 
 export const GridTitle = styled.h1`
   margin: 0;
@@ -26,6 +28,7 @@ export const GridTitle = styled.h1`
 
 export const GridTitleWrapper = styled.div`
   position: relative;
+  z-index: 1;
 
   display: inline-block;
 
@@ -36,8 +39,8 @@ export const GridTitleWrapper = styled.div`
   ${breakpointsRange(
     [
       { prop: 'borderRadius', sizes: [12, 16], bases: [16, 20] },
-      { prop: 'paddingTop', sizes: [12, 24], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [12, 24], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [12, 12], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [12, 12], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [24, 40], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [24, 40], bases: [16, 20] },
     ],
@@ -47,6 +50,8 @@ export const GridTitleWrapper = styled.div`
 
 export const YearSticker = styled.img`
   position: absolute;
+
+  right: 15%;
 
   transform: translateY(100%) rotate3d(0, 0, 1, -5.09deg);
 

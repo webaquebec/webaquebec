@@ -19,7 +19,11 @@ export const IconContainer = styled.div`
 
 export const IconWrapper = styled.div`
   width: ${em(34, 22)};
-  min-width: 30px;
+
+  ${breakpointsRange(
+    [{ prop: 'minWidth', sizes: [20, 27], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 export const TextWrapper = styled.span`
@@ -38,6 +42,7 @@ export const primaryStyle = css`
 
   background-color: ${colors.turquoise80};
 
+  &.active,
   :focus,
   :hover:not(:disabled) {
     background-color: ${colors.turquoise40};
@@ -58,6 +63,7 @@ export const outlinedPrimaryStyle = css`
 
   background-color: transparent;
 
+  &.active,
   :focus,
   :hover:not(:disabled) {
     ${outlinedPrimaryFocusHoverStyle};
@@ -74,11 +80,7 @@ export const outlinedFocusHoverStyle = css`
 export const outlinedIconStyle = css`
   ${IconContainer} {
     ${breakpointsRange(
-      [
-        // { prop: 'marginTop', sizes: [-31, -31], bases: [16, 20] },
-        // { prop: 'marginBottom', sizes: [-31, -31], bases: [16, 20] },
-        { prop: 'paddingLeft', sizes: [32, 32], bases: [16, 20] },
-      ],
+      [{ prop: 'paddingLeft', sizes: [24, 24], bases: [16, 20] }],
       breakpoints.spacings
     )};
 
@@ -101,7 +103,7 @@ export const outlinedIconFirstStyle = css`
     padding: 0;
 
     ${breakpointsRange(
-      [{ prop: 'paddingRight', sizes: [32, 32], bases: [16, 20] }],
+      [{ prop: 'paddingRight', sizes: [24, 24], bases: [16, 20] }],
       breakpoints.spacings
     )};
 
@@ -124,12 +126,23 @@ export const outlinedIconFirstStyle = css`
 `;
 
 export const outlinedStyle = css`
+  ${breakpointsRange(
+    [
+      { prop: '--paddingVertical', sizes: [20, 20], bases: [16, 20] },
+      { prop: '--paddingHorizontal', sizes: [24, 24], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+
+  padding: var('--paddingVertical') var('--paddingHorizontal');
+
   color: ${colors.bleu};
 
   background-color: transparent;
   border: 3px solid currentColor;
   border-radius: 5px;
 
+  &.active,
   :focus,
   :hover:not(:disabled) {
     ${outlinedFocusHoverStyle}
@@ -173,7 +186,7 @@ export const iconFirstStyle = css`
 
     margin: 0;
     ${breakpointsRange(
-      [{ prop: 'marginLeft', sizes: [32, 32], bases: [16, 20] }],
+      [{ prop: 'marginLeft', sizes: [24, 24], bases: [16, 20] }],
       breakpoints.spacings
     )};
 
@@ -195,7 +208,7 @@ export const iconStyle = css`
 
     margin: 0;
     ${breakpointsRange(
-      [{ prop: 'marginRight', sizes: [32, 32], bases: [16, 20] }],
+      [{ prop: 'marginRight', sizes: [24, 24], bases: [16, 20] }],
       breakpoints.spacings
     )};
 
@@ -252,6 +265,7 @@ const StyledButton = styled.button`
     transition: transform ${speed.fast};
   }
 
+  &.active,
   :focus,
   :hover:not(:disabled) {
     background-color: ${colors.bleu90};

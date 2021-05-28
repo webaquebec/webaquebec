@@ -26,7 +26,7 @@ const Layout = ({ children, location }) => {
       <GlobalStyle />
 
       {/** Only temporary until having a full dynamic gradient background */}
-      <StaticGradientBackground isHomePage={isHomePage} position='top' />
+      <StaticGradientBackground pathName={location.pathname} position='top' />
 
       <Header isHomePage={isHomePage} />
 

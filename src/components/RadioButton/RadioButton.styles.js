@@ -24,12 +24,12 @@ export const RadioButtonLabel = styled.label`
   align-items: center;
   justify-content: left;
 
-  /* 
-   color:  $color 
-   font-weight: $font-weight 
-   font-size: $font-size 
-   line-height: $line-height
-  */
+  color: ${({ theme }) => theme.color.label};
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 
   text-decoration: none;
   word-break: keep-all;
@@ -44,6 +44,8 @@ const StyledRadioButton = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  color: ${({ theme }) => theme.color.radio};
 
   ${breakpointsRange(
     [
@@ -95,7 +97,7 @@ const StyledRadioButton = styled.div`
       breakpoints.spacings
     )};
 
-    background-color: black;
+    background-color: currentColor;
     border-radius: 50%;
 
     transition-timing-function: ${easing.inOutBack};

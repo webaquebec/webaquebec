@@ -1,5 +1,9 @@
 // vendors
 import styled, { css } from 'styled-components';
+import Img from 'gatsby-image';
+
+// utils
+import { greaterThan } from '../../utils/mediaQuery';
 
 // styles
 import colors from '../../styles/colors';
@@ -8,72 +12,161 @@ import breakpoints from '../../styles/breakpoints';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 export const StyledSpeakerCard = css`
-  padding: 24px;
-
   background-color: ${colors.gris20};
   border-radius: 8px;
+
+  ${breakpointsRange(
+    [{ prop: 'padding', sizes: [12, 24], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
-export const SpeakerPicture = styled.img`
-  border-radius: 6px;
-`;
-
-export const SpeakerLinks = styled.ul`
+export const CardMobileHeader = styled.div`
   display: flex;
-  max-width: 300px;
-  margin: 10px 0 0;
-  padding: 0;
 
-  list-style: none;
+  ${greaterThan(768)} {
+    display: block;
+  }
 `;
 
-export const SpeakerLinkItem = styled.li`
-  width: 20%;
-  padding-right: 8px;
-`;
+export const SpeakerPicture = styled(Img)`
+  margin-right: 12px;
 
-export const LinkIcon = styled.img`
-  width: 100%;
-  max-width: 32px;
-`;
+  border-radius: 6px;
 
-export const SpeakerHeader = styled.p`
-  color: ${colors.bleu80};
+  ${greaterThan(768)} {
+    margin-right: 0;
+  }
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
-      { prop: 'marginTop', sizes: [16, 0], bases: [16, 20] },
+      { prop: 'width', sizes: [80, 100], bases: [16, 20] },
+      { prop: 'height', sizes: [80, 100], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 `;
 
+export const SpeakerInfo = styled.div`
+  display: block;
+
+  color: ${colors.bleu80};
+
+  ${greaterThan(768)} {
+    display: none;
+  }
+`;
+
+export const SpeakerLinks = styled.ul`
+  display: flex;
+  max-width: 300px;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [6, 10], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+export const SpeakerLinkItem = styled.li`
+  width: 14px;
+  margin-right: 14px;
+
+  line-height: 1;
+
+  ${greaterThan(768)} {
+    width: 20%;
+    margin-right: 0;
+    padding-right: 8px;
+  }
+`;
+
+export const LinkIcon = styled.img`
+  width: 14px;
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'width', sizes: [14, 14], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+
+  ${greaterThan(768)} {
+    width: 100%;
+  }
+`;
+
+export const SpeakerHeader = styled.p`
+  display: none;
+
+  margin-top: 0;
+
+  color: ${colors.bleu80};
+
+  ${greaterThan(768)} {
+    display: block;
+  }
+`;
+
 export const HeaderInfo = styled.span`
+  display: block;
+
   :first-child {
     font-weight: ${fontWeights.bold};
   }
 
-  ::after {
+  ${greaterThan(768)} {
     display: inline-block;
-    margin: 0 8px;
+    margin-right: 8px;
 
-    color: ${colors.gris40};
+    ::after {
+      display: inline-block;
+      margin: 0;
+      margin-left: 8px;
 
-    content: '|';
-  }
+      color: ${colors.gris40};
 
-  :last-child {
-    &::after {
-      display: none;
+      content: '|';
+    }
+
+    :last-child {
+      &::after {
+        display: none;
+      }
     }
   }
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [20, 22], bases: [16, 16], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
 `;
 
 export const SpeakerDescription = styled.div`
   color: ${colors.gris90};
+
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [14, 14], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [12, 14], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [16, 18], bases: [12, 14], unit: '' },
+    ],
     breakpoints.spacings
   )};
+
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 `;

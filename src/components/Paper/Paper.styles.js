@@ -34,7 +34,9 @@ const Container = styled(Box)`
 
     border-radius: inherit;
 
-    filter: drop-shadow(0 30px 80px rgba(0, 12, 158, 0.5));
+    /* FIXME: This is hell. Find another way if a drop-shadow is required. */
+
+    /* filter: drop-shadow(0 30px 80px rgba(0, 12, 158, 0.5)); */
 
     mix-blend-mode: normal;
 

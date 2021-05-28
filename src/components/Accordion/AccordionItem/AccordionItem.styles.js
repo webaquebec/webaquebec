@@ -33,6 +33,8 @@ export const Container = styled(Box)`
   background-color: ${colors.white};
   border-radius: 16px;
 
+  will-change: max-height;
+
   ::before {
     position: absolute;
     z-index: -1;
@@ -148,6 +150,8 @@ export const Panel = styled.section`
 
   opacity: ${({ $expanded }) => ($expanded ? '1' : '0')};
 
+  will-change: transform, opacity;
+
   @media (prefers-reduced-motion: no-preference) {
     transition-timing-function: ease;
     transition-duration: ${speed.default};
@@ -171,6 +175,8 @@ export const Toggle = styled(IconChevron)`
   margin-left: 20px;
 
   transform: ${({ $expanded }) => ($expanded ? `rotate(180deg)` : `none`)};
+
+  will-change: transform;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: transform ${speed.fast} ease;

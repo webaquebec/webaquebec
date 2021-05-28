@@ -8,11 +8,11 @@ import randomString from '../../utils/math/randomString';
 // styles
 import {
   Container,
-  Heading,
-  Button,
+  DropdownButtonWrapper,
+  DropdownButton,
   TitleWrapper,
-  Panel,
-  PanelContent,
+  DropdownMenu,
+  LinkButton,
   Toggle,
 } from './Dropdown.styles';
 import colors from '../../styles/colors';
@@ -27,9 +27,9 @@ const Dropdown = ({ title, children }) => {
 
   return (
     <Container padding='0' lightColor={colors.white} darkColor={colors.bleu}>
-      <Heading $expanded={expanded}>
-        <Button
-          id={`${dropdownId}-header`}
+      <DropdownButtonWrapper $expanded={expanded}>
+        <DropdownButton
+          id={`${dropdownId}-button`}
           aria-controls={`${dropdownId}-panel`}
           aria-expanded={expanded}
           onClick={onToggleClick}
@@ -40,17 +40,20 @@ const Dropdown = ({ title, children }) => {
             aria-label={expanded ? 'Réduire' : 'Développer'}
             $expanded={expanded}
           />
-        </Button>
-      </Heading>
+        </DropdownButton>
+      </DropdownButtonWrapper>
 
-      <Panel
+      <DropdownMenu
         id={`${dropdownId}-panel`}
-        aria-labelledby={`${dropdownId}-header`}
+        aria-labelledby={`${dropdownId}-button`}
         aria-hidden={!expanded}
         $expanded={expanded}
+        role='menu'
       >
-        <PanelContent>{children}</PanelContent>
-      </Panel>
+        {children.map(({ props }) => (
+          <LinkButton {...props} />
+        ))}
+      </DropdownMenu>
     </Container>
   );
 };

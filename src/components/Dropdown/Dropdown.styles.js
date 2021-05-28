@@ -1,6 +1,5 @@
 // vendors
 import styled, { css } from 'styled-components';
-import { rem } from 'polished';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
@@ -10,6 +9,7 @@ import IconChevron from '../../images/IconChevron';
 
 // components
 import Box from '../LayoutSections/Box';
+import Button from '../Button';
 
 // styles
 import { speed } from '../../styles/animation';
@@ -17,52 +17,33 @@ import breakpoints from '../../styles/breakpoints';
 import { fontWeights } from '../../styles/typography';
 import colors from '../../styles/colors';
 
-const borderStyle = css`
-  border: 2px solid;
-`;
-
 export const Container = styled(Box)`
   position: relative;
   z-index: 1;
 
-  max-height: ${({ $expanded, $maxHeight }) =>
-    $expanded ? `999px` : `${$maxHeight}px`};
-
-  overflow: hidden;
-
-  background-color: ${colors.white};
-  border-radius: 16px;
-
-  ::before {
-    position: absolute;
-    z-index: -1;
-
-    width: 100%;
-    height: 100%;
-
-    border-radius: 16px;
-
-    content: '';
-
-    ${({ $expanded }) => $expanded && borderStyle};
-  }
-
-  :focus-within ::before,
-  :hover ::before {
-    ${borderStyle};
-  }
+  background-color: transparent;
+  border: 0;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: max-height ${speed.default} ease;
   }
 `;
 
-export const Heading = styled.div`
+export const expandedStyle = css`
+  border-radius: 16px 16px 0 0;
+`;
+
+export const DropdownButtonWrapper = styled.div`
   position: relative;
 
   margin: 0;
 
   font-weight: ${fontWeights.bold};
+
+  background-color: ${colors.white};
+
+  border: 3px solid ${colors.bleu80};
+  border-radius: 16px;
 
   ${breakpointsRange(
     [
@@ -77,25 +58,15 @@ export const Heading = styled.div`
     breakpoints.spacings
   )};
 
-  ::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    width: 100%;
-    height: 2px;
-
-    content: '';
-  }
-
-  border-bottom: ${({ $expanded }) => ($expanded ? `2px solid` : `0`)};
+  /* Apply expanded style when expanded props defined */
+  ${({ $expanded }) => $expanded && expandedStyle}
 `;
 
 export const TitleWrapper = styled.span`
   text-align: left;
 `;
 
-export const Button = styled.button`
+export const DropdownButton = styled.button`
   position: relative;
   z-index: 1;
 
@@ -107,10 +78,10 @@ export const Button = styled.button`
 
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [16, 28] },
-      { prop: 'paddingRight', sizes: [22, 32] },
-      { prop: 'paddingBottom', sizes: [16, 28] },
-      { prop: 'paddingLeft', sizes: [22, 32] },
+      { prop: 'paddingTop', sizes: [24, 24] },
+      { prop: 'paddingBottom', sizes: [24, 24] },
+      { prop: 'paddingLeft', sizes: [20, 20] },
+      { prop: 'paddingRight', sizes: [20, 20] },
     ],
     breakpoints.spacings,
     { bases: [16, 20] }
@@ -128,21 +99,16 @@ export const Button = styled.button`
   }
 `;
 
-export const Panel = styled.section`
-  position: relative;
+export const DropdownMenu = styled.section`
+  position: absolute;
 
-  ${breakpointsRange(
-    [
-      { prop: 'paddingTop', sizes: [16, 28] },
-      { prop: 'paddingRight', sizes: [22, 32] },
-      { prop: 'paddingBottom', sizes: [16, 28] },
-      { prop: 'paddingLeft', sizes: [22, 32] },
-    ],
-    breakpoints.spacings,
-    { bases: [16, 20] }
-  )};
-
+  width: 100%;
   overflow: hidden;
+
+  background-color: ${colors.white};
+  border: 3px solid ${colors.bleu80};
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
 
   transform: translateY(${({ $expanded }) => ($expanded ? '0px' : '-20px')});
 
@@ -155,20 +121,23 @@ export const Panel = styled.section`
   }
 `;
 
-export const PanelContent = styled.div`
-  color: ${colors.gris90};
-  /* font-weight: ${fontWeights.regular}; */
-  /* font-size: ${rem(16, 20)}; */
+export const LinkButton = styled(Button)`
+  width: 100%;
 
-  > * {
-    margin: 0;
-  }
+  border: 0;
+  border-radius: 0;
+
+  ${breakpointsRange(
+    [{ prop: 'padding', sizes: [24, 24] }],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
 `;
 
 export const Toggle = styled(IconChevron)`
   width: 100%;
-  max-width: 10px;
-  margin-left: 16px;
+  max-width: 12px;
+  margin-left: 14px;
 
   color: ${colors.bleu80};
 
