@@ -20,14 +20,11 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 export const CheckMark = styled(IconCheckMark)`
   position: absolute;
 
-  height: 50%;
-
-  margin-top: 3%;
-
   color: ${({ theme }) => theme.color.checkmark};
 
   transform: scale(0);
-  opacity: 0;
+
+  /* opacity: 0; */
 `;
 
 /* Checkbox label style */
@@ -91,15 +88,11 @@ const StyledCheckbox = styled.div`
     cursor: not-allowed;
   }
 
-  /* Disabled checkbox style on the svg checkmark path  */
-  ${HiddenCheckbox}:disabled ~ & > svg > path {
-    /* ex. fill: #ccc; */
-  }
-
   /* Checked style on the svg checkmnark */
-  ${HiddenCheckbox}:checked ~ & > svg {
+  ${HiddenCheckbox}:checked ~ & > ${CheckMark} {
     transform: scale(1);
-    opacity: 1;
+
+    /* opacity: 1; */
   }
 `;
 
