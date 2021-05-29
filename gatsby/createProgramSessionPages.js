@@ -1,5 +1,4 @@
 const path = require(`path`);
-const moment = require(`moment`);
 const groupBy = require(`../src/utils/groupBy.js`);
 const slugify = require(`../src/utils/strings/slugify.js`);
 
@@ -50,7 +49,11 @@ const createSession = async ({ plannings, actions, reporter, variables }) => {
 
   const { eventId, page, pageSize } = variables;
 
-  const dayNumber = (item) => moment(item.beginsAt, 'YYYY-MM-DD').format('DD');
+  const dayNumber = (item) => {
+    const options = { day: '2-digit' };
+    const date = new Date(item.beginsAt);
+    return date.toLocaleDateString('fr-ca', options);
+  };
 
   const planningsGroupByDate = groupBy(plannings, dayNumber);
   const eventDates = Object.keys(planningsGroupByDate);
@@ -88,11 +91,11 @@ const createProgram = async ({ plannings, actions, reporter, variables }) => {
   const eventDate = new Date(plannings[0].beginsAt);
   const eventYear = eventDate.getFullYear();
 
-  // change default language
-  moment.locale('fr_ca');
-
-  const dayName = (item) =>
-    moment(item.beginsAt, 'YYYY-MM-DD').format('dddd DD MMMM');
+  const dayName = (item) => {
+    const options = { weekday: 'long', day: 'numeric', month: 'long' };
+    const date = new Date(item.beginsAt);
+    return date.toLocaleDateString('fr-ca', options);
+  };
   const planningsGroupByDate = groupBy(plannings, dayName);
 
   const eventDates = Object.keys(planningsGroupByDate);
