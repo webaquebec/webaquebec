@@ -34,7 +34,7 @@ const Hero = ({ datePaths }) => {
       <Wrapper>
         {!inView && <HeaderGradient />}
 
-        <HeaderContent maxWidth={!inView ? '1066px' : '736px'} gutters='32px'>
+        <HeaderContent maxWidth={!inView ? '1066px' : '736px'}>
           {!inView && (
             <StickyTitle>
               programmation
@@ -43,7 +43,7 @@ const Hero = ({ datePaths }) => {
           )}
           <DateList>
             {datePaths.map((item) => (
-              <DateListItem key={item.dateNumber}>
+              <DateListItem key={item.date}>
                 <Button
                   to={item.path}
                   activeClassName='active'
