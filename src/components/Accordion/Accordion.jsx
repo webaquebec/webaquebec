@@ -34,7 +34,7 @@ const grayBorder = css`
  *   </AccordionItem>
  * </Accordion>
  */
-const Accordion = ({ multiple, collapsible, space, children, grayStyle }) => {
+const Accordion = ({ multiple, collapsible, space, divided, children }) => {
   const [expandedItems, setExpandedItems] = useState([]);
 
   const items = React.Children.toArray(children);
@@ -65,12 +65,11 @@ const Accordion = ({ multiple, collapsible, space, children, grayStyle }) => {
   return (
     <Stack as='ul' space={space} css={unstyledListStyle}>
       {items.map((item) => (
-        <li key={item.key} css={grayStyle && grayBorder}>
+        <li key={item.key} css={divided && grayBorder}>
           <AccordionItem
             {...item.props}
             onToggleClick={() => handleToggle(item.key)}
             expanded={expandedItems.includes(item.key)}
-            grayStyle
           />
         </li>
       ))}
@@ -96,13 +95,13 @@ Accordion.propTypes = {
    */
   space: PropTypes.string,
   /**
-   * Whether the accordion has gray style or not (style used for filters)
+   * Whether the accordion has a divider or not
    */
-  grayStyle: PropTypes.bool,
+  divided: PropTypes.bool,
 };
 
 Accordion.defaultProps = {
-  grayStyle: false,
+  divided: false,
   collapsible: false,
   multiple: false,
   space: undefined,
