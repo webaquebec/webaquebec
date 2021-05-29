@@ -1,9 +1,8 @@
 // vendors
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import moment from 'moment';
 
 // components
 import Layout from '../../components/Layout';
@@ -21,6 +20,8 @@ import Filters from '../../views/ProgramPageView/Filters';
 // utils
 import slugify from '../../utils/strings/slugify';
 import breakpointsRange from '../../utils/breakpointsRange';
+import unSlugify from '../../utils/strings/unSlugify';
+import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
@@ -54,59 +55,159 @@ const Program = ({
     swapcard: { plannings },
   } = data;
 
-  const rooms = [];
-  const themes = [];
-  const types = [];
-  data.swapcard.plannings.forEach((event) => {
-    // Get all rooms for filters
-    if (rooms.indexOf(event.place) === -1 && event.place !== null) {
-      rooms.push(event.place);
-    }
-    // Get all themes for filters
-    event.categories.forEach((categorie) => {
-      if (themes.indexOf(categorie) === -1) {
-        themes.push(categorie);
-      }
-    });
-    // Get all types for filters
-    if (types.indexOf(event.type) === -1) {
-      types.push(event.type);
-    }
-  });
+  const [filters, setFilters] = useState({});
+  const [datePaths, setDatePaths] = useState([]);
+  const [program, setProgram] = useState([]);
 
-  // Re-arrange event dates the way we want to display them in the UI
-  const displayableDates = eventDates.reduce((acc, current, index, array) => {
-    let item = current;
-    if (index === array.length - 1) {
-      item = 'bonus !';
-    }
-    acc.push(item);
+  // Triggered once. Re-arrange data from Swapcard the way we want to display it in our template
+  useEffect(() => {
+    const getFormattedTime = (value) => {
+      // Fix Safari Invalid Date issue
+      const formatValue = value.replace(/-/g, '/');
+      const options = { hour: '2-digit', minute: '2-digit' };
+      const date = new Date(formatValue);
+      return date.toLocaleTimeString('fr', options);
+    };
 
-    return acc;
+    // Re-arrange values from the plannings array the way we want to use it in our template
+    const modifiedPlannings = plannings.map((planning) => ({
+      time: {
+        beginsAt: getFormattedTime(planning.beginsAt),
+        endsAt: getFormattedTime(planning.endsAt),
+      },
+      ...planning,
+    }));
+
+    setProgram(modifiedPlannings);
+
+    // Re-arrange event dates the way we want to display them in our template
+    const displayableDates = eventDates.map((current, index, array) =>
+      index === array.length - 1 ? 'bonus !' : current
+    );
+
+    const tempDatePaths = displayableDates.map((date, index) => ({
+      date,
+      path: pagePaths[index],
+    }));
+
+    setDatePaths(tempDatePaths);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getFormattedTime = (date) => {
-    return moment(date).format('HH:mm');
+  // Initialize filters
+  useEffect(() => {
+    const places = [];
+    const categories = [];
+    const eventTypes = [];
+
+    const addChoices = (value, array) => {
+      if (value === null || array.some((t) => t.value === value)) return;
+
+      const current = {
+        value,
+        isChecked: false,
+      };
+      array.push(current);
+    };
+
+    plannings.forEach((session) => {
+      // Get all places for filters
+      addChoices(session.place, places);
+      // Get all categories for filters
+      session.categories.forEach((category) => {
+        addChoices(category, categories);
+      });
+      // Get all types for filters
+      addChoices(session.type, eventTypes);
+    });
+
+    const updatedFilters = {
+      place: {
+        title: 'Lieu',
+        values: places.map((place) => ({
+          name: unSlugify(place.value),
+          ...place,
+        })),
+      },
+      categories: {
+        title: 'Thématique',
+        values: categories.map((category) => ({
+          name: categoriesMap[category.value],
+          ...category,
+        })),
+      },
+      type: {
+        title: 'Type',
+        values: eventTypes.map((type) => ({
+          name: eventTypesMap[type.value],
+          ...type,
+        })),
+      },
+    };
+
+    setFilters(updatedFilters);
+  }, [plannings]);
+
+  // Update filters
+  const handleFilterChange = (event) => {
+    const filter = filters[event.target.name];
+
+    const values = filter.values.reduce((acc, current) => {
+      const choice = { ...current };
+      if (current.value === event.target.value) {
+        choice.isChecked = event.target.checked;
+      }
+      acc.push(choice);
+      return acc;
+    }, []);
+
+    // const index = filters.findIndex((e) => e.name === filter.name);
+    // const updatedFilters = [...filters];
+    // updatedFilters[index] = { ...updatedFilters[index], choices };
+    const updatedFilters = { ...filters };
+    updatedFilters[event.target.name] = {
+      ...updatedFilters[event.target.name],
+      values,
+    };
+
+    setFilters(updatedFilters);
   };
 
-  // Re-arrange values from the plannings array the way we want to use it in our template
-  const program = plannings.map((planning) => ({
-    time: {
-      beginsAt: getFormattedTime(planning.beginsAt),
-      endsAt: getFormattedTime(planning.endsAt),
-    },
-    ...planning,
-  }));
+  // Reset filters
+  const handleClickReset = () => {
+    const filtersEntries = Object.entries(filters);
+    const updatedFilters = {};
+    filtersEntries.forEach(([key, entry]) => {
+      const { values } = entry;
 
-  // const getFormattedDateNumber = (str) => {
-  //   const date = new Date(str);
-  //   return moment(date).format('DD');
-  // };
+      // Uncheck all
+      const updatedValues = values.map((value) => ({
+        ...value,
+        isChecked: false,
+      }));
 
-  const datePaths = displayableDates.map((date, index) => ({
-    date,
-    path: pagePaths[index],
-  }));
+      updatedFilters[key] = {
+        ...entry,
+        values: updatedValues,
+      };
+    });
+
+    setFilters(updatedFilters);
+  };
+
+  // Filter function that returns true whether all choices are unchecked or at least one of them is checked
+  const applyFilter = (key, session) => {
+    const allUnchecked = filters[key].values.every((c) => !c.isChecked);
+
+    const choiceFound = filters[key].values.some((choice) => {
+      if (Array.isArray(session[key])) {
+        return choice.isChecked && session[key].includes(choice.value);
+      }
+      return choice.isChecked && choice.value === session[key];
+    });
+
+    return allUnchecked || choiceFound;
+  };
 
   return (
     <Layout location={location}>
@@ -122,26 +223,35 @@ const Program = ({
           <Switcher threshold='768px' space='1.5rem'>
             <div>
               <FiltersWrapper>
-                <Filters rooms={rooms} themes={themes} types={types} />
+                <Filters
+                  filters={filters}
+                  onChange={handleFilterChange}
+                  onReset={handleClickReset}
+                />
               </FiltersWrapper>
               <div>
                 <ScheduleCardList>
-                  {program.map((current) => (
-                    <ScheduleCard
-                      to={`/programmation/${slugify(current.title)}/`}
-                      title={current.title}
-                      content={current.description}
-                      place={current.place}
-                      time={
-                        pageNumber !== eventDates.length
-                          ? current.time
-                          : undefined
-                      }
-                      type={current.type}
-                      category={current.categories[0]}
-                      speakers={current.speakers}
-                    />
-                  ))}
+                  {program
+                    .filter((session) => applyFilter('place', session))
+                    .filter((session) => applyFilter('categories', session))
+                    .filter((session) => applyFilter('type', session))
+                    .map((session) => (
+                      <ScheduleCard
+                        key={session.id}
+                        to={`/programmation/${slugify(session.title)}/`}
+                        title={session.title}
+                        content={session.description}
+                        place={session.place}
+                        time={
+                          pageNumber !== eventDates.length
+                            ? session.time
+                            : undefined
+                        }
+                        type={session.type}
+                        category={session.categories[0]}
+                        speakers={session.speakers}
+                      />
+                    ))}
                 </ScheduleCardList>
               </div>
             </div>

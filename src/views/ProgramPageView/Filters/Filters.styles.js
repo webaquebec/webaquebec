@@ -61,4 +61,8 @@ export const Button = styled.button`
     breakpoints.spacings,
     { bases: [16, 20] }
   )};
+
+  cursor: pointer;
+
+  appearance: none;
 `;
