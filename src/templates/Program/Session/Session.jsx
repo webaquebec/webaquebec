@@ -118,7 +118,7 @@ const EventDescription = styled.div`
  * @param {Object} pageContext — Received context from the automatically created pages
  * (@Link gatsby/createScheduleSessionPages.js) and use that as variables GraphQL query.
  */
-const Session = ({ data, pageContext: { pageNumber } }) => {
+const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
   /**
    * Query to fetch data from Swapcard API at client side only.
    * Useful if we want to get up-to-date data that may change during an event (e.g. time, room)
@@ -168,7 +168,6 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
       beginsAt: getFormattedTime(planning.beginsAt),
       endsAt: getFormattedTime(planning.endsAt),
     },
-    category: planning.categories[0],
     ...planning,
   }));
 
@@ -181,9 +180,9 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
     title,
     description,
     htmlDescription,
-    category,
     type,
     place,
+    categories,
     speakers,
   } = session;
 
@@ -221,12 +220,16 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
           <EventContainer>
             <Center maxWidth='645px' gutters='var(--container-gutter)'>
               <Stack space='40px'>
-                <Cluster>
-                  <div>
-                    <Tag outlined>{date}</Tag>
-                    <Tag outlined>{`de ${time.beginsAt} à ${time.endsAt}`}</Tag>
-                  </div>
-                </Cluster>
+                {!isLastPage && (
+                  <Cluster>
+                    <div>
+                      <Tag outlined>{date}</Tag>
+                      <Tag
+                        outlined
+                      >{`de ${time.beginsAt} à ${time.endsAt}`}</Tag>
+                    </div>
+                  </Cluster>
+                )}
 
                 <div>
                   <EventTitle>{title}</EventTitle>
@@ -235,10 +238,12 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
                   />
                 </div>
 
-                {(category || type || place) && (
+                {(categories.length > 0 || type || place) && (
                   <Cluster>
                     <div>
-                      {category && <Tag category={category} />}
+                      {categories.map((category) => (
+                        <Tag category={category} />
+                      ))}
 
                       {type && <Tag eventType={type} />}
 
@@ -271,6 +276,7 @@ Session.propTypes = {
     pageSize: PropTypes.number,
     pageNumber: PropTypes.number,
     planningIds: PropTypes.arrayOf(PropTypes.string),
+    isLastPage: PropTypes.bool,
   }).isRequired,
 };
 

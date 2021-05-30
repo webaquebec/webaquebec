@@ -5,7 +5,11 @@ import { useInView } from 'react-intersection-observer';
 
 // components
 import HeroGrid from '../../../components/HeroGrid/HeroGrid';
+import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
+
+// images
+import vectorYear2021 from '../../../images/vectorYear2021.svg';
 
 // styles
 import {
@@ -17,10 +21,6 @@ import {
   DateListItem,
   dateTabStyle,
 } from './Hero.styles';
-import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
-
-// images
-import vectorYear2021 from '../../../images/vectorYear2021.svg';
 
 const Hero = ({ datePaths }) => {
   const [ref, inView] = useInView({
@@ -32,7 +32,7 @@ const Hero = ({ datePaths }) => {
       <HeroGrid ref={ref} title='programmation' displayYear />
 
       <Wrapper>
-        {!inView && <HeaderGradient />}
+        <HeaderGradient visible={!inView} />
 
         <HeaderContent maxWidth={!inView ? '1066px' : '736px'}>
           {!inView && (

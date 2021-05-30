@@ -5,7 +5,8 @@ module.exports = {
     title: 'Le Web à Québec',
     description:
       'Le plus grand événement numérique francophone en Amérique du Nord.',
-    siteUrl: 'https://www.webaquebec.org',
+    siteUrl: 'https://webaquebec.org',
+    image: '',
   },
   plugins: [
     'gatsby-plugin-styled-components',

@@ -123,18 +123,18 @@ export const HeaderInfo = styled.span`
     display: inline-block;
     margin-right: 8px;
 
-    ::before {
+    ::after {
       display: inline-block;
       margin: 0;
-      margin-right: 8px;
+      margin-left: 8px;
 
       color: ${colors.gris40};
 
       content: '|';
     }
 
-    :first-child {
-      &::before {
+    :last-child {
+      &::after {
         display: none;
       }
     }

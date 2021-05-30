@@ -13,6 +13,9 @@ import ScheduleCard from '../../components/ScheduleCardList/ScheduleCard';
 import StyledSectionContainer from '../../components/SectionContainer';
 import Switcher from '../../components/LayoutSections/Switcher';
 
+// images
+import ogImgProgram from '../../images/og/og-img-program-disponible.jpg';
+
 // views
 import Hero from '../../views/ProgramPageView/Hero';
 import Filters from '../../views/ProgramPageView/Filters';
@@ -212,8 +215,9 @@ const Program = ({
   return (
     <Layout location={location}>
       <SEO
-        title='Programmation — Le Web à Québec'
+        title='Programmation'
         description='Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec.'
+        image={ogImgProgram}
       />
 
       <Hero datePaths={datePaths} />
@@ -248,7 +252,7 @@ const Program = ({
                             : undefined
                         }
                         type={session.type}
-                        category={session.categories[0]}
+                        categories={session.categories}
                         speakers={session.speakers}
                       />
                     ))}
