@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'styled-components';
-
 // components
 import AccordionItem from './AccordionItem';
 import Stack from '../LayoutSections/Stack';
@@ -69,7 +68,7 @@ const Accordion = ({ multiple, collapsible, space, divided, children }) => {
           <AccordionItem
             {...item.props}
             onToggleClick={() => handleToggle(item.key)}
-            expanded={expandedItems.includes(item.key)}
+            expanded={item.props.expanded || expandedItems.includes(item.key)}
           />
         </li>
       ))}
