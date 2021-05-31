@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import colors from '../../styles/colors';
 
@@ -11,23 +11,10 @@ const StyledSvg = styled.svg`
 
   width: 100%;
   height: 200px;
-
-  opacity: 0;
-
-  will-change: opacity;
 `;
 
-const visibleStyle = css`
-  opacity: 1;
-`;
-
-const HeaderGradient = ({ fillColor, visible, ...rest }) => (
-  <StyledSvg
-    preserveAspectRatio='none'
-    viewBox='0 0 100 20'
-    css={visible && visibleStyle}
-    {...rest}
-  >
+const HeaderGradient = ({ fillColor, ...rest }) => (
+  <StyledSvg preserveAspectRatio='none' viewBox='0 0 100 20' {...rest}>
     <defs>
       <linearGradient
         id='verticalAlphaGradient'
