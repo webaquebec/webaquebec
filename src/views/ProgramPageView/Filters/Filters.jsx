@@ -3,14 +3,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 
-// styles
-import colors from '../../../styles/colors';
-import { Container, Header, Title, Button } from './Filters.styles';
-
 // components
 import Accordion from '../../../components/Accordion';
 import AccordionItem from '../../../components/Accordion/AccordionItem';
 import Checkbox from '../../../components/Checkbox';
+
+// hooks
+import useHasMounted from '../../../hooks/useHasMounted';
+
+// styles
+import colors from '../../../styles/colors';
+import { Container, Header, Title, Button } from './Filters.styles';
 
 const checkboxStyle = css`
   :not(:first-child) {
@@ -18,45 +21,55 @@ const checkboxStyle = css`
   }
 `;
 
-const Filters = ({ filters, onChange, onReset }) => (
-  <Container>
-    <Header>
-      <Title>Filtres</Title>
-      <Button type='button' onClick={onReset}>
-        Réinitialiser
-      </Button>
-    </Header>
+const Filters = ({ filters, onChange, onReset }) => {
+  const hasMounted = useHasMounted();
 
-    <Accordion multiple collapsible divided space='0'>
-      {Object.keys(filters)
-        .filter((name) => filters[name].values.length > 0)
-        .map((name) => (
-          <AccordionItem
-            key={`filter-${filters[name].title}`}
-            title={filters[name].title}
-            color={colors.gris80}
-            big
-          >
-            {filters[name].values.map((item) => (
-              <Checkbox
-                key={item.value}
-                name={name}
-                value={item.value}
-                checked={item.isChecked}
-                onChange={onChange}
-                css={checkboxStyle}
-              >
-                {item.name}
-              </Checkbox>
-            ))}
-          </AccordionItem>
-        ))}
-    </Accordion>
-  </Container>
-);
+  if (!hasMounted) {
+    return null;
+  }
+
+  return (
+    <Container>
+      <Header>
+        <Title>Filtres</Title>
+        <Button type='button' onClick={onReset}>
+          Réinitialiser
+        </Button>
+      </Header>
+
+      <Accordion multiple collapsible divided space='0'>
+        {filters
+          .filter((f) => f.values.length > 0)
+          .map((filter) => (
+            <AccordionItem
+              id={filter.id}
+              key={`filter-${filter.title}`}
+              title={filter.title}
+              color={colors.gris80}
+              expanded={filter.values.some((v) => v.isChecked)}
+              big
+            >
+              {filter.values.map((item) => (
+                <Checkbox
+                  key={item.value}
+                  name={filter.name}
+                  value={item.value}
+                  checked={item.isChecked}
+                  onChange={onChange}
+                  css={checkboxStyle}
+                >
+                  {item.name}
+                </Checkbox>
+              ))}
+            </AccordionItem>
+          ))}
+      </Accordion>
+    </Container>
+  );
+};
 
 Filters.propTypes = {
-  filters: PropTypes.shape({}).isRequired,
+  filters: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   onChange: PropTypes.func,
   onReset: PropTypes.func,
 };

@@ -13,6 +13,9 @@ import ScheduleCard from '../../components/ScheduleCardList/ScheduleCard';
 import StyledSectionContainer from '../../components/SectionContainer';
 import Switcher from '../../components/LayoutSections/Switcher';
 
+// contexts
+import { useProgramFiltersContext } from '../../contexts/ProgramFiltersContext';
+
 // images
 import ogImgProgram from '../../images/og/og-img-program-disponible.jpg';
 
@@ -30,6 +33,8 @@ import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 import breakpoints from '../../styles/breakpoints';
 
 const SectionContainer = styled(StyledSectionContainer)`
+  min-height: 800px;
+
   margin-top: -60px;
   padding: 0 16px;
 
@@ -58,9 +63,20 @@ const Program = ({
     swapcard: { plannings },
   } = data;
 
-  const [filters, setFilters] = useState({});
+  const { state } = location;
+  const { fromSession } = state || {};
+
   const [datePaths, setDatePaths] = useState([]);
   const [program, setProgram] = useState([]);
+
+  const {
+    addFilter,
+    updateFilter,
+    applyFilter,
+    getFilters,
+    removeFilters,
+    uncheckAllFilters,
+  } = useProgramFiltersContext();
 
   // Triggered once. Re-arrange data from Swapcard the way we want to display it in our template
   useEffect(() => {
@@ -104,13 +120,9 @@ const Program = ({
     const eventTypes = [];
 
     const addChoices = (value, array) => {
-      if (value === null || array.some((t) => t.value === value)) return;
+      if (value === null || array.some((v) => v === value)) return;
 
-      const current = {
-        value,
-        isChecked: false,
-      };
-      array.push(current);
+      array.push(value);
     };
 
     plannings.forEach((session) => {
@@ -124,92 +136,51 @@ const Program = ({
       addChoices(session.type, eventTypes);
     });
 
-    const updatedFilters = {
-      place: {
-        title: 'Lieu',
-        values: places.map((place) => ({
-          name: unSlugify(place.value),
-          ...place,
-        })),
-      },
-      categories: {
-        title: 'Thématique',
-        values: categories.map((category) => ({
-          name: categoriesMap[category.value],
-          ...category,
-        })),
-      },
-      type: {
-        title: 'Type',
-        values: eventTypes.map((type) => ({
-          name: eventTypesMap[type.value],
-          ...type,
-        })),
-      },
-    };
+    const filters = getFilters();
+    if (filters.length > 0 && fromSession) return;
 
-    setFilters(updatedFilters);
+    removeFilters();
+
+    addFilter({
+      name: 'place',
+      title: 'Lieu',
+      values: places.map((value) => ({
+        name: unSlugify(value),
+        value,
+      })),
+    });
+    addFilter({
+      name: 'categories',
+      title: 'Thématique',
+      values: categories.map((value) => ({
+        name: categoriesMap[value],
+        value,
+      })),
+    });
+    addFilter({
+      name: 'type',
+      title: 'Type',
+      values: eventTypes.map((value) => ({
+        name: eventTypesMap[value],
+        value,
+      })),
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [plannings]);
 
   // Update filters
   const handleFilterChange = (event) => {
-    const filter = filters[event.target.name];
-
-    const values = filter.values.reduce((acc, current) => {
-      const choice = { ...current };
-      if (current.value === event.target.value) {
-        choice.isChecked = event.target.checked;
-      }
-      acc.push(choice);
-      return acc;
-    }, []);
-
-    // const index = filters.findIndex((e) => e.name === filter.name);
-    // const updatedFilters = [...filters];
-    // updatedFilters[index] = { ...updatedFilters[index], choices };
-    const updatedFilters = { ...filters };
-    updatedFilters[event.target.name] = {
-      ...updatedFilters[event.target.name],
-      values,
+    const options = {
+      value: event.target.value,
+      isChecked: event.target.checked,
     };
-
-    setFilters(updatedFilters);
+    updateFilter(event.target.name, options);
   };
 
   // Reset filters
   const handleClickReset = () => {
-    const filtersEntries = Object.entries(filters);
-    const updatedFilters = {};
-    filtersEntries.forEach(([key, entry]) => {
-      const { values } = entry;
-
-      // Uncheck all
-      const updatedValues = values.map((value) => ({
-        ...value,
-        isChecked: false,
-      }));
-
-      updatedFilters[key] = {
-        ...entry,
-        values: updatedValues,
-      };
-    });
-
-    setFilters(updatedFilters);
-  };
-
-  // Filter function that returns true whether all choices are unchecked or at least one of them is checked
-  const applyFilter = (key, session) => {
-    const allUnchecked = filters[key].values.every((c) => !c.isChecked);
-
-    const choiceFound = filters[key].values.some((choice) => {
-      if (Array.isArray(session[key])) {
-        return choice.isChecked && session[key].includes(choice.value);
-      }
-      return choice.isChecked && choice.value === session[key];
-    });
-
-    return allUnchecked || choiceFound;
+    uncheckAllFilters();
   };
 
   return (
@@ -228,7 +199,7 @@ const Program = ({
             <div>
               <FiltersWrapper>
                 <Filters
-                  filters={filters}
+                  filters={getFilters()}
                   onChange={handleFilterChange}
                   onReset={handleClickReset}
                 />
@@ -236,9 +207,11 @@ const Program = ({
               <div>
                 <ScheduleCardList>
                   {program
-                    .filter((session) => applyFilter('place', session))
-                    .filter((session) => applyFilter('categories', session))
-                    .filter((session) => applyFilter('type', session))
+                    .filter((session) => applyFilter('place', session.place))
+                    .filter((session) =>
+                      applyFilter('categories', session.categories)
+                    )
+                    .filter((session) => applyFilter('type', session.type))
                     .map((session) => (
                       <ScheduleCard
                         key={session.id}
@@ -273,6 +246,7 @@ const Program = ({
 Program.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
+    state: PropTypes.shape({}),
   }).isRequired,
   data: PropTypes.shape({
     swapcard: PropTypes.shape({

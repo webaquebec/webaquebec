@@ -27,8 +27,8 @@ export const Header = styled.div`
     [
       { prop: 'paddingTop', sizes: [40, 40] },
       { prop: 'paddingRight', sizes: [40, 40] },
-      { prop: 'paddingBottom', sizes: [0, 0] },
       { prop: 'paddingLeft', sizes: [40, 40] },
+      { prop: 'marginBottom', sizes: [8, 8] },
     ],
     breakpoints.spacings,
     { bases: [16, 20] }
