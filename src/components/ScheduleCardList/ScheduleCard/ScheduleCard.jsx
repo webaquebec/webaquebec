@@ -91,7 +91,7 @@ const ScheduleCard = ({
             <Cluster>
               <div>
                 {categories.map((category) => (
-                  <Tag category={category} />
+                  <Tag key={category} category={category} />
                 ))}
 
                 {type && <Tag eventType={type} />}
