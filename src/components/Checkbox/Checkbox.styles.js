@@ -24,6 +24,8 @@ export const CheckMark = styled(IconCheckMark)`
 
   transform: scale(0);
 
+  will-change: transform;
+
   /* opacity: 0; */
 `;
 
@@ -91,8 +93,11 @@ const StyledCheckbox = styled.div`
   /* Checked style on the svg checkmnark */
   ${HiddenCheckbox}:checked ~ & > ${CheckMark} {
     transform: scale(1);
+  }
 
-    /* opacity: 1; */
+  ${HiddenCheckbox}:focus ~ & {
+    outline: 2px dotted ${({ theme }) => theme.color.label};
+    outline-offset: 2px;
   }
 `;
 
