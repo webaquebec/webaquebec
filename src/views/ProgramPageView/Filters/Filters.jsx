@@ -28,6 +28,12 @@ const Filters = ({ filters, onChange, onReset }) => {
     return null;
   }
 
+  const sortByNameAsc = (a, b) => {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  };
+
   return (
     <Container>
       <Header>
@@ -49,7 +55,7 @@ const Filters = ({ filters, onChange, onReset }) => {
               expanded={filter.values.some((v) => v.isChecked)}
               big
             >
-              {filter.values.map((item) => (
+              {filter.values.sort(sortByNameAsc).map((item) => (
                 <Checkbox
                   key={item.value}
                   name={filter.name}
