@@ -208,7 +208,6 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
         <Center maxWidth='1064px' gutters='var(--container-gutter)' intrinsic>
           <Button
             to={pagePath}
-            state={{ fromSession: true }}
             tag='link'
             outlined
             iconFirst

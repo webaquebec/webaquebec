@@ -63,18 +63,15 @@ const Program = ({
     swapcard: { plannings },
   } = data;
 
-  const { state } = location;
-  const { fromSession } = state || {};
-
   const [datePaths, setDatePaths] = useState([]);
   const [program, setProgram] = useState([]);
 
   const {
     addFilter,
     updateFilter,
+    updateFilterValue,
     applyFilter,
     getFilters,
-    removeFilters,
     uncheckAllFilters,
   } = useProgramFiltersContext();
 
@@ -137,9 +134,29 @@ const Program = ({
     });
 
     const filters = getFilters();
-    if (filters.length > 0 && fromSession) return;
 
-    removeFilters();
+    if (filters.length > 0) {
+      updateFilter('place', {
+        values: places.map((value) => ({
+          name: unSlugify(value),
+          value,
+        })),
+      });
+      updateFilter('categories', {
+        values: categories.map((value) => ({
+          name: categoriesMap[value],
+          value,
+        })),
+      });
+      updateFilter('type', {
+        values: eventTypes.map((value) => ({
+          name: eventTypesMap[value],
+          value,
+        })),
+      });
+
+      return;
+    }
 
     addFilter({
       name: 'place',
@@ -175,7 +192,8 @@ const Program = ({
       value: event.target.value,
       isChecked: event.target.checked,
     };
-    updateFilter(event.target.name, options);
+
+    updateFilterValue(event.target.name, options);
   };
 
   // Reset filters

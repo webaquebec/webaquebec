@@ -38,6 +38,42 @@ export const ProgramFiltersProvider = ({ children }) => {
     setFilters((state) => {
       const index = state.findIndex((filter) => filter.name === name);
 
+      if (index < 0)
+        return console.error('No filter found with name `%s`', name);
+
+      const values = options.values.map((current) => {
+        const value = state[index].values.find(
+          (v) => v.value === current.value
+        );
+
+        return {
+          ...value,
+          ...current,
+          isChecked: current.isChecked || value?.isChecked || false,
+        };
+      });
+
+      const updatedFilter = {
+        ...state[index],
+        ...options,
+        values,
+      };
+
+      return [
+        ...state.slice(0, index),
+        updatedFilter,
+        ...state.slice(index + 1),
+      ];
+    });
+  };
+
+  const updateFilterValue = (name, options = {}) => {
+    setFilters((state) => {
+      const index = state.findIndex((filter) => filter.name === name);
+
+      if (index < 0)
+        return console.error('No filter found with name `%s`', name);
+
       const values = state[index].values.map((current) => {
         const choice = { ...current };
         if (current.value === options.value) {
@@ -46,11 +82,11 @@ export const ProgramFiltersProvider = ({ children }) => {
         return choice;
       });
 
-      const updatedFilters = { ...state[index], values };
+      const updatedFilter = { ...state[index], values };
 
       return [
         ...state.slice(0, index),
-        updatedFilters,
+        updatedFilter,
         ...state.slice(index + 1),
       ];
     });
@@ -99,6 +135,7 @@ export const ProgramFiltersProvider = ({ children }) => {
       value={{
         addFilter,
         updateFilter,
+        updateFilterValue,
         uncheckAllFilters,
         applyFilter,
         getFilters,
