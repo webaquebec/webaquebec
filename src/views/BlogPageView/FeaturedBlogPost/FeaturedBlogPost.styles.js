@@ -1,5 +1,6 @@
 // vendors
 import styled, { css } from 'styled-components';
+import Img from 'gatsby-image';
 
 // utils
 import { em } from 'polished';
@@ -40,13 +41,7 @@ export const PostContent = styled.div`
   }
 `;
 
-export const PostPictureWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const PostPicture = styled.img`
+export const PostPicture = styled(Img)`
   max-width: 100%;
 `;
 
