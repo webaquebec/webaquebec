@@ -290,6 +290,22 @@ export const externalLinkStyle = css``;
 
 export const paragraphStyle = css``;
 
+export const blockquoteStyle = css`
+  color: ${colors.bleu80};
+
+  font-weight: ${fontWeights.bold};
+  text-align: center;
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [24, 32], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [32, 40], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [32, 40], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
 export const unstyledListStyle = css`
   margin: 0;
   padding: 0;
@@ -316,5 +332,136 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     ${bodyStyle};
+  }
+
+  blockquote {
+    ${blockquoteStyle};
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .blog-post {
+    blockquote {
+      max-width: 1066px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    ul {
+      padding-left: 32px;
+      
+      list-style: none;
+
+      ul {
+        margin-top: 16px;
+      }
+
+      li {
+        margin-bottom: 16px;
+      }
+      
+      li::before {
+        display: inline-block;
+
+        width: 1em;
+        margin-left: -1em;
+
+        color: ${colors.bleu80};
+        font-weight: ${fontWeights.bold};
+
+        content: '•';
+      }
+
+      li li::before {
+        content: '○';
+      }
+      
+      li li li::before {
+        content: '-';
+      }
+    }
+    
+    ol {
+      padding-left: 32px;
+
+      list-style: none;
+
+      counter-reset: li;
+
+      ol {
+        margin-top: 16px;
+      }
+
+      li {
+        margin-bottom: 16px;
+
+        counter-increment: li;
+      }
+
+      li::before {
+        display: inline-block;
+
+        width: 1.3em;
+        margin-left: -1.3em;
+
+        color: ${colors.bleu80};
+        font-weight: ${fontWeights.bold};
+
+        direction: rtl;
+
+        content: '.' counter(li);
+      }
+
+      li li::before {
+        content: '.' counter(li, lower-alpha);
+      }
+      
+      li li li::before {
+        width: 1.8em;
+        margin-left: -1.8em;
+
+        content: '(' counter(li) ')';
+      }
+    }
+    
+    p {
+      margin-bottom: 32px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      ${breakpointsRange(
+        [
+          { prop: 'marginTop', sizes: [60, 80], bases: [16, 20] },
+          { prop: 'marginBottom', sizes: [24, 40], bases: [16, 20] },
+        ],
+        breakpoints.spacings
+      )};
+    }
+
+    .picture-block {
+      ${breakpointsRange(
+        [
+          { prop: 'marginTop', sizes: [60, 80], bases: [16, 20] },
+          { prop: 'marginBottom', sizes: [60, 80], bases: [16, 20] },
+        ],
+        breakpoints.spacings
+      )};
+
+      img {
+        display: block;
+        width: 100%;
+        max-width: 1066px;
+        margin: 0 auto;
+
+        border-radius: 12px;
+      }
+    }
   }
 `;
