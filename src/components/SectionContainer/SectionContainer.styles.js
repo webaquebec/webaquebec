@@ -39,7 +39,10 @@ const fadedStyle = css`
   }
 
   ::before {
-    top: -50vh;
+    /** FIXME: Temporary fix due to a weird gap issue on mobile display. 
+     *  Find a better way to fix it.
+     **/
+    top: -49.999vh;
 
     background: ${({ $bgColor }) =>
       $bgColor &&

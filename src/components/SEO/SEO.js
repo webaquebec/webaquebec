@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title, langLinks }) {
+function SEO({ description, lang, meta, title, image, langLinks }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,13 +18,44 @@ function SEO({ description, lang, meta, title, langLinks }) {
           siteMetadata {
             title
             description
+            siteUrl
+            image
           }
         }
       }
     `
   );
 
+  const metaImage =
+    (image || site.siteMetadata.image) &&
+    `${site.siteMetadata.siteUrl}${image || site.siteMetadata.image}`;
   const metaDescription = description || site.siteMetadata.description;
+
+  const siteMeta = [
+    {
+      name: `description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:title`,
+      content: title,
+    },
+    {
+      property: `og:description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:type`,
+      content: `website`,
+    },
+  ];
+
+  if (metaImage) {
+    siteMeta.push({
+      property: `og:image`,
+      content: metaImage,
+    });
+  }
 
   return (
     <Helmet
@@ -33,24 +64,7 @@ function SEO({ description, lang, meta, title, langLinks }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-      ].concat(meta)}
+      meta={siteMeta.concat(meta)}
     >
       {langLinks.map((link) => (
         <link
@@ -68,6 +82,7 @@ SEO.defaultProps = {
   lang: `fr`,
   meta: [],
   description: ``,
+  image: ``,
   langLinks: [],
 };
 
@@ -76,6 +91,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  image: PropTypes.string,
   langLinks: PropTypes.arrayOf(
     PropTypes.shape({
       langKey: PropTypes.string.isRequired,
