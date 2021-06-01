@@ -32,12 +32,12 @@ const primaryNavigation = [
     slug: '/programmation/2021',
     type: 'internal',
   },
-  // {
-  //   id: 'blog',
-  //   label: 'blogue',
-  //   slug: '/blogue',
-  //   type: 'internal',
-  // },
+  {
+    id: 'blog',
+    label: 'blogue',
+    slug: '/blogue',
+    type: 'internal',
+  },
   {
     id: 'faq',
     label: 'FAQ',

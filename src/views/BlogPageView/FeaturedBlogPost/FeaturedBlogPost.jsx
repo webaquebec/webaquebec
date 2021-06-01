@@ -1,5 +1,6 @@
 // vendors
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // components
 import Switcher from '../../../components/LayoutSections/Switcher';
@@ -10,7 +11,6 @@ import Paper from '../../../components/Paper';
 import {
   PostWrapper,
   PostContent,
-  PostPictureWrapper,
   PostPicture,
   PostTitle,
   Star,
@@ -19,17 +19,17 @@ import {
 } from './FeaturedBlogPost.styles';
 import colors from '../../../styles/colors';
 
-const FeaturedBlogPost = () => {
-  const data = {
-    id: 1,
-    alt: '',
-    picture: 'https://place-hold.it/600x434',
-    title:
-      '10 bonnes raisons de prévoir prendre congé pendant le WAQ en juin 2021',
-    publishDate: '6 avril 2021',
-    summary: `« J’devrais-tu, j’devrais-tu pas? » La réponse est simple : oui, tu devrais. Que le Web à Québec soit une nouvelle expérience lorem ipsum dolor sit amet...`,
-    link: '/',
-  };
+const FeaturedBlogPost = ({ post }) => {
+  const {
+    childImageSharp: { desktop, mobile },
+  } = post.picture;
+
+  const sources = [
+    {
+      ...desktop,
+    },
+    { ...mobile },
+  ];
 
   return (
     <Paper
@@ -40,17 +40,15 @@ const FeaturedBlogPost = () => {
     >
       <Switcher threshold='768px' space='2rem' limit={2}>
         <div>
-          <PostPictureWrapper>
-            <PostPicture src={data.picture} alt={data.alt} />
-          </PostPictureWrapper>
+          <PostPicture fluid={sources} role='presentation' alt='' />
           <PostContent>
-            <PostTitle>{data.title}</PostTitle>
+            <PostTitle>{post.title}</PostTitle>
             <PostDate>
               <Star color={colors.yellow80} />
-              {data.publishDate}
+              {post.date}
             </PostDate>
-            <PostSummary>{data.summary}</PostSummary>
-            <Button to={data.link} tag='href' primary small>
+            <PostSummary>{post.content}</PostSummary>
+            <Button to={post.to} tag='href' primary small>
               lire l&apos;article
             </Button>
           </PostContent>
@@ -58,6 +56,36 @@ const FeaturedBlogPost = () => {
       </Switcher>
     </Paper>
   );
+};
+
+FeaturedBlogPost.propTypes = {
+  /**
+   * Specifies the post to be featured
+   */
+  post: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    picture: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        desktop: PropTypes.shape({
+          aspectRatio: PropTypes.number.isRequired,
+          src: PropTypes.string.isRequired,
+          srcSet: PropTypes.string.isRequired,
+          srcSetWebp: PropTypes.string.isRequired,
+          srcWebp: PropTypes.string.isRequired,
+        }).isRequired,
+        mobile: PropTypes.shape({
+          aspectRatio: PropTypes.number.isRequired,
+          src: PropTypes.string.isRequired,
+          srcSet: PropTypes.string.isRequired,
+          srcSetWebp: PropTypes.string.isRequired,
+          srcWebp: PropTypes.string.isRequired,
+        }).isRequired,
+      }),
+    }).isRequired,
+    to: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default FeaturedBlogPost;

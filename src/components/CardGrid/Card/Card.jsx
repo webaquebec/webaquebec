@@ -9,7 +9,14 @@ import IconArrow from '../../../images/IconArrow';
 
 // styles
 import colors from '../../../styles/colors';
-import { StyledCard, Title, Content, CardButton } from './Card.styles';
+import {
+  StyledCard,
+  Title,
+  Star,
+  Date,
+  Content,
+  CardButton,
+} from './Card.styles';
 
 // Components
 import Box from '../../LayoutSections/Box';
@@ -18,6 +25,7 @@ import Stack from '../../LayoutSections/Stack';
 const Card = ({
   title,
   titleAs,
+  date,
   content,
   contentAs,
   buttonText,
@@ -58,12 +66,16 @@ const Card = ({
         </Box> */}
         <Box
           noBorder
-          padding='2.5rem'
+          padding='2rem'
           darkColor={colors.bleu}
           lightColor={colors.gris}
         >
           <Stack>
             <Title as={titleAs}>{title}</Title>
+
+            <Date>
+              <Star /> {date}
+            </Date>
 
             <Content as={contentAs}>{content}</Content>
           </Stack>
@@ -88,6 +100,10 @@ Card.propTypes = {
    * @see [https://www.w3.org/WAI/tutorials/page-structure/headings/](https://www.w3.org/WAI/tutorials/page-structure/headings/)
    */
   titleAs: PropTypes.string,
+  /**
+   * Specifies the date of the card
+   */
+  date: PropTypes.string.isRequired,
   /**
    * Specifies the content of the card. Could be a simple string, a single or multiple HTML element(s) or custom React component(s)
    */
