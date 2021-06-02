@@ -24,7 +24,7 @@ const LogoCard = ({
   >
     <Link href={image.url} target='_blank' rel='noopener noreferrer'>
       <Wrapper centered='img' minHeight='100%' noPadding>
-        <Image src={image.src} alt={image.alt} />
+        <Image src={image.src} onMouseOver={image.srcAlt} alt={image.alt} />
       </Wrapper>
     </Link>
   </Container>
@@ -34,6 +34,7 @@ LogoCard.propTypes = {
   image: PropTypes.shape({
     url: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
+    srcAlt: PropTypes.string,
     alt: PropTypes.string.isRequired,
   }).isRequired,
   verticalPosition: PropTypes.oneOf(['top', 'bottom']).isRequired,
