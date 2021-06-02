@@ -6,10 +6,17 @@ import Layout from '../components/Layout';
 import Center from '../components/LayoutSections/Center';
 import Grid from '../components/LayoutSections/Grid';
 import SectionContainer from '../components/SectionContainer';
-import HeroSection from '../views/BlogPostView/HeroSection/HeroSection';
+import Button from '../components/Button/Button';
+
+// views
+import HeroSection from '../views/BlogPostView/HeroSection';
+import ReadAlsoSection from '../views/BlogPostView/ReadAlsoSection';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
+
+// images
+import IconArrow from '../images/IconArrow';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -22,6 +29,10 @@ const postContainer = css`
     ],
     breakpoints.spacings
   )};
+`;
+
+const backArrow = css`
+  transform: rotate3d(0, 0, 1, 180deg);
 `;
 
 const BlogPostPage = () => {
@@ -202,6 +213,14 @@ const BlogPostPage = () => {
             Publié le 2 janvier 2021 par Danielle Simard
           </p>
         </Center>
+
+        <Center intrinsic>
+          <Button outlined iconFirst renderIcon={<IconArrow css={backArrow} />}>
+            Retour au blogue
+          </Button>
+        </Center>
+
+        <ReadAlsoSection />
       </SectionContainer>
     </Layout>
   );
