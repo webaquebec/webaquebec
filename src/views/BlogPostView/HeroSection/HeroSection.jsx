@@ -6,6 +6,7 @@ import { css } from 'styled-components';
 // styles
 import {
   TitleWrapper,
+  BackButton,
   PostTitle,
   PostDate,
   FeaturedPictureWrapper,
@@ -14,7 +15,6 @@ import {
 
 // components
 import Center from '../../../components/LayoutSections/Center';
-import Button from '../../../components/Button/Button';
 
 // images
 import IconArrow from '../../../images/IconArrow';
@@ -26,15 +26,21 @@ const backArrow = css`
 const HeroSection = ({ title, publishDate, featuredPicture }) => {
   return (
     <div>
-      <TitleWrapper>
-        <Button outlined iconFirst renderIcon={<IconArrow css={backArrow} />}>
-          Retour
-        </Button>
-        <Center maxWidth='640px' gutters='16px' intrinsic>
-          <PostTitle>{title}</PostTitle>
-          <PostDate>Publié le {publishDate}</PostDate>
-        </Center>
-      </TitleWrapper>
+      <Center maxWidth='var(--max-container-width)' gutters='16px'>
+        <TitleWrapper>
+          <BackButton
+            outlined
+            iconFirst
+            renderIcon={<IconArrow css={backArrow} />}
+          >
+            Retour
+          </BackButton>
+          <Center maxWidth='640px' intrinsic>
+            <PostTitle>{title}</PostTitle>
+            <PostDate>Publié le {publishDate}</PostDate>
+          </Center>
+        </TitleWrapper>
+      </Center>
       <FeaturedPictureWrapper>
         <FeaturedPicture src={featuredPicture} alt='' />
       </FeaturedPictureWrapper>

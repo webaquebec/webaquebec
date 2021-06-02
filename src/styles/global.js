@@ -298,9 +298,10 @@ export const blockquoteStyle = css`
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [24, 32], bases: [16, 20] },
-      { prop: 'marginTop', sizes: [32, 40], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [32, 40], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [28, 32], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [33, 38], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [56, 40], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [56, 40], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -342,16 +343,48 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
   }
 
-  .blog-post {
+  .blog-post-content {
+    & > *:first-child {
+      margin-top: 0;
+    }
+
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol {
+      max-width: 854px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
     blockquote {
       max-width: 1066px;
       margin-right: auto;
       margin-left: auto;
     }
 
+    ul,
+    ol {
+      ${breakpointsRange(
+        [
+          { prop: 'paddingLeft', sizes: [20, 32], bases: [16, 20] },
+          { prop: 'fontSize', sizes: [16, 20], bases: [16, 20] },
+          { prop: 'lineHeight', sizes: [22, 28], bases: [16, 20] },
+        ],
+        breakpoints.spacings
+      )};
+    }
+
     ul {
-      padding-left: 32px;
-      
       list-style: none;
 
       ul {
@@ -384,8 +417,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     ol {
-      padding-left: 32px;
-
       list-style: none;
 
       counter-reset: li;
@@ -428,6 +459,35 @@ export const GlobalStyle = createGlobalStyle`
     
     p {
       margin-bottom: 32px;
+
+      ${breakpointsRange(
+        [
+          { prop: 'fontSize', sizes: [16, 20], bases: [16, 20] },
+          { prop: 'lineHeight', sizes: [22, 28], bases: [16, 20] },
+        ],
+        breakpoints.spacings
+      )};
+
+      &.introduction {
+        font-weight: ${fontWeights.bold};
+
+        ${breakpointsRange(
+          [
+            { prop: 'fontSize', sizes: [20, 24], bases: [16, 20] },
+            { prop: 'lineHeight', sizes: [24, 33], bases: [16, 20] },
+          ],
+          breakpoints.spacings
+        )};
+      }
+
+      &.publish-date {
+        font-weight: ${fontWeights.bold};
+
+        ${breakpointsRange(
+          [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+          breakpoints.spacings
+        )};
+      }
     }
 
     h1,
@@ -445,11 +505,31 @@ export const GlobalStyle = createGlobalStyle`
       )};
     }
 
+    h2 {
+      ${breakpointsRange(
+        [
+          { prop: 'fontSize', sizes: [24, 32], bases: [16, 20] },
+          { prop: 'lineHeight', sizes: [28, 38], bases: [16, 20] },
+        ],
+        breakpoints.spacings
+      )};
+    }
+
+    h3 {
+      ${breakpointsRange(
+        [
+          { prop: 'fontSize', sizes: [20, 28], bases: [16, 20] },
+          { prop: 'lineHeight', sizes: [24, 32], bases: [16, 20] },
+        ],
+        breakpoints.spacings
+      )};
+    }
+
     .picture-block {
       ${breakpointsRange(
         [
-          { prop: 'marginTop', sizes: [60, 80], bases: [16, 20] },
-          { prop: 'marginBottom', sizes: [60, 80], bases: [16, 20] },
+          { prop: 'marginTop', sizes: [40, 80], bases: [16, 20] },
+          { prop: 'marginBottom', sizes: [40, 80], bases: [16, 20] },
         ],
         breakpoints.spacings
       )};
