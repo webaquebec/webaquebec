@@ -3,6 +3,8 @@ const moment = require(`moment`);
 const groupBy = require(`../src/utils/groupBy.js`);
 const slugify = require(`../src/utils/strings/slugify.js`);
 
+const blackListedTypes = ['activites', 'presentiel', 'intermission'];
+
 /**  This function queries Gatsby's GraphQL server and asks for
  * All Plannings from Swapcard. If there are any GraphQL error it throws an error
  * Otherwise it will return the plannings found 🙌
@@ -27,6 +29,7 @@ const getPlannings = async ({ graphql, reporter, variables }) => {
           beginsAt
           id
           title
+          type
         }
       }
     }
@@ -57,28 +60,30 @@ const createSession = async ({ plannings, actions, reporter, variables }) => {
 
   reporter.info('creating session pages:');
 
-  plannings.map(async (planning) => {
-    const { title, id } = planning;
+  plannings
+    .filter((planning) => !blackListedTypes.includes(planning.type))
+    .map(async (planning) => {
+      const { title, id } = planning;
 
-    const sessionPath = `/programmation/${slugify(title)}/`;
+      const sessionPath = `/programmation/${slugify(title)}/`;
 
-    const pageIndex = eventDates.findIndex((d) => d === dayNumber(planning));
+      const pageIndex = eventDates.findIndex((d) => d === dayNumber(planning));
 
-    reporter.info(sessionPath);
+      reporter.info(sessionPath);
 
-    createPage({
-      path: sessionPath,
-      component: template,
-      context: {
-        eventId,
-        page,
-        pageSize,
-        planningIds: [id],
-        pageNumber: pageIndex + 1,
-        isLastPage: eventDates.length === pageIndex + 1,
-      },
+      createPage({
+        path: sessionPath,
+        component: template,
+        context: {
+          eventId,
+          page,
+          pageSize,
+          planningIds: [id],
+          pageNumber: pageIndex + 1,
+          isLastPage: eventDates.length === pageIndex + 1,
+        },
+      });
     });
-  });
 };
 
 const createProgram = async ({ plannings, actions, reporter, variables }) => {
@@ -114,7 +119,9 @@ const createProgram = async ({ plannings, actions, reporter, variables }) => {
 
     reporter.info(getPagePath(pageNumber));
 
-    const planningIds = planningsGroupByDate[date].map((current) => current.id);
+    const planningIds = planningsGroupByDate[date]
+      .filter((current) => !blackListedTypes.includes(current.type))
+      .map((current) => current.id);
 
     const pagePaths = array.map((_, i) => getPagePath(i + 1));
 
