@@ -1,5 +1,5 @@
 // vendors
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Img from 'gatsby-image';
 
 // utils
@@ -11,27 +11,21 @@ import { fontWeights } from '../../styles/typography';
 import breakpoints from '../../styles/breakpoints';
 import breakpointsRange from '../../utils/breakpointsRange';
 
-export const StyledSpeakerCard = css`
+export const StyledSpeakerCard = styled.div`
   background-color: ${colors.gris20};
   border-radius: 8px;
 
   ${breakpointsRange(
-    [{ prop: 'padding', sizes: [12, 24], bases: [16, 20] }],
-    breakpoints.spacings
+    [
+      { prop: '--gap', sizes: [12, 24] },
+      { prop: 'padding', sizes: [12, 24] },
+    ],
+    breakpoints.spacings,
+    { bases: [16, 20] }
   )};
 `;
 
-export const CardMobileHeader = styled.div`
-  display: flex;
-
-  ${greaterThan(768)} {
-    display: block;
-  }
-`;
-
 export const SpeakerPicture = styled(Img)`
-  margin-right: 12px;
-
   border-radius: 6px;
 
   ${greaterThan(768)} {
@@ -45,16 +39,6 @@ export const SpeakerPicture = styled(Img)`
     ],
     breakpoints.spacings
   )};
-`;
-
-export const SpeakerInfo = styled.div`
-  display: block;
-
-  color: ${colors.bleu80};
-
-  ${greaterThan(768)} {
-    display: none;
-  }
 `;
 
 export const SpeakerLinks = styled.ul`
@@ -101,22 +85,34 @@ export const LinkIcon = styled.img`
 `;
 
 export const SpeakerHeader = styled.p`
-  display: none;
-
-  margin-top: 0;
+  margin: 0;
 
   color: ${colors.bleu80};
-
-  ${greaterThan(768)} {
-    display: block;
-  }
 `;
 
 export const HeaderInfo = styled.span`
   display: block;
 
+  font-weight: ${fontWeights.regular};
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [14, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [16, 22], bases: [14, 16], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
+
   :first-child {
     font-weight: ${fontWeights.bold};
+
+    ${breakpointsRange(
+      [
+        { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+        { prop: 'lineHeight', sizes: [20, 22], bases: [16, 16], unit: '' },
+      ],
+      breakpoints.spacings
+    )};
   }
 
   ${greaterThan(768)} {
@@ -130,6 +126,8 @@ export const HeaderInfo = styled.span`
 
       color: ${colors.gris40};
 
+      font-weight: ${fontWeights.regular};
+
       content: '|';
     }
 
@@ -139,17 +137,11 @@ export const HeaderInfo = styled.span`
       }
     }
   }
-
-  ${breakpointsRange(
-    [
-      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [20, 22], bases: [16, 16], unit: '' },
-    ],
-    breakpoints.spacings
-  )};
 `;
 
-export const SpeakerDescription = styled.div`
+export const SpeakerDescription = styled.p`
+  margin: 0;
+
   color: ${colors.gris90};
 
   ${breakpointsRange(
