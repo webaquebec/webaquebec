@@ -61,7 +61,7 @@ const ScheduleCard = ({
           <div
             css={`
               position: absolute;
-              top: 40px;
+              top: ${content ? '40px' : '20px'};
               left: -8px;
             `}
           >
