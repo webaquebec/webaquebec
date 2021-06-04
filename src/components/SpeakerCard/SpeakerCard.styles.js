@@ -139,7 +139,7 @@ export const HeaderInfo = styled.span`
   }
 `;
 
-export const SpeakerDescription = styled.p`
+export const SpeakerDescription = styled.div`
   margin: 0;
 
   color: ${colors.gris90};
