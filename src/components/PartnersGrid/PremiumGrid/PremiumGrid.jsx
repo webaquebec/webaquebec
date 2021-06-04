@@ -60,9 +60,10 @@ const PremiumGrid = () => {
       url: 'https://www.robic.ca/',
     },
     {
-      src: logoEquisoft,
-      alt: "Equisoft | Solutions logicielles d'assurance et d'investissement",
-      url: 'https://www.equisoft.com/fr/',
+      src: logoVideotronWhite,
+      srcAlt: logoVideotronRGB,
+      alt: 'Vidéotron | Services de Téléphonie, Internet, Télévision et Mobile',
+      url: 'https://videotron.com/',
     },
     {
       src: logoLeCamp,
@@ -76,15 +77,14 @@ const PremiumGrid = () => {
       url: 'https://levio.ca/',
     },
     {
+      src: logoEquisoft,
+      alt: "Equisoft | Solutions logicielles d'assurance et d'investissement",
+      url: 'https://www.equisoft.com/fr/',
+    },
+    {
       src: logoPwc,
       alt: 'PwC Canada',
       url: 'https://www.pwc.com/ca/fr/',
-    },
-    {
-      src: logoVideotronWhite,
-      srcAlt: logoVideotronRGB,
-      alt: 'Vidéotron | Services de Téléphonie, Internet, Télévision et Mobile',
-      url: 'https://videotron.com/',
     },
   ];
 
@@ -281,6 +281,16 @@ const PremiumGrid = () => {
             primary
             css={`
               flex-grow: 1;
+
+              > * > * {
+                padding-right: 32px;
+                padding-left: 32px;
+
+                ${lessThan(selfBreakpoints[1])} {
+                  padding-right: 16px;
+                  padding-left: 16px;
+                }
+              }
             `}
           />
         </div>
@@ -396,16 +406,6 @@ const PremiumGrid = () => {
             primary
             css={`
               flex-grow: 1;
-
-              > * > * {
-                padding-right: 32px;
-                padding-left: 32px;
-
-                ${lessThan(selfBreakpoints[1])} {
-                  padding-right: 16px;
-                  padding-left: 16px;
-                }
-              }
             `}
           />
         </div>
