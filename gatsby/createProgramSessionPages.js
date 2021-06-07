@@ -168,7 +168,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
   const variables = {
     eventId: `${process.env.SWAPCARD_EVENT_ID}`,
     page: 1,
-    pageSize: 100,
+    pageSize: 200,
   };
 
   reporter.info('start fetching data from Swapcard');
