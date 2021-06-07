@@ -3,7 +3,21 @@ const moment = require(`moment`);
 const groupBy = require(`../src/utils/groupBy.js`);
 const slugify = require(`../src/utils/strings/slugify.js`);
 
-const blackListedTypes = ['activites', 'presentiel', 'intermission'];
+/**
+ * Session types allowed to be displaying
+ * Blacklisted for now:
+ *   - activites
+ *   - presentiel
+ *   - intermission
+ *   - reseautage
+ */
+const allowedTypes = [
+  'conference',
+  'atelier',
+  'qanda',
+  'contenu-sur-demande',
+  'pitch-ton-waq',
+];
 
 /**  This function queries Gatsby's GraphQL server and asks for
  * All Plannings from Swapcard. If there are any GraphQL error it throws an error
@@ -61,7 +75,7 @@ const createSession = async ({ plannings, actions, reporter, variables }) => {
   reporter.info('creating session pages:');
 
   plannings
-    .filter((planning) => !blackListedTypes.includes(planning.type))
+    .filter((planning) => allowedTypes.includes(planning.type))
     .map(async (planning) => {
       const { title, id } = planning;
 
@@ -120,7 +134,7 @@ const createProgram = async ({ plannings, actions, reporter, variables }) => {
     reporter.info(getPagePath(pageNumber));
 
     const planningIds = planningsGroupByDate[date]
-      .filter((current) => !blackListedTypes.includes(current.type))
+      .filter((current) => allowedTypes.includes(current.type))
       .map((current) => current.id);
 
     const pagePaths = array.map((_, i) => getPagePath(i + 1));
