@@ -75,8 +75,9 @@ const EventContainer = styled.div`
   )};
 `;
 
-const EventTitle = styled.h1`
+const EventTitle = styled.h2`
   margin-top: 0;
+  margin-bottom: 16px;
 
   color: ${colors.bleu80};
 
@@ -221,9 +222,12 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
 
                 <div>
                   <EventTitle>{title}</EventTitle>
-                  <EventDescription
-                    dangerouslySetInnerHTML={{ __html: htmlDescription }}
-                  />
+
+                  {htmlDescription && (
+                    <EventDescription
+                      dangerouslySetInnerHTML={{ __html: htmlDescription }}
+                    />
+                  )}
                 </div>
 
                 {(categories.length > 0 || type || place) && (

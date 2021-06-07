@@ -45,9 +45,7 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
   const eventTypes = {
     conference: 'Conférence',
     atelier: 'Atelier',
-    reseautage: 'Réseautage',
     qanda: 'Q&A',
-    keynote: 'Keynote',
     'contenu-sur-demande': 'Contenu sur demande',
     'pitch-ton-waq': 'Pitch ton WAQ',
   };
@@ -132,9 +130,7 @@ Tag.propTypes = {
   eventType: PropTypes.oneOf([
     'conference',
     'atelier',
-    'reseautage',
     'qanda',
-    'keynote',
     'contenu-sur-demande',
     'pitch-ton-waq',
   ]),
