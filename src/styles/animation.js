@@ -12,7 +12,7 @@ export const speed = {
 export const easing = {
   inQuint: 'cubic-bezier(0.755, 0.05, 0.855, 0.06)',
   outQuint: 'cubic-bezier(0.23, 1, 0.32, 1)',
-  inback: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
+  inBack: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
   outBack: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
   inOutBack: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
   inCustom: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
