@@ -13,7 +13,7 @@ import colors from '../../../../styles/colors';
 import breakpoints from '../../../../styles/breakpoints';
 
 // 576, 768, 1280
-export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[6]];
+export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[7]];
 
 export const Wrapper = styled(Cover)`
   align-items: center;
