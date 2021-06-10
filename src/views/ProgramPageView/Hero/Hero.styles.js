@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
+import { lessThan, greaterThan } from '../../../utils/mediaQuery';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
@@ -12,6 +13,9 @@ import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontFamilies, fontWeights } from '../../../styles/typography';
 import zIndexes from '../../../styles/zIndexes';
+
+// 480, 640, 832, 1060
+export const selfBreakpoints = [480, breakpoints[1], breakpoints[3], 1060];
 
 export const Wrapper = styled.div`
   position: sticky;
@@ -57,7 +61,6 @@ export const DateList = styled.ul`
   z-index: 1;
 
   display: flex;
-  justify-content: space-between;
 
   width: 100%;
   margin: 0;
@@ -68,6 +71,14 @@ export const DateList = styled.ul`
   list-style: none;
 
   scroll-snap-type: x mandatory;
+
+  ${greaterThan(selfBreakpoints[1])} {
+    justify-content: space-evenly;
+  }
+
+  ${greaterThan(selfBreakpoints[3])} {
+    justify-content: space-between;
+  }
 `;
 
 export const DateListItem = styled.li`
@@ -75,12 +86,12 @@ export const DateListItem = styled.li`
 
   text-align: center;
 
-  @media screen and (max-width: 40em) {
-    flex: 0 0 calc(45% - 32px);
+  ${lessThan(selfBreakpoints[1])} {
+    flex: 0 0 calc(45vw - 32px);
   }
 
-  @media screen and (max-width: 30em) {
-    flex: 0 0 calc(80% - 32px);
+  ${lessThan(selfBreakpoints[0])} {
+    flex: 0 0 calc(80vw - 32px);
   }
 `;
 
@@ -96,6 +107,12 @@ export const dateTabStyle = css`
   background-color: ${colors.white};
   border-radius: 16px;
 
+  &&.active,
+  &&:focus,
+  &&:hover {
+    color: ${colors.gris};
+  }
+
   > * {
     flex-grow: 1;
   }
@@ -104,15 +121,3 @@ export const dateTabStyle = css`
     width: calc(100% - 32px);
   }
 `;
-
-/* &.active,
-  :focus,
-  :hover:not(:disabled) {
-    color: ${colors.white};
-
-    font-weight: ${fontWeights.bold};
-    font-family: ${fontFamilies.redaction35};
-
-    background-color: ${colors.bleu80};
-    border-color: ${colors.bleu80};
-  } */
