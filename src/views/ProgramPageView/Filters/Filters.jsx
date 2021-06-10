@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'styled-components';
+import { useMedia } from 'react-use';
 
 // components
 import Accordion from '../../../components/Accordion';
@@ -13,7 +14,22 @@ import useHasMounted from '../../../hooks/useHasMounted';
 
 // styles
 import colors from '../../../styles/colors';
-import { Container, Header, Title, Button } from './Filters.styles';
+import {
+  selfBreakpoints,
+  Container,
+  CTAWrapper,
+  CTAButton,
+  Header,
+  ResetButton,
+  Title,
+  Wrapper,
+} from './Filters.styles';
+
+// utils
+import { lessThanCondition } from '../../../utils/mediaQuery';
+import Modal from '../../../components/Modal';
+import { useModal } from '../../../contexts/ModalContext';
+import randomString from '../../../utils/math/randomString';
 
 const checkboxStyle = css`
   :not(:first-child) {
@@ -21,8 +37,14 @@ const checkboxStyle = css`
   }
 `;
 
+const customId = randomString();
+
 const Filters = ({ filters, onChange, onReset }) => {
   const hasMounted = useHasMounted();
+  // 832px
+  const mobile = useMedia(lessThanCondition(selfBreakpoints[0]));
+
+  const { isOpen, close } = useModal();
 
   if (!hasMounted) {
     return null;
@@ -34,43 +56,77 @@ const Filters = ({ filters, onChange, onReset }) => {
     return 0;
   };
 
-  return (
-    <Container>
+  const FiltersContent = (
+    <>
       <Header>
-        <Title>Filtres</Title>
-        <Button type='button' onClick={onReset}>
+        <Title id={customId}>Filtres</Title>
+        <ResetButton type='button' onClick={onReset}>
           Réinitialiser
-        </Button>
+        </ResetButton>
       </Header>
 
-      <Accordion multiple collapsible divided space='0'>
-        {filters
-          .filter((f) => f.values.length > 0)
-          .map((filter) => (
-            <AccordionItem
-              id={filter.id}
-              key={`filter-${filter.title}`}
-              title={filter.title}
-              color={colors.gris80}
-              expanded={filter.values.some((v) => v.isChecked)}
-              big
-            >
-              {filter.values.sort(sortByNameAsc).map((item) => (
-                <Checkbox
-                  key={item.value}
-                  name={filter.name}
-                  value={item.value}
-                  checked={item.isChecked}
-                  onChange={onChange}
-                  css={checkboxStyle}
-                >
-                  {item.name}
-                </Checkbox>
-              ))}
-            </AccordionItem>
-          ))}
-      </Accordion>
-    </Container>
+      <Wrapper>
+        <Accordion multiple collapsible divided space='0'>
+          {filters
+            .filter((f) => f.values.length > 0)
+            .map((filter) => (
+              <AccordionItem
+                id={filter.id}
+                key={`filter-${filter.title}`}
+                title={filter.title}
+                color={colors.gris80}
+                expanded={filter.values.some((v) => v.isChecked)}
+                big
+              >
+                {filter.values.sort(sortByNameAsc).map((item) => (
+                  <Checkbox
+                    key={item.value}
+                    name={filter.name}
+                    value={item.value}
+                    checked={item.isChecked}
+                    onChange={onChange}
+                    css={checkboxStyle}
+                  >
+                    {item.name}
+                  </Checkbox>
+                ))}
+              </AccordionItem>
+            ))}
+        </Accordion>
+      </Wrapper>
+    </>
+  );
+
+  const handleClick = () => {
+    close();
+
+    if (mobile) {
+      window.scrollTo({ top: 0, behavior: `smooth` });
+    }
+  };
+
+  return (
+    <>
+      {mobile ? (
+        <Modal
+          isOpen={isOpen}
+          aria={{ labelledby: customId }}
+          closeTimeoutMS={500}
+          color={colors.gris80}
+          fullScreen
+          noBorder
+          noClose
+        >
+          {FiltersContent}
+
+          <CTAWrapper>
+            <CTAButton onClick={handleClick}>Voir les résultats</CTAButton>
+          </CTAWrapper>
+        </Modal>
+      ) : (
+        <Container>{FiltersContent}</Container>
+      )}
+    </>
   );
 };
 

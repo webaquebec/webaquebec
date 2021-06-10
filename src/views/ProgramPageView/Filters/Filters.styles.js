@@ -1,22 +1,43 @@
 // vendors
 import styled from 'styled-components';
 
+import Button from '../../../components/Button';
+
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
+// import { lessThan } from '../../../utils/mediaQuery';
 
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
-import { fontFamilies } from '../../../styles/typography';
+import { fontFamilies, fontWeights } from '../../../styles/typography';
+import { greaterThan } from '../../../utils/mediaQuery';
+
+export const selfBreakpoints = [breakpoints[3]];
 
 export const Container = styled.div`
+  --top-position: 160px;
+
   position: sticky;
-  top: 160px;
+  top: var(--top-position, 0);
 
   overflow: hidden;
 
   background-color: ${colors.white};
   border-radius: 16px;
+`;
+
+export const Wrapper = styled.div`
+  max-height: 100vh;
+  padding-bottom: 200px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  ${greaterThan(selfBreakpoints[0])} {
+    max-height: calc(80vh - (var(--top-position, 0) - 60px));
+    padding: 0;
+  }
 `;
 
 export const Header = styled.div`
@@ -37,6 +58,7 @@ export const Header = styled.div`
 
 export const Title = styled.h2`
   margin: 0;
+  margin-right: 20px;
 
   color: ${colors.bleu80};
   font-family: ${fontFamilies.redaction35};
@@ -48,7 +70,7 @@ export const Title = styled.h2`
   )};
 `;
 
-export const Button = styled.button`
+export const ResetButton = styled.button`
   padding: 0;
 
   color: ${colors.gris80};
@@ -65,4 +87,29 @@ export const Button = styled.button`
   cursor: pointer;
 
   appearance: none;
+`;
+
+export const CTAWrapper = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+
+  padding: 20px 0;
+`;
+
+export const CTAButton = styled(Button)`
+  color: ${colors.gris};
+  font-weight: ${fontWeights.bold};
+  font-family: ${fontFamilies.redaction35};
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [20, 20], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
