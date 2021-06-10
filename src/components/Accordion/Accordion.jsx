@@ -1,7 +1,8 @@
 // vendors
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'styled-components';
+
 // components
 import AccordionItem from './AccordionItem';
 import Stack from '../LayoutSections/Stack';
@@ -35,12 +36,36 @@ const grayBorder = css`
  */
 const Accordion = ({ multiple, collapsible, space, divided, children }) => {
   const [expandedItems, setExpandedItems] = useState([]);
+  const [defaultExpandedItems, setDefaultExpandedItems] = useState([]);
 
   const items = React.Children.toArray(children);
+
+  useEffect(() => {
+    setDefaultExpandedItems(
+      items
+        .filter((current) => current.props.expanded)
+        .map((current) => current.key)
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleToggle = (itemIndex) => {
     let newArray = [...expandedItems];
     const arrayIndex = newArray.findIndex((index) => index === itemIndex);
+
+    // Remove current index from default expanded items
+    if (defaultExpandedItems.includes(itemIndex)) {
+      setDefaultExpandedItems((state) => {
+        const array = [...state];
+        const index = array.indexOf(itemIndex);
+        if (index > -1) {
+          array.splice(index, 1);
+        }
+        return array;
+      });
+
+      return;
+    }
 
     if (!collapsible && arrayIndex > -1) {
       return;
@@ -68,7 +93,10 @@ const Accordion = ({ multiple, collapsible, space, divided, children }) => {
           <AccordionItem
             {...item.props}
             onToggleClick={() => handleToggle(item.key)}
-            expanded={item.props.expanded || expandedItems.includes(item.key)}
+            expanded={
+              defaultExpandedItems.includes(item.key) ||
+              expandedItems.includes(item.key)
+            }
           />
         </li>
       ))}
