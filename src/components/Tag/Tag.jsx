@@ -44,7 +44,9 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
   // Event type tag
   const eventTypes = {
     conference: 'Conférence',
+    activites: 'Activités',
     atelier: 'Atelier',
+    presentiel: 'Présentiel',
     qanda: 'Q&A',
     'contenu-sur-demande': 'Contenu sur demande',
     'pitch-ton-waq': 'Pitch ton WAQ',
