@@ -10,6 +10,9 @@ import logoBeet from '../../../images/logoPartners/associates/logo-beet.svg';
 import logoFinaltaCapital from '../../../images/logoPartners/associates/logo-finalta-capital.svg';
 import logoMauvaisGarcons from '../../../images/logoPartners/associates/logo-mauvais-garcons.svg';
 import logoFernandezRp from '../../../images/logoPartners/associates/logo-fernandez-rp.svg';
+import logoJournalDeQuebec from '../../../images/logoPartners/associates/logo-journal-de-quebec.svg';
+import logoTVA from '../../../images/logoPartners/associates/logo-tva.svg';
+import logoQuebecor from '../../../images/logoPartners/associates/logo-quebecor.svg';
 
 // utils
 import { lessThanCondition } from '../../../utils/mediaQuery';
@@ -20,9 +23,24 @@ import { selfBreakpoints, Container, Wrapper, Square } from './Board.styles';
 
 const images = [
   {
-    src: logoBeet,
-    alt: 'Beet agence à Québec – Création de sites web et production vidéo',
-    url: 'https://boitebeet.com/',
+    src: logoTVA,
+    alt: 'Groupe TVA',
+    url: 'https://www.groupetva.ca/',
+  },
+  {
+    src: logoQuebecor,
+    alt: 'Québecor',
+    url: 'https://www.quebecor.com/fr/',
+  },
+  {
+    src: logoFernandezRp,
+    alt: 'Fernandez relations publiques',
+    url: 'https://fernandezrp.ca/',
+  },
+  {
+    src: logoJournalDeQuebec,
+    alt: 'Le Journal de Québec',
+    url: 'https://www.journaldequebec.com/',
   },
   {
     src: logoFinaltaCapital,
@@ -35,9 +53,9 @@ const images = [
     url: 'https://lesmauvaisgarcons.ca/',
   },
   {
-    src: logoFernandezRp,
-    alt: 'Fernandez relations publiques',
-    url: 'https://fernandezrp.ca/',
+    src: logoBeet,
+    alt: 'Beet agence à Québec – Création de sites web et production vidéo',
+    url: 'https://boitebeet.com/',
   },
 ];
 
@@ -49,34 +67,43 @@ const Board = () => {
   const tablet = useMedia(lessThanCondition(selfBreakpoints[2]));
 
   useEffect(() => {
-    setSquaresNbr(84);
+    setSquaresNbr(96);
 
     let positions = [
-      [56, 'top', 'left', undefined, undefined],
-      [63, 'bottom', 'left', undefined, undefined],
-      [74, 'top', 'right', undefined, undefined],
-      [78, 'top', 'right', undefined, undefined],
+      [73, 'bottom', 'left', undefined, undefined],
+      [75, 'bottom', 'right', undefined, undefined],
+      [82, 'bottom', 'left', undefined, undefined],
+      [85, 'top', 'left', undefined, undefined],
+      [91, 'bottom', 'left', undefined, undefined],
+      [90, 'top', 'right', undefined, '100%'],
+      [94, 'top', 'left', undefined, undefined],
     ];
 
     if (tablet) {
-      setSquaresNbr(60);
+      setSquaresNbr(78);
 
       positions = [
         [50, 'bottom', 'right', undefined, undefined],
         [51, 'bottom', 'left', undefined, undefined],
         [57, 'top', 'left', undefined, undefined],
         [58, 'top', 'left', '29px', undefined],
+        [67, 'top', 'left', undefined, undefined],
+        [68, 'top', 'left', '28px', undefined],
+        [73, 'top', 'left', undefined, '28px'],
       ];
     }
 
     if (mobile) {
-      setSquaresNbr(120);
+      setSquaresNbr(144);
 
       positions = [
-        [91, 'top', 'left', undefined, undefined],
-        [103, 'top', 'left', undefined, undefined],
-        [105, 'top', 'left', undefined, undefined],
-        [117, 'top', 'left', undefined, undefined],
+        [85, 'top', 'left', undefined, undefined],
+        [97, 'top', 'left', undefined, undefined],
+        [99, 'top', 'left', undefined, undefined],
+        [111, 'top', 'left', undefined, undefined],
+        [127, 'top', 'left', undefined, undefined],
+        [129, 'top', 'left', undefined, undefined],
+        [133, 'top', 'left', undefined, '100%'],
       ];
     }
 
