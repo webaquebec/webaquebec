@@ -10,9 +10,12 @@ import PropTypes from 'prop-types';
 
 // Context Provider
 import { ProgramFiltersProvider } from './src/contexts/ProgramFiltersContext';
+import { ModalProvider } from './src/contexts/ModalContext';
 
 export const wrapRootElement = ({ element }) => (
-  <ProgramFiltersProvider>{element}</ProgramFiltersProvider>
+  <ModalProvider>
+    <ProgramFiltersProvider>{element}</ProgramFiltersProvider>
+  </ModalProvider>
 );
 
 wrapRootElement.propTypes = {
