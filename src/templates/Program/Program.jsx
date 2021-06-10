@@ -14,7 +14,7 @@ import StyledSectionContainer from '../../components/SectionContainer';
 import Switcher from '../../components/LayoutSections/Switcher';
 
 // contexts
-import { useProgramFiltersContext } from '../../contexts/ProgramFiltersContext';
+import { useProgramFilters } from '../../contexts/ProgramFiltersContext';
 
 // images
 import ogImgProgram from '../../images/og/og-img-program-disponible.jpg';
@@ -22,6 +22,7 @@ import ogImgProgram from '../../images/og/og-img-program-disponible.jpg';
 // views
 import Hero from '../../views/ProgramPageView/Hero';
 import Filters from '../../views/ProgramPageView/Filters';
+import NoResults from '../../views/ProgramPageView/NoResults';
 
 // utils
 import slugify from '../../utils/strings/slugify';
@@ -45,7 +46,7 @@ const SectionContainer = styled(StyledSectionContainer)`
 `;
 
 const FiltersWrapper = styled.div`
-  max-width: 320px;
+  max-width: 340px;
 `;
 
 /**
@@ -73,7 +74,7 @@ const Program = ({
     applyFilter,
     getFilters,
     uncheckAllFilters,
-  } = useProgramFiltersContext();
+  } = useProgramFilters();
 
   // Triggered once. Re-arrange data from Swapcard the way we want to display it in our template
   useEffect(() => {
@@ -107,6 +108,7 @@ const Program = ({
     }));
 
     setDatePaths(tempDatePaths);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -201,6 +203,15 @@ const Program = ({
     uncheckAllFilters();
   };
 
+  const filteredProgram = program
+    .filter((session) => applyFilter('place', session.place))
+    .filter((session) => applyFilter('categories', session.categories))
+    .filter((session) => applyFilter('type', session.type));
+
+  // if (filteredProgram.length === 0) {
+  //   window.scrollTo({ top: 0, behavior: `smooth` });
+  // }
+
   return (
     <Layout location={location}>
       <SEO
@@ -213,7 +224,7 @@ const Program = ({
 
       <SectionContainer forwardedAs='div' faded>
         <Center maxWidth='1066px' gutters='16px'>
-          <Switcher threshold='768px' space='1.5rem'>
+          <Switcher threshold='768px' space='24px'>
             <div>
               <FiltersWrapper>
                 <Filters
@@ -223,14 +234,9 @@ const Program = ({
                 />
               </FiltersWrapper>
               <div>
-                <ScheduleCardList>
-                  {program
-                    .filter((session) => applyFilter('place', session.place))
-                    .filter((session) =>
-                      applyFilter('categories', session.categories)
-                    )
-                    .filter((session) => applyFilter('type', session.type))
-                    .map((session) => (
+                {filteredProgram.length > 0 ? (
+                  <ScheduleCardList>
+                    {filteredProgram.map((session) => (
                       <ScheduleCard
                         key={session.id}
                         to={`/programmation/${slugify(session.title)}/`}
@@ -247,7 +253,10 @@ const Program = ({
                         speakers={session.speakers}
                       />
                     ))}
-                </ScheduleCardList>
+                  </ScheduleCardList>
+                ) : (
+                  <NoResults />
+                )}
               </div>
             </div>
           </Switcher>
@@ -327,6 +336,7 @@ export const programQuery = graphql`
           id
           firstName
           lastName
+          biography
           organization
           jobTitle
           photoUrl
