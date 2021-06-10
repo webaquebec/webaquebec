@@ -7,10 +7,10 @@ import randomString from '../utils/math/randomString';
 
 export const ProgramFiltersContext = React.createContext();
 
-export const useProgramFiltersContext = () => useContext(ProgramFiltersContext);
+export const useProgramFilters = () => useContext(ProgramFiltersContext);
 
 /**
- * Context used to keep up to date filters state across Program and session pages
+ * Context used to keep up to date filters state across Program and Session pages
  */
 export const ProgramFiltersProvider = ({ children }) => {
   const [filters, setFilters] = useState([]);
