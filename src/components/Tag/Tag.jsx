@@ -116,9 +116,7 @@ Tag.propTypes = {
   eventType: PropTypes.oneOf([
     'conference',
     'atelier',
-    'reseautage',
     'qanda',
-    'keynote',
     'contenu-sur-demande',
     'pitch-ton-waq',
   ]),
