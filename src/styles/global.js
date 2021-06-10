@@ -53,6 +53,10 @@ export const bodyStyle = css`
     breakpoints.spacings
   )};
   letter-spacing: 0.1px;
+
+  &.Modal--open {
+    overflow: hidden;
+  }
 `;
 
 export const bodyMediumStyle = css`
@@ -299,6 +303,23 @@ export const unstyledListStyle = css`
 
 export const unorderListStyle = css`
   ${unstyledListStyle};
+
+  li {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  li::before {
+    display: inline-block;
+    margin-right: 12px;
+    margin-left: 8px;
+
+    color: ${colors.bleu};
+    font-size: 30px;
+    line-height: 0;
+
+    content: '•';
+  }
 `;
 
 export const orderListStyle = css``;
