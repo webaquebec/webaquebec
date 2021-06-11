@@ -32,7 +32,7 @@ export const BackButton = styled(Button)`
   ${greaterThan(1150)} {
     position: absolute;
 
-    margin-bottom: 0%;
+    margin-bottom: 0;
   }
 `;
 

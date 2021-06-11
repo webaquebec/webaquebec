@@ -25,7 +25,7 @@ const backArrow = css`
 
 const HeroSection = ({ title, publishDate, featuredPicture }) => {
   return (
-    <div>
+    <>
       <Center maxWidth='var(--max-container-width)' gutters='16px'>
         <TitleWrapper>
           <BackButton
@@ -44,7 +44,7 @@ const HeroSection = ({ title, publishDate, featuredPicture }) => {
       <FeaturedPictureWrapper>
         <FeaturedPicture src={featuredPicture} alt='' />
       </FeaturedPictureWrapper>
-    </div>
+    </>
   );
 };
 
