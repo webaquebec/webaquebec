@@ -7,6 +7,7 @@ const slugify = require(`../src/utils/strings/slugify.js`);
  * Session types allowed to be displaying
  * Blacklisted for now:
  *   - intermission
+ *   - presentiel
  *   - reseautage
  *   - zone-internationale
  */
@@ -14,7 +15,6 @@ const allowedTypes = [
   'conference',
   'activites',
   'atelier',
-  'presentiel',
   'qanda',
   'contenu-sur-demande',
   'pitch-ton-waq',

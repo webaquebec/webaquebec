@@ -46,7 +46,6 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
     conference: 'Conférence',
     activites: 'Activités',
     atelier: 'Atelier',
-    presentiel: 'Présentiel',
     qanda: 'Q&A',
     'contenu-sur-demande': 'Contenu sur demande',
     'pitch-ton-waq': 'Pitch ton WAQ',
@@ -131,6 +130,7 @@ Tag.propTypes = {
    */
   eventType: PropTypes.oneOf([
     'conference',
+    'activites',
     'atelier',
     'qanda',
     'contenu-sur-demande',
