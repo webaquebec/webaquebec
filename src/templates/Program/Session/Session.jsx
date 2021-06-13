@@ -175,6 +175,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
   const session = modifiedPlannings[0];
 
   const {
+    id,
     edition,
     date,
     time,
@@ -213,6 +214,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
             outlined
             iconFirst
             renderIcon={<IconArrow css={backArrow} />}
+            state={{ sessionId: id }}
             css={backButton}
           >
             Retour à la programmation
@@ -246,7 +248,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
                   <Cluster>
                     <div>
                       {categories.map((category) => (
-                        <Tag category={category} />
+                        <Tag key={`category-${category}`} category={category} />
                       ))}
 
                       {type && <Tag eventType={type} />}
@@ -257,7 +259,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
                 )}
 
                 {speakers.map((speaker) => (
-                  <SpeakerCard speaker={speaker} />
+                  <SpeakerCard key={speaker.id} speaker={speaker} />
                 ))}
               </Stack>
             </Center>

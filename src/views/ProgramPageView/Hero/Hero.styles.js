@@ -19,10 +19,10 @@ export const selfBreakpoints = [480, breakpoints[1], breakpoints[3], 1060];
 
 export const Wrapper = styled.div`
   position: sticky;
-  top: 70px;
+  top: 60px;
   z-index: ${zIndexes.sticky};
 
-  padding: 2rem 0;
+  padding: 32px 0;
 
   transform: translateY(-50%);
 `;

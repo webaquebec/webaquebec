@@ -5,7 +5,6 @@ import Button from '../../../components/Button';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
-// import { lessThan } from '../../../utils/mediaQuery';
 
 // styles
 import colors from '../../../styles/colors';
@@ -15,8 +14,10 @@ import { greaterThan } from '../../../utils/mediaQuery';
 
 export const selfBreakpoints = [breakpoints[3]];
 
+const headerHeight = '86px';
+
 export const Container = styled.div`
-  --top-position: 160px;
+  --top-position: 150px;
 
   position: sticky;
   top: var(--top-position, 0);
@@ -28,8 +29,8 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  max-height: 100vh;
-  padding-bottom: 200px;
+  max-height: calc(100vh - (${headerHeight} + 8px));
+  padding-bottom: 180px;
 
   overflow-x: hidden;
   overflow-y: auto;
@@ -43,6 +44,8 @@ export const Wrapper = styled.div`
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
+
+  height: ${headerHeight};
 
   ${breakpointsRange(
     [

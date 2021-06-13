@@ -27,16 +27,18 @@ import NoResults from '../../views/ProgramPageView/NoResults';
 // utils
 import slugify from '../../utils/strings/slugify';
 import breakpointsRange from '../../utils/breakpointsRange';
+import { lessThan } from '../../utils/mediaQuery';
 import unSlugify from '../../utils/strings/unSlugify';
 import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
+import { selfBreakpoints as filtersSelfBreakpoints } from '../../views/ProgramPageView/Filters/Filters.styles';
 
 const SectionContainer = styled(StyledSectionContainer)`
   min-height: 800px;
 
-  margin-top: -60px;
+  margin-top: -40px;
   padding: 0 16px;
 
   ${breakpointsRange(
@@ -47,6 +49,11 @@ const SectionContainer = styled(StyledSectionContainer)`
 
 const FiltersWrapper = styled.div`
   max-width: 340px;
+
+  ${lessThan(filtersSelfBreakpoints[0])} {
+    max-width: 0;
+    margin: 0;
+  }
 `;
 
 /**
@@ -66,6 +73,9 @@ const Program = ({
 
   const [datePaths, setDatePaths] = useState([]);
   const [program, setProgram] = useState([]);
+  const [lastSelectedSessionId, setLastSelectedSessionId] = useState(null);
+
+  const { state } = location;
 
   const {
     addFilter,
@@ -76,7 +86,11 @@ const Program = ({
     uncheckAllFilters,
   } = useProgramFilters();
 
-  // Triggered once. Re-arrange data from Swapcard the way we want to display it in our template
+  /**
+   *  Triggered once:
+   *    - Re-arrange data from Swapcard the way we want to display it in our template
+   *    - Set last selected Session id
+   */
   useEffect(() => {
     const getFormattedTime = (value) => {
       // Fix Safari Invalid Date issue
@@ -108,6 +122,10 @@ const Program = ({
     }));
 
     setDatePaths(tempDatePaths);
+
+    if (state === null) return;
+
+    setLastSelectedSessionId(state.sessionId);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -188,7 +206,23 @@ const Program = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [plannings]);
 
-  // Update filters
+  // Scroll to the last selected session
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const anchor = document.querySelector(`#${lastSelectedSessionId}`);
+
+    if (anchor === null) return;
+
+    const offset = anchor.getBoundingClientRect().top + window.scrollY - 140;
+
+    window.scrollTo({ top: offset, behavior: `smooth` });
+
+    // Reset after first update
+    setLastSelectedSessionId(null);
+  }, [lastSelectedSessionId]);
+
+  // Update filter value
   const handleFilterChange = (event) => {
     const options = {
       value: event.target.value,
@@ -208,10 +242,6 @@ const Program = ({
     .filter((session) => applyFilter('categories', session.categories))
     .filter((session) => applyFilter('type', session.type));
 
-  // if (filteredProgram.length === 0) {
-  //   window.scrollTo({ top: 0, behavior: `smooth` });
-  // }
-
   return (
     <Layout location={location}>
       <SEO
@@ -220,10 +250,10 @@ const Program = ({
         image={ogImgProgram}
       />
 
-      <Hero datePaths={datePaths} />
+      <Hero datePaths={datePaths} location={location} />
 
-      <SectionContainer forwardedAs='div' faded>
-        <Center maxWidth='1066px' gutters='16px'>
+      <SectionContainer id='program-section' forwardedAs='div' faded>
+        <Center maxWidth='1066px'>
           <Switcher threshold='768px' space='24px'>
             <div>
               <FiltersWrapper>
@@ -233,11 +263,13 @@ const Program = ({
                   onReset={handleClickReset}
                 />
               </FiltersWrapper>
+
               <div>
                 {filteredProgram.length > 0 ? (
                   <ScheduleCardList>
                     {filteredProgram.map((session) => (
                       <ScheduleCard
+                        id={session.id}
                         key={session.id}
                         to={`/programmation/${slugify(session.title)}/`}
                         title={session.title}
@@ -273,7 +305,9 @@ const Program = ({
 Program.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
-    state: PropTypes.shape({}),
+    state: PropTypes.shape({
+      sessionId: PropTypes.string,
+    }),
   }).isRequired,
   data: PropTypes.shape({
     swapcard: PropTypes.shape({

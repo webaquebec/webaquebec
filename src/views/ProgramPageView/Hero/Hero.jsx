@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
 import { css } from 'styled-components';
 import { useMedia } from 'react-use';
+import { navigate } from 'gatsby';
 
 // components
 import HeroGrid from '../../../components/HeroGrid/HeroGrid';
@@ -37,7 +38,7 @@ const willChangeOpacityStyle = css`
   will-change: opacity;
 `;
 
-const Hero = ({ datePaths }) => {
+const Hero = ({ location, datePaths }) => {
   const [ref, inView, entry] = useInView();
 
   const isVisible = entry ? inView : true;
@@ -49,6 +50,16 @@ const Hero = ({ datePaths }) => {
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
 
   const { open: openModal } = useModal();
+
+  const handleClick = (path) => {
+    navigate(path, {
+      state: {
+        disableScrollUpdate: true,
+        hash: '#program-section',
+        offset: -86,
+      },
+    });
+  };
 
   return (
     <>
@@ -75,11 +86,12 @@ const Hero = ({ datePaths }) => {
               {datePaths.map((item) => (
                 <DateListItem key={item.date}>
                   <Button
-                    to={item.path}
-                    activeClassName='active'
+                    className={
+                      item.path === location.pathname ? 'active' : undefined
+                    }
                     outlined
                     medium
-                    tag='link'
+                    onClick={() => handleClick(item.path)}
                     css={dateTabStyle}
                   >
                     <span>{item.date}</span>
@@ -108,6 +120,10 @@ const Hero = ({ datePaths }) => {
 };
 
 Hero.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+    state: PropTypes.shape({}),
+  }).isRequired,
   datePaths: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.string.isRequired,

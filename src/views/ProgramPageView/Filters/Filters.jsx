@@ -12,6 +12,12 @@ import Checkbox from '../../../components/Checkbox';
 // hooks
 import useHasMounted from '../../../hooks/useHasMounted';
 
+// utils
+import { lessThanCondition } from '../../../utils/mediaQuery';
+import Modal from '../../../components/Modal';
+import { useModal } from '../../../contexts/ModalContext';
+import randomString from '../../../utils/math/randomString';
+
 // styles
 import colors from '../../../styles/colors';
 import {
@@ -24,12 +30,6 @@ import {
   Title,
   Wrapper,
 } from './Filters.styles';
-
-// utils
-import { lessThanCondition } from '../../../utils/mediaQuery';
-import Modal from '../../../components/Modal';
-import { useModal } from '../../../contexts/ModalContext';
-import randomString from '../../../utils/math/randomString';
 
 const checkboxStyle = css`
   :not(:first-child) {
@@ -100,9 +100,15 @@ const Filters = ({ filters, onChange, onReset }) => {
   const handleClick = () => {
     close();
 
-    if (mobile) {
-      window.scrollTo({ top: 0, behavior: `smooth` });
-    }
+    if (typeof window === 'undefined') return;
+
+    const anchor = document.querySelector(`#program-section`);
+
+    if (anchor === null) return;
+
+    const top = anchor.getBoundingClientRect().top + window.scrollY - 156;
+
+    window.scrollTo({ top, behavior: `smooth` });
   };
 
   return (
@@ -111,7 +117,7 @@ const Filters = ({ filters, onChange, onReset }) => {
         <Modal
           isOpen={isOpen}
           aria={{ labelledby: customId }}
-          closeTimeoutMS={500}
+          closeTimeoutMS={200}
           color={colors.gris80}
           fullScreen
           noBorder
