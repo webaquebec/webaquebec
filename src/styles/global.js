@@ -44,6 +44,8 @@ export const htmlStyle = css`
 `;
 
 export const bodyStyle = css`
+  position: relative;
+
   overflow-x: hidden;
 
   font-weight: ${fontWeights.regular};
@@ -73,7 +75,7 @@ export const bodyAltStyle = css`
     [{ prop: 'lineHeight', sizes: [26, 28], bases: [16, 23], unit: '' }],
     breakpoints.spacings
   )};
-  /* line-height: ${28 / 23}; */
+
   letter-spacing: 0.1px;
 `;
 
