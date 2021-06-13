@@ -106,7 +106,7 @@ const Filters = ({ filters, onChange, onReset }) => {
 
     if (anchor === null) return;
 
-    const top = anchor.getBoundingClientRect().top + window.scrollY - 156;
+    const top = anchor.getBoundingClientRect().top + window.scrollY - 167;
 
     window.scrollTo({ top, behavior: `smooth` });
   };
