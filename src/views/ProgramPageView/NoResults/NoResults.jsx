@@ -21,7 +21,10 @@ export const Wrapper = styled.div`
   color: ${colors.gris100};
 
   ${breakpointsRange(
-    [{ prop: 'marginLeft', sizes: [12, 82], bases: [16, 20] }],
+    [
+      { prop: 'marginLeft', sizes: [12, 82], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [16, 32], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
