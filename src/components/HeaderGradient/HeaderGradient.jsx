@@ -6,11 +6,11 @@ import colors from '../../styles/colors';
 
 const StyledSvg = styled.svg`
   position: absolute;
-  top: 0;
+  top: -4px;
   left: 0;
 
   width: 100%;
-  height: 200px;
+  height: 180px;
 `;
 
 const HeaderGradient = ({ fillColor, ...rest }) => (
