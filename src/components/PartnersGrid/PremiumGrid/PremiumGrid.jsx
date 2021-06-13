@@ -15,6 +15,8 @@ import logoRobic from '../../../images/logoPartners/premium/logo-robic.svg';
 import logoPwc from '../../../images/logoPartners/premium/logo-pwc.svg';
 import logoBdc from '../../../images/logoPartners/premium/logo-bdc.svg';
 import logoLeCamp from '../../../images/logoPartners/premium/logo-le-camp.svg';
+import logoVideotronRGB from '../../../images/logoPartners/premium/logo-videotron-rgb.svg';
+import logoVideotronWhite from '../../../images/logoPartners/premium/logo-videotron-white.svg';
 
 // utils
 import { lessThan } from '../../../utils/mediaQuery';
@@ -58,13 +60,14 @@ const PremiumGrid = () => {
       url: 'https://www.robic.ca/',
     },
     {
-      src: logoEquisoft,
-      alt: "Equisoft | Solutions logicielles d'assurance et d'investissement",
-      url: 'https://www.equisoft.com/fr/',
+      src: logoVideotronWhite,
+      srcAlt: logoVideotronRGB,
+      alt: 'Vidéotron | Services de Téléphonie, Internet, Télévision et Mobile',
+      url: 'https://videotron.com/',
     },
     {
       src: logoLeCamp,
-      alt: 'Incubateur d’entreprises technologiques à Québec | LE CAMP',
+      alt: 'LE CAMP | Incubateur d’entreprises technologiques à Québec',
       url: 'https://lecampquebec.com',
     },
     {
@@ -72,6 +75,11 @@ const PremiumGrid = () => {
       alt:
         'Levio affaires et technologies - Au coeur de la transformation numérique',
       url: 'https://levio.ca/',
+    },
+    {
+      src: logoEquisoft,
+      alt: "Equisoft | Solutions logicielles d'assurance et d'investissement",
+      url: 'https://www.equisoft.com/fr/',
     },
     {
       src: logoPwc,
@@ -273,6 +281,16 @@ const PremiumGrid = () => {
             primary
             css={`
               flex-grow: 1;
+
+              > * > * {
+                padding-right: 32px;
+                padding-left: 32px;
+
+                ${lessThan(selfBreakpoints[1])} {
+                  padding-right: 16px;
+                  padding-left: 16px;
+                }
+              }
             `}
           />
         </div>
@@ -355,6 +373,35 @@ const PremiumGrid = () => {
         >
           <LogoCard
             image={images[9]}
+            accentBgColor={colors.rose}
+            primary
+            css={`
+              flex-grow: 1;
+            `}
+          />
+        </div>
+        <div
+          css={`
+            display: flex;
+
+            grid-column: 3;
+            grid-row: 3;
+
+            ${lessThan(selfBreakpoints[2])} {
+              grid-column: 2;
+              grid-row: 4;
+            }
+
+            ${lessThan(selfBreakpoints[1])} {
+              align-items: flex-end;
+
+              grid-column: 2;
+              grid-row: 5;
+            }
+          `}
+        >
+          <LogoCard
+            image={images[10]}
             accentBgColor={colors.rose}
             primary
             css={`

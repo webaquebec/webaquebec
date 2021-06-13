@@ -6969,11 +6969,6 @@ gatsby-graphiql-explorer@^1.5.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-image-graphql-schema@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/gatsby-image-graphql-schema/-/gatsby-image-graphql-schema-1.1.1.tgz#458fb7ec4471c5b22b7f4e2566670a0e9f882873"
-  integrity sha512-mTsU1K+n2Ak1P5AvcMSMVkg6GAc8zHuEZDzLyuqPQ4f++65wL20ApQbYVtOjqdSRi0uLwwnXbvsP0eeEZUOsPg==
-
 gatsby-image@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-3.5.0.tgz#fe76d1d5638bdbe1255c2226a1b00539887af798"
