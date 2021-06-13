@@ -8,10 +8,9 @@ export const categoriesMap = {
 // Event type tag
 export const eventTypesMap = {
   conference: 'Conférence',
+  activites: 'Activités',
   atelier: 'Atelier',
-  reseautage: 'Réseautage',
   qanda: 'Q&A',
-  keynote: 'Keynote',
   'contenu-sur-demande': 'Contenu sur demande',
   'pitch-ton-waq': 'Pitch ton WAQ',
 };
