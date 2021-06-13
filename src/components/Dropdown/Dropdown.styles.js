@@ -25,7 +25,7 @@ export const Container = styled(Box)`
   border: 0;
 `;
 
-export const expandedStyle = css`
+export const dropdownButtonWrapperExpandedStyle = css`
   border-radius: 16px 16px 0 0;
 `;
 
@@ -44,7 +44,7 @@ export const DropdownButtonWrapper = styled.div`
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [16, 18], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [18, 18], bases: [16, 20] },
       {
         prop: 'lineHeight',
         sizes: [24, 24],
@@ -56,7 +56,7 @@ export const DropdownButtonWrapper = styled.div`
   )};
 
   /* Apply expanded style when expanded props defined */
-  ${({ $expanded }) => $expanded && expandedStyle}
+  ${({ $expanded }) => $expanded && dropdownButtonWrapperExpandedStyle}
 `;
 
 export const TitleWrapper = styled.span`
@@ -96,6 +96,11 @@ export const DropdownButton = styled.button`
   }
 `;
 
+export const dropdownMenuExpandedStyle = css`
+  visibility: visible;
+  opacity: 1;
+`;
+
 export const DropdownMenu = styled.section`
   position: absolute;
   top: 100%;
@@ -113,7 +118,10 @@ export const DropdownMenu = styled.section`
 
   transform: translateY(${({ $expanded }) => ($expanded ? '0px' : '-40px')});
 
-  opacity: ${({ $expanded }) => ($expanded ? '1' : '0')};
+  visibility: hidden;
+  opacity: 0;
+
+  ${({ $expanded }) => $expanded && dropdownMenuExpandedStyle};
 
   will-change: transform, opacity;
 
@@ -131,9 +139,17 @@ export const LinkButton = styled(Button)`
   border-radius: 0;
 
   ${breakpointsRange(
-    [{ prop: 'padding', sizes: [24, 24] }],
-    breakpoints.spacings,
-    { bases: [16, 20] }
+    [
+      { prop: 'padding', sizes: [24, 24], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [18, 18], bases: [16, 20] },
+      {
+        prop: 'lineHeight',
+        sizes: [24, 24],
+        bases: [16, 18],
+        unit: '',
+      },
+    ],
+    breakpoints.spacings
   )};
 `;
 
@@ -145,6 +161,8 @@ export const Toggle = styled(IconChevron)`
   color: ${colors.bleu80};
 
   transform: ${({ $expanded }) => ($expanded ? `rotate(180deg)` : `none`)};
+
+  will-change: transform;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: transform ${speed.fast} ease;
