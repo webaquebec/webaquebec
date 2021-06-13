@@ -11,6 +11,9 @@ import HeroGrid from '../../../components/HeroGrid/HeroGrid';
 import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
 
+// utils
+import { lessThanCondition } from '../../../utils/mediaQuery';
+
 // contexts
 import { useModal } from '../../../contexts/ModalContext';
 
@@ -19,8 +22,6 @@ import useHasMounted from '../../../hooks/useHasMounted';
 
 // images
 import vectorYear2021 from '../../../images/vectorYear2021.svg';
-
-import { lessThanCondition } from '../../../utils/mediaQuery';
 
 // styles
 import {
