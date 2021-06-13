@@ -6,13 +6,14 @@ const slugify = require(`../src/utils/strings/slugify.js`);
 /**
  * Session types allowed to be displaying
  * Blacklisted for now:
- *   - activites
- *   - presentiel
  *   - intermission
+ *   - presentiel
  *   - reseautage
+ *   - zone-internationale
  */
 const allowedTypes = [
   'conference',
+  'activites',
   'atelier',
   'qanda',
   'contenu-sur-demande',
