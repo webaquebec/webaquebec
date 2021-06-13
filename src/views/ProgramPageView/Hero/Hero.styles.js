@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { lessThan, greaterThan } from '../../../utils/mediaQuery';
+import { greaterThan } from '../../../utils/mediaQuery';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
@@ -66,11 +66,7 @@ export const DateList = styled.ul`
   margin: 0;
   padding: 0;
 
-  overflow-x: auto;
-
   list-style: none;
-
-  scroll-snap-type: x mandatory;
 
   ${greaterThan(selfBreakpoints[1])} {
     justify-content: space-evenly;
@@ -82,22 +78,12 @@ export const DateList = styled.ul`
 `;
 
 export const DateListItem = styled.li`
-  scroll-snap-align: center;
-
   text-align: center;
-
-  ${lessThan(selfBreakpoints[1])} {
-    flex: 0 0 calc(45vw - 32px);
-  }
-
-  ${lessThan(selfBreakpoints[0])} {
-    flex: 0 0 calc(80vw - 32px);
-  }
 `;
 
 export const dateTabStyle = css`
   height: 100%;
-  min-height: 70px;
+  min-height: 75px;
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [18, 18], bases: [16, 20] }],
@@ -116,8 +102,14 @@ export const dateTabStyle = css`
   > * {
     flex-grow: 1;
   }
+`;
 
-  @media screen and (max-width: 40em) {
-    width: calc(100% - 32px);
-  }
+export const dateTabTypoStyle = css`
+  font-weight: ${fontWeights.bold};
+  font-family: ${fontFamilies.redaction35};
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [20, 20], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;

@@ -10,6 +10,7 @@ import { navigate } from 'gatsby';
 import HeroGrid from '../../../components/HeroGrid/HeroGrid';
 import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
+import DropDown from '../../../components/Dropdown';
 
 // utils
 import { lessThanCondition } from '../../../utils/mediaQuery';
@@ -33,6 +34,7 @@ import {
   DateList,
   DateListItem,
   dateTabStyle,
+  dateTabTypoStyle,
 } from './Hero.styles';
 
 const willChangeOpacityStyle = css`
@@ -62,6 +64,8 @@ const Hero = ({ location, datePaths }) => {
     });
   };
 
+  const current = datePaths.find((item) => item.path === location.pathname);
+
   return (
     <>
       <HeroGrid ref={ref} title='programmation' displayYear />
@@ -75,7 +79,7 @@ const Hero = ({ location, datePaths }) => {
         {hasMounted && (
           <HeaderContent
             maxWidth={!isVisible ? '1066px' : '736px'}
-            gutters={mobile ? '0' : '32px'}
+            gutters={mobile ? '16px' : '32px'}
           >
             {!isVisible && !tablet && (
               <StickyTitle>
@@ -83,36 +87,87 @@ const Hero = ({ location, datePaths }) => {
                 <YearSticker src={vectorYear2021} alt='2021' />
               </StickyTitle>
             )}
-            <DateList>
-              {datePaths.map((item) => (
-                <DateListItem key={item.date}>
-                  <Button
-                    className={
-                      item.path === location.pathname ? 'active' : undefined
-                    }
-                    outlined
-                    medium
-                    onClick={() => handleClick(item.path)}
-                    css={dateTabStyle}
-                  >
-                    <span>{item.date}</span>
-                  </Button>
-                </DateListItem>
-              ))}
 
-              {mobile && (
-                <DateListItem>
+            {mobile ? (
+              <div
+                css={`
+                  display: inline-flex;
+                  width: 100%;
+                `}
+              >
+                <DropDown
+                  title={current.date}
+                  css={`
+                    flex-basis: 0;
+                    flex-grow: 999;
+
+                    min-width: calc(75% - 12px);
+
+                    margin-right: 12px;
+                  `}
+                >
+                  {datePaths
+                    .filter((item) => item.path !== location.pathname)
+                    .map((item) => (
+                      <Button
+                        key={`dropdown-item-${item.path}`}
+                        className={
+                          item.path === location.pathname ? 'active' : undefined
+                        }
+                        outlined
+                        medium
+                        onClick={() => handleClick(item.path)}
+                        css={dateTabStyle}
+                      >
+                        <span>{item.date}</span>
+                      </Button>
+                    ))}
+                </DropDown>
+
+                <div
+                  css={`
+                    flex-grow: 1;
+                    flex-basis: 25%;
+
+                    z-index: 1;
+
+                    > * {
+                      width: 100%;
+                    }
+                  `}
+                >
                   <Button
                     outlined
                     medium
                     onClick={openModal}
-                    css={dateTabStyle}
+                    css={`
+                      ${dateTabStyle}
+                      ${dateTabTypoStyle}
+                    `}
                   >
                     <span>Filtres</span>
                   </Button>
-                </DateListItem>
-              )}
-            </DateList>
+                </div>
+              </div>
+            ) : (
+              <DateList>
+                {datePaths.map((item) => (
+                  <DateListItem key={item.date}>
+                    <Button
+                      className={
+                        item.path === location.pathname ? 'active' : undefined
+                      }
+                      outlined
+                      medium
+                      onClick={() => handleClick(item.path)}
+                      css={dateTabStyle}
+                    >
+                      <span>{item.date}</span>
+                    </Button>
+                  </DateListItem>
+                ))}
+              </DateList>
+            )}
           </HeaderContent>
         )}
       </Wrapper>
