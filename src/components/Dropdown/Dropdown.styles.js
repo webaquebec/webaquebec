@@ -23,10 +23,6 @@ export const Container = styled(Box)`
 
   background-color: transparent;
   border: 0;
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition: max-height ${speed.default} ease;
-  }
 `;
 
 export const expandedStyle = css`
@@ -35,6 +31,7 @@ export const expandedStyle = css`
 
 export const DropdownButtonWrapper = styled.div`
   position: relative;
+  z-index: 1;
 
   margin: 0;
 
@@ -101,6 +98,10 @@ export const DropdownButton = styled.button`
 
 export const DropdownMenu = styled.section`
   position: absolute;
+  top: 100%;
+  left: 0;
+
+  z-index: -1;
 
   width: 100%;
   overflow: hidden;
@@ -110,9 +111,11 @@ export const DropdownMenu = styled.section`
   border-top: 0;
   border-radius: 0 0 16px 16px;
 
-  transform: translateY(${({ $expanded }) => ($expanded ? '0px' : '-20px')});
+  transform: translateY(${({ $expanded }) => ($expanded ? '0px' : '-40px')});
 
   opacity: ${({ $expanded }) => ($expanded ? '1' : '0')};
+
+  will-change: transform, opacity;
 
   @media (prefers-reduced-motion: no-preference) {
     transition-timing-function: ease;
@@ -136,7 +139,7 @@ export const LinkButton = styled(Button)`
 
 export const Toggle = styled(IconChevron)`
   width: 100%;
-  max-width: 12px;
+  max-width: 20px;
   margin-left: 14px;
 
   color: ${colors.bleu80};
