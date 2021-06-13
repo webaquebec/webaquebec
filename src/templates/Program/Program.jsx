@@ -93,7 +93,7 @@ const Program = ({
         image={ogImgProgram}
       />
 
-      <Hero datePaths={datePaths} />
+      <Hero location={location} datePaths={datePaths} />
 
       <SectionContainer forwardedAs='div' faded>
         <Center maxWidth='850px'>
