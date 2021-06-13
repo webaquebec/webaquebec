@@ -1,5 +1,5 @@
 // vendors
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // utils
@@ -31,6 +31,16 @@ const Modal = ({
   children,
   ...props
 }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.documentElement.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.documentElement.style.overflow = 'unset';
+    };
+  });
+
   return (
     <StyledModal
       isOpen={isOpen}
