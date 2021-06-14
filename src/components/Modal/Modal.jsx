@@ -1,6 +1,7 @@
 // vendors
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { RemoveScroll } from 'react-remove-scroll';
 
 // utils
 import randomString from '../../utils/math/randomString';
@@ -42,27 +43,29 @@ const Modal = ({
   });
 
   return (
-    <StyledModal
-      isOpen={isOpen}
-      onRequestClose={onDismiss}
-      $fullScreen={fullScreen}
-      $noBorder={noBorder}
-      $borderWidth={borderWidth}
-      $round={round}
-      $bgColor={bgColor}
-      $color={color}
-      $invert={invert}
-      {...props}
-    >
-      {!noClose && (
-        <ActionButton onClick={onClose} aria-labelledby={actionButtonId}>
-          <span id={actionButtonId}>Fermer</span>
-          <IconCross aria-hidden='true' focusable='false' />
-        </ActionButton>
-      )}
+    <RemoveScroll enabled={isOpen}>
+      <StyledModal
+        isOpen={isOpen}
+        onRequestClose={onDismiss}
+        $fullScreen={fullScreen}
+        $noBorder={noBorder}
+        $borderWidth={borderWidth}
+        $round={round}
+        $bgColor={bgColor}
+        $color={color}
+        $invert={invert}
+        {...props}
+      >
+        {!noClose && (
+          <ActionButton onClick={onClose} aria-labelledby={actionButtonId}>
+            <span id={actionButtonId}>Fermer</span>
+            <IconCross aria-hidden='true' focusable='false' />
+          </ActionButton>
+        )}
 
-      <ContentWrapper>{children}</ContentWrapper>
-    </StyledModal>
+        <ContentWrapper>{children}</ContentWrapper>
+      </StyledModal>
+    </RemoveScroll>
   );
 };
 
