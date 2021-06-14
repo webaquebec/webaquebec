@@ -6,7 +6,6 @@ import { rem } from 'polished';
 import interpolate from '../utils/math/interpolate';
 
 // styles
-import { Redaction } from './fontFaces';
 import { fontFamilies, fontWeights } from './typography';
 import { lessThan, greaterThan } from '../utils/mediaQuery';
 import breakpoints from './breakpoints';
@@ -327,8 +326,6 @@ export const unorderListStyle = css`
 export const orderListStyle = css``;
 
 export const GlobalStyle = createGlobalStyle`
-  ${Redaction};
-
   :root {
     ${rootStyle};
   }
