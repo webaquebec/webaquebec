@@ -1,6 +1,5 @@
 // vendors
 import styled from 'styled-components';
-// import { Link } from 'gatsby';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
@@ -25,7 +24,7 @@ export const PrimaryNavList = styled.ul`
 
   margin: 0;
 
-  ${lessThan(breakpoints[6])} {
+  ${lessThan(breakpoints[7])} {
     display: none;
   }
 `;
@@ -78,6 +77,8 @@ export const NavLink = styled.a`
     }
 
     content: '';
+
+    will-change: transform, opacity;
   }
 
   ::before {

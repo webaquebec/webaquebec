@@ -2,94 +2,180 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
+import { useMedia } from 'react-use';
+import { navigate } from 'gatsby';
 
 // components
 import HeroGrid from '../../../components/HeroGrid/HeroGrid';
-import Center from '../../../components/LayoutSections/Center';
+import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
-import Dropdown from '../../../components/Dropdown';
+import DropDown from '../../../components/Dropdown';
 
 // utils
-import { greaterThan, lessThan } from '../../../utils/mediaQuery';
+import { lessThanCondition } from '../../../utils/mediaQuery';
+
+// contexts
+import { useModal } from '../../../contexts/ModalContext';
+import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
+
+// hooks
+import useHasMounted from '../../../hooks/useHasMounted';
+
+// images
+import vectorYear2021 from '../../../images/vectorYear2021.svg';
 
 // styles
-import { DateList, DateListItem, dateTabStyle } from './Hero.styles';
-import zIndexes from '../../../styles/zIndexes';
-import HeaderGradient from '../../../components/HeaderGradient';
+import {
+  selfBreakpoints,
+  Wrapper,
+  HeaderContent,
+  StickyTitle,
+  YearSticker,
+  DateList,
+  DateListItem,
+  dateTabStyle,
+  dateTabTypoStyle,
+} from './Hero.styles';
 
-const Wrapper = styled.div`
-  position: sticky;
-  top: 60px;
-  z-index: ${zIndexes.sticky};
-
-  padding: 2rem 0;
-
-  transform: translateY(-50%);
-`;
-
-const desktopDates = css`
-  ${lessThan(649)} {
-    display: none;
-  }
-`;
-
-const mobileDates = css`
-  ${greaterThan(650)} {
-    display: none;
-  }
+const willChangeOpacityStyle = css`
+  will-change: opacity;
 `;
 
 const Hero = ({ location, datePaths }) => {
-  const [ref, inView] = useInView({
-    rootMargin: '0px',
-  });
+  const [ref, inView, entry] = useInView();
+
+  const { getTotalAppliedFilters } = useProgramFilters();
+
+  const isVisible = entry ? inView : true;
+
+  const hasMounted = useHasMounted();
+  // < 1060
+  const tablet = useMedia(lessThanCondition(selfBreakpoints[3]));
+  // < 832
+  const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
+
+  const { open: openModal } = useModal();
+
+  const handleClick = (path) => {
+    navigate(path, {
+      state: {
+        disableScrollUpdate: true,
+        hash: '#program-section',
+        offset: -86,
+      },
+    });
+  };
 
   const current = datePaths.find((item) => item.path === location.pathname);
+
+  const totalAppliedFilters = getTotalAppliedFilters();
 
   return (
     <>
       <HeroGrid ref={ref} title='programmation' displayYear />
 
       <Wrapper>
-        <HeaderGradient visible={!inView} />
+        <HeaderGradient
+          css={willChangeOpacityStyle}
+          style={{ opacity: hasMounted && !isVisible ? 1 : 0 }}
+        />
 
-        <Center maxWidth='736px' gutters='16px'>
-          <DateList css={desktopDates}>
-            {datePaths.map((item) => (
-              <DateListItem key={`date-${item.path}`}>
-                <Button
-                  to={item.path}
-                  activeClassName='active'
-                  outlined
-                  medium
-                  tag='link'
-                  css={dateTabStyle}
+        {hasMounted && (
+          <HeaderContent
+            maxWidth={!isVisible ? '1066px' : '736px'}
+            gutters={mobile ? '16px' : '32px'}
+          >
+            {!isVisible && !tablet && (
+              <StickyTitle>
+                programmation
+                <YearSticker src={vectorYear2021} alt='2021' />
+              </StickyTitle>
+            )}
+
+            {mobile ? (
+              <div
+                css={`
+                  display: inline-flex;
+                  width: 100%;
+                `}
+              >
+                <DropDown
+                  title={current.date}
+                  css={`
+                    flex-basis: 0;
+                    flex-grow: 999;
+
+                    margin-right: 12px;
+                  `}
                 >
-                  <span>{item.date}</span>
-                </Button>
-              </DateListItem>
-            ))}
-          </DateList>
-          <div css={mobileDates}>
-            <Dropdown title={current.date}>
-              {datePaths
-                .filter((item) => item.path !== location.pathname)
-                .map((item) => (
+                  {datePaths
+                    .filter((item) => item.path !== location.pathname)
+                    .map((item) => (
+                      <Button
+                        key={`dropdown-item-${item.path}`}
+                        className={
+                          item.path === location.pathname ? 'active' : undefined
+                        }
+                        outlined
+                        medium
+                        onClick={() => handleClick(item.path)}
+                        css={dateTabStyle}
+                      >
+                        <span>{item.date}</span>
+                      </Button>
+                    ))}
+                </DropDown>
+
+                <div
+                  css={`
+                    flex-grow: 1;
+                    flex-basis: 25%;
+
+                    z-index: 1;
+
+                    > * {
+                      width: 100%;
+                    }
+                  `}
+                >
                   <Button
-                    key={`dropdown-item-${item.path}`}
-                    to={item.path}
-                    activeClassName='active'
                     outlined
-                    tag='link'
-                    css={dateTabStyle}
+                    medium
+                    onClick={openModal}
+                    css={`
+                      ${dateTabStyle}
+                      ${dateTabTypoStyle}
+                    `}
                   >
-                    <span>{item.date}</span>
+                    <span>Filtres</span>
+                    {totalAppliedFilters > 0 && (
+                      <span>{`(${totalAppliedFilters})`}</span>
+                    )}
                   </Button>
+                </div>
+              </div>
+            ) : (
+              <DateList>
+                {datePaths.map((item) => (
+                  <DateListItem key={item.date}>
+                    <Button
+                      className={
+                        item.path === location.pathname ? 'active' : undefined
+                      }
+                      outlined
+                      medium
+                      onClick={() => handleClick(item.path)}
+                      css={dateTabStyle}
+                    >
+                      <span>{item.date}</span>
+                    </Button>
+                  </DateListItem>
                 ))}
-            </Dropdown>
-          </div>
-        </Center>
+              </DateList>
+            )}
+          </HeaderContent>
+        )}
       </Wrapper>
     </>
   );
@@ -98,6 +184,7 @@ const Hero = ({ location, datePaths }) => {
 Hero.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
+    state: PropTypes.shape({}),
   }).isRequired,
   datePaths: PropTypes.arrayOf(
     PropTypes.shape({
