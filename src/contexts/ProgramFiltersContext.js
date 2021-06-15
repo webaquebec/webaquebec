@@ -1,5 +1,5 @@
 // vendors
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // utils
@@ -14,6 +14,19 @@ export const useProgramFilters = () => useContext(ProgramFiltersContext);
  */
 export const ProgramFiltersProvider = ({ children }) => {
   const [filters, setFilters] = useState([]);
+  const [totalAppliedFilters, setTotalAppliedFilters] = useState(0);
+
+  useEffect(() => {
+    let count = 0;
+    filters.forEach((item) => {
+      item.values.forEach((current) => {
+        if (!current.isChecked) return;
+        count += 1;
+      });
+    });
+
+    setTotalAppliedFilters(count);
+  }, [filters]);
 
   const addFilter = (options = {}) => {
     const id = options.id || randomString();
@@ -130,6 +143,10 @@ export const ProgramFiltersProvider = ({ children }) => {
     setFilters([]);
   };
 
+  const getTotalAppliedFilters = () => {
+    return totalAppliedFilters;
+  };
+
   return (
     <ProgramFiltersContext.Provider
       value={{
@@ -139,6 +156,7 @@ export const ProgramFiltersProvider = ({ children }) => {
         uncheckAllFilters,
         applyFilter,
         getFilters,
+        getTotalAppliedFilters,
         removeFilters,
       }}
     >

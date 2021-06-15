@@ -17,6 +17,7 @@ import { lessThanCondition } from '../../../utils/mediaQuery';
 
 // contexts
 import { useModal } from '../../../contexts/ModalContext';
+import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
 
 // hooks
 import useHasMounted from '../../../hooks/useHasMounted';
@@ -44,6 +45,8 @@ const willChangeOpacityStyle = css`
 const Hero = ({ location, datePaths }) => {
   const [ref, inView, entry] = useInView();
 
+  const { getTotalAppliedFilters } = useProgramFilters();
+
   const isVisible = entry ? inView : true;
 
   const hasMounted = useHasMounted();
@@ -65,6 +68,8 @@ const Hero = ({ location, datePaths }) => {
   };
 
   const current = datePaths.find((item) => item.path === location.pathname);
+
+  const totalAppliedFilters = getTotalAppliedFilters();
 
   return (
     <>
@@ -144,6 +149,9 @@ const Hero = ({ location, datePaths }) => {
                     `}
                   >
                     <span>Filtres</span>
+                    {totalAppliedFilters > 0 && (
+                      <span>{`(${totalAppliedFilters})`}</span>
+                    )}
                   </Button>
                 </div>
               </div>

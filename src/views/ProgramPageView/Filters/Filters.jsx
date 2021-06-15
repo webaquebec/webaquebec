@@ -9,6 +9,9 @@ import Accordion from '../../../components/Accordion';
 import AccordionItem from '../../../components/Accordion/AccordionItem';
 import Checkbox from '../../../components/Checkbox';
 
+// contexts
+import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
+
 // hooks
 import useHasMounted from '../../../hooks/useHasMounted';
 
@@ -39,11 +42,12 @@ const checkboxStyle = css`
 
 const customId = randomString();
 
-const Filters = ({ filters, onChange, onReset }) => {
+const Filters = ({ onChange, onReset }) => {
   const hasMounted = useHasMounted();
   // 832px
   const mobile = useMedia(lessThanCondition(selfBreakpoints[0]));
 
+  const { getFilters, getTotalAppliedFilters } = useProgramFilters();
   const { isOpen, close } = useModal();
 
   if (!hasMounted) {
@@ -56,10 +60,15 @@ const Filters = ({ filters, onChange, onReset }) => {
     return 0;
   };
 
+  const totalAppliedFilters = getTotalAppliedFilters();
+
   const FiltersContent = (
     <>
       <Header>
-        <Title id={customId}>Filtres</Title>
+        <Title id={customId}>
+          Filtres{' '}
+          {totalAppliedFilters > 0 && <span>{`(${totalAppliedFilters})`}</span>}
+        </Title>
         <ResetButton type='button' onClick={onReset}>
           Réinitialiser
         </ResetButton>
@@ -67,7 +76,7 @@ const Filters = ({ filters, onChange, onReset }) => {
 
       <Wrapper>
         <Accordion multiple collapsible divided space='0'>
-          {filters
+          {getFilters()
             .filter((f) => f.values.length > 0)
             .map((filter) => (
               <AccordionItem
@@ -137,7 +146,6 @@ const Filters = ({ filters, onChange, onReset }) => {
 };
 
 Filters.propTypes = {
-  filters: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   onChange: PropTypes.func,
   onReset: PropTypes.func,
 };
