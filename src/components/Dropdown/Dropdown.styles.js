@@ -44,7 +44,7 @@ export const DropdownButtonWrapper = styled.div`
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [18, 18], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [16, 18], bases: [16, 20] },
       {
         prop: 'lineHeight',
         sizes: [24, 24],
@@ -141,7 +141,7 @@ export const LinkButton = styled(Button)`
   ${breakpointsRange(
     [
       { prop: 'padding', sizes: [24, 24], bases: [16, 20] },
-      { prop: 'fontSize', sizes: [18, 18], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [16, 18], bases: [16, 20] },
       {
         prop: 'lineHeight',
         sizes: [24, 24],
