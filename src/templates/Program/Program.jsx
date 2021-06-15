@@ -258,7 +258,6 @@ const Program = ({
             <div>
               <FiltersWrapper>
                 <Filters
-                  filters={getFilters()}
                   onChange={handleFilterChange}
                   onReset={handleClickReset}
                 />
