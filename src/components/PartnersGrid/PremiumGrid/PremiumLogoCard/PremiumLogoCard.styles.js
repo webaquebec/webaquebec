@@ -11,7 +11,7 @@ import Cover from '../../../LayoutSections/Cover';
 // styles
 import breakpoints from '../../../../styles/breakpoints';
 
-export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[6]];
+export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[7]];
 
 export const Wrapper = styled(Cover)`
   padding-right: 49px;

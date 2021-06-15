@@ -183,5 +183,9 @@ export const Sticker = styled(Sticker21)`
     will-change: opacity, transform;
 
     ${setAnimationDelays()};
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-name: none;
+    }
   }
 `;

@@ -8,6 +8,8 @@ import 'sanitize.css';
 import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
 
+import '../../fonts/Redaction/redaction.css';
+
 import Footer from '../Footer';
 import Header from '../Header';
 import StaticGradientBackground from '../GradientBackground';
@@ -19,8 +21,6 @@ import StaticGradientBackground from '../GradientBackground';
  *
  */
 const Layout = ({ children, location }) => {
-  const isHomePage = !!location.pathname && location.pathname === '/';
-
   return (
     <>
       <GlobalStyle />
@@ -28,7 +28,7 @@ const Layout = ({ children, location }) => {
       {/** Only temporary until having a full dynamic gradient background */}
       <StaticGradientBackground pathName={location.pathname} position='top' />
 
-      <Header isHomePage={isHomePage} />
+      <Header location={location} />
 
       <main>{children}</main>
 

@@ -1,16 +1,86 @@
 // vendors
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 // components
 import Box from '../../LayoutSections/Box';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
+import { lessThan } from '../../../utils/mediaQuery';
+
+// images
+import IconPlus from '../../../images/IconPlus';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
-import { fontWeights } from '../../../styles/typography';
+import { fontFamilies, fontWeights } from '../../../styles/typography';
 import zIndexes from '../../../styles/zIndexes';
+import colors from '../../../styles/colors';
+import { speed } from '../../../styles/animation';
+
+const gradientAnimation = keyframes`
+  0% {
+    background-position: 0;
+  }
+
+  50% {
+    background-position: 1200%;
+  }
+
+  100% {
+    background-position: 0;
+  }
+`;
+
+export const disableAnimationStyle = css`
+  animation-name: none;
+`;
+
+export const Gradient = styled.div`
+  --jaune-start: ${colors.jaune80};
+  --jaune-end: ${colors.jaune30};
+  --turquoise-start: ${colors.turquoise80};
+  --turquoise-end: ${colors.turquoise30};
+  --rose-start: ${colors.rose80};
+  --rose-end: ${colors.rose30};
+  --ciel-start: ${colors.ciel80};
+  --ciel-end: ${colors.ciel30};
+  --gradient-color-start: ${({ color }) => `var(--${color}-start)`};
+  --gradient-color-end: ${({ color }) => `var(--${color}-end)`};
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: linear-gradient(
+    90deg,
+    var(--gradient-color-start),
+    var(--gradient-color-end),
+    var(--gradient-color-start)
+  );
+  background-size: 1200% 100%;
+
+  opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
+
+  animation: ${gradientAnimation} 150s linear infinite;
+  animation-play-state: ${({ isVisible }) =>
+    isVisible ? 'running' : 'paused'};
+
+  ${({ isActive, restartAnimation }) =>
+    (!isActive || restartAnimation) && disableAnimationStyle};
+
+  content: '';
+
+  will-change: background-position;
+
+  @media (prefers-reduced-motion: reduce) {
+    ${disableAnimationStyle};
+  }
+`;
 
 export const Top = styled.div`
   display: grid;
@@ -47,19 +117,108 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const CloseButton = styled.button`
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ${breakpointsRange(
+    [
+      { prop: 'width', sizes: [24, 34] },
+      { prop: 'height', sizes: [24, 34] },
+    ],
+    breakpoints.spacings
+  )};
+
+  margin: 0;
+  padding: 0;
+
   background: none;
   border: 0;
   cursor: pointer;
 
   appearance: none;
+
+  :focus {
+    outline: 0;
+  }
+
+  ::before {
+    position: absolute;
+
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+
+    border: 3px solid;
+    border-radius: 50%;
+    transform: scale(1.5);
+
+    cursor: default;
+
+    opacity: 0;
+
+    transition: transform ${speed.fast}, opacity ${speed.fast};
+
+    content: '';
+
+    will-change: transform, opacity;
+
+    ${lessThan(breakpoints[3])} {
+      display: none;
+    }
+  }
+
+  :focus::before {
+    transform: scale(1);
+
+    opacity: 1;
+  }
+
+  span {
+    position: absolute;
+
+    word-break: keep-all;
+
+    transform: translateX(-48px);
+    opacity: 0;
+
+    transition: transform ${speed.fast}, opacity ${speed.fast};
+    transition-delay: ${speed.fast};
+
+    will-change: transform, opacity;
+
+    ${lessThan(breakpoints[3])} {
+      display: none;
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  :hover span,
+  :focus span {
+    transform: translateX(-75px);
+    opacity: 1;
+  }
+
+  svg {
+    ${breakpointsRange(
+      [
+        { prop: 'width', sizes: [36, 42] },
+        { prop: 'height', sizes: [36, 42] },
+      ],
+      breakpoints.spacings
+    )};
+  }
 `;
 
-export const IconCross = styled.img``;
+export const IconCross = styled(IconPlus)`
+  transform: rotate(45deg);
+`;
 
-export const PrimaryNavList = styled.ul`
-  display: grid;
-  grid-row-gap: 38px;
-
+export const primaryNavListStyle = css`
   ${breakpointsRange(
     [
       { prop: 'marginTop', sizes: [72, 145], bases: [16, 20] },
@@ -70,21 +229,50 @@ export const PrimaryNavList = styled.ul`
     breakpoints.spacings
   )};
 
-  > li {
-    transform: translate3d(0, -30px, 0);
-    opacity: 0;
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: opacity 250ms, transform 500ms;
-    }
+  > * + * {
+    ${breakpointsRange(
+      [{ prop: 'marginTop', sizes: [32, 80], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
   }
 
-  > li:nth-child(2) {
+  > :last-child {
+    ${breakpointsRange(
+      [{ prop: 'marginTop', sizes: [65, 114], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
+`;
+
+export const ListItem = styled.li`
+  transform: translate3d(0, -30px, 0);
+  opacity: 0;
+
+  transition: opacity 250ms, transform 500ms;
+
+  will-change: opacity, transform;
+
+  :nth-child(2) {
     transition-delay: 100ms;
   }
 
-  > li:nth-child(3) {
+  :nth-child(3) {
     transition-delay: 200ms;
+  }
+
+  :nth-child(4) {
+    transition-delay: 300ms;
+  }
+
+  img {
+    ${breakpointsRange(
+      [{ prop: 'maxHeight', sizes: [23, 33], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `;
 
@@ -93,12 +281,19 @@ export const NavLink = styled.a`
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [20, 40], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [24, 48], bases: [20, 40], unit: '' },
+      { prop: 'lineHeight', sizes: [30, 48], bases: [20, 40], unit: '' },
     ],
     breakpoints.spacings
   )};
 
   text-decoration: none;
+
+  &.active,
+  :hover,
+  :focus {
+    font-weight: ${fontWeights.bold};
+    font-family: ${fontFamilies.redaction70};
+  }
 `;
 
 export const Content = styled.div`
@@ -112,11 +307,6 @@ export const openedMenuStyle = css`
   opacity: 1;
 
   pointer-events: auto;
-
-  ::before,
-  ::after {
-    transform: translate3d(0, 0, 0);
-  }
 
   ul > li {
     transform: translate3d(0, 0, 0);
@@ -141,7 +331,7 @@ export const Container = styled(Box)`
   width: 100%;
   height: 100%;
 
-  background-color: white;
+  background-color: ${colors.gris};
 
   visibility: hidden;
   opacity: 0;
@@ -153,53 +343,6 @@ export const Container = styled(Box)`
   }
 
   will-change: opacity, visibility;
-
-  ::before,
-  ::after {
-    position: absolute;
-
-    width: calc(100% + var(--frame-width));
-    height: calc(100% + var(--frame-width));
-
-    ${breakpointsRange(
-      [{ prop: 'border-width', sizes: [10, 20], bases: [16, 20] }],
-      breakpoints.spacings
-    )};
-
-    border-style: solid;
-
-    content: '';
-
-    pointer-events: none;
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform 500ms;
-    }
-  }
-
-  ::before {
-    top: 0;
-    left: 0;
-
-    border-right-width: 0;
-    border-bottom-width: 0;
-
-    transform: translate3d(
-      calc(var(--frame-width) * -1),
-      calc(var(--frame-width) * -1),
-      0
-    );
-  }
-
-  ::after {
-    right: 0;
-    bottom: 0;
-
-    border-top-width: 0;
-    border-left-width: 0;
-
-    transform: translate3d(var(--frame-width), var(--frame-width), 0);
-  }
 
   ${({ $opened }) => $opened && openedMenuStyle};
 `;
