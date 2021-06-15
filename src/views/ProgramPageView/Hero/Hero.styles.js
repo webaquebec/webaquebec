@@ -82,12 +82,12 @@ export const DateListItem = styled.li`
 `;
 
 export const dateTabStyle = css`
-  min-width: 94px;
+  min-width: 125px;
   height: 100%;
   min-height: 75px;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [18, 18], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [16, 18], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
@@ -110,7 +110,7 @@ export const dateTabTypoStyle = css`
   font-family: ${fontFamilies.redaction35};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [20, 20], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [18, 20], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
