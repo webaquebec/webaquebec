@@ -13,6 +13,7 @@ import {
   StarSeparator,
   MapPin,
   AddressFirstLine,
+  CallToAction,
   StickerImg,
 } from './Hero.styles';
 
@@ -128,6 +129,14 @@ const Hero = () => {
       <Center maxWidth='var(--max-container-width)' gutters='50px' withText>
         <MapPin src={vectorMapPin} role='presentation' alt='' />
         <AddressFirstLine>Dans le confort de chez soi</AddressFirstLine>
+        <CallToAction
+          href='https://waq21.app.swapcard.com/'
+          tag='link'
+          rel='noopener noreferrer'
+          target='_blank'
+        >
+          accéder à l&apos;événement
+        </CallToAction>
       </Center>
     </StyledHero>
   );
