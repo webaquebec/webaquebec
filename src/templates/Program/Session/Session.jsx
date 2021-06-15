@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import moment from 'moment';
 // import { useQuery } from '@apollo/client';
 
 // Client queries
@@ -144,14 +143,27 @@ const Session = ({
     swapcard: { plannings },
   } = data;
 
-  const getFormattedLocaleDate = (date) => {
-    moment.locale('fr_ca');
-    return moment(date, 'YYYY-MM-DD').format('dddd DD MMMM');
+  // Fix Safari Invalid Date issue
+  const formatDateStr = (value) => {
+    return value.replace(/-/g, '/');
   };
 
-  const getFormattedTime = (date) => moment(date).format('HH:mm');
+  const getFormattedLocaleDate = (value) => {
+    const options = { weekday: 'long', day: 'numeric', month: 'long' };
+    const date = new Date(formatDateStr(value));
+    return date.toLocaleDateString('fr-ca', options);
+  };
 
-  const getDateYear = (date) => moment(date, 'YYYY-MM-DD').format('YYYY');
+  const getFormattedTime = (value) => {
+    const options = { hour: '2-digit', minute: '2-digit' };
+    const date = new Date(formatDateStr(value));
+    return date.toLocaleTimeString('fr', options);
+  };
+
+  const getDateYear = (value) => {
+    const date = new Date(formatDateStr(value));
+    return date.getFullYear();
+  };
 
   // Re-arrange values from the plannings array the way we want to use it in our template
   const modifiedPlannings = plannings.map((planning) => ({
@@ -167,6 +179,7 @@ const Session = ({
   const session = modifiedPlannings[0];
 
   const {
+    id,
     edition,
     date,
     time,
@@ -205,6 +218,7 @@ const Session = ({
             outlined
             iconFirst
             renderIcon={<IconArrow css={backArrow} />}
+            state={{ sessionId: id }}
             css={backButton}
           >
             Retour à la programmation
@@ -238,7 +252,7 @@ const Session = ({
                   <Cluster>
                     <div>
                       {categories.map((category) => (
-                        <Tag category={category} />
+                        <Tag key={`category-${category}`} category={category} />
                       ))}
 
                       {type && <Tag eventType={type} />}
@@ -249,7 +263,7 @@ const Session = ({
                 )}
 
                 {speakers.map((speaker) => (
-                  <SpeakerCard speaker={speaker} />
+                  <SpeakerCard key={speaker.id} speaker={speaker} />
                 ))}
               </Stack>
             </Center>
@@ -318,7 +332,6 @@ export const sessionQuery = graphql`
         totalAttendees
         twitterHashtag
         type
-
         speakers {
           id
           firstName

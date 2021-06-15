@@ -55,7 +55,7 @@ const ScheduleCard = ({
       <Container
         lightColor={colors.white}
         darkColor={colors.gris90}
-        css={!time && noTimeStyle}
+        css={time ? undefined : noTimeStyle}
       >
         {time && (
           <div
@@ -82,7 +82,7 @@ const ScheduleCard = ({
           )}
 
           {speakers.map((speaker) => (
-            <div>
+            <div key={speaker.id}>
               <Tag speaker={speaker} />
             </div>
           ))}
@@ -91,7 +91,7 @@ const ScheduleCard = ({
             <Cluster>
               <div>
                 {categories.map((category) => (
-                  <Tag category={category} />
+                  <Tag key={category} category={category} />
                 ))}
 
                 {type && <Tag eventType={type} />}
