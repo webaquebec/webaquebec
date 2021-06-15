@@ -24,8 +24,8 @@ export const Wrapper = styled.div`
     [
       { prop: 'marginLeft', sizes: [0, 82], bases: [16, 20] },
       { prop: 'paddingTop', sizes: [16, 32], bases: [16, 20] },
-      { prop: 'paddingLeft', sizes: [24, 0], bases: [16, 20] },
-      { prop: 'paddingRight', sizes: [24, 0], bases: [16, 20] },
+      { prop: 'paddingLeft', sizes: [16, 0], bases: [16, 20] },
+      { prop: 'paddingRight', sizes: [16, 0], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
