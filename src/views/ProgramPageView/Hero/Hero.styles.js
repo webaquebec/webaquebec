@@ -82,6 +82,7 @@ export const DateListItem = styled.li`
 `;
 
 export const dateTabStyle = css`
+  min-width: 94px;
   height: 100%;
   min-height: 75px;
 

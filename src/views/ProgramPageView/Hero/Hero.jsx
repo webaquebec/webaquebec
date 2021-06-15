@@ -101,8 +101,6 @@ const Hero = ({ location, datePaths }) => {
                     flex-basis: 0;
                     flex-grow: 999;
 
-                    min-width: calc(75% - 12px);
-
                     margin-right: 12px;
                   `}
                 >
