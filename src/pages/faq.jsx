@@ -156,6 +156,8 @@ const FaqPage = ({ location }) => {
                 key={`faq-${item.id}`}
                 titleAs='h2'
                 title={item.question}
+                bordered
+                rounded
               >
                 <p
                   css={faqItem}

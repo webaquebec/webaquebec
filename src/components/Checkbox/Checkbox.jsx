@@ -14,8 +14,6 @@ import StyledCheckbox, {
 } from './Checkbox.styles';
 import colors from '../../styles/colors';
 
-const customId = randomString();
-
 /**
  *
  * @module Checkbox
@@ -51,6 +49,8 @@ const Checkbox = ({
   primary,
   ...rest
 }) => {
+  const customId = randomString();
+
   const defaultTheme = {
     color: {
       label: checked ? colors.bleu80 : colors.gris80,

@@ -17,7 +17,7 @@ import {
 } from './Dropdown.styles';
 import colors from '../../styles/colors';
 
-const Dropdown = ({ title, children }) => {
+const Dropdown = ({ title, children, ...rest }) => {
   const dropdownId = randomString();
   const [expanded, setExpanded] = useState(false);
 
@@ -26,7 +26,12 @@ const Dropdown = ({ title, children }) => {
   };
 
   return (
-    <Container padding='0' lightColor={colors.white} darkColor={colors.bleu}>
+    <Container
+      padding='0'
+      lightColor={colors.white}
+      darkColor={colors.bleu}
+      {...rest}
+    >
       <DropdownButtonWrapper $expanded={expanded}>
         <DropdownButton
           id={`${dropdownId}-button`}

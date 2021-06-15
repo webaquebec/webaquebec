@@ -1,17 +1,19 @@
 // vendors
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-// import { rem } from 'polished';
 
 // utils
 import randomString from '../../../utils/math/randomString';
 
 // styles
 import {
+  bigPanelStyle,
+  bigHeadingStyle,
+  bigButtonStyle,
   Container,
-  Heading,
+  Title,
   Button,
-  TitleWrapper,
+  TitleContent,
   Panel,
   PanelContent,
   Toggle,
@@ -26,9 +28,15 @@ import colors from '../../../styles/colors';
 const AccordionItem = ({
   titleAs,
   title,
+  bgColor,
+  color,
+  big,
   children,
   expanded,
+  bordered,
+  rounded,
   onToggleClick,
+  ...rest
 }) => {
   const [maxHeight, setMaxHeight] = useState(null);
   const [accordionItemId, setAccordionItemId] = useState('');
@@ -61,32 +69,42 @@ const AccordionItem = ({
     <Container
       noBorder
       padding='0'
-      lightColor={colors.white}
-      darkColor={colors.bleu}
+      lightColor={bgColor}
+      darkColor={color}
       $maxHeight={maxHeight}
       $expanded={expanded}
+      $bordered={bordered}
+      $rounded={rounded}
+      {...rest}
     >
-      <Heading as={titleAs} $expanded={expanded} ref={headingRef}>
+      <Title
+        as={titleAs}
+        $expanded={expanded}
+        ref={headingRef}
+        css={big && bigHeadingStyle}
+      >
         <Button
           id={`${accordionItemId}-header`}
           aria-controls={`${accordionItemId}-panel`}
           aria-expanded={expanded}
           onClick={onToggleClick}
+          css={big && bigButtonStyle}
         >
-          <TitleWrapper>{title}</TitleWrapper>
+          <TitleContent>{title}</TitleContent>
 
           <Toggle
             aria-label={expanded ? 'Réduire' : 'Développer'}
             $expanded={expanded}
           />
         </Button>
-      </Heading>
+      </Title>
 
       <Panel
         id={`${accordionItemId}-panel`}
         aria-labelledby={`${accordionItemId}-header`}
         aria-hidden={!expanded}
         $expanded={expanded}
+        css={big && bigPanelStyle}
       >
         <PanelContent>{children}</PanelContent>
       </Panel>
@@ -96,23 +114,41 @@ const AccordionItem = ({
 
 AccordionItem.propTypes = {
   /**
-   * The heading level of the item title.
-   * Choose wisely to respect the semantic of the document for accessibility reasons.
-   * @see [https://www.w3.org/WAI/tutorials/page-structure/headings/](https://www.w3.org/WAI/tutorials/page-structure/headings/)
+   * Specifies a different HTML tag applied to the title.
    */
-  titleAs: PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6']).isRequired,
+  titleAs: PropTypes.string,
   /**
    * The title of the item
    */
   title: PropTypes.node.isRequired,
   /**
+   * Whether the accordion item is big or regular size
+   */
+  big: PropTypes.bool,
+  /**
+   * The background color of an item
+   */
+  bgColor: PropTypes.string,
+  /**
+   * The text color of an item
+   */
+  color: PropTypes.string,
+  /**
    * Child node elements within the item panel content
    */
   children: PropTypes.node.isRequired,
   /**
-   * Whether an item is expanded
+   * Whether an item is expanded or not
    */
   expanded: PropTypes.bool,
+  /**
+   * Whether an item has an outline border or not
+   */
+  bordered: PropTypes.bool,
+  /**
+   * Whether an item has rounded corners or not
+   */
+  rounded: PropTypes.bool,
   /**
    * The click event allowing items to be expanded
    */
@@ -120,7 +156,13 @@ AccordionItem.propTypes = {
 };
 
 AccordionItem.defaultProps = {
+  titleAs: null,
+  bgColor: colors.white,
+  color: colors.bleu,
+  big: false,
   expanded: false,
+  bordered: false,
+  rounded: false,
   onToggleClick: () => {},
 };
 

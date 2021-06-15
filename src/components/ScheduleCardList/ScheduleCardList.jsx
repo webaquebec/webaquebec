@@ -55,9 +55,11 @@ const ScheduleCardList = ({ children }) => {
         <li key={`schedule-card-${key}`}>
           <ScheduleCard
             css={`
-              ${index === 0 && borderTopRadiusStyle}
+              ${index === 0 ? borderTopRadiusStyle : undefined}
 
-              ${index === nodes.length - 1 && borderBottomRadiusStyle}
+              ${index === nodes.length - 1
+                ? borderBottomRadiusStyle
+                : undefined}
             `}
             {...props}
           />
