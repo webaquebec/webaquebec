@@ -119,7 +119,11 @@ const EventDescription = styled.div`
  * @param {Object} pageContext — Received context from the automatically created pages
  * (@Link gatsby/createScheduleSessionPages.js) and use that as variables GraphQL query.
  */
-const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
+const Session = ({
+  location,
+  data,
+  pageContext: { pageNumber, isLastPage },
+}) => {
   /**
    * Query to fetch data from Swapcard API at client side only.
    * Useful if we want to get up-to-date data that may change during an event (e.g. time, room)
@@ -194,7 +198,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
       : `/programmation/${edition}/${pageNumber}`;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title={title} description={description} />
 
       <Center
@@ -271,6 +275,9 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
 };
 
 Session.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
   data: PropTypes.shape({
     swapcard: PropTypes.shape({
       plannings: PropTypes.arrayOf(PropTypes.shape({})),
