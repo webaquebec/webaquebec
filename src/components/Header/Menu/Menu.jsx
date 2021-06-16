@@ -9,6 +9,9 @@ import Grid from '../../LayoutSections/Grid';
 import Stack from '../../LayoutSections/Stack';
 import Cluster from '../../LayoutSections/Cluster';
 
+// hooks
+import useHasMounted from '../../../hooks/useHasMounted';
+
 // utils
 import randomString from '../../../utils/math/randomString';
 
@@ -70,22 +73,22 @@ const Menu = ({ location, opened, onClose, primaryNavigation }) => {
     color: '',
   });
 
-  // Only triggered once — Set default gradient color based on active pathname
+  const hasMounted = useHasMounted();
+
+  // Set default gradient color based on active pathname
   useEffect(() => {
     const navItem = primaryNavigation.find((current) =>
       location.pathname.includes(current.slug)
     );
 
-    if (navItem) {
+    if (navItem && hasMounted) {
       setGradient((state) => ({
         ...state,
         isVisible: true,
         defaultColor: navItem.color,
       }));
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [hasMounted, location.pathname, primaryNavigation]);
 
   const handleMouseOver = (color) => (e) => {
     setGradient((state) => ({

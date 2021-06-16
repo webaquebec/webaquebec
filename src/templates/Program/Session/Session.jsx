@@ -276,7 +276,7 @@ const Session = ({
 
 Session.propTypes = {
   location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
+    pathname: PropTypes.string,
   }).isRequired,
   data: PropTypes.shape({
     swapcard: PropTypes.shape({
