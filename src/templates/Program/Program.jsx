@@ -5,7 +5,6 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 // components
-import Layout from '../../components/Layout';
 import SEO from '../../components/SEO';
 import Center from '../../components/LayoutSections/Center';
 import ScheduleCardList from '../../components/ScheduleCardList';
@@ -243,7 +242,7 @@ const Program = ({
     .filter((session) => applyFilter('type', session.type));
 
   return (
-    <Layout location={location}>
+    <>
       <SEO
         title='Programmation'
         description='Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec.'
@@ -293,7 +292,7 @@ const Program = ({
           </Switcher>
         </Center>
       </SectionContainer>
-    </Layout>
+    </>
   );
 };
 

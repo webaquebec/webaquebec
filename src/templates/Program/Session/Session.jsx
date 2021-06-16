@@ -10,7 +10,6 @@ import styled, { css } from 'styled-components';
 // import sessionByIdQuery from '../../../../graphql/swapcard/get-session-by-id-query.gql';
 
 // components
-import Layout from '../../../components/Layout';
 import SEO from '../../../components/SEO';
 import Center from '../../../components/LayoutSections/Center';
 import Hero from '../../../components/Hero';
@@ -119,11 +118,7 @@ const EventDescription = styled.div`
  * @param {Object} pageContext — Received context from the automatically created pages
  * (@Link gatsby/createScheduleSessionPages.js) and use that as variables GraphQL query.
  */
-const Session = ({
-  location,
-  data,
-  pageContext: { pageNumber, isLastPage },
-}) => {
+const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
   /**
    * Query to fetch data from Swapcard API at client side only.
    * Useful if we want to get up-to-date data that may change during an event (e.g. time, room)
@@ -198,7 +193,7 @@ const Session = ({
       : `/programmation/${edition}/${pageNumber}`;
 
   return (
-    <Layout location={location}>
+    <>
       <SEO title={title} description={description} />
 
       <Center
@@ -270,14 +265,11 @@ const Session = ({
           </EventContainer>
         </Center>
       </Container>
-    </Layout>
+    </>
   );
 };
 
 Session.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
   data: PropTypes.shape({
     swapcard: PropTypes.shape({
       plannings: PropTypes.arrayOf(PropTypes.shape({})),

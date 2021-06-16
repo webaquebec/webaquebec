@@ -5,7 +5,6 @@ import styled, { css } from 'styled-components';
 
 // components
 import SEO from '../components/SEO';
-import Layout from '../components/Layout';
 import Center from '../components/LayoutSections/Center';
 import Accordion from '../components/Accordion';
 import AccordionItem from '../components/Accordion/AccordionItem';
@@ -65,7 +64,7 @@ const faqItem = css`
   )};
 `;
 
-const FaqPage = ({ location }) => {
+const FaqPage = () => {
   const data = [
     {
       id: 1,
@@ -130,7 +129,7 @@ const FaqPage = ({ location }) => {
   ];
 
   return (
-    <Layout location={location}>
+    <>
       <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ21.' />
 
       <Center
@@ -168,7 +167,7 @@ const FaqPage = ({ location }) => {
           </Accordion>
         </Center>
       </Container>
-    </Layout>
+    </>
   );
 };
 
