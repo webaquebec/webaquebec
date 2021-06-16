@@ -17,6 +17,7 @@ const allowedTypes = [
   'qanda',
   'contenu-sur-demande',
   'pitch-ton-waq',
+  'table-ronde',
 ];
 
 /**  This function queries Gatsby's GraphQL server and asks for
