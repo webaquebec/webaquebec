@@ -91,6 +91,8 @@ export const Top = styled.div`
     [
       { prop: 'paddingTop', sizes: [20, 57], bases: [16, 20] },
       { prop: 'paddingBottom', sizes: [20, 57], bases: [16, 20] },
+      { prop: 'marginRight', sizes: [10, 40], bases: [16, 20] },
+      { prop: 'marginLeft', sizes: [10, 40], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
