@@ -130,8 +130,8 @@ const Hero = () => {
         <MapPin src={vectorMapPin} role='presentation' alt='' />
         <AddressFirstLine>Dans le confort de chez soi</AddressFirstLine>
         <CallToAction
-          href='https://waq21.app.swapcard.com/'
-          tag='link'
+          to='https://waq21.app.swapcard.com/'
+          tag='href'
           rel='noopener noreferrer'
           target='_blank'
         >

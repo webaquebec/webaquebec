@@ -240,8 +240,8 @@ const StyledButton = styled.button`
     [
       { prop: 'fontSize', sizes: [16, 20], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [19, 24], bases: [16, 20], unit: '' },
-      { prop: '--paddingVertical', sizes: [12, 24], bases: [16, 20] },
-      { prop: '--paddingHorizontal', sizes: [24, 32], bases: [16, 20] },
+      { prop: '--paddingVertical', sizes: [28, 28], bases: [16, 20] },
+      { prop: '--paddingHorizontal', sizes: [32, 32], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
