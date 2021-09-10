@@ -33,6 +33,7 @@ import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 // styles
 import breakpoints from '../../styles/breakpoints';
 import { selfBreakpoints as filtersSelfBreakpoints } from '../../views/ProgramPageView/Filters/Filters.styles';
+// import Layout from '../../components/Layout/Layout';
 
 const SectionContainer = styled(StyledSectionContainer)`
   min-height: 800px;
@@ -77,12 +78,9 @@ const Program = ({
   const { state } = location;
 
   const {
-    addFilter,
-    updateFilter,
-    updateFilterValue,
+    filters,
+    dispatch: filterDispatcher,
     applyFilter,
-    getFilters,
-    uncheckAllFilters,
   } = useProgramFilters();
 
   /**
@@ -152,54 +150,79 @@ const Program = ({
       addChoices(session.type, eventTypes);
     });
 
-    const filters = getFilters();
+    // const filters = getFilters();
 
     if (filters.length > 0) {
-      updateFilter('place', {
-        values: places.map((value) => ({
-          name: unSlugify(value),
-          value,
-        })),
+      filterDispatcher({
+        type: 'UPDATE',
+        options: {
+          name: 'place',
+          values: places.map((value) => ({
+            name: unSlugify(value),
+            value,
+          })),
+        },
       });
-      updateFilter('categories', {
-        values: categories.map((value) => ({
-          name: categoriesMap[value],
-          value,
-        })),
+
+      filterDispatcher({
+        type: 'UPDATE',
+        options: {
+          name: 'categories',
+          values: categories.map((value) => ({
+            name: categoriesMap[value],
+            value,
+          })),
+        },
       });
-      updateFilter('type', {
-        values: eventTypes.map((value) => ({
-          name: eventTypesMap[value],
-          value,
-        })),
+
+      filterDispatcher({
+        type: 'UPDATE',
+        options: {
+          name: 'type',
+          values: eventTypes.map((value) => ({
+            name: eventTypesMap[value],
+            value,
+          })),
+        },
       });
 
       return;
     }
 
-    addFilter({
-      name: 'place',
-      title: 'Lieu',
-      values: places.map((value) => ({
-        name: unSlugify(value),
-        value,
-      })),
+    filterDispatcher({
+      type: 'ADD',
+      options: {
+        name: 'place',
+        title: 'Lieu',
+        values: places.map((value) => ({
+          name: unSlugify(value),
+          value,
+        })),
+      },
     });
-    addFilter({
-      name: 'categories',
-      title: 'Thématique',
-      values: categories.map((value) => ({
-        name: categoriesMap[value],
-        value,
-      })),
+
+    filterDispatcher({
+      type: 'ADD',
+      options: {
+        name: 'categories',
+        title: 'Thématique',
+        values: categories.map((value) => ({
+          name: categoriesMap[value],
+          value,
+        })),
+      },
     });
-    addFilter({
-      name: 'type',
-      title: 'Type',
-      values: eventTypes.map((value) => ({
-        name: eventTypesMap[value],
-        value,
-      })),
+
+    filterDispatcher({
+      type: 'ADD',
+      options: {
+        name: 'type',
+        title: 'Type',
+        values: eventTypes.map((value) => ({
+          name: eventTypesMap[value],
+          value,
+        })),
+      },
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -223,17 +246,19 @@ const Program = ({
 
   // Update filter value
   const handleFilterChange = (event) => {
-    const options = {
-      value: event.target.value,
-      isChecked: event.target.checked,
-    };
-
-    updateFilterValue(event.target.name, options);
+    filterDispatcher({
+      type: 'UPDATE_VALUE',
+      options: {
+        name: event.target.name,
+        value: event.target.value,
+        isChecked: event.target.checked,
+      },
+    });
   };
 
   // Reset filters
   const handleClickReset = () => {
-    uncheckAllFilters();
+    filterDispatcher({ type: 'UNCHECK_ALL' });
   };
 
   const filteredProgram = program
