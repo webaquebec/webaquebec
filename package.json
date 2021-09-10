@@ -22,7 +22,6 @@
     "gatsby-plugin-google-tagmanager": "^3.5.0",
     "gatsby-plugin-graphql-loader": "^1.0.2",
     "gatsby-plugin-gtag": "^1.0.13",
-    "gatsby-plugin-layout": "^2.7.1",
     "gatsby-plugin-manifest": "^3.5.0",
     "gatsby-plugin-netlify": "^3.5.0",
     "gatsby-plugin-offline": "^4.5.0",
