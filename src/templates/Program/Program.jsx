@@ -1,5 +1,5 @@
 // vendors
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
@@ -60,7 +60,7 @@ const FiltersWrapper = styled.div`
  * Template used to display daily plannings from Swapcard API
  * @param {Object} data — Data fetched from Swapcard API at build time
  * @param {Object} pageContext — Received context from the automatically created pages
- * (@Link gatsby/createProgramSessionPages.js) and use that as variables GraphQL query.
+ * {@Link gatsby/createProgramSessionPages.js} and use that as variables GraphQL query.
  */
 const Program = ({
   location,
@@ -71,10 +71,6 @@ const Program = ({
     swapcard: { plannings },
   } = data;
 
-  const [datePaths, setDatePaths] = useState([]);
-  const [program, setProgram] = useState([]);
-  const [lastSelectedSessionId, setLastSelectedSessionId] = useState(null);
-
   const { state } = location;
 
   const {
@@ -84,30 +80,13 @@ const Program = ({
   } = useProgramFilters();
 
   /**
-   *  Triggered once:
-   *    - Re-arrange data from Swapcard the way we want to display it in our template
-   *    - Set last selected Session id
-   */
-  useEffect(() => {
-    const getFormattedTime = (value) => {
-      // Fix Safari Invalid Date issue
-      const formatValue = value.replace(/-/g, '/');
-      const options = { hour: '2-digit', minute: '2-digit' };
-      const date = new Date(formatValue);
-      return date.toLocaleTimeString('fr', options);
-    };
-
-    // Re-arrange values from the plannings array the way we want to use it in our template
-    const modifiedPlannings = plannings.map((planning) => ({
-      time: {
-        beginsAt: getFormattedTime(planning.beginsAt),
-        endsAt: getFormattedTime(planning.endsAt),
-      },
-      ...planning,
-    }));
-
-    setProgram(modifiedPlannings);
-
+   * Get list of date and path from event dates.
+   * Use memoization here to cache the result to avoid expensive calculation on every render.
+   *
+   * @see [useMemo]{@link https://reactjs.org/docs/hooks-reference.html#usememo}
+   * @see [more]{@link https://dmitripavlutin.com/react-usememo-hook/}
+   * */
+  const datePaths = useMemo(() => {
     // Re-arrange event dates the way we want to display them in our template
     const displayableDates = eventDates.map((current, index, array) =>
       index === array.length - 1 ? 'bonus !' : current
@@ -118,16 +97,37 @@ const Program = ({
       path: pagePaths[index],
     }));
 
-    setDatePaths(tempDatePaths);
+    return tempDatePaths;
+  }, [eventDates, pagePaths]);
 
-    if (state === null) return;
+  /**
+   * Re-arrange data from Swapcard the way we want to display it in our template
+   * Use memoization here to cache the result to avoid expensive calculation on every render.
+   *
+   * @see [useMemo]{@link https://reactjs.org/docs/hooks-reference.html#usememo}
+   * @see [more]{@link https://dmitripavlutin.com/react-usememo-hook/}
+   * */
+  const program = useMemo(() => {
+    const getFormattedTime = (value) => {
+      // Fix Safari Invalid Date issue
+      const formatValue = value.replace(/-/g, '/');
+      const options = { hour: '2-digit', minute: '2-digit' };
+      const date = new Date(formatValue);
+      return date.toLocaleTimeString('fr', options);
+    };
 
-    setLastSelectedSessionId(state.sessionId);
+    const modifiedPlannings = plannings.map((planning) => ({
+      time: {
+        beginsAt: getFormattedTime(planning.beginsAt),
+        endsAt: getFormattedTime(planning.endsAt),
+      },
+      ...planning,
+    }));
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return modifiedPlannings;
+  }, [plannings]);
 
-  // Initialize filters
+  // Initialize filters once we got plannings from Swapcard
   useEffect(() => {
     const places = [];
     const categories = [];
@@ -149,8 +149,6 @@ const Program = ({
       // Get all types for filters
       addChoices(session.type, eventTypes);
     });
-
-    // const filters = getFilters();
 
     if (filters.length > 0) {
       filterDispatcher({
@@ -230,19 +228,16 @@ const Program = ({
 
   // Scroll to the last selected session
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || state === null) return;
 
-    const anchor = document.querySelector(`#${lastSelectedSessionId}`);
+    const anchor = document.querySelector(`#${state.sessionId}`);
 
     if (anchor === null) return;
 
     const offset = anchor.getBoundingClientRect().top + window.scrollY - 140;
 
     window.scrollTo({ top: offset, behavior: `smooth` });
-
-    // Reset after first update
-    setLastSelectedSessionId(null);
-  }, [lastSelectedSessionId]);
+  }, [state]);
 
   // Update filter value
   const handleFilterChange = (event) => {
@@ -256,15 +251,18 @@ const Program = ({
     });
   };
 
-  // Reset filters
+  // Uncheck all filters
   const handleClickReset = () => {
     filterDispatcher({ type: 'UNCHECK_ALL' });
   };
 
-  const filteredProgram = program
-    .filter((session) => applyFilter('place', session.place))
-    .filter((session) => applyFilter('categories', session.categories))
-    .filter((session) => applyFilter('type', session.type));
+  let filteredProgram = program;
+  if (filters.length > 0) {
+    filteredProgram = program
+      .filter((session) => applyFilter('place', session.place))
+      .filter((session) => applyFilter('categories', session.categories))
+      .filter((session) => applyFilter('type', session.type));
+  }
 
   return (
     <>

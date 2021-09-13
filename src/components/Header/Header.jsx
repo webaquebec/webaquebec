@@ -1,5 +1,5 @@
 // vendors
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
@@ -131,4 +131,4 @@ Header.defaultProps = {
   isHomePage: false,
 };
 
-export default Header;
+export default memo(Header);

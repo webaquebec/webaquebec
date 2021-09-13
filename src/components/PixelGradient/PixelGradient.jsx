@@ -1,5 +1,5 @@
 // vendors
-import React, { useState, useEffect } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
@@ -91,22 +91,18 @@ const optionsByLocation = {
   },
 };
 
-const PixelGradient = ({ location }) => {
+const PixelGradient = ({ pathname }) => {
   const [pixels, setPixels] = useState([]);
 
   useEffect(() => {
-    const getOptionsByLocation = (pathname) => {
+    const getOptionsByLocation = () => {
       if (pathname === undefined || pathname === '/')
         return optionsByLocation.home;
 
-      const arr = pathname.split('/').filter((current) => current);
-      const first = arr[0];
-
-      return optionsByLocation[first];
+      return optionsByLocation[pathname];
     };
 
-    const current =
-      getOptionsByLocation(location.pathname) || optionsByLocation.home;
+    const current = getOptionsByLocation() || optionsByLocation.home;
 
     const speed = 1;
 
@@ -146,7 +142,7 @@ const PixelGradient = ({ location }) => {
     ];
 
     setPixels(newPixels);
-  }, [location]);
+  }, [pathname]);
 
   const draw = (ctx) => {
     pixels.forEach((pixel) => {
@@ -165,15 +161,11 @@ const PixelGradient = ({ location }) => {
 };
 
 PixelGradient.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }),
+  pathname: PropTypes.string,
 };
 
 PixelGradient.defaultProps = {
-  location: {
-    pathname: undefined,
-  },
+  pathname: undefined,
 };
 
-export default PixelGradient;
+export default memo(PixelGradient);
