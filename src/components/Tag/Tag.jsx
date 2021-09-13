@@ -120,6 +120,7 @@ Tag.propTypes = {
     'qanda',
     'contenu-sur-demande',
     'pitch-ton-waq',
+    'table-ronde',
   ]),
   /**
    * Specifies where the event takes place

@@ -31,6 +31,7 @@ const primaryNavigation = [
     label: 'programmation',
     slug: '/programmation/2021',
     type: 'internal',
+    color: 'jaune',
   },
   // {
   //   id: 'blog',
@@ -43,6 +44,7 @@ const primaryNavigation = [
     label: 'FAQ',
     slug: '/faq',
     type: 'internal',
+    color: 'rose',
   },
   {
     id: 'covid-19',
@@ -50,11 +52,14 @@ const primaryNavigation = [
     slug:
       'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
     type: 'external',
+    color: 'ciel',
   },
 ];
 
-const Header = ({ isHomePage }) => {
+const Header = ({ location }) => {
   const [opened, setOpened] = useState(false);
+
+  const isHomePage = !!location.pathname && location.pathname === '/';
 
   const handleClick = () => {
     setOpened(!opened);
@@ -115,6 +120,7 @@ const Header = ({ isHomePage }) => {
       </Center>
 
       <Menu
+        location={location}
         opened={opened}
         onClose={handleClick}
         primaryNavigation={primaryNavigation}
@@ -124,11 +130,15 @@ const Header = ({ isHomePage }) => {
 };
 
 Header.propTypes = {
-  isHomePage: PropTypes.bool,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }),
 };
 
 Header.defaultProps = {
-  isHomePage: false,
+  location: {
+    pathname: undefined,
+  },
 };
 
 export default memo(Header);

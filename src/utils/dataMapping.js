@@ -13,4 +13,5 @@ export const eventTypesMap = {
   qanda: 'Q&A',
   'contenu-sur-demande': 'Contenu sur demande',
   'pitch-ton-waq': 'Pitch ton WAQ',
+  'table-ronde': 'Table ronde',
 };
