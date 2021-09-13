@@ -20,7 +20,7 @@ import { useModal } from '../../../contexts/ModalContext';
 import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
 
 // hooks
-import useHasMounted from '../../../hooks/useHasMounted';
+// import useHasMounted from '../../../hooks/useHasMounted';
 
 // images
 import vectorYear2021 from '../../../images/vectorYear2021.svg';
@@ -43,13 +43,12 @@ const willChangeOpacityStyle = css`
 `;
 
 const Hero = ({ location, datePaths }) => {
-  const [ref, inView, entry] = useInView();
+  const [ref, inView] = useInView();
 
   const { getTotalAppliedFilters } = useProgramFilters();
 
-  const isVisible = entry ? inView : true;
+  const isVisible = inView;
 
-  const hasMounted = useHasMounted();
   // < 1060
   const tablet = useMedia(lessThanCondition(selfBreakpoints[3]));
   // < 832
@@ -78,88 +77,41 @@ const Hero = ({ location, datePaths }) => {
       <Wrapper>
         <HeaderGradient
           css={willChangeOpacityStyle}
-          style={{ opacity: hasMounted && !isVisible ? 1 : 0 }}
+          style={{ opacity: !isVisible ? 1 : 0 }}
         />
 
-        {hasMounted && (
-          <HeaderContent
-            maxWidth={!isVisible ? '1066px' : '736px'}
-            gutters={mobile ? '16px' : '32px'}
-          >
-            {!isVisible && !tablet && (
-              <StickyTitle>
-                programmation
-                <YearSticker src={vectorYear2021} alt='2021' />
-              </StickyTitle>
-            )}
+        <HeaderContent
+          maxWidth={!isVisible ? '1066px' : '736px'}
+          gutters={mobile ? '16px' : '32px'}
+        >
+          {!isVisible && !tablet && (
+            <StickyTitle>
+              programmation
+              <YearSticker src={vectorYear2021} alt='2021' />
+            </StickyTitle>
+          )}
 
-            {mobile ? (
-              <div
+          {mobile ? (
+            <div
+              css={`
+                display: inline-flex;
+                width: 100%;
+              `}
+            >
+              <DropDown
+                title={current.date}
                 css={`
-                  display: inline-flex;
-                  width: 100%;
+                  flex-basis: 0;
+                  flex-grow: 999;
+
+                  margin-right: 12px;
                 `}
               >
-                <DropDown
-                  title={current.date}
-                  css={`
-                    flex-basis: 0;
-                    flex-grow: 999;
-
-                    margin-right: 12px;
-                  `}
-                >
-                  {datePaths
-                    .filter((item) => item.path !== location.pathname)
-                    .map((item) => (
-                      <Button
-                        key={`dropdown-item-${item.path}`}
-                        className={
-                          item.path === location.pathname ? 'active' : undefined
-                        }
-                        outlined
-                        medium
-                        onClick={() => handleClick(item.path)}
-                        css={dateTabStyle}
-                      >
-                        <span>{item.date}</span>
-                      </Button>
-                    ))}
-                </DropDown>
-
-                <div
-                  css={`
-                    flex-grow: 1;
-                    flex-basis: 25%;
-
-                    z-index: 1;
-
-                    > * {
-                      width: 100%;
-                    }
-                  `}
-                >
-                  <Button
-                    outlined
-                    medium
-                    onClick={openModal}
-                    css={`
-                      ${dateTabStyle}
-                      ${dateTabTypoStyle}
-                    `}
-                  >
-                    <span>Filtres</span>
-                    {totalAppliedFilters > 0 && (
-                      <span>{`(${totalAppliedFilters})`}</span>
-                    )}
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <DateList>
-                {datePaths.map((item) => (
-                  <DateListItem key={item.date}>
+                {datePaths
+                  .filter((item) => item.path !== location.pathname)
+                  .map((item) => (
                     <Button
+                      key={`dropdown-item-${item.path}`}
                       className={
                         item.path === location.pathname ? 'active' : undefined
                       }
@@ -170,12 +122,57 @@ const Hero = ({ location, datePaths }) => {
                     >
                       <span>{item.date}</span>
                     </Button>
-                  </DateListItem>
-                ))}
-              </DateList>
-            )}
-          </HeaderContent>
-        )}
+                  ))}
+              </DropDown>
+
+              <div
+                css={`
+                  flex-grow: 1;
+                  flex-basis: 25%;
+
+                  z-index: 1;
+
+                  > * {
+                    width: 100%;
+                  }
+                `}
+              >
+                <Button
+                  outlined
+                  medium
+                  onClick={openModal}
+                  css={`
+                    ${dateTabStyle}
+                    ${dateTabTypoStyle}
+                  `}
+                >
+                  <span>Filtres</span>
+                  {totalAppliedFilters > 0 && (
+                    <span>{`(${totalAppliedFilters})`}</span>
+                  )}
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <DateList>
+              {datePaths.map((item) => (
+                <DateListItem key={item.date}>
+                  <Button
+                    className={
+                      item.path === location.pathname ? 'active' : undefined
+                    }
+                    outlined
+                    medium
+                    onClick={() => handleClick(item.path)}
+                    css={dateTabStyle}
+                  >
+                    <span>{item.date}</span>
+                  </Button>
+                </DateListItem>
+              ))}
+            </DateList>
+          )}
+        </HeaderContent>
       </Wrapper>
     </>
   );
