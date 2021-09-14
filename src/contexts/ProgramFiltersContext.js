@@ -22,7 +22,6 @@ const addFilter = (state, options = {}) => {
       ...value,
     })),
   };
-  // console.log(state, options);
 
   return [...state, newFilter];
 };
