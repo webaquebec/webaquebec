@@ -63,7 +63,7 @@ const socialMedia = [
 
 const actionButtonId = randomString();
 
-const Menu = ({ location, opened, onClose, primaryNavigation }) => {
+const Menu = ({ pathname, opened, onClose, primaryNavigation }) => {
   const navLinkRefs = useRef([]);
   const gradientRef = useRef(null);
   const [gradient, setGradient] = useState({
@@ -78,7 +78,7 @@ const Menu = ({ location, opened, onClose, primaryNavigation }) => {
   // Set default gradient color based on active pathname
   useEffect(() => {
     const navItem = primaryNavigation.find((current) =>
-      location.pathname.includes(current.slug)
+      current.slug.includes(pathname)
     );
 
     if (navItem && hasMounted) {
@@ -88,7 +88,7 @@ const Menu = ({ location, opened, onClose, primaryNavigation }) => {
         defaultColor: navItem.color,
       }));
     }
-  }, [hasMounted, location.pathname, primaryNavigation]);
+  }, [hasMounted, pathname, primaryNavigation]);
 
   const handleMouseOver = (color) => (e) => {
     setGradient((state) => ({
@@ -224,9 +224,7 @@ const Menu = ({ location, opened, onClose, primaryNavigation }) => {
 };
 
 Menu.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }),
+  pathname: PropTypes.string,
   primaryNavigation: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -239,9 +237,7 @@ Menu.propTypes = {
 };
 
 Menu.defaultProps = {
-  location: {
-    pathname: undefined,
-  },
+  pathname: undefined,
   opened: false,
   onClose: () => {},
 };

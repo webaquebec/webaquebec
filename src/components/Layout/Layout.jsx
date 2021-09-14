@@ -21,9 +21,10 @@ import PixelGradient from '../PixelGradient/PixelGradient';
  *
  */
 const Layout = ({ children, location }) => {
-  const isHomePage = !!location.pathname && location.pathname === '/';
-
-  const pathname = location.pathname.split('/').filter((current) => current)[0];
+  const pathname =
+    !!location.pathname && location.pathname === '/'
+      ? location.pathname
+      : location.pathname.split('/').filter((current) => current)[0];
 
   return (
     <>
@@ -31,7 +32,7 @@ const Layout = ({ children, location }) => {
 
       <PixelGradient pathname={pathname} />
 
-      <Header isHomePage={isHomePage} />
+      <Header pathname={pathname} />
 
       <main>{children}</main>
 
