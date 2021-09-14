@@ -1,5 +1,5 @@
 // vendors
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useReducer, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 // utils
@@ -9,117 +9,113 @@ export const ProgramFiltersContext = React.createContext();
 
 export const useProgramFilters = () => useContext(ProgramFiltersContext);
 
+const initialState = [];
+
+const addFilter = (state, options = {}) => {
+  const id = options.id || randomString();
+
+  const newFilter = {
+    id,
+    ...options,
+    values: options.values.map((value) => ({
+      isChecked: false,
+      ...value,
+    })),
+  };
+
+  return [...state, newFilter];
+};
+
+const updateFilter = (state, options = {}) => {
+  const index = state.findIndex((filter) => filter.name === options.name);
+
+  if (index < 0)
+    return console.error('No filter found with name `%s`', options.name);
+
+  const values = options.values.map((current) => {
+    const value = state[index].values.find((v) => v.value === current.value);
+
+    return {
+      ...value,
+      ...current,
+      isChecked: current.isChecked || value?.isChecked || false,
+    };
+  });
+
+  const updatedFilter = {
+    ...state[index],
+    ...options,
+    values,
+  };
+
+  return [...state.slice(0, index), updatedFilter, ...state.slice(index + 1)];
+};
+
+const updateFilterValue = (state, options = {}) => {
+  const index = state.findIndex((filter) => filter.name === options.name);
+
+  if (index < 0)
+    return console.error('No filter found with name `%s`', options.name);
+
+  const values = state[index].values.map((current) => {
+    const choice = { ...current };
+    if (current.value === options.value) {
+      choice.isChecked = options.isChecked;
+    }
+    return choice;
+  });
+
+  const updatedFilter = { ...state[index], values };
+
+  return [...state.slice(0, index), updatedFilter, ...state.slice(index + 1)];
+};
+
+const uncheckAllFilters = (state) => {
+  const updatedFilters = state.map((filter) => {
+    // Uncheck all
+    const values = filter.values.map((value) => ({
+      ...value,
+      isChecked: false,
+    }));
+
+    return { ...filter, values };
+  });
+
+  return updatedFilters;
+};
+
+const resetFilters = () => {
+  return [];
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD':
+      return addFilter(state, action.options);
+    case 'UPDATE':
+      return updateFilter(state, action.options);
+    case 'UPDATE_VALUE':
+      return updateFilterValue(state, action.options);
+    case 'UNCHECK_ALL':
+      return uncheckAllFilters(state, action.options);
+    case 'RESET':
+      return resetFilters();
+    default:
+      throw new Error(
+        `Invalid Program Filters Reducer Action: ${action.type} `
+      );
+  }
+};
+
+const initializer = () => {
+  return initialState;
+};
+
 /**
  * Context used to keep up to date filters state across Program and Session pages
  */
 export const ProgramFiltersProvider = ({ children }) => {
-  const [filters, setFilters] = useState([]);
-  const [totalAppliedFilters, setTotalAppliedFilters] = useState(0);
-
-  useEffect(() => {
-    let count = 0;
-    filters.forEach((item) => {
-      item.values.forEach((current) => {
-        if (!current.isChecked) return;
-        count += 1;
-      });
-    });
-
-    setTotalAppliedFilters(count);
-  }, [filters]);
-
-  const addFilter = (options = {}) => {
-    const id = options.id || randomString();
-
-    setFilters((state) => {
-      const newFilter = {
-        id,
-        ...options,
-        values: options.values.map((value) => ({
-          isChecked: false,
-          ...value,
-        })),
-      };
-
-      return [...state, newFilter];
-    });
-
-    return id;
-  };
-
-  const updateFilter = (name, options = {}) => {
-    setFilters((state) => {
-      const index = state.findIndex((filter) => filter.name === name);
-
-      if (index < 0)
-        return console.error('No filter found with name `%s`', name);
-
-      const values = options.values.map((current) => {
-        const value = state[index].values.find(
-          (v) => v.value === current.value
-        );
-
-        return {
-          ...value,
-          ...current,
-          isChecked: current.isChecked || value?.isChecked || false,
-        };
-      });
-
-      const updatedFilter = {
-        ...state[index],
-        ...options,
-        values,
-      };
-
-      return [
-        ...state.slice(0, index),
-        updatedFilter,
-        ...state.slice(index + 1),
-      ];
-    });
-  };
-
-  const updateFilterValue = (name, options = {}) => {
-    setFilters((state) => {
-      const index = state.findIndex((filter) => filter.name === name);
-
-      if (index < 0)
-        return console.error('No filter found with name `%s`', name);
-
-      const values = state[index].values.map((current) => {
-        const choice = { ...current };
-        if (current.value === options.value) {
-          choice.isChecked = options.isChecked;
-        }
-        return choice;
-      });
-
-      const updatedFilter = { ...state[index], values };
-
-      return [
-        ...state.slice(0, index),
-        updatedFilter,
-        ...state.slice(index + 1),
-      ];
-    });
-  };
-
-  const uncheckAllFilters = () => {
-    setFilters((state) => {
-      const updatedFilters = state.map((filter) => {
-        // Uncheck all
-        const values = filter.values.map((value) => ({
-          ...value,
-          isChecked: false,
-        }));
-
-        return { ...filter, values };
-      });
-
-      return updatedFilters;
-    });
-  };
+  const [filters, dispatch] = useReducer(reducer, initialState, initializer);
 
   const applyFilter = (name, value) => {
     const index = filters.findIndex((filter) => filter.name === name);
@@ -135,29 +131,26 @@ export const ProgramFiltersProvider = ({ children }) => {
     return allUnchecked || choiceFound;
   };
 
-  const getFilters = () => {
-    return filters;
-  };
-
-  const removeFilters = () => {
-    setFilters([]);
-  };
-
   const getTotalAppliedFilters = () => {
-    return totalAppliedFilters;
+    let count = 0;
+
+    filters.forEach((item) => {
+      item.values.forEach((current) => {
+        if (!current.isChecked) return;
+        count += 1;
+      });
+    });
+
+    return count;
   };
 
   return (
     <ProgramFiltersContext.Provider
       value={{
-        addFilter,
-        updateFilter,
-        updateFilterValue,
-        uncheckAllFilters,
+        filters,
+        dispatch,
         applyFilter,
-        getFilters,
         getTotalAppliedFilters,
-        removeFilters,
       }}
     >
       {children}

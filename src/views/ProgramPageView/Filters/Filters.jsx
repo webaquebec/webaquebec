@@ -47,12 +47,8 @@ const Filters = ({ onChange, onReset }) => {
   // 832px
   const mobile = useMedia(lessThanCondition(selfBreakpoints[0]));
 
-  const { getFilters, getTotalAppliedFilters } = useProgramFilters();
+  const { filters, getTotalAppliedFilters } = useProgramFilters();
   const { isOpen, close } = useModal();
-
-  if (!hasMounted) {
-    return null;
-  }
 
   const sortByNameAsc = (a, b) => {
     if (a.name < b.name) return -1;
@@ -76,7 +72,7 @@ const Filters = ({ onChange, onReset }) => {
 
       <Wrapper>
         <Accordion multiple collapsible divided space='0'>
-          {getFilters()
+          {filters
             .filter((f) => f.values.length > 0)
             .map((filter) => (
               <AccordionItem
@@ -105,6 +101,10 @@ const Filters = ({ onChange, onReset }) => {
       </Wrapper>
     </>
   );
+
+  if (!hasMounted) {
+    return null;
+  }
 
   const handleClick = () => {
     close();

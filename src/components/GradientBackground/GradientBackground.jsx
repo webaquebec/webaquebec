@@ -6,6 +6,10 @@ import { graphql, useStaticQuery } from 'gatsby';
 // styles
 import { Container, StyledBackground } from './GradientBackground.styles';
 
+/**
+ * @deprecated Replaced by [PixelGradient](/Users/lornz/Sites/clients/webaquebec/src/components/PixelGradient/PixelGradient.jsx)
+ * component
+ */
 const GradientBackground = ({ position, pathName, ...rest }) => {
   const data = useStaticQuery(
     graphql`

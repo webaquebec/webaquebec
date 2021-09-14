@@ -1,5 +1,5 @@
 // vendors
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
@@ -56,10 +56,10 @@ const primaryNavigation = [
   },
 ];
 
-const Header = ({ location }) => {
+const Header = ({ pathname }) => {
   const [opened, setOpened] = useState(false);
 
-  const isHomePage = !!location.pathname && location.pathname === '/';
+  const isHomePage = !!pathname && pathname === '/';
 
   const handleClick = () => {
     setOpened(!opened);
@@ -120,7 +120,7 @@ const Header = ({ location }) => {
       </Center>
 
       <Menu
-        location={location}
+        pathname={pathname}
         opened={opened}
         onClose={handleClick}
         primaryNavigation={primaryNavigation}
@@ -130,15 +130,11 @@ const Header = ({ location }) => {
 };
 
 Header.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }),
+  pathname: PropTypes.string,
 };
 
 Header.defaultProps = {
-  location: {
-    pathname: undefined,
-  },
+  pathname: undefined,
 };
 
-export default Header;
+export default memo(Header);

@@ -1,11 +1,10 @@
 // vendors
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 // components
-import Layout from '../../components/Layout';
 import SEO from '../../components/SEO';
 import Center from '../../components/LayoutSections/Center';
 import ScheduleCardList from '../../components/ScheduleCardList';
@@ -34,6 +33,7 @@ import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 // styles
 import breakpoints from '../../styles/breakpoints';
 import { selfBreakpoints as filtersSelfBreakpoints } from '../../views/ProgramPageView/Filters/Filters.styles';
+// import Layout from '../../components/Layout/Layout';
 
 const SectionContainer = styled(StyledSectionContainer)`
   min-height: 800px;
@@ -60,7 +60,7 @@ const FiltersWrapper = styled.div`
  * Template used to display daily plannings from Swapcard API
  * @param {Object} data — Data fetched from Swapcard API at build time
  * @param {Object} pageContext — Received context from the automatically created pages
- * (@Link gatsby/createProgramSessionPages.js) and use that as variables GraphQL query.
+ * {@Link gatsby/createProgramSessionPages.js} and use that as variables GraphQL query.
  */
 const Program = ({
   location,
@@ -71,46 +71,22 @@ const Program = ({
     swapcard: { plannings },
   } = data;
 
-  const [datePaths, setDatePaths] = useState([]);
-  const [program, setProgram] = useState([]);
-  const [lastSelectedSessionId, setLastSelectedSessionId] = useState(null);
-
   const { state } = location;
 
   const {
-    addFilter,
-    updateFilter,
-    updateFilterValue,
+    filters,
+    dispatch: filterDispatcher,
     applyFilter,
-    getFilters,
-    uncheckAllFilters,
   } = useProgramFilters();
 
   /**
-   *  Triggered once:
-   *    - Re-arrange data from Swapcard the way we want to display it in our template
-   *    - Set last selected Session id
-   */
-  useEffect(() => {
-    const getFormattedTime = (value) => {
-      // Fix Safari Invalid Date issue
-      const formatValue = value.replace(/-/g, '/');
-      const options = { hour: '2-digit', minute: '2-digit' };
-      const date = new Date(formatValue);
-      return date.toLocaleTimeString('fr', options);
-    };
-
-    // Re-arrange values from the plannings array the way we want to use it in our template
-    const modifiedPlannings = plannings.map((planning) => ({
-      time: {
-        beginsAt: getFormattedTime(planning.beginsAt),
-        endsAt: getFormattedTime(planning.endsAt),
-      },
-      ...planning,
-    }));
-
-    setProgram(modifiedPlannings);
-
+   * Get list of date and path from event dates.
+   * Use memoization here to cache the result to avoid expensive calculation on every render.
+   *
+   * @see [useMemo]{@link https://reactjs.org/docs/hooks-reference.html#usememo}
+   * @see [more]{@link https://dmitripavlutin.com/react-usememo-hook/}
+   * */
+  const datePaths = useMemo(() => {
     // Re-arrange event dates the way we want to display them in our template
     const displayableDates = eventDates.map((current, index, array) =>
       index === array.length - 1 ? 'bonus !' : current
@@ -121,16 +97,37 @@ const Program = ({
       path: pagePaths[index],
     }));
 
-    setDatePaths(tempDatePaths);
+    return tempDatePaths;
+  }, [eventDates, pagePaths]);
 
-    if (state === null) return;
+  /**
+   * Re-arrange data from Swapcard the way we want to display it in our template
+   * Use memoization here to cache the result to avoid expensive calculation on every render.
+   *
+   * @see [useMemo]{@link https://reactjs.org/docs/hooks-reference.html#usememo}
+   * @see [more]{@link https://dmitripavlutin.com/react-usememo-hook/}
+   * */
+  const program = useMemo(() => {
+    const getFormattedTime = (value) => {
+      // Fix Safari Invalid Date issue
+      const formatValue = value.replace(/-/g, '/');
+      const options = { hour: '2-digit', minute: '2-digit' };
+      const date = new Date(formatValue);
+      return date.toLocaleTimeString('fr', options);
+    };
 
-    setLastSelectedSessionId(state.sessionId);
+    const modifiedPlannings = plannings.map((planning) => ({
+      time: {
+        beginsAt: getFormattedTime(planning.beginsAt),
+        endsAt: getFormattedTime(planning.endsAt),
+      },
+      ...planning,
+    }));
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return modifiedPlannings;
+  }, [plannings]);
 
-  // Initialize filters
+  // Initialize filters once we got plannings from Swapcard
   useEffect(() => {
     const places = [];
     const categories = [];
@@ -153,54 +150,77 @@ const Program = ({
       addChoices(session.type, eventTypes);
     });
 
-    const filters = getFilters();
-
     if (filters.length > 0) {
-      updateFilter('place', {
-        values: places.map((value) => ({
-          name: unSlugify(value),
-          value,
-        })),
+      filterDispatcher({
+        type: 'UPDATE',
+        options: {
+          name: 'place',
+          values: places.map((value) => ({
+            name: unSlugify(value),
+            value,
+          })),
+        },
       });
-      updateFilter('categories', {
-        values: categories.map((value) => ({
-          name: categoriesMap[value],
-          value,
-        })),
+
+      filterDispatcher({
+        type: 'UPDATE',
+        options: {
+          name: 'categories',
+          values: categories.map((value) => ({
+            name: categoriesMap[value],
+            value,
+          })),
+        },
       });
-      updateFilter('type', {
-        values: eventTypes.map((value) => ({
-          name: eventTypesMap[value],
-          value,
-        })),
+
+      filterDispatcher({
+        type: 'UPDATE',
+        options: {
+          name: 'type',
+          values: eventTypes.map((value) => ({
+            name: eventTypesMap[value],
+            value,
+          })),
+        },
       });
 
       return;
     }
 
-    addFilter({
-      name: 'place',
-      title: 'Lieu',
-      values: places.map((value) => ({
-        name: unSlugify(value),
-        value,
-      })),
+    filterDispatcher({
+      type: 'ADD',
+      options: {
+        name: 'place',
+        title: 'Lieu',
+        values: places.map((value) => ({
+          name: unSlugify(value),
+          value,
+        })),
+      },
     });
-    addFilter({
-      name: 'categories',
-      title: 'Thématique',
-      values: categories.map((value) => ({
-        name: categoriesMap[value],
-        value,
-      })),
+
+    filterDispatcher({
+      type: 'ADD',
+      options: {
+        name: 'categories',
+        title: 'Thématique',
+        values: categories.map((value) => ({
+          name: categoriesMap[value],
+          value,
+        })),
+      },
     });
-    addFilter({
-      name: 'type',
-      title: 'Type',
-      values: eventTypes.map((value) => ({
-        name: eventTypesMap[value],
-        value,
-      })),
+
+    filterDispatcher({
+      type: 'ADD',
+      options: {
+        name: 'type',
+        title: 'Type',
+        values: eventTypes.map((value) => ({
+          name: eventTypesMap[value],
+          value,
+        })),
+      },
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -208,42 +228,44 @@ const Program = ({
 
   // Scroll to the last selected session
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || state === null) return;
 
-    const anchor = document.querySelector(`#${lastSelectedSessionId}`);
+    const anchor = document.querySelector(`#${state.sessionId}`);
 
     if (anchor === null) return;
 
     const offset = anchor.getBoundingClientRect().top + window.scrollY - 140;
 
     window.scrollTo({ top: offset, behavior: `smooth` });
-
-    // Reset after first update
-    setLastSelectedSessionId(null);
-  }, [lastSelectedSessionId]);
+  }, [state]);
 
   // Update filter value
   const handleFilterChange = (event) => {
-    const options = {
-      value: event.target.value,
-      isChecked: event.target.checked,
-    };
-
-    updateFilterValue(event.target.name, options);
+    filterDispatcher({
+      type: 'UPDATE_VALUE',
+      options: {
+        name: event.target.name,
+        value: event.target.value,
+        isChecked: event.target.checked,
+      },
+    });
   };
 
-  // Reset filters
+  // Uncheck all filters
   const handleClickReset = () => {
-    uncheckAllFilters();
+    filterDispatcher({ type: 'UNCHECK_ALL' });
   };
 
-  const filteredProgram = program
-    .filter((session) => applyFilter('place', session.place))
-    .filter((session) => applyFilter('categories', session.categories))
-    .filter((session) => applyFilter('type', session.type));
+  let filteredProgram = program;
+  if (filters.length > 0) {
+    filteredProgram = program
+      .filter((session) => applyFilter('place', session.place))
+      .filter((session) => applyFilter('categories', session.categories))
+      .filter((session) => applyFilter('type', session.type));
+  }
 
   return (
-    <Layout location={location}>
+    <>
       <SEO
         title='Programmation'
         description='Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec.'
@@ -293,7 +315,7 @@ const Program = ({
           </Switcher>
         </Center>
       </SectionContainer>
-    </Layout>
+    </>
   );
 };
 
