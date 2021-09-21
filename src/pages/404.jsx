@@ -37,11 +37,6 @@ const Heading = styled.h1`
 
   color: ${colors.black};
 
-  /* Fallback for Chromium only because overlay with mix-blend-mode is not working
-  @supports (contain: paint) and (not (-moz-appearance: none)) {
-    color: ${colors.bleu};
-  } */
-
   line-height: 1;
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [128, 320], bases: [16, 20] }],
