@@ -37,10 +37,10 @@ const Heading = styled.h1`
 
   color: ${colors.black};
 
-  /* Fallback for Chromium only because overlay with mix-blend-mode is not working */
+  /* Fallback for Chromium only because overlay with mix-blend-mode is not working
   @supports (contain: paint) and (not (-moz-appearance: none)) {
     color: ${colors.bleu};
-  }
+  } */
 
   line-height: 1;
   ${breakpointsRange(
@@ -50,7 +50,7 @@ const Heading = styled.h1`
 
   ${pixelated35Style};
 
-  mix-blend-mode: overlay;
+  backdrop-filter: opacity(0);
 `;
 
 const Info = styled.p`
@@ -68,7 +68,13 @@ const CTAButton = styled(Button)``;
 // markup
 const NotFoundPage = () => (
   <Container>
-    <Heading>404</Heading>
+    <div
+      css={`
+        mix-blend-mode: overlay;
+      `}
+    >
+      <Heading>404</Heading>
+    </div>
 
     <Info>
       Oups!{' '}
