@@ -2,6 +2,7 @@
 import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { hideVisually } from 'polished';
 
 // components
 import Center from '../LayoutSections/Center';
@@ -28,7 +29,7 @@ import {
 const primaryNavigation = [
   {
     id: 'prog',
-    label: 'programmation',
+    label: 'Dernière édition',
     slug: '/programmation/2021',
     type: 'internal',
     color: 'jaune',
@@ -46,14 +47,14 @@ const primaryNavigation = [
     type: 'internal',
     color: 'rose',
   },
-  {
-    id: 'covid-19',
-    label: 'covid-19',
-    slug:
-      'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
-    type: 'external',
-    color: 'ciel',
-  },
+  // {
+  //   id: 'covid-19',
+  //   label: 'covid-19',
+  //   slug:
+  //     'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
+  //   type: 'external',
+  //   color: 'ciel',
+  // },
 ];
 
 const Header = ({ pathname }) => {
@@ -88,6 +89,7 @@ const Header = ({ pathname }) => {
                       to={item.slug}
                       activeClassName='active'
                       partiallyActive
+                      css={item.id === 'faq' && hideVisually()}
                     >
                       {item.label}
                     </NavLink>

@@ -13,7 +13,7 @@ const IndexPage = () => {
   return (
     <>
       <SEO
-        title='Le Web à Québec | 15 au 17 juin 2021'
+        title='Le Web à Québec | 24 au 26 mai 2022'
         description='Le plus grand événement numérique francophone en Amérique du Nord.'
       />
 

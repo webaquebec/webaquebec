@@ -21,7 +21,7 @@ const PartnersSection = () => {
       >
         <Title>
           Merci à nos partenaires qui rendent possible la réalisation de cette
-          10<sup>e</sup> édition!
+          11<sup>e</sup> édition!
         </Title>
 
         <PartnersGrid />
