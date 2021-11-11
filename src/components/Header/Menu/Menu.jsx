@@ -2,7 +2,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { hideVisually } from 'polished';
 
 // components
 import Center from '../../LayoutSections/Center';
@@ -176,7 +175,6 @@ const Menu = ({ pathname, opened, onClose, primaryNavigation }) => {
                     onMouseOut={handleMouseOut(item.color)}
                     onFocus={handleMouseOver(item.color)}
                     onBlur={handleMouseOut(item.color)}
-                    css={item.id === 'faq' && hideVisually()}
                   >
                     {item.label}
                   </NavLink>
