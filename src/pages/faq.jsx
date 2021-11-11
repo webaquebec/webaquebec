@@ -101,7 +101,7 @@ const FaqPage = () => {
 
   return (
     <>
-      <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ21.' />
+      <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ22.' />
 
       <Center
         maxWidth='625px'
