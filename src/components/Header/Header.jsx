@@ -2,6 +2,7 @@
 import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { hideVisually } from 'polished';
 
 // components
 import Center from '../LayoutSections/Center';
@@ -88,6 +89,7 @@ const Header = ({ pathname }) => {
                       to={item.slug}
                       activeClassName='active'
                       partiallyActive
+                      css={item.id === 'faq' && hideVisually()}
                     >
                       {item.label}
                     </NavLink>
