@@ -47,6 +47,13 @@ const primaryNavigation = [
     color: 'rose',
   },
   {
+    id: 'about',
+    label: 'à propos',
+    slug: '/a-propos',
+    type: 'internal',
+    color: 'turquoise',
+  },
+  {
     id: 'covid-19',
     label: 'covid-19',
     slug:
