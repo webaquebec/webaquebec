@@ -1,13 +1,33 @@
+// vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 // components
 import SEO from '../components/SEO';
+import StyledSectionContainer from '../components/SectionContainer';
+
+// utils
+import breakpointsRange from '../utils/breakpointsRange';
 
 // views
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
+import SpeakersSection from '../views/HomePageView/SpeakersSection';
 import PartnersGridSection from '../views/HomePageView/PartnersSection';
+
+// styles
+import breakpoints from '../styles/breakpoints';
+
+const SectionContainer = styled(StyledSectionContainer)`
+  ${breakpointsRange(
+    [
+      { prop: 'marginTop', sizes: [186, 105], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [168, 134], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
 
 const IndexPage = () => {
   return (
@@ -21,7 +41,11 @@ const IndexPage = () => {
 
       <StatsSection />
 
-      <PartnersGridSection />
+      <SectionContainer faded>
+        <SpeakersSection />
+
+        <PartnersGridSection />
+      </SectionContainer>
     </>
   );
 };

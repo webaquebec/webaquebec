@@ -6,11 +6,11 @@ import Center from '../../../components/LayoutSections/Center';
 import PartnersGrid from '../../../components/PartnersGrid';
 
 // styles
-import { SectionContainer, Title } from './PartnersSection.styles';
+import Title from './PartnersSection.styles';
 
 const PartnersSection = () => {
   return (
-    <SectionContainer faded>
+    <div>
       <h2 css={hideVisually}>Partenaires</h2>
 
       <Center
@@ -26,7 +26,7 @@ const PartnersSection = () => {
 
         <PartnersGrid />
       </Center>
-    </SectionContainer>
+    </div>
   );
 };
 
