@@ -9,25 +9,22 @@ const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
  * @param fieldName
  * @returns {*|boolean}
  */
-const isTypeAndNameMember = (imageNames, typeName, fieldName) => {
-  return (
-    imageNames &&
-    !!imageNames.find((imageName) => {
-      const fieldParts = imageName.split('.');
-      if (
-        fieldParts.length > 1 &&
-        fieldParts[0] === typeName &&
-        fieldParts[1] === fieldName
-      ) {
-        return true;
-      }
-      if (fieldParts[0] === fieldName) {
-        return true;
-      }
-      return false;
-    })
-  );
-};
+const isTypeAndNameMember = (imageNames, typeName, fieldName) =>
+  imageNames &&
+  !!imageNames.find((imageName) => {
+    const fieldParts = imageName.split('.');
+    if (
+      fieldParts.length > 1 &&
+      fieldParts[0] === typeName &&
+      fieldParts[1] === fieldName
+    ) {
+      return true;
+    }
+    if (fieldParts[0] === fieldName) {
+      return true;
+    }
+    return false;
+  });
 
 exports.createResolvers = (
   { actions, cache, createNodeId, createResolvers, store, reporter },

@@ -1,12 +1,5 @@
 module.exports = {
-  extends: [
-    'airbnb',
-    'airbnb/hooks',
-    'eslint:recommended',
-    'prettier',
-    'prettier/flowtype',
-    'prettier/react',
-  ],
+  extends: ['airbnb', 'airbnb/hooks', 'eslint:recommended', 'prettier'],
   plugins: ['prettier', 'formatjs'],
   rules: {
     'formatjs/no-offset': 'error',
@@ -15,6 +8,13 @@ module.exports = {
       'error',
       {
         devDependencies: true,
+      },
+    ],
+    'react/function-component-definition': [
+      1,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
       },
     ],
     'react/jsx-filename-extension': [

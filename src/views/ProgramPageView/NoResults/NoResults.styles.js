@@ -11,6 +11,7 @@ export const Highlight = styled.p`
 
   color: ${colors.gris100};
   font-weight: ${fontWeights.bold};
+
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [24, 32], bases: [16, 20] },
