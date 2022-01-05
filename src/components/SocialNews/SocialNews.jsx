@@ -101,7 +101,7 @@ const SocialNews = () => {
             </ContactText>
 
             <Button
-              to='https://webaquebec.us7.list-manage.com/subscribe/post?u=6e13c5c9b7e26599fb0ed84a3&id=273f8e5ded'
+              to='https://l.communication.quebecnumerique.com/T/WF/15110/SAbFfT/Optin/fr-CA/Form.ofsys'
               tag='href'
               primary
               small
