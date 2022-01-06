@@ -27,18 +27,20 @@ const SpeakersSection = () => {
               </SpeakersTitle>
 
               <SpeakersIntro>
-                Le WAQ veut vous connaître! Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et magna aliqua.
+                On veut t’entendre au WAQ! Tu souhaites transmettre ton
+                expertise sur un sujet qui te passionne relié au développement,
+                à l’innovation, à la communication et au marketing ou au design?
+                C’est le temps de soumettre ta candidature!
               </SpeakersIntro>
 
               {/* @TODO: Changer pour le bon lien lorsqu'il sera disponible  */}
               <Button
-                type='button'
                 primary
-                to='https://share.hsforms.com/13GBb7vUFSei-cYb0ZsXYTQ3p4bi'
+                to='https://yr21i4wwzuv.typeform.com/to/QcCM10Cx?utm_source=website&utm_medium=homepage&utm_campaign=appel-a-conferencier&utm_id=ctp'
                 tag='href'
                 animated
+                rel='noopener noreferrer'
+                target='_blank'
               >
                 Ma candidature
               </Button>
