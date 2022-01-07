@@ -105,5 +105,8 @@ export const ActiveMedia = styled.img`
   top: 50%;
   left: 50%;
 
+  max-width: 90%;
+  max-height: 80%;
+
   transform: translate(-50%, -50%);
 `;

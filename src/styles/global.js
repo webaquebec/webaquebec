@@ -38,6 +38,8 @@ export const htmlStyle = css`
   margin: 0;
   padding: 0;
 
+  overflow-x: hidden;
+
   background-color: ${colors.gris};
   scroll-behavior: smooth;
 `;

@@ -1,7 +1,7 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // components
 import SEO from '../components/SEO';
@@ -9,17 +9,33 @@ import Center from '../components/LayoutSections/Center';
 import AboutSection from '../views/AboutPageView/AboutSection';
 import GallerySection from '../views/AboutPageView/GallerySection';
 import SectionContainer from '../components/SectionContainer';
+import Sticker from '../components/Sticker';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
-// import { lessThan } from '../utils/mediaQuery'; @TODO: À décommenter lorsqu'un vidéo sera fourni
+import { lessThan } from '../utils/mediaQuery';
 
 // images
-// import vectorGrid from '../images/vectorVideoGrid.svg'; @TODO: À décommenter lorsqu'un vidéo sera fourni
+import vectorGrid from '../images/vectorVideoGrid.svg';
 import photoSection1 from '../images/aboutSections/section1.jpg';
 import photoSection2 from '../images/aboutSections/section2.jpg';
 import photoSection3 from '../images/aboutSections/section3.jpg';
 import photoSection4 from '../images/aboutSections/section4.jpg';
+import vectorStickerMegaphone from '../images/stickers/vectorStickerMegaphone.svg';
+import vectorStickerSmiley from '../images/stickers/vectorStickerSmiley.svg';
+import vectorStickerStars from '../images/stickers/vectorStickerStarsAndHourglass.svg';
+import pinkEllipse from '../images/textures/pink-ellipse.svg';
+import aquaEllipse from '../images/textures/aqua-ellipse.svg';
+import photo1 from '../images/aboutGallery/ballons.jpg';
+import photo2 from '../images/aboutGallery/benevoles-exterieur.jpg';
+import photo3 from '../images/aboutGallery/conference.jpg';
+import photo4 from '../images/aboutGallery/conferencier.jpg';
+import photo5 from '../images/aboutGallery/fisheye.jpg';
+import photo6 from '../images/aboutGallery/gros-plan-conferencier.jpg';
+import photo7 from '../images/aboutGallery/libeo.jpg';
+import photo8 from '../images/aboutGallery/lunch.jpg';
+import photo9 from '../images/aboutGallery/social.jpg';
+import photo10 from '../images/aboutGallery/waq-vert.jpg';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -60,48 +76,57 @@ const AboutIntro = styled.p`
   )};
 `;
 
-// @TODO: À décommenter lorsqu'un vidéo sera fourni
-// const VideoSectionWrapper = styled.div`
-//   overflow-x: hidden;
-// `;
+const VideoSectionWrapper = styled.div`
+  overflow-x: hidden;
+`;
 
-// const VideoSection = styled.div`
-//   position: relative;
-//   overflow-y: visible;
+const VideoSection = styled.div`
+  position: relative;
 
-//   ${breakpointsRange(
-//     [{ prop: 'marginBottom', sizes: [80, 250], bases: [16, 20] }],
-//     breakpoints.spacings
-//   )};
-// `;
+  overflow-y: visible;
 
-// const VideoContainer = styled.div`
-//   position: relative;
-//   padding-top: 56.25%;
-// `;
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [80, 250], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
 
-// const Video = styled.iframe`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 2;
-// `;
+const VideoContainer = styled.div`
+  position: relative;
 
-// const VideoGrid = styled.img`
-//   height: 90%;
-//   position: absolute;
-//   right: 0;
-//   bottom: -10%;
-//   z-index: 1;
+  padding-top: 56.25%;
+`;
 
-//   ${lessThan(1280)} {
-//     left: 20%;
-//   }
-// `;
+const Video = styled.iframe`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+`;
+
+const VideoGrid = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: -10%;
+  z-index: 1;
+
+  height: 90%;
+
+  ${lessThan(1280)} {
+    left: 20%;
+  }
+`;
+
+const atRight = css`
+  margin-left: auto;
+`;
 
 const AboutSectionContainer = styled.div`
+  position: relative;
+
   ${breakpointsRange(
     [
       { prop: 'maxWidth', sizes: [272, 732], bases: [16, 20] },
@@ -109,10 +134,18 @@ const AboutSectionContainer = styled.div`
     ],
     breakpoints.spacings
   )};
+`;
 
-  &:nth-child(even) {
-    margin-left: auto;
-  }
+const PinkDecoration = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+const AquaDecoration = styled.img`
+  position: absolute;
+  top: 30%;
+  left: 0;
 `;
 
 const GallerySectionImg = styled.img`
@@ -127,6 +160,63 @@ const GallerySectionImg = styled.img`
 `;
 
 const AboutPage = () => {
+  const stickers = [
+    {
+      src: vectorStickerSmiley,
+      size: {
+        minWidth: 58,
+        maxWidth: 155,
+      },
+      position: {
+        top: '15%',
+        right: '-30px',
+      },
+      transform: {
+        rotate: {
+          initial: '12deg',
+          final: '0deg',
+        },
+      },
+      zIndex: '1',
+    },
+    {
+      src: vectorStickerMegaphone,
+      size: {
+        minWidth: 85,
+        maxWidth: 200,
+      },
+      position: {
+        top: '10%',
+        left: '-75px',
+      },
+      transform: {
+        rotate: {
+          initial: '-11deg',
+          final: '0deg',
+        },
+      },
+      zIndex: '1',
+    },
+    {
+      src: vectorStickerStars,
+      size: {
+        minWidth: 100,
+        maxWidth: 330,
+      },
+      position: {
+        top: '10%',
+        left: '95%',
+      },
+      transform: {
+        rotate: {
+          initial: '-11deg',
+          final: '0deg',
+        },
+      },
+      zIndex: '1',
+    },
+  ];
+
   const sectionsData = [
     {
       id: 0,
@@ -152,57 +242,56 @@ const AboutPage = () => {
   ];
 
   const galleryPictures = [
-    // @TODO: À décommenter lorsque des images seront fournies
-    // {
-    //   id: 0,
-    //   thumbnail: 'https://via.placeholder.com/335x248',
-    //   src: 'https://via.placeholder.com/670x496',
-    // },
-    // {
-    //   id: 1,
-    //   thumbnail: 'https://via.placeholder.com/371x248',
-    //   src: 'https://via.placeholder.com/742x496',
-    // },
-    // {
-    //   id: 2,
-    //   thumbnail: 'https://via.placeholder.com/352x248',
-    //   src: 'https://via.placeholder.com/704x496',
-    // },
-    // {
-    //   id: 3,
-    //   thumbnail: 'https://via.placeholder.com/366x248',
-    //   src: 'https://via.placeholder.com/732x496',
-    // },
-    // {
-    //   id: 4,
-    //   thumbnail: 'https://via.placeholder.com/335x248',
-    //   src: 'https://via.placeholder.com/670x496',
-    // },
-    // {
-    //   id: 5,
-    //   thumbnail: 'https://via.placeholder.com/352x248',
-    //   src: 'https://via.placeholder.com/704x496',
-    // },
-    // {
-    //   id: 6,
-    //   thumbnail: 'https://via.placeholder.com/335x248',
-    //   src: 'https://via.placeholder.com/670x496',
-    // },
-    // {
-    //   id: 7,
-    //   thumbnail: 'https://via.placeholder.com/371x248',
-    //   src: 'https://via.placeholder.com/742x496',
-    // },
-    // {
-    //   id: 8,
-    //   thumbnail: 'https://via.placeholder.com/335x248',
-    //   src: 'https://via.placeholder.com/670x496',
-    // },
-    // {
-    //   id: 9,
-    //   thumbnail: 'https://via.placeholder.com/366x248',
-    //   src: 'https://via.placeholder.com/732x496',
-    // },
+    {
+      id: 0,
+      thumbnail: photo1,
+      src: photo1,
+    },
+    {
+      id: 1,
+      thumbnail: photo2,
+      src: photo2,
+    },
+    {
+      id: 2,
+      thumbnail: photo3,
+      src: photo3,
+    },
+    {
+      id: 3,
+      thumbnail: photo4,
+      src: photo4,
+    },
+    {
+      id: 4,
+      thumbnail: photo5,
+      src: photo5,
+    },
+    {
+      id: 5,
+      thumbnail: photo6,
+      src: photo6,
+    },
+    {
+      id: 6,
+      thumbnail: photo7,
+      src: photo7,
+    },
+    {
+      id: 7,
+      thumbnail: photo8,
+      src: photo8,
+    },
+    {
+      id: 8,
+      thumbnail: photo9,
+      src: photo9,
+    },
+    {
+      id: 9,
+      thumbnail: photo10,
+      src: photo10,
+    },
   ];
 
   return (
@@ -227,13 +316,12 @@ const AboutPage = () => {
         </AboutIntro>
       </Center>
 
-      {/* @TODO: À décommenter lorsqu'un vidéo sera fourni */}
-      {/* <VideoSectionWrapper>
+      <VideoSectionWrapper>
         <VideoSection>
           <Center maxWidth='1280px' gutters='var(--container-gutter)'>
             <VideoContainer>
               <Video
-                src='https://www.youtube.com/embed/mayibt0oUOU'
+                src='https://www.youtube.com/embed/UoVLfEjkH9o'
                 title='YouTube video player'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
               />
@@ -241,18 +329,26 @@ const AboutPage = () => {
           </Center>
           <VideoGrid src={vectorGrid} alt='' role='presentation' />
         </VideoSection>
-      </VideoSectionWrapper> */}
+      </VideoSectionWrapper>
 
       <Container forwardedAs='div' faded>
         <Center maxWidth='1080px' gutters='16px'>
-          {sectionsData.map((section) => (
-            <AboutSectionContainer key={`section-${section.id}`}>
-              <AboutSection
-                photoUrl={section.photoUrl}
-                title={section.title}
-                text={section.text}
-              />
-            </AboutSectionContainer>
+          {sectionsData.map((section, index) => (
+            <div>
+              <AboutSectionContainer
+                key={`section-${section.id}`}
+                css={index === 1 && atRight}
+              >
+                <AboutSection
+                  photoUrl={section.photoUrl}
+                  title={section.title}
+                  text={section.text}
+                />
+                <Sticker sticker={stickers[index]} />
+              </AboutSectionContainer>
+              {index === 0 && <PinkDecoration src={pinkEllipse} alt='' />}
+              {index === 1 && <AquaDecoration src={aquaEllipse} alt='' />}
+            </div>
           ))}
         </Center>
       </Container>
