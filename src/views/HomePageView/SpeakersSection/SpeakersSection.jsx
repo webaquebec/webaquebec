@@ -33,7 +33,6 @@ const SpeakersSection = () => {
                 C’est le temps de soumettre ta candidature!
               </SpeakersIntro>
 
-              {/* @TODO: Changer pour le bon lien lorsqu'il sera disponible  */}
               <Button
                 primary
                 to='https://yr21i4wwzuv.typeform.com/to/QcCM10Cx?utm_source=website&utm_medium=homepage&utm_campaign=appel-a-conferencier&utm_id=ctp'
