@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
