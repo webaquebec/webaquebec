@@ -45,7 +45,7 @@ export const htmlStyle = css`
 export const bodyStyle = css`
   position: relative;
 
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 
   font-weight: ${fontWeights.regular};
   font-family: ${fontFamilies.body};
@@ -82,6 +82,10 @@ export const bodyAltMediumStyle = css`
   ${bodyAltStyle};
 
   font-weight: ${fontWeights.bold};
+`;
+
+export const gatsbyWrapperStyle = css`
+  overflow-x: hidden;
 `;
 
 export const h1Style = css`
@@ -336,5 +340,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     ${bodyStyle};
+  }
+
+  #___gatsby {
+    ${gatsbyWrapperStyle};
   }
 `;
