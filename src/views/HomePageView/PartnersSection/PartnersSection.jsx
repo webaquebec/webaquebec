@@ -6,10 +6,10 @@ import Center from '../../../components/LayoutSections/Center';
 import PartnersGrid from '../../../components/PartnersGrid';
 
 // styles
-import { SectionContainer, Title } from './PartnersSection.styles';
+import { Title, Section } from './PartnersSection.styles';
 
 const PartnersSection = () => (
-  <SectionContainer faded>
+  <Section>
     <h2 css={hideVisually}>Partenaires</h2>
 
     <Center
@@ -25,7 +25,7 @@ const PartnersSection = () => (
 
       <PartnersGrid />
     </Center>
-  </SectionContainer>
+  </Section>
 );
 
 PartnersSection.propTypes = {};

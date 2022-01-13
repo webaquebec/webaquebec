@@ -39,7 +39,7 @@ module.exports = {
 
     // Base rules
     indentation: null,
-    'selector-max-id': 0,
+    'selector-max-id': 1,
     'selector-list-comma-newline-after': 'always',
     'selector-type-case': [
       'lower',
@@ -68,8 +68,8 @@ module.exports = {
     'color-function-notation': 'legacy',
     'alpha-value-notation': 'number',
     'declaration-property-value-disallowed-list': { '/^border/': ['none'] },
-    'selector-class-pattern': '^[a-zA-Z][a-zA-Z0-9_-]+$',
-    'selector-id-pattern': '^[a-zA-Z][a-zA-Z0-9_-]+$',
+    'selector-class-pattern': '[a-zA-Z][a-zA-Z0-9_-]+$',
+    'selector-id-pattern': '[a-zA-Z][a-zA-Z0-9_-]+$',
     'declaration-block-no-redundant-longhand-properties': [
       true,
       { ignoreShorthands: ['/transition/', '/flex/', '/grid/'] },
