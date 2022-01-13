@@ -12,10 +12,14 @@ import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
 export const SectionContainer = styled.section`
+  /* FIXME: Temp fix for overflow issue on safari mobile.
+    Find a better way to fix it globally */
+  overflow: hidden;
+
   color: ${colors.bleu80};
 
   ${breakpointsRange(
-    [{ prop: 'paddingBottom', sizes: [110, 210], bases: [16, 20] }],
+    [{ prop: 'paddingBottom', sizes: [115, 210], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
