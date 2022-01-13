@@ -1,6 +1,7 @@
 // vendors
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { hideVisually } from 'polished';
 
 // utils
 import { lessThan } from '../../../utils/mediaQuery';
@@ -83,6 +84,8 @@ const SpeakersSection = () => {
 
   return (
     <SectionContainer>
+      <h2 css={hideVisually}>Conférenciers</h2>
+
       <Center maxWidth='1080px' gutters='50px'>
         <Switcher threshold='854px' space='2rem' limit={2}>
           <div>

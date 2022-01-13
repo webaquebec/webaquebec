@@ -7,7 +7,7 @@ import { lessThan } from '../../../utils/mediaQuery';
 
 // styles
 import colors from '../../../styles/colors';
-import { fontFamilies } from '../../../styles/typography';
+import { fontFamilies, fontWeights } from '../../../styles/typography';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
@@ -24,15 +24,20 @@ export const SpeakersContent = styled.div`
   max-width: 500px;
 `;
 
-export const SpeakersTitle = styled.h2`
+export const SpeakersTitle = styled.p`
   margin-top: 0;
+
+  font-weight: ${fontWeights.bold};
 
   span {
     font-family: ${fontFamilies.redaction35};
   }
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [24, 40], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [24, 40], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [28, 48], bases: [24, 40], unit: '' },
+    ],
     breakpoints.spacings
   )};
 `;

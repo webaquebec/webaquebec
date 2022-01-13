@@ -29,26 +29,24 @@ const SectionContainer = styled(StyledSectionContainer)`
   )};
 `;
 
-const IndexPage = () => {
-  return (
-    <>
-      <SEO
-        title='Le Web à Québec | 24 au 26 mai 2022'
-        description='Le plus grand événement numérique francophone en Amérique du Nord.'
-      />
+const IndexPage = () => (
+  <>
+    <SEO
+      title='Le Web à Québec | 24 au 26 mai 2022'
+      description='Le plus grand événement numérique francophone en Amérique du Nord.'
+    />
 
-      <Hero />
+    <Hero />
 
-      <StatsSection />
+    <StatsSection />
 
-      <SectionContainer faded>
-        <SpeakersSection />
+    <SectionContainer forwardedAs='div' faded>
+      <SpeakersSection />
 
-        <PartnersGridSection />
-      </SectionContainer>
-    </>
-  );
-};
+      <PartnersGridSection />
+    </SectionContainer>
+  </>
+);
 
 export default IndexPage;
 

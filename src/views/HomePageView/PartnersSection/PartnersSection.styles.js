@@ -8,7 +8,7 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 import { magnifyStyle } from '../../../styles/global';
 import breakpoints from '../../../styles/breakpoints';
 
-const Title = styled.p`
+export const Title = styled.p`
   ${magnifyStyle};
 
   max-width: 587px;
@@ -24,4 +24,9 @@ const Title = styled.p`
   }
 `;
 
-export default Title;
+export const Section = styled.section`
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [200, 218], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
