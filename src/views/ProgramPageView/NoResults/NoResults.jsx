@@ -36,6 +36,7 @@ export const Highlight = styled.p`
   margin-top: 0;
 
   font-weight: ${fontWeights.bold};
+
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [24, 32], bases: [16, 20] },
