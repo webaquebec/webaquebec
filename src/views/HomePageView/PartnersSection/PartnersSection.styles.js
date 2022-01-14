@@ -1,25 +1,12 @@
 // vendors
 import styled from 'styled-components';
 
-// components
-import StyledSectionContainer from '../../../components/SectionContainer';
-
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
 
 // styles
 import { magnifyStyle } from '../../../styles/global';
 import breakpoints from '../../../styles/breakpoints';
-
-export const SectionContainer = styled(StyledSectionContainer)`
-  ${breakpointsRange(
-    [
-      { prop: 'marginTop', sizes: [186, 105], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [168, 134], bases: [16, 20] },
-    ],
-    breakpoints.spacings
-  )};
-`;
 
 export const Title = styled.p`
   ${magnifyStyle};
@@ -35,4 +22,11 @@ export const Title = styled.p`
   > sup {
     line-height: 1;
   }
+`;
+
+export const Section = styled.section`
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [200, 218], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;

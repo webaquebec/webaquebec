@@ -38,6 +38,8 @@ export const htmlStyle = css`
   margin: 0;
   padding: 0;
 
+  /* Do not add overflow: hidden on html style which causing issue with sticky header */
+
   background-color: ${colors.gris};
   scroll-behavior: smooth;
 `;
