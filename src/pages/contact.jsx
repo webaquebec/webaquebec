@@ -61,9 +61,9 @@ const ContactPage = () => (
 
     <Adresses />
 
-    <Form />
-
     <Info />
+
+    <Form />
   </>
 );
 

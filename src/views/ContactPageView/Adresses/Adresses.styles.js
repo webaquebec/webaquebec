@@ -16,8 +16,8 @@ import { fontFamilies } from '../../../styles/typography';
 export const SectionContainer = styled(StyledSection)`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [56, 30], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [32, 62], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [56, 30], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [32, 62], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};

@@ -12,8 +12,8 @@ import colors from '../../../styles/colors';
 export const SectionContainer = styled.div`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [32, 62], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [24, 57], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [32, 62], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [24, 57], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
