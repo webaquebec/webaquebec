@@ -3,17 +3,15 @@ import React from 'react';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
-import Sidebar from '../../../components/LayoutSections/Sidebar/Sidebar';
+import Switcher from '../../../components/LayoutSections/Switcher';
+import Stack from '../../../components/LayoutSections/Stack';
 import Button from '../../../components/Button';
 
 // styles
 import {
   ButtonContainer,
-  InputContainer,
-  FormContainer,
   SectionContainer,
   TextArea,
-  TextAreaContainer,
   Title,
 } from './Form.styles';
 import TextInputField from '../../../components/TextInputField';
@@ -23,30 +21,36 @@ const Form = () => (
     <Center maxWidth='1064px' gutters='var(--container-gutter)'>
       <Title>contactez-nous</Title>
       <form>
-        <Sidebar contentMin='320px' sideWidth='47%' side='left' space='0'>
-          <FormContainer>
-            <InputContainer>
+        <Switcher threshold='700px' space='2rem' limit='2'>
+          <div>
+            <Stack space='1rem'>
               <TextInputField
                 label='prénom'
-                name='prenom'
+                name='firstName'
                 value=''
-                type='text'
+                placeholder='prénom'
               />
-              <TextInputField label='nom' name='nom' value='' type='text' />
+              <TextInputField
+                label='nom'
+                name='lastName'
+                value=''
+                placeholder='nom'
+              />
               <TextInputField
                 label='courriel'
-                name='courriel'
+                name='email'
                 value=''
+                placeholder='courriel'
                 type='email'
               />
-            </InputContainer>
-            <TextAreaContainer>
+            </Stack>
+            <div>
               <TextArea label='votre message' name='message' value='' />
-            </TextAreaContainer>
-          </FormContainer>
-        </Sidebar>
+            </div>
+          </div>
+        </Switcher>
         <ButtonContainer>
-          <Button small primary>
+          <Button small primary animated>
             envoyer
           </Button>
         </ButtonContainer>

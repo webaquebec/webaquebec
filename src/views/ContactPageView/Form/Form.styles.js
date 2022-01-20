@@ -35,94 +35,21 @@ export const Title = styled.h2`
   )};
 `;
 
+export const TextArea = styled(TextAreaField)`
+  height: 100%;
+
+  textarea {
+    resize: none;
+  }
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
-  flex-flow: row no-wrap;
+  flex-flow: row;
   justify-content: flex-end;
 
   ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [16, 22], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
-
-const heightMobile = 160;
-const heightDesktop = 212;
-
-export const TextArea = styled(TextAreaField)`
-  ${breakpointsRange(
-    [
-      {
-        prop: 'minHeight',
-        sizes: [heightMobile, heightDesktop],
-        bases: [16, 20],
-      },
-    ],
-    breakpoints.spacings
-  )};
-
-  textarea {
-    resize: none;
-
-    ${breakpointsRange(
-      [
-        {
-          prop: 'minHeight',
-          sizes: [heightMobile, heightDesktop],
-          bases: [16, 20],
-        },
-      ],
-      breakpoints.spacings
-    )};
-  }
-`;
-
-const spaceMobile = 4;
-const spaceDesktop = 15;
-
-export const FormContainer = styled.div`
-  ${breakpointsRange(
-    [
-      {
-        prop: 'margin',
-        sizes: [-spaceMobile, -spaceDesktop],
-        bases: [16, 20],
-      },
-    ],
-    breakpoints.spacings
-  )};
-`;
-
-export const TextAreaContainer = styled.div`
-  ${breakpointsRange(
-    [
-      {
-        prop: 'margin',
-        sizes: [spaceMobile, spaceDesktop],
-        bases: [16, 20],
-      },
-    ],
-    breakpoints.spacings
-  )};
-`;
-
-export const InputContainer = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  ${breakpointsRange(
-    [
-      {
-        prop: 'minHeight',
-        sizes: [heightMobile, heightDesktop],
-        bases: [16, 20],
-      },
-      {
-        prop: 'margin',
-        sizes: [spaceMobile, spaceDesktop],
-        bases: [16, 20],
-      },
-    ],
     breakpoints.spacings
   )};
 `;

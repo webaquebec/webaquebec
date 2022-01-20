@@ -5,6 +5,7 @@ import styled from 'styled-components';
 // components
 import SEO from '../components/SEO';
 import Center from '../components/LayoutSections/Center';
+import StyledSection from '../components/SectionContainer';
 
 // views
 import Adresses from '../views/ContactPageView/Adresses';
@@ -59,11 +60,13 @@ const ContactPage = () => (
       </ContactIntro>
     </Center>
 
-    <Adresses />
+    <StyledSection faded>
+      <Adresses />
 
-    <Info />
+      <Info />
 
-    <Form />
+      <Form />
+    </StyledSection>
   </>
 );
 
