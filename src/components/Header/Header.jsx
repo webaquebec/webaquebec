@@ -1,5 +1,5 @@
 // vendors
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
@@ -28,9 +28,10 @@ import {
 const primaryNavigation = [
   {
     id: 'prog',
-    label: 'programmation',
+    label: 'Dernière édition',
     slug: '/programmation/2021',
     type: 'internal',
+    color: 'jaune',
   },
   {
     id: 'blog',
@@ -43,18 +44,22 @@ const primaryNavigation = [
     label: 'FAQ',
     slug: '/faq',
     type: 'internal',
+    color: 'rose',
   },
-  {
-    id: 'covid-19',
-    label: 'covid-19',
-    slug:
-      'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
-    type: 'external',
-  },
+  // {
+  //   id: 'covid-19',
+  //   label: 'covid-19',
+  //   slug:
+  //     'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
+  //   type: 'external',
+  //   color: 'ciel',
+  // },
 ];
 
-const Header = ({ isHomePage }) => {
+const Header = ({ pathname }) => {
   const [opened, setOpened] = useState(false);
+
+  const isHomePage = !!pathname && pathname === '/';
 
   const handleClick = () => {
     setOpened(!opened);
@@ -115,6 +120,7 @@ const Header = ({ isHomePage }) => {
       </Center>
 
       <Menu
+        pathname={pathname}
         opened={opened}
         onClose={handleClick}
         primaryNavigation={primaryNavigation}
@@ -124,11 +130,11 @@ const Header = ({ isHomePage }) => {
 };
 
 Header.propTypes = {
-  isHomePage: PropTypes.bool,
+  pathname: PropTypes.string,
 };
 
 Header.defaultProps = {
-  isHomePage: false,
+  pathname: undefined,
 };
 
-export default Header;
+export default memo(Header);

@@ -8,9 +8,11 @@ import 'sanitize.css';
 import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
 
+import '../../fonts/Redaction/redaction.css';
+
 import Footer from '../Footer';
 import Header from '../Header';
-import StaticGradientBackground from '../GradientBackground';
+import PixelGradient from '../PixelGradient/PixelGradient';
 
 /**
  * The common Layout shared across all pages
@@ -19,23 +21,22 @@ import StaticGradientBackground from '../GradientBackground';
  *
  */
 const Layout = ({ children, location }) => {
-  const isHomePage = !!location.pathname && location.pathname === '/';
+  const pathname =
+    !!location.pathname && location.pathname === '/'
+      ? location.pathname
+      : location.pathname.split('/').filter((current) => current)[0];
 
   return (
     <>
       <GlobalStyle />
 
-      {/** Only temporary until having a full dynamic gradient background */}
-      <StaticGradientBackground pathName={location.pathname} position='top' />
+      <PixelGradient pathname={pathname} />
 
-      <Header isHomePage={isHomePage} />
+      <Header pathname={pathname} />
 
       <main>{children}</main>
 
       <Footer />
-
-      {/** Only temporary until having a full dynamic gradient background */}
-      <StaticGradientBackground position='bottom' />
     </>
   );
 };

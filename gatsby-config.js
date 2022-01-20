@@ -9,7 +9,6 @@ module.exports = {
     image: '',
   },
   plugins: [
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
@@ -45,6 +44,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -72,6 +72,13 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-styled-components',
+    // {
+    //   resolve: `gatsby-plugin-layout`,
+    //   options: {
+    //     component: require.resolve(`./src/components/Layout/Layout.jsx`),
+    //   },
+    // },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -110,6 +117,7 @@ module.exports = {
     },
     {
       /**
+       * FIXME: Added temporary to Local Plugins while waiting for an official fix
        * This plugin generates fileNodes in your graphQL schema
        * and add File type to it. You can now use gatsby-plugin-sharp and gatsby-transformer-sharp
        * in your GraphQL schema.

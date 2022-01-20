@@ -8,6 +8,9 @@ import vectorEventType from '../../images/tags/vectorEventType.svg';
 import vectorSpeaker from '../../images/tags/vectorSpeaker.svg';
 import unSlugify from '../../utils/strings/unSlugify';
 
+// utils
+import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
+
 /**
  *
  * @module Tag
@@ -33,25 +36,6 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
     tagType = 'place';
   }
 
-  // Room tag
-  const categories = {
-    design: 'Design',
-    developpement: 'Développement',
-    innovation: 'Innovation',
-    'communication-et-marketing': 'Communication & marketing',
-  };
-
-  // Event type tag
-  const eventTypes = {
-    conference: 'Conférence',
-    atelier: 'Atelier',
-    reseautage: 'Réseautage',
-    qanda: 'Q&A',
-    keynote: 'Keynote',
-    'contenu-sur-demande': 'Contenu sur demande',
-    'pitch-ton-waq': 'Pitch ton WAQ',
-  };
-
   return (
     <StyledTag
       $designRoom={tagType === 'category' && category === 'design'}
@@ -64,7 +48,7 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
       $eventType={tagType === 'eventType'}
       $outlined={outlined}
     >
-      {tagType === 'category' && <span>{categories[category]}</span>}
+      {tagType === 'category' && <span>{categoriesMap[category]}</span>}
       {tagType === 'speaker' && (
         <>
           <img css={TagIcon} src={vectorSpeaker} alt='' role='presentation' />
@@ -91,7 +75,7 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
               role='presentation'
             />
           </span>
-          <span>{eventTypes[eventType]}</span>
+          <span>{eventTypesMap[eventType]}</span>
         </>
       )}
       {tagType === 'place' && (
@@ -131,12 +115,12 @@ Tag.propTypes = {
    */
   eventType: PropTypes.oneOf([
     'conference',
+    'activites',
     'atelier',
-    'reseautage',
     'qanda',
-    'keynote',
     'contenu-sur-demande',
     'pitch-ton-waq',
+    'table-ronde',
   ]),
   /**
    * Specifies where the event takes place

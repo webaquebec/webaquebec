@@ -1,7 +1,24 @@
 const path = require(`path`);
-const moment = require(`moment`);
 const groupBy = require(`../src/utils/groupBy.js`);
 const slugify = require(`../src/utils/strings/slugify.js`);
+
+/**
+ * Session types allowed to be displaying
+ * Blacklisted for now:
+ *   - intermission
+ *   - presentiel
+ *   - reseautage
+ *   - zone-internationale
+ */
+const allowedTypes = [
+  'conference',
+  'activites',
+  'atelier',
+  'qanda',
+  'contenu-sur-demande',
+  'pitch-ton-waq',
+  'table-ronde',
+];
 
 /**  This function queries Gatsby's GraphQL server and asks for
  * All Plannings from Swapcard. If there are any GraphQL error it throws an error
@@ -27,6 +44,7 @@ const getPlannings = async ({ graphql, reporter, variables }) => {
           beginsAt
           id
           title
+          type
         }
       }
     }
@@ -50,35 +68,41 @@ const createSession = async ({ plannings, actions, reporter, variables }) => {
 
   const { eventId, page, pageSize } = variables;
 
-  const dayNumber = (item) => moment(item.beginsAt, 'YYYY-MM-DD').format('DD');
+  const dayNumber = (item) => {
+    const options = { day: '2-digit' };
+    const date = new Date(item.beginsAt);
+    return date.toLocaleDateString('fr-ca', options);
+  };
 
   const planningsGroupByDate = groupBy(plannings, dayNumber);
   const eventDates = Object.keys(planningsGroupByDate);
 
   reporter.info('creating session pages:');
 
-  plannings.map(async (planning) => {
-    const { title, id } = planning;
+  plannings
+    .filter((planning) => allowedTypes.includes(planning.type))
+    .map(async (planning) => {
+      const { title, id } = planning;
 
-    const sessionPath = `/programmation/${slugify(title)}/`;
+      const sessionPath = `/programmation/${slugify(title)}/`;
 
-    const pageIndex = eventDates.findIndex((d) => d === dayNumber(planning));
+      const pageIndex = eventDates.findIndex((d) => d === dayNumber(planning));
 
-    reporter.info(sessionPath);
+      reporter.info(sessionPath);
 
-    createPage({
-      path: sessionPath,
-      component: template,
-      context: {
-        eventId,
-        page,
-        pageSize,
-        planningIds: [id],
-        pageNumber: pageIndex + 1,
-        isLastPage: eventDates.length === pageIndex + 1,
-      },
+      createPage({
+        path: sessionPath,
+        component: template,
+        context: {
+          eventId,
+          page,
+          pageSize,
+          planningIds: [id],
+          pageNumber: pageIndex + 1,
+          isLastPage: eventDates.length === pageIndex + 1,
+        },
+      });
     });
-  });
 };
 
 const createProgram = async ({ plannings, actions, reporter, variables }) => {
@@ -89,11 +113,11 @@ const createProgram = async ({ plannings, actions, reporter, variables }) => {
   const eventDate = new Date(plannings[0].beginsAt);
   const eventYear = eventDate.getFullYear();
 
-  // change default language
-  moment.locale('fr_ca');
-
-  const dayName = (item) =>
-    moment(item.beginsAt, 'YYYY-MM-DD').format('dddd DD MMMM');
+  const dayName = (item) => {
+    const options = { weekday: 'long', day: 'numeric', month: 'long' };
+    const date = new Date(item.beginsAt);
+    return date.toLocaleDateString('fr-ca', options);
+  };
   const planningsGroupByDate = groupBy(plannings, dayName);
 
   const eventDates = Object.keys(planningsGroupByDate);
@@ -114,7 +138,9 @@ const createProgram = async ({ plannings, actions, reporter, variables }) => {
 
     reporter.info(getPagePath(pageNumber));
 
-    const planningIds = planningsGroupByDate[date].map((current) => current.id);
+    const planningIds = planningsGroupByDate[date]
+      .filter((current) => allowedTypes.includes(current.type))
+      .map((current) => current.id);
 
     const pagePaths = array.map((_, i) => getPagePath(i + 1));
 
@@ -147,7 +173,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
   const variables = {
     eventId: `${process.env.SWAPCARD_EVENT_ID}`,
     page: 1,
-    pageSize: 100,
+    pageSize: 200,
   };
 
   reporter.info('start fetching data from Swapcard');

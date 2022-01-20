@@ -13,8 +13,6 @@ import StyledRadioButton, {
 } from './RadioButton.styles';
 import colors from '../../styles/colors';
 
-const customId = randomString();
-
 /**
  *
  * @module Checkbox
@@ -59,6 +57,8 @@ const RadioButton = ({
   primary,
   ...rest
 }) => {
+  const customId = randomString();
+
   const defaultTheme = {
     color: {
       label: checked ? colors.bleu80 : colors.gris80,

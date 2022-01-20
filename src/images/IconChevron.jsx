@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconChevron = ({ ...props }) => (
+const IconChevron = (props) => (
   <svg
     viewBox='0 0 20 12'
     fill='none'

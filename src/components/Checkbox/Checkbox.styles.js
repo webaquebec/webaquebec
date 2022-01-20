@@ -20,23 +20,23 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 export const CheckMark = styled(IconCheckMark)`
   position: absolute;
 
-  height: 50%;
-
-  margin-top: 3%;
-
   color: ${({ theme }) => theme.color.checkmark};
 
   transform: scale(0);
-  opacity: 0;
+
+  will-change: transform;
+
+  /* opacity: 0; */
 `;
 
 /* Checkbox label style */
 export const CheckboxLabel = styled.label`
   position: relative;
 
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: left;
+  margin-bottom: 8px;
 
   color: ${({ theme }) => theme.color.label};
 
@@ -46,6 +46,10 @@ export const CheckboxLabel = styled.label`
   )};
 
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 /* Custom checkbox style */
@@ -53,6 +57,7 @@ const StyledCheckbox = styled.div`
   position: relative;
 
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
 
@@ -85,15 +90,14 @@ const StyledCheckbox = styled.div`
     cursor: not-allowed;
   }
 
-  /* Disabled checkbox style on the svg checkmark path  */
-  ${HiddenCheckbox}:disabled ~ & > svg > path {
-    /* ex. fill: #ccc; */
+  /* Checked style on the svg checkmnark */
+  ${HiddenCheckbox}:checked ~ & > ${CheckMark} {
+    transform: scale(1);
   }
 
-  /* Checked style on the svg checkmnark */
-  ${HiddenCheckbox}:checked ~ & > svg {
-    transform: scale(1);
-    opacity: 1;
+  ${HiddenCheckbox}:focus ~ & {
+    outline: 2px dotted ${({ theme }) => theme.color.label};
+    outline-offset: 2px;
   }
 `;
 

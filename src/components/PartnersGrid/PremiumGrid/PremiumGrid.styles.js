@@ -8,7 +8,7 @@ import { lessThan } from '../../../utils/mediaQuery';
 import breakpoints from '../../../styles/breakpoints';
 
 // 576, 768, 1280
-export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[6]];
+export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[7]];
 
 export const Container = styled.div`
   position: absolute;
@@ -23,8 +23,8 @@ export const Wrapper = styled.div`
   position: relative;
 
   display: grid;
-  grid-gap: 23px;
-  grid-template-rows: repeat(2, 218px);
+  grid-gap: 30px;
+  grid-template-rows: repeat(3, 218px);
   grid-template-columns: repeat(5, 218px);
 
   ${lessThan(selfBreakpoints[2])} {

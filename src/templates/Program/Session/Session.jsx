@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import moment from 'moment';
 // import { useQuery } from '@apollo/client';
 
 // Client queries
@@ -11,7 +10,6 @@ import moment from 'moment';
 // import sessionByIdQuery from '../../../../graphql/swapcard/get-session-by-id-query.gql';
 
 // components
-import Layout from '../../../components/Layout';
 import SEO from '../../../components/SEO';
 import Center from '../../../components/LayoutSections/Center';
 import Hero from '../../../components/Hero';
@@ -75,8 +73,9 @@ const EventContainer = styled.div`
   )};
 `;
 
-const EventTitle = styled.h1`
+const EventTitle = styled.h2`
   margin-top: 0;
+  margin-bottom: 16px;
 
   color: ${colors.bleu80};
 
@@ -139,14 +138,27 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
     swapcard: { plannings },
   } = data;
 
-  const getFormattedLocaleDate = (date) => {
-    moment.locale('fr_ca');
-    return moment(date, 'YYYY-MM-DD').format('dddd DD MMMM');
+  // Fix Safari Invalid Date issue
+  const formatDateStr = (value) => {
+    return value.replace(/-/g, '/');
   };
 
-  const getFormattedTime = (date) => moment(date).format('HH:mm');
+  const getFormattedLocaleDate = (value) => {
+    const options = { weekday: 'long', day: 'numeric', month: 'long' };
+    const date = new Date(formatDateStr(value));
+    return date.toLocaleDateString('fr-ca', options);
+  };
 
-  const getDateYear = (date) => moment(date, 'YYYY-MM-DD').format('YYYY');
+  const getFormattedTime = (value) => {
+    const options = { hour: '2-digit', minute: '2-digit' };
+    const date = new Date(formatDateStr(value));
+    return date.toLocaleTimeString('fr', options);
+  };
+
+  const getDateYear = (value) => {
+    const date = new Date(formatDateStr(value));
+    return date.getFullYear();
+  };
 
   // Re-arrange values from the plannings array the way we want to use it in our template
   const modifiedPlannings = plannings.map((planning) => ({
@@ -162,6 +174,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
   const session = modifiedPlannings[0];
 
   const {
+    id,
     edition,
     date,
     time,
@@ -180,7 +193,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
       : `/programmation/${edition}/${pageNumber}`;
 
   return (
-    <Layout>
+    <>
       <SEO title={title} description={description} />
 
       <Center
@@ -200,6 +213,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
             outlined
             iconFirst
             renderIcon={<IconArrow css={backArrow} />}
+            state={{ sessionId: id }}
             css={backButton}
           >
             Retour à la programmation
@@ -221,16 +235,19 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
 
                 <div>
                   <EventTitle>{title}</EventTitle>
-                  <EventDescription
-                    dangerouslySetInnerHTML={{ __html: htmlDescription }}
-                  />
+
+                  {htmlDescription && (
+                    <EventDescription
+                      dangerouslySetInnerHTML={{ __html: htmlDescription }}
+                    />
+                  )}
                 </div>
 
                 {(categories.length > 0 || type || place) && (
                   <Cluster>
                     <div>
                       {categories.map((category) => (
-                        <Tag category={category} />
+                        <Tag key={`category-${category}`} category={category} />
                       ))}
 
                       {type && <Tag eventType={type} />}
@@ -241,14 +258,14 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
                 )}
 
                 {speakers.map((speaker) => (
-                  <SpeakerCard speaker={speaker} />
+                  <SpeakerCard key={speaker.id} speaker={speaker} />
                 ))}
               </Stack>
             </Center>
           </EventContainer>
         </Center>
       </Container>
-    </Layout>
+    </>
   );
 };
 
@@ -307,7 +324,6 @@ export const sessionQuery = graphql`
         totalAttendees
         twitterHashtag
         type
-
         speakers {
           id
           firstName

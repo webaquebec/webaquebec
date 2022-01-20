@@ -6,7 +6,6 @@ import { rem } from 'polished';
 import interpolate from '../utils/math/interpolate';
 
 // styles
-import { Redaction } from './fontFaces';
 import { fontFamilies, fontWeights } from './typography';
 import { lessThan, greaterThan } from '../utils/mediaQuery';
 import breakpoints from './breakpoints';
@@ -39,11 +38,15 @@ export const htmlStyle = css`
   margin: 0;
   padding: 0;
 
+  /* Do not add overflow: hidden on html style which causing issue with sticky header */
+
   background-color: ${colors.gris};
   scroll-behavior: smooth;
 `;
 
 export const bodyStyle = css`
+  position: relative;
+
   overflow-x: hidden;
 
   font-weight: ${fontWeights.regular};
@@ -53,6 +56,10 @@ export const bodyStyle = css`
     breakpoints.spacings
   )};
   letter-spacing: 0.1px;
+
+  &.Modal--open {
+    overflow: hidden;
+  }
 `;
 
 export const bodyMediumStyle = css`
@@ -69,7 +76,7 @@ export const bodyAltStyle = css`
     [{ prop: 'lineHeight', sizes: [26, 28], bases: [16, 23], unit: '' }],
     breakpoints.spacings
   )};
-  /* line-height: ${28 / 23}; */
+
   letter-spacing: 0.1px;
 `;
 
@@ -299,13 +306,28 @@ export const unstyledListStyle = css`
 
 export const unorderListStyle = css`
   ${unstyledListStyle};
+
+  li {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  li::before {
+    display: inline-block;
+    margin-right: 12px;
+    margin-left: 8px;
+
+    color: ${colors.bleu};
+    font-size: 30px;
+    line-height: 0;
+
+    content: '•';
+  }
 `;
 
 export const orderListStyle = css``;
 
 export const GlobalStyle = createGlobalStyle`
-  ${Redaction};
-
   :root {
     ${rootStyle};
   }

@@ -1,9 +1,11 @@
 // vendors
 import styled from 'styled-components';
-// import { em } from 'polished';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
+
+// components
+import Button from '../../../components/Button';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
@@ -72,6 +74,13 @@ export const AddressFirstLine = styled.p`
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [14, 20], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+export const CallToAction = styled(Button)`
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [32, 32], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
