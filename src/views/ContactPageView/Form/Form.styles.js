@@ -37,6 +37,7 @@ export const Title = styled.h2`
 
 export const TextArea = styled(TextAreaField)`
   height: 100%;
+  min-height: 144px;
 
   textarea {
     resize: none;
