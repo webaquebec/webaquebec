@@ -75,10 +75,16 @@ const TicketsPage = () => (
       <TicketsTitle css={h1AltStyle}>billetterie</TicketsTitle>
       <TicketsIntro css={introStyle}>
         <p>
-          Chaque année, plusieurs centaines de participants ont l&apos;occasion
-          d&apos;assister à des conférences et des ateliers animés par des
-          personnalités reconnues du Web d&apos;ici et d&apos;ailleurs. La 11e
-          édition du Web à Québec se tiendra dans une formule hybride.
+          Chaque année, des centaines de passionné.es de numérique participent
+          au Web à Québec (WAQ). Que ce soit pour réseauter, découvrir les
+          nouvelles tendances ou simplement vivre l&apos;ambiance unique du WAQ,
+          toutes les raisons sont bonnes de te joindre à nous lors de la 11e
+          édition!
+        </p>
+        <p>
+          Cette année, on se met en mode hybride en te donnant l&apos;option de
+          participer sur place, au Terminal - Port de Québec, ou chez toi.
+          C&apos;est comme tu le sens!
         </p>
       </TicketsIntro>
     </Center>

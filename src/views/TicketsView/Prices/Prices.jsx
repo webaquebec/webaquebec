@@ -29,7 +29,7 @@ const Prices = () => (
           css={blockContainerStyle}
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer} withText>
-            <TicketTitle color={colors.gris90}>Édition virtuelle</TicketTitle>
+            <TicketTitle color={colors.gris90}>Billet virtuel</TicketTitle>
 
             <TicketPrice>195$</TicketPrice>
 
@@ -46,8 +46,9 @@ const Prices = () => (
             </Button>
 
             <TicketText>
-              Ce tarif permet d&apos;accéder à toutes les activités virtuelles
-              du 24 au 26 mai 2022.
+              Pour écouter les conférences en direct ou en rediffusion. En
+              pantalon, pas de pantalon. On n&apos;arrête pas le progrès comme
+              on dit!
             </TicketText>
           </Center>
         </Paper>
@@ -59,7 +60,7 @@ const Prices = () => (
           css={blockContainerStyle}
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer} withText>
-            <TicketTitle>Prévente Accès complet</TicketTitle>
+            <TicketTitle>Prévente présentiel</TicketTitle>
 
             <TicketPrice>595$</TicketPrice>
 
@@ -76,8 +77,9 @@ const Prices = () => (
             </Button>
 
             <TicketText color={colors.white}>
-              Ce tarif permet d&apos;accéder à toutes les activités
-              présentielles et virtuelles du 24 au 26 mai 2022.
+              Pour participer aux activités en personne et voir les
+              conférencier.ère.s en 3D. Vous pourrez pas les toucher, mais
+              presque!
             </TicketText>
           </Center>
         </Paper>

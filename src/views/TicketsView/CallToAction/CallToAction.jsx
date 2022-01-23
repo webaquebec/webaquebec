@@ -12,11 +12,10 @@ import { introStyle } from '../../../styles/global';
 const CallToAction = () => (
   <Center maxWidth='850px' gutters='var(--container-gutter)' withText intrinsic>
     <CtaTitle>
-      Joignez-vous au plus grand événement numérique francophone en Amérique du
-      Nord
+      Joins-toi au plus grand événement numérique en Amérique du Nord
     </CtaTitle>
     <p css={introStyle}>
-      Vous serez redirigé·e vers la billetterie{' '}
+      Pour faire ton achat, tu seras redirigé.e directement vers la plateforme{' '}
       <a
         href='https://ti.to/web-a-quebec/waq-2022'
         rel='noopener noreferrer'
@@ -24,7 +23,7 @@ const CallToAction = () => (
       >
         Tito
       </a>{' '}
-      pour effectuer la transaction.
+      afin d&apos;effectuer ta transaction.
     </p>
     <Button
       to='https://ti.to/web-a-quebec/waq-2022'
