@@ -37,12 +37,14 @@ export const floatingLabelStyle = css`
     will-change: transform;
   }
 
-  input::placeholder {
+  input::placeholder,
+  textarea::placeholder {
     opacity: 0;
   }
 
   :focus-within > span:first-of-type,
-  input:not(:placeholder-shown) + span:first-of-type {
+  input:not(:placeholder-shown) + span:first-of-type,
+  textarea:not(:placeholder-shown) + span:first-of-type {
     ${breakpointsRange(
       [
         { prop: 'fontSize', sizes: [10, 11], bases: [16, 20] },
