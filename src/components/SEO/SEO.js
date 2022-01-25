@@ -10,7 +10,10 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title, image, langLinks }) {
+// schemas
+import eventSchema from './schemas';
+
+const SEO = ({ description, lang, meta, title, image, langLinks }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -74,9 +77,15 @@ function SEO({ description, lang, meta, title, image, langLinks }) {
           href={link.href}
         />
       ))}
+
+      {eventSchema && (
+        <script type='application/ld+json'>
+          {JSON.stringify(eventSchema)}
+        </script>
+      )}
     </Helmet>
   );
-}
+};
 
 SEO.defaultProps = {
   lang: `fr`,
