@@ -32,7 +32,7 @@ const SectionContainer = styled(StyledSectionContainer)`
 const IndexPage = () => (
   <>
     <SEO
-      title='Le Web à Québec | 24 au 26 mai 2022'
+      title='Web à Québec | 24 au 26 mai 2022'
       description='Le plus grand événement numérique francophone en Amérique du Nord.'
     />
 
