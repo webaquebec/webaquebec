@@ -36,44 +36,46 @@ const TextAreaField = ({
   const helperTextId = helperText ? randomString() : undefined;
 
   return (
-    <FormLabel
-      htmlFor={textAreaId}
-      disabled={disabled}
-      css={`
-        display: flex;
-        flex-flow: column;
-
-        ${formLabelStyles.floatingLabelStyle};
-      `}
-      {...rest}
-    >
-      <TextArea
-        id={textAreaId}
-        name={name}
-        value={value}
-        rows={rows}
-        cols={cols}
-        wrap={wrap}
-        minLength={minLength}
-        maxLength={maxLength}
-        onChange={onChange}
-        onBlur={onBlur}
+    <>
+      <FormLabel
+        htmlFor={textAreaId}
         disabled={disabled}
-        error={error}
-        placeholder={placeholder}
-        required={required}
-      />
+        css={`
+          display: flex;
+          flex-flow: column;
 
-      <span>{label}</span>
+          ${formLabelStyles.floatingLabelStyle};
+        `}
+        {...rest}
+      >
+        <TextArea
+          id={textAreaId}
+          name={name}
+          value={value}
+          rows={rows}
+          cols={cols}
+          wrap={wrap}
+          minLength={minLength}
+          maxLength={maxLength}
+          onChange={onChange}
+          onBlur={onBlur}
+          disabled={disabled}
+          error={error}
+          placeholder={placeholder}
+          required={required}
+        />
 
-      <TextAreaOutline disabled={disabled} error={error} />
+        <span>{label}</span>
+
+        <TextAreaOutline disabled={disabled} error={error} />
+      </FormLabel>
 
       {helperText && (
         <FormHelperText id={helperTextId} disabled={disabled} error={error}>
           {helperText}
         </FormHelperText>
       )}
-    </FormLabel>
+    </>
   );
 };
 

@@ -34,42 +34,44 @@ const TextInputField = ({
   const helperTextId = helperText ? randomString() : undefined;
 
   return (
-    <FormLabel
-      htmlFor={inputId}
-      disabled={disabled}
-      css={`
-        display: flex;
-        flex-flow: column;
-
-        ${formLabelStyles.floatingLabelStyle};
-      `}
-      {...rest}
-    >
-      <TextInput
-        inputRef={inputRef}
-        id={inputId}
-        aria-describedby={helperTextId}
-        type={type}
-        name={name}
-        value={value}
-        maxLength={maxLength}
-        placeholder={placeholder}
+    <>
+      <FormLabel
+        htmlFor={inputId}
         disabled={disabled}
-        error={error}
-        onChange={onChange}
-        onBlur={onBlur}
-      />
+        css={`
+          display: flex;
+          flex-flow: column;
 
-      <span>{label}</span>
+          ${formLabelStyles.floatingLabelStyle};
+        `}
+        {...rest}
+      >
+        <TextInput
+          inputRef={inputRef}
+          id={inputId}
+          aria-describedby={helperTextId}
+          type={type}
+          name={name}
+          value={value}
+          maxLength={maxLength}
+          placeholder={placeholder}
+          disabled={disabled}
+          error={error}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
 
-      <TextInputOutline disabled={disabled} error={error} />
+        <span>{label}</span>
+
+        <TextInputOutline disabled={disabled} error={error} />
+      </FormLabel>
 
       {helperText && (
         <FormHelperText id={helperTextId} disabled={disabled} error={error}>
           {helperText}
         </FormHelperText>
       )}
-    </FormLabel>
+    </>
   );
 };
 
