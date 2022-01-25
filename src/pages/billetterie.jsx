@@ -8,6 +8,9 @@ import Center from '../components/LayoutSections/Center';
 import SectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 
+// images
+import ogImagePreSale from '../images/og/og-img-waq-22-pre-sale.jpg';
+
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
 
@@ -27,35 +30,39 @@ const TicketsTitle = styled.h1`
 `;
 
 const TicketsIntro = styled.div`
-  margin-top: 1rem;
-
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [50, 80], bases: [16, 20] }],
-    breakpoints.spacings
+    [
+      { prop: 'marginTop', sizes: [16, 16] },
+      { prop: 'marginBottom', sizes: [50, 80] },
+    ],
+    breakpoints.spacings,
+    { bases: [16, 20] }
   )};
 `;
 
 const Container = styled(SectionContainer)`
+  padding-bottom: 0;
+
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [98, 105], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [148, 114], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [48, 68], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [98, 105] },
+      // { prop: 'paddingBottom', sizes: [26, 54] },
+      { prop: 'marginBottom', sizes: [202, 242] },
     ],
-    breakpoints.spacings
+    breakpoints.spacings,
+    { bases: [16, 20] }
   )};
 
-  ::before,
-  ::after {
-    height: 30vh;
-  }
-
   ::before {
-    top: -30vh;
+    top: -60vh;
+
+    height: 60vh;
   }
 
   ::after {
-    bottom: -30vh;
+    bottom: -40vh;
+
+    height: 40vh;
   }
 `;
 
@@ -63,7 +70,8 @@ const TicketsPage = () => (
   <>
     <SEO
       title='Billetterie'
-      description='Vivez le WAQ en mode hybride du 24 au 26 mai 2022. Réservez votre place dès maintenant!'
+      description='Viens vivre le WAQ en formule hybride du 24 au 26 mai 2022. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
+      image={ogImagePreSale}
     />
 
     <Center

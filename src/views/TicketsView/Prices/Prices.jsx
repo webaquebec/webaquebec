@@ -10,6 +10,7 @@ import Paper from '../../../components/Paper';
 // styles
 import {
   blockContainerStyle,
+  BlocksWrapper,
   ContentContainer,
   TicketTitle,
   TicketPrice,
@@ -20,7 +21,7 @@ import colors from '../../../styles/colors';
 const Prices = () => (
   <Center maxWidth='1064px' gutters='32px'>
     <Switcher threshold='768px' space='2rem' limit={2}>
-      <div>
+      <BlocksWrapper>
         <Paper
           lightColor={colors.gris30}
           darkColor={colors.bleu80}
@@ -28,7 +29,7 @@ const Prices = () => (
           overlaid
           css={blockContainerStyle}
         >
-          <Center maxWidth='290px' intrinsic css={ContentContainer} withText>
+          <Center maxWidth='290px' intrinsic withText css={ContentContainer}>
             <TicketTitle color={colors.gris90}>Billet virtuel</TicketTitle>
 
             <TicketPrice>195$</TicketPrice>
@@ -78,12 +79,12 @@ const Prices = () => (
 
             <TicketText color={colors.white}>
               Pour participer aux activités en personne et voir les
-              conférencier.ère.s en 3D. Vous pourrez pas les toucher, mais
-              presque!
+              conférencier.ère.s qui pourront être avec nous. Vous pourrez pas
+              les toucher, mais presque!
             </TicketText>
           </Center>
         </Paper>
-      </div>
+      </BlocksWrapper>
     </Switcher>
   </Center>
 );

@@ -1,6 +1,5 @@
 // vendors
 import styled, { css } from 'styled-components';
-import { em } from 'polished';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
@@ -16,16 +15,10 @@ export const blockContainerStyle = css`
       { prop: 'paddingRight', sizes: [32, 80] },
       { prop: 'paddingBottom', sizes: [56, 80] },
       { prop: 'paddingLeft', sizes: [32, 80] },
-      { prop: 'marginBottom', sizes: [80, 120] },
     ],
     breakpoints.spacings,
     { bases: [16, 20] }
   )};
-
-  @media (max-width: ${em(846)}) {
-    margin-right: 0;
-    margin-left: 0;
-  }
 `;
 
 export const ContentContainer = css`
@@ -33,6 +26,14 @@ export const ContentContainer = css`
   flex-direction: column;
   justify-content: center;
   height: 100%;
+`;
+
+export const BlocksWrapper = styled.div`
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [0, 120] }],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
 `;
 
 export const TicketTitle = styled.h2`
