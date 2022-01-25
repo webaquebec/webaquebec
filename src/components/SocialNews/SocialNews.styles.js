@@ -66,11 +66,6 @@ export const blockContainerStyle = css`
     breakpoints.spacings,
     { bases: [16, 20] }
   )};
-
-  @media (max-width: ${em(846)}) {
-    margin-right: 0;
-    margin-left: 0;
-  }
 `;
 
 export const ContentContainer = css`
