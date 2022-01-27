@@ -89,6 +89,32 @@ const optionsByLocation = {
       },
     ],
   },
+  billetterie: {
+    minHue: 55,
+    maxHue: 317,
+    colors: [
+      {
+        hue: colors.ciel80hsl.hue,
+        saturation: colors.ciel80hsl.saturation,
+        lightness: colors.ciel80hsl.lightness,
+      },
+      {
+        hue: colors.jaune80hsl.hue,
+        saturation: colors.jaune80hsl.saturation,
+        lightness: colors.jaune80hsl.lightness,
+      },
+      {
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
+        lightness: colors.turquoise80hsl.lightness,
+      },
+      {
+        hue: colors.jaune80hsl.hue,
+        saturation: colors.jaune80hsl.saturation,
+        lightness: colors.jaune80hsl.lightness,
+      },
+    ],
+  },
 };
 
 const PixelGradient = ({ pathname }) => {

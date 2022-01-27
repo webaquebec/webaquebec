@@ -46,6 +46,13 @@ const primaryNavigation = [
     type: 'internal',
     color: 'rose',
   },
+  {
+    id: 'tickets',
+    label: 'Billetterie',
+    slug: '/billetterie',
+    type: 'internal',
+    color: 'ciel',
+  },
   // {
   //   id: 'covid-19',
   //   label: 'covid-19',
