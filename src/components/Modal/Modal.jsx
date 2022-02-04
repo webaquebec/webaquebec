@@ -1,26 +1,19 @@
 // vendors
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { RemoveScroll } from 'react-remove-scroll';
 
-// utils
-import randomString from '../../utils/math/randomString';
+// components
+import CloseButton from '../CloseButton';
 
 // styles
 import colors from '../../styles/colors';
-import {
-  StyledModal,
-  ActionButton,
-  IconCross,
-  ContentWrapper,
-} from './Modal.styles';
-
-const actionButtonId = randomString();
+import { StyledModal, ContentWrapper } from './Modal.styles';
 
 const Modal = ({
   fullScreen,
   noBorder,
   noClose,
+  noTransition,
   borderWidth,
   bgColor,
   color,
@@ -43,29 +36,24 @@ const Modal = ({
   });
 
   return (
-    <RemoveScroll enabled={isOpen}>
-      <StyledModal
-        isOpen={isOpen}
-        onRequestClose={onDismiss}
-        $fullScreen={fullScreen}
-        $noBorder={noBorder}
-        $borderWidth={borderWidth}
-        $round={round}
-        $bgColor={bgColor}
-        $color={color}
-        $invert={invert}
-        {...props}
-      >
-        {!noClose && (
-          <ActionButton onClick={onClose} aria-labelledby={actionButtonId}>
-            <span id={actionButtonId}>Fermer</span>
-            <IconCross aria-hidden='true' focusable='false' />
-          </ActionButton>
-        )}
+    <StyledModal
+      isOpen={isOpen}
+      onRequestClose={onDismiss}
+      $fullScreen={fullScreen}
+      $noBorder={noBorder}
+      $noTransition={noTransition}
+      $borderWidth={borderWidth}
+      $round={round}
+      $bgColor={bgColor}
+      $color={color}
+      $invert={invert}
+      preventScroll
+      {...props}
+    >
+      {!noClose && <CloseButton onClose={onClose} darked={bgColor} />}
 
-        <ContentWrapper>{children}</ContentWrapper>
-      </StyledModal>
-    </RemoveScroll>
+      <ContentWrapper>{children}</ContentWrapper>
+    </StyledModal>
   );
 };
 
@@ -78,6 +66,7 @@ Modal.propTypes = {
   round: PropTypes.bool,
   noBorder: PropTypes.bool,
   noClose: PropTypes.bool,
+  noTransition: PropTypes.bool,
   borderWidth: PropTypes.string,
   bgColor: PropTypes.string,
   color: PropTypes.string,
@@ -90,8 +79,9 @@ Modal.defaultProps = {
   round: false,
   noBorder: false,
   noClose: false,
+  noTransition: false,
   borderWidth: '1px',
-  bgColor: colors.white,
+  bgColor: undefined,
   color: colors.bleu,
   invert: false,
 };
