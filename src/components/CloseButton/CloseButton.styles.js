@@ -13,12 +13,14 @@ import { speed } from '../../styles/animation';
 import breakpoints from '../../styles/breakpoints';
 import breakpointsRange from '../../utils/breakpointsRange';
 
-const lightVersion = css`
-  color: ${colors.white};
+const buttonDarkStyle = css`
+  color: ${colors.bleu};
 `;
 
 export const Button = styled.button`
-  position: relative;
+  position: absolute;
+  top: 32px;
+  right: 32px;
 
   display: flex;
   align-items: center;
@@ -34,6 +36,8 @@ export const Button = styled.button`
 
   margin: 0;
   padding: 0;
+
+  color: ${colors.white};
 
   background: none;
   border: 0;
@@ -114,11 +118,9 @@ export const Button = styled.button`
     )};
   }
 
-  ${({ $darkVersion }) => !$darkVersion && lightVersion};
+  ${({ $darked }) => $darked && buttonDarkStyle};
 `;
 
 export const IconCross = styled(IconPlus)`
   transform: rotate(45deg);
-
-  ${({ $darkVersion }) => !$darkVersion && lightVersion};
 `;

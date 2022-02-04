@@ -1,15 +1,24 @@
+// vendors
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, IconCross } from './CloseButton.styles';
 
-const CloseButton = ({ buttonId, onClose, darkVersion }) => {
+// utils
+import randomString from '../../utils/math/randomString';
+
+const CloseButton = ({ id, onClose, darked, ...rest }) => {
+  const buttonId = id || randomString();
+
   return (
-    <div $darkVersion={darkVersion}>
-      <Button onClick={onClose} aria-labelledby={buttonId} type='button'>
-        <span id={buttonId}>Fermer</span>
-        <IconCross aria-hidden='true' focusable='false' />
-      </Button>
-    </div>
+    <Button
+      aria-labelledby={buttonId}
+      onClick={onClose}
+      $darked={darked}
+      {...rest}
+    >
+      <span id={buttonId}>Fermer</span>
+      <IconCross aria-hidden='true' focusable='false' />
+    </Button>
   );
 };
 
@@ -17,7 +26,7 @@ CloseButton.propTypes = {
   /**
    * Specifies the id of the button
    */
-  buttonId: PropTypes.string.isRequired,
+  id: PropTypes.string,
   /**
    * Specifies the function to be called on close
    */
@@ -25,11 +34,12 @@ CloseButton.propTypes = {
   /**
    * Specifies wether the button is dark or not
    */
-  darkVersion: PropTypes.bool,
+  darked: PropTypes.bool,
 };
 
 CloseButton.defaultProps = {
-  darkVersion: true,
+  id: undefined,
+  darked: false,
 };
 
 export default CloseButton;
