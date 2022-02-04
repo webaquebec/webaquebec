@@ -28,7 +28,7 @@ import {
 const primaryNavigation = [
   {
     id: 'prog',
-    label: 'programmation',
+    label: 'Dernière édition',
     slug: '/programmation/2021',
     type: 'internal',
     color: 'jaune',
@@ -54,13 +54,20 @@ const primaryNavigation = [
     color: 'turquoise',
   },
   {
-    id: 'covid-19',
-    label: 'covid-19',
-    slug:
-      'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
-    type: 'external',
+    id: 'tickets',
+    label: 'Billetterie',
+    slug: '/billetterie',
+    type: 'internal',
     color: 'ciel',
   },
+  // {
+  //   id: 'covid-19',
+  //   label: 'covid-19',
+  //   slug:
+  //     'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
+  //   type: 'external',
+  //   color: 'ciel',
+  // },
 ];
 
 const Header = ({ pathname }) => {

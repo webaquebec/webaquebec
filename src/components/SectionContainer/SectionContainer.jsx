@@ -6,13 +6,11 @@ import PropTypes from 'prop-types';
 import colors from '../../styles/colors';
 import StyledSection from './SectionContainer.styles';
 
-const SectionContainer = ({ faded, padded, bgColor, children, ...rest }) => {
-  return (
-    <StyledSection $bgColor={bgColor} $padded={padded} $faded={faded} {...rest}>
-      {children}
-    </StyledSection>
-  );
-};
+const SectionContainer = ({ faded, padded, bgColor, children, ...rest }) => (
+  <StyledSection $bgColor={bgColor} $padded={padded} $faded={faded} {...rest}>
+    {children}
+  </StyledSection>
+);
 
 SectionContainer.propTypes = {
   children: PropTypes.node.isRequired,

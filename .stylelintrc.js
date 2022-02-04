@@ -1,5 +1,4 @@
 module.exports = {
-  processors: ['stylelint-processor-styled-components'],
   plugins: [
     'stylelint-a11y',
     'stylelint-config-rational-order/plugin',
@@ -16,6 +15,7 @@ module.exports = {
     'stylelint-prettier/recommended',
     'stylelint-config-styled-components',
   ],
+  customSyntax: '@stylelint/postcss-css-in-js',
   rules: {
     'value-keyword-case': null,
     'a11y/media-prefers-reduced-motion': [
@@ -39,7 +39,7 @@ module.exports = {
 
     // Base rules
     indentation: null,
-    'selector-max-id': 0,
+    'selector-max-id': 1,
     'selector-list-comma-newline-after': 'always',
     'selector-type-case': [
       'lower',
@@ -58,12 +58,22 @@ module.exports = {
       { ignore: ['after-comment'], except: ['first-nested'] },
     ],
     'comment-empty-line-before': ['always', { except: ['first-nested'] }],
+    'declaration-empty-line-before': null,
+    'custom-property-empty-line-before': 'never',
+    'custom-property-pattern': null,
     'block-opening-brace-space-before': 'always',
     'declaration-colon-space-after': 'always',
     'declaration-colon-space-before': 'never',
     'declaration-block-single-line-max-declarations': 1,
-    'declaration-property-value-blacklist': { '/^border/': ['none'] },
-    'declaration-empty-line-before': null,
+    'color-function-notation': 'legacy',
+    'alpha-value-notation': 'number',
+    'declaration-property-value-disallowed-list': { '/^border/': ['none'] },
+    'selector-class-pattern': '[a-zA-Z][a-zA-Z0-9_-]+$',
+    'selector-id-pattern': '[a-zA-Z][a-zA-Z0-9_-]+$',
+    'declaration-block-no-redundant-longhand-properties': [
+      true,
+      { ignoreShorthands: ['/transition/', '/flex/', '/grid/'] },
+    ],
     'at-rule-empty-line-before': [
       'always',
       { ignore: ['after-comment'], except: ['first-nested'] },
@@ -101,5 +111,10 @@ module.exports = {
         severity: 'warning',
       },
     ],
+    // Remove those rules when issues will be fixed into the postCSS syntax parser
+    // https://github.com/stylelint/stylelint/issues/4574
+    'function-whitespace-after': null,
+    'unit-no-unknown': null,
+    'function-name-case': null,
   },
 };

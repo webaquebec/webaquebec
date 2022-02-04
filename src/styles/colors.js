@@ -1,5 +1,6 @@
 const black = '#000000';
 const white = '#ffffff';
+const red = '#E0302A';
 
 const bleu10 = '#EBECFF';
 const bleu20 = '#D1D5FF';
@@ -104,6 +105,7 @@ const ciel80hsl = {
 const colors = {
   black,
   white,
+  red,
 
   bleu10,
   bleu20,

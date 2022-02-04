@@ -9,6 +9,7 @@ import Center from '../components/LayoutSections/Center';
 import Accordion from '../components/Accordion';
 import AccordionItem from '../components/Accordion/AccordionItem';
 import SectionContainer from '../components/SectionContainer';
+import Stack from '../components/LayoutSections/Stack';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
@@ -24,8 +25,8 @@ const FaqTitle = styled.h1`
   color: ${colors.bleu80};
 `;
 
-const FaqIntro = styled.p`
-  margin-bottom: 0;
+const FaqIntro = styled.div`
+  margin-top: 1rem;
 `;
 
 const Container = styled(SectionContainer)`
@@ -53,8 +54,6 @@ const Container = styled(SectionContainer)`
 `;
 
 const faqItem = css`
-  margin: 0;
-
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
@@ -62,75 +61,89 @@ const faqItem = css`
     ],
     breakpoints.spacings
   )};
+
+  a {
+    color: ${colors.bleu};
+  }
 `;
 
 const FaqPage = () => {
   const data = [
     {
       id: 1,
-      question: 'Quelle sera la forme du WAQ21?',
+      question:
+        'Quelle est la différence entre un billet présentiel et un billet virtuel?',
       answer:
-        'Du 15 au 17 juin prochains, le WAQ21 aura lieu virtuellement. On te convie à une édition « pas comme les autres »  sur la plateforme SwapCard. Les détenteurs de billets pour l’édition 2020 du Web à Québec recevront plus d’informations par courriel.',
+        "<p>Le billet présentiel te permet d'assister à toutes les conférences au Terminal - Port de Québec et de participer aux activités du WAQ telles que tu les connais : conférences, 5 à 7, ateliers, activités de réseautage et plus encore. Bref, comme dans le bon vieux temps! Avec ton billet présentiel, tu as automatiquement accès à la portion virtuelle de l’événement.</p><p>Le billet virtuel te permet d'assister, de la maison ou du bureau, aux conférences keynote diffusées en direct du Terminal! Tu pourras écouter TOUTES les conférences du WAQ, car elles seront disponibles en rediffusion sur la plateforme.</p>",
     },
     {
       id: 2,
-      question: 'Est-ce que mon billet pour le WAQ20 est remboursable?',
+      question: 'Y a-t-il un nombre limité de places en présentiel?',
       answer:
-        'Les billets sont non remboursables puisqu’il s’agit d’une vente finale. Ils peuvent cependant être transférés à une autre personne.',
+        '<p>Dès que tu achètes ton billet présentiel, tu es certain d’avoir une place en personne! Le nombre de billets disponibles est toutefois limité, ne tarde pas à te le procurer dès janvier!</p><p>D’ailleurs, selon la situation épidémiologique actuelle, il n’y a plus de limite de capacité pour les événements. Cette règle est évidemment sujette à changement, mais on reste à l’affût et on se croise les doigts pour que notre belle communauté puisse se rassembler de nouveau en mai. 🤞</p>',
     },
     {
       id: 3,
       question:
-        'Est-il possible de transférer un billet du WAQ à une autre personne?',
-      answer:
-        'Les transferts de billet d’une personne à une autre sont possibles. Écris-nous à <a href="mailto:info@webaquebec.org">info@webaquebec.org</a> pour connaître la marche à suivre.',
+        'Est-ce que les conférences en présentiel et en virtuel sont les mêmes?',
+      answer: '<p>Les conférences sont les mêmes!</p>',
     },
     {
       id: 4,
-      question:
-        'Si je possède un billet WAQ20, est-il encore valide? Qu’est-ce qu’il comprend?',
+      question: 'Est-ce possible de partager un billet présentiel? ',
       answer:
-        'Oui. Tous les détenteurs de billets pour l’édition prévue en 2020 du Web à Québec auront accès à l’édition de 2021 qui se tiendra du 15 au 17 juin prochains. L’édition 2021 sera virtuelle, tu n’as aucune action à prendre pour transférer ton billet, le tout se fait automatiquement. Tu recevras également un code qui te permet d’accéder à deux accès supplémentaires pour le Web à Québec. Deux accès que nous t’invitons à donner à des ami.es et/ou collègues de la communauté numérique. Finalement, nous t’offrons également un crédit applicable sur l’achat d’un billet pour l’édition 2022. Ne t’inquiète pas, tous les détails te seront envoyés par courriel.',
+        '<p>Chaque personne qui sera sur place devra avoir son propre billet, notamment pour des raisons de logistique (commande de boîtes à lunch, passeport vaccinal, registre des personnes sur les lieux chaque jour, etc.).</p>',
     },
     {
       id: 5,
-      question:
-        'Il me sera impossible d’assister à l’événement en juin. Est-ce que je peux me faire rembourser?',
+      question: 'Quel est le coût des billets?',
       answer:
-        'Les billets sont non remboursables puisqu’il s’agit d’une vente finale. Ils peuvent cependant être transférés à une autre personne. Dans le cas où un transfert n’est pas possible, un crédit sur l’achat d’un billet pour l’édition 2022 vous sera offert.',
+        '<p>Le billet virtuel est à 195 $ et est GRATUIT pour les étudiant.es à temps plein.</p><p><strong>Billet présentiel :</strong><br />Prévente : 595 $<br />Régulier : 895 $</p><p>Tous les prix sont avant taxes.</p>',
     },
     {
       id: 6,
-      question:
-        'Est-ce possible de participer à la Semaine numériQC avec un billet du WAQ?',
+      question: 'Y a-t-il des billets étudiants?',
       answer:
-        'Non. Les seules personnes qui peuvent assister aux deux événements sont celles qui se sont procurées une passe all-access l’année dernière. Des billets seront cependant mis en vente pour la <a rel="noopener noreferrer" target="_blank" href="https://www.semainenumeriqc.com/" target="_blank" rel="noopener noreferrer">Semaine numériQC</a> dans les mois à venir.',
+        '<p>Nouveauté : les étudiant.es à temps plein auront accès gratuitement à la portion virtuelle de l’événement! Passe le mot.</p>',
     },
     {
       id: 7,
-      question:
-        'Est-ce qu’il y a des chances que le WAQ21 soit annulé ou reporté de nouveau?',
+      question: 'Puis-je participer aux 5 à 7 avec mon billet virtuel?',
       answer:
-        'L’équipe du Web à Québec se donne comme mission de présenter une édition 2021 du WAQ en juin, peu importe la situation. Que l’événement soit 100% virtuel ou hybride, nous nous engageons à te livrer une expérience aux couleurs du WAQ, à moins qu’une situation hors de notre contrôle force l’annulation.',
+        '<p>Non, malheureusement. Mais sois sans crainte, tu auras de belles opportunités d’échanger avec les autres participants et d’élargir ton réseau de contacts directement via la plateforme!</p>',
     },
     {
       id: 8,
-      question:
-        'Est-ce que des billets supplémentaires seront mis en vente pour participer à l’édition 2021 du WAQ?',
-      answer: 'Non, l’événement affiche complet depuis février 2020!',
+      question: 'Quelles seront les mesures sanitaires en place au Terminal?',
+      answer:
+        '<p>Le passeport vaccinal sera exigé pour entrer dans le Terminal. Le port du couvre-visage sera obligatoire en tout temps, sauf pour boire et manger.</p><p>Toute personne qui présente des symptômes de la COVID-19, qui est en attente d’un résultat de test ou qui a obtenu un résultat positif ne sera pas admis dans le Terminal.</p>',
     },
     {
       id: 9,
       question:
-        'Puis-je me procurer des billets pour l’édition virtuelle de 2021?',
+        'Comment est-ce que je peux utiliser mon crédit de l’édition 2020-2021?',
       answer:
-        'Non, il n’y aura pas de nouveaux billets en vente. Si tu souhaites participer au WAQ21, nous offrons deux billets supplémentaires par billet acheté pour l’édition 2020. Dépêche-toi de solliciter ton réseau de contacts pour obtenir un laissez-passer pour 2021.',
+        "<p>Une communication par courriel te sera envoyée au moment de la mise en vente des billets. La procédure complète y sera expliquée. Si jamais tu ne reçois rien de notre part, tu peux nous écrire à <a href='mailto:info@webaquebec.org'>info@webaquebec.org</a>. Les crédits seront applicables uniquement sur les billets de cette édition-ci (WAQ22).</p>",
+    },
+    {
+      id: 10,
+      question:
+        'Est-ce possible de participer à la Semaine numériQC avec un billet du WAQ?',
+      answer:
+        '<p>Non. Il s’agit de deux événements distincts, donc ça prend un billet pour la SNQC et un billet pour le WAQ.</p>',
+    },
+    {
+      id: 11,
+      question:
+        'Est-ce qu’il y a des chances que le WAQ22 soit annulé ou reporté?',
+      answer:
+        '<p>Comme on n’a pas de boule de cristal, il est impossible de le confirmer. PAR CONTRE, on peut confirmer que l’événement aura lieu, peu importe la situation.</p>',
     },
   ];
 
   return (
     <>
-      <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ21.' />
+      <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ22.' />
 
       <Center
         maxWidth='625px'
@@ -140,10 +153,16 @@ const FaqPage = () => {
       >
         <FaqTitle css={h1AltStyle}>FAQ</FaqTitle>
         <FaqIntro css={introStyle}>
-          L’édition 2021 du Web à Québec (WAQ) est reportée aux 15, 16 et 17
-          juin prochains. Si vous êtes l’un.e des fier.ères détenteur.trices de
-          billet du WAQ ou si vous avez des questions sur l’événement et/ou sa
-          forme, on tente d’y répondre ici. 👇
+          <p>
+            L’édition 2022 du Web à Québec (WAQ) aura lieu les 24, 25 et 26 mai
+            prochains.
+          </p>
+          <p>
+            Ce sera un événement hybride : tu as le choix d’y participer en
+            présentiel ou en virtuel! 😎
+          </p>
+          <p>On tente de répondre à toutes tes questions ici!</p>
+          <span>👇</span>
         </FaqIntro>
       </Center>
 
@@ -158,7 +177,7 @@ const FaqPage = () => {
                 bordered
                 rounded
               >
-                <p
+                <Stack
                   css={faqItem}
                   dangerouslySetInnerHTML={{ __html: item.answer }}
                 />
