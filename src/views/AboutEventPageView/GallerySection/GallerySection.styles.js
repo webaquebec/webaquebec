@@ -1,12 +1,12 @@
 // vendors
 import styled from 'styled-components';
-
+import GatsbyImage from 'gatsby-image';
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
-export const GalleryContent = styled.div`
+export const GalleryContainer = styled.section`
   position: relative;
 
   background: linear-gradient(
@@ -19,14 +19,14 @@ export const GalleryContent = styled.div`
     [
       { prop: 'paddingTop', sizes: [48, 120], bases: [16, 20] },
       { prop: 'paddingBottom', sizes: [48, 120], bases: [16, 20] },
-      { prop: 'marginTop', sizes: [-196, -182], bases: [16, 20] },
+      // { prop: 'marginTop', sizes: [-196, -182], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [130, 40], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 `;
 
-export const GalleryTitle = styled.h2`
+export const GalleryTitle = styled.h4`
   margin-top: 0;
 
   color: ${colors.white};
@@ -49,7 +49,12 @@ export const GalleryText = styled.div`
 `;
 
 export const GalleryItem = styled.button`
+  width: 100%;
+  min-width: 232px;
+  max-height: 248px;
   padding: 0;
+
+  /* min-height: 155px; */
 
   overflow: hidden;
 
@@ -59,7 +64,10 @@ export const GalleryItem = styled.button`
   opacity: 0.8;
 
   ${breakpointsRange(
-    [{ prop: 'margin', sizes: [4, 8], bases: [16, 20] }],
+    [
+      { prop: 'margin', sizes: [4, 8], bases: [16, 20] },
+      // { prop: 'maxHeight', sizes: [155, 248], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 
@@ -69,7 +77,7 @@ export const GalleryItem = styled.button`
   }
 `;
 
-export const GalleryPicture = styled.img`
+export const GalleryPicture = styled(GatsbyImage)`
   ${breakpointsRange(
     [{ prop: 'maxHeight', sizes: [155, 248], bases: [16, 20] }],
     breakpoints.spacings
@@ -100,12 +108,12 @@ export const GalleryOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
 `;
 
-export const ActiveMedia = styled.img`
+export const ActiveMedia = styled(GatsbyImage)`
   position: absolute;
   top: 50%;
   left: 50%;
 
-  max-width: 90%;
+  max-width: 1200px;
   max-height: 80%;
 
   transform: translate(-50%, -50%);
