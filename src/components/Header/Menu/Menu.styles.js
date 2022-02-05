@@ -27,6 +27,11 @@ const gradientAnimation = keyframes`
   }
 `;
 
+export const closeButtonStyle = css`
+  position: relative;
+  inset: 0;
+`;
+
 export const disableAnimationStyle = css`
   animation-name: none;
 `;
@@ -210,10 +215,10 @@ export const openedMenuStyle = css`
 `;
 
 export const Container = styled(Box)`
-  ${breakpointsRange(
+  /* ${breakpointsRange(
     [{ prop: '--frame-width', sizes: [5, 10], bases: [16, 20] }],
     breakpoints.spacings
-  )};
+  )}; */
 
   position: fixed;
   top: 0;
