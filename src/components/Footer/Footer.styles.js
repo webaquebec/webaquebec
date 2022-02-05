@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { em } from 'polished';
 
 // images
-import Sticker21 from '../../images/stickers/Sticker21';
+import Sticker22 from '../../images/stickers/Sticker22';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
@@ -113,14 +113,14 @@ export const StyledFooter = styled.footer`
 
 export const StickerWrapper = styled.div`
   position: absolute;
-  top: -${350 / 2 - 5}px;
-  left: -${350 / 2 + 30}px;
+  top: -${350 / 2 - 19}px;
+  left: -${350 / 2 - 9}px;
 
   width: 350px;
   height: auto;
 
   ${lessThan(breakpoints.spacings[2])} {
-    top: -${250 / 2 + 50}px;
+    top: -${290 / 2 + 50}px;
     left: -${250 / 2 - 50}px;
 
     width: 290px;
@@ -128,33 +128,31 @@ export const StickerWrapper = styled.div`
 
   ${lessThan(breakpoints.spacings[1])} {
     top: -${250 / 2 + 40}px;
-    left: -${250 / 2 - 60}px;
+    left: -${250 / 2 - 83}px;
 
     width: 250px;
   }
 `;
 
-const template = (i) => {
-  return `
+const template = (i) => `
         &:nth-child(${i}) {
-          animation-delay: ${i * 30}ms;
+          animation-delay: ${i * 20}ms;
          }
       `;
-};
 
 const setAnimationDelays = () => {
   let str = '';
-  for (let index = 0; index <= 69; index += 1) {
+  for (let index = 0; index <= 80; index += 1) {
     str += template(index);
   }
   return str;
 };
 
 const moving = keyframes`
-  from { 
+  from {
     transform: translate3d(10px, 0, 0) rotate3d(0, 0, 1, -40deg);
   }
-  
+
   to {
     transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
   }
@@ -170,7 +168,7 @@ const appear = keyframes`
   }
 `;
 
-export const Sticker = styled(Sticker21)`
+export const Sticker = styled(Sticker22)`
   .pog {
     transform-origin: center;
     transform-box: fill-box;

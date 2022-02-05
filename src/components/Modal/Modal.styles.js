@@ -113,7 +113,10 @@ export const ActionButton = styled.button`
   }
 `;
 
-export const ContentWrapper = styled.div``;
+export const ContentWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
 export const outlineStyle = css`
   outline: 0.125rem solid transparent;
@@ -133,6 +136,13 @@ export const roundStyle = css`
 export const fullScreenStyle = css`
   width: 100vw;
   height: 100%;
+`;
+
+export const noTransitionStyle = css`
+  .Overlay,
+  .Content {
+    transition: none;
+  }
 `;
 
 export const StyledModal = styled(ReactModalAdapter).attrs({
@@ -166,7 +176,7 @@ export const StyledModal = styled(ReactModalAdapter).attrs({
       height: 100%;
       overflow: hidden;
 
-      background-color: rgba(0, 0, 0, 0.75);
+      background-color: rgba(0, 0, 0, 0.6);
 
       opacity: 0;
 
@@ -229,10 +239,9 @@ export const StyledModal = styled(ReactModalAdapter).attrs({
     }
   }
 
+  ${({ $noTransition }) => $noTransition && noTransitionStyle}
+
   @media screen and (prefers-reduced-motion: reduce) {
-    .Overlay,
-    .Content {
-      transition: none;
-    }
+    ${noTransitionStyle}
   }
 `;

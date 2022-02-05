@@ -47,6 +47,13 @@ const primaryNavigation = [
     color: 'rose',
   },
   {
+    id: 'about',
+    label: 'à propos',
+    slug: '/a-propos/evenement',
+    type: 'internal',
+    color: 'turquoise',
+  },
+  {
     id: 'tickets',
     label: 'Billetterie',
     slug: '/billetterie',

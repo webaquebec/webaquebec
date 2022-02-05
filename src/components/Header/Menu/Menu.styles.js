@@ -6,17 +6,12 @@ import Box from '../../LayoutSections/Box';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { lessThan } from '../../../utils/mediaQuery';
-
-// images
-import IconPlus from '../../../images/IconPlus';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
 import { fontFamilies, fontWeights } from '../../../styles/typography';
 import zIndexes from '../../../styles/zIndexes';
 import colors from '../../../styles/colors';
-import { speed } from '../../../styles/animation';
 
 const gradientAnimation = keyframes`
   0% {
@@ -30,6 +25,11 @@ const gradientAnimation = keyframes`
   100% {
     background-position: 0;
   }
+`;
+
+export const closeButtonStyle = css`
+  position: relative;
+  inset: 0;
 `;
 
 export const disableAnimationStyle = css`
@@ -116,108 +116,6 @@ export const ButtonWrapper = styled.div`
   grid-row: 1;
   grid-column: 3;
   justify-self: flex-end;
-`;
-
-export const CloseButton = styled.button`
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  ${breakpointsRange(
-    [
-      { prop: 'width', sizes: [24, 34] },
-      { prop: 'height', sizes: [24, 34] },
-    ],
-    breakpoints.spacings
-  )};
-
-  margin: 0;
-  padding: 0;
-
-  background: none;
-  border: 0;
-  cursor: pointer;
-
-  appearance: none;
-
-  :focus {
-    outline: 0;
-  }
-
-  ::before {
-    position: absolute;
-
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-
-    border: 3px solid;
-    border-radius: 50%;
-    transform: scale(1.5);
-
-    cursor: default;
-
-    opacity: 0;
-
-    transition: transform ${speed.fast}, opacity ${speed.fast};
-
-    content: '';
-
-    will-change: transform, opacity;
-
-    ${lessThan(breakpoints[3])} {
-      display: none;
-    }
-  }
-
-  :focus::before {
-    transform: scale(1);
-
-    opacity: 1;
-  }
-
-  span {
-    position: absolute;
-
-    word-break: keep-all;
-
-    transform: translateX(-48px);
-    opacity: 0;
-
-    transition: transform ${speed.fast}, opacity ${speed.fast};
-    transition-delay: ${speed.fast};
-
-    will-change: transform, opacity;
-
-    ${lessThan(breakpoints[3])} {
-      display: none;
-    }
-
-    @media screen and (prefers-reduced-motion: reduce) {
-      transition: none;
-    }
-  }
-
-  :hover span,
-  :focus span {
-    transform: translateX(-75px);
-    opacity: 1;
-  }
-
-  svg {
-    ${breakpointsRange(
-      [
-        { prop: 'width', sizes: [36, 42] },
-        { prop: 'height', sizes: [36, 42] },
-      ],
-      breakpoints.spacings
-    )};
-  }
-`;
-
-export const IconCross = styled(IconPlus)`
-  transform: rotate(45deg);
 `;
 
 export const primaryNavListStyle = css`
@@ -317,10 +215,10 @@ export const openedMenuStyle = css`
 `;
 
 export const Container = styled(Box)`
-  ${breakpointsRange(
+  /* ${breakpointsRange(
     [{ prop: '--frame-width', sizes: [5, 10], bases: [16, 20] }],
     breakpoints.spacings
-  )};
+  )}; */
 
   position: fixed;
   top: 0;

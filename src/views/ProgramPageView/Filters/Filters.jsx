@@ -128,6 +128,7 @@ const Filters = ({ onChange, onReset }) => {
           isOpen={isOpen}
           aria={{ labelledby: customId }}
           closeTimeoutMS={200}
+          bgColor={colors.white}
           color={colors.gris80}
           fullScreen
           noBorder

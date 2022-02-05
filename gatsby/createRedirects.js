@@ -14,6 +14,11 @@ module.exports = async ({ actions, reporter }) => {
       toPath: '/programmation/2021',
       isPermanent: false,
     },
+    {
+      fromPath: '/a-propos',
+      toPath: '/a-propos/evenement',
+      isPermanent: false,
+    },
   ];
 
   redirects.forEach((redirect) => {

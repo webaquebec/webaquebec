@@ -7,7 +7,7 @@ import { hideVisually } from 'polished';
 import LazyAnimation from '../../LazyAnimation';
 
 // images
-import LogoSVG from '../../../images/logo-waq-21-sticker.svg';
+import LogoSVG from '../../../images/logo-waq-22-sticker.svg';
 
 // styles
 import { Img, LogoWrapperStyle } from './Logo.styles';
