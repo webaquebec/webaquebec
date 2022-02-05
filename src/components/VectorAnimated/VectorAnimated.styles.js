@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import breakpoints from '../../styles/breakpoints';
 import breakpointsRange from '../../utils/breakpointsRange';
 
-const StickerImg = styled.img`
+const VectorImg = styled.img`
   ${({ $minWidth, $maxWidth }) =>
     $minWidth &&
     $maxWidth &&
@@ -21,4 +21,4 @@ const StickerImg = styled.img`
     )};
 `;
 
-export default StickerImg;
+export default VectorImg;
