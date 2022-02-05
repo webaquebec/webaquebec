@@ -11,7 +11,7 @@ import SocialNews from '../SocialNews';
 // import LazyAnimation from '../LazyAnimation';
 
 // images
-import logo from '../../images/logo-waq-21.svg';
+import logo from '../../images/logo-waq-22.svg';
 
 // styles
 import {
