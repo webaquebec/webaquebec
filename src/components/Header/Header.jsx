@@ -49,7 +49,7 @@ const primaryNavigation = [
   {
     id: 'about',
     label: 'à propos',
-    slug: '/a-propos',
+    slug: '/a-propos/evenement',
     type: 'internal',
     color: 'turquoise',
   },
