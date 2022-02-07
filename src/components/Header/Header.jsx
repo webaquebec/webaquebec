@@ -81,7 +81,7 @@ const Header = ({ pathname }) => {
     if (!opened) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.removeAttribute('style');
     }
   };
 

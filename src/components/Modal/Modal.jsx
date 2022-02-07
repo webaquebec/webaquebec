@@ -31,7 +31,7 @@ const Modal = ({
     }
 
     return () => {
-      document.documentElement.style.overflow = 'unset';
+      document.documentElement.removeAttribute('style');
     };
   });
 
