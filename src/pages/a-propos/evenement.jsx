@@ -137,10 +137,7 @@ const AboutEventPage = ({ data }) => {
 
   return (
     <>
-      <SEO
-        title='À propos'
-        description='Tout ce que tu dois savoir sur le WAQ.'
-      />
+      <SEO title="L'événement" description='' />
 
       <header>
         <Center
