@@ -113,21 +113,21 @@ export const StyledFooter = styled.footer`
 
 export const StickerWrapper = styled.div`
   position: absolute;
-  top: -${350 / 2 - 19}px;
-  left: -${350 / 2 - 9}px;
+  top: -${366 / 2 - 30}px;
+  left: -${366 / 2 - 17}px;
 
-  width: 350px;
+  width: 366px;
   height: auto;
 
   ${lessThan(breakpoints.spacings[2])} {
-    top: -${290 / 2 + 50}px;
-    left: -${250 / 2 - 50}px;
+    top: -${290 / 2 + 3}px;
+    left: -${290 / 2 - 89}px;
 
     width: 290px;
   }
 
   ${lessThan(breakpoints.spacings[1])} {
-    top: -${250 / 2 + 40}px;
+    top: -${250 / 2 + 9}px;
     left: -${250 / 2 - 83}px;
 
     width: 250px;

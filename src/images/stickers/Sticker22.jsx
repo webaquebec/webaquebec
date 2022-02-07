@@ -3,7 +3,7 @@ import React from 'react';
 const Sticker22 = ({ ...props }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    viewBox='0 0 430.34 328.15'
+    viewBox='0 0 453.34 328.15'
     {...props}
   >
     <g className='pog'>
