@@ -1,6 +1,10 @@
 // vendors
 import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
+
+// utils
+import { greaterThan } from '../../../utils/mediaQuery';
+
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
@@ -51,7 +55,9 @@ export const GalleryText = styled.div`
 export const GalleryItem = styled.button`
   width: 100%;
   min-width: 232px;
-  max-height: 248px;
+
+  /* max-height: 248px; */
+
   padding: 0;
 
   /* min-height: 155px; */
@@ -82,6 +88,10 @@ export const GalleryPicture = styled(GatsbyImage)`
     [{ prop: 'maxHeight', sizes: [155, 248], bases: [16, 20] }],
     breakpoints.spacings
   )};
+
+  ${greaterThan(2560)} {
+    max-height: 10vw;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
