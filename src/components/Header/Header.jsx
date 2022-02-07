@@ -28,7 +28,7 @@ import {
 const primaryNavigation = [
   {
     id: 'prog',
-    label: 'Dernière édition',
+    label: 'édition 2021',
     slug: '/programmation/2021',
     type: 'internal',
     color: 'jaune',
@@ -40,13 +40,6 @@ const primaryNavigation = [
   //   type: 'internal',
   // },
   {
-    id: 'faq',
-    label: 'FAQ',
-    slug: '/faq',
-    type: 'internal',
-    color: 'rose',
-  },
-  {
     id: 'about',
     label: 'à propos',
     slug: '/a-propos/evenement',
@@ -54,8 +47,15 @@ const primaryNavigation = [
     color: 'turquoise',
   },
   {
+    id: 'faq',
+    label: 'FAQ',
+    slug: '/faq',
+    type: 'internal',
+    color: 'rose',
+  },
+  {
     id: 'tickets',
-    label: 'Billetterie',
+    label: 'billetterie',
     slug: '/billetterie',
     type: 'internal',
     color: 'ciel',
