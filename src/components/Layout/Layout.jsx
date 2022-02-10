@@ -7,6 +7,7 @@ import '@csstools/normalize.css';
 import 'sanitize.css';
 import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 import '../../fonts/Redaction/redaction.css';
 

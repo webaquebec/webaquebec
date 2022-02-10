@@ -23,23 +23,21 @@ export const SectionContainer = styled(StyledSection)`
   )};
 `;
 
-export const FakeMapContainer = styled.div`
+export const MapContainer = styled.div`
   display: flex;
   justify-content: end;
+  width: 100%;
   max-width: 748px;
+  overflow: hidden;
 
-  @media (min-width: 800px) {
-    padding-left: 32px;
+  @media (min-width: 876px) {
+    margin-left: 32px;
   }
-`;
 
-export const FakeMap = styled.div`
   ${breakpointsRange(
     [{ prop: 'height', sizes: [213, 474], bases: [1, 1], unit: 'px' }],
     breakpoints.spacings
   )};
-
-  width: 100%;
 
   background-color: white;
   border-color: ${colors.bleu80};

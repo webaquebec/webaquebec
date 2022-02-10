@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { hideVisually } from 'polished';
 import Center from '../../../components/LayoutSections/Center';
 import Sidebar from '../../../components/LayoutSections/Sidebar/Sidebar';
+import Map from '../../../components/Map/Map';
 
 // images
 import vectorTarget from '../../../images/vectorTarget.svg';
@@ -18,8 +19,7 @@ import {
   AdresseName,
   AdressesSpan,
   ContactInfo,
-  FakeMap,
-  FakeMapContainer,
+  MapContainer,
   NosAdresses,
   SectionContainer,
   Sticker,
@@ -132,9 +132,9 @@ const Adresses = () => (
               </AdresseBlock>
             </AdresseBlockContainer>
           </div>
-          <FakeMapContainer>
-            <FakeMap />
-          </FakeMapContainer>
+          <MapContainer>
+            <Map />
+          </MapContainer>
         </div>
       </Sidebar>
     </Center>

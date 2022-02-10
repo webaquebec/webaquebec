@@ -1,0 +1,67 @@
+// vendors
+import React, { useEffect, useRef } from 'react';
+import mapboxgl from 'mapbox-gl';
+
+// icons
+import unicornMarker from '../../images/vectorUnicorn.svg';
+import targetMarker from '../../images/vectorTarget.svg';
+
+mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
+
+const defaultOptions = {
+  style: 'mapbox://styles/qc-num/ckz7b0xxl002e14th30urqx2w',
+  center: { lat: 46.815921, lng: -71.208561 },
+  zoom: 14,
+};
+
+const markers = [
+  {
+    coordinates: [-71.200621, 46.816714],
+    icon: unicornMarker,
+    iconSize: [29, 28],
+  },
+  {
+    coordinates: [-71.220688, 46.814944],
+    icon: targetMarker,
+    iconSize: [28, 28],
+  },
+];
+
+const Map = () => {
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+
+  useEffect(() => {
+    if (map.current) return;
+
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      ...defaultOptions,
+    });
+
+    map.current.addControl(new mapboxgl.NavigationControl());
+
+    markers.forEach((marker) => {
+      const el = document.createElement('div');
+      const width = marker.iconSize[0];
+      const height = marker.iconSize[1];
+
+      el.style.backgroundImage = `url(${marker.icon})`;
+      el.style.width = `${width}px`;
+      el.style.height = `${height}px`;
+      el.style.backgroundSize = 'cover';
+
+      new mapboxgl.Marker(el).setLngLat(marker.coordinates).addTo(map.current);
+    });
+  });
+
+  const style = {
+    width: '100%',
+    height: '100%',
+    minHeight: '100%',
+  };
+
+  return <div style={style} ref={mapContainer} />;
+};
+
+export default Map;

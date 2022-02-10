@@ -34,6 +34,7 @@
     "gatsby-source-filesystem": "^3.6.0",
     "gatsby-source-graphql": "^3.5.0",
     "gatsby-transformer-sharp": "^3.5.0",
+    "mapbox-gl": "^2.7.0",
     "polished": "^4.0.5",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
