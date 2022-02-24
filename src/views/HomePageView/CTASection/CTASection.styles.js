@@ -24,11 +24,11 @@ export const SectionContainer = styled.section`
   )};
 `;
 
-export const SpeakersContent = styled.div`
+export const CTAContent = styled.div`
   max-width: 500px;
 `;
 
-export const SpeakersTitle = styled.p`
+export const CTATitle = styled.p`
   margin-top: 0;
 
   font-weight: ${fontWeights.bold};
@@ -46,7 +46,7 @@ export const SpeakersTitle = styled.p`
   )};
 `;
 
-export const SpeakersIntro = styled.p`
+export const CTAIntro = styled.p`
   max-width: 421px;
   margin-bottom: 32px;
 
