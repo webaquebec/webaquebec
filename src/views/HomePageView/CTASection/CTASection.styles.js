@@ -51,7 +51,10 @@ export const CTAIntro = styled.p`
   margin-bottom: 32px;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 18], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [16, 18], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [26, 28], bases: [16, 18], unit: '' },
+    ],
     breakpoints.spacings
   )};
 `;
