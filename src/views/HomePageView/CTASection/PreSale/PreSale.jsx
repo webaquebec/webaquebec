@@ -12,8 +12,8 @@ const PreSale = () => (
     <CTATitle>Prévente en cours</CTATitle>
 
     <CTAIntro>
-      Après 2 années d’absence, le WAQ est de retour en mode hybride. Assiste à
-      un événement incontournable!
+      Après 2 années d’absence, le WAQ est de retour en{' '}
+      <strong>mode hybride</strong>. Assiste à un événement incontournable!
     </CTAIntro>
 
     <Button to='/billetterie' tag='link' primary animated>
