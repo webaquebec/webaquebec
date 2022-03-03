@@ -16,26 +16,24 @@ import vectorTagDevelopment from '../../../images/vectorTagDevelopment.svg';
 import vectorTagCommMktg from '../../../images/vectorTagCommMktg.svg';
 
 // components
-import Button from '../../../components/Button';
 import Center from '../../../components/LayoutSections/Center';
 import Switcher from '../../../components/LayoutSections/Switcher';
 import LazyAnimation from '../../../components/LazyAnimation';
 
 // styles
 import {
+  CTAContent,
   SectionContainer,
-  SpeakersContent,
-  SpeakersTitle,
-  SpeakersIntro,
   SpeakersGraphics,
   SpeakersGraphicsWrapper,
   SpeakersPicture,
   SpeakersSticker,
   SpeakersTag,
-} from './SpeakersSection.styles';
+} from './CTASection.styles';
 import { easing } from '../../../styles/animation';
+import PreSale from './PreSale';
 
-const SpeakersSection = () => {
+const CTASection = () => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -89,30 +87,9 @@ const SpeakersSection = () => {
       <Center maxWidth='1080px' gutters='50px'>
         <Switcher threshold='854px' space='2rem' limit={2}>
           <div>
-            <SpeakersContent>
-              <SpeakersTitle>
-                Vous aimeriez être
-                <br /> <span>conférencier</span> en 2022&nbsp;?
-              </SpeakersTitle>
-
-              <SpeakersIntro>
-                On veut t’entendre au WAQ! Tu souhaites transmettre ton
-                expertise sur un sujet qui te passionne relié au développement,
-                à l’innovation, à la communication et au marketing ou au design?
-                C’est le temps de soumettre ta candidature!
-              </SpeakersIntro>
-
-              <Button
-                primary
-                to='https://yr21i4wwzuv.typeform.com/to/QcCM10Cx?utm_source=website&utm_medium=homepage&utm_campaign=appel-a-conferencier&utm_id=ctp'
-                tag='href'
-                rel='noopener noreferrer'
-                target='_blank'
-                animated
-              >
-                Ma candidature
-              </Button>
-            </SpeakersContent>
+            <CTAContent>
+              <PreSale />
+            </CTAContent>
 
             <SpeakersGraphics>
               <SpeakersGraphicsWrapper>
@@ -336,4 +313,4 @@ const SpeakersSection = () => {
   );
 };
 
-export default SpeakersSection;
+export default CTASection;
