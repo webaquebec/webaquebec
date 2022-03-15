@@ -63,6 +63,32 @@ const optionsByLocation = {
       },
     ],
   },
+  blogue: {
+    minHue: 55,
+    maxHue: 317,
+    colors: [
+      {
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
+        lightness: colors.rose80hsl.lightness,
+      },
+      {
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: colors.turquoise80hsl.lightness,
+      },
+      {
+        hue: colors.jaune80hsl.hue,
+        saturation: colors.jaune80hsl.saturation,
+        lightness: colors.jaune80hsl.lightness,
+      },
+      {
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: colors.turquoise80hsl.lightness,
+      },
+    ],
+  },
   faq: {
     minHue: 217,
     maxHue: 266,
