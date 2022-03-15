@@ -20,13 +20,9 @@ import {
 import colors from '../../../styles/colors';
 
 const FeaturedBlogPost = ({ post }) => {
-  const {
-    pictures: { featuredLarge: picture },
-    title,
-    date,
-    excerpt,
-    to,
-  } = post;
+  const { pictures, title, date, excerpt, to } = post;
+
+  const picture = pictures?.featuredLarge;
 
   return (
     <Paper
@@ -41,7 +37,7 @@ const FeaturedBlogPost = ({ post }) => {
         limit={2}
       >
         <div>
-          <Picture fluid={picture} role='presentation' alt='' />
+          <Picture fluid={picture} alt='' role='presentation' />
 
           <Content>
             <Title>{title}</Title>
