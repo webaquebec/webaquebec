@@ -1,3 +1,1 @@
-export default (string) => {
-  return string.replace(/(<([^>]+)>)/gi, '');
-};
+export default (string) => string.replace(/(<([^>]+)>)/gi, '');
