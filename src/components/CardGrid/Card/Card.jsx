@@ -1,7 +1,6 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 // images
@@ -10,10 +9,13 @@ import IconArrow from '../../../images/IconArrow';
 // styles
 import colors from '../../../styles/colors';
 import {
+  cardBoxStyle,
+  contentBoxStyle,
   StyledCard,
   Title,
-  Star,
-  Date,
+  Complement,
+  // Star,
+  // Date,
   Content,
   CardButton,
 } from './Card.styles';
@@ -25,70 +27,52 @@ import Stack from '../../LayoutSections/Stack';
 const Card = ({
   title,
   titleAs,
-  date,
+  // date,
+  complement,
+  complementAs,
   content,
   contentAs,
+  color,
+  bgColor,
   buttonText,
   picture,
   to,
-}) => {
-  const {
-    childImageSharp: { desktop, mobile },
-  } = picture;
+}) => (
+  <StyledCard to={to}>
+    <Box
+      padding='0'
+      borderWidth='3px'
+      darkColor={color}
+      lightColor={bgColor}
+      css={cardBoxStyle}
+    >
+      <Img fluid={picture} role='presentation' alt='' />
 
-  const sources = [
-    {
-      ...desktop,
-    },
-    { ...mobile },
-  ];
-
-  return (
-    <StyledCard to={to}>
       <Box
-        padding='0'
-        borderWidth='3px'
-        darkColor={colors.bleu}
-        lightColor={colors.gris}
+        noBorder
+        padding='2rem'
+        darkColor={color}
+        lightColor={bgColor}
+        css={contentBoxStyle}
       >
-        <Img fluid={sources} role='presentation' alt='' />
+        <Stack>
+          <Title as={titleAs}>{title}</Title>
 
-        {/* Use default Box padding props or custom padding with css attribute */}
-        {/* <Box
-          noBorder
-          css={`
-            padding-top: ...;
-            padding-Bottom: ...;
-            ...
-          `}
-        >
-          ...Box content
-        </Box> */}
-        <Box
-          noBorder
-          padding='2rem'
-          darkColor={colors.bleu}
-          lightColor={colors.gris}
-        >
-          <Stack>
-            <Title as={titleAs}>{title}</Title>
+          <Complement as={complementAs}>{complement}</Complement>
 
-            <Date>
-              <Star /> {date}
-            </Date>
-
-            <Content as={contentAs}>{content}</Content>
-          </Stack>
-        </Box>
-
-        <CardButton tag='div' outlined renderIcon={<IconArrow />}>
-          {buttonText}
-        </CardButton>
+          <Content
+            as={contentAs}
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        </Stack>
       </Box>
-    </StyledCard>
-  );
-};
 
+      <CardButton tag='div' outlined renderIcon={<IconArrow />}>
+        {buttonText}
+      </CardButton>
+    </Box>
+  </StyledCard>
+);
 Card.propTypes = {
   /**
    * Specifies the title of the card.
@@ -101,9 +85,13 @@ Card.propTypes = {
    */
   titleAs: PropTypes.string,
   /**
-   * Specifies the date of the card
+   * Specifies a complement of information of the card. Could be a simple string, a single or multiple HTML element(s) or custom React component(s)
    */
-  date: PropTypes.string.isRequired,
+  complement: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  /**
+   * Specifies a different HTML tag applied to the complement information of the card
+   */
+  complementAs: PropTypes.string,
   /**
    * Specifies the content of the card. Could be a simple string, a single or multiple HTML element(s) or custom React component(s)
    */
@@ -113,6 +101,14 @@ Card.propTypes = {
    */
   contentAs: PropTypes.string,
   /**
+   * Specifies the text color of the card
+   */
+  color: PropTypes.string,
+  /**
+   * Specifies the background color of the card
+   */
+  bgColor: PropTypes.string,
+  /**
    *  Specifies the text of the button of the card
    */
   buttonText: PropTypes.string.isRequired,
@@ -120,22 +116,12 @@ Card.propTypes = {
    * Specifies a single or multiple picture sources
    */
   picture: PropTypes.shape({
-    childImageSharp: PropTypes.shape({
-      desktop: PropTypes.shape({
-        aspectRatio: PropTypes.number.isRequired,
-        src: PropTypes.string.isRequired,
-        srcSet: PropTypes.string.isRequired,
-        srcSetWebp: PropTypes.string.isRequired,
-        srcWebp: PropTypes.string.isRequired,
-      }).isRequired,
-      mobile: PropTypes.shape({
-        aspectRatio: PropTypes.number.isRequired,
-        src: PropTypes.string.isRequired,
-        srcSet: PropTypes.string.isRequired,
-        srcSetWebp: PropTypes.string.isRequired,
-        srcWebp: PropTypes.string.isRequired,
-      }).isRequired,
-    }),
+    aspectRatio: PropTypes.number.isRequired,
+    src: PropTypes.string.isRequired,
+    srcSet: PropTypes.string.isRequired,
+    srcSetWebp: PropTypes.string.isRequired,
+    srcWebp: PropTypes.string.isRequired,
+    sizes: PropTypes.string.isRequired,
   }).isRequired,
   /**
    * Specifies the reference to a local page (i.e. /about) used with Gatsby Link tag
@@ -146,26 +132,10 @@ Card.defaultProps = {
   titleAs: null,
   content: null,
   contentAs: null,
+  complement: null,
+  complementAs: null,
+  color: colors.bleu,
+  bgColor: colors.gris,
 };
 
 export default Card;
-
-/**
- * Defines grapqhl fragments used by gatsby image
- * to handle different picture sources and related metadata to apply lazy loading
- */
-export const query = graphql`
-  fragment CardLongPicture on ImageSharp {
-    mobile: fluid(maxWidth: 554, quality: 100) {
-      ...GatsbyImageSharpFluid_withWebp
-      ...GatsbyImageSharpFluidLimitPresentationSize
-    }
-  }
-
-  fragment CardShortPicture on ImageSharp {
-    desktop: fluid(maxWidth: 368, quality: 100) {
-      ...GatsbyImageSharpFluid_withWebp
-      ...GatsbyImageSharpFluidLimitPresentationSize
-    }
-  }
-`;
