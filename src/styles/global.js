@@ -16,6 +16,7 @@ export const rootStyle = css`
   --container-gutter: 16px;
   --min-container-width: 320px;
   --max-container-width: 1280px;
+  --max-content-post-width: 854px;
 
   font-size: ${interpolate(16, 20, 480, 1280)};
 
@@ -52,7 +53,7 @@ export const bodyStyle = css`
   font-weight: ${fontWeights.regular};
   font-family: ${fontFamilies.body};
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [26, 24], bases: [16, 20], unit: '' }],
+    [{ prop: 'lineHeight', sizes: [22, 28], bases: [16, 20], unit: '' }],
     breakpoints.spacings
   )};
   letter-spacing: 0.1px;
@@ -212,7 +213,23 @@ export const unstyledLinkStyle = css`
 
 export const titleStyle = css``;
 
+export const captionStyle = css`
+  display: block;
+
+  text-align: center;
+
+  ${breakpointsRange(
+    [
+      { prop: 'paddingTop', sizes: [13, 13], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [13, 13], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
 export const caption1Style = css`
+  ${captionStyle}
+
   font-weight: ${fontWeights.regular};
   ${breakpointsRange(
     [
@@ -230,6 +247,8 @@ export const caption1MediumStyle = css`
 `;
 
 export const caption2Style = css`
+  ${captionStyle}
+
   font-weight: ${fontWeights.regular};
   ${breakpointsRange(
     [
@@ -247,6 +266,8 @@ export const caption2MediumStyle = css`
 `;
 
 export const caption3Style = css`
+  ${captionStyle}
+
   font-weight: ${fontWeights.regular};
   ${breakpointsRange(
     [
@@ -327,6 +348,20 @@ export const unorderListStyle = css`
 
 export const orderListStyle = css``;
 
+export const resetStyle = css`
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    color: inherit;
+
+    word-break: break-word;
+  }
+`;
+
 export const GlobalStyle = createGlobalStyle`
   :root {
     ${rootStyle};
@@ -339,4 +374,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     ${bodyStyle};
   }
+
+  ${resetStyle};
 `;
