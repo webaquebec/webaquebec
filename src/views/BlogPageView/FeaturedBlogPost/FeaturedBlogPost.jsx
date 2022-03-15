@@ -9,49 +9,54 @@ import Paper from '../../../components/Paper';
 
 // styles
 import {
-  PostWrapper,
-  PostContent,
-  PostPicture,
-  PostTitle,
+  postWrapperStyle,
+  Content,
+  Picture,
+  Title,
   Star,
-  PostDate,
-  PostSummary,
+  Date,
+  Excerpt,
 } from './FeaturedBlogPost.styles';
 import colors from '../../../styles/colors';
 
 const FeaturedBlogPost = ({ post }) => {
   const {
-    childImageSharp: { desktop, mobile },
-  } = post.picture;
-
-  const sources = [
-    {
-      ...desktop,
-    },
-    { ...mobile },
-  ];
+    pictures: { featuredLarge: picture },
+    title,
+    date,
+    excerpt,
+    to,
+  } = post;
 
   return (
     <Paper
       lightColor={colors.bleu80}
       darkColor={colors.gris30}
       rounded
-      css={PostWrapper}
+      css={postWrapperStyle}
     >
-      <Switcher threshold='768px' space='2rem' limit={2}>
+      <Switcher
+        threshold='768px'
+        space='calc(var(--container-gutter) * 2)'
+        limit={2}
+      >
         <div>
-          <PostPicture fluid={sources} role='presentation' alt='' />
-          <PostContent>
-            <PostTitle>{post.title}</PostTitle>
-            <PostDate>
+          <Picture fluid={picture} role='presentation' alt='' />
+
+          <Content>
+            <Title>{title}</Title>
+
+            <Date>
               <Star color={colors.yellow80} />
-              {post.date}
-            </PostDate>
-            <PostSummary>{post.content}</PostSummary>
-            <Button to={post.to} tag='href' primary small>
+              {date}
+            </Date>
+
+            <Excerpt dangerouslySetInnerHTML={{ __html: excerpt }} />
+
+            <Button to={to} tag='link' primary small>
               lire l&apos;article
             </Button>
-          </PostContent>
+          </Content>
         </div>
       </Switcher>
     </Paper>
@@ -60,29 +65,20 @@ const FeaturedBlogPost = ({ post }) => {
 
 FeaturedBlogPost.propTypes = {
   /**
-   * Specifies the post to be featured
+   * Specifies the featured post
    */
   post: PropTypes.shape({
     title: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    picture: PropTypes.shape({
-      childImageSharp: PropTypes.shape({
-        desktop: PropTypes.shape({
-          aspectRatio: PropTypes.number.isRequired,
-          src: PropTypes.string.isRequired,
-          srcSet: PropTypes.string.isRequired,
-          srcSetWebp: PropTypes.string.isRequired,
-          srcWebp: PropTypes.string.isRequired,
-        }).isRequired,
-        mobile: PropTypes.shape({
-          aspectRatio: PropTypes.number.isRequired,
-          src: PropTypes.string.isRequired,
-          srcSet: PropTypes.string.isRequired,
-          srcSetWebp: PropTypes.string.isRequired,
-          srcWebp: PropTypes.string.isRequired,
-        }).isRequired,
-      }),
+    excerpt: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    pictures: PropTypes.shape({
+      featuredLarge: PropTypes.shape({
+        aspectRatio: PropTypes.number.isRequired,
+        src: PropTypes.string.isRequired,
+        srcSet: PropTypes.string.isRequired,
+        srcSetWebp: PropTypes.string.isRequired,
+        srcWebp: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired,
     to: PropTypes.string.isRequired,
   }).isRequired,
