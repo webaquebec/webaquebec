@@ -38,22 +38,15 @@ const primaryNavigation = [
     label: 'blogue',
     slug: '/blogue',
     type: 'internal',
+    color: 'rose',
   },
   {
     id: 'faq',
     label: 'FAQ',
     slug: '/faq',
     type: 'internal',
-    color: 'rose',
+    color: 'turquoise',
   },
-  // {
-  //   id: 'covid-19',
-  //   label: 'covid-19',
-  //   slug:
-  //     'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
-  //   type: 'external',
-  //   color: 'ciel',
-  // },
 ];
 
 const Header = ({ pathname }) => {
