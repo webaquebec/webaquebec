@@ -4,11 +4,11 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Le Web à Québec',
+    title: 'Web à Québec',
     description:
       'Le plus grand événement numérique francophone en Amérique du Nord.',
     siteUrl: 'https://webaquebec.org',
-    image: '',
+    image: '/og-img-waq-22.jpg',
   },
   plugins: [
     {
@@ -52,7 +52,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: './src/images/',
+        path: `${__dirname}/src/images/`,
       },
       __key: 'images',
     },
@@ -85,7 +85,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Le Web à Québec',
+        name: 'Web à Québec',
         short_name: 'WAQ',
         start_url: '/',
         background_color: '#000CA0',

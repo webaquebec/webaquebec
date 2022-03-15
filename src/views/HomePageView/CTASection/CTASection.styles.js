@@ -24,11 +24,11 @@ export const SectionContainer = styled.section`
   )};
 `;
 
-export const SpeakersContent = styled.div`
+export const CTAContent = styled.div`
   max-width: 500px;
 `;
 
-export const SpeakersTitle = styled.p`
+export const CTATitle = styled.p`
   margin-top: 0;
 
   font-weight: ${fontWeights.bold};
@@ -46,12 +46,15 @@ export const SpeakersTitle = styled.p`
   )};
 `;
 
-export const SpeakersIntro = styled.p`
+export const CTAIntro = styled.p`
   max-width: 421px;
   margin-bottom: 32px;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 18], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [16, 18], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [26, 28], bases: [16, 18], unit: '' },
+    ],
     breakpoints.spacings
   )};
 `;

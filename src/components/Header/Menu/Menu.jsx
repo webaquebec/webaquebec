@@ -8,15 +8,13 @@ import Center from '../../LayoutSections/Center';
 import Grid from '../../LayoutSections/Grid';
 import Stack from '../../LayoutSections/Stack';
 import Cluster from '../../LayoutSections/Cluster';
+import CloseButton from '../../CloseButton';
 
 // hooks
 import useHasMounted from '../../../hooks/useHasMounted';
 
-// utils
-import randomString from '../../../utils/math/randomString';
-
 // images
-import logoSVG from '../../../images/logo-waq-21-sticker.svg';
+import logoSVG from '../../../images/logo-waq-22-sticker.svg';
 import facebook from '../../../images/socialMedia/facebook.svg';
 import twitter from '../../../images/socialMedia/twitter.svg';
 import instagram from '../../../images/socialMedia/instagram.svg';
@@ -25,17 +23,16 @@ import linkedin from '../../../images/socialMedia/linkedin.svg';
 // styles
 import colors from '../../../styles/colors';
 import {
+  closeButtonStyle,
+  primaryNavListStyle,
   Container,
   Gradient,
   Top,
   LogoWrapper,
   Logo,
-  primaryNavListStyle,
   ListItem,
   NavLink,
   ButtonWrapper,
-  CloseButton,
-  IconCross,
 } from './Menu.styles';
 
 const socialMedia = [
@@ -60,8 +57,6 @@ const socialMedia = [
     link: 'https://www.linkedin.com/company/web-qu-bec',
   },
 ];
-
-const actionButtonId = randomString();
 
 const Menu = ({ pathname, opened, onClose, primaryNavigation }) => {
   const navLinkRefs = useRef([]);
@@ -149,10 +144,7 @@ const Menu = ({ pathname, opened, onClose, primaryNavigation }) => {
           </LogoWrapper>
 
           <ButtonWrapper>
-            <CloseButton onClick={onClose} aria-labelledby={actionButtonId}>
-              <span id={actionButtonId}>Fermer</span>
-              <IconCross aria-hidden='true' focusable='false' />
-            </CloseButton>
+            <CloseButton onClose={onClose} darked css={closeButtonStyle} />
           </ButtonWrapper>
         </Top>
 

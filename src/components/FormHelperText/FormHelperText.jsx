@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { lighten, em } from 'polished';
+import { lighten, rem } from 'polished';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
@@ -11,15 +11,16 @@ import { fontWeights } from '../../styles/typography';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 const FormHelperText = styled.p`
-  margin-top: ${em(8)};
+  margin-top: ${rem(2)};
   margin-bottom: 0;
 
   color: ${colors.bleu};
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [14, 16], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [12, 14], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [24, 22], bases: [14, 16] },
+      { prop: 'paddingLeft', sizes: [12, 20], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};

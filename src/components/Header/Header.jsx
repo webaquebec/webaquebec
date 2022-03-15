@@ -28,7 +28,7 @@ import {
 const primaryNavigation = [
   {
     id: 'prog',
-    label: 'Dernière édition',
+    label: 'édition 2021',
     slug: '/programmation/2021',
     type: 'internal',
     color: 'jaune',
@@ -41,11 +41,25 @@ const primaryNavigation = [
     color: 'rose',
   },
   {
+    id: 'about',
+    label: 'à propos',
+    slug: '/a-propos/evenement',
+    type: 'internal',
+    color: 'turquoise',
+  },
+  {
     id: 'faq',
     label: 'FAQ',
     slug: '/faq',
     type: 'internal',
     color: 'turquoise',
+  },
+  {
+    id: 'tickets',
+    label: 'billetterie',
+    slug: '/billetterie',
+    type: 'internal',
+    color: 'ciel',
   },
 ];
 
@@ -60,7 +74,7 @@ const Header = ({ pathname }) => {
     if (!opened) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.removeAttribute('style');
     }
   };
 

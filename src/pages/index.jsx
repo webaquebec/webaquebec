@@ -13,7 +13,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 // views
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
-import SpeakersSection from '../views/HomePageView/SpeakersSection';
+import CTASection from '../views/HomePageView/CTASection';
 import PartnersGridSection from '../views/HomePageView/PartnersSection';
 
 // styles
@@ -32,7 +32,7 @@ const SectionContainer = styled(StyledSectionContainer)`
 const IndexPage = () => (
   <>
     <SEO
-      title='Le Web à Québec | 24 au 26 mai 2022'
+      title='Web à Québec | 24 au 26 mai 2022'
       description='Le plus grand événement numérique francophone en Amérique du Nord.'
     />
 
@@ -41,7 +41,7 @@ const IndexPage = () => (
     <StatsSection />
 
     <SectionContainer forwardedAs='div' faded>
-      <SpeakersSection />
+      <CTASection />
 
       <PartnersGridSection />
     </SectionContainer>
