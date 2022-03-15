@@ -9,6 +9,7 @@ import {
   BackButton,
   PostTitle,
   PostDate,
+  FeaturedGrid,
   FeaturedPictureWrapper,
   FeaturedPicture,
 } from './HeroSection.styles';
@@ -18,35 +19,45 @@ import Center from '../../../components/LayoutSections/Center';
 
 // images
 import IconArrow from '../../../images/IconArrow';
+import vectorBlogPostHeroGrid from '../../../images/vectorBlogPostHeroGrid.svg';
 
 const backArrow = css`
-  transform: rotate3d(0, 0, 1, 180deg);
+  transform: rotate(180deg);
 `;
 
-const HeroSection = ({ title, publishDate, featuredPicture }) => {
-  return (
-    <>
-      <Center maxWidth='var(--max-container-width)' gutters='16px'>
-        <TitleWrapper>
-          <BackButton
-            outlined
-            iconFirst
-            renderIcon={<IconArrow css={backArrow} />}
-          >
-            Retour
-          </BackButton>
-          <Center maxWidth='640px' intrinsic>
-            <PostTitle>{title}</PostTitle>
-            <PostDate>Publié le {publishDate}</PostDate>
-          </Center>
-        </TitleWrapper>
-      </Center>
-      <FeaturedPictureWrapper>
-        <FeaturedPicture src={featuredPicture} alt='' />
-      </FeaturedPictureWrapper>
-    </>
-  );
-};
+const HeroSection = ({ title, publishDate, featuredImage }) => (
+  <>
+    <Center
+      maxWidth='var(--max-container-width)'
+      gutters='var(--container-gutter)'
+      css={`
+        width: calc(100% - 2 * var(--container-gutter));
+      `}
+    >
+      <TitleWrapper>
+        <BackButton
+          to='/blogue'
+          tag='link'
+          outlined
+          iconFirst
+          renderIcon={<IconArrow css={backArrow} />}
+        >
+          Retour
+        </BackButton>
+
+        <Center maxWidth='640px' intrinsic>
+          <PostTitle>{title}</PostTitle>
+          <PostDate>Publié le {publishDate}</PostDate>
+        </Center>
+      </TitleWrapper>
+    </Center>
+
+    <FeaturedPictureWrapper>
+      <FeaturedGrid src={vectorBlogPostHeroGrid} alt='' role='presentation' />
+      <FeaturedPicture fluid={featuredImage} alt='' role='presentation' />
+    </FeaturedPictureWrapper>
+  </>
+);
 
 HeroSection.propTypes = {
   /**
@@ -60,13 +71,13 @@ HeroSection.propTypes = {
   /**
    * Specifies the post featured picture
    */
-  featuredPicture: PropTypes.string,
+  featuredImage: PropTypes.shape({}),
 };
 
 HeroSection.defaultProps = {
   title: '',
   publishDate: '',
-  featuredPicture: undefined,
+  featuredImage: undefined,
 };
 
 export default HeroSection;
