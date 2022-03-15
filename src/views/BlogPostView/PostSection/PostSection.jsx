@@ -2,22 +2,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// styles
-import { PostWrapper } from './PostSection.styles';
+// components
+import Center from '../../../components/LayoutSections/Center';
+import Stack from '../../../components/LayoutSections/Stack';
+import Blocks from '../../../components/Blocks';
 
-const PostSection = ({ content }) => {
-  return <PostWrapper dangerouslySetInnerHTML={{ __html: content }} />;
-};
+// styles
+import { stackStyle, PublishDate } from './PostSection.styles';
+
+const PostSection = ({ blocks, publishDate, author }) => (
+  <Center
+    maxWidth='var(--max-container-width)'
+    gutters='var(--container-gutter)'
+  >
+    <Stack space='var(--space)' css={stackStyle}>
+      <Blocks blocks={blocks} />
+    </Stack>
+
+    <PublishDate>
+      <span>{`Publié le ${publishDate}`}</span>{' '}
+      {author && <span>{`par ${author}`}</span>}
+    </PublishDate>
+  </Center>
+);
 
 PostSection.propTypes = {
   /**
-   * Specifies the post title
+   * Specifies content blocks from CMS
    */
-  content: PropTypes.string,
+  blocks: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  /**
+   * Specifies the date of publication
+   */
+  publishDate: PropTypes.string.isRequired,
+  /**
+   * Specifies the author of the post
+   */
+  author: PropTypes.string,
 };
-
 PostSection.defaultProps = {
-  content: '',
+  author: null,
 };
 
 export default PostSection;
