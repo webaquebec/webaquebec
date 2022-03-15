@@ -134,13 +134,11 @@ export const StickerWrapper = styled.div`
   }
 `;
 
-const template = (i) => {
-  return `
-        &:nth-child(${i}) {
-          animation-delay: ${i * 30}ms;
-         }
-      `;
-};
+const template = (i) => `
+  &:nth-child(${i}) {
+    animation-delay: ${i * 30}ms;
+  }
+`;
 
 const setAnimationDelays = () => {
   let str = '';
@@ -151,10 +149,10 @@ const setAnimationDelays = () => {
 };
 
 const moving = keyframes`
-  from { 
+  from {
     transform: translate3d(10px, 0, 0) rotate3d(0, 0, 1, -40deg);
   }
-  
+
   to {
     transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
   }

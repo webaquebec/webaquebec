@@ -139,9 +139,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
   } = data;
 
   // Fix Safari Invalid Date issue
-  const formatDateStr = (value) => {
-    return value.replace(/-/g, '/');
-  };
+  const formatDateStr = (value) => value.replace(/-/g, '/');
 
   const getFormattedLocaleDate = (value) => {
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
