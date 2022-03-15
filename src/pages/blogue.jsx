@@ -1,10 +1,14 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import styled from 'styled-components';
+
+// images
+import VectorStar from '../images/VectorStar';
 
 // components
 import SEO from '../components/SEO';
-import Layout from '../components/Layout';
 import Center from '../components/LayoutSections/Center';
 import SectionContainer from '../components/SectionContainer';
 import HeroGrid from '../components/HeroGrid/HeroGrid';
@@ -13,139 +17,48 @@ import Card from '../components/CardGrid/Card';
 
 // views
 import FeaturedBlogPost from '../views/BlogPageView/FeaturedBlogPost';
+import breakpointsRange from '../utils/breakpointsRange';
+import breakpoints from '../styles/breakpoints';
 
-const BlogPage = ({ location }) => {
-  const featuredPost = {
-    title: 'Le WAQ a besoin de toi comme bénévole!',
-    date: '6 avril 2021',
-    content:
-      'Coutre intro lorem ipsum dolor sit amet, consectetur adipiscing elit, sed duom...',
-    picture: {
-      childImageSharp: {
-        desktop: {
-          aspectRatio: 1.38,
-          src: 'https://via.placeholder.com/600x434',
-          srcSet: '',
-          srcSetWebp: '',
-          srcWebp: '',
-        },
-        mobile: {
-          aspectRatio: 1.38,
-          src: 'https://via.placeholder.com/380x434',
-          srcSet: '',
-          srcSetWebp: '',
-          srcWebp: '',
-        },
-      },
-    },
-    to: '/',
-  };
+const Container = styled(SectionContainer)`
+  ${breakpointsRange(
+    [
+      { prop: 'paddingTop', sizes: [56, 72], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [158, 138], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
 
-  const data = [
-    {
-      title: 'Le WAQ a besoin de toi comme bénévole!',
-      date: '6 avril 2021',
-      content:
-        'Coutre intro lorem ipsum dolor sit amet, consectetur adipiscing elit, sed duom...',
-      picture: {
-        childImageSharp: {
-          desktop: {
-            aspectRatio: 1.89,
-            src: 'https://via.placeholder.com/380x200',
-            srcSet: '',
-            srcSetWebp: '',
-            srcWebp: '',
-          },
-          mobile: {
-            aspectRatio: 1.89,
-            src: 'https://via.placeholder.com/380x200',
-            srcSet: '',
-            srcSetWebp: '',
-            srcWebp: '',
-          },
-        },
-      },
-      to: '/',
-    },
-    {
-      title:
-        'Le WAQ a besoin de toi comme bénévole! Le WAQ a besoin de toi comme bénévole!',
-      date: '6 avril 2021',
-      content:
-        'Coutre intro lorem ipsum dolor sit amet, consectetur adipiscing elit, sed duom...',
-      picture: {
-        childImageSharp: {
-          desktop: {
-            aspectRatio: 1.89,
-            src: 'https://via.placeholder.com/380x200',
-            srcSet: '',
-            srcSetWebp: '',
-            srcWebp: '',
-          },
-          mobile: {
-            aspectRatio: 1.89,
-            src: 'https://via.placeholder.com/380x200',
-            srcSet: '',
-            srcSetWebp: '',
-            srcWebp: '',
-          },
-        },
-      },
-      to: '/',
-    },
-    {
-      title: 'Le WAQ a besoin de toi comme bénévole!',
-      date: '6 avril 2021',
-      content:
-        'Coutre intro lorem ipsum dolor sit amet, consectetur adipiscing elit, sed duom...',
-      picture: {
-        childImageSharp: {
-          desktop: {
-            aspectRatio: 1.89,
-            src: 'https://via.placeholder.com/380x200',
-            srcSet: '',
-            srcSetWebp: '',
-            srcWebp: '',
-          },
-          mobile: {
-            aspectRatio: 1.89,
-            src: 'https://via.placeholder.com/380x200',
-            srcSet: '',
-            srcSetWebp: '',
-            srcWebp: '',
-          },
-        },
-      },
-      to: '/',
-    },
-    {
-      title: 'Le WAQ a besoin de toi comme bénévole!',
-      date: '6 avril 2021',
-      content:
-        'Coutre intro lorem ipsum dolor sit amet, consectetur adipiscing elit, sed duom...',
-      picture: {
-        childImageSharp: {
-          desktop: {
-            aspectRatio: 1.89,
-            src: 'https://via.placeholder.com/380x200',
-            srcSet: '',
-            srcSetWebp: '',
-            srcWebp: '',
-          },
-          mobile: {
-            aspectRatio: 1.89,
-            src: 'https://via.placeholder.com/380x200',
-            srcSet: '',
-            srcSetWebp: '',
-            srcWebp: '',
-          },
-        },
-      },
-      to: '/',
-    },
-  ];
+const Star = styled(VectorStar)`
+  margin-right: 8px;
+
+  ${breakpointsRange(
+    [
+      { prop: 'width', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'height', sizes: [16, 16], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
+const BlogPage = ({ data }) => {
+  const {
+    allWpPost: { edges = [] },
+  } = data;
+
+  const blogArchives = edges.map(({ node }) => {
+    const pictures = node.featuredImage?.node?.localFile?.childImageSharp;
+
+    return {
+      ...node,
+      pictures,
+      to: `/blogue/${node.slug}`,
+    };
+  });
+
   return (
-    <Layout location={location}>
+    <>
       <SEO
         title='Blogue'
         description='Tout ce que tu dois savoir sur le WAQ21.'
@@ -157,30 +70,47 @@ const BlogPage = ({ location }) => {
         maxWidth='var(--max-container-width)'
         gutters='var(--container-gutter)'
       >
-        <FeaturedBlogPost post={featuredPost} />
+        <FeaturedBlogPost post={blogArchives[0]} />
       </Center>
 
-      <SectionContainer forwardedAs='div' faded>
+      <Container forwardedAs='div' faded padded>
         <Center
           maxWidth='var(--max-container-width)'
           gutters='var(--container-gutter)'
         >
           <CardGrid>
-            {data.map((item) => (
-              <Card
-                title={item.title}
-                titleAs='h2'
-                date={item.date}
-                content={item.content}
-                picture={item.picture}
-                to={item.to}
-                buttonText='Lire l’article'
-              />
-            ))}
+            {blogArchives.map((item) => {
+              const picture = {
+                ...item.pictures?.featuredSmall,
+                sizes: `
+                (min-width: 576px) ${(695 / 734) * 100}vw,
+                (min-width: 734px) ${(516 / 1138) * 100}vw,
+                (min-width: 1138px) ${(378 / 1280) * 100}vw,
+                (min-width: 1280px) 378px,
+                ${(538 / 576) * 100}vw`,
+              };
+
+              return (
+                <Card
+                  key={item.id}
+                  title={item.title}
+                  titleAs='h2'
+                  complement={
+                    <>
+                      <Star /> {item.date}
+                    </>
+                  }
+                  content={item.excerpt}
+                  picture={picture}
+                  to={item.to}
+                  buttonText={`Lire l'article`}
+                />
+              );
+            })}
           </CardGrid>
         </Center>
-      </SectionContainer>
-    </Layout>
+      </Container>
+    </>
   );
 };
 
@@ -188,6 +118,51 @@ BlogPage.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
+  data: PropTypes.shape({
+    allWpPost: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+  }).isRequired,
 };
 
 export default BlogPage;
+
+export const blogArchiveQuery = graphql`
+  query blogArchives {
+    allWpPost(sort: { order: DESC, fields: date }) {
+      edges {
+        node {
+          id
+          title
+          date(formatString: "D MMMM YYYY", locale: "fr-CA")
+          excerpt
+          slug
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  featuredLarge: fluid(
+                    maxWidth: 800
+                    maxHeight: 434
+                    quality: 100
+                  ) {
+                    ...GatsbyImageSharpFluid_withWebp
+                    ...GatsbyImageSharpFluidLimitPresentationSize
+                  }
+                  featuredSmall: fluid(
+                    maxWidth: 695
+                    maxHeight: 370
+                    quality: 100
+                  ) {
+                    ...GatsbyImageSharpFluid_withWebp
+                    ...GatsbyImageSharpFluidLimitPresentationSize
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
