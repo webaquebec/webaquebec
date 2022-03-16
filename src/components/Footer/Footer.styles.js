@@ -22,13 +22,17 @@ export const FooterWrapper = css`
 `;
 
 export const FooterTitle = styled.h2`
-  margin-top: 0;
+  margin: 0;
+  margin-bottom: 14px;
 
   color: ${colors.bleu90};
-  font-weight: ${fontWeights.medium};
+  font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 18], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [20, 20], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [26, 26], bases: [16, 20], unit: '' },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -37,13 +41,16 @@ export const ContactLink = styled.a`
   display: block;
 
   color: ${colors.bleu80};
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeights.medium};
   text-decoration: none;
 
   word-break: normal;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [20, 24], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 24], bases: [16, 16], unit: '' },
+    ],
     breakpoints.spacings
   )};
 `;
