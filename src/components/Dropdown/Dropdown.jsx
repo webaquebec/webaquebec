@@ -55,8 +55,9 @@ const Dropdown = ({ title, children, ...rest }) => {
         $expanded={expanded}
         role='menu'
       >
-        {children.map(({ props }) => (
-          <LinkButton {...props} />
+        {children.map(({ props }, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <LinkButton key={`item-${index}`} {...props} />
         ))}
       </DropdownMenu>
     </Container>
