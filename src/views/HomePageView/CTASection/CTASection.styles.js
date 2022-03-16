@@ -29,7 +29,8 @@ export const CTAContent = styled.div`
 `;
 
 export const CTATitle = styled.p`
-  margin-top: 0;
+  margin: 0;
+  margin-bottom: 24px;
 
   font-weight: ${fontWeights.bold};
 

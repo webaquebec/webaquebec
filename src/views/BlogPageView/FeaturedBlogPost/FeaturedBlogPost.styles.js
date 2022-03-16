@@ -1,5 +1,6 @@
 // vendors
 import styled, { css } from 'styled-components';
+import Img from 'gatsby-image';
 
 // utils
 import { em } from 'polished';
@@ -13,11 +14,7 @@ import { fontWeights } from '../../../styles/typography';
 // images
 import VectorStar from '../../../images/VectorStar';
 
-export const PostWrapper = css`
-  @media (min-width: ${em(992)}) {
-    transform: rotate3d(0, 0, 1, -1.12deg);
-  }
-
+export const postWrapperStyle = css`
   ${breakpointsRange(
     [
       { prop: 'padding', sizes: [16, 32], bases: [16, 20] },
@@ -26,10 +23,14 @@ export const PostWrapper = css`
     ],
     breakpoints.spacings
   )};
+
+  @media (min-width: ${em(992)}) {
+    transform: rotate(-1.12deg);
+  }
 `;
 
-export const PostContent = styled.div`
-  display: flex;
+export const Content = styled.div`
+  /* display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -37,26 +38,34 @@ export const PostContent = styled.div`
   @media (max-width: ${em(865)}) {
     margin-top: 8px;
     margin-bottom: 32px;
+  } */
+
+  > * + * {
+    ${breakpointsRange(
+      [{ prop: 'marginTop', sizes: [12, 28], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
   }
 `;
 
-export const PostPictureWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const Picture = styled(Img)`
+  /* max-width: 100%; */
+  ${breakpointsRange(
+    [{ prop: 'minHeight', sizes: [214, 434], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
-export const PostPicture = styled.img`
-  max-width: 100%;
-`;
-
-export const PostTitle = styled.h2`
+export const Title = styled.h2`
   display: flex;
   align-items: center;
   margin: 0;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [20, 40], bases: [16, 20] }],
+    [
+      { prop: 'marginTop', sizes: [0, 40], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [20, 40], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -73,7 +82,7 @@ export const Star = styled(VectorStar)`
   )};
 `;
 
-export const PostDate = styled.p`
+export const Date = styled.p`
   color: ${colors.jaune80};
 
   font-weight: ${fontWeights.bold};
@@ -81,20 +90,18 @@ export const PostDate = styled.p`
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
-      { prop: 'marginTop', sizes: [12, 28], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [12, 28], bases: [16, 20] },
+      // { prop: 'marginTop', sizes: [12, 28], bases: [16, 20] },
+      // { prop: 'marginBottom', sizes: [12, 28], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 `;
 
-export const PostSummary = styled.p`
-  margin-top: 0;
-
+export const Excerpt = styled.div`
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [12, 28], bases: [16, 20] },
+      // { prop: 'marginBottom', sizes: [12, 28], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};

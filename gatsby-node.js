@@ -9,3 +9,18 @@
  * See https://www.gatsbyjs.com/docs/node-apis/#createPages for more info.
  */
 exports.createPages = require('./gatsby/createPages');
+
+/**
+ * FIXME: Temporary hack to fix issue with WPGraphQL Gutenberg plugin that crashes the build
+ * https://github.com/wp-graphql/wp-graphql/issues/1460#issuecomment-742235504
+ *
+ */
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type WpBlockAttributesObject {
+      foobar: String
+    }
+  `;
+  createTypes(typeDefs);
+};
