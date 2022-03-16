@@ -61,7 +61,7 @@ const BlogPage = ({ data }) => {
     <>
       <SEO
         title='Blogue'
-        description='Tout ce que tu dois savoir sur le WAQ21.'
+        description='Tout ce que tu dois savoir sur le WAQ22.'
       />
 
       <HeroGrid title='le blogue' />
