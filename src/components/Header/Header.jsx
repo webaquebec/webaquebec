@@ -1,7 +1,7 @@
 // vendors
 import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
 // components
 import Center from '../LayoutSections/Center';
@@ -16,10 +16,10 @@ import {
   StyledHeader,
   Container,
   LogoWrapper,
-  StyledNav,
-  PrimaryNavList,
-  NavListItem,
-  NavLink,
+  // StyledNav,
+  // PrimaryNavList,
+  // NavListItem,
+  // NavLink,
   MenuButtonWrapper,
   BurgerButton,
   BurgerImg,
@@ -27,11 +27,11 @@ import {
 
 const primaryNavigation = [
   {
-    id: 'prog',
-    label: 'édition 2021',
-    slug: '/programmation/2021',
+    id: 'tickets',
+    label: 'billetterie',
+    slug: '/billetterie',
     type: 'internal',
-    color: 'jaune',
+    color: 'ciel',
   },
   {
     id: 'blog',
@@ -41,27 +41,33 @@ const primaryNavigation = [
     color: 'rose',
   },
   {
+    id: 'prog',
+    label: 'édition 2021',
+    slug: '/programmation/2021',
+    type: 'internal',
+    color: 'jaune',
+  },
+];
+
+const secondaryNavigation = [
+  {
     id: 'about',
     label: 'à propos',
     slug: '/a-propos/evenement',
     type: 'internal',
-    color: 'turquoise',
   },
   {
     id: 'faq',
     label: 'FAQ',
     slug: '/faq',
     type: 'internal',
-    color: 'turquoise',
-  },
-  {
-    id: 'tickets',
-    label: 'billetterie',
-    slug: '/billetterie',
-    type: 'internal',
-    color: 'ciel',
   },
 ];
+
+const navigation = {
+  primary: [...primaryNavigation],
+  secondary: [...secondaryNavigation],
+};
 
 const Header = ({ pathname }) => {
   const [opened, setOpened] = useState(false);
@@ -85,7 +91,7 @@ const Header = ({ pathname }) => {
         gutters='var(--container-gutter)'
       >
         <Container>
-          <StyledNav aria-label='Header Menu'>
+          {/* <StyledNav aria-label='Header Menu'>
             <PrimaryNavList>
               {primaryNavigation.map((item) => (
                 <NavListItem key={item.id}>
@@ -112,7 +118,7 @@ const Header = ({ pathname }) => {
                 </NavListItem>
               ))}
             </PrimaryNavList>
-          </StyledNav>
+          </StyledNav> */}
 
           <LogoWrapper>
             <Logo isHomePage={isHomePage} />
@@ -130,7 +136,7 @@ const Header = ({ pathname }) => {
         pathname={pathname}
         opened={opened}
         onClose={handleClick}
-        primaryNavigation={primaryNavigation}
+        navigation={navigation}
       />
     </StyledHeader>
   );
