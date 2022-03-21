@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // styles
-import { Link, ImageWrapper, Image } from './LogoCard.styles';
+import { Link, Image } from './LogoCard.styles';
 
 const LogoCard = ({ image, isPremium }) => {
   const { src, srcAlt } = image;
@@ -36,9 +36,7 @@ const LogoCard = ({ image, isPremium }) => {
       onBlur={srcAlt ? handleMouseOut : undefined}
       $isPremium={isPremium}
     >
-      <ImageWrapper>
-        <Image src={imageSrc} alt={image.alt} />
-      </ImageWrapper>
+      <Image src={imageSrc} alt={image.alt} />
     </Link>
   );
 };

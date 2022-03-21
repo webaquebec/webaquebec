@@ -30,24 +30,17 @@ export const premiumStyle = css`
   }
 `;
 
-export const ImageWrapper = styled.div`
+export const Image = styled.img`
   display: flex;
   align-items: center;
   justify-content: center;
 
   width: 60%;
-  height: 60%;
-
-  filter: invert(11%) sepia(85%) saturate(5178%) hue-rotate(238deg)
-    brightness(71%) contrast(126%);
-`;
-
-export const Image = styled.img`
-  width: 100%;
   height: auto;
-  max-height: 100%;
+  max-height: 60%;
 
-  filter: brightness(0);
+  filter: invert(14%) sepia(100%) saturate(4664%) hue-rotate(221deg)
+    brightness(61%) contrast(148%);
 `;
 
 export const Link = styled.a`
