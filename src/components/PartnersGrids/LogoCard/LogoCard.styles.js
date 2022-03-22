@@ -30,6 +30,18 @@ export const premiumStyle = css`
   }
 `;
 
+export const presentingStyle = css`
+  max-width: 100%;
+
+  ${breakpointsRange(
+    [
+      { prop: 'width', sizes: [300, 300], bases: [16, 20] },
+      { prop: 'height', sizes: [300, 300], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
 export const Image = styled.img`
   display: flex;
   align-items: center;
@@ -77,4 +89,5 @@ export const Link = styled.a`
   )};
 
   ${({ $isPremium }) => $isPremium && premiumStyle};
+  ${({ $isPresenting }) => $isPresenting && presentingStyle};
 `;

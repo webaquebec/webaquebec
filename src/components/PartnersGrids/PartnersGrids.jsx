@@ -38,12 +38,13 @@ import {
 } from './PartnersGrids.styles';
 
 const PartnersGrid = () => {
+  const presentingImage = {
+    src: logoUbisoft,
+    alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
+    url: 'https://www.ubisoft.com/fr-ca/',
+  };
+
   const premiumImages = [
-    {
-      src: logoUbisoft,
-      alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
-      url: 'https://www.ubisoft.com/fr-ca/',
-    },
     {
       src: logoVooban,
       alt: 'Vooban | Le leader de la transformation digitale',
@@ -148,6 +149,8 @@ const PartnersGrid = () => {
   return (
     <div>
       <Center maxWidth='1024px' gutters='32px' intrinsic>
+        <GridTitle>le WAQ 2022 est présenté par</GridTitle>
+        <LogoCard image={presentingImage} isPresenting />
         <GridTitle>nos partenaires principaux</GridTitle>
         <Grid css={premiumGrid}>
           {premiumImages.map((image) => (

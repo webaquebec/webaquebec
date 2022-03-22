@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // styles
 import { Link, Image } from './LogoCard.styles';
 
-const LogoCard = ({ image, isPremium }) => {
+const LogoCard = ({ image, isPremium, isPresenting }) => {
   const { src, srcAlt } = image;
 
   const [imageSrc, setImageSrc] = useState(src);
@@ -35,6 +35,7 @@ const LogoCard = ({ image, isPremium }) => {
       onFocus={srcAlt ? handleMouseOver : undefined}
       onBlur={srcAlt ? handleMouseOut : undefined}
       $isPremium={isPremium}
+      $isPresenting={isPresenting}
     >
       <Image src={imageSrc} alt={image.alt} />
     </Link>
@@ -49,10 +50,12 @@ LogoCard.propTypes = {
     alt: PropTypes.string.isRequired,
   }).isRequired,
   isPremium: PropTypes.bool,
+  isPresenting: PropTypes.bool,
 };
 
 LogoCard.defaultProps = {
   isPremium: false,
+  isPresenting: false,
 };
 
 export default LogoCard;
