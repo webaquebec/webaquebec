@@ -12,7 +12,7 @@ import breakpoints from '../../../styles/breakpoints';
 import { h4Style } from '../../../styles/global';
 import colors from '../../../styles/colors';
 
-export const SectionContainer = styled.div`
+export const SectionContainer = styled.section`
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [24, 57], bases: [16, 20] },

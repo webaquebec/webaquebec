@@ -1,9 +1,6 @@
 // vendors
 import styled from 'styled-components';
 
-// components
-import StyledSection from '../../../components/SectionContainer/SectionContainer.styles';
-
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
 
@@ -13,7 +10,7 @@ import colors from '../../../styles/colors';
 import { h3Style, h6Style, introStyle } from '../../../styles/global';
 import { fontFamilies } from '../../../styles/typography';
 
-export const SectionContainer = styled(StyledSection)`
+export const SectionContainer = styled.section`
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [56, 30], bases: [16, 20] },
@@ -25,28 +22,19 @@ export const SectionContainer = styled(StyledSection)`
 
 export const MapContainer = styled.div`
   display: flex;
+  flex-grow: 1;
   justify-content: end;
   width: 100%;
   max-width: 748px;
+  min-height: 213px;
   overflow: hidden;
 
-  @media (min-width: 876px) {
-    margin-left: 32px;
-  }
-
-  ${breakpointsRange(
-    [{ prop: 'height', sizes: [213, 474], bases: [1, 1], unit: 'px' }],
-    breakpoints.spacings
-  )};
-
   background-color: white;
-  border-color: ${colors.bleu80};
-  border-style: solid;
-  border-width: 3px;
+  border: 3px solid ${colors.bleu80};
   border-radius: 16px;
 `;
 
-export const NosAdresses = styled.h2`
+export const OurAddresses = styled.h2`
   ${h3Style}
   margin: 0;
   ${breakpointsRange(
@@ -57,26 +45,15 @@ export const NosAdresses = styled.h2`
   color: ${colors.bleu80};
 
   @media (max-width: 800px) {
-    padding-left: 33px;
     ${breakpointsRange(
-      [{ prop: 'margin-left', sizes: [28, 40], bases: [16, 20] }],
+      [{ prop: 'margin-left', sizes: [42, 54], bases: [16, 20] }],
       breakpoints.spacings
     )};
   }
 `;
 
-export const AdressesSpan = styled.span`
+export const AddressesSpan = styled.span`
   font-family: ${fontFamilies.redaction20};
-`;
-
-export const AdresseBlockContainer = styled.div`
-  @media (max-width: 800px) {
-    margin-left: 20px;
-  }
-`;
-
-export const AdresseBlock = styled.div`
-  margin-bottom: 24px;
 `;
 
 export const StickerHeaderSpan = styled.div`
@@ -91,7 +68,7 @@ export const Sticker = styled.img`
   )};
 `;
 
-export const AdresseName = styled.h3`
+export const AddresseName = styled.h3`
   ${h6Style}
   margin: 0;
   padding-left: 14px;

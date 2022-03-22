@@ -8,7 +8,7 @@ import Center from '../components/LayoutSections/Center';
 import StyledSection from '../components/SectionContainer';
 
 // views
-import Adresses from '../views/ContactPageView/Adresses';
+import Addresses from '../views/ContactPageView/Addresses';
 import Form from '../views/ContactPageView/Form';
 import Info from '../views/ContactPageView/Info';
 
@@ -54,14 +54,15 @@ const ContactPage = () => (
       intrinsic
     >
       <ContactTitle>nous joindre</ContactTitle>
+
       <ContactIntro css={introStyle}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
       </ContactIntro>
     </Center>
 
-    <StyledSection faded>
-      <Adresses />
+    <StyledSection as='div' faded>
+      <Addresses />
 
       <Info />
 

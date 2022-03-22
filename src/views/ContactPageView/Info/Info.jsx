@@ -22,7 +22,7 @@ import imgQuebecNumerique from '../../../images/img-quebec-numerique.jpg';
 const Info = () => (
   <SectionContainer>
     <Center maxWidth='1064px' gutters='var(--container-gutter)'>
-      <Sidebar contentMin='328px' sideWidth='50%' side='left' space='0'>
+      <Sidebar contentMin='328px' sideWidth='50%' space='0'>
         <div>
           <ImgContainer>
             <Img
