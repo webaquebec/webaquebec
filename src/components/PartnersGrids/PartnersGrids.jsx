@@ -175,6 +175,4 @@ const PartnersGrid = () => {
   );
 };
 
-PartnersGrid.propTypes = {};
-
 export default PartnersGrid;

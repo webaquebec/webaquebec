@@ -21,10 +21,6 @@ export const premiumStyle = css`
     breakpoints.spacings
   )};
 
-  & > div {
-    filter: none;
-  }
-
   img {
     filter: brightness(0) invert(1);
   }
@@ -70,10 +66,6 @@ export const Link = styled.a`
   :hover {
     background-color: ${colors.white};
     outline: 0;
-
-    & > div {
-      filter: none;
-    }
 
     img {
       filter: none;
