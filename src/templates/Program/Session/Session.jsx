@@ -29,6 +29,7 @@ import IconArrow from '../../../images/IconArrow';
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
+import { fontWeights } from '../../../styles/typography';
 
 // styles
 const Container = styled(SectionContainer)`
@@ -83,7 +84,6 @@ const EventTitle = styled.h2`
     [
       { prop: 'fontSize', sizes: [24, 24], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [32, 32], bases: [16, 20] },
-      // { prop: 'marginBottom', sizes: [16, 16], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -96,7 +96,6 @@ const EventDescription = styled.div`
     [
       { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [22, 22], bases: [16, 16], unit: '' },
-      // { prop: 'marginBottom', sizes: [24, 40], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -109,6 +108,44 @@ const EventDescription = styled.div`
   > :last-child {
     margin-bottom: 0;
     padding-bottom: 0;
+  }
+
+  * {
+    margin-block: 0;
+  }
+
+  * + * {
+    margin-block-start: 1rem;
+  }
+
+  ul {
+    padding-inline-start: 1em;
+
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 16px;
+  }
+
+  li::before {
+    display: inline-block;
+
+    width: 1em;
+    margin-left: -1em;
+
+    color: ${colors.bleu80};
+    font-weight: ${fontWeights.bold};
+
+    content: '•';
+  }
+
+  li li::before {
+    content: '○';
+  }
+
+  li li li::before {
+    content: '-';
   }
 `;
 
