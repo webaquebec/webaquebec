@@ -115,37 +115,91 @@ const EventDescription = styled.div`
   }
 
   * + * {
-    margin-block-start: 1rem;
+    margin-block-start: 1em;
   }
 
+  /**
+   *  FIXME: Add to BlockList styles to avoid duplicates
+   */
   ul {
-    padding-inline-start: 1em;
+    &,
+    ul {
+      padding-inline-start: 1em;
 
-    list-style: none;
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 16px;
+    }
+
+    li::before {
+      display: inline-block;
+
+      width: 1em;
+      margin-left: -1em;
+
+      color: ${colors.bleu80};
+      font-weight: ${fontWeights.bold};
+
+      content: '•';
+    }
+
+    li li::before {
+      content: '○';
+    }
+
+    li li li::before {
+      content: '-';
+    }
   }
 
-  li {
-    margin-bottom: 16px;
-  }
+  ol {
+    &,
+    ol {
+      padding-inline-start: 1em;
 
-  li::before {
-    display: inline-block;
+      list-style: none;
 
-    width: 1em;
-    margin-left: -1em;
+      counter-reset: li;
+    }
 
-    color: ${colors.bleu80};
-    font-weight: ${fontWeights.bold};
+    ol,
+    li:not(:first-of-type) {
+      ${breakpointsRange(
+        [{ prop: 'marginTop', sizes: [14, 16], bases: [16, 20] }],
+        breakpoints.spacings
+      )};
+    }
 
-    content: '•';
-  }
+    li {
+      counter-increment: li;
+    }
 
-  li li::before {
-    content: '○';
-  }
+    li::before {
+      display: inline-block;
 
-  li li li::before {
-    content: '-';
+      width: 1.3em;
+      margin-left: -1.3em;
+
+      color: ${colors.bleu80};
+      font-weight: ${fontWeights.bold};
+
+      direction: rtl;
+
+      content: '.' counter(li);
+    }
+
+    li li::before {
+      content: '.' counter(li, lower-alpha);
+    }
+
+    li li li::before {
+      width: 1.8em;
+      margin-left: -1.8em;
+
+      content: '(' counter(li) ')';
+    }
   }
 `;
 
