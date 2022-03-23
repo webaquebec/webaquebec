@@ -30,149 +30,171 @@ import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal
 
 // styles
 import {
-  GridTitle,
+  Title,
   Grid,
   GridItem,
   premiumGrid,
   premiumGridItem,
 } from './PartnersGrids.styles';
 
-const PartnersGrid = () => {
-  const presentingImage = {
-    src: logoUbisoft,
-    alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
-    url: 'https://www.ubisoft.com/fr-ca/',
-  };
-
-  const premiumImages = [
-    {
-      src: logoVooban,
-      alt: 'Vooban | Le leader de la transformation digitale',
-      url: 'https://vooban.com/',
-    },
-    {
-      src: logoVideotronWhite,
-      srcAlt: logoVideotronRGB,
-      alt: 'Vidéotron | Services de Téléphonie, Internet, Télévision et Mobile',
-      url: 'https://videotron.com/',
-    },
-    {
-      src: logoKabane,
-      alt: 'Kabane | Agence de Marques. Québec - Montréal',
-      url: 'https://www.kabane.ca',
-    },
-    {
-      src: logoQuebecor,
-      alt: 'Québecor',
-      url: 'https://www.quebecor.com/fr/',
-    },
-    {
-      src: logoLevio,
-      alt: 'Levio affaires et technologies - Au coeur de la transformation numérique',
-      url: 'https://levio.ca/',
-    },
-    {
-      src: logoNventive,
-      alt: 'nventive | Agence innovatrice en transformation numérique à Montréal et Québec',
-      url: 'https://nventive.com/fr/',
-    },
-    {
-      src: logoEquisoft,
-      alt: "Equisoft | Solutions logicielles d'assurance et d'investissement",
-      url: 'https://www.equisoft.com/fr/',
-    },
-    {
-      src: logoIxmedia,
-      alt: 'iXmédia | Agence numérique. Experts sympathiques',
-      url: 'https://www.ixmedia.com/',
-    },
-  ];
-
-  const associatesImages = [
-    {
-      src: logoFernandez,
-      alt: 'Fernandez relations publiques',
-      url: 'https://fernandezrp.ca/',
-    },
-    {
-      src: logoBeet,
-      alt: 'Beet agence à Québec – Création de sites web et production vidéo',
-      url: 'https://boitebeet.com/',
-    },
-    {
-      src: logoLibeo,
-      alt: 'Libéo | Innover pour simplifier votre transformation numérique',
-      url: 'https://libeo.com',
-    },
-    {
-      src: logoNovarium,
-      alt: 'Novarium | Campus d’innovation du Saint-Laurent',
-      url: 'https://soper-rimouski.ca/novarium-campus-dinnovation-du-st-laurent/',
-    },
-    {
-      src: logoPwc,
-      alt: 'PwC Canada',
-      url: 'https://www.pwc.com/ca/fr/',
-    },
-    {
-      src: logoLeCamp,
-      alt: 'LE CAMP | Incubateur d’entreprises technologiques à Québec',
-      url: 'https://lecampquebec.com',
-    },
-    {
-      src: logoRobic,
-      alt: 'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
-      url: 'https://www.robic.ca/',
-    },
-    {
-      src: logoBdc,
-      alt: 'BDC - Banque de développement du Canada | BDC.ca',
-      url: 'https://www.bdc.ca/fr',
-    },
-    {
-      src: logoZenika,
-      alt: 'Zenika | Cabinet d’innovation technologique',
-      url: 'https://zenika.com/fr-CA',
-    },
-    {
-      src: logoTVA,
-      alt: 'Groupe TVA',
-      url: 'https://www.groupetva.ca/',
-    },
-    {
-      src: logoJournalQuebec,
-      alt: 'Le Journal de Québec',
-      url: 'https://www.journaldequebec.com/',
-    },
-  ];
-
-  return (
-    <div>
-      <Center maxWidth='1024px' gutters='32px' intrinsic>
-        <GridTitle>le WAQ 2022 est présenté par</GridTitle>
-        <LogoCard image={presentingImage} isPresenting />
-        <GridTitle>nos partenaires principaux</GridTitle>
-        <Grid css={premiumGrid}>
-          {premiumImages.map((image) => (
-            <GridItem css={premiumGridItem}>
-              <LogoCard image={image} isPremium />
-            </GridItem>
-          ))}
-        </Grid>
-      </Center>
-
-      <Center maxWidth='900px' gutters='32px' intrinsic>
-        <GridTitle>nos partenaires associés</GridTitle>
-        <Grid>
-          {associatesImages.map((image) => (
-            <GridItem>
-              <LogoCard image={image} />
-            </GridItem>
-          ))}
-        </Grid>
-      </Center>
-    </div>
-  );
+const presentingImage = {
+  src: logoUbisoft,
+  alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
+  url: 'https://www.ubisoft.com/fr-ca/',
 };
 
-export default PartnersGrid;
+const premiumImages = [
+  {
+    src: logoVooban,
+    alt: 'Vooban | Le leader de la transformation digitale',
+    url: 'https://vooban.com/',
+  },
+  {
+    src: logoVideotronWhite,
+    srcAlt: logoVideotronRGB,
+    alt: 'Vidéotron | Services de Téléphonie, Internet, Télévision et Mobile',
+    url: 'https://videotron.com/',
+  },
+  {
+    src: logoKabane,
+    alt: 'Kabane | Agence de Marques. Québec - Montréal',
+    url: 'https://www.kabane.ca',
+  },
+  {
+    src: logoQuebecor,
+    alt: 'Québecor',
+    url: 'https://www.quebecor.com/fr/',
+  },
+  {
+    src: logoLevio,
+    alt: 'Levio affaires et technologies - Au coeur de la transformation numérique',
+    url: 'https://levio.ca/',
+  },
+  {
+    src: logoNventive,
+    alt: 'nventive | Agence innovatrice en transformation numérique à Montréal et Québec',
+    url: 'https://nventive.com/fr/',
+  },
+  {
+    src: logoEquisoft,
+    alt: "Equisoft | Solutions logicielles d'assurance et d'investissement",
+    url: 'https://www.equisoft.com/fr/',
+  },
+  {
+    src: logoIxmedia,
+    alt: 'iXmédia | Agence numérique. Experts sympathiques',
+    url: 'https://www.ixmedia.com/',
+  },
+];
+
+const associatesImages = [
+  {
+    src: logoFernandez,
+    alt: 'Fernandez relations publiques',
+    url: 'https://fernandezrp.ca/',
+  },
+  {
+    src: logoBeet,
+    alt: 'Beet agence à Québec – Création de sites web et production vidéo',
+    url: 'https://boitebeet.com/',
+  },
+  {
+    src: logoLibeo,
+    alt: 'Libéo | Innover pour simplifier votre transformation numérique',
+    url: 'https://libeo.com',
+  },
+  {
+    src: logoNovarium,
+    alt: 'Novarium | Campus d’innovation du Saint-Laurent',
+    url: 'https://novarium.co',
+  },
+  {
+    src: logoPwc,
+    alt: 'PwC Canada',
+    url: 'https://www.pwc.com/ca/fr/',
+  },
+  {
+    src: logoLeCamp,
+    alt: 'LE CAMP | Incubateur d’entreprises technologiques à Québec',
+    url: 'https://lecampquebec.com',
+  },
+  {
+    src: logoRobic,
+    alt: 'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
+    url: 'https://www.robic.ca/',
+  },
+  {
+    src: logoBdc,
+    alt: 'BDC - Banque de développement du Canada | BDC.ca',
+    url: 'https://www.bdc.ca/fr',
+  },
+  {
+    src: logoZenika,
+    alt: 'Zenika | Cabinet d’innovation technologique',
+    url: 'https://zenika.com/fr-CA',
+  },
+  {
+    src: logoTVA,
+    alt: 'Groupe TVA',
+    url: 'https://www.groupetva.ca/',
+  },
+  {
+    src: logoJournalQuebec,
+    alt: 'Le Journal de Québec',
+    url: 'https://www.journaldequebec.com/',
+  },
+];
+
+const PartnersGrids = () => (
+  <>
+    <Center
+      as='section'
+      maxWidth='1024px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title>le WAQ 2022 est présenté par</Title>
+
+      <LogoCard image={presentingImage} isPresenting />
+    </Center>
+
+    <Center
+      as='section'
+      maxWidth='1024px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title>nos partenaires principaux</Title>
+
+      <Grid css={premiumGrid}>
+        {premiumImages.map((image) => (
+          <GridItem key={image.url} css={premiumGridItem}>
+            <LogoCard image={image} isPremium />
+          </GridItem>
+        ))}
+      </Grid>
+    </Center>
+
+    <Center
+      as='section'
+      maxWidth='900px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title>nos partenaires associés</Title>
+
+      <Grid>
+        {associatesImages.map((image) => (
+          <GridItem key={image.url}>
+            <LogoCard image={image} />
+          </GridItem>
+        ))}
+      </Grid>
+    </Center>
+  </>
+);
+
+export default PartnersGrids;

@@ -6,17 +6,15 @@ import breakpointsRange from '../../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
-import { fontFamilies } from '../../styles/typography';
-import colors from '../../styles/colors';
+import { magnifyStyle, pixelatedStyle } from '../../styles/global';
 
-export const GridTitle = styled.h2`
-  color: ${colors.bleu80};
-  font-family: ${fontFamilies.redaction};
+export const Title = styled.h2`
+  ${magnifyStyle}
+
+  ${pixelatedStyle}
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [20, 40], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [24, 48], bases: [16, 20] },
       { prop: 'marginTop', sizes: [80, 160], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [48, 64], bases: [16, 20] },
     ],
