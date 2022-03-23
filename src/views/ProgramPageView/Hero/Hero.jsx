@@ -71,6 +71,10 @@ const Hero = ({ location, datePaths }) => {
 
   const totalAppliedFilters = getTotalAppliedFilters();
 
+  const totalDates = datePaths.length;
+
+  const minWidth = totalDates > 3 ? '736px' : '632px';
+
   return (
     <>
       <HeroGrid
@@ -87,7 +91,7 @@ const Hero = ({ location, datePaths }) => {
         />
 
         <HeaderContent
-          maxWidth={!isVisible ? '1066px' : '736px'}
+          maxWidth={!isVisible ? '1066px' : minWidth}
           gutters={mobile ? '16px' : '32px'}
         >
           {!isVisible && !tablet && (
@@ -165,7 +169,7 @@ const Hero = ({ location, datePaths }) => {
               </div>
             </div>
           ) : (
-            <DateList>
+            <DateList $shrunk={totalDates <= 3}>
               {datePaths.map((item) => (
                 <DateListItem key={item.date}>
                   <Button
