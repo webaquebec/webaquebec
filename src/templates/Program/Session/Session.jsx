@@ -124,7 +124,7 @@ const EventDescription = styled.div`
   ul {
     &,
     ul {
-      padding-inline-start: 1em;
+      padding-inline-start: 1rem;
 
       list-style: none;
     }
@@ -157,7 +157,7 @@ const EventDescription = styled.div`
   ol {
     &,
     ol {
-      padding-inline-start: 1em;
+      padding-inline-start: 1rem;
 
       list-style: none;
 
