@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env`,
 });
 
+const inProduction = process.env.NODE_ENV === 'production';
+
 module.exports = {
   siteMetadata: {
     title: 'Web à Québec',
@@ -14,7 +16,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: 'GTM-KHD8ZJR',
+        id: process.env.GTM_ID,
         // Include GTM in development.
         //
         // Defaults to false meaning GTM will only be loaded in production.
@@ -30,7 +32,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: `UA-20043510-1`,
+        trackingId: process.env.GTAG_ID,
         // Puts tracking script in the head instead of the body
         head: false,
         // Enable ip anonymization
@@ -40,7 +42,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
-        pixelId: '758649984324647',
+        pixelId: inProduction && process.env.FACEBOOK_PIXEL_ID,
       },
     },
     'gatsby-plugin-react-helmet',
@@ -84,7 +86,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        displayName: process.env.NODE_ENV !== 'production',
+        displayName: !inProduction,
       },
     },
     `gatsby-plugin-sitemap`,

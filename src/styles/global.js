@@ -193,10 +193,11 @@ export const magnifyStyle = css`
   color: ${colors.bleu};
 
   font-weight: ${fontWeights.bold};
+
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [24, 40], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [30, 48], bases: [24, 40], unit: '' },
+      { prop: 'fontSize', sizes: [20, 40], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 48], bases: [20, 40], unit: '' },
     ],
     breakpoints.spacings
   )};
