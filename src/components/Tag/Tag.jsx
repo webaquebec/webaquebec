@@ -12,7 +12,6 @@ import unSlugify from '../../utils/strings/unSlugify';
 import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 
 /**
- *
  * @module Tag
  *
  * @example
@@ -40,7 +39,7 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
     <StyledTag
       $designRoom={tagType === 'category' && category === 'design'}
       $commRoom={
-        tagType === 'category' && category === 'communication-et-marketing'
+        tagType === 'category' && category === 'communication-and-marketing'
       }
       $devRoom={tagType === 'category' && category === 'developpement'}
       $innovationRoom={tagType === 'category' && category === 'innovation'}
@@ -99,7 +98,7 @@ Tag.propTypes = {
     'design',
     'developpement',
     'innovation',
-    'communication-et-marketing',
+    'communication-and-marketing',
   ]),
   /**
    * Specifies which data to show if the tag is a speaker one
@@ -121,6 +120,11 @@ Tag.propTypes = {
     'contenu-sur-demande',
     'pitch-ton-waq',
     'table-ronde',
+    '5-a-7',
+    'keynote',
+    'panel',
+    'rediffusion',
+    'reseautage',
   ]),
   /**
    * Specifies where the event takes place
