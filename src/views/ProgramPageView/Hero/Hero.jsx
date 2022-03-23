@@ -7,6 +7,7 @@ import { useMedia } from 'react-use';
 import { navigate } from 'gatsby';
 
 // components
+import { hideVisually } from 'polished';
 import HeroGrid from '../../../components/HeroGrid/HeroGrid';
 import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
@@ -72,7 +73,12 @@ const Hero = ({ location, datePaths }) => {
 
   return (
     <>
-      <HeroGrid ref={ref} title='programmation' displayYear />
+      <HeroGrid
+        ref={ref}
+        title='programmation'
+        year={current.edition}
+        displayYear={current.edition === 2021}
+      />
 
       <Wrapper>
         <HeaderGradient
@@ -87,7 +93,12 @@ const Hero = ({ location, datePaths }) => {
           {!isVisible && !tablet && (
             <StickyTitle>
               programmation
-              <YearSticker src={vectorYear2021} alt='2021' />
+              <span css={current.edition === 2021 && hideVisually}>
+                &nbsp;{current.edition}
+              </span>
+              {current.edition === 2021 && (
+                <YearSticker src={vectorYear2021} alt='2021' />
+              )}
             </StickyTitle>
           )}
 

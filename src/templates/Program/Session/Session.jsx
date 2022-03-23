@@ -200,7 +200,11 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <Hero title='programmation' displayYear />
+        <Hero
+          title='programmation'
+          year={session.edition}
+          displayYear={session.edition === 2021}
+        />
       </Center>
 
       <Container forwardedAs='div' faded padded>

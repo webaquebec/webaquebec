@@ -88,12 +88,25 @@ const Program = ({
    * */
   const datePaths = useMemo(() => {
     // Re-arrange event dates the way we want to display them in our template
-    const displayableDates = eventDates.map((current, index, array) =>
-      index === array.length - 1 ? 'bonus !' : current
-    );
+    const displayableDates = eventDates.map((current, index, array) => {
+      const date = new Date(current);
+      const eventYear = date.getFullYear();
+
+      const isYear2021LastDate =
+        eventYear === 2021 && index === array.length - 1;
+
+      const options = { weekday: 'long', day: 'numeric', month: 'long' };
+
+      return {
+        edition: eventYear,
+        date: isYear2021LastDate
+          ? 'bonus !'
+          : date.toLocaleDateString('fr-ca', options),
+      };
+    });
 
     const tempDatePaths = displayableDates.map((date, index) => ({
-      date,
+      ...date,
       path: pagePaths[index],
     }));
 
