@@ -29,6 +29,7 @@ import IconArrow from '../../../images/IconArrow';
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
+import { fontWeights } from '../../../styles/typography';
 
 // styles
 const Container = styled(SectionContainer)`
@@ -83,7 +84,6 @@ const EventTitle = styled.h2`
     [
       { prop: 'fontSize', sizes: [24, 24], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [32, 32], bases: [16, 20] },
-      // { prop: 'marginBottom', sizes: [16, 16], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -96,7 +96,6 @@ const EventDescription = styled.div`
     [
       { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [22, 22], bases: [16, 16], unit: '' },
-      // { prop: 'marginBottom', sizes: [24, 40], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -109,6 +108,98 @@ const EventDescription = styled.div`
   > :last-child {
     margin-bottom: 0;
     padding-bottom: 0;
+  }
+
+  * {
+    margin-block: 0;
+  }
+
+  * + * {
+    margin-block-start: 1em;
+  }
+
+  /**
+   *  FIXME: Add to BlockList styles to avoid duplicates
+   */
+  ul {
+    &,
+    ul {
+      padding-inline-start: 1rem;
+
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 16px;
+    }
+
+    li::before {
+      display: inline-block;
+
+      width: 1em;
+      margin-left: -1em;
+
+      color: ${colors.bleu80};
+      font-weight: ${fontWeights.bold};
+
+      content: '•';
+    }
+
+    li li::before {
+      content: '○';
+    }
+
+    li li li::before {
+      content: '-';
+    }
+  }
+
+  ol {
+    &,
+    ol {
+      padding-inline-start: 1rem;
+
+      list-style: none;
+
+      counter-reset: li;
+    }
+
+    ol,
+    li:not(:first-of-type) {
+      ${breakpointsRange(
+        [{ prop: 'marginTop', sizes: [14, 16], bases: [16, 20] }],
+        breakpoints.spacings
+      )};
+    }
+
+    li {
+      counter-increment: li;
+    }
+
+    li::before {
+      display: inline-block;
+
+      width: 1.3em;
+      margin-left: -1.3em;
+
+      color: ${colors.bleu80};
+      font-weight: ${fontWeights.bold};
+
+      direction: rtl;
+
+      content: '.' counter(li);
+    }
+
+    li li::before {
+      content: '.' counter(li, lower-alpha);
+    }
+
+    li li li::before {
+      width: 1.8em;
+      margin-left: -1.8em;
+
+      content: '(' counter(li) ')';
+    }
   }
 `;
 
@@ -200,7 +291,11 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <Hero title='programmation' displayYear />
+        <Hero
+          title='programmation'
+          year={session.edition}
+          displayYear={session.edition === 2021}
+        />
       </Center>
 
       <Container forwardedAs='div' faded padded>

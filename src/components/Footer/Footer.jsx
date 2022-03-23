@@ -31,6 +31,11 @@ import {
 const Footer = () => {
   const archives = [
     {
+      year: '2021',
+      link: '/programmation/2021',
+      type: 'internal',
+    },
+    {
       year: '2020',
       link: 'https://archives.webaquebec.org/programmation/2020/0',
     },
@@ -105,15 +110,21 @@ const Footer = () => {
                 <FooterTitle>Archives</FooterTitle>
 
                 <ArchivesList>
-                  {archives.map((year) => (
-                    <ArchiveItem key={year.year}>
-                      <ArchiveLink
-                        rel='noopener noreferrer'
-                        target='_blank'
-                        href={year.link}
-                      >
-                        {year.year}
-                      </ArchiveLink>
+                  {archives.map((archive) => (
+                    <ArchiveItem key={archive.year}>
+                      {archive.type && archive.type === 'internal' ? (
+                        <ArchiveLink as={Link} to={archive.link}>
+                          {archive.year}
+                        </ArchiveLink>
+                      ) : (
+                        <ArchiveLink
+                          href={archive.link}
+                          rel='noopener noreferrer'
+                          target='_blank'
+                        >
+                          {archive.year}
+                        </ArchiveLink>
+                      )}
                     </ArchiveItem>
                   ))}
                 </ArchivesList>
