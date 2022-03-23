@@ -14,7 +14,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
 import CTASection from '../views/HomePageView/CTASection';
-import PartnersGridSection from '../views/HomePageView/PartnersSection';
+import PartnersGrids from '../components/PartnersGrids';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -43,7 +43,7 @@ const IndexPage = () => (
     <SectionContainer forwardedAs='div' faded>
       <CTASection />
 
-      <PartnersGridSection />
+      <PartnersGrids />
     </SectionContainer>
   </>
 );

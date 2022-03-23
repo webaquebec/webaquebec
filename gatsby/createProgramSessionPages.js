@@ -29,11 +29,7 @@ const allowedTypes = [
  */
 const getPlannings = async ({ graphql, reporter, variables }) => {
   const { eventId, page, pageSize } = variables;
-  const {
-    data: {
-      swapcard: { plannings },
-    },
-  } = await graphql(`
+  const result = await graphql(`
     {
       swapcard {
         plannings(
@@ -50,13 +46,19 @@ const getPlannings = async ({ graphql, reporter, variables }) => {
     }
   `);
 
-  if (plannings.errors) {
+  if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading plannings from Swapcard`,
-      plannings.errors
+      result.errors
     );
     return;
   }
+
+  const {
+    data: {
+      swapcard: { plannings },
+    },
+  } = result;
 
   // eslint-disable-next-line consistent-return
   return plannings;
