@@ -224,15 +224,15 @@ module.exports = async ({ graphql, actions, reporter }) => {
 
   const dateNormalized = (item) => {
     const date = new Date(item.beginsAt);
-    date.setHours(0, 0, 0, 0);
+    // date.setHours(0, 0, 0, 0);
 
     // Eliminate the unwanted date shift from server
-    const newDate = new Date(
-      date.getTime() + Math.abs(date.getTimezoneOffset() * 60000)
-    );
+    // const newDate = new Date(
+    //   date.getTime() + Math.abs(date.getTimezoneOffset() * 60000)
+    // );
 
-    return newDate;
-    // return date.toLocaleDateString('fr-ca').replace(/-/g, '/');
+    // return newDate;
+    return date.toLocaleDateString('fr-ca').replace(/-/g, '/');
   };
 
   const planningsGroupByDate = groupBy(plannings, dateNormalized);

@@ -79,7 +79,7 @@ const Program = ({
     applyFilter,
   } = useProgramFilters();
 
-  // const formatDateStr = (value) => value.replace(/-/g, '/');
+  const formatDateStr = (value) => value.replace(/-/g, '/');
 
   /**
    * Get list of date and path from event dates.
@@ -91,7 +91,7 @@ const Program = ({
   const datePaths = useMemo(() => {
     // Re-arrange event dates the way we want to display them in our template
     const displayableDates = eventDates.map((current) => {
-      const date = new Date(current);
+      const date = new Date(formatDateStr(current));
       const eventYear = date.getFullYear();
 
       // const isBonus = eventYear === 2021 && index === array.length - 1;
