@@ -22,6 +22,7 @@ import CallToAction from '../views/TicketsView/CallToAction';
 import breakpoints from '../styles/breakpoints';
 import { h1AltStyle, introStyle } from '../styles/global';
 import colors from '../styles/colors';
+import Stack from '../components/LayoutSections/Stack';
 
 const TicketsTitle = styled.h1`
   margin-bottom: 0;
@@ -81,18 +82,20 @@ const TicketsPage = () => (
     >
       <TicketsTitle css={h1AltStyle}>billetterie</TicketsTitle>
       <TicketsIntro css={introStyle}>
-        <p>
-          Chaque année, des centaines de passionné.es de numérique participent
-          au Web à Québec (WAQ). Que ce soit pour réseauter, découvrir les
-          nouvelles tendances ou simplement vivre l&apos;ambiance unique du WAQ,
-          toutes les raisons sont bonnes de te joindre à nous lors de la 11e
-          édition!
-        </p>
-        <p>
-          Cette année, on se met en mode hybride en te donnant l&apos;option de
-          participer sur place, au Terminal - Port de Québec, ou chez toi.
-          C&apos;est comme tu le sens!
-        </p>
+        <Stack>
+          <p>
+            Chaque année, des centaines de passionné.es de numérique participent
+            au Web à Québec (WAQ). Que ce soit pour réseauter, découvrir les
+            nouvelles tendances ou simplement vivre l&apos;ambiance unique du
+            WAQ, toutes les raisons sont bonnes de te joindre à nous lors de la
+            11e édition!
+          </p>
+          <p>
+            Cette année, on se met en mode hybride en te donnant l&apos;option
+            de participer sur place, au Terminal - Port de Québec, ou chez toi.
+            C&apos;est comme tu le sens!
+          </p>
+        </Stack>
       </TicketsIntro>
     </Center>
 
