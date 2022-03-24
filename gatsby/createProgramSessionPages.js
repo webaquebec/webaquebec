@@ -106,7 +106,7 @@ const createSession = async ({
 
   plannings
     .filter((planning) => allowedTypes.includes(planning.type))
-    .map(async (planning) => {
+    .forEach(async (planning) => {
       const { beginsAt, title, id } = planning;
       const eventYear = new Date(beginsAt).getFullYear();
 
@@ -224,14 +224,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
 
   const dateNormalized = (item) => {
     const date = new Date(item.beginsAt);
-    // date.setHours(0, 0, 0, 0);
-
-    // Eliminate the unwanted date shift from server
-    // const newDate = new Date(
-    //   date.getTime() + Math.abs(date.getTimezoneOffset() * 60000)
-    // );
-
-    // return newDate;
+    // Force converting to locale date string to avoid date shifting on server
     return date.toLocaleDateString('fr-ca').replace(/-/g, '/');
   };
 
