@@ -94,24 +94,20 @@ const Program = ({
       const date = new Date(current);
       const eventYear = date.getFullYear();
 
-      // Remove 2021 Bonus tab
       const isBonus = eventYear === 2021 && index === array.length - 1;
-      if (isBonus) return null;
 
       const options = { weekday: 'long', day: 'numeric', month: 'long' };
 
       return {
         edition: eventYear,
-        date: date.toLocaleDateString('fr-ca', options),
+        date: isBonus ? 'Bonus' : date.toLocaleDateString('fr-ca', options),
       };
     });
 
-    const tempDatePaths = displayableDates
-      .filter((date) => date)
-      .map((date, index) => ({
-        ...date,
-        path: pagePaths[index],
-      }));
+    const tempDatePaths = displayableDates.map((date, index) => ({
+      ...date,
+      path: pagePaths[index],
+    }));
 
     return tempDatePaths;
   }, [eventDates, pagePaths]);

@@ -75,6 +75,13 @@ const Hero = ({ location, datePaths }) => {
 
   const minWidth = totalDates > 3 ? '736px' : '632px';
 
+  /**
+   * FIXME: Remove Bonus tab temporarily from 2021 edition until to fix it
+   */
+  const allowedDates = (item, index) =>
+    item.edition !== 2021 ||
+    (item.edition === 2021 && index !== totalDates - 1);
+
   return (
     <>
       <HeroGrid
@@ -123,6 +130,7 @@ const Hero = ({ location, datePaths }) => {
                 `}
               >
                 {datePaths
+                  .filter(allowedDates)
                   .filter((item) => item.path !== location.pathname)
                   .map((item) => (
                     <Button
@@ -170,7 +178,7 @@ const Hero = ({ location, datePaths }) => {
             </div>
           ) : (
             <DateList $shrunk={totalDates <= 3}>
-              {datePaths.map((item) => (
+              {datePaths.filter(allowedDates).map((item) => (
                 <DateListItem key={item.date}>
                   <Button
                     className={
