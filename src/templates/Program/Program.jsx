@@ -90,17 +90,17 @@ const Program = ({
    * */
   const datePaths = useMemo(() => {
     // Re-arrange event dates the way we want to display them in our template
-    const displayableDates = eventDates.map((current, index, array) => {
+    const displayableDates = eventDates.map((current) => {
       const date = new Date(current);
       const eventYear = date.getFullYear();
 
-      const isBonus = eventYear === 2021 && index === array.length - 1;
+      // const isBonus = eventYear === 2021 && index === array.length - 1;
 
       const options = { weekday: 'long', day: 'numeric', month: 'long' };
 
       return {
         edition: eventYear,
-        date: isBonus ? 'Bonus' : date.toLocaleDateString('fr-ca', options),
+        date: date.toLocaleDateString('fr-ca', options),
       };
     });
 

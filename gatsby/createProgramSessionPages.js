@@ -223,17 +223,15 @@ module.exports = async ({ graphql, actions, reporter }) => {
   reporter.info(`total sessions: ${plannings.length}`);
 
   const dateNormalized = (item) => {
-    // Fix date shifting issue on server
-    const sanitizeDate = item.beginsAt.replace(/-/g, '/');
-    const date = new Date(sanitizeDate);
+    const date = new Date(item.beginsAt);
     date.setHours(0, 0, 0, 0);
 
     // Eliminate the unwanted date shift from server
-    // const newDate = new Date(
-    //   date.getTime() + Math.abs(date.getTimezoneOffset() * 60000)
-    // );
+    const newDate = new Date(
+      date.getTime() + Math.abs(date.getTimezoneOffset() * 60000)
+    );
 
-    return date;
+    return newDate;
     // return date.toLocaleDateString('fr-ca').replace(/-/g, '/');
   };
 
@@ -252,6 +250,11 @@ module.exports = async ({ graphql, actions, reporter }) => {
     },
     {}
   );
+
+  /**
+   * FIXME: Remove last date from 2021 edition temporarily until fixing it
+   */
+  datesGroupByYear[2021].pop();
 
   await createSession({
     plannings,
