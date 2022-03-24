@@ -48,8 +48,14 @@ export const TicketTitle = styled.h2`
   )};
 `;
 
-export const TicketPrice = styled.span`
+export const TicketPrice = styled.div`
+  display: grid;
+  grid-gap: 5px;
+  align-items: center;
+  justify-content: flex-start;
+
   font-weight: ${fontWeights.bold};
+  line-height: 1;
 
   ${breakpointsRange(
     [
@@ -59,6 +65,34 @@ export const TicketPrice = styled.span`
     ],
     breakpoints.spacings
   )};
+
+  span {
+    grid-row: 1 / span 2;
+    grid-column: 1;
+  }
+
+  sup,
+  sub {
+    justify-self: flex-start;
+  }
+
+  sup {
+    grid-row: 1;
+    grid-column: 2;
+
+    margin-top: 5px;
+
+    font-size: 1.25rem;
+  }
+
+  sub {
+    grid-row: 2;
+    grid-column: 2;
+
+    margin-bottom: 6px;
+
+    font-size: 0.75rem;
+  }
 `;
 
 export const TicketText = styled.p`

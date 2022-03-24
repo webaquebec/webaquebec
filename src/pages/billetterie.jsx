@@ -8,8 +8,8 @@ import Center from '../components/LayoutSections/Center';
 import SectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 
-// images
-import ogImagePreSale from '../images/og/og-img-waq-22-pre-sale.jpg';
+// // images
+// import ogImagePreSale from '../images/og/og-img-waq-22-pre-sale.jpg';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
@@ -71,7 +71,6 @@ const TicketsPage = () => (
     <SEO
       title='Billetterie'
       description='Viens vivre le WAQ en formule hybride du 24 au 26 mai 2022. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
-      image={ogImagePreSale}
     />
 
     <Center

@@ -61,9 +61,9 @@ const Prices = () => (
           css={blockContainerStyle}
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer} withText>
-            <TicketTitle>Prévente présentiel</TicketTitle>
+            <TicketTitle>Billet présentiel</TicketTitle>
 
-            <TicketPrice>595$</TicketPrice>
+            <TicketPrice>895$</TicketPrice>
 
             <Button
               to='https://ti.to/web-a-quebec/waq-2022'
