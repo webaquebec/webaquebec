@@ -223,9 +223,18 @@ module.exports = async ({ graphql, actions, reporter }) => {
   reporter.info(`total sessions: ${plannings.length}`);
 
   const dateNormalized = (item) => {
-    const date = new Date(item.beginsAt);
-    date.setHours(0, 0, 0, 1);
+    // Fix date shifting issue on server
+    const sanitizeDate = item.beginsAt.replace(/-/g, '/');
+    const date = new Date(sanitizeDate);
+    date.setHours(0, 0, 0, 0);
+
+    // Eliminate the unwanted date shift from server
+    // const newDate = new Date(
+    //   date.getTime() + Math.abs(date.getTimezoneOffset() * 60000)
+    // );
+
     return date;
+    // return date.toLocaleDateString('fr-ca').replace(/-/g, '/');
   };
 
   const planningsGroupByDate = groupBy(plannings, dateNormalized);
