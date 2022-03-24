@@ -65,7 +65,7 @@ const FiltersWrapper = styled.div`
 const Program = ({
   location,
   data,
-  pageContext: { eventDates, pagePaths, pageNumber },
+  pageContext: { eventDates, pagePaths },
 }) => {
   const {
     swapcard: { plannings },
@@ -78,6 +78,8 @@ const Program = ({
     dispatch: filterDispatcher,
     applyFilter,
   } = useProgramFilters();
+
+  // const formatDateStr = (value) => value.replace(/-/g, '/');
 
   /**
    * Get list of date and path from event dates.
@@ -92,23 +94,24 @@ const Program = ({
       const date = new Date(current);
       const eventYear = date.getFullYear();
 
-      const isYear2021LastDate =
-        eventYear === 2021 && index === array.length - 1;
+      // Remove 2021 Bonus tab
+      const isBonus = eventYear === 2021 && index === array.length - 1;
+      if (isBonus) return null;
 
       const options = { weekday: 'long', day: 'numeric', month: 'long' };
 
       return {
         edition: eventYear,
-        date: isYear2021LastDate
-          ? 'bonus !'
-          : date.toLocaleDateString('fr-ca', options),
+        date: date.toLocaleDateString('fr-ca', options),
       };
     });
 
-    const tempDatePaths = displayableDates.map((date, index) => ({
-      ...date,
-      path: pagePaths[index],
-    }));
+    const tempDatePaths = displayableDates
+      .filter((date) => date)
+      .map((date, index) => ({
+        ...date,
+        path: pagePaths[index],
+      }));
 
     return tempDatePaths;
   }, [eventDates, pagePaths]);
@@ -309,11 +312,12 @@ const Program = ({
                         title={session.title}
                         content={session.description}
                         place={session.place}
-                        time={
-                          pageNumber !== eventDates.length
-                            ? session.time
-                            : undefined
-                        }
+                        time={session.time}
+                        // time={
+                        //   pageNumber !== eventDates.length
+                        //     ? session.time
+                        //     : undefined
+                        // }
                         type={session.type}
                         categories={session.categories}
                         speakers={session.speakers}
@@ -353,7 +357,7 @@ Program.propTypes = {
     previousPagePath: PropTypes.string,
     eventDates: PropTypes.arrayOf(PropTypes.string),
     pagePaths: PropTypes.arrayOf(PropTypes.string),
-    pageNumber: PropTypes.number,
+    // pageNumber: PropTypes.number,
   }).isRequired,
 };
 
