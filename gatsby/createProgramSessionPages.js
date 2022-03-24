@@ -224,7 +224,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
 
   const dateNormalized = (item) => {
     const date = new Date(item.beginsAt);
-    date.setHours(24, 0, 0, 0);
+    date.setHours(0, 0, 0, 1);
     return date;
   };
 
