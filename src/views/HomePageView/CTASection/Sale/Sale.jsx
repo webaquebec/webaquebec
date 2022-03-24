@@ -7,9 +7,9 @@ import Button from '../../../../components/Button';
 // styles
 import { CTAIntro, CTATitle } from '../CTASection.styles';
 
-const PreSale = () => (
+const Sale = () => (
   <>
-    <CTATitle>Prévente en cours</CTATitle>
+    <CTATitle>Vente en cours</CTATitle>
 
     <CTAIntro>
       Après 2 années d’absence, le WAQ est de retour en{' '}
@@ -22,4 +22,4 @@ const PreSale = () => (
   </>
 );
 
-export default PreSale;
+export default Sale;
