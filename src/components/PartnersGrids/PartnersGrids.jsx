@@ -85,6 +85,11 @@ const premiumImages = [
     alt: 'iXmédia | Agence numérique. Experts sympathiques',
     url: 'https://www.ixmedia.com/',
   },
+  {
+    src: logoLibeo,
+    alt: 'Libéo | Innover pour simplifier votre transformation numérique',
+    url: 'https://libeo.com',
+  },
 ];
 
 const associatesImages = [
@@ -97,11 +102,6 @@ const associatesImages = [
     src: logoBeet,
     alt: 'Beet agence à Québec – Création de sites web et production vidéo',
     url: 'https://boitebeet.com/',
-  },
-  {
-    src: logoLibeo,
-    alt: 'Libéo | Innover pour simplifier votre transformation numérique',
-    url: 'https://libeo.com',
   },
   {
     src: logoNovarium,
