@@ -11,7 +11,11 @@ import breakpointsRange from '../utils/breakpointsRange';
 import colors from '../styles/colors';
 import breakpoints from '../styles/breakpoints';
 import { fontWeights } from '../styles/typography';
-import { pixelated35Style } from '../styles/global';
+import {
+  pixelatedStyle,
+  pixelated20Style,
+  pixelated50Style,
+} from '../styles/global';
 
 const Container = styled.div`
   display: flex;
@@ -31,11 +35,15 @@ const Container = styled.div`
 `;
 
 const Heading = styled.h1`
+  display: flex;
+  align-items: center;
+
   /* max-width: 540; */
   margin-top: 0;
   margin-bottom: 0;
 
-  color: ${colors.black};
+  color: ${colors.white};
+  font-weight: 400;
 
   line-height: 1;
   ${breakpointsRange(
@@ -43,19 +51,19 @@ const Heading = styled.h1`
     breakpoints.spacings
   )};
 
-  ${pixelated35Style};
-
   backdrop-filter: opacity(0);
 `;
 
 const Info = styled.p`
+  max-width: 24rem;
+
   color: ${colors.bleu90};
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [18, 32], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [24, 32], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [54, 72], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -63,22 +71,35 @@ const Info = styled.p`
 
 const CTAButton = styled(Button)``;
 
+const FirstFour = styled.span`
+  font-size: 230px;
+  ${pixelated20Style}
+`;
+
+const FirstZero = styled.span`
+  font-size: 340px;
+  ${pixelatedStyle}
+`;
+
+const SecondFour = styled.span`
+  font-size: 230px;
+  ${pixelated50Style}
+`;
+
 // markup
 const NotFoundPage = () => (
   <Container>
-    <div
-      css={`
-        mix-blend-mode: overlay;
-      `}
-    >
-      <Heading>404</Heading>
+    <div>
+      <Heading>
+        <FirstFour>4</FirstFour>
+        <FirstZero>0</FirstZero>
+        <SecondFour>4</SecondFour>
+      </Heading>
     </div>
 
     <Info>
-      Oups!{' '}
-      <span role='img' aria-label='Pensive emoji'>
-        😬
-      </span>{' '}
+      Oups!
+      <br />
       La page que vous recherchez semble introuvable.
     </Info>
 
