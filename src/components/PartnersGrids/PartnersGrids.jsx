@@ -1,9 +1,12 @@
 // vendors
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // components
 import LogoCard from './LogoCard';
 import Center from '../LayoutSections/Center';
+import Button from '../Button';
+import Switcher from '../LayoutSections/Switcher';
 
 // images
 import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
@@ -31,6 +34,8 @@ import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal
 // styles
 import {
   Title,
+  PresentingWrapper,
+  PresentingText,
   Grid,
   GridItem,
   premiumGrid,
@@ -145,7 +150,7 @@ const associatesImages = [
   },
 ];
 
-const PartnersGrids = () => (
+const PartnersGrids = ({ hasDetails }) => (
   <>
     <Center
       as='section'
@@ -156,7 +161,27 @@ const PartnersGrids = () => (
     >
       <Title>le WAQ 2022 est présenté par</Title>
 
-      <LogoCard image={presentingImage} isPresenting />
+      <Switcher threshold='768px' space='2rem' limit={2}>
+        <PresentingWrapper>
+          <div>
+            <LogoCard image={presentingImage} isPresenting />
+          </div>
+
+          {hasDetails && (
+            <div>
+              <PresentingText>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit
+                fugit voluptatibus pariatur labore alias, corporis, vitae
+                mollitia quibusdam culpa tempora enim soluta, maiores itaque!
+                Eum debitis optio sit tenetur tempore.
+              </PresentingText>
+              <Button to='/' tag='href' primary small animated>
+                En savoir plus
+              </Button>
+            </div>
+          )}
+        </PresentingWrapper>
+      </Switcher>
     </Center>
 
     <Center
@@ -196,5 +221,16 @@ const PartnersGrids = () => (
     </Center>
   </>
 );
+
+PartnersGrids.propTypes = {
+  /**
+   * Whether the grid has details or not.
+   */
+  hasDetails: PropTypes.bool,
+};
+
+PartnersGrids.defaultProps = {
+  hasDetails: false,
+};
 
 export default PartnersGrids;

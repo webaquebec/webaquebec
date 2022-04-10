@@ -4,6 +4,7 @@ import colors from '../../../styles/colors';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
+import { greaterThan } from '../../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
@@ -27,13 +28,20 @@ export const premiumStyle = css`
 `;
 
 export const presentingStyle = css`
+  width: 100%;
   max-width: 100%;
+  margin: 0 auto;
+
+  ${greaterThan(768)} {
+    width: 300px;
+  }
+
+  ${greaterThan(815)} {
+    margin: 0 0 0 auto;
+  }
 
   ${breakpointsRange(
-    [
-      { prop: 'width', sizes: [300, 300], bases: [16, 20] },
-      { prop: 'height', sizes: [300, 300], bases: [16, 20] },
-    ],
+    [{ prop: 'height', sizes: [160, 300], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
