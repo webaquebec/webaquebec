@@ -21,6 +21,7 @@ import Cluster from '../../../components/LayoutSections/Cluster';
 import Stack from '../../../components/LayoutSections/Stack';
 
 // utils
+import slugify from '../../../utils/strings/slugify';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
 // images
@@ -251,13 +252,14 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
 
   // Re-arrange values from the plannings array the way we want to use it in our template
   const modifiedPlannings = plannings.map((planning) => ({
+    ...planning,
     edition: getDateYear(planning.beginsAt),
     date: getFormattedLocaleDate(planning.beginsAt),
     time: {
       beginsAt: getFormattedTime(planning.beginsAt),
       endsAt: getFormattedTime(planning.endsAt),
     },
-    ...planning,
+    type: slugify(planning.type),
   }));
 
   const session = modifiedPlannings[0];
@@ -433,7 +435,12 @@ export const sessionQuery = graphql`
           photoUrl
           photoUrlSharp {
             childImageSharp {
-              fixed(width: 100, height: 100, quality: 90) {
+              fixed(
+                width: 100
+                height: 100
+                quality: 90
+                duotone: { highlight: "#EBEBEB", shadow: "#000CA0" }
+              ) {
                 ...GatsbyImageSharpFixed_withWebp
               }
             }

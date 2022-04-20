@@ -114,7 +114,7 @@ Tag.propTypes = {
    */
   eventType: PropTypes.oneOf([
     'conference',
-    'activites',
+    'activite',
     'atelier',
     'qanda',
     'contenu-sur-demande',
@@ -125,6 +125,7 @@ Tag.propTypes = {
     'panel',
     'rediffusion',
     'reseautage',
+    'en-direct',
   ]),
   /**
    * Specifies where the event takes place

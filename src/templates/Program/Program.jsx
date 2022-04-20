@@ -24,9 +24,9 @@ import Filters from '../../views/ProgramPageView/Filters';
 import NoResults from '../../views/ProgramPageView/NoResults';
 
 // utils
-import slugify from '../../utils/strings/slugify';
 import breakpointsRange from '../../utils/breakpointsRange';
 import { lessThan } from '../../utils/mediaQuery';
+import slugify from '../../utils/strings/slugify';
 import unSlugify from '../../utils/strings/unSlugify';
 import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 
@@ -129,11 +129,12 @@ const Program = ({
     };
 
     const modifiedPlannings = plannings.map((planning) => ({
+      ...planning,
+      type: slugify(planning.type),
       time: {
         beginsAt: getFormattedTime(planning.beginsAt),
         endsAt: getFormattedTime(planning.endsAt),
       },
-      ...planning,
     }));
 
     return modifiedPlannings;
@@ -151,7 +152,7 @@ const Program = ({
       array.push(value);
     };
 
-    plannings.forEach((session) => {
+    program.forEach((session) => {
       // Get all places for filters
       addChoices(session.place, places);
       // Get all categories for filters
@@ -236,7 +237,7 @@ const Program = ({
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [plannings]);
+  }, [program]);
 
   // Scroll to the last selected session
   useEffect(() => {
