@@ -7,22 +7,22 @@ const slugify = require(`../src/utils/strings/slugify.js`);
  * Blacklisted for now:
  *   - intermission
  *   - presentiel
- *   - reseautage
  *   - zone-internationale
  */
 const allowedTypes = [
-  'conference',
-  'activites',
+  '5-a-7',
+  'activite',
   'atelier',
+  'conference',
   'qanda',
   'contenu-sur-demande',
   'pitch-ton-waq',
   'table-ronde',
-  '5-a-7',
   'keynote',
   'panel',
   'rediffusion',
-  'reseautage',
+  // 'reseautage',
+  // 'en-direct',
 ];
 
 /**
@@ -105,7 +105,10 @@ const createSession = async ({
   reporter.info('creating session pages:');
 
   plannings
-    .filter((planning) => allowedTypes.includes(planning.type))
+    .filter(
+      (planning) =>
+        planning.type && allowedTypes.includes(slugify(planning.type))
+    )
     .forEach(async (planning) => {
       const { beginsAt, title, id } = planning;
       const eventYear = new Date(beginsAt).getFullYear();
@@ -168,7 +171,10 @@ const createProgram = async ({
       reporter.info(getPagePath(pageNumber));
 
       const planningIds = plannings[date]
-        .filter((current) => allowedTypes.includes(current.type))
+        .filter(
+          (current) =>
+            current.type && allowedTypes.includes(slugify(current.type))
+        )
         .map((current) => current.id);
 
       const pagePaths = array.map((_, i) => getPagePath(i + 1));
@@ -207,7 +213,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
       2021: `${process.env.SWAPCARD_EVENT_ID_2021}`,
     },
     page: 1,
-    pageSize: 200,
+    pageSize: 250,
   };
 
   reporter.info('start fetching data from Swapcard');
