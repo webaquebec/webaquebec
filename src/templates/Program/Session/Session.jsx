@@ -435,7 +435,12 @@ export const sessionQuery = graphql`
           photoUrl
           photoUrlSharp {
             childImageSharp {
-              fixed(width: 100, height: 100, quality: 90) {
+              fixed(
+                width: 100
+                height: 100
+                quality: 90
+                duotone: { highlight: "#EBEBEB", shadow: "#000CA0" }
+              ) {
                 ...GatsbyImageSharpFixed_withWebp
               }
             }
