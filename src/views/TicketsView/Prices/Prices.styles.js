@@ -9,6 +9,8 @@ import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
 
 export const blockContainerStyle = css`
+  max-width: 525px;
+
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [56, 60] },
@@ -29,6 +31,9 @@ export const ContentContainer = css`
 `;
 
 export const BlocksWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+
   ${breakpointsRange(
     [{ prop: 'marginBottom', sizes: [0, 120] }],
     breakpoints.spacings,

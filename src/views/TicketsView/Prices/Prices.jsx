@@ -19,7 +19,7 @@ import {
 import colors from '../../../styles/colors';
 
 const Prices = () => (
-  <Center maxWidth='1124px' gutters='32px'>
+  <Center maxWidth='1124px' gutters='var(--container-gutter)'>
     <Switcher
       threshold='992px'
       space='calc(var(--container-gutter) * 2)'
@@ -82,7 +82,10 @@ const Prices = () => (
               Réserver
             </Button>
 
-            <TicketText>À venir</TicketText>
+            <TicketText>
+              Envie de venir faire ton tour, mais tu es seulement disponible une
+              journée? Choisis laquelle, on s&apos;occupe du reste!
+            </TicketText>
           </Center>
         </Paper>
 
