@@ -19,8 +19,12 @@ import {
 import colors from '../../../styles/colors';
 
 const Prices = () => (
-  <Center maxWidth='1064px' gutters='32px'>
-    <Switcher threshold='768px' space='2rem' limit={2}>
+  <Center maxWidth='1124px' gutters='var(--container-gutter)'>
+    <Switcher
+      threshold='992px'
+      space='calc(var(--container-gutter) * 2)'
+      limit={2}
+    >
       <BlocksWrapper>
         <Paper
           lightColor={colors.gris30}
@@ -29,7 +33,7 @@ const Prices = () => (
           overlaid
           css={blockContainerStyle}
         >
-          <Center maxWidth='290px' intrinsic withText css={ContentContainer}>
+          <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
             <TicketTitle color={colors.gris90}>Billet virtuel</TicketTitle>
 
             <TicketPrice>195$</TicketPrice>
@@ -55,12 +59,43 @@ const Prices = () => (
         </Paper>
 
         <Paper
+          lightColor={colors.gris30}
+          darkColor={colors.bleu80}
+          rounded
+          overlaid
+          css={blockContainerStyle}
+        >
+          <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
+            <TicketTitle color={colors.gris90}>Billet journalier</TicketTitle>
+
+            <TicketPrice>395$</TicketPrice>
+
+            <Button
+              to='https://ti.to/web-a-quebec/waq-2022'
+              tag='href'
+              secondary
+              small
+              animated
+              rel='noopener noreferrer'
+              target='_blank'
+            >
+              Réserver
+            </Button>
+
+            <TicketText>
+              Envie de venir faire ton tour, mais tu es seulement disponible une
+              journée? Choisis laquelle, on s&apos;occupe du reste!
+            </TicketText>
+          </Center>
+        </Paper>
+
+        <Paper
           lightColor={colors.bleu80}
           darkColor={colors.gris30}
           rounded
           css={blockContainerStyle}
         >
-          <Center maxWidth='290px' intrinsic css={ContentContainer} withText>
+          <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
             <TicketTitle>Billet présentiel</TicketTitle>
 
             <TicketPrice>895$</TicketPrice>
