@@ -11,6 +11,7 @@ import breakpoints from '../../styles/breakpoints';
 
 export const ContactTitle = styled.h2`
   margin: 0;
+  margin-bottom: 16px;
 
   text-align: center;
 
@@ -66,11 +67,6 @@ export const blockContainerStyle = css`
     breakpoints.spacings,
     { bases: [16, 20] }
   )};
-
-  @media (max-width: ${em(846)}) {
-    margin-right: 0;
-    margin-left: 0;
-  }
 `;
 
 export const ContentContainer = css`

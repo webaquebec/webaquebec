@@ -24,6 +24,25 @@ export const Container = styled(Paper)`
     ],
     breakpoints.spacings
   )};
+
+  ::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    border: 2px solid var(--accentColor);
+    border-radius: inherit;
+
+    opacity: 0;
+
+    content: '';
+
+    will-change: opacity;
+  }
 `;
 
 export const noTimeStyle = css`
@@ -71,18 +90,7 @@ export const StyledScheduleCard = styled(Link)`
     outline: none;
 
     ${Container}::after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 2;
-
-      width: 100%;
-      height: 100%;
-
-      border: 2px solid var(--accentColor);
-      border-radius: inherit;
-
-      content: '';
+      opacity: 1;
     }
 
     ${StyledTimeStamp} {

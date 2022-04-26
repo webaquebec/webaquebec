@@ -17,36 +17,18 @@ import styled from 'styled-components';
  * </Grid>
  */
 const Grid = styled.div`
-  /* Modern browsers */
-  @supports (grid-gap: 0) {
-    display: grid;
-    grid-gap: ${({ space }) => space};
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(${({ minWidth }) => minWidth}, 100%), 1fr)
-    );
-  }
-
-  /* IE11 fallback */
-  @media screen and (-ms-high-contrast: active),
-    screen and (-ms-high-contrast: none) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    margin: calc(${({ space }) => space} / 2 * -1);
-
-    > * {
-      width: calc(100% / ${({ limit, space }) => limit - space});
-      min-width: ${({ minWidth }) => minWidth};
-      margin: calc(${({ space }) => space} / 2);
-    }
-  }
+  display: grid;
+  grid-gap: ${({ space }) => space};
+  grid-template-columns: repeat(
+    ${({ collapsed }) => (collapsed ? 'auto-fit' : 'auto-fill')},
+    minmax(min(${({ minWidth }) => minWidth}, 100%), 1fr)
+  );
 `;
 
 Grid.propTypes = {
   space: PropTypes.string,
   minWidth: PropTypes.string,
+  collapsed: PropTypes.bool,
 };
 
 Grid.defaultProps = {
@@ -59,10 +41,9 @@ Grid.defaultProps = {
    */
   space: '1rem',
   /**
-   * The maximum number of elements allowed to appear in the horizontal configuration
-   * (used only as a fallback for IE11)
+   * Whether any empty repeated children must collapse
    */
-  limit: '3',
+  collapsed: false,
 };
 
 export default Grid;

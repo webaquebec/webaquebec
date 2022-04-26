@@ -1,5 +1,6 @@
 // vendors
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // components
 import Switcher from '../../../components/LayoutSections/Switcher';
@@ -8,56 +9,75 @@ import Paper from '../../../components/Paper';
 
 // styles
 import {
-  PostWrapper,
-  PostContent,
-  PostPictureWrapper,
-  PostPicture,
-  PostTitle,
+  postWrapperStyle,
+  Content,
+  Picture,
+  Title,
   Star,
-  PostDate,
-  PostSummary,
+  Date,
+  Excerpt,
 } from './FeaturedBlogPost.styles';
 import colors from '../../../styles/colors';
 
-const FeaturedBlogPost = () => {
-  const data = {
-    id: 1,
-    alt: '',
-    picture: 'https://place-hold.it/600x434',
-    title:
-      '10 bonnes raisons de prévoir prendre congé pendant le WAQ en juin 2021',
-    publishDate: '6 avril 2021',
-    summary: `« J’devrais-tu, j’devrais-tu pas? » La réponse est simple : oui, tu devrais. Que le Web à Québec soit une nouvelle expérience lorem ipsum dolor sit amet...`,
-    link: '/',
-  };
+const FeaturedBlogPost = ({ post }) => {
+  const { pictures, title, date, excerpt, to } = post;
+
+  const picture = pictures?.featuredLarge;
 
   return (
     <Paper
       lightColor={colors.bleu80}
       darkColor={colors.gris30}
       rounded
-      css={PostWrapper}
+      css={postWrapperStyle}
     >
-      <Switcher threshold='768px' space='2rem' limit={2}>
+      <Switcher
+        threshold='768px'
+        space='calc(var(--container-gutter) * 2)'
+        limit={2}
+      >
         <div>
-          <PostPictureWrapper>
-            <PostPicture src={data.picture} alt={data.alt} />
-          </PostPictureWrapper>
-          <PostContent>
-            <PostTitle>{data.title}</PostTitle>
-            <PostDate>
+          <Picture fluid={picture} alt='' role='presentation' />
+
+          <Content>
+            <Title>{title}</Title>
+
+            <Date>
               <Star color={colors.yellow80} />
-              {data.publishDate}
-            </PostDate>
-            <PostSummary>{data.summary}</PostSummary>
-            <Button to={data.link} tag='href' primary small>
+              {date}
+            </Date>
+
+            <Excerpt dangerouslySetInnerHTML={{ __html: excerpt }} />
+
+            <Button to={to} tag='link' primary small>
               lire l&apos;article
             </Button>
-          </PostContent>
+          </Content>
         </div>
       </Switcher>
     </Paper>
   );
+};
+
+FeaturedBlogPost.propTypes = {
+  /**
+   * Specifies the featured post
+   */
+  post: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    excerpt: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    pictures: PropTypes.shape({
+      featuredLarge: PropTypes.shape({
+        aspectRatio: PropTypes.number.isRequired,
+        src: PropTypes.string.isRequired,
+        srcSet: PropTypes.string.isRequired,
+        srcSetWebp: PropTypes.string.isRequired,
+        srcWebp: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    to: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default FeaturedBlogPost;

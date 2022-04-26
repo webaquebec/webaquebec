@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { em } from 'polished';
 
 // images
-import Sticker21 from '../../images/stickers/Sticker21';
+import Sticker22 from '../../images/stickers/Sticker22';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
@@ -22,13 +22,17 @@ export const FooterWrapper = css`
 `;
 
 export const FooterTitle = styled.h2`
-  margin-top: 0;
+  margin: 0;
+  margin-bottom: 14px;
 
   color: ${colors.bleu90};
-  font-weight: ${fontWeights.medium};
+  font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 18], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [20, 20], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [26, 26], bases: [16, 20], unit: '' },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -37,13 +41,16 @@ export const ContactLink = styled.a`
   display: block;
 
   color: ${colors.bleu80};
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeights.medium};
   text-decoration: none;
 
   word-break: normal;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [20, 24], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 24], bases: [16, 16], unit: '' },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -113,48 +120,46 @@ export const StyledFooter = styled.footer`
 
 export const StickerWrapper = styled.div`
   position: absolute;
-  top: -${350 / 2 - 5}px;
-  left: -${350 / 2 + 30}px;
+  top: -${366 / 2 - 30}px;
+  left: -${366 / 2 - 17}px;
 
-  width: 350px;
+  width: 366px;
   height: auto;
 
   ${lessThan(breakpoints.spacings[2])} {
-    top: -${250 / 2 + 50}px;
-    left: -${250 / 2 - 50}px;
+    top: -${290 / 2 + 3}px;
+    left: -${290 / 2 - 89}px;
 
     width: 290px;
   }
 
   ${lessThan(breakpoints.spacings[1])} {
-    top: -${250 / 2 + 40}px;
-    left: -${250 / 2 - 60}px;
+    top: -${250 / 2 + 9}px;
+    left: -${250 / 2 - 83}px;
 
     width: 250px;
   }
 `;
 
-const template = (i) => {
-  return `
-        &:nth-child(${i}) {
-          animation-delay: ${i * 30}ms;
-         }
-      `;
-};
+const template = (i) => `
+  &:nth-child(${i}) {
+    animation-delay: ${i * 20}ms;
+  }
+`;
 
 const setAnimationDelays = () => {
   let str = '';
-  for (let index = 0; index <= 69; index += 1) {
+  for (let index = 0; index <= 80; index += 1) {
     str += template(index);
   }
   return str;
 };
 
 const moving = keyframes`
-  from { 
+  from {
     transform: translate3d(10px, 0, 0) rotate3d(0, 0, 1, -40deg);
   }
-  
+
   to {
     transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
   }
@@ -170,7 +175,7 @@ const appear = keyframes`
   }
 `;
 
-export const Sticker = styled(Sticker21)`
+export const Sticker = styled(Sticker22)`
   .pog {
     transform-origin: center;
     transform-box: fill-box;
@@ -183,5 +188,9 @@ export const Sticker = styled(Sticker21)`
     will-change: opacity, transform;
 
     ${setAnimationDelays()};
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-name: none;
+    }
   }
 `;

@@ -10,8 +10,9 @@ import {
   MarqueeWrapper,
   Dates,
   StarSeparator,
-  MapPin,
-  AddressFirstLine,
+  // MapPin,
+  // AddressFirstLine,
+  // CallToAction,
 } from './Hero.styles';
 
 // components
@@ -20,7 +21,7 @@ import Sticker from '../../../components/Sticker';
 
 // images
 import vectorStarSeparator from '../../../images/vectorStarSeparator.svg';
-import vectorMapPin from '../../../images/vectorMapPin.svg';
+// import vectorMapPin from '../../../images/vectorMapPin.svg';
 import vectorStickerFlameMonitor from '../../../images/stickers/vectorStickerFlameMonitor.svg';
 import vectorStickerRainbowDoor from '../../../images/stickers/vectorStickerRainbowDoor.svg';
 
@@ -66,14 +67,14 @@ const Hero = () => {
 
   return (
     <StyledHero>
-      <h2 css={hideVisually}>15 au 17 juin 2021</h2>
+      <h2 css={hideVisually}>24 au 26 mai 2022</h2>
 
       <MarqueeWrapper>
         <Marquee gradient={false} speed={75}>
           <StarSeparator src={vectorStarSeparator} role='presentation' alt='' />
-          <Dates>15 au 17 juin 2021</Dates>
+          <Dates>24 au 26 mai 2022</Dates>
           <StarSeparator src={vectorStarSeparator} role='presentation' alt='' />
-          <Dates>15 au 17 juin 2021</Dates>
+          <Dates>24 au 26 mai 2022</Dates>
         </Marquee>
 
         <Center
@@ -94,10 +95,18 @@ const Hero = () => {
         </Center>
       </MarqueeWrapper>
 
-      <Center maxWidth='var(--max-container-width)' gutters='50px' withText>
+      {/* <Center maxWidth='var(--max-container-width)' gutters='50px' withText>
         <MapPin src={vectorMapPin} role='presentation' alt='' />
         <AddressFirstLine>Dans le confort de chez soi</AddressFirstLine>
-      </Center>
+        <CallToAction
+          to='https://waq21.app.swapcard.com/'
+          tag='href'
+          rel='noopener noreferrer'
+          target='_blank'
+        >
+          accéder à l&apos;événement
+        </CallToAction>
+      </Center> */}
     </StyledHero>
   );
 };

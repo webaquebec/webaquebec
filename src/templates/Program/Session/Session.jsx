@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import moment from 'moment';
 // import { useQuery } from '@apollo/client';
 
 // Client queries
@@ -11,7 +10,6 @@ import moment from 'moment';
 // import sessionByIdQuery from '../../../../graphql/swapcard/get-session-by-id-query.gql';
 
 // components
-import Layout from '../../../components/Layout';
 import SEO from '../../../components/SEO';
 import Center from '../../../components/LayoutSections/Center';
 import Hero from '../../../components/Hero';
@@ -23,6 +21,7 @@ import Cluster from '../../../components/LayoutSections/Cluster';
 import Stack from '../../../components/LayoutSections/Stack';
 
 // utils
+import slugify from '../../../utils/strings/slugify';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
 // images
@@ -31,6 +30,7 @@ import IconArrow from '../../../images/IconArrow';
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
+import { fontWeights } from '../../../styles/typography';
 
 // styles
 const Container = styled(SectionContainer)`
@@ -75,8 +75,9 @@ const EventContainer = styled.div`
   )};
 `;
 
-const EventTitle = styled.h1`
+const EventTitle = styled.h2`
   margin-top: 0;
+  margin-bottom: 16px;
 
   color: ${colors.bleu80};
 
@@ -84,7 +85,6 @@ const EventTitle = styled.h1`
     [
       { prop: 'fontSize', sizes: [24, 24], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [32, 32], bases: [16, 20] },
-      // { prop: 'marginBottom', sizes: [16, 16], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -97,7 +97,6 @@ const EventDescription = styled.div`
     [
       { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [22, 22], bases: [16, 16], unit: '' },
-      // { prop: 'marginBottom', sizes: [24, 40], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -111,6 +110,98 @@ const EventDescription = styled.div`
     margin-bottom: 0;
     padding-bottom: 0;
   }
+
+  * {
+    margin-block: 0;
+  }
+
+  * + * {
+    margin-block-start: 1em;
+  }
+
+  /**
+   *  FIXME: Add to BlockList styles to avoid duplicates
+   */
+  ul {
+    &,
+    ul {
+      padding-inline-start: 1rem;
+
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 16px;
+    }
+
+    li::before {
+      display: inline-block;
+
+      width: 1em;
+      margin-left: -1em;
+
+      color: ${colors.bleu80};
+      font-weight: ${fontWeights.bold};
+
+      content: '•';
+    }
+
+    li li::before {
+      content: '○';
+    }
+
+    li li li::before {
+      content: '-';
+    }
+  }
+
+  ol {
+    &,
+    ol {
+      padding-inline-start: 1rem;
+
+      list-style: none;
+
+      counter-reset: li;
+    }
+
+    ol,
+    li:not(:first-of-type) {
+      ${breakpointsRange(
+        [{ prop: 'marginTop', sizes: [14, 16], bases: [16, 20] }],
+        breakpoints.spacings
+      )};
+    }
+
+    li {
+      counter-increment: li;
+    }
+
+    li::before {
+      display: inline-block;
+
+      width: 1.3em;
+      margin-left: -1.3em;
+
+      color: ${colors.bleu80};
+      font-weight: ${fontWeights.bold};
+
+      direction: rtl;
+
+      content: '.' counter(li);
+    }
+
+    li li::before {
+      content: '.' counter(li, lower-alpha);
+    }
+
+    li li li::before {
+      width: 1.8em;
+      margin-left: -1.8em;
+
+      content: '(' counter(li) ')';
+    }
+  }
 `;
 
 /**
@@ -119,7 +210,7 @@ const EventDescription = styled.div`
  * @param {Object} pageContext — Received context from the automatically created pages
  * (@Link gatsby/createScheduleSessionPages.js) and use that as variables GraphQL query.
  */
-const Session = ({ data, pageContext: { pageNumber } }) => {
+const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
   /**
    * Query to fetch data from Swapcard API at client side only.
    * Useful if we want to get up-to-date data that may change during an event (e.g. time, room)
@@ -139,39 +230,51 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
     swapcard: { plannings },
   } = data;
 
-  const getFormattedLocaleDate = (date) => {
-    moment.locale('fr_ca');
-    return moment(date, 'YYYY-MM-DD').format('dddd DD MMMM');
+  // Fix Safari Invalid Date issue
+  const formatDateStr = (value) => value.replace(/-/g, '/');
+
+  const getFormattedLocaleDate = (value) => {
+    const options = { weekday: 'long', day: 'numeric', month: 'long' };
+    const date = new Date(formatDateStr(value));
+    return date.toLocaleDateString('fr-ca', options);
   };
 
-  const getFormattedTime = (date) => moment(date).format('HH:mm');
+  const getFormattedTime = (value) => {
+    const options = { hour: '2-digit', minute: '2-digit' };
+    const date = new Date(formatDateStr(value));
+    return date.toLocaleTimeString('fr', options);
+  };
 
-  const getDateYear = (date) => moment(date, 'YYYY-MM-DD').format('YYYY');
+  const getDateYear = (value) => {
+    const date = new Date(formatDateStr(value));
+    return date.getFullYear();
+  };
 
   // Re-arrange values from the plannings array the way we want to use it in our template
   const modifiedPlannings = plannings.map((planning) => ({
+    ...planning,
     edition: getDateYear(planning.beginsAt),
     date: getFormattedLocaleDate(planning.beginsAt),
     time: {
       beginsAt: getFormattedTime(planning.beginsAt),
       endsAt: getFormattedTime(planning.endsAt),
     },
-    category: planning.categories[0],
-    ...planning,
+    type: slugify(planning.type),
   }));
 
   const session = modifiedPlannings[0];
 
   const {
+    id,
     edition,
     date,
     time,
     title,
     description,
     htmlDescription,
-    category,
     type,
     place,
+    categories,
     speakers,
   } = session;
 
@@ -181,7 +284,7 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
       : `/programmation/${edition}/${pageNumber}`;
 
   return (
-    <Layout>
+    <>
       <SEO title={title} description={description} />
 
       <Center
@@ -190,7 +293,11 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <Hero title='programmation' displayYear />
+        <Hero
+          title='programmation'
+          year={session.edition}
+          displayYear={session.edition === 2021}
+        />
       </Center>
 
       <Container forwardedAs='div' faded padded>
@@ -201,6 +308,7 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
             outlined
             iconFirst
             renderIcon={<IconArrow css={backArrow} />}
+            state={{ sessionId: id }}
             css={backButton}
           >
             Retour à la programmation
@@ -209,24 +317,33 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
           <EventContainer>
             <Center maxWidth='645px' gutters='var(--container-gutter)'>
               <Stack space='40px'>
-                <Cluster>
-                  <div>
-                    <Tag outlined>{date}</Tag>
-                    <Tag outlined>{`de ${time.beginsAt} à ${time.endsAt}`}</Tag>
-                  </div>
-                </Cluster>
+                {!isLastPage && (
+                  <Cluster>
+                    <div>
+                      <Tag outlined>{date}</Tag>
+                      <Tag
+                        outlined
+                      >{`de ${time.beginsAt} à ${time.endsAt}`}</Tag>
+                    </div>
+                  </Cluster>
+                )}
 
                 <div>
                   <EventTitle>{title}</EventTitle>
-                  <EventDescription
-                    dangerouslySetInnerHTML={{ __html: htmlDescription }}
-                  />
+
+                  {htmlDescription && (
+                    <EventDescription
+                      dangerouslySetInnerHTML={{ __html: htmlDescription }}
+                    />
+                  )}
                 </div>
 
-                {(category || type || place) && (
+                {(categories.length > 0 || type || place) && (
                   <Cluster>
                     <div>
-                      {category && <Tag category={category} />}
+                      {categories.map((category) => (
+                        <Tag key={`category-${category}`} category={category} />
+                      ))}
 
                       {type && <Tag eventType={type} />}
 
@@ -236,14 +353,14 @@ const Session = ({ data, pageContext: { pageNumber } }) => {
                 )}
 
                 {speakers.map((speaker) => (
-                  <SpeakerCard speaker={speaker} />
+                  <SpeakerCard key={speaker.id} speaker={speaker} />
                 ))}
               </Stack>
             </Center>
           </EventContainer>
         </Center>
       </Container>
-    </Layout>
+    </>
   );
 };
 
@@ -259,6 +376,7 @@ Session.propTypes = {
     pageSize: PropTypes.number,
     pageNumber: PropTypes.number,
     planningIds: PropTypes.arrayOf(PropTypes.string),
+    isLastPage: PropTypes.bool,
   }).isRequired,
 };
 
@@ -301,7 +419,6 @@ export const sessionQuery = graphql`
         totalAttendees
         twitterHashtag
         type
-
         speakers {
           id
           firstName
@@ -318,7 +435,12 @@ export const sessionQuery = graphql`
           photoUrl
           photoUrlSharp {
             childImageSharp {
-              fixed(width: 100, height: 100, quality: 90) {
+              fixed(
+                width: 100
+                height: 100
+                quality: 90
+                duotone: { highlight: "#EBEBEB", shadow: "#000CA0" }
+              ) {
                 ...GatsbyImageSharpFixed_withWebp
               }
             }

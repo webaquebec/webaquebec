@@ -6,7 +6,6 @@ import { rem } from 'polished';
 import interpolate from '../utils/math/interpolate';
 
 // styles
-import { Redaction } from './fontFaces';
 import { fontFamilies, fontWeights } from './typography';
 import { lessThan, greaterThan } from '../utils/mediaQuery';
 import breakpoints from './breakpoints';
@@ -17,6 +16,7 @@ export const rootStyle = css`
   --container-gutter: 16px;
   --min-container-width: 320px;
   --max-container-width: 1280px;
+  --max-content-post-width: 854px;
 
   font-size: ${interpolate(16, 20, 480, 1280)};
 
@@ -39,20 +39,28 @@ export const htmlStyle = css`
   margin: 0;
   padding: 0;
 
+  /* Do not add overflow: hidden on html style which causing issue with sticky header */
+
   background-color: ${colors.gris};
   scroll-behavior: smooth;
 `;
 
 export const bodyStyle = css`
+  position: relative;
+
   overflow-x: hidden;
 
   font-weight: ${fontWeights.regular};
   font-family: ${fontFamilies.body};
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [26, 24], bases: [16, 20], unit: '' }],
+    [{ prop: 'lineHeight', sizes: [22, 28], bases: [16, 20], unit: '' }],
     breakpoints.spacings
   )};
   letter-spacing: 0.1px;
+
+  &.Modal--open {
+    overflow: hidden;
+  }
 `;
 
 export const bodyMediumStyle = css`
@@ -69,7 +77,7 @@ export const bodyAltStyle = css`
     [{ prop: 'lineHeight', sizes: [26, 28], bases: [16, 23], unit: '' }],
     breakpoints.spacings
   )};
-  /* line-height: ${28 / 23}; */
+
   letter-spacing: 0.1px;
 `;
 
@@ -185,10 +193,11 @@ export const magnifyStyle = css`
   color: ${colors.bleu};
 
   font-weight: ${fontWeights.bold};
+
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [24, 40], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [30, 48], bases: [24, 40], unit: '' },
+      { prop: 'fontSize', sizes: [20, 40], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 48], bases: [20, 40], unit: '' },
     ],
     breakpoints.spacings
   )};
@@ -205,7 +214,23 @@ export const unstyledLinkStyle = css`
 
 export const titleStyle = css``;
 
+export const captionStyle = css`
+  display: block;
+
+  text-align: center;
+
+  ${breakpointsRange(
+    [
+      { prop: 'paddingTop', sizes: [13, 13], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [13, 13], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
 export const caption1Style = css`
+  ${captionStyle}
+
   font-weight: ${fontWeights.regular};
   ${breakpointsRange(
     [
@@ -223,6 +248,8 @@ export const caption1MediumStyle = css`
 `;
 
 export const caption2Style = css`
+  ${captionStyle}
+
   font-weight: ${fontWeights.regular};
   ${breakpointsRange(
     [
@@ -240,6 +267,8 @@ export const caption2MediumStyle = css`
 `;
 
 export const caption3Style = css`
+  ${captionStyle}
+
   font-weight: ${fontWeights.regular};
   ${breakpointsRange(
     [
@@ -299,13 +328,42 @@ export const unstyledListStyle = css`
 
 export const unorderListStyle = css`
   ${unstyledListStyle};
+
+  li {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  li::before {
+    display: inline-block;
+    margin-right: 12px;
+    margin-left: 8px;
+
+    color: ${colors.bleu};
+    font-size: 30px;
+    line-height: 0;
+
+    content: '•';
+  }
 `;
 
 export const orderListStyle = css``;
 
-export const GlobalStyle = createGlobalStyle`
-  ${Redaction};
+export const resetStyle = css`
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 
+    color: inherit;
+
+    word-break: break-word;
+  }
+`;
+
+export const GlobalStyle = createGlobalStyle`
   :root {
     ${rootStyle};
   }
@@ -317,4 +375,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     ${bodyStyle};
   }
+
+  ${resetStyle};
 `;

@@ -1,7 +1,7 @@
 // vendors
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
 // components
 import Center from '../LayoutSections/Center';
@@ -16,10 +16,10 @@ import {
   StyledHeader,
   Container,
   LogoWrapper,
-  StyledNav,
-  PrimaryNavList,
-  NavListItem,
-  NavLink,
+  // StyledNav,
+  // PrimaryNavList,
+  // NavListItem,
+  // NavLink,
   MenuButtonWrapper,
   BurgerButton,
   BurgerImg,
@@ -27,17 +27,35 @@ import {
 
 const primaryNavigation = [
   {
-    id: 'prog',
+    id: 'programmation',
     label: 'programmation',
+    slug: '/programmation/2022',
+    type: 'internal',
+    color: 'jaune',
+  },
+  {
+    id: 'blog',
+    label: 'blogue',
+    slug: '/blogue',
+    type: 'internal',
+    color: 'rose',
+  },
+  {
+    id: 'edition2021',
+    label: 'édition 2021',
     slug: '/programmation/2021',
     type: 'internal',
+    color: 'turquoise',
   },
-  // {
-  //   id: 'blog',
-  //   label: 'blogue',
-  //   slug: '/blogue',
-  //   type: 'internal',
-  // },
+];
+
+const secondaryNavigation = [
+  {
+    id: 'about',
+    label: 'à propos',
+    slug: '/a-propos/evenement',
+    type: 'internal',
+  },
   {
     id: 'faq',
     label: 'FAQ',
@@ -45,16 +63,22 @@ const primaryNavigation = [
     type: 'internal',
   },
   {
-    id: 'covid-19',
-    label: 'covid-19',
-    slug:
-      'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
-    type: 'external',
+    id: 'tickets',
+    label: 'billetterie',
+    slug: '/billetterie',
+    type: 'internal',
   },
 ];
 
-const Header = ({ isHomePage }) => {
+const navigation = {
+  primary: [...primaryNavigation],
+  secondary: [...secondaryNavigation],
+};
+
+const Header = ({ pathname }) => {
   const [opened, setOpened] = useState(false);
+
+  const isHomePage = !!pathname && pathname === '/';
 
   const handleClick = () => {
     setOpened(!opened);
@@ -62,7 +86,7 @@ const Header = ({ isHomePage }) => {
     if (!opened) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.removeAttribute('style');
     }
   };
 
@@ -73,7 +97,7 @@ const Header = ({ isHomePage }) => {
         gutters='var(--container-gutter)'
       >
         <Container>
-          <StyledNav aria-label='Header Menu'>
+          {/* <StyledNav aria-label='Header Menu'>
             <PrimaryNavList>
               {primaryNavigation.map((item) => (
                 <NavListItem key={item.id}>
@@ -100,7 +124,7 @@ const Header = ({ isHomePage }) => {
                 </NavListItem>
               ))}
             </PrimaryNavList>
-          </StyledNav>
+          </StyledNav> */}
 
           <LogoWrapper>
             <Logo isHomePage={isHomePage} />
@@ -115,20 +139,21 @@ const Header = ({ isHomePage }) => {
       </Center>
 
       <Menu
+        pathname={pathname}
         opened={opened}
         onClose={handleClick}
-        primaryNavigation={primaryNavigation}
+        navigation={navigation}
       />
     </StyledHeader>
   );
 };
 
 Header.propTypes = {
-  isHomePage: PropTypes.bool,
+  pathname: PropTypes.string,
 };
 
 Header.defaultProps = {
-  isHomePage: false,
+  pathname: undefined,
 };
 
-export default Header;
+export default memo(Header);

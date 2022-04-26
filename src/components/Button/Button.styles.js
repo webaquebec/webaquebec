@@ -158,8 +158,8 @@ export const outlinedStyle = css`
 export const smallStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [12, 16], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [20, 24], bases: 16, unit: '' },
+      { prop: 'fontSize', sizes: [18, 18], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [21, 21], bases: [18, 18], unit: '' },
       { prop: '--paddingVertical', sizes: [12, 12], bases: [16, 20] },
       { prop: '--paddingHorizontal', sizes: [30, 30], bases: [16, 20] },
     ],
@@ -173,7 +173,7 @@ export const mediumStyle = css`
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [14, 18], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [16, 20], bases: 16, unit: '' },
+      { prop: 'lineHeight', sizes: [16, 20], bases: [14, 18], unit: '' },
       { prop: 'padding', sizes: [12, 24], bases: [16, 20] },
     ],
     breakpoints.spacings
@@ -286,7 +286,7 @@ const StyledButton = styled.button`
 
   /* Apply small style when small props defined */
   ${({ $small }) => $small && smallStyle}
-  
+
   /* Apply small style when medium props defined */
   ${({ $medium }) => $medium && mediumStyle}
 

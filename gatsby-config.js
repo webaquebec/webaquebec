@@ -1,18 +1,22 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: `.env`,
+});
+
+const inProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   siteMetadata: {
-    title: 'Le Web à Québec',
+    title: 'Web à Québec',
     description:
       'Le plus grand événement numérique francophone en Amérique du Nord.',
-    siteUrl: 'https://www.webaquebec.org',
+    siteUrl: 'https://webaquebec.org',
+    image: '/og-img-waq-22.jpg',
   },
   plugins: [
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: 'GTM-KHD8ZJR',
+        id: process.env.GTM_ID,
         // Include GTM in development.
         //
         // Defaults to false meaning GTM will only be loaded in production.
@@ -28,7 +32,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: `UA-20043510-1`,
+        trackingId: process.env.GTAG_ID,
         // Puts tracking script in the head instead of the body
         head: false,
         // Enable ip anonymization
@@ -38,19 +42,27 @@ module.exports = {
     {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
-        pixelId: '758649984324647',
+        pixelId: inProduction && process.env.FACEBOOK_PIXEL_ID,
       },
     },
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-image`,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: './src/images/',
+        path: `${__dirname}/src/images/`,
       },
       __key: 'images',
+    },
+    'gatsby-transformer-json',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/archives/`,
+      },
     },
     {
       /**
@@ -71,11 +83,17 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        displayName: !inProduction,
+      },
+    },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Le Web à Québec',
+        name: 'Web à Québec',
         short_name: 'WAQ',
         start_url: '/',
         background_color: '#000CA0',
@@ -108,7 +126,37 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: `${process.env.WP_API_URL}/graphql`,
+        verbose: true,
+        schema: {
+          perPage: 100,
+          // requestConcurrency: 1,
+          // previewRequestConcurrency: 1,
+          timeout: 120000,
+        },
+        searchAndReplace: [
+          {
+            search: '/app/uploads',
+            replace: '/wp-content/uploads',
+          },
+          // {
+          //   search: process.env.WP_API_BASE_URL,
+          //   replace: process.env.URL,
+          // },
+        ],
+        html: {
+          useGatsbyImage: true,
+          imageQuality: 99,
+          fallbackImageMaxWidth: 1200,
+          createStaticFiles: true,
+        },
+      },
+    },
+    {
       /**
+       * FIXME: Added temporary to Local Plugins while waiting for an official fix
        * This plugin generates fileNodes in your graphQL schema
        * and add File type to it. You can now use gatsby-plugin-sharp and gatsby-transformer-sharp
        * in your GraphQL schema.
