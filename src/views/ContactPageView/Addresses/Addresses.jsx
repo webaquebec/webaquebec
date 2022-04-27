@@ -74,10 +74,10 @@ const Addresses = () => (
                   <span css={hideVisually}>Québec Numérique</span>
 
                   <div>
-                    <span>688 Boulevard Charest E,</span>
+                    <span>330 Rue Saint-Vallier E Bureau 300,</span>
                     <br />
                     <span> Québec</span>,<span> QC </span>
-                    <span>G1K 3J4</span>
+                    <span>G1K 9C5</span>
                   </div>
 
                   <br />

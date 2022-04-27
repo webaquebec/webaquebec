@@ -10,7 +10,7 @@ mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
 const defaultOptions = {
   style: 'mapbox://styles/qc-num/ckz7b0xxl002e14th30urqx2w',
-  center: { lat: 46.815921, lng: -71.208561 },
+  center: { lat: 46.81425, lng: -71.211725 },
   zoom: 14,
 };
 
@@ -21,7 +21,7 @@ const markers = [
     iconSize: [29, 28],
   },
   {
-    coordinates: [-71.220688, 46.814944],
+    coordinates: [-71.223837, 46.812047],
     icon: targetMarker,
     iconSize: [28, 28],
   },
