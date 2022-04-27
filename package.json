@@ -37,6 +37,7 @@
     "gatsby-source-wordpress": "^6.5.2",
     "gatsby-transformer-json": "^4.10.0",
     "gatsby-transformer-sharp": "^4.5.0",
+    "mapbox-gl": "^2.8.2",
     "polished": "^4.0.5",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
