@@ -1,97 +1,98 @@
 // vendors
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+// import { graphql, useStaticQuery } from 'gatsby';
 import { hideVisually } from 'polished';
 
 // utils
-import { lessThan } from '../../../utils/mediaQuery';
+// import { lessThan } from '../../../utils/mediaQuery';
 
 // images
-import vectorStickerWindowFrame from '../../../images/stickers/vectorStickerWindowFrame.svg';
-import vectorStickerSparkleHeart from '../../../images/stickers/vectorStickerSparkleHeart.svg';
-import vectorStickerMegaphone from '../../../images/stickers/vectorStickerMegaphone.svg';
-import vectorTagInnovation from '../../../images/vectorTagInnovation.svg';
-import vectorTagDesign from '../../../images/vectorTagDesign.svg';
-import vectorTagDevelopment from '../../../images/vectorTagDevelopment.svg';
-import vectorTagCommMktg from '../../../images/vectorTagCommMktg.svg';
+// import vectorStickerWindowFrame from '../../../images/stickers/vectorStickerWindowFrame.svg';
+// import vectorStickerSparkleHeart from '../../../images/stickers/vectorStickerSparkleHeart.svg';
+// import vectorStickerMegaphone from '../../../images/stickers/vectorStickerMegaphone.svg';
+// import vectorTagInnovation from '../../../images/vectorTagInnovation.svg';
+// import vectorTagDesign from '../../../images/vectorTagDesign.svg';
+// import vectorTagDevelopment from '../../../images/vectorTagDevelopment.svg';
+// import vectorTagCommMktg from '../../../images/vectorTagCommMktg.svg';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
-import Switcher from '../../../components/LayoutSections/Switcher';
-import LazyAnimation from '../../../components/LazyAnimation';
+// import Switcher from '../../../components/LayoutSections/Switcher';
+// import LazyAnimation from '../../../components/LazyAnimation';
 
 // styles
 import {
   CTAContent,
   SectionContainer,
-  SpeakersGraphics,
-  SpeakersGraphicsWrapper,
-  SpeakersPicture,
-  SpeakersSticker,
-  SpeakersTag,
+  // SpeakersGraphics,
+  // SpeakersGraphicsWrapper,
+  // SpeakersPicture,
+  // SpeakersSticker,
+  // SpeakersTag,
 } from './CTASection.styles';
-import { easing } from '../../../styles/animation';
-import Sale from './Sale';
+// import { easing } from '../../../styles/animation';
+import App from './App';
+// import Sale from './Sale';
 
-const CTASection = () => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        speaker1Picture: file(
-          relativePath: { eq: "img-speaker-draplin-duo-square.png" }
-        ) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 319) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
-            }
-          }
-        }
-        speaker2Picture: file(
-          relativePath: { eq: "img-speaker-2-duo-square.png" }
-        ) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 319) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
-            }
-          }
-        }
-        speaker3Picture: file(
-          relativePath: { eq: "img-speaker-vitali-duo-square.png" }
-        ) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 319) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
-            }
-          }
-        }
-      }
-    `
-  );
+const CTASection = () => (
+  // const data = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       speaker1Picture: file(
+  //         relativePath: { eq: "img-speaker-draplin-duo-square.png" }
+  //       ) {
+  //         childImageSharp {
+  //           fluid(quality: 100, maxWidth: 319) {
+  //             ...GatsbyImageSharpFluid_withWebp_noBase64
+  //           }
+  //         }
+  //       }
+  //       speaker2Picture: file(
+  //         relativePath: { eq: "img-speaker-2-duo-square.png" }
+  //       ) {
+  //         childImageSharp {
+  //           fluid(quality: 100, maxWidth: 319) {
+  //             ...GatsbyImageSharpFluid_withWebp_noBase64
+  //           }
+  //         }
+  //       }
+  //       speaker3Picture: file(
+  //         relativePath: { eq: "img-speaker-vitali-duo-square.png" }
+  //       ) {
+  //         childImageSharp {
+  //           fluid(quality: 100, maxWidth: 319) {
+  //             ...GatsbyImageSharpFluid_withWebp_noBase64
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  // );
 
-  const {
-    speaker1Picture: {
-      childImageSharp: { fluid: speaker1Picture },
-    },
-    speaker2Picture: {
-      childImageSharp: { fluid: speaker2Picture },
-    },
-    speaker3Picture: {
-      childImageSharp: { fluid: speaker3Picture },
-    },
-  } = data;
+  // const {
+  //   speaker1Picture: {
+  //     childImageSharp: { fluid: speaker1Picture },
+  //   },
+  //   speaker2Picture: {
+  //     childImageSharp: { fluid: speaker2Picture },
+  //   },
+  //   speaker3Picture: {
+  //     childImageSharp: { fluid: speaker3Picture },
+  //   },
+  // } = data;
 
-  return (
-    <SectionContainer>
-      <h2 css={hideVisually}>Call to action</h2>
+  <SectionContainer>
+    <h2 css={hideVisually}>Call to action</h2>
 
-      <Center maxWidth='1080px' gutters='50px'>
-        <Switcher threshold='854px' space='2rem' limit={2}>
-          <div>
-            <CTAContent>
-              <Sale />
-            </CTAContent>
+    <Center maxWidth='1080px' gutters='50px'>
+      {/* <Switcher threshold='855px' space='2rem' limit={2}> */}
+      <div>
+        <CTAContent>
+          {/* <Sale /> */}
+          <App />
+        </CTAContent>
 
-            <SpeakersGraphics>
+        {/* <SpeakersGraphics>
               <SpeakersGraphicsWrapper>
                 <div>
                   <SpeakersSticker
@@ -305,12 +306,10 @@ const CTASection = () => {
                   </LazyAnimation>
                 </div>
               </SpeakersGraphicsWrapper>
-            </SpeakersGraphics>
-          </div>
-        </Switcher>
-      </Center>
-    </SectionContainer>
-  );
-};
-
+            </SpeakersGraphics> */}
+      </div>
+      {/* </Switcher> */}
+    </Center>
+  </SectionContainer>
+);
 export default CTASection;

@@ -26,7 +26,7 @@ export const SectionContainer = styled.section`
 `;
 
 export const CTAContent = styled.div`
-  max-width: 500px;
+  /* max-width: 500px; */
 `;
 
 export const CTATitle = styled.p`
