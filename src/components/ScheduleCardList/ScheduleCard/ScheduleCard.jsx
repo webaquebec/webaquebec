@@ -43,7 +43,7 @@ const ScheduleCard = ({
     design: colors.mauve,
     developpement: colors.ciel,
     innovation: colors.turquoise,
-    'communication-et-marketing': colors.rose,
+    'communication-and-marketing': colors.rose,
   };
 
   return (
@@ -152,7 +152,7 @@ ScheduleCard.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.oneOf([
       'design',
-      'communication-et-marketing',
+      'communication-and-marketing',
       'developpement',
       'innovation',
     ])

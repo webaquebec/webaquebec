@@ -9,19 +9,18 @@ import { GridTitle, GridTitleWrapper, YearSticker } from './Hero.styles';
 // images
 import vectorYear2021 from '../../images/vectorYear2021.svg';
 
-const Hero = ({ title, displayYear, tag }) => {
-  return (
-    <GridTitleWrapper>
-      <GridTitle as={tag}>
-        {title}
-        {displayYear && <span css={hideVisually}>2021</span>}
-      </GridTitle>
-      {displayYear && (
-        <YearSticker src={vectorYear2021} alt='' role='presentation' />
-      )}
-    </GridTitleWrapper>
-  );
-};
+const Hero = ({ title, year, displayYear, tag }) => (
+  <GridTitleWrapper>
+    <GridTitle as={tag}>
+      {title}
+      {displayYear && <span css={hideVisually}>{year}</span>}
+    </GridTitle>
+
+    {displayYear && (
+      <YearSticker src={vectorYear2021} alt='' role='presentation' />
+    )}
+  </GridTitleWrapper>
+);
 
 Hero.propTypes = {
   /**
@@ -32,6 +31,10 @@ Hero.propTypes = {
    * Specifies the page title to display in the grid
    */
   title: PropTypes.string.isRequired,
+  /**
+   * Specifies the year of the event
+   */
+  year: PropTypes.number.isRequired,
   /**
    * Specifies whether the year is displayed or not
    */

@@ -53,7 +53,10 @@ const Info = styled.p`
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [18, 32], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [18, 32], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [24, 32], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;

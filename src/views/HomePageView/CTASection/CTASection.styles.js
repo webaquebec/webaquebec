@@ -7,9 +7,10 @@ import { lessThan } from '../../../utils/mediaQuery';
 
 // styles
 import colors from '../../../styles/colors';
-import { fontFamilies, fontWeights } from '../../../styles/typography';
+import { fontFamilies } from '../../../styles/typography';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
+import { magnifyStyle } from '../../../styles/global';
 
 export const SectionContainer = styled.section`
   /* FIXME: Temp fix for overflow issue on safari mobile.
@@ -29,21 +30,14 @@ export const CTAContent = styled.div`
 `;
 
 export const CTATitle = styled.p`
-  margin-top: 0;
+  margin: 0;
+  margin-bottom: 24px;
 
-  font-weight: ${fontWeights.bold};
+  ${magnifyStyle}
 
   span {
     font-family: ${fontFamilies.redaction35};
   }
-
-  ${breakpointsRange(
-    [
-      { prop: 'fontSize', sizes: [24, 40], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [28, 48], bases: [24, 40], unit: '' },
-    ],
-    breakpoints.spacings
-  )};
 `;
 
 export const CTAIntro = styled.p`
