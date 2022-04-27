@@ -8,53 +8,9 @@ import { magnifyStyle, introStyle } from '../../../styles/global';
 // components
 import Center from '../../../components/LayoutSections/Center';
 import Button from '../../../components/Button';
-import Sticker from '../../../components/Sticker';
 import KeynoteCard from '../../../components/KeynoteCard';
 
-// images
-import vectorStickerFlameMegaphone from '../../../images/stickers/vectorStickerFlameMegaphone.svg';
-import vectorStickerShinningHeart from '../../../images/stickers/vectorStickerShinningHeart.svg';
-
 const KeynoteSection = () => {
-  const stickers = [
-    {
-      src: vectorStickerFlameMegaphone,
-      size: {
-        minWidth: 140,
-        maxWidth: 230,
-      },
-      position: {
-        top: '130px',
-        right: '0',
-      },
-      transform: {
-        rotate: {
-          initial: '12deg',
-          final: '0deg',
-        },
-      },
-      zIndex: '1',
-    },
-    {
-      src: vectorStickerShinningHeart,
-      size: {
-        minWidth: 120,
-        maxWidth: 190,
-      },
-      position: {
-        bottom: '1%',
-        left: '0',
-      },
-      transform: {
-        rotate: {
-          initial: '-11deg',
-          final: '0deg',
-        },
-      },
-      zIndex: '1',
-    },
-  ];
-
   const speaker = {
     firstName: 'Benoit',
     lastName: 'Petit',
@@ -78,7 +34,7 @@ const KeynoteSection = () => {
       gutters='16px'
       intrinsic
     >
-      <Title css={magnifyStyle}>Conférenciers principaux</Title>
+      <Title css={magnifyStyle}>conférenciers principaux</Title>
       <Center maxWidth='640px'>
         <Intro css={introStyle}>
           Le WAQ veut vous connaître! Lorem ipsum dolor sit amet, consectetur
@@ -88,11 +44,9 @@ const KeynoteSection = () => {
       </Center>
       <CardsWrapper>
         <KeynoteCard speaker={speaker} mobileRotationAngle={-5} />
-        <Sticker sticker={stickers[0]} />
         <KeynoteCard big speaker={speaker} mobileRotationAngle={5} />
         <KeynoteCard speaker={speaker} />
         <KeynoteCard speaker={speaker} mobileRotationAngle={-10} />
-        <Sticker sticker={stickers[1]} />
         <KeynoteCard speaker={speaker} />
         <KeynoteCard big speaker={speaker} mobileRotationAngle={5} />
       </CardsWrapper>

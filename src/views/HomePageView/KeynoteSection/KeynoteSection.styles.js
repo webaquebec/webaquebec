@@ -1,6 +1,5 @@
 // vendors
 import styled, { css } from 'styled-components';
-// import { em } from 'polished';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
@@ -8,8 +7,7 @@ import { greaterThan } from '../../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
-// import colors from '../../../styles/colors';
-// import { fontFamilies, fontWeights } from '../../../styles/typography';
+import { fontFamilies } from '../../../styles/typography';
 
 export const wrapper = css`
   position: relative;
@@ -25,6 +23,7 @@ export const wrapper = css`
 export const Title = styled.h2`
   margin: 0;
 
+  font-family: ${fontFamilies.redaction35};
   text-align: center;
 
   ${breakpointsRange(
