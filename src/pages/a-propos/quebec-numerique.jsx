@@ -22,11 +22,11 @@ const AboutTitle = styled.h1`
 
 const AboutQuebecNumeriquePage = () => {
   const intro =
-    'Coutre intro lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.';
+    'Synergie et partage sont l’essence de la mission de Québec numérique (QN). Plus qu’une simple organisation sans but lucratif, Québec numérique joue un rôle rassembleur auprès de l’ensemble des acteurs et actrices du numérique à Québec. Depuis 10 ans, Québec numérique s’engage à rassembler, innover, accompagner et former la communauté du numérique.';
 
   const description = {
-    p1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus aliquam eleifend mi in nulla posuere sollicitudin. Fringilla ut morbi tincidunt augue interdum velit euismod in. Et ultrices neque ornare aenean euismod elementum nisi quis eleifend. Quis imperdiet massa tincidunt nunc pulvinar sapien.',
-    p2: 'Eget arcu dictum varius duis at consectetur lorem donec massa. Bibendum enim facilisis gravida neque convallis a cras. Odio morbi quis commodo odio aenean sed adipiscing diam. Semper auctor neque vitae tempus quam pellentesque. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Neque ornare aenean euismod elementum nisi quis eleifend quam. Nunc aliquet bibendum enim facilisis gravida.',
+    p1: 'Cette grande aventure débuta par le Web à Québec, un événement unique imaginé par des mordus du numérique qui ont eu la folle idée d’organiser un événement pour rassembler les acteurs du Web. La première édition a attiré plus de 200 personnes!',
+    p2: 'Avec le succès grandissant du WAQ, l’organisation se structure officiellement. C’est la naissance de l’OBNL Québec numérique. Aujourd’hui encore, QN est au cœur du plus grand événement numérique francophone en Amérique du Nord, créé par et pour la communauté.',
   };
 
   const joinUs =
