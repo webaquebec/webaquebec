@@ -13,7 +13,6 @@ import logoVideotronWhite from '../../images/logoPartners/premium/logo-videotron
 import logoKabane from '../../images/logoPartners/premium/logo-kabane.svg';
 import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
 import logoLevio from '../../images/logoPartners/premium/logo-levio.svg';
-import logoNventive from '../../images/logoPartners/premium/logo-nventive.svg';
 import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
 import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
@@ -69,11 +68,6 @@ const premiumImages = [
     src: logoLevio,
     alt: 'Levio affaires et technologies - Au coeur de la transformation numérique',
     url: 'https://levio.ca/',
-  },
-  {
-    src: logoNventive,
-    alt: 'nventive | Agence innovatrice en transformation numérique à Montréal et Québec',
-    url: 'https://nventive.com/fr/',
   },
   {
     src: logoEquisoft,
