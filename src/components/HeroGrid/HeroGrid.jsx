@@ -12,24 +12,26 @@ import vectorHeroGrid from '../../images/vectorHeroGrid.svg';
 // styles
 import { GridWrapper, GridVector, GridContent } from './HeroGrid.styles';
 
-const HeroGrid = React.forwardRef(({ title, displayYear }, ref) => {
-  return (
-    <Center ref={ref} maxWidth='1080px'>
-      <GridWrapper>
-        <GridVector src={vectorHeroGrid} alt='' role='presentation' />
-        <GridContent>
-          <Hero title={title} displayYear={displayYear} />
-        </GridContent>
-      </GridWrapper>
-    </Center>
-  );
-});
+const HeroGrid = React.forwardRef(({ title, year, displayYear }, ref) => (
+  <Center ref={ref} maxWidth='1080px'>
+    <GridWrapper>
+      <GridVector src={vectorHeroGrid} alt='' role='presentation' />
+      <GridContent>
+        <Hero title={title} year={year} displayYear={displayYear} />
+      </GridContent>
+    </GridWrapper>
+  </Center>
+));
 
 HeroGrid.propTypes = {
   /**
    * Specifies the page title to display in the grid
    */
   title: PropTypes.string,
+  /**
+   * Specifies the year of the event
+   */
+  year: PropTypes.number.isRequired,
   /**
    * Specifies whether the year is displayed or not
    */

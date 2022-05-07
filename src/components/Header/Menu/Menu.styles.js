@@ -36,6 +36,23 @@ export const disableAnimationStyle = css`
   animation-name: none;
 `;
 
+export const containerStyle = css`
+  ${breakpointsRange(
+    [{ prop: '--top-height', sizes: [99, 227], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+export const navStyle = css`
+  max-height: calc(100vh - var(--top-height));
+
+  padding-right: var(--container-gutter);
+  padding-bottom: 30px;
+  padding-left: var(--container-gutter);
+
+  overflow-y: auto;
+`;
+
 export const Gradient = styled.div`
   --jaune-start: ${colors.jaune80};
   --jaune-end: ${colors.jaune30};
@@ -87,10 +104,16 @@ export const Top = styled.div`
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
 
+  height: var(--top-height);
+
+  padding-right: var(--container-gutter);
+  padding-left: var(--container-gutter);
+
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [20, 57], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [20, 57], bases: [16, 20] },
+      // { prop: 'paddingTop', sizes: [20, 57], bases: [16, 20] },
+      // { prop: 'paddingBottom', sizes: [20, 57], bases: [16, 20] },
+      { prop: '--top-height', sizes: [99, 227], bases: [16, 20] },
       { prop: 'marginRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'marginLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -121,8 +144,8 @@ export const ButtonWrapper = styled.div`
 export const primaryNavListStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [72, 145], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [72, 145], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [35, 145], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -136,6 +159,32 @@ export const primaryNavListStyle = css`
     )};
   }
 
+  /* > :last-child {
+    ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [65, 114], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+  } */
+`;
+
+export const secondaryNavListStyle = css`
+  ${breakpointsRange(
+    [
+      { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
+      // { prop: 'marginBottom', sizes: [72, 145], bases: [16, 20] },
+      { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
+      { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+
+  > * + * {
+    ${breakpointsRange(
+      [{ prop: 'marginTop', sizes: [28, 40], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
+
   > :last-child {
     ${breakpointsRange(
       [{ prop: 'marginTop', sizes: [65, 114], bases: [16, 20] }],
@@ -145,23 +194,30 @@ export const primaryNavListStyle = css`
 `;
 
 export const ListItem = styled.li`
-  transform: translate3d(0, -30px, 0);
+  --transition-additional-delay: 0ms;
+  --translate-y: -30px;
+
+  transform: translate3d(0, var(--translate-y), 0);
   opacity: 0;
 
   transition: opacity 250ms, transform 500ms;
 
   will-change: opacity, transform;
 
+  :first-child {
+    transition-delay: var(--transition-additional-delay);
+  }
+
   :nth-child(2) {
-    transition-delay: 100ms;
+    transition-delay: calc(100ms + var(--transition-additional-delay));
   }
 
   :nth-child(3) {
-    transition-delay: 200ms;
+    transition-delay: calc(200ms + var(--transition-additional-delay));
   }
 
   :nth-child(4) {
-    transition-delay: 300ms;
+    transition-delay: calc(300ms + var(--transition-additional-delay));
   }
 
   img {
@@ -176,12 +232,13 @@ export const ListItem = styled.li`
   }
 `;
 
-export const NavLink = styled.a`
-  font-weight: ${fontWeights.semiBold};
+export const NavPrimaryLink = styled.a`
+  font-weight: ${fontWeights.medium};
+
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [20, 40], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [30, 48], bases: [20, 40], unit: '' },
+      { prop: 'fontSize', sizes: [32, 40], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [60, 48], bases: [32, 40], unit: '' },
     ],
     breakpoints.spacings
   )};
@@ -192,7 +249,27 @@ export const NavLink = styled.a`
   :hover,
   :focus {
     font-weight: ${fontWeights.bold};
-    font-family: ${fontFamilies.redaction70};
+    font-family: ${fontFamilies.redaction10};
+  }
+`;
+
+export const NavSecondaryLink = styled.a`
+  font-weight: ${fontWeights.medium};
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [20, 24], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [36, 33], bases: [18, 24], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
+
+  text-decoration: none;
+
+  &.active,
+  :hover,
+  :focus {
+    font-weight: ${fontWeights.bold};
   }
 `;
 

@@ -8,7 +8,12 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 
-export const CtaTitle = styled.h2`
+export const CTATitle = styled.h2`
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [24, 32], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+
   color: ${colors.bleu80};
 `;
 

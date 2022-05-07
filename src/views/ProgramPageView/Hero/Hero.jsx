@@ -7,6 +7,7 @@ import { useMedia } from 'react-use';
 import { navigate } from 'gatsby';
 
 // components
+import { hideVisually } from 'polished';
 import HeroGrid from '../../../components/HeroGrid/HeroGrid';
 import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
@@ -70,9 +71,18 @@ const Hero = ({ location, datePaths }) => {
 
   const totalAppliedFilters = getTotalAppliedFilters();
 
+  const totalDates = datePaths.length;
+
+  const minWidth = totalDates > 3 ? '736px' : '632px';
+
   return (
     <>
-      <HeroGrid ref={ref} title='programmation' displayYear />
+      <HeroGrid
+        ref={ref}
+        title='programmation'
+        year={current.edition}
+        displayYear={current.edition === 2021}
+      />
 
       <Wrapper>
         <HeaderGradient
@@ -81,13 +91,18 @@ const Hero = ({ location, datePaths }) => {
         />
 
         <HeaderContent
-          maxWidth={!isVisible ? '1066px' : '736px'}
+          maxWidth={!isVisible ? '1066px' : minWidth}
           gutters={mobile ? '16px' : '32px'}
         >
           {!isVisible && !tablet && (
             <StickyTitle>
               programmation
-              <YearSticker src={vectorYear2021} alt='2021' />
+              <span css={current.edition === 2021 && hideVisually}>
+                &nbsp;{current.edition}
+              </span>
+              {current.edition === 2021 && (
+                <YearSticker src={vectorYear2021} alt='2021' />
+              )}
             </StickyTitle>
           )}
 
@@ -154,7 +169,7 @@ const Hero = ({ location, datePaths }) => {
               </div>
             </div>
           ) : (
-            <DateList>
+            <DateList $shrunk={totalDates <= 3}>
               {datePaths.map((item) => (
                 <DateListItem key={item.date}>
                   <Button

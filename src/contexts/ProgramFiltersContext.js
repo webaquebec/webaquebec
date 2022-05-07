@@ -1,5 +1,5 @@
 // vendors
-import React, { useReducer, useContext } from 'react';
+import React, { useCallback, useContext, useReducer, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 // utils
@@ -84,9 +84,7 @@ const uncheckAllFilters = (state) => {
   return updatedFilters;
 };
 
-const resetFilters = () => {
-  return [];
-};
+const resetFilters = () => [];
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -107,9 +105,7 @@ const reducer = (state, action) => {
   }
 };
 
-const initializer = () => {
-  return initialState;
-};
+const initializer = () => initialState;
 
 /**
  * Context used to keep up to date filters state across Program and Session pages
@@ -117,21 +113,24 @@ const initializer = () => {
 export const ProgramFiltersProvider = ({ children }) => {
   const [filters, dispatch] = useReducer(reducer, initialState, initializer);
 
-  const applyFilter = (name, value) => {
-    const index = filters.findIndex((filter) => filter.name === name);
-    const allUnchecked = filters[index].values.every((c) => !c.isChecked);
+  const applyFilter = useCallback(
+    (name, value) => {
+      const index = filters.findIndex((filter) => filter.name === name);
+      const allUnchecked = filters[index].values.every((c) => !c.isChecked);
 
-    const choiceFound = filters[index].values.some((choice) => {
-      if (Array.isArray(value)) {
-        return choice.isChecked && value.includes(choice.value);
-      }
-      return choice.isChecked && choice.value === value;
-    });
+      const choiceFound = filters[index].values.some((choice) => {
+        if (Array.isArray(value)) {
+          return choice.isChecked && value.includes(choice.value);
+        }
+        return choice.isChecked && choice.value === value;
+      });
 
-    return allUnchecked || choiceFound;
-  };
+      return allUnchecked || choiceFound;
+    },
+    [filters]
+  );
 
-  const getTotalAppliedFilters = () => {
+  const getTotalAppliedFilters = useCallback(() => {
     let count = 0;
 
     filters.forEach((item) => {
@@ -142,17 +141,20 @@ export const ProgramFiltersProvider = ({ children }) => {
     });
 
     return count;
-  };
+  }, [filters]);
+
+  const value = useMemo(
+    () => ({
+      filters,
+      dispatch,
+      applyFilter,
+      getTotalAppliedFilters,
+    }),
+    [applyFilter, filters, getTotalAppliedFilters]
+  );
 
   return (
-    <ProgramFiltersContext.Provider
-      value={{
-        filters,
-        dispatch,
-        applyFilter,
-        getTotalAppliedFilters,
-      }}
-    >
+    <ProgramFiltersContext.Provider value={value}>
       {children}
     </ProgramFiltersContext.Provider>
   );

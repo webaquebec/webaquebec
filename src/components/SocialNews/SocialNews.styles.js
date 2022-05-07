@@ -11,6 +11,7 @@ import breakpoints from '../../styles/breakpoints';
 
 export const ContactTitle = styled.h2`
   margin: 0;
+  margin-bottom: 16px;
 
   text-align: center;
 

@@ -21,6 +21,7 @@ import Cluster from '../../../components/LayoutSections/Cluster';
 import Stack from '../../../components/LayoutSections/Stack';
 
 // utils
+import slugify from '../../../utils/strings/slugify';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
 // images
@@ -29,6 +30,7 @@ import IconArrow from '../../../images/IconArrow';
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
+import { fontWeights } from '../../../styles/typography';
 
 // styles
 const Container = styled(SectionContainer)`
@@ -83,7 +85,6 @@ const EventTitle = styled.h2`
     [
       { prop: 'fontSize', sizes: [24, 24], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [32, 32], bases: [16, 20] },
-      // { prop: 'marginBottom', sizes: [16, 16], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -96,7 +97,6 @@ const EventDescription = styled.div`
     [
       { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [22, 22], bases: [16, 16], unit: '' },
-      // { prop: 'marginBottom', sizes: [24, 40], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -109,6 +109,98 @@ const EventDescription = styled.div`
   > :last-child {
     margin-bottom: 0;
     padding-bottom: 0;
+  }
+
+  * {
+    margin-block: 0;
+  }
+
+  * + * {
+    margin-block-start: 1em;
+  }
+
+  /**
+   *  FIXME: Add to BlockList styles to avoid duplicates
+   */
+  ul {
+    &,
+    ul {
+      padding-inline-start: 1rem;
+
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 16px;
+    }
+
+    li::before {
+      display: inline-block;
+
+      width: 1em;
+      margin-left: -1em;
+
+      color: ${colors.bleu80};
+      font-weight: ${fontWeights.bold};
+
+      content: '•';
+    }
+
+    li li::before {
+      content: '○';
+    }
+
+    li li li::before {
+      content: '-';
+    }
+  }
+
+  ol {
+    &,
+    ol {
+      padding-inline-start: 1rem;
+
+      list-style: none;
+
+      counter-reset: li;
+    }
+
+    ol,
+    li:not(:first-of-type) {
+      ${breakpointsRange(
+        [{ prop: 'marginTop', sizes: [14, 16], bases: [16, 20] }],
+        breakpoints.spacings
+      )};
+    }
+
+    li {
+      counter-increment: li;
+    }
+
+    li::before {
+      display: inline-block;
+
+      width: 1.3em;
+      margin-left: -1.3em;
+
+      color: ${colors.bleu80};
+      font-weight: ${fontWeights.bold};
+
+      direction: rtl;
+
+      content: '.' counter(li);
+    }
+
+    li li::before {
+      content: '.' counter(li, lower-alpha);
+    }
+
+    li li li::before {
+      width: 1.8em;
+      margin-left: -1.8em;
+
+      content: '(' counter(li) ')';
+    }
   }
 `;
 
@@ -139,9 +231,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
   } = data;
 
   // Fix Safari Invalid Date issue
-  const formatDateStr = (value) => {
-    return value.replace(/-/g, '/');
-  };
+  const formatDateStr = (value) => value.replace(/-/g, '/');
 
   const getFormattedLocaleDate = (value) => {
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
@@ -162,13 +252,14 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
 
   // Re-arrange values from the plannings array the way we want to use it in our template
   const modifiedPlannings = plannings.map((planning) => ({
+    ...planning,
     edition: getDateYear(planning.beginsAt),
     date: getFormattedLocaleDate(planning.beginsAt),
     time: {
       beginsAt: getFormattedTime(planning.beginsAt),
       endsAt: getFormattedTime(planning.endsAt),
     },
-    ...planning,
+    type: slugify(planning.type),
   }));
 
   const session = modifiedPlannings[0];
@@ -202,7 +293,11 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <Hero title='programmation' displayYear />
+        <Hero
+          title='programmation'
+          year={session.edition}
+          displayYear={session.edition === 2021}
+        />
       </Center>
 
       <Container forwardedAs='div' faded padded>
@@ -340,7 +435,12 @@ export const sessionQuery = graphql`
           photoUrl
           photoUrlSharp {
             childImageSharp {
-              fixed(width: 100, height: 100, quality: 90) {
+              fixed(
+                width: 100
+                height: 100
+                quality: 90
+                duotone: { highlight: "#EBEBEB", shadow: "#000CA0" }
+              ) {
                 ...GatsbyImageSharpFixed_withWebp
               }
             }

@@ -73,7 +73,8 @@ export const DateList = styled.ul`
   }
 
   ${greaterThan(selfBreakpoints[3])} {
-    justify-content: space-between;
+    justify-content: ${({ $shrunk }) =>
+      $shrunk ? 'space-around' : 'space-between'};
   }
 `;
 

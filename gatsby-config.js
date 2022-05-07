@@ -1,4 +1,8 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: `.env`,
+});
+
+const inProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   siteMetadata: {
@@ -12,7 +16,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: 'GTM-KHD8ZJR',
+        id: process.env.GTM_ID,
         // Include GTM in development.
         //
         // Defaults to false meaning GTM will only be loaded in production.
@@ -28,7 +32,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: `UA-20043510-1`,
+        trackingId: process.env.GTAG_ID,
         // Puts tracking script in the head instead of the body
         head: false,
         // Enable ip anonymization
@@ -38,13 +42,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
-        pixelId: '758649984324647',
+        pixelId: inProduction && process.env.FACEBOOK_PIXEL_ID,
       },
     },
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-image`,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -52,6 +56,13 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
       __key: 'images',
+    },
+    'gatsby-transformer-json',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/archives/`,
+      },
     },
     {
       /**
@@ -72,13 +83,12 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-styled-components',
-    // {
-    //   resolve: `gatsby-plugin-layout`,
-    //   options: {
-    //     component: require.resolve(`./src/components/Layout/Layout.jsx`),
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        displayName: !inProduction,
+      },
+    },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -112,6 +122,35 @@ module.exports = {
         url: process.env.SWAPCARD_GRAPHQL_ENDPOINT,
         headers: {
           Authorization: process.env.SWAPCARD_API_ACCESS_TOKEN,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: `${process.env.WP_API_URL}/graphql`,
+        verbose: true,
+        schema: {
+          perPage: 100,
+          // requestConcurrency: 1,
+          // previewRequestConcurrency: 1,
+          timeout: 120000,
+        },
+        searchAndReplace: [
+          {
+            search: '/app/uploads',
+            replace: '/wp-content/uploads',
+          },
+          // {
+          //   search: process.env.WP_API_BASE_URL,
+          //   replace: process.env.URL,
+          // },
+        ],
+        html: {
+          useGatsbyImage: true,
+          imageQuality: 99,
+          fallbackImageMaxWidth: 1200,
+          createStaticFiles: true,
         },
       },
     },

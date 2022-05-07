@@ -31,7 +31,7 @@ import {
   SpeakersTag,
 } from './CTASection.styles';
 import { easing } from '../../../styles/animation';
-import PreSale from './PreSale';
+import Sale from './Sale';
 
 const CTASection = () => {
   const data = useStaticQuery(
@@ -82,13 +82,13 @@ const CTASection = () => {
 
   return (
     <SectionContainer>
-      <h2 css={hideVisually}>Conférenciers</h2>
+      <h2 css={hideVisually}>Call to action</h2>
 
       <Center maxWidth='1080px' gutters='50px'>
         <Switcher threshold='854px' space='2rem' limit={2}>
           <div>
             <CTAContent>
-              <PreSale />
+              <Sale />
             </CTAContent>
 
             <SpeakersGraphics>
