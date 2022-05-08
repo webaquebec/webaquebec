@@ -43,7 +43,7 @@ const Paragraph = styled.p`
   margin-top: 0;
 
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [24, 30], bases: [18, 20], unit: '' }],
+    [{ prop: 'marginBottom', sizes: [24, 30], bases: [18, 20] }],
     breakpoints.spacings
   )};
 `;

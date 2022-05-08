@@ -30,7 +30,9 @@ const AboutQuebecNumeriquePage = () => {
   };
 
   const joinUs =
-    'Texte standard lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.';
+    'L’équipe de bénévoles derrière le WAQ est supportée par Québec numérique. Tu as des questions ou besoin d’information? Lâche-nous un coup de fil ou écris-nous, on est pas gênants!';
+  // FIXME
+  const joinUsLink = 'https://quebecnumerique.com/nous-joindre';
 
   return (
     <>
@@ -53,7 +55,7 @@ const AboutQuebecNumeriquePage = () => {
         <IntroSection title='Québec Numérique' text={intro} />
         <ImagesSection />
         <WhoWeAreSection part1={description.p1} part2={description.p2} />
-        <JoinUsSection text={joinUs} />
+        <JoinUsSection text={joinUs} link={joinUsLink} />
       </SectionContainer>
     </>
   );

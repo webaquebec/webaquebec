@@ -19,7 +19,7 @@ import {
   Paragraph,
 } from './JoinUsSection.styles';
 
-const JoinUsSection = ({ text }) => (
+const JoinUsSection = ({ text, link }) => (
   <Section>
     <Center maxWidth='840px' gutters='var(--container-gutter)'>
       <Switcher threshold='750px' space='24px'>
@@ -28,7 +28,7 @@ const JoinUsSection = ({ text }) => (
           <Column>
             <Title>pour nous joindre</Title>
             <Paragraph>{text}</Paragraph>
-            <Button small primary animated>
+            <Button small primary animated tag='href' to={link}>
               en savoir plus
             </Button>
           </Column>
@@ -40,10 +40,12 @@ const JoinUsSection = ({ text }) => (
 
 JoinUsSection.propTypes = {
   text: PropTypes.string,
+  link: PropTypes.string,
 };
 
 JoinUsSection.defaultProps = {
   text: '',
+  link: '',
 };
 
 export default JoinUsSection;
