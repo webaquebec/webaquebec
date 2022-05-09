@@ -42,7 +42,7 @@ const BlogPost = ({ data }) => {
       <SEO
         title={seo.title}
         description={seo.metaDesc}
-        image={featuredImage.src}
+        image={featuredImage?.src}
       />
 
       <Container forwardedAs='div' faded padded>
