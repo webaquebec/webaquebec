@@ -19,6 +19,7 @@ import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-r
 import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
 import logoLibeo from '../../images/logoPartners/associates/logo-libeo.svg';
 import logoNovarium from '../../images/logoPartners/associates/logo-novarium.svg';
+import logoMicrosoft from '../../images/logoPartners/associates/logo-microsoft.svg';
 import logoPwc from '../../images/logoPartners/associates/logo-pwc.svg';
 import logoLeCamp from '../../images/logoPartners/associates/logo-le-camp.svg';
 import logoRobic from '../../images/logoPartners/associates/logo-robic.svg';
@@ -101,6 +102,11 @@ const associatesImages = [
     src: logoNovarium,
     alt: 'Novarium | Campus d’innovation du Saint-Laurent',
     url: 'https://novarium.co',
+  },
+  {
+    src: logoMicrosoft,
+    alt: 'Microsoft | Nuage, ordinateurs, Applications et jeux',
+    url: 'https://www.microsoft.com/fr-ca',
   },
   {
     src: logoPwc,
