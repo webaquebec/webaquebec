@@ -9,12 +9,14 @@ import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
 
 export const blockContainerStyle = css`
+  max-width: 525px;
+
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [56, 80] },
-      { prop: 'paddingRight', sizes: [32, 80] },
-      { prop: 'paddingBottom', sizes: [56, 80] },
-      { prop: 'paddingLeft', sizes: [32, 80] },
+      { prop: 'paddingTop', sizes: [56, 60] },
+      { prop: 'paddingRight', sizes: [32, 38] },
+      { prop: 'paddingBottom', sizes: [56, 70] },
+      { prop: 'paddingLeft', sizes: [32, 38] },
     ],
     breakpoints.spacings,
     { bases: [16, 20] }
@@ -29,6 +31,9 @@ export const ContentContainer = css`
 `;
 
 export const BlocksWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+
   ${breakpointsRange(
     [{ prop: 'marginBottom', sizes: [0, 120] }],
     breakpoints.spacings,
@@ -96,6 +101,7 @@ export const TicketPrice = styled.div`
 `;
 
 export const TicketText = styled.p`
+  flex-grow: 1;
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },

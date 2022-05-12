@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-// import { css } from 'styled-components';
+import sanitizeHtml from 'sanitize-html';
 
 // styles
 import {
@@ -29,6 +29,8 @@ const BlockHeading = (props) => {
     attributes: { level, content },
   } = props;
 
+  const cleanContent = sanitizeHtml(content);
+
   switch (level) {
     case 1:
       return (
@@ -38,9 +40,8 @@ const BlockHeading = (props) => {
             ${h1Style}
             ${contentStyle}
           `}
-        >
-          {content}
-        </h1>
+          dangerouslySetInnerHTML={{ __html: cleanContent }}
+        />
       );
     case 2:
       return (
@@ -50,9 +51,8 @@ const BlockHeading = (props) => {
             ${h2Style}
             ${contentStyle}
           `}
-        >
-          {content}
-        </h2>
+          dangerouslySetInnerHTML={{ __html: cleanContent }}
+        />
       );
     case 3:
       return (
@@ -62,9 +62,8 @@ const BlockHeading = (props) => {
             ${h3Style}
             ${contentStyle}
           `}
-        >
-          {content}
-        </h3>
+          dangerouslySetInnerHTML={{ __html: cleanContent }}
+        />
       );
     case 4:
       return (
@@ -74,9 +73,8 @@ const BlockHeading = (props) => {
             ${h4Style}
             ${contentStyle}
           `}
-        >
-          {content}
-        </h4>
+          dangerouslySetInnerHTML={{ __html: cleanContent }}
+        />
       );
     case 5:
       return (
@@ -86,9 +84,8 @@ const BlockHeading = (props) => {
             ${h5Style}
             ${contentStyle}
           `}
-        >
-          {content}
-        </h5>
+          dangerouslySetInnerHTML={{ __html: cleanContent }}
+        />
       );
     case 6:
       return (
@@ -98,12 +95,13 @@ const BlockHeading = (props) => {
             ${h6Style}
             ${contentStyle}
           `}
-        >
-          {content}
-        </h6>
+          dangerouslySetInnerHTML={{ __html: cleanContent }}
+        />
       );
     default:
-      return <p key={order}>{content}</p>;
+      return (
+        <p key={order} dangerouslySetInnerHTML={{ __html: cleanContent }} />
+      );
   }
 };
 

@@ -28,26 +28,29 @@ const BlogPost = ({ data }) => {
       author: {
         node: { firstName, lastName, name },
       },
-      featuredImage,
+      featuredImage: image,
       seo,
     },
     featuredPosts: { edges: featuredPosts },
   } = data;
 
   const author = firstName && lastName ? `${firstName} ${lastName}` : name;
+  const featuredImage = image?.node?.localFile?.childImageSharp?.fluid;
 
   return (
     <>
-      <SEO title={seo.title} description={seo.metaDesc} />
+      <SEO
+        title={seo.title}
+        description={seo.metaDesc}
+        image={featuredImage?.src}
+      />
 
       <Container forwardedAs='div' faded padded>
         <Stack space='var(--space)' css={spaceStyle}>
           <HeroSection
             title={title}
             publishDate={date}
-            featuredImage={
-              featuredImage?.node?.localFile?.childImageSharp?.fluid
-            }
+            featuredImage={featuredImage}
           />
 
           <PostSection blocks={blocks} publishDate={date} author={author} />

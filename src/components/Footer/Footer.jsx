@@ -65,7 +65,7 @@ const Footer = () => {
 
   return (
     <StyledFooter>
-      <Center maxWidth='1064px' gutters='32px'>
+      <Center maxWidth='1064px' gutters='var(--container-gutter)'>
         <Stack space='94px'>
           <div
             ref={ref}
