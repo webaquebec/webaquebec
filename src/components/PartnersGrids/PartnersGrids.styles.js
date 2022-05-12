@@ -32,7 +32,11 @@ export const PresentingWrapper = styled.div`
 
 export const PresentingText = styled.p`
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [24, 56], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [16, 20], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [22, 24], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [24, 56], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;

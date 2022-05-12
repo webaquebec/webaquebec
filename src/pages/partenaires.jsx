@@ -14,7 +14,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { h1AltStyle } from '../styles/global';
+import { h1AltStyle, introStyle } from '../styles/global';
 import colors from '../styles/colors';
 
 const SectionContainer = styled(StyledSectionContainer)`
@@ -30,11 +30,15 @@ const PartnersTitle = styled.h1`
   color: ${colors.bleu80};
 `;
 
+const PartnersIntro = styled.p`
+  margin-top: 1rem;
+`;
+
 const PartnersPage = () => (
   <>
     <SEO
-      title='Billetterie'
-      description='Viens vivre le WAQ en formule hybride du 24 au 26 mai 2022. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
+      title='Merci aux partenaires du WAQ'
+      description='Les partenaires du WAQ contribuent au succès de l’événement grâce à leur soutien, leur expertise et leur créativité.'
     />
 
     <Center
@@ -44,6 +48,11 @@ const PartnersPage = () => (
       intrinsic
     >
       <PartnersTitle css={h1AltStyle}>partenaires</PartnersTitle>
+      <PartnersIntro css={introStyle}>
+        L’équipe du WAQ tient à remercier du fond du coeur tous les partenaires
+        qui s’impliquent dans l’aventure. Par leur expertise, leur créativité et
+        leur soutien, ils contribuent directement au succès de l’événement.
+      </PartnersIntro>
     </Center>
 
     <SectionContainer forwardedAs='div' faded>

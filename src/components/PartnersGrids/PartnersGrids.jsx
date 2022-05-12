@@ -191,10 +191,11 @@ const PartnersGrids = ({ hasDetails }) => (
           {hasDetails && (
             <div>
               <PresentingText>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit
-                fugit voluptatibus pariatur labore alias, corporis, vitae
-                mollitia quibusdam culpa tempora enim soluta, maiores itaque!
-                Eum debitis optio sit tenetur tempore.
+                Ubisoft est reconnu internationalement, mais la franchise de la
+                ville de Québec se démarque particulièrement. Ayant acquis une
+                solide expertise dans le développement de jeux d’envergure AAA,
+                le studio assume maintenant le leadership sur plusieurs projets.
+                Le WAQ est très fier d’être présenté par Ubisoft!
               </PresentingText>
               <Button to='/' tag='href' primary small animated>
                 En savoir plus
