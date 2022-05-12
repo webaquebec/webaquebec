@@ -53,7 +53,7 @@ export const bodyStyle = css`
   font-weight: ${fontWeights.regular};
   font-family: ${fontFamilies.body};
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [22, 28], bases: [16, 20], unit: '' }],
+    [{ prop: 'lineHeight', sizes: [22, 30], bases: [16, 20], unit: '' }],
     breakpoints.spacings
   )};
   letter-spacing: 0.1px;
