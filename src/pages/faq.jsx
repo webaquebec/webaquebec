@@ -108,7 +108,7 @@ const data = [
     question:
       'Quelle est la différence entre un billet présentiel et un billet virtuel?',
     answer: `<p>Le billet présentiel te permet d'assister à toutes les conférences au Terminal - Port de Québec et de participer aux activités du WAQ telles que tu les connais : conférences, 5 à 7, ateliers, activités de réseautage et plus encore. Bref, comme dans le bon vieux temps! Avec ton billet présentiel, tu as automatiquement accès à la portion virtuelle de l’événement.</p>
-             <p>Le billet virtuel te permet d'assister, de la maison ou du bureau, à toutes les conférences diffusées en direct du Terminal! Tu pourras écouter TOUTES les conférences du WAQ, car elles seront disponibles en rediffusion sur la plateforme.</p>`,
+             <p>Le billet virtuel te permet d'assister, de la maison ou du bureau, à toutes les conférences diffusées en direct du Terminal! Tu pourras écouter TOUTES les conférences du WAQ, car elles seront disponibles en rediffusion sur la plateforme pendant 90 jours.</p>`,
   },
   {
     id: 8,
