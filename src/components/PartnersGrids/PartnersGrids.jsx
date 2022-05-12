@@ -21,15 +21,18 @@ import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
 import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
 import logoLibeo from '../../images/logoPartners/associates/logo-libeo.svg';
-import logoNovarium from '../../images/logoPartners/associates/logo-novarium.svg';
+import logoFlots from '../../images/logoPartners/associates/logo-flots.svg';
 import logoMicrosoft from '../../images/logoPartners/associates/logo-microsoft.svg';
 import logoPwc from '../../images/logoPartners/associates/logo-pwc.svg';
 import logoLeCamp from '../../images/logoPartners/associates/logo-le-camp.svg';
 import logoRobic from '../../images/logoPartners/associates/logo-robic.svg';
 import logoBdc from '../../images/logoPartners/associates/logo-bdc.svg';
-import logoZenika from '../../images/logoPartners/associates/logo-zenika.svg';
 import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
 import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
+import logoGrenierAuxNouvelles from '../../images/logoPartners/associates/logo-grenier-aux-nouvelles.png';
+import logoZenika from '../../images/logoPartners/supporters/logo-zenika.svg';
+import logoBotpress from '../../images/logoPartners/supporters/logo-botpress.svg';
+import logoApollo13 from '../../images/logoPartners/supporters/logo-apollo13.svg';
 
 // styles
 import {
@@ -104,7 +107,7 @@ const associatesImages = [
     url: 'https://boitebeet.com/',
   },
   {
-    src: logoNovarium,
+    src: logoFlots,
     alt: 'Novarium | Campus d’innovation du Saint-Laurent',
     url: 'https://novarium.co',
   },
@@ -134,11 +137,6 @@ const associatesImages = [
     url: 'https://www.bdc.ca/fr',
   },
   {
-    src: logoZenika,
-    alt: 'Zenika | Cabinet d’innovation technologique',
-    url: 'https://zenika.com/fr-CA',
-  },
-  {
     src: logoTVA,
     alt: 'Groupe TVA',
     url: 'https://www.groupetva.ca/',
@@ -147,6 +145,29 @@ const associatesImages = [
     src: logoJournalQuebec,
     alt: 'Le Journal de Québec',
     url: 'https://www.journaldequebec.com/',
+  },
+  {
+    src: logoGrenierAuxNouvelles,
+    alt: 'Grenier aux nouvelles',
+    url: 'https://www.grenier.qc.ca/',
+  },
+];
+
+const supportersImages = [
+  {
+    src: logoZenika,
+    alt: 'Zenika | Cabinet d’innovation technologique',
+    url: 'https://zenika.com/fr-CA',
+  },
+  {
+    src: logoBotpress,
+    alt: 'Build Chatbots | Chatbot for Developers',
+    url: 'https://botpress.com/',
+  },
+  {
+    src: logoApollo13,
+    alt: 'Accompagnement de startups | Apollo13',
+    url: 'https://apollo13.co/',
   },
 ];
 
@@ -213,6 +234,24 @@ const PartnersGrids = ({ hasDetails }) => (
 
       <Grid>
         {associatesImages.map((image) => (
+          <GridItem key={image.url}>
+            <LogoCard image={image} />
+          </GridItem>
+        ))}
+      </Grid>
+    </Center>
+
+    <Center
+      as='section'
+      maxWidth='900px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title>nos partenaires supporteurs</Title>
+
+      <Grid>
+        {supportersImages.map((image) => (
           <GridItem key={image.url}>
             <LogoCard image={image} />
           </GridItem>
