@@ -34,6 +34,15 @@ export const stackStyle = css`
       breakpoints.spacings
     )};
   }
+
+  a {
+    position: relative;
+
+    color: inherit;
+    text-decoration: none;
+
+    border-bottom: 2px solid ${colors.bleu};
+  }
 `;
 
 export const PublishDate = styled.p`
