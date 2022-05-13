@@ -12,6 +12,9 @@ import SocialNews from '../SocialNews';
 
 // images
 import logo from '../../images/logo-waq-22.svg';
+import logoVilleDeQuebec from '../../images/logoPartners/footer/logo-ville-de-quebec.svg';
+import logoQuebec from '../../images/logoPartners/footer/logo-quebec.svg';
+import logoPortQuebec from '../../images/logoPartners/footer/logo-port-quebec.svg';
 
 // styles
 import {
@@ -26,6 +29,8 @@ import {
   ArchiveLink,
   StickerWrapper,
   Sticker,
+  FooterPartners,
+  FooterLogo,
 } from './Footer.styles';
 
 const Footer = () => {
@@ -56,6 +61,24 @@ const Footer = () => {
     { year: '2014', link: 'https://2014.webaquebec.org/' },
     { year: '2013', link: 'https://2013.webaquebec.org/' },
     { year: '2012', link: 'https://2012.webaquebec.org/' },
+  ];
+
+  const footerPartners = [
+    {
+      src: logoVilleDeQuebec,
+      alt: 'Ville de Québec',
+      url: 'https://www.ville.quebec.qc.ca/',
+    },
+    {
+      src: logoQuebec,
+      alt: 'Québec',
+      url: 'https://www.quebec.ca/',
+    },
+    {
+      src: logoPortQuebec,
+      alt: 'Port de Québec',
+      url: 'https://www.portquebec.ca/',
+    },
   ];
 
   const [ref, inView] = useInView({
@@ -131,6 +154,19 @@ const Footer = () => {
               </div>
             </div>
           </Switcher>
+
+          <FooterPartners>
+            {footerPartners.map((image) => (
+              <FooterLogo
+                href={image.url}
+                key={image.url}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <img src={image.src} alt={image.alt} />
+              </FooterLogo>
+            ))}
+          </FooterPartners>
         </Stack>
       </Center>
     </StyledFooter>

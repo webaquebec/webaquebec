@@ -29,7 +29,7 @@ import logoRobic from '../../images/logoPartners/associates/logo-robic.svg';
 import logoBdc from '../../images/logoPartners/associates/logo-bdc.svg';
 import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
 import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
-import logoGrenierAuxNouvelles from '../../images/logoPartners/associates/logo-grenier-aux-nouvelles.png';
+import logoGrenierAuxNouvelles from '../../images/logoPartners/associates/logo-grenier-aux-nouvelles.svg';
 import logoZenika from '../../images/logoPartners/supporters/logo-zenika.svg';
 import logoBotpress from '../../images/logoPartners/supporters/logo-botpress.svg';
 import logoApollo13 from '../../images/logoPartners/supporters/logo-apollo13.svg';

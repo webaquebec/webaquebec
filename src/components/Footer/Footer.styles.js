@@ -194,3 +194,27 @@ export const Sticker = styled(Sticker22)`
     }
   }
 `;
+
+export const FooterPartners = styled.div`
+  display: flex;
+  align-items: flex-end;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [50, 50], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+export const FooterLogo = styled.a`
+  ${breakpointsRange(
+    [
+      { prop: 'marginRight', sizes: [50, 50], bases: [16, 20] },
+      { prop: 'maxWidth', sizes: [100, 100], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+
+  img {
+    max-width: 100%;
+  }
+`;
