@@ -99,6 +99,8 @@ export const h1Style = css`
 `;
 
 export const h1AltStyle = css`
+  color: ${colors.bleu};
+
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction35};
   ${breakpointsRange(
