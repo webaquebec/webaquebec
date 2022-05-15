@@ -21,13 +21,10 @@ import CallToAction from '../views/TicketsView/CallToAction';
 // styles
 import breakpoints from '../styles/breakpoints';
 import { h1AltStyle, introStyle } from '../styles/global';
-import colors from '../styles/colors';
 import Stack from '../components/LayoutSections/Stack';
 
 const TicketsTitle = styled.h1`
   margin-bottom: 0;
-
-  color: ${colors.bleu80};
 `;
 
 const TicketsIntro = styled.div`

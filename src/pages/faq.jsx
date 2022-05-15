@@ -21,8 +21,6 @@ import colors from '../styles/colors';
 
 const FaqTitle = styled.h1`
   margin-bottom: 0;
-
-  color: ${colors.bleu80};
 `;
 
 const FaqIntro = styled.div`
