@@ -328,6 +328,21 @@ export const unstyledListStyle = css`
   list-style: none;
 `;
 
+export const orderedListCounterStyle = css`
+  display: inline-block;
+
+  /* width: 1.3em; */
+  margin-inline-end: 0.3em;
+
+  color: ${colors.bleu80};
+  font-weight: ${fontWeights.bold};
+
+  /* direction: rtl; */
+
+  content: counter(li) '.';
+  counter-increment: li;
+`;
+
 export const orderedListStyle = css`
   &,
   ol {
@@ -344,31 +359,28 @@ export const orderedListStyle = css`
     )};
   }
 
-  li {
+  /* li {
     counter-increment: li;
+  } */
+
+  > li::before {
+    ${orderedListCounterStyle}
   }
 
-  li::before {
-    display: inline-block;
+  > li ol > li::before {
+    ${orderedListCounterStyle}
 
-    width: 1.3em;
-    margin-left: -1.3em;
+    margin-inline-start: 0.675em;
 
-    color: ${colors.bleu80};
-    font-weight: ${fontWeights.bold};
+    /* margin-left: 0.675em; */
 
-    direction: rtl;
-
-    content: '.' counter(li);
+    content: counter(li, lower-alpha) '.';
   }
 
-  li li::before {
-    content: '.' counter(li, lower-alpha);
-  }
+  > li ol > li ol > li::before {
+    ${orderedListCounterStyle}
 
-  li li li::before {
-    width: 1.8em;
-    margin-left: -1.8em;
+    margin-inline-start: 2em;
 
     content: '(' counter(li) ')';
   }
@@ -387,8 +399,9 @@ export const unorderedListStyle = css`
   li::before {
     display: inline-block;
 
-    width: 1em;
-    margin-left: -1em;
+    /* width: 1em; */
+    margin-inline-end: 0.5em;
+    margin-inline-start: 0.7em;
 
     color: ${colors.bleu80};
     font-weight: ${fontWeights.bold};
@@ -397,10 +410,14 @@ export const unorderedListStyle = css`
   }
 
   li li::before {
+    margin-inline-start: 1.7em;
+
     content: '○';
   }
 
   li li li::before {
+    margin-inline-start: 3.2em;
+
     content: '-';
   }
 `;
