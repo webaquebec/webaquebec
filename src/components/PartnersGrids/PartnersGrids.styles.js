@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
+import { greaterThan } from '../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
@@ -27,7 +28,11 @@ export const Title = styled.h2`
 export const PresentingWrapper = styled.div`
   align-items: center;
 
-  text-align: left;
+  text-align: center;
+
+  ${greaterThan(breakpoints[2])} {
+    text-align: left;
+  }
 `;
 
 export const PresentingText = styled.p`

@@ -197,7 +197,15 @@ const PartnersGrids = ({ hasDetails }) => (
                 le studio assume maintenant le leadership sur plusieurs projets.
                 Le WAQ est très fier d’être présenté par Ubisoft!
               </PresentingText>
-              <Button to='/' tag='href' primary small animated>
+              <Button
+                to='https://www.ubisoft.com/fr-ca/'
+                tag='href'
+                rel='noopener noreferrer'
+                target='_blank'
+                primary
+                small
+                animated
+              >
                 En savoir plus
               </Button>
             </div>

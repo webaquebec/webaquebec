@@ -29,11 +29,11 @@ export const premiumStyle = css`
 
 export const presentingStyle = css`
   width: 100%;
-  max-width: 100%;
+  max-width: 384px;
   margin: 0 auto;
 
   ${greaterThan(768)} {
-    width: 300px;
+    width: 384px;
   }
 
   ${greaterThan(815)} {
@@ -41,7 +41,7 @@ export const presentingStyle = css`
   }
 
   ${breakpointsRange(
-    [{ prop: 'height', sizes: [160, 300], bases: [16, 20] }],
+    [{ prop: 'height', sizes: [160, 384], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
