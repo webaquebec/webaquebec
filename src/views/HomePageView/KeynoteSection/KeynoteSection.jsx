@@ -10,22 +10,107 @@ import Center from '../../../components/LayoutSections/Center';
 import Button from '../../../components/Button';
 import KeynoteCard from '../../../components/KeynoteCard';
 
+// images
+import speakerDanielLamarre from '../../../images/keynotes/speaker-daniel-lamarre.jpg';
+import speakerJeanBelanger from '../../../images/keynotes/speaker-jean-belanger.jpg';
+import speakerKatieMartell from '../../../images/keynotes/speaker-katie-martell.png';
+import speakerPieraGelardi from '../../../images/keynotes/speaker-piera-gelardi.png';
+import speakerRavyPor from '../../../images/keynotes/speaker-ravy-por.jpg';
+import speakerTinaTouli from '../../../images/keynotes/speaker-tina-touli.png';
+
 const KeynoteSection = () => {
-  const speaker = {
-    firstName: 'Benoit',
-    lastName: 'Petit',
-    organization: 'Coveo',
-    photoUrl: 'https://via.placeholder.com/425x425',
-    photoUrlSharp: {
-      childImageSharp: {
-        fixed: {
-          src: 'https://via.placeholder.com/425x425',
-          srcSet: 'https://via.placeholder.com/425x425',
-          srcSetWebp: 'https://via.placeholder.com/425x425',
+  const speakers = [
+    {
+      firstName: 'Daniel',
+      lastName: 'Lamarre',
+      organization: 'Cirque du Soleil',
+      photoUrl: speakerDanielLamarre,
+      photoUrlSharp: {
+        childImageSharp: {
+          fixed: {
+            src: speakerDanielLamarre,
+            srcSet: speakerDanielLamarre,
+            srcSetWebp: speakerDanielLamarre,
+          },
         },
       },
     },
-  };
+    {
+      firstName: 'Jean',
+      lastName: 'Bélanger',
+      organization: 'Premier Tech',
+      photoUrl: speakerJeanBelanger,
+      photoUrlSharp: {
+        childImageSharp: {
+          fixed: {
+            src: speakerJeanBelanger,
+            srcSet: speakerJeanBelanger,
+            srcSetWebp: speakerJeanBelanger,
+          },
+        },
+      },
+    },
+    {
+      firstName: 'Katie',
+      lastName: 'Martell',
+      organization: 'Rabble Rouser Productions',
+      photoUrl: speakerKatieMartell,
+      photoUrlSharp: {
+        childImageSharp: {
+          fixed: {
+            src: speakerKatieMartell,
+            srcSet: speakerKatieMartell,
+            srcSetWebp: speakerKatieMartell,
+          },
+        },
+      },
+    },
+    {
+      firstName: 'Piera',
+      lastName: 'Gelardi',
+      organization: 'Refinery29',
+      photoUrl: speakerPieraGelardi,
+      photoUrlSharp: {
+        childImageSharp: {
+          fixed: {
+            src: speakerPieraGelardi,
+            srcSet: speakerPieraGelardi,
+            srcSetWebp: speakerPieraGelardi,
+          },
+        },
+      },
+    },
+    {
+      firstName: 'Ravy',
+      lastName: 'Por',
+      organization: 'KPMG Canada',
+      photoUrl: speakerRavyPor,
+      photoUrlSharp: {
+        childImageSharp: {
+          fixed: {
+            src: speakerRavyPor,
+            srcSet: speakerRavyPor,
+            srcSetWebp: speakerRavyPor,
+          },
+        },
+      },
+    },
+    {
+      firstName: 'Tina',
+      lastName: 'Touli',
+      organization: 'Tina Touli',
+      photoUrl: speakerTinaTouli,
+      photoUrlSharp: {
+        childImageSharp: {
+          fixed: {
+            src: speakerTinaTouli,
+            srcSet: speakerTinaTouli,
+            srcSetWebp: speakerTinaTouli,
+          },
+        },
+      },
+    },
+  ];
 
   return (
     <Center
@@ -43,14 +128,14 @@ const KeynoteSection = () => {
         </Intro>
       </Center>
       <CardsWrapper>
-        <KeynoteCard speaker={speaker} mobileRotationAngle={-5} />
-        <KeynoteCard big speaker={speaker} mobileRotationAngle={5} />
-        <KeynoteCard speaker={speaker} />
-        <KeynoteCard speaker={speaker} mobileRotationAngle={-10} />
-        <KeynoteCard speaker={speaker} />
-        <KeynoteCard big speaker={speaker} mobileRotationAngle={5} />
+        <KeynoteCard speaker={speakers[0]} mobileRotationAngle={-5} />
+        <KeynoteCard big speaker={speakers[1]} mobileRotationAngle={5} />
+        <KeynoteCard speaker={speakers[2]} />
+        <KeynoteCard speaker={speakers[3]} mobileRotationAngle={-10} />
+        <KeynoteCard speaker={speakers[4]} />
+        <KeynoteCard big speaker={speakers[5]} mobileRotationAngle={5} />
       </CardsWrapper>
-      <Button tag='link' to='/programmation/2021'>
+      <Button tag='link' to='/programmation/2022'>
         voir la programmation
       </Button>
     </Center>
