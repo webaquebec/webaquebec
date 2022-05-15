@@ -252,9 +252,9 @@ const CodeConductPage = () => (
           intrinsic
           css={marginBetweenVersions}
         >
-          <h2 id='english' css={h1AltStyle}>
+          <p id='english' css={h1AltStyle}>
             Code of conduct
-          </h2>
+          </p>
         </Center>
 
         <OrderedList>
