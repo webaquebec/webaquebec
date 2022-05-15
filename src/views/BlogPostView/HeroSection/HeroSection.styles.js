@@ -39,7 +39,7 @@ export const BackButton = styled(Button)`
 export const PostTitle = styled.h1`
   margin-top: 0;
 
-  color: ${colors.gris90};
+  color: ${colors.bleu};
 
   text-align: center;
 

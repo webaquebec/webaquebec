@@ -16,13 +16,13 @@ export const stackStyle = css`
   }
 
   ${breakpointsRange(
-    [{ prop: '--space', sizes: [40, 40], bases: [16, 20] }],
+    [{ prop: '--space', sizes: [30, 40], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
   > p + p {
     ${breakpointsRange(
-      [{ prop: '--space', sizes: [30, 30], bases: [16, 20] }],
+      [{ prop: '--space', sizes: [20, 30], bases: [16, 20] }],
       breakpoints.spacings
     )};
   }
