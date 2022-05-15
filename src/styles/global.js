@@ -53,7 +53,7 @@ export const bodyStyle = css`
   font-weight: ${fontWeights.regular};
   font-family: ${fontFamilies.body};
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [22, 28], bases: [16, 20], unit: '' }],
+    [{ prop: 'lineHeight', sizes: [22, 30], bases: [16, 20], unit: '' }],
     breakpoints.spacings
   )};
   letter-spacing: 0.1px;
@@ -99,6 +99,8 @@ export const h1Style = css`
 `;
 
 export const h1AltStyle = css`
+  color: ${colors.bleu};
+
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction35};
   ${breakpointsRange(
@@ -326,7 +328,84 @@ export const unstyledListStyle = css`
   list-style: none;
 `;
 
-export const unorderListStyle = css`
+export const orderedListStyle = css`
+  &,
+  ol {
+    list-style: none;
+
+    counter-reset: li;
+  }
+
+  ol,
+  li:not(:first-of-type) {
+    ${breakpointsRange(
+      [{ prop: 'marginTop', sizes: [14, 16], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
+
+  li {
+    counter-increment: li;
+  }
+
+  li::before {
+    display: inline-block;
+
+    width: 1.3em;
+    margin-left: -1.3em;
+
+    color: ${colors.bleu80};
+    font-weight: ${fontWeights.bold};
+
+    direction: rtl;
+
+    content: '.' counter(li);
+  }
+
+  li li::before {
+    content: '.' counter(li, lower-alpha);
+  }
+
+  li li li::before {
+    width: 1.8em;
+    margin-left: -1.8em;
+
+    content: '(' counter(li) ')';
+  }
+`;
+
+export const unorderedListStyle = css`
+  &,
+  ul {
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 16px;
+  }
+
+  li::before {
+    display: inline-block;
+
+    width: 1em;
+    margin-left: -1em;
+
+    color: ${colors.bleu80};
+    font-weight: ${fontWeights.bold};
+
+    content: '•';
+  }
+
+  li li::before {
+    content: '○';
+  }
+
+  li li li::before {
+    content: '-';
+  }
+`;
+
+export const unorderedListStyleAlt = css`
   ${unstyledListStyle};
 
   li {
@@ -346,8 +425,6 @@ export const unorderListStyle = css`
     content: '•';
   }
 `;
-
-export const orderListStyle = css``;
 
 export const resetStyle = css`
   *,

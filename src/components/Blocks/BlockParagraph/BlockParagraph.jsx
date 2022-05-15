@@ -16,7 +16,9 @@ const BlockParagraph = (props) => {
     <p
       key={order}
       css={contentStyle}
-      dangerouslySetInnerHTML={{ __html: stripHtmlTags(saveContent) }}
+      dangerouslySetInnerHTML={{
+        __html: stripHtmlTags(saveContent, { unwantedTags: ['p'] }),
+      }}
     />
   );
 };

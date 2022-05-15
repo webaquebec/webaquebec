@@ -13,13 +13,13 @@ import logoVideotronWhite from '../../images/logoPartners/premium/logo-videotron
 import logoKabane from '../../images/logoPartners/premium/logo-kabane.svg';
 import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
 import logoLevio from '../../images/logoPartners/premium/logo-levio.svg';
-import logoNventive from '../../images/logoPartners/premium/logo-nventive.svg';
 import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
 import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
 import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
 import logoLibeo from '../../images/logoPartners/associates/logo-libeo.svg';
 import logoNovarium from '../../images/logoPartners/associates/logo-novarium.svg';
+import logoMicrosoft from '../../images/logoPartners/associates/logo-microsoft.svg';
 import logoPwc from '../../images/logoPartners/associates/logo-pwc.svg';
 import logoLeCamp from '../../images/logoPartners/associates/logo-le-camp.svg';
 import logoRobic from '../../images/logoPartners/associates/logo-robic.svg';
@@ -71,11 +71,6 @@ const premiumImages = [
     url: 'https://levio.ca/',
   },
   {
-    src: logoNventive,
-    alt: 'nventive | Agence innovatrice en transformation numérique à Montréal et Québec',
-    url: 'https://nventive.com/fr/',
-  },
-  {
     src: logoEquisoft,
     alt: "Equisoft | Solutions logicielles d'assurance et d'investissement",
     url: 'https://www.equisoft.com/fr/',
@@ -107,6 +102,11 @@ const associatesImages = [
     src: logoNovarium,
     alt: 'Novarium | Campus d’innovation du Saint-Laurent',
     url: 'https://novarium.co',
+  },
+  {
+    src: logoMicrosoft,
+    alt: 'Microsoft | Nuage, ordinateurs, Applications et jeux',
+    url: 'https://www.microsoft.com/fr-ca',
   },
   {
     src: logoPwc,

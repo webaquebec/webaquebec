@@ -41,9 +41,9 @@ const primaryNavigation = [
     color: 'rose',
   },
   {
-    id: 'edition2021',
-    label: 'édition 2021',
-    slug: '/programmation/2021',
+    id: 'tickets',
+    label: 'billetterie',
+    slug: '/billetterie',
     type: 'internal',
     color: 'turquoise',
   },
@@ -63,9 +63,9 @@ const secondaryNavigation = [
     type: 'internal',
   },
   {
-    id: 'tickets',
-    label: 'billetterie',
-    slug: '/billetterie',
+    id: 'edition2021',
+    label: 'édition 2021',
+    slug: '/programmation/2021',
     type: 'internal',
   },
 ];
