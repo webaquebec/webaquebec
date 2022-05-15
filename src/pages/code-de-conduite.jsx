@@ -15,8 +15,9 @@ import breakpoints from '../styles/breakpoints';
 import Center from '../components/LayoutSections/Center';
 import {
   h1AltStyle,
-  h3Style,
+  h2Style,
   introStyle,
+  orderedListStyle,
   unorderedListStyle,
 } from '../styles/global';
 import colors from '../styles/colors';
@@ -25,13 +26,13 @@ const stackStyle = css`
   margin-bottom: 4rem;
 
   ${breakpointsRange(
-    [{ prop: '--space', sizes: [40, 40], bases: [16, 20] }],
+    [{ prop: '--space', sizes: [20, 30], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
   p {
     ${breakpointsRange(
-      [{ prop: '--space', sizes: [30, 30], bases: [16, 20] }],
+      [{ prop: '--space', sizes: [10, 20], bases: [16, 20] }],
       breakpoints.spacings
     )};
   }
@@ -52,29 +53,32 @@ const stackStyle = css`
 
     border-bottom: 2px solid ${colors.bleu};
   }
+`;
 
-  ul {
-    margin-left: 2rem;
-    ${unorderedListStyle}
-  }
+const headingStyle = css`
+  ${h2Style}
 
-  h2 {
-    ${h3Style}
-    color: ${colors.bleu}
-  }
+  display: inline-block;
 `;
 
 const marginBetweenVersions = css`
-  ${h1AltStyle}
   margin-top: 1rem;
   margin-bottom: 6rem;
   padding-top: 5rem;
 `;
 
-const sectionList = css`
-  li::marker {
-    ${h3Style}
-    color: ${colors.bleu80};
+const OrderedList = styled.ol`
+  ${orderedListStyle};
+
+  > li::before {
+    ${h2Style}
+  }
+
+  > li > h2 {
+    ${breakpointsRange(
+      [{ prop: 'marginBottom', sizes: [20, 30], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
   }
 `;
 
@@ -104,6 +108,7 @@ const CodeConductPage = () => (
       intrinsic
     >
       <h1 css={h1AltStyle}>Code de conduite</h1>
+
       <a css={introStyle} href='#english'>
         English version
       </a>
@@ -111,10 +116,11 @@ const CodeConductPage = () => (
 
     <Container forwardedAs='div' faded padded>
       <Center maxWidth='854px' gutters='var(--container-gutter)'>
-        <ol css={sectionList}>
+        <OrderedList>
           <li>
+            <h2 css={headingStyle}>COMPORTEMENT ATTENDU</h2>
+
             <Stack space='var(--space)' css={stackStyle}>
-              <h2>COMPORTEMENT ATTENDU</h2>
               <p>
                 Nous souhaitons que tous les participants aient une expérience
                 agréable et enrichissante. Dans cette optique, nous attendons de
@@ -129,7 +135,8 @@ const CodeConductPage = () => (
                 d’objectivité, de bienveillance et de professionnalisme,
                 c’est-à-dire:
               </p>
-              <ul>
+
+              <ul css={unorderedListStyle}>
                 <li>
                   être attentif à votre environnement et à celui des autres
                   participants;
@@ -150,10 +157,12 @@ const CodeConductPage = () => (
             </Stack>
           </li>
           <li>
+            <h2 css={headingStyle}>COMPORTEMENT INACCEPTABLE</h2>
+
             <Stack space='var(--space)' css={stackStyle}>
-              <h2>COMPORTEMENT INACCEPTABLE</h2>
               <p>En revanche, vous ne pouvez pas :</p>
-              <ul>
+
+              <ul css={unorderedListStyle}>
                 <li>fumer en dehors des zones prévues à cet effet;</li>
                 <li>posséder et consommer des produits illicites;</li>
                 <li>
@@ -174,6 +183,7 @@ const CodeConductPage = () => (
                   communauté du Web à Québec.
                 </li>
               </ul>
+
               <p>
                 Le Web à Québec est un événement consacré aux échanges. Aucun
                 comportement déplacé ne sera accepté. Nous ne tolérons aucune
@@ -202,8 +212,9 @@ const CodeConductPage = () => (
             </Stack>
           </li>
           <li>
+            <h2 css={headingStyle}>ASSISTANTE IMMÉDIATE</h2>
+
             <Stack space='var(--space)' css={stackStyle}>
-              <h2>ASSISTANTE IMMÉDIATE</h2>
               <p>
                 Si vous vous sentez harcelé, si vous êtes témoin qu’une personne
                 se fait harceler, ou si vous avez besoin d’assistance, merci de
@@ -232,21 +243,25 @@ const CodeConductPage = () => (
               </p>
             </Stack>
           </li>
-        </ol>
+        </OrderedList>
+
         <Center
           maxWidth='625px'
           gutters='var(--container-gutter)'
           withText
           intrinsic
+          css={marginBetweenVersions}
         >
-          <h2 id='english' css={marginBetweenVersions}>
+          <h2 id='english' css={h1AltStyle}>
             Code of conduct
           </h2>
         </Center>
-        <ol css={sectionList}>
+
+        <OrderedList>
           <li>
+            <h2 css={headingStyle}>EXPECTED BEHAVIOR</h2>
+
             <Stack space='var(--space)' css={stackStyle}>
-              <h2>EXPECTED BEHAVIOR</h2>
               <p>
                 We want all participants to have a pleasant and rewarding
                 experience. With this in mind, we are expecting all participants
@@ -258,7 +273,8 @@ const CodeConductPage = () => (
                 impeccably during the event as well as on social media.
                 Therefore, you agree to be objective, kind and professional.
               </p>
-              <ul>
+
+              <ul css={unorderedListStyle}>
                 <li>
                   Be attentive to your environment as well as the other
                   participants.
@@ -275,10 +291,12 @@ const CodeConductPage = () => (
             </Stack>
           </li>
           <li>
+            <h2 css={headingStyle}>UNACCEPTABLE BEHAVIOR</h2>
+
             <Stack space='var(--space)' css={stackStyle}>
-              <h2>UNACCEPTABLE BEHAVIOR</h2>
               <p>On the other hand, you must not:</p>
-              <ul>
+
+              <ul css={unorderedListStyle}>
                 <li>smoke outside the provided areas,</li>
                 <li>possess and consume illegal products,</li>
                 <li>
@@ -322,8 +340,8 @@ const CodeConductPage = () => (
             </Stack>
           </li>
           <li>
+            <h2 css={headingStyle}>IMMEDIATE ASSISTANCE</h2>
             <Stack space='var(--space)' css={stackStyle}>
-              <h2>IMMEDIATE ASSISTANCE</h2>
               <p>
                 If you are being harassed, notice that someone else is being
                 harassed, or have any other concerns, please contact a member of
@@ -350,7 +368,7 @@ const CodeConductPage = () => (
               </p>
             </Stack>
           </li>
-        </ol>
+        </OrderedList>
       </Center>
     </Container>
   </>
