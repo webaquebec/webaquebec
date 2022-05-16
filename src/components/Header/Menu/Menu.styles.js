@@ -220,6 +220,10 @@ export const ListItem = styled.li`
     transition-delay: calc(300ms + var(--transition-additional-delay));
   }
 
+  :nth-child(5) {
+    transition-delay: calc(400ms + var(--transition-additional-delay));
+  }
+
   img {
     ${breakpointsRange(
       [{ prop: 'maxHeight', sizes: [23, 33], bases: [16, 20] }],
