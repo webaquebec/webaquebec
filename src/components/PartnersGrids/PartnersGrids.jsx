@@ -182,7 +182,7 @@ const PartnersGrids = ({ hasDetails }) => (
     >
       <Title>le WAQ 2022 est présenté par</Title>
 
-      <Switcher threshold='768px' space='2rem' limit={2}>
+      <Switcher threshold='768px' space='2.8rem' limit={2}>
         <PresentingWrapper>
           <div>
             <LogoCard image={presentingImage} isPresenting />
@@ -190,24 +190,26 @@ const PartnersGrids = ({ hasDetails }) => (
 
           {hasDetails && (
             <div>
-              <PresentingText>
-                Ubisoft est reconnu internationalement, mais la franchise de la
-                ville de Québec se démarque particulièrement. Ayant acquis une
-                solide expertise dans le développement de jeux d’envergure AAA,
-                le studio assume maintenant le leadership sur plusieurs projets.
-                Le WAQ est très fier d’être présenté par Ubisoft!
-              </PresentingText>
-              <Button
-                to='https://www.ubisoft.com/fr-ca/'
-                tag='href'
-                rel='noopener noreferrer'
-                target='_blank'
-                primary
-                small
-                animated
-              >
-                En savoir plus
-              </Button>
+              <Center maxWidth='625px' gutters='0'>
+                <PresentingText>
+                  Ubisoft est reconnu internationalement, mais la franchise de
+                  la ville de Québec se démarque particulièrement. Ayant acquis
+                  une solide expertise dans le développement de jeux d’envergure
+                  AAA, le studio assume maintenant le leadership sur plusieurs
+                  projets. Le WAQ est très fier d’être présenté par Ubisoft!
+                </PresentingText>
+                <Button
+                  to='https://www.ubisoft.com/fr-ca/'
+                  tag='href'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  primary
+                  small
+                  animated
+                >
+                  En savoir plus
+                </Button>
+              </Center>
             </div>
           )}
         </PresentingWrapper>

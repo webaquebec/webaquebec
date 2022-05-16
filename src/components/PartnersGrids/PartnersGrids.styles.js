@@ -30,7 +30,7 @@ export const PresentingWrapper = styled.div`
 
   text-align: center;
 
-  ${greaterThan(breakpoints[2])} {
+  ${greaterThan(800)} {
     text-align: left;
   }
 `;
