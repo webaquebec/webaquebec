@@ -24,6 +24,8 @@ const KeynoteSection = () => {
       firstName: 'Daniel',
       lastName: 'Lamarre',
       organization: 'Cirque du Soleil',
+      detailPageUrl:
+        '/programmation/la-pensee-creative-moteur-pour-linnovation-et-le-succes-en-entreprise/',
       photoUrl: speakerDanielLamarre,
       photoUrlSharp: {
         childImageSharp: {
@@ -39,6 +41,7 @@ const KeynoteSection = () => {
       firstName: 'Jean',
       lastName: 'Bélanger',
       organization: 'Premier Tech',
+      detailPageUrl: '/programmation/keynote-jean-belanger/',
       photoUrl: speakerJeanBelanger,
       photoUrlSharp: {
         childImageSharp: {
@@ -54,6 +57,7 @@ const KeynoteSection = () => {
       firstName: 'Katie',
       lastName: 'Martell',
       organization: 'Rabble Rouser Productions',
+      detailPageUrl: '/programmation/keynote-a-venir/',
       photoUrl: speakerKatieMartell,
       photoUrlSharp: {
         childImageSharp: {
@@ -69,6 +73,7 @@ const KeynoteSection = () => {
       firstName: 'Piera',
       lastName: 'Gelardi',
       organization: 'Refinery29',
+      detailPageUrl: '/programmation/keynote-piera-gelardi/',
       photoUrl: speakerPieraGelardi,
       photoUrlSharp: {
         childImageSharp: {
@@ -84,6 +89,8 @@ const KeynoteSection = () => {
       firstName: 'Ravy',
       lastName: 'Por',
       organization: 'KPMG Canada',
+      detailPageUrl:
+        '/programmation/intelligence-artificielle-lalgorithme-qui-change-votre-vie/',
       photoUrl: speakerRavyPor,
       photoUrlSharp: {
         childImageSharp: {
@@ -99,6 +106,8 @@ const KeynoteSection = () => {
       firstName: 'Tina',
       lastName: 'Touli',
       organization: 'Tina Touli',
+      detailPageUrl:
+        '/programmation/blending-the-physical-and-the-digital-worlds/',
       photoUrl: speakerTinaTouli,
       photoUrlSharp: {
         childImageSharp: {

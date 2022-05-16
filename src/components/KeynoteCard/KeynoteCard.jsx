@@ -15,7 +15,7 @@ const KeynoteCard = ({ speaker, big, mobileRotationAngle }) => {
 
   return (
     <Wrapper
-      to='/'
+      to={speaker.detailPageUrl}
       css={`
         transform: rotate(${mobileRotationAngle}deg);
       `}
@@ -37,6 +37,7 @@ KeynoteCard.propTypes = {
     firstName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
     organization: PropTypes.string.isRequired,
+    detailPageUrl: PropTypes.string.isRequired,
     photoUrl: PropTypes.string,
     photoUrlSharp: PropTypes.shape({
       childImageSharp: PropTypes.shape({
