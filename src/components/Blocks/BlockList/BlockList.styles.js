@@ -9,10 +9,10 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 import { orderedListStyle, unorderedListStyle } from '../../../styles/global';
 
 export const defaultStyle = css`
-  ${breakpointsRange(
+  /* ${breakpointsRange(
     [{ prop: 'paddingInlineStart', sizes: [15, 40], bases: [16, 20] }],
     breakpoints.spacings
-  )};
+  )}; */
 `;
 
 export const OrderedList = styled.ol`

@@ -63,6 +63,12 @@ const secondaryNavigation = [
     type: 'internal',
   },
   {
+    id: 'code-of-conduct',
+    label: 'code de conduite',
+    slug: '/code-de-conduite',
+    type: 'internal',
+  },
+  {
     id: 'edition2021',
     label: 'édition 2021',
     slug: '/programmation/2021',
