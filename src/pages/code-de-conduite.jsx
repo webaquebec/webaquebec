@@ -16,7 +16,6 @@ import Center from '../components/LayoutSections/Center';
 import {
   h1AltStyle,
   h2Style,
-  introStyle,
   orderedListStyle,
   unorderedListStyle,
 } from '../styles/global';
@@ -44,27 +43,17 @@ const stackStyle = css`
       breakpoints.spacings
     )};
   }
-
-  a {
-    position: relative;
-
-    color: inherit;
-    text-decoration: none;
-
-    border-bottom: 2px solid ${colors.bleu};
-  }
 `;
 
 const headingStyle = css`
   ${h2Style}
 
   display: inline-block;
-`;
 
-const marginBetweenVersions = css`
-  margin-top: 1rem;
-  margin-bottom: 6rem;
-  padding-top: 5rem;
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [20, 30], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 const OrderedList = styled.ol`
@@ -73,13 +62,15 @@ const OrderedList = styled.ol`
   > li::before {
     ${h2Style}
   }
+`;
 
-  > li > h2 {
-    ${breakpointsRange(
-      [{ prop: 'marginBottom', sizes: [20, 30], bases: [16, 20] }],
-      breakpoints.spacings
-    )};
-  }
+const Link = styled.a`
+  position: relative;
+
+  color: inherit;
+  text-decoration: none;
+
+  border-bottom: 2px solid ${colors.bleu};
 `;
 
 const Container = styled(SectionContainer)`
@@ -108,10 +99,6 @@ const CodeConductPage = () => (
       intrinsic
     >
       <h1 css={h1AltStyle}>Code de conduite</h1>
-
-      <a css={introStyle} href='#english'>
-        English version
-      </a>
     </Center>
 
     <Container forwardedAs='div' faded padded>
@@ -220,7 +207,8 @@ const CodeConductPage = () => (
                 se fait harceler, ou si vous avez besoin d’assistance, merci de
                 contacter immédiatement un membre de l’organisation de
                 l’événement au{' '}
-                <a href='mailto:sos@webaquebec.org'>sos@webaquebec.org</a>.
+                <Link href='mailto:sos@webaquebec.org'>sos@webaquebec.org</Link>
+                .
               </p>
               <p>
                 Nous sommes à la disposition des participants pour interpeller
@@ -233,138 +221,13 @@ const CodeConductPage = () => (
               <p>L’équipe du Web à Québec</p>
               <p>
                 Adapté de :{' '}
-                <a
+                <Link
                   href='https://confcodeofconduct.com'
                   target='_blank'
                   rel='noreferrer'
                 >
                   confcodeofconduct.com
-                </a>
-              </p>
-            </Stack>
-          </li>
-        </OrderedList>
-
-        <Center
-          maxWidth='625px'
-          gutters='var(--container-gutter)'
-          withText
-          intrinsic
-          css={marginBetweenVersions}
-        >
-          <p id='english' css={h1AltStyle}>
-            Code of conduct
-          </p>
-        </Center>
-
-        <OrderedList>
-          <li>
-            <h2 css={headingStyle}>EXPECTED BEHAVIOR</h2>
-
-            <Stack space='var(--space)' css={stackStyle}>
-              <p>
-                We want all participants to have a pleasant and rewarding
-                experience. With this in mind, we are expecting all participants
-                to show respect and courtesy to other participants throughout
-                the event (including during Happy Hour).
-              </p>
-              <p>
-                By participating in the Web à Québec, you agree to behave
-                impeccably during the event as well as on social media.
-                Therefore, you agree to be objective, kind and professional.
-              </p>
-
-              <ul css={unorderedListStyle}>
-                <li>
-                  Be attentive to your environment as well as the other
-                  participants.
-                </li>
-                <li>
-                  Respect the location and the equipment at your disposal.
-                </li>
-                <li>Respect everyone’s opinions.</li>
-                <li>
-                  Maintain the confidentiality of information obtained during
-                  your participation at the WAQ.
-                </li>
-              </ul>
-            </Stack>
-          </li>
-          <li>
-            <h2 css={headingStyle}>UNACCEPTABLE BEHAVIOR</h2>
-
-            <Stack space='var(--space)' css={stackStyle}>
-              <p>On the other hand, you must not:</p>
-
-              <ul css={unorderedListStyle}>
-                <li>smoke outside the provided areas,</li>
-                <li>possess and consume illegal products,</li>
-                <li>
-                  damage the material belonging to the organization or the site
-                  of the event,
-                </li>
-                <li>adopt a behavior that could disrupt the public order,</li>
-                <li>intimidate,</li>
-                <li>
-                  make offensive comments on social media concerning
-                  participants, the event or Quebec city’s Web community.
-                </li>
-              </ul>
-              <p>
-                The Web in Quebec City is an event dedicated to the sharing of
-                knowledge. No misplaced behavior will be accepted. No matter
-                your gender, your sexual orientation, your disability, your
-                physical appearance, your nationality or your religion, we will
-                not tolerate any discrimination or harassment. By harassment, we
-                mean all conduct :
-              </p>
-              <p>
-                Provoking behavior, words, actions that are hostile or unwanted,
-                conduct based on of the discriminatory grounds prohibited by the
-                Quebec Charter of Human Rights and Freedoms (nationality, color,
-                sex, pregnancy, sexual orientation, marital status, age except
-                as provided by law, religion, political beliefs, language,
-                social condition, disability or use of a means to overcome this
-                handicap); and which are of a nature to impair the dignity, the
-                physical or psychological integrity of the person or to
-                compromise his activity.
-              </p>
-              <p>
-                Sexually explicit expressions and images are not also not
-                appropriate at all times during the event. This includes
-                conferences, workshops, parties, as well as social networks.
-                Participants who are asked to stop discriminatory behavior or
-                harassment must stop immediately under penalty of punishment, at
-                the discretion of the organizers.
-              </p>
-            </Stack>
-          </li>
-          <li>
-            <h2 css={headingStyle}>IMMEDIATE ASSISTANCE</h2>
-            <Stack space='var(--space)' css={stackStyle}>
-              <p>
-                If you are being harassed, notice that someone else is being
-                harassed, or have any other concerns, please contact a member of
-                conference staff immediately at{' '}
-                <a href='mailto:sos@webaquebec.org'>sos@webaquebec.org</a>
-              </p>
-              <p>
-                Conference staff will be happy to help participants contact
-                security or local law enforcement, provide escorts, or otherwise
-                assist those experiencing harassment to feel safe for the
-                duration of the conference. It is important to us that all
-                participants taking part in the event feel secure at all time.
-              </p>
-              <p>The Web à Québec team</p>
-              <p>
-                Adapted from:{' '}
-                <a
-                  href='https://confcodeofconduct.com'
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  confcodeofconduct.com
-                </a>
+                </Link>
               </p>
             </Stack>
           </li>
