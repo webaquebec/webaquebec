@@ -13,10 +13,10 @@ import KeynoteCard from '../../../components/KeynoteCard';
 // images
 import speakerDanielLamarre from '../../../images/keynotes/speaker-daniel-lamarre.jpg';
 import speakerJeanBelanger from '../../../images/keynotes/speaker-jean-belanger.jpg';
-import speakerKatieMartell from '../../../images/keynotes/speaker-katie-martell.png';
-import speakerPieraGelardi from '../../../images/keynotes/speaker-piera-gelardi.png';
+import speakerKatieMartell from '../../../images/keynotes/speaker-katie-martell.jpg';
+import speakerPieraGelardi from '../../../images/keynotes/speaker-piera-gelardi.jpg';
 import speakerRavyPor from '../../../images/keynotes/speaker-ravy-por.jpg';
-import speakerTinaTouli from '../../../images/keynotes/speaker-tina-touli.png';
+import speakerTinaTouli from '../../../images/keynotes/speaker-tina-touli.jpg';
 
 const KeynoteSection = () => {
   const speakers = [
