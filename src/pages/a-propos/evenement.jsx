@@ -17,13 +17,13 @@ import { lessThan } from '../../utils/mediaQuery';
 import vectorGrid from '../../images/vectorVideoGrid.svg';
 
 // views
+import AboutTabs from '../../views/AboutPagesView/AboutTabs';
 import IntroSection from '../../views/AboutEventPageView/IntroSection';
 import AboutEventSection from '../../views/AboutEventPageView/AboutEventSection';
 import GallerySection from '../../views/AboutEventPageView/GallerySection';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
-import { h1AltStyle } from '../../styles/global';
 
 const GallerySectionImg = styled(GatsbyImage)`
   max-width: 100%;
@@ -134,18 +134,7 @@ const AboutEventPage = ({ data }) => {
     <>
       <SEO title="L'événement" description='' />
 
-      <header>
-        <Center
-          maxWidth='770px'
-          gutters='var(--container-gutter)'
-          withText
-          intrinsic
-        >
-          <h1 css={h1AltStyle}>à propos</h1>
-
-          {/* TODO: Tabs comes here */}
-        </Center>
-      </header>
+      <AboutTabs activeTabId={0} />
 
       <IntroSection title={`l'événement`} text={intro}>
         <VideoWrapper>

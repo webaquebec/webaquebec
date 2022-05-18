@@ -45,6 +45,10 @@ export const htmlStyle = css`
   scroll-behavior: smooth;
 `;
 
+export const mainStyle = css`
+  overflow-x: hidden;
+`;
+
 export const bodyStyle = css`
   position: relative;
 
@@ -468,6 +472,10 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     ${bodyStyle};
+  }
+
+  main {
+    ${mainStyle};
   }
 
   ${resetStyle};
