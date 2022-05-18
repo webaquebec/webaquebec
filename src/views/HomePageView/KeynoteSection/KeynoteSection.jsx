@@ -57,7 +57,8 @@ const KeynoteSection = () => {
       firstName: 'Katie',
       lastName: 'Martell',
       organization: 'Rabble Rouser Productions',
-      detailPageUrl: '/programmation/keynote-a-venir/',
+      detailPageUrl:
+        '/programmation/woke-washed-the-collision-of-social-movements-and-marketing/',
       photoUrl: speakerKatieMartell,
       photoUrlSharp: {
         childImageSharp: {

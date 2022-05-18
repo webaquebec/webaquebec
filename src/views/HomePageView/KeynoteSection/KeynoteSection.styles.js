@@ -15,7 +15,10 @@ export const wrapper = css`
   overflow: visible;
 
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [144, 280], bases: [16, 20] }],
+    [
+      { prop: 'marginTop', sizes: [160, 260], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [160, 130], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
