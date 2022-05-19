@@ -1,9 +1,12 @@
 // vendors
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // components
 import LogoCard from './LogoCard';
 import Center from '../LayoutSections/Center';
+import Button from '../Button';
+import Switcher from '../LayoutSections/Switcher';
 
 // images
 import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
@@ -18,18 +21,24 @@ import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
 import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
 import logoLibeo from '../../images/logoPartners/associates/logo-libeo.svg';
-import logoNovarium from '../../images/logoPartners/associates/logo-novarium.svg';
+import logoFlots from '../../images/logoPartners/associates/logo-flots.svg';
+import logoMicrosoft from '../../images/logoPartners/associates/logo-microsoft.svg';
 import logoPwc from '../../images/logoPartners/associates/logo-pwc.svg';
 import logoLeCamp from '../../images/logoPartners/associates/logo-le-camp.svg';
 import logoRobic from '../../images/logoPartners/associates/logo-robic.svg';
 import logoBdc from '../../images/logoPartners/associates/logo-bdc.svg';
-import logoZenika from '../../images/logoPartners/associates/logo-zenika.svg';
 import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
 import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
+import logoGrenierAuxNouvelles from '../../images/logoPartners/associates/logo-grenier-aux-nouvelles.svg';
+import logoZenika from '../../images/logoPartners/supporters/logo-zenika.svg';
+import logoBotpress from '../../images/logoPartners/supporters/logo-botpress.svg';
+import logoApollo13 from '../../images/logoPartners/supporters/logo-apollo13.svg';
 
 // styles
 import {
   Title,
+  PresentingWrapper,
+  PresentingText,
   Grid,
   GridItem,
   premiumGrid,
@@ -98,9 +107,14 @@ const associatesImages = [
     url: 'https://boitebeet.com/',
   },
   {
-    src: logoNovarium,
+    src: logoFlots,
     alt: 'Novarium | Campus d’innovation du Saint-Laurent',
     url: 'https://novarium.co',
+  },
+  {
+    src: logoMicrosoft,
+    alt: 'Microsoft | Nuage, ordinateurs, Applications et jeux',
+    url: 'https://www.microsoft.com/fr-ca',
   },
   {
     src: logoPwc,
@@ -123,11 +137,6 @@ const associatesImages = [
     url: 'https://www.bdc.ca/fr',
   },
   {
-    src: logoZenika,
-    alt: 'Zenika | Cabinet d’innovation technologique',
-    url: 'https://zenika.com/fr-CA',
-  },
-  {
     src: logoTVA,
     alt: 'Groupe TVA',
     url: 'https://www.groupetva.ca/',
@@ -137,9 +146,32 @@ const associatesImages = [
     alt: 'Le Journal de Québec',
     url: 'https://www.journaldequebec.com/',
   },
+  {
+    src: logoGrenierAuxNouvelles,
+    alt: 'Grenier aux nouvelles',
+    url: 'https://www.grenier.qc.ca/',
+  },
 ];
 
-const PartnersGrids = () => (
+const supportersImages = [
+  {
+    src: logoZenika,
+    alt: 'Zenika | Cabinet d’innovation technologique',
+    url: 'https://zenika.com/fr-CA',
+  },
+  {
+    src: logoBotpress,
+    alt: 'Build Chatbots | Chatbot for Developers',
+    url: 'https://botpress.com/',
+  },
+  {
+    src: logoApollo13,
+    alt: 'Accompagnement de startups | Apollo13',
+    url: 'https://apollo13.co/',
+  },
+];
+
+const PartnersGrids = ({ hasDetails }) => (
   <>
     <Center
       as='section'
@@ -150,7 +182,38 @@ const PartnersGrids = () => (
     >
       <Title>le WAQ 2022 est présenté par</Title>
 
-      <LogoCard image={presentingImage} isPresenting />
+      <Switcher threshold='768px' space='2.8rem' limit={2}>
+        <PresentingWrapper>
+          <div>
+            <LogoCard image={presentingImage} isPresenting />
+          </div>
+
+          {hasDetails && (
+            <div>
+              <Center maxWidth='625px' gutters='0'>
+                <PresentingText>
+                  Ubisoft est reconnu internationalement, mais la franchise de
+                  la ville de Québec se démarque particulièrement. Ayant acquis
+                  une solide expertise dans le développement de jeux d’envergure
+                  AAA, le studio assume maintenant le leadership sur plusieurs
+                  projets. Le WAQ est très fier d’être présenté par Ubisoft!
+                </PresentingText>
+                <Button
+                  to='https://www.ubisoft.com/fr-ca/'
+                  tag='href'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  primary
+                  small
+                  animated
+                >
+                  En savoir plus
+                </Button>
+              </Center>
+            </div>
+          )}
+        </PresentingWrapper>
+      </Switcher>
     </Center>
 
     <Center
@@ -188,7 +251,36 @@ const PartnersGrids = () => (
         ))}
       </Grid>
     </Center>
+
+    <Center
+      as='section'
+      maxWidth='900px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title>nos partenaires supporteurs</Title>
+
+      <Grid>
+        {supportersImages.map((image) => (
+          <GridItem key={image.url}>
+            <LogoCard image={image} />
+          </GridItem>
+        ))}
+      </Grid>
+    </Center>
   </>
 );
+
+PartnersGrids.propTypes = {
+  /**
+   * Whether the grid has details or not.
+   */
+  hasDetails: PropTypes.bool,
+};
+
+PartnersGrids.defaultProps = {
+  hasDetails: false,
+};
 
 export default PartnersGrids;

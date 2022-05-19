@@ -1,6 +1,5 @@
 // vendors
 import styled, { css, keyframes } from 'styled-components';
-import { em } from 'polished';
 
 // images
 import Sticker22 from '../../images/stickers/Sticker22';
@@ -14,37 +13,16 @@ import breakpoints from '../../styles/breakpoints';
 import { fontWeights } from '../../styles/typography';
 import colors from '../../styles/colors';
 
-export const FooterWrapper = css`
+export const footerWrapperStyle = css`
   ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [56, 94], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
 
-export const FooterTitle = styled.h2`
-  margin: 0;
-  margin-bottom: 14px;
-
-  color: ${colors.bleu90};
-  font-weight: ${fontWeights.bold};
-
-  ${breakpointsRange(
-    [
-      { prop: 'fontSize', sizes: [20, 20], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [26, 26], bases: [16, 20], unit: '' },
-    ],
-    breakpoints.spacings
-  )};
-`;
-
-export const ContactLink = styled.a`
-  display: block;
-
+export const footerTextStyle = css`
   color: ${colors.bleu80};
   font-weight: ${fontWeights.medium};
-  text-decoration: none;
-
-  word-break: normal;
 
   ${breakpointsRange(
     [
@@ -55,23 +33,44 @@ export const ContactLink = styled.a`
   )};
 `;
 
-export const LogoWrapper = styled.div`
-  align-self: center;
+export const Title = styled.h2`
+  margin: 0;
+  margin-bottom: 14px;
 
-  text-align: center;
+  color: ${colors.bleu90};
+  font-weight: ${fontWeights.bold};
 
-  @media (max-width: ${em(846)}) {
-    order: -1;
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [20, 20], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 24], bases: [16, 16], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
+export const Block = styled.div`
+  ${footerTextStyle}
+`;
+
+export const Link = styled.a`
+  /* display: block; */
+
+  /* color: ${colors.bleu80};
+  font-weight: ${fontWeights.medium}; */
+  text-decoration: none;
+
+  word-break: normal;
+
+  :hover,
+  :focus {
+    text-decoration: underline;
   }
 `;
 
 export const Logo = styled.img`
   width: 100%;
-  max-height: 32px;
-`;
-
-export const ArchivesBlock = styled.div`
-  color: ${colors.gris90};
+  max-width: 117px;
 `;
 
 export const ArchivesList = styled.ul`
@@ -106,6 +105,11 @@ export const ArchiveLink = styled.a`
     [{ prop: 'lineHeight', sizes: [24, 32], bases: [16, 20], unit: '' }],
     breakpoints.spacings
   )};
+
+  :hover,
+  :focus {
+    text-decoration: underline;
+  }
 `;
 
 export const StyledFooter = styled.footer`
@@ -192,5 +196,29 @@ export const Sticker = styled(Sticker22)`
     @media (prefers-reduced-motion: reduce) {
       animation-name: none;
     }
+  }
+`;
+
+export const FooterPartners = styled.div`
+  display: flex;
+  align-items: flex-end;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [50, 50], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+export const FooterLogo = styled.a`
+  ${breakpointsRange(
+    [
+      { prop: 'marginRight', sizes: [50, 50], bases: [16, 20] },
+      { prop: 'maxWidth', sizes: [100, 100], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+
+  img {
+    max-width: 100%;
   }
 `;
