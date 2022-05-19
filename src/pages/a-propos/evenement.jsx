@@ -24,11 +24,6 @@ import GallerySection from '../../views/AboutEventPageView/GallerySection';
 // styles
 import breakpoints from '../../styles/breakpoints';
 import { h1AltStyle } from '../../styles/global';
-import colors from '../../styles/colors';
-
-const AboutTitle = styled.h1`
-  color: ${colors.bleu80};
-`;
 
 const GallerySectionImg = styled(GatsbyImage)`
   max-width: 100%;
@@ -146,7 +141,7 @@ const AboutEventPage = ({ data }) => {
           withText
           intrinsic
         >
-          <AboutTitle css={h1AltStyle}>à propos</AboutTitle>
+          <h1 css={h1AltStyle}>à propos</h1>
 
           {/* TODO: Tabs comes here */}
         </Center>

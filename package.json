@@ -16,7 +16,7 @@
     "dotenv": "^14.2.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-formatjs": "^2.15.0",
-    "gatsby": "4.7.0",
+    "gatsby": "4.13.1",
     "gatsby-image": "^3.5.0",
     "gatsby-plugin-facebook-pixel": "^1.0.7",
     "gatsby-plugin-google-tagmanager": "^4.5.0",

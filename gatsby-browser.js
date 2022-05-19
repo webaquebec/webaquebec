@@ -51,6 +51,10 @@ export const shouldUpdateScroll = ({ routerProps }) => {
   return !disableScrollUpdate;
 };
 
+// Trigger an immediate page refresh to apply changes
+// when a service worker has been updated in the background.
+export const onServiceWorkerUpdateReady = () => window.location.reload();
+
 wrapRootElement.propTypes = {
   element: PropTypes.node.isRequired,
 };
