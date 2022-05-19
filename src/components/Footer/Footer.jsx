@@ -1,9 +1,10 @@
 // vendors
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 import { useInView } from 'react-intersection-observer';
 
 // components
+import { hideVisually } from 'polished';
 import Center from '../LayoutSections/Center';
 import Switcher from '../LayoutSections/Switcher';
 import Stack from '../LayoutSections/Stack/Stack';
@@ -12,20 +13,25 @@ import SocialNews from '../SocialNews';
 
 // images
 import logo from '../../images/logo-waq-22.svg';
+import logoVilleDeQuebec from '../../images/logoPartners/footer/logo-ville-de-quebec.svg';
+import logoQuebec from '../../images/logoPartners/footer/logo-quebec.svg';
+import logoPortQuebec from '../../images/logoPartners/footer/logo-port-quebec.svg';
 
 // styles
 import {
-  StyledFooter,
-  FooterWrapper,
-  FooterTitle,
-  ContactLink,
-  LogoWrapper,
+  footerWrapperStyle,
+  Block,
+  Title,
+  Link,
   Logo,
   ArchivesList,
   ArchiveItem,
   ArchiveLink,
+  StyledFooter,
   StickerWrapper,
   Sticker,
+  FooterPartners,
+  FooterLogo,
 } from './Footer.styles';
 
 const Footer = () => {
@@ -58,6 +64,24 @@ const Footer = () => {
     { year: '2012', link: 'https://2012.webaquebec.org/' },
   ];
 
+  const footerPartners = [
+    {
+      src: logoVilleDeQuebec,
+      alt: 'Ville de Québec',
+      url: 'https://www.ville.quebec.qc.ca/',
+    },
+    {
+      src: logoQuebec,
+      alt: 'Québec',
+      url: 'https://www.quebec.ca/',
+    },
+    {
+      src: logoPortQuebec,
+      alt: 'Port de Québec',
+      url: 'https://www.portquebec.ca/',
+    },
+  ];
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.5,
@@ -83,37 +107,55 @@ const Footer = () => {
           </div>
 
           <Switcher
-            threshold='768px'
+            threshold='832px'
             space='2rem'
-            limit={3}
-            css={FooterWrapper}
+            limit={4}
+            css={footerWrapperStyle}
           >
             <div>
-              <div>
-                <FooterTitle>Pour nous contacter</FooterTitle>
+              <Block>
+                <Title>
+                  <span css={hideVisually}>Web à Québec</span>
 
-                <ContactLink href='tel:1-877-334-2547'>
-                  1-877-334-2547
-                </ContactLink>
-                <ContactLink href='mailto:info@webaquebec.org'>
+                  <Link as={GatsbyLink} to='/'>
+                    <Logo src={logo} alt='Accueil' />
+                  </Link>
+                </Title>
+
+                <p
+                  css={`
+                    max-width: 200px;
+                  `}
+                >
+                  Événement coordonné par{' '}
+                  <Link
+                    href='https://quebecnumerique.com/'
+                    rel='noopener noreferrer'
+                    target='_blank'
+                  >
+                    Québec numérique
+                  </Link>
+                </p>
+              </Block>
+
+              <Block>
+                <Title>Pour nous contacter</Title>
+
+                <Link href='tel:1-877-334-2547'>1-877-334-2547</Link>
+                <br />
+                <Link href='mailto:info@webaquebec.org'>
                   info@webaquebec.org
-                </ContactLink>
-              </div>
-
-              <LogoWrapper>
-                <Link to='/'>
-                  <Logo src={logo} alt='Accueil' />
                 </Link>
-              </LogoWrapper>
+              </Block>
 
-              <div>
-                <FooterTitle>Archives</FooterTitle>
+              <Block>
+                <Title>Archives</Title>
 
                 <ArchivesList>
                   {archives.map((archive) => (
                     <ArchiveItem key={archive.year}>
                       {archive.type && archive.type === 'internal' ? (
-                        <ArchiveLink as={Link} to={archive.link}>
+                        <ArchiveLink as={GatsbyLink} to={archive.link}>
                           {archive.year}
                         </ArchiveLink>
                       ) : (
@@ -128,9 +170,30 @@ const Footer = () => {
                     </ArchiveItem>
                   ))}
                 </ArchivesList>
-              </div>
+              </Block>
+
+              <Block>
+                <Title>
+                  <Link as={GatsbyLink} to='/code-de-conduite'>
+                    Code de conduite
+                  </Link>
+                </Title>
+              </Block>
             </div>
           </Switcher>
+
+          <FooterPartners>
+            {footerPartners.map((image) => (
+              <FooterLogo
+                href={image.url}
+                key={image.url}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <img src={image.src} alt={image.alt} />
+              </FooterLogo>
+            ))}
+          </FooterPartners>
         </Stack>
       </Center>
     </StyledFooter>

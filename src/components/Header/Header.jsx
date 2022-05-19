@@ -41,9 +41,9 @@ const primaryNavigation = [
     color: 'rose',
   },
   {
-    id: 'edition2021',
-    label: 'édition 2021',
-    slug: '/programmation/2021',
+    id: 'tickets',
+    label: 'billetterie',
+    slug: '/billetterie',
     type: 'internal',
     color: 'turquoise',
   },
@@ -57,15 +57,27 @@ const secondaryNavigation = [
     type: 'internal',
   },
   {
+    id: 'partners',
+    label: 'partenaires',
+    slug: '/partenaires',
+    type: 'internal',
+  },
+  {
     id: 'faq',
     label: 'FAQ',
     slug: '/faq',
     type: 'internal',
   },
   {
-    id: 'tickets',
-    label: 'billetterie',
-    slug: '/billetterie',
+    id: 'code-of-conduct',
+    label: 'code de conduite',
+    slug: '/code-de-conduite',
+    type: 'internal',
+  },
+  {
+    id: 'edition2021',
+    label: 'édition 2021',
+    slug: '/programmation/2021',
     type: 'internal',
   },
 ];
