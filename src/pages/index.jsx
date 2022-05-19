@@ -22,7 +22,7 @@ import breakpoints from '../styles/breakpoints';
 const SectionContainer = styled(StyledSectionContainer)`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [186, 105], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [80, 88], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [168, 134], bases: [16, 20] },
     ],
     breakpoints.spacings
