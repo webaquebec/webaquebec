@@ -7,7 +7,7 @@ import vectorPhone from '../../../../images/vectorPhone.svg';
 // components
 import Button from '../../../../components/Button';
 
-// style
+// styles
 import {
   ContentWrap,
   CTAWrap,
@@ -15,25 +15,35 @@ import {
   ImageWrap,
   Text,
   Title,
-} from './App.styles';
+} from './CTAApp.styles';
 
-const App = () => (
+const CTAApp = () => (
   <CTAWrap>
     <ContentWrap>
       <Title>découvrez notre application</Title>
+
       <Text>
         Que ce soit pour faire ton horaire, réseauter, écouter les conférences,
         ou tout simplement vivre le WAQ à 100%, l’application sera ton meilleur
-        compagnon pour l’événement!{' '}
+        compagnon pour l’événement!
       </Text>
-      <Button small tag='href' to='https://google.ca'>
+
+      <Button
+        to='https://app.swapcard.com/event/web-a-quebec-waq22'
+        tag='href'
+        rel='noopener noreferrer'
+        target='_blank'
+        small
+        animated
+      >
         télécharger l&lsquo;application
       </Button>
     </ContentWrap>
+
     <ImageWrap>
       <Image src={vectorPhone} alt='cellphone' />
     </ImageWrap>
   </CTAWrap>
 );
 
-export default App;
+export default CTAApp;

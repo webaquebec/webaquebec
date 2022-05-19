@@ -35,6 +35,10 @@ export const CTAWrap = styled.div`
     ],
     breakpoints.spacings
   )}
+
+  ${lessThan(breakpoints[5])} {
+    margin-top: 0;
+  }
 `;
 
 export const Title = styled.h3`
@@ -52,7 +56,9 @@ export const Text = styled.p`
   color: ${colors.bleu80};
 `;
 
-export const ContentWrap = styled.div``;
+export const ContentWrap = styled.div`
+  margin-right: 1rem;
+`;
 
 export const ImageWrap = styled.div`
   position: relative;
@@ -70,7 +76,10 @@ export const Image = styled.img`
   height: 420px;
 
   ${breakpointsRange(
-    [{ prop: 'bottom', sizes: [-24, -48], bases: [16, 20] }],
+    [
+      { prop: 'bottom', sizes: [-24, -48], bases: [16, 20] },
+      { prop: 'left', sizes: [-24, -48], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )}
 `;
