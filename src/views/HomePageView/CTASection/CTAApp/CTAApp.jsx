@@ -1,5 +1,6 @@
 // vendors
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { isAndroid, isIOS } from 'react-device-detect';
 
 // images
 import vectorPhone from '../../../../images/vectorPhone.svg';
@@ -17,33 +18,50 @@ import {
   Title,
 } from './CTAApp.styles';
 
-const CTAApp = () => (
-  <CTAWrap>
-    <ContentWrap>
-      <Title>découvrez notre application</Title>
+const CTAApp = () => {
+  const [appLink, setAppLink] = useState(null);
 
-      <Text>
-        Que ce soit pour faire ton horaire, réseauter, écouter les conférences,
-        ou tout simplement vivre le WAQ à 100%, l’application sera ton meilleur
-        compagnon pour l’événement!
-      </Text>
+  useEffect(() => {
+    let link = 'https://app.swapcard.com/event/web-a-quebec-waq22';
 
-      <Button
-        to='https://app.swapcard.com/event/web-a-quebec-waq22'
-        tag='href'
-        rel='noopener noreferrer'
-        target='_blank'
-        small
-        animated
-      >
-        télécharger l&lsquo;application
-      </Button>
-    </ContentWrap>
+    if (isAndroid) {
+      link =
+        'https://play.google.com/store/apps/details?id=com.swapcard.apps.android.snqc21';
+    } else if (isIOS) {
+      link = 'https://apps.apple.com/ca/app/waq/id1559771285?l=fr';
+    }
 
-    <ImageWrap>
-      <Image src={vectorPhone} alt='cellphone' />
-    </ImageWrap>
-  </CTAWrap>
-);
+    setAppLink(link);
+  }, []);
+
+  return (
+    <CTAWrap>
+      <ContentWrap>
+        <Title>découvrez notre application</Title>
+
+        <Text>
+          Que ce soit pour faire ton horaire, réseauter, écouter les
+          conférences, ou tout simplement vivre le WAQ à 100%, l’application
+          sera ton meilleur compagnon pour l’événement!
+        </Text>
+
+        <Button
+          to={appLink}
+          tag='href'
+          rel='noopener noreferrer'
+          target='_blank'
+          small
+          animated
+        >
+          télécharger l&lsquo;application
+        </Button>
+      </ContentWrap>
+
+      <ImageWrap>
+        <Image src={vectorPhone} alt='cellphone' />
+      </ImageWrap>
+    </CTAWrap>
+  );
+};
 
 export default CTAApp;
