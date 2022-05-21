@@ -7,7 +7,7 @@ import Button from '../../../components/Button';
 import Switcher from '../../../components/LayoutSections/Switcher/Switcher';
 
 // images
-import QNLogo from '../../../images/about/quebec-numerique/QuebecNumeriqueLogo.svg';
+import logoQuebecNumerique from '../../../images/about/quebec-numerique/logo-quebecnumerique.svg';
 
 // styles
 import {
@@ -23,7 +23,10 @@ const JoinUsSection = () => (
     <Center maxWidth='840px' gutters='var(--container-gutter)'>
       <Switcher threshold='750px' space='24px'>
         <div>
-          <QuebecNumeriqueLogo src={QNLogo} alt='Québec Numérique' />
+          <QuebecNumeriqueLogo
+            src={logoQuebecNumerique}
+            alt='Québec Numérique'
+          />
           <Column>
             <Title>pour nous joindre</Title>
             <Paragraph>
