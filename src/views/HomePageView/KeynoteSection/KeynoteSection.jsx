@@ -1,5 +1,6 @@
 // vendors
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 // styles
 import { wrapper, CardsWrapper, Title, Intro } from './KeynoteSection.styles';
@@ -10,15 +11,76 @@ import Center from '../../../components/LayoutSections/Center';
 import Button from '../../../components/Button';
 import KeynoteCard from '../../../components/KeynoteCard';
 
-// images
-import speakerDanielLamarre from '../../../images/keynotes/speaker-daniel-lamarre.jpg';
-import speakerJeanBelanger from '../../../images/keynotes/speaker-jean-belanger.jpg';
-import speakerKatieMartell from '../../../images/keynotes/speaker-katie-martell.jpg';
-import speakerPieraGelardi from '../../../images/keynotes/speaker-piera-gelardi.jpg';
-import speakerRavyPor from '../../../images/keynotes/speaker-ravy-por.jpg';
-import speakerTinaTouli from '../../../images/keynotes/speaker-tina-touli.jpg';
+const speakersPictureQuery = graphql`
+  fragment speakerPhotoFragment on File {
+    childImageSharp {
+      fluid(
+        quality: 100
+        maxWidth: 425
+        duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+      ) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+  query {
+    speakerDanielLamarre: file(
+      relativePath: { eq: "keynotes/speaker-daniel-lamarre.jpg" }
+    ) {
+      ...speakerPhotoFragment
+    }
+    speakerJeanBelanger: file(
+      relativePath: { eq: "keynotes/speaker-jean-belanger.jpg" }
+    ) {
+      ...speakerPhotoFragment
+    }
+    speakerKatieMartell: file(
+      relativePath: { eq: "keynotes/speaker-katie-martell.jpg" }
+    ) {
+      ...speakerPhotoFragment
+    }
+    speakerPieraGelardi: file(
+      relativePath: { eq: "keynotes/speaker-piera-gelardi.jpg" }
+    ) {
+      ...speakerPhotoFragment
+    }
+    speakerRavyPor: file(
+      relativePath: { eq: "keynotes/speaker-ravy-por.jpg" }
+    ) {
+      ...speakerPhotoFragment
+    }
+    speakerTinaTouli: file(
+      relativePath: { eq: "keynotes/speaker-tina-touli.jpg" }
+    ) {
+      ...speakerPhotoFragment
+    }
+  }
+`;
 
 const KeynoteSection = () => {
+  const data = useStaticQuery(speakersPictureQuery);
+
+  const {
+    speakerDanielLamarre: {
+      childImageSharp: { fluid: speakerDanielLamarre },
+    },
+    speakerJeanBelanger: {
+      childImageSharp: { fluid: speakerJeanBelanger },
+    },
+    speakerKatieMartell: {
+      childImageSharp: { fluid: speakerKatieMartell },
+    },
+    speakerPieraGelardi: {
+      childImageSharp: { fluid: speakerPieraGelardi },
+    },
+    speakerRavyPor: {
+      childImageSharp: { fluid: speakerRavyPor },
+    },
+    speakerTinaTouli: {
+      childImageSharp: { fluid: speakerTinaTouli },
+    },
+  } = data;
+
   const speakers = [
     {
       firstName: 'Daniel',
@@ -26,32 +88,14 @@ const KeynoteSection = () => {
       organization: 'Cirque du Soleil',
       detailPageUrl:
         '/programmation/la-pensee-creative-moteur-pour-linnovation-et-le-succes-en-entreprise/',
-      photoUrl: speakerDanielLamarre,
-      photoUrlSharp: {
-        childImageSharp: {
-          fixed: {
-            src: speakerDanielLamarre,
-            srcSet: speakerDanielLamarre,
-            srcSetWebp: speakerDanielLamarre,
-          },
-        },
-      },
+      picture: speakerDanielLamarre,
     },
     {
       firstName: 'Jean',
       lastName: 'Bélanger',
       organization: 'Premier Tech',
       detailPageUrl: '/programmation/keynote-jean-belanger/',
-      photoUrl: speakerJeanBelanger,
-      photoUrlSharp: {
-        childImageSharp: {
-          fixed: {
-            src: speakerJeanBelanger,
-            srcSet: speakerJeanBelanger,
-            srcSetWebp: speakerJeanBelanger,
-          },
-        },
-      },
+      picture: speakerJeanBelanger,
     },
     {
       firstName: 'Katie',
@@ -59,32 +103,14 @@ const KeynoteSection = () => {
       organization: 'Rabble Rouser Productions',
       detailPageUrl:
         '/programmation/woke-washed-the-collision-of-social-movements-and-marketing/',
-      photoUrl: speakerKatieMartell,
-      photoUrlSharp: {
-        childImageSharp: {
-          fixed: {
-            src: speakerKatieMartell,
-            srcSet: speakerKatieMartell,
-            srcSetWebp: speakerKatieMartell,
-          },
-        },
-      },
+      picture: speakerKatieMartell,
     },
     {
       firstName: 'Piera',
       lastName: 'Gelardi',
       organization: 'Refinery29',
       detailPageUrl: '/programmation/keynote-piera-gelardi/',
-      photoUrl: speakerPieraGelardi,
-      photoUrlSharp: {
-        childImageSharp: {
-          fixed: {
-            src: speakerPieraGelardi,
-            srcSet: speakerPieraGelardi,
-            srcSetWebp: speakerPieraGelardi,
-          },
-        },
-      },
+      picture: speakerPieraGelardi,
     },
     {
       firstName: 'Ravy',
@@ -92,16 +118,7 @@ const KeynoteSection = () => {
       organization: 'KPMG Canada',
       detailPageUrl:
         '/programmation/intelligence-artificielle-lalgorithme-qui-change-votre-vie/',
-      photoUrl: speakerRavyPor,
-      photoUrlSharp: {
-        childImageSharp: {
-          fixed: {
-            src: speakerRavyPor,
-            srcSet: speakerRavyPor,
-            srcSetWebp: speakerRavyPor,
-          },
-        },
-      },
+      picture: speakerRavyPor,
     },
     {
       firstName: 'Tina',
@@ -109,16 +126,7 @@ const KeynoteSection = () => {
       organization: 'Tina Touli',
       detailPageUrl:
         '/programmation/blending-the-physical-and-the-digital-worlds/',
-      photoUrl: speakerTinaTouli,
-      photoUrlSharp: {
-        childImageSharp: {
-          fixed: {
-            src: speakerTinaTouli,
-            srcSet: speakerTinaTouli,
-            srcSetWebp: speakerTinaTouli,
-          },
-        },
-      },
+      picture: speakerTinaTouli,
     },
   ];
 
@@ -130,6 +138,7 @@ const KeynoteSection = () => {
       intrinsic
     >
       <Title css={magnifyStyle}>conférenciers principaux</Title>
+
       <Center maxWidth='640px'>
         <Intro css={introStyle}>
           Le WAQ veut vous connaître! Lorem ipsum dolor sit amet, consectetur
@@ -137,14 +146,16 @@ const KeynoteSection = () => {
           magna aliqua.
         </Intro>
       </Center>
+
       <CardsWrapper>
-        <KeynoteCard speaker={speakers[0]} mobileRotationAngle={-5} />
-        <KeynoteCard big speaker={speakers[1]} mobileRotationAngle={5} />
+        <KeynoteCard speaker={speakers[0]} big mobileRotationAngle={-5} />
+        <KeynoteCard speaker={speakers[1]} mobileRotationAngle={5} />
         <KeynoteCard speaker={speakers[2]} />
         <KeynoteCard speaker={speakers[3]} mobileRotationAngle={-10} />
         <KeynoteCard speaker={speakers[4]} />
-        <KeynoteCard big speaker={speakers[5]} mobileRotationAngle={5} />
+        <KeynoteCard speaker={speakers[5]} big mobileRotationAngle={5} />
       </CardsWrapper>
+
       <Button tag='link' to='/programmation/2022'>
         voir la programmation
       </Button>

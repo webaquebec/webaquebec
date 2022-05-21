@@ -9,8 +9,6 @@ import {
 } from './KeynoteCard.styles';
 
 const KeynoteCard = ({ speaker, big, mobileRotationAngle }) => {
-  const picture = speaker.photoUrlSharp?.childImageSharp?.fixed;
-
   const fullName = `${speaker.firstName} ${speaker.lastName}`;
 
   return (
@@ -20,9 +18,11 @@ const KeynoteCard = ({ speaker, big, mobileRotationAngle }) => {
         transform: rotate(${mobileRotationAngle}deg);
       `}
     >
-      <SpeakerPicture $big={big} fixed={picture} alt={fullName} />
+      <SpeakerPicture $big={big} fluid={speaker.picture} alt={fullName} />
+
       <TextWrapper>
         <SpeakerName>{fullName}</SpeakerName>
+
         <Organization>{speaker.organization}</Organization>
       </TextWrapper>
     </Wrapper>
@@ -38,15 +38,13 @@ KeynoteCard.propTypes = {
     lastName: PropTypes.string.isRequired,
     organization: PropTypes.string.isRequired,
     detailPageUrl: PropTypes.string.isRequired,
-    photoUrl: PropTypes.string,
-    photoUrlSharp: PropTypes.shape({
-      childImageSharp: PropTypes.shape({
-        fixed: PropTypes.shape({
-          src: PropTypes.string.isRequired,
-          srcSet: PropTypes.string.isRequired,
-          srcSetWebp: PropTypes.string.isRequired,
-        }),
-      }),
+    picture: PropTypes.shape({
+      aspectRatio: PropTypes.number,
+      base64: PropTypes.string,
+      sizes: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired,
+      srcSet: PropTypes.string.isRequired,
+      srcSetWebp: PropTypes.string.isRequired,
     }),
   }).isRequired,
   /**
