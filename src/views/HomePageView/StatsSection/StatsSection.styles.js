@@ -14,7 +14,7 @@ export const SectionContainer = styled.section`
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [80, 173], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [80, 293], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [80, 176], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -60,7 +60,7 @@ export const StatImg = styled.img`
 `;
 
 export const StatDescription = styled.p`
-  color: ${colors.gris30};
+  color: ${colors.bleu};
   font-weight: ${fontWeights.bold};
   text-align: center;
   word-break: normal;

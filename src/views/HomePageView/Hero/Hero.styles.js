@@ -1,5 +1,5 @@
 // vendors
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
@@ -11,6 +11,13 @@ import Button from '../../../components/Button';
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontFamilies, fontWeights } from '../../../styles/typography';
+
+export const linkStyleHover = css`
+  :hover,
+  :focus {
+    text-decoration: none;
+  }
+`;
 
 export const StyledHero = styled.header`
   position: relative;
@@ -99,4 +106,13 @@ export const StickerImg = styled.img`
       ],
       breakpoints.spacings
     )};
+`;
+
+export const MapPinIcon = styled.img`
+  height: 100%;
+
+  ${breakpointsRange(
+    [{ prop: 'width', sizes: [34, 64], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;

@@ -57,9 +57,21 @@ const secondaryNavigation = [
     type: 'internal',
   },
   {
+    id: 'partners',
+    label: 'partenaires',
+    slug: '/partenaires',
+    type: 'internal',
+  },
+  {
     id: 'faq',
     label: 'FAQ',
     slug: '/faq',
+    type: 'internal',
+  },
+  {
+    id: 'code-of-conduct',
+    label: 'code de conduite',
+    slug: '/code-de-conduite',
     type: 'internal',
   },
   {

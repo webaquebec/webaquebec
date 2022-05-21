@@ -16,7 +16,7 @@ export const wrapper = css`
 
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [160, 260], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [45, 50], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [160, 130], bases: [16, 20] },
     ],
     breakpoints.spacings

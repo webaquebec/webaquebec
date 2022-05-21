@@ -3,12 +3,15 @@ import styled, { css } from 'styled-components';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
+import { greaterThan } from '../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
 import { magnifyStyle, pixelatedStyle } from '../../styles/global';
 
 export const Title = styled.h2`
+  text-align: center;
+
   ${magnifyStyle}
 
   ${pixelatedStyle}
@@ -17,6 +20,27 @@ export const Title = styled.h2`
     [
       { prop: 'marginTop', sizes: [80, 160], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [48, 64], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
+export const PresentingWrapper = styled.div`
+  align-items: center;
+
+  text-align: center;
+
+  ${greaterThan(800)} {
+    text-align: left;
+  }
+`;
+
+export const PresentingText = styled.p`
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [16, 20], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [22, 24], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [24, 56], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
