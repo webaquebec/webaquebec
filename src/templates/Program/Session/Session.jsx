@@ -439,7 +439,7 @@ export const sessionQuery = graphql`
                 width: 100
                 height: 100
                 quality: 90
-                duotone: { highlight: "#EBEBEB", shadow: "#000CA0" }
+                duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
               ) {
                 ...GatsbyImageSharpFixed_withWebp
               }
