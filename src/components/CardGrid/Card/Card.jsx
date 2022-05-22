@@ -14,8 +14,6 @@ import {
   StyledCard,
   Title,
   Complement,
-  // Star,
-  // Date,
   Content,
   CardButton,
 } from './Card.styles';
@@ -27,7 +25,6 @@ import Stack from '../../LayoutSections/Stack';
 const Card = ({
   title,
   titleAs,
-  // date,
   complement,
   complementAs,
   content,

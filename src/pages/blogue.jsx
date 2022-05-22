@@ -11,7 +11,6 @@ import VectorStar from '../images/VectorStar';
 import SEO from '../components/SEO';
 import Center from '../components/LayoutSections/Center';
 import SectionContainer from '../components/SectionContainer';
-import HeroGrid from '../components/HeroGrid/HeroGrid';
 import CardGrid from '../components/CardGrid';
 import Card from '../components/CardGrid/Card';
 
@@ -19,6 +18,19 @@ import Card from '../components/CardGrid/Card';
 import FeaturedBlogPost from '../views/BlogPageView/FeaturedBlogPost';
 import breakpointsRange from '../utils/breakpointsRange';
 import breakpoints from '../styles/breakpoints';
+
+// styles
+import { titleStyle } from '../styles/global';
+
+const PageTitle = styled.h1`
+  ${breakpointsRange(
+    [
+      { prop: 'marginTop', sizes: [80, 200], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [80, 200], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
 
 const Container = styled(SectionContainer)`
   ${breakpointsRange(
@@ -64,12 +76,12 @@ const BlogPage = ({ data }) => {
         description='Tout ce que tu dois savoir sur le WAQ22.'
       />
 
-      <HeroGrid title='le blogue' />
-
       <Center
         maxWidth='var(--max-container-width)'
         gutters='var(--container-gutter)'
+        intrinsic
       >
+        <PageTitle css={titleStyle}>blogue</PageTitle>
         <FeaturedBlogPost post={blogArchives[0]} />
       </Center>
 

@@ -88,8 +88,8 @@ export const outlinedIconStyle = css`
       position: absolute;
       left: 0;
 
-      width: 3px;
-      height: calc(100% + var(--padding-vertical) * 2 + 2 * 3px);
+      width: 2px;
+      height: calc(100% + var(--padding-vertical) * 2 + 2 * 2px);
 
       background-color: currentColor;
 
@@ -115,8 +115,8 @@ export const outlinedIconFirstStyle = css`
       position: absolute;
       right: 0;
 
-      width: 3px;
-      height: calc(100% + var(--padding-vertical) * 2 + 2 * 3px);
+      width: 2px;
+      height: calc(100% + var(--padding-vertical) * 2 + 2 * 2px);
 
       background-color: currentColor;
 
@@ -139,7 +139,7 @@ export const outlinedStyle = css`
   color: ${colors.bleu};
 
   background-color: transparent;
-  border: 3px solid currentColor;
+  border: 2px solid currentColor;
   border-radius: 5px;
 
   &.active,

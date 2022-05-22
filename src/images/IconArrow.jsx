@@ -10,14 +10,14 @@ const IconArrow = (props) => (
     <path
       d='M2 12L26 12'
       stroke='currentColor'
-      strokeWidth='3'
+      strokeWidth='2'
       strokeLinecap='round'
       strokeLinejoin='round'
     />
     <path
       d='M17 22L27 12L17 2'
       stroke='currentColor'
-      strokeWidth='3'
+      strokeWidth='2'
       strokeLinecap='round'
       strokeLinejoin='round'
     />
