@@ -8,11 +8,13 @@ import breakpointsRange from '../../utils/breakpointsRange';
 // styles
 import colors from '../../styles/colors';
 import breakpoints from '../../styles/breakpoints';
+import { fontWeights } from '../../styles/typography';
 
 export const ContactTitle = styled.h2`
   margin: 0;
   margin-bottom: 16px;
 
+  font-weight: ${fontWeights.medium};
   text-align: center;
 
   ${breakpointsRange(

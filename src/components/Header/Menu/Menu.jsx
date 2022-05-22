@@ -10,12 +10,13 @@ import Grid from '../../LayoutSections/Grid';
 import Stack from '../../LayoutSections/Stack';
 import Cluster from '../../LayoutSections/Cluster';
 import CloseButton from '../../CloseButton';
+import Logo from '../Logo';
 
 // hooks
 import useHasMounted from '../../../hooks/useHasMounted';
 
 // images
-import logoSVG from '../../../images/logo-waq-22-sticker.svg';
+import logoSVG from '../../../images/logo-waq-22.svg';
 import facebook from '../../../images/socialMedia/facebook.svg';
 import twitter from '../../../images/socialMedia/twitter.svg';
 import instagram from '../../../images/socialMedia/instagram.svg';
@@ -33,7 +34,6 @@ import {
   Gradient,
   Top,
   LogoWrapper,
-  Logo,
   ListItem,
   NavPrimaryLink,
   NavSecondaryLink,

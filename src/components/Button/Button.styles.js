@@ -40,12 +40,12 @@ export const animatedPrimaryStyle = css`
 export const primaryStyle = css`
   color: ${colors.bleu80};
 
-  background-color: ${colors.turquoise80};
+  background-color: ${colors.white};
 
   &.active,
   :focus,
   :hover:not(:disabled) {
-    background-color: ${colors.turquoise40};
+    background-color: ${colors.white};
   }
 
   ${({ $animated }) => $animated && animatedPrimaryStyle}
@@ -158,7 +158,7 @@ export const outlinedStyle = css`
 export const smallStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [18, 18], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [16, 18], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [21, 21], bases: [18, 18], unit: '' },
       { prop: '--paddingVertical', sizes: [12, 12], bases: [16, 20] },
       { prop: '--paddingHorizontal', sizes: [30, 30], bases: [16, 20] },
@@ -248,14 +248,14 @@ const StyledButton = styled.button`
 
   padding: var(--padding-vertical) var(--padding-horizontal);
 
-  color: ${colors.turquoise80};
+  color: ${colors.white};
 
   font-weight: ${fontWeights.medium};
   text-decoration: none;
 
   background-color: ${colors.bleu80};
   border: 0;
-  border-radius: 16px;
+  border-radius: 96px;
   outline: 0;
   cursor: pointer;
 

@@ -217,6 +217,7 @@ export const magnifyStyle = css`
   color: ${colors.bleu};
 
   font-weight: ${fontWeights.bold};
+  font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(
     [

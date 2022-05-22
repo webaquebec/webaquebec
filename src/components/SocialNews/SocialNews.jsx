@@ -9,7 +9,6 @@ import {
   MediaText,
   MediaList,
   ContentContainer,
-  // SectionContainer,
   blockContainerStyle,
 } from './SocialNews.styles';
 import colors from '../../styles/colors';
