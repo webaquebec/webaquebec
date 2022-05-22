@@ -14,7 +14,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 import breakpoints from '../styles/breakpoints';
 import Center from '../components/LayoutSections/Center';
 import {
-  h1AltStyle,
+  titleStyle,
   h2Style,
   orderedListStyle,
   unorderedListStyle,
@@ -107,7 +107,9 @@ const CodeConductPage = () => (
       withText
       intrinsic
     >
-      <PageTitle css={h1AltStyle}>Code de conduite</PageTitle>
+      <PageTitle css={titleStyle}>
+        code <span>de</span> conduite
+      </PageTitle>
     </Center>
 
     <Container forwardedAs='div' faded padded>

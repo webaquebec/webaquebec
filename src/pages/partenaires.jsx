@@ -14,7 +14,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { h1AltStyle, introStyle } from '../styles/global';
+import { introStyle, titleStyle } from '../styles/global';
 import colors from '../styles/colors';
 
 const SectionContainer = styled(StyledSectionContainer)`
@@ -52,7 +52,9 @@ const PartnersPage = () => (
       withText
       intrinsic
     >
-      <PartnersTitle css={h1AltStyle}>partenaires</PartnersTitle>
+      <PartnersTitle css={titleStyle}>
+        parte<span>naires</span>
+      </PartnersTitle>
       <PartnersIntro css={introStyle}>
         L’équipe du WAQ tient à remercier du fond du coeur tous les partenaires
         qui s’impliquent dans l’aventure. Par leur expertise, leur créativité et

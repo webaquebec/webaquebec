@@ -17,7 +17,7 @@ import CallToAction from '../views/TicketsView/CallToAction';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { h1AltStyle, introStyle } from '../styles/global';
+import { titleStyle, introStyle } from '../styles/global';
 import Stack from '../components/LayoutSections/Stack';
 
 const TicketsTitle = styled.h1`
@@ -78,7 +78,9 @@ const TicketsPage = () => (
       withText
       intrinsic
     >
-      <TicketsTitle css={h1AltStyle}>billetterie</TicketsTitle>
+      <TicketsTitle css={titleStyle}>
+        bille<span>tterie</span>
+      </TicketsTitle>
       <TicketsIntro css={introStyle}>
         <Stack>
           <p>
