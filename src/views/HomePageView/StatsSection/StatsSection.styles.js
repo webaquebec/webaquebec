@@ -9,7 +9,6 @@ import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { titleStyle } from '../../../styles/global';
 
 export const SectionContainer = styled.section`
   ${breakpointsRange(
@@ -33,29 +32,6 @@ export const StatItem = styled.li`
     [{ prop: 'marginBottom', sizes: [32, 0], bases: [16, 20] }],
     breakpoints.spacings
   )};
-`;
-
-export const StatNumber = styled.span`
-  ${titleStyle};
-  width: 100%;
-
-  ${breakpointsRange(
-    [
-      { prop: 'fontSize', sizes: [150, 180], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [140, 160], bases: [16, 20] },
-    ],
-    breakpoints.spacings
-  )};
-
-  > span {
-    ${breakpointsRange(
-      [
-        { prop: 'fontSize', sizes: [150, 180], bases: [16, 20] },
-        { prop: 'lineHeight', sizes: [140, 160], bases: [16, 20] },
-      ],
-      breakpoints.spacings
-    )};
-  }
 `;
 
 export const StatDescription = styled.p`

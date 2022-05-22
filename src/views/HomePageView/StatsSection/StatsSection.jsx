@@ -9,11 +9,11 @@ import LazyAnimation from '../../../components/LazyAnimation';
 
 // styles
 import { easing } from '../../../styles/animation';
+import { billboardStyle, billboardAltStyle } from '../../../styles/global';
 import {
   SectionContainer,
   StatsList,
   StatItem,
-  StatNumber,
   StatDescription,
 } from './StatsSection.styles';
 
@@ -58,9 +58,13 @@ const Stats = () => {
                     scale: { initial: '0', final: '1' },
                   }}
                 >
-                  <StatNumber>
-                    {index === 0 ? <span>{stat.number}</span> : stat.number}
-                  </StatNumber>
+                  <span css={billboardStyle}>
+                    {index === 0 ? (
+                      <span css={billboardAltStyle}>{stat.number}</span>
+                    ) : (
+                      stat.number
+                    )}
+                  </span>
                 </LazyAnimation>
 
                 <LazyAnimation

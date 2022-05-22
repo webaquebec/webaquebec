@@ -8,7 +8,6 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
-import { titleStyle } from '../../../styles/global';
 
 export const linkStyleHover = css`
   :hover,
@@ -27,28 +26,6 @@ export const StyledHero = styled.header`
     ],
     breakpoints.spacings
   )};
-`;
-
-export const HeroTitle = styled.h2`
-  ${titleStyle};
-
-  ${breakpointsRange(
-    [
-      { prop: 'fontSize', sizes: [60, 180], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [58, 160], bases: [16, 20] },
-    ],
-    breakpoints.spacings
-  )};
-
-  > span {
-    ${breakpointsRange(
-      [
-        { prop: 'fontSize', sizes: [64, 180], bases: [16, 20] },
-        { prop: 'lineHeight', sizes: [58, 160], bases: [16, 20] },
-      ],
-      breakpoints.spacings
-    )};
-  }
 `;
 
 export const HeroIntro = styled.h3`

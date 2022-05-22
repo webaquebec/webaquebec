@@ -8,9 +8,9 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
 import breakpoints from '../../../styles/breakpoints';
+import { billboardStyle, billboardAltStyle } from '../../../styles/global';
 import {
   StyledHero,
-  HeroTitle,
   HeroIntro,
   linkStyleHover,
   MapPinIcon,
@@ -25,11 +25,11 @@ import vectorMapPin from '../../../images/vectorMapPin.svg';
 const Hero = () => (
   <StyledHero>
     <Center maxWidth='var(--max-container-width)' gutters='12px' withText>
-      <HeroTitle>
+      <h2 css={billboardStyle}>
         24 au 26&nbsp;&nbsp;
         <br />
-        &nbsp;&nbsp;mai <span>2022</span>
-      </HeroTitle>
+        &nbsp;&nbsp;mai <span css={billboardAltStyle}>2022</span>
+      </h2>
 
       <Center maxWidth='850px' gutters='0' withText>
         <HeroIntro>
