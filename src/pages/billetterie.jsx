@@ -8,9 +8,6 @@ import Center from '../components/LayoutSections/Center';
 import SectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 
-// // images
-// import ogImagePreSale from '../images/og/og-img-waq-22-pre-sale.jpg';
-
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
 
@@ -25,6 +22,11 @@ import Stack from '../components/LayoutSections/Stack';
 
 const TicketsTitle = styled.h1`
   margin-bottom: 0;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 const TicketsIntro = styled.div`
@@ -44,7 +46,6 @@ const Container = styled(SectionContainer)`
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [98, 105] },
-      // { prop: 'paddingBottom', sizes: [26, 54] },
       { prop: 'marginBottom', sizes: [202, 242] },
     ],
     breakpoints.spacings,
