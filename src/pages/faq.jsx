@@ -21,6 +21,11 @@ import colors from '../styles/colors';
 
 const FaqTitle = styled.h1`
   margin-bottom: 0;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 const FaqIntro = styled.div`
