@@ -28,6 +28,8 @@ export const Wrapper = styled(Link)`
 
   transition: transform ${speed.default};
 
+  will-change: transform;
+
   ${breakpointsRange(
     [
       { prop: 'marginBottom', sizes: [50, 80], bases: [16, 20] },
