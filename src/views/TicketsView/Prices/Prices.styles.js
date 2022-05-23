@@ -35,7 +35,7 @@ export const BlocksWrapper = styled.div`
   justify-content: center;
 
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [0, 120] }],
+    [{ prop: 'marginBottom', sizes: [40, 120] }],
     breakpoints.spacings,
     { bases: [16, 20] }
   )};

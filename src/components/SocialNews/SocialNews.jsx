@@ -25,6 +25,7 @@ import facebook from '../../images/socialMedia/facebook.svg';
 import twitter from '../../images/socialMedia/twitter.svg';
 import instagram from '../../images/socialMedia/instagram.svg';
 import linkedin from '../../images/socialMedia/linkedin.svg';
+import elevation from '../../styles/elevation';
 
 const SocialNews = () => {
   const socialMedia = [
@@ -58,6 +59,7 @@ const SocialNews = () => {
           darkColor={colors.bleu80}
           rounded
           overlaid
+          elevation={elevation.large}
           css={blockContainerStyle}
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer}>
@@ -90,6 +92,7 @@ const SocialNews = () => {
           lightColor={colors.bleu80}
           darkColor={colors.gris30}
           rounded
+          elevation={elevation.large}
           css={blockContainerStyle}
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer}>
