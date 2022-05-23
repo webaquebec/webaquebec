@@ -1,5 +1,6 @@
 // vendors
 import styled, { css } from 'styled-components';
+import colors from '../../styles/colors';
 
 // components
 import Box from '../LayoutSections/Box';
@@ -17,6 +18,13 @@ const overlaidStyle = css`
 
     mix-blend-mode: overlay;
   }
+`;
+
+const elevationStyle = css`
+  --shadow-color: ${colors.bleu80hsl.hue}deg ${colors.bleu80hsl.saturation}%
+    ${colors.bleu80hsl.lightness}%;
+
+  box-shadow: ${({ $elevation }) => $elevation};
 `;
 
 const Container = styled(Box)`
@@ -46,6 +54,8 @@ const Container = styled(Box)`
   ${({ $rounded }) => $rounded && roundedStyle};
 
   ${({ $overlaid }) => $overlaid && overlaidStyle};
+
+  ${({ $elevation }) => $elevation && elevationStyle};
 `;
 
 export default Container;
