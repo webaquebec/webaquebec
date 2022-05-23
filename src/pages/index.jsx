@@ -14,6 +14,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
 import CTASection from '../views/HomePageView/CTASection';
+import KeynoteSection from '../views/HomePageView/KeynoteSection';
 import PartnersGrids from '../components/PartnersGrids';
 
 // styles
@@ -42,6 +43,8 @@ const IndexPage = () => (
 
     <SectionContainer forwardedAs='div' faded>
       <CTASection />
+
+      <KeynoteSection />
 
       <PartnersGrids />
     </SectionContainer>
