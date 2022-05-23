@@ -9,7 +9,7 @@ import Logo from './Logo';
 import Menu from './Menu';
 
 // images
-import vectorBurgerMenu from '../../images/vectorBurgerMenu.svg';
+// import vectorBurgerMenu from '../../images/vectorBurgerMenu.svg';
 
 // styles
 import {
@@ -21,9 +21,10 @@ import {
   // NavListItem,
   // NavLink,
   MenuButtonWrapper,
-  BurgerButton,
-  BurgerImg,
+  // BurgerButton,
+  // BurgerImg,
 } from './Header.styles';
+import BurgerButton from './BurgerButton';
 
 const primaryNavigation = [
   {
@@ -31,7 +32,7 @@ const primaryNavigation = [
     label: 'programmation',
     slug: '/programmation/2022',
     type: 'internal',
-    color: 'jaune',
+    color: 'turquoise',
   },
   {
     id: 'blog',
@@ -45,7 +46,7 @@ const primaryNavigation = [
     label: 'billetterie',
     slug: '/billetterie',
     type: 'internal',
-    color: 'turquoise',
+    color: 'ciel',
   },
 ];
 
@@ -143,9 +144,10 @@ const Header = ({ pathname }) => {
           </LogoWrapper>
 
           <MenuButtonWrapper>
-            <BurgerButton onClick={handleClick}>
+            {/* <BurgerButton onClick={handleClick}>
               <BurgerImg src={vectorBurgerMenu} alt='Menu' focusable='false' />
-            </BurgerButton>
+            </BurgerButton> */}
+            <BurgerButton onClick={handleClick} opened={opened} />
           </MenuButtonWrapper>
         </Container>
       </Center>

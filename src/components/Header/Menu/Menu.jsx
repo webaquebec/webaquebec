@@ -9,7 +9,7 @@ import Center from '../../LayoutSections/Center';
 import Grid from '../../LayoutSections/Grid';
 import Stack from '../../LayoutSections/Stack';
 import Cluster from '../../LayoutSections/Cluster';
-import CloseButton from '../../CloseButton';
+// import CloseButton from '../../CloseButton';
 
 // hooks
 import useHasMounted from '../../../hooks/useHasMounted';
@@ -24,7 +24,7 @@ import linkedin from '../../../images/socialMedia/linkedin.svg';
 // styles
 import colors from '../../../styles/colors';
 import {
-  closeButtonStyle,
+  // closeButtonStyle,
   containerStyle,
   navStyle,
   primaryNavListStyle,
@@ -37,7 +37,7 @@ import {
   ListItem,
   NavPrimaryLink,
   NavSecondaryLink,
-  ButtonWrapper,
+  // ButtonWrapper,
   Blob,
 } from './Menu.styles';
 
@@ -167,9 +167,9 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
             <Logo src={logoSVG} alt='' role='presentation' />
           </LogoWrapper>
 
-          <ButtonWrapper>
+          {/* <ButtonWrapper>
             <CloseButton onClose={onClose} darked css={closeButtonStyle} />
-          </ButtonWrapper>
+          </ButtonWrapper> */}
         </Top>
 
         <Grid as='nav' space='38px' minWidth='300px' collapsed css={navStyle}>
