@@ -9,7 +9,7 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
-import { fontFamilies, fontWeights } from '../../../styles/typography';
+import { fontFamilies } from '../../../styles/typography';
 import { greaterThan } from '../../../utils/mediaQuery';
 
 export const selfBreakpoints = [breakpoints[3]];
@@ -109,8 +109,6 @@ export const CTAWrapper = styled.div`
 
 export const CTAButton = styled(Button)`
   color: ${colors.gris};
-  font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [20, 20], bases: [16, 20] }],

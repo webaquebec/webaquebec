@@ -43,12 +43,16 @@ export const StickyTitle = styled.div`
 
   color: ${colors.bleu80};
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction20};
+  font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [24, 24], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [24, 32], bases: [16, 20] }],
     breakpoints.spacings
   )};
+
+  > span {
+    font-style: italic;
+  }
 `;
 
 export const YearSticker = styled.img`
@@ -88,12 +92,12 @@ export const dateTabStyle = css`
   min-height: 75px;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 18], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [16, 20], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
   background-color: ${colors.white};
-  border-radius: 16px;
+  border-radius: 4px;
 
   &&.active,
   &&:focus,
@@ -103,6 +107,40 @@ export const dateTabStyle = css`
 
   > * {
     flex-grow: 1;
+  }
+
+  ${greaterThan(831)} {
+    position: relative;
+
+    background-color: transparent;
+    border-color: transparent;
+
+    &&.active,
+    &&:focus,
+    &&:hover {
+      color: ${colors.bleu80} !important;
+
+      font-weight: ${fontWeights.bold};
+      font-family: ${fontFamilies.redaction};
+
+      background-color: transparent !important;
+      border-color: transparent !important;
+
+      &::after {
+        position: absolute;
+        bottom: 16px;
+        left: 50%;
+
+        display: block;
+        width: calc(100% - 80px);
+        height: 2px;
+
+        background-color: ${colors.bleu80};
+        transform: translateX(-50%);
+
+        content: '';
+      }
+    }
   }
 `;
 

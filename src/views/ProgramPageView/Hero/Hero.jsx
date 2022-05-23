@@ -2,19 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useMedia } from 'react-use';
 import { navigate } from 'gatsby';
 
 // components
 import { hideVisually } from 'polished';
-import HeroGrid from '../../../components/HeroGrid/HeroGrid';
 import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
 import DropDown from '../../../components/Dropdown';
+import Center from '../../../components/LayoutSections/Center';
 
 // utils
 import { lessThanCondition } from '../../../utils/mediaQuery';
+import breakpointsRange from '../../../utils/breakpointsRange';
 
 // contexts
 import { useModal } from '../../../contexts/ModalContext';
@@ -27,6 +28,8 @@ import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
 import vectorYear2021 from '../../../images/vectorYear2021.svg';
 
 // styles
+import { titleStyle } from '../../../styles/global';
+import breakpoints from '../../../styles/breakpoints';
 import {
   selfBreakpoints,
   Wrapper,
@@ -38,6 +41,16 @@ import {
   dateTabStyle,
   dateTabTypoStyle,
 } from './Hero.styles';
+
+const PageTitle = styled.h1`
+  ${breakpointsRange(
+    [
+      { prop: 'marginTop', sizes: [80, 200], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [80, 200], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
 
 const willChangeOpacityStyle = css`
   will-change: opacity;
@@ -77,12 +90,16 @@ const Hero = ({ location, datePaths }) => {
 
   return (
     <>
-      <HeroGrid
+      <Center
         ref={ref}
-        title='programmation'
-        year={current.edition}
-        displayYear={current.edition === 2021}
-      />
+        maxWidth='var(--max-container-width)'
+        gutters='var(--container-gutter)'
+        intrinsic
+      >
+        <PageTitle css={titleStyle}>
+          <span>program</span>mation
+        </PageTitle>
+      </Center>
 
       <Wrapper>
         <HeaderGradient
@@ -96,10 +113,8 @@ const Hero = ({ location, datePaths }) => {
         >
           {!isVisible && !tablet && (
             <StickyTitle>
-              programmation
-              <span css={current.edition === 2021 && hideVisually}>
-                &nbsp;{current.edition}
-              </span>
+              <span>program</span>mation
+              <span css={hideVisually}>{current.edition}</span>
               {current.edition === 2021 && (
                 <YearSticker src={vectorYear2021} alt='2021' />
               )}
