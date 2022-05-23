@@ -87,51 +87,101 @@ const optionsByLocation = {
     ],
   },
   faq: {
-    minLightness: colors.turquoise80hsl.lightness,
+    minLightness: colors.rose80hsl.lightness,
     colors: [
       {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
         lightness: 100,
       },
       {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
-        lightness: colors.turquoise80hsl.lightness,
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
+        lightness: colors.rose80hsl.lightness,
       },
       {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
         lightness: 90,
       },
       {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
         lightness: 100,
       },
     ],
   },
   billetterie: {
-    minLightness: colors.turquoise80hsl.lightness,
+    minLightness: colors.ciel80hsl.lightness,
     colors: [
       {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
+        hue: colors.ciel80hsl.hue,
+        saturation: colors.ciel80hsl.saturation,
         lightness: 100,
       },
       {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
-        lightness: colors.turquoise80hsl.lightness,
+        hue: colors.ciel80hsl.hue,
+        saturation: colors.ciel80hsl.saturation,
+        lightness: colors.ciel80hsl.lightness,
       },
       {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
+        hue: colors.ciel80hsl.hue,
+        saturation: colors.ciel80hsl.saturation,
         lightness: 90,
       },
       {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
+        hue: colors.ciel80hsl.hue,
+        saturation: colors.ciel80hsl.saturation,
+        lightness: 100,
+      },
+    ],
+  },
+  partenaires: {
+    minLightness: colors.mauve80hsl.lightness,
+    colors: [
+      {
+        hue: colors.mauve80hsl.hue,
+        saturation: colors.mauve80hsl.saturation,
+        lightness: 100,
+      },
+      {
+        hue: colors.mauve80hsl.hue,
+        saturation: colors.mauve80hsl.saturation,
+        lightness: colors.mauve80hsl.lightness,
+      },
+      {
+        hue: colors.mauve80hsl.hue,
+        saturation: colors.mauve80hsl.saturation,
+        lightness: 90,
+      },
+      {
+        hue: colors.mauve80hsl.hue,
+        saturation: colors.mauve80hsl.saturation,
+        lightness: 100,
+      },
+    ],
+  },
+  'a-propos': {
+    minLightness: colors.rose80hsl.lightness,
+    colors: [
+      {
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
+        lightness: 100,
+      },
+      {
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
+        lightness: colors.rose80hsl.lightness,
+      },
+      {
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
+        lightness: 90,
+      },
+      {
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
         lightness: 100,
       },
     ],
