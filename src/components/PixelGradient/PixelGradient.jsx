@@ -8,17 +8,16 @@ import Pixel from './Pixel';
 
 // styles
 import colors from '../../styles/colors';
-import { canvasStyle, Noise } from './PixelGradient.styles';
+import { canvasStyle } from './PixelGradient.styles';
 
 const optionsByLocation = {
   home: {
-    minHue: 55,
-    maxHue: 317,
+    minLightness: colors.jaune80hsl.lightness,
     colors: [
       {
-        hue: colors.rose80hsl.hue,
-        saturation: colors.rose80hsl.saturation,
-        lightness: colors.rose80hsl.lightness,
+        hue: colors.jaune80hsl.hue,
+        saturation: colors.jaune80hsl.saturation,
+        lightness: 100,
       },
       {
         hue: colors.jaune80hsl.hue,
@@ -26,82 +25,74 @@ const optionsByLocation = {
         lightness: colors.jaune80hsl.lightness,
       },
       {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
-        lightness: colors.turquoise80hsl.lightness,
+        hue: colors.jaune80hsl.hue,
+        saturation: colors.jaune80hsl.saturation,
+        lightness: colors.jaune80hsl.lightness,
       },
       {
         hue: colors.jaune80hsl.hue,
         saturation: colors.jaune80hsl.saturation,
-        lightness: colors.jaune80hsl.lightness,
+        lightness: 100,
       },
     ],
   },
   programmation: {
-    minHue: 55,
-    maxHue: 266,
+    minLightness: colors.turquoise80hsl.lightness,
     colors: [
       {
-        hue: colors.ciel80hsl.hue,
-        saturation: colors.ciel80hsl.saturation,
-        lightness: colors.ciel80hsl.lightness,
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: 100,
       },
       {
-        hue: colors.jaune80hsl.hue,
-        saturation: colors.jaune80hsl.saturation,
-        lightness: colors.jaune80hsl.lightness,
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: 80,
       },
       {
-        hue: colors.mauve80hsl.hue,
-        saturation: colors.mauve80hsl.saturation,
-        lightness: colors.mauve80hsl.lightness,
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: colors.turquoise80hsl.lightness,
       },
       {
-        hue: colors.jaune80hsl.hue,
-        saturation: colors.jaune80hsl.saturation,
-        lightness: colors.jaune80hsl.lightness,
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: 100,
       },
     ],
   },
   blogue: {
-    minHue: 55,
-    maxHue: 317,
+    minLightness: colors.rose80hsl.lightness,
     colors: [
+      {
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
+        lightness: 100,
+      },
+      {
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
+        lightness: 80,
+      },
       {
         hue: colors.rose80hsl.hue,
         saturation: colors.rose80hsl.saturation,
         lightness: colors.rose80hsl.lightness,
       },
       {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
-        lightness: colors.turquoise80hsl.lightness,
-      },
-      {
-        hue: colors.jaune80hsl.hue,
-        saturation: colors.jaune80hsl.saturation,
-        lightness: colors.jaune80hsl.lightness,
-      },
-      {
-        hue: colors.turquoise80hsl.hue,
-        saturation: colors.turquoise80hsl.saturation,
-        lightness: colors.turquoise80hsl.lightness,
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
+        lightness: 100,
       },
     ],
   },
   faq: {
-    minHue: 217,
-    maxHue: 266,
+    minLightness: colors.turquoise80hsl.lightness,
     colors: [
       {
-        hue: colors.ciel80hsl.hue,
-        saturation: colors.ciel80hsl.saturation,
-        lightness: colors.ciel80hsl.lightness,
-      },
-      {
-        hue: colors.mauve80hsl.hue,
-        saturation: colors.mauve80hsl.saturation,
-        lightness: colors.mauve80hsl.lightness,
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: 100,
       },
       {
         hue: colors.turquoise80hsl.hue,
@@ -109,35 +100,39 @@ const optionsByLocation = {
         lightness: colors.turquoise80hsl.lightness,
       },
       {
-        hue: colors.mauve80hsl.hue,
-        saturation: colors.mauve80hsl.saturation,
-        lightness: colors.mauve80hsl.lightness,
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: 90,
+      },
+      {
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: 100,
       },
     ],
   },
   billetterie: {
-    minHue: 55,
-    maxHue: 317,
+    minLightness: colors.turquoise80hsl.lightness,
     colors: [
       {
-        hue: colors.ciel80hsl.hue,
-        saturation: colors.ciel80hsl.saturation,
-        lightness: colors.ciel80hsl.lightness,
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: 100,
       },
       {
-        hue: colors.jaune80hsl.hue,
-        saturation: colors.jaune80hsl.saturation,
-        lightness: colors.jaune80hsl.lightness,
-      },
-      {
-        hue: colors.rose80hsl.hue,
-        saturation: colors.rose80hsl.saturation,
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
         lightness: colors.turquoise80hsl.lightness,
       },
       {
-        hue: colors.jaune80hsl.hue,
-        saturation: colors.jaune80hsl.saturation,
-        lightness: colors.jaune80hsl.lightness,
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: 90,
+      },
+      {
+        hue: colors.turquoise80hsl.hue,
+        saturation: colors.turquoise80hsl.saturation,
+        lightness: 100,
       },
     ],
   },
@@ -156,39 +151,35 @@ const PixelGradient = ({ pathname }) => {
 
     const current = getOptionsByLocation() || optionsByLocation.home;
 
-    const speed = 1;
+    const speed = 0.2;
 
     const newPixels = [
       new Pixel(0, 0, {
         h: current.colors[0].hue,
         s: current.colors[0].saturation,
         l: current.colors[0].lightness,
-        minHue: current.minHue,
-        maxHue: current.maxHue,
+        minLightness: current.minLightness,
         speed,
       }),
       new Pixel(1, 0, {
         h: current.colors[1].hue,
         s: current.colors[1].saturation,
         l: current.colors[1].lightness,
-        minHue: current.minHue,
-        maxHue: current.maxHue,
+        minLightness: current.minLightness,
         speed,
       }),
       new Pixel(0, 1, {
         h: current.colors[2].hue,
         s: current.colors[2].saturation,
         l: current.colors[2].lightness,
-        minHue: current.minHue,
-        maxHue: current.maxHue,
+        minLightness: current.minLightness,
         speed,
       }),
       new Pixel(1, 1, {
         h: current.colors[3].hue,
         s: current.colors[3].saturation,
         l: current.colors[3].lightness,
-        minHue: current.minHue,
-        maxHue: current.maxHue,
+        minLightness: current.minLightness,
         speed,
       }),
     ];
@@ -205,9 +196,9 @@ const PixelGradient = ({ pathname }) => {
 
   return (
     <>
-      <Canvas draw={draw} width='2' height='2' css={canvasStyle} />
+      <Canvas draw={draw} width='2' height='3' css={canvasStyle} />
 
-      <Noise />
+      {/* <Noise /> */}
     </>
   );
 };
