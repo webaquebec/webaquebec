@@ -30,7 +30,7 @@ import {
   primaryNavListStyle,
   secondaryNavListStyle,
   Container,
-  Gradient,
+  // Gradient,
   Top,
   LogoWrapper,
   Logo,
@@ -38,6 +38,7 @@ import {
   NavPrimaryLink,
   NavSecondaryLink,
   ButtonWrapper,
+  Blob,
 } from './Menu.styles';
 
 const socialMedia = [
@@ -72,6 +73,12 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
     defaultColor: '',
     color: '',
   });
+
+  // const [gradient, setGradient] = useState({
+  //   isVisible: false,
+  //   hasChanged: false,
+  //   color: '',
+  // });
 
   const hasMounted = useHasMounted();
 
@@ -137,7 +144,16 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
       $opened={opened}
       css={containerStyle}
     >
-      <Gradient
+      {/* <Gradient
+        ref={gradientRef}
+        isActive={opened}
+        isVisible={gradient.isVisible}
+        restartAnimation={gradient.hasChanged}
+        color={gradient.color ? gradient.color : gradient.defaultColor}
+      /> */}
+      {/* <PixelGradient pathname='home' /> */}
+
+      <Blob
         ref={gradientRef}
         isActive={opened}
         isVisible={gradient.isVisible}
