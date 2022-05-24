@@ -8,6 +8,8 @@ import breakpointsRange from '../../utils/breakpointsRange';
 import breakpoints from '../../styles/breakpoints';
 
 export const LogoWrapper = styled.div`
+  z-index: 1051;
+
   grid-row: 1;
   grid-column: 2;
 `;
@@ -55,4 +57,5 @@ export const Container = styled.div`
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 1fr auto 1fr;
+  align-items: center;
 `;

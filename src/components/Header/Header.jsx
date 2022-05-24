@@ -9,7 +9,7 @@ import Logo from './Logo';
 import Menu from './Menu';
 
 // images
-import vectorBurgerMenu from '../../images/vectorBurgerMenu.svg';
+// import vectorBurgerMenu from '../../images/vectorBurgerMenu.svg';
 
 // styles
 import {
@@ -17,9 +17,10 @@ import {
   Container,
   LogoWrapper,
   MenuButtonWrapper,
-  BurgerButton,
-  BurgerImg,
+  // BurgerButton,
+  // BurgerImg,
 } from './Header.styles';
+import BurgerButton from './BurgerButton';
 
 const primaryNavigation = [
   {
@@ -27,7 +28,7 @@ const primaryNavigation = [
     label: 'programmation',
     slug: '/programmation/2022',
     type: 'internal',
-    color: 'jaune',
+    color: 'turquoise',
   },
   {
     id: 'blog',
@@ -41,7 +42,7 @@ const primaryNavigation = [
     label: 'billetterie',
     slug: '/billetterie',
     type: 'internal',
-    color: 'turquoise',
+    color: 'ciel',
   },
 ];
 
@@ -98,6 +99,11 @@ const Header = ({ pathname }) => {
     }
   };
 
+  const handleClickLogo = () => {
+    setOpened(false);
+    document.body.removeAttribute('style');
+  };
+
   return (
     <StyledHeader opened={opened}>
       <Center
@@ -106,13 +112,14 @@ const Header = ({ pathname }) => {
       >
         <Container>
           <LogoWrapper>
-            <Logo isHomePage={isHomePage} />
+            <Logo isHomePage={isHomePage} onClick={handleClickLogo} />
           </LogoWrapper>
 
           <MenuButtonWrapper>
-            <BurgerButton onClick={handleClick}>
+            {/* <BurgerButton onClick={handleClick}>
               <BurgerImg src={vectorBurgerMenu} alt='Menu' focusable='false' />
-            </BurgerButton>
+            </BurgerButton> */}
+            <BurgerButton onClick={handleClick} opened={opened} />
           </MenuButtonWrapper>
         </Container>
       </Center>

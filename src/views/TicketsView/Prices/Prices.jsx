@@ -17,6 +17,7 @@ import {
   TicketText,
 } from './Prices.styles';
 import colors from '../../../styles/colors';
+import elevation from '../../../styles/elevation';
 
 const Prices = () => (
   <Center maxWidth='1124px' gutters='var(--container-gutter)'>
@@ -31,6 +32,7 @@ const Prices = () => (
           darkColor={colors.bleu80}
           rounded
           overlaid
+          elevation={elevation.large}
           css={blockContainerStyle}
         >
           <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
@@ -63,6 +65,7 @@ const Prices = () => (
           darkColor={colors.bleu80}
           rounded
           overlaid
+          elevation={elevation.large}
           css={blockContainerStyle}
         >
           <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
@@ -93,6 +96,7 @@ const Prices = () => (
           lightColor={colors.bleu80}
           darkColor={colors.gris30}
           rounded
+          elevation={elevation.large}
           css={blockContainerStyle}
         >
           <Center maxWidth='320px' intrinsic css={ContentContainer} withText>

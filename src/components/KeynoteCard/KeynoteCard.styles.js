@@ -26,7 +26,9 @@ export const Wrapper = styled(Link)`
   border: 3px solid ${colors.bleu80};
   border-radius: 16px;
 
-  transition: transform ${speed.default} ease;
+  transition: transform ${speed.default};
+
+  will-change: transform;
 
   ${breakpointsRange(
     [
@@ -37,17 +39,21 @@ export const Wrapper = styled(Link)`
     breakpoints.spacings
   )};
 
+  :hover,
+  :focus {
+    color: ${colors.white};
+
+    background-color: ${colors.bleu80};
+  }
+
   ${greaterThan(1024)} {
     :not(:hover, :focus) {
       transform: rotate(0) !important;
     }
   }
 
-  :hover,
-  :focus {
-    color: ${colors.white};
-
-    background-color: ${colors.bleu80};
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `;
 

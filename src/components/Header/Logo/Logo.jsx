@@ -10,7 +10,7 @@ import logoSVG from '../../../images/logo-waq-22.svg';
 // styles
 import { Img, LogoWrapperStyle } from './Logo.styles';
 
-const Logo = ({ isHomePage }) => {
+const Logo = ({ isHomePage, onClick }) => {
   if (isHomePage) {
     return (
       <h1 css={LogoWrapperStyle}>
@@ -26,6 +26,7 @@ const Logo = ({ isHomePage }) => {
       to='/'
       activeClassName='active'
       partiallyActive
+      onClick={onClick}
     >
       <span css={hideVisually}>Accueil</span>
 
@@ -36,10 +37,12 @@ const Logo = ({ isHomePage }) => {
 
 Logo.propTypes = {
   isHomePage: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 Logo.defaultProps = {
   isHomePage: false,
+  onClick: () => {},
 };
 
 export default Logo;

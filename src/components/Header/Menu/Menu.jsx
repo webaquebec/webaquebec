@@ -9,14 +9,13 @@ import Center from '../../LayoutSections/Center';
 import Grid from '../../LayoutSections/Grid';
 import Stack from '../../LayoutSections/Stack';
 import Cluster from '../../LayoutSections/Cluster';
-import CloseButton from '../../CloseButton';
-import Logo from '../Logo';
+// import CloseButton from '../../CloseButton';
 
 // hooks
 import useHasMounted from '../../../hooks/useHasMounted';
 
 // images
-import logoSVG from '../../../images/logo-waq-22.svg';
+// import logoSVG from '../../../images/logo-waq-22.svg';
 import facebook from '../../../images/socialMedia/facebook.svg';
 import twitter from '../../../images/socialMedia/twitter.svg';
 import instagram from '../../../images/socialMedia/instagram.svg';
@@ -25,19 +24,20 @@ import linkedin from '../../../images/socialMedia/linkedin.svg';
 // styles
 import colors from '../../../styles/colors';
 import {
-  closeButtonStyle,
+  // closeButtonStyle,
   containerStyle,
   navStyle,
   primaryNavListStyle,
   secondaryNavListStyle,
   Container,
-  Gradient,
+  // Gradient,
   Top,
-  LogoWrapper,
+  // LogoWrapper,
   ListItem,
   NavPrimaryLink,
   NavSecondaryLink,
-  ButtonWrapper,
+  // ButtonWrapper,
+  Blob,
 } from './Menu.styles';
 
 const socialMedia = [
@@ -72,6 +72,12 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
     defaultColor: '',
     color: '',
   });
+
+  // const [gradient, setGradient] = useState({
+  //   isVisible: false,
+  //   hasChanged: false,
+  //   color: '',
+  // });
 
   const hasMounted = useHasMounted();
 
@@ -137,7 +143,16 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
       $opened={opened}
       css={containerStyle}
     >
-      <Gradient
+      {/* <Gradient
+        ref={gradientRef}
+        isActive={opened}
+        isVisible={gradient.isVisible}
+        restartAnimation={gradient.hasChanged}
+        color={gradient.color ? gradient.color : gradient.defaultColor}
+      /> */}
+      {/* <PixelGradient pathname='home' /> */}
+
+      <Blob
         ref={gradientRef}
         isActive={opened}
         isVisible={gradient.isVisible}
@@ -147,13 +162,13 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
 
       <Center maxWidth='var(--max-container-width)'>
         <Top>
-          <LogoWrapper>
-            <Logo src={logoSVG} alt='' role='presentation' />
-          </LogoWrapper>
+          {/* <LogoWrapper>
+            <img src={logoSVG} alt='' role='presentation' />
+          </LogoWrapper> */}
 
-          <ButtonWrapper>
+          {/* <ButtonWrapper>
             <CloseButton onClose={onClose} darked css={closeButtonStyle} />
-          </ButtonWrapper>
+          </ButtonWrapper> */}
         </Top>
 
         <Grid as='nav' space='38px' minWidth='300px' collapsed css={navStyle}>
