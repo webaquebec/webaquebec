@@ -34,7 +34,7 @@ const Container = styled(Box)`
 
     border-radius: inherit;
 
-    box-shadow: 0 30px 80px rgba(0, 12, 158, 0.5);
+    /* box-shadow: 0 30px 80px rgba(0, 12, 158, 0.5); */
     mix-blend-mode: normal;
 
     content: '';
