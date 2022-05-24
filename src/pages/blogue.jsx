@@ -82,6 +82,12 @@ const BlogPage = ({ data }) => {
         intrinsic
       >
         <PageTitle css={titleStyle}>blogue</PageTitle>
+      </Center>
+
+      <Center
+        maxWidth='var(--max-container-width)'
+        gutters='var(--container-gutter)'
+      >
         <FeaturedBlogPost post={blogArchives[0]} />
       </Center>
 
