@@ -28,7 +28,8 @@ const Hero = () => (
       <h2 css={billboardStyle}>
         24 au 26&nbsp;&nbsp;
         <br />
-        &nbsp;&nbsp;mai <span css={billboardAltStyle}>2022</span>
+        &nbsp;&nbsp;mai&nbsp;
+        <span css={billboardAltStyle}>2022</span>
       </h2>
 
       <Center maxWidth='850px' gutters='0' withText>
