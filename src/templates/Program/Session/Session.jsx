@@ -302,6 +302,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
       >
         <PageTitle css={titleStyle}>
           <span>program</span>mation
+          {edition === 2021 && <span>&nbsp;{edition}</span>}
         </PageTitle>
       </Center>
 

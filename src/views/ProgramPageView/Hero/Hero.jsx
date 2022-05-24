@@ -24,9 +24,6 @@ import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
 // hooks
 // import useHasMounted from '../../../hooks/useHasMounted';
 
-// images
-import vectorYear2021 from '../../../images/vectorYear2021.svg';
-
 // styles
 import { titleStyle } from '../../../styles/global';
 import breakpoints from '../../../styles/breakpoints';
@@ -35,7 +32,6 @@ import {
   Wrapper,
   HeaderContent,
   StickyTitle,
-  YearSticker,
   DateList,
   DateListItem,
   dateTabStyle,
@@ -98,6 +94,7 @@ const Hero = ({ location, datePaths }) => {
       >
         <PageTitle css={titleStyle}>
           <span>program</span>mation
+          {current.edition === 2021 && <span>&nbsp;{current.edition}</span>}
         </PageTitle>
       </Center>
 
@@ -114,10 +111,12 @@ const Hero = ({ location, datePaths }) => {
           {!isVisible && !tablet && (
             <StickyTitle>
               <span>program</span>mation
-              <span css={hideVisually}>{current.edition}</span>
-              {current.edition === 2021 && (
+              <span css={current.edition > 2021 && hideVisually}>
+                &nbsp;{current.edition}
+              </span>
+              {/* {current.edition === 2021 && (
                 <YearSticker src={vectorYear2021} alt='2021' />
-              )}
+              )} */}
             </StickyTitle>
           )}
 
@@ -177,6 +176,7 @@ const Hero = ({ location, datePaths }) => {
                   `}
                 >
                   <span>Filtres</span>
+
                   {totalAppliedFilters > 0 && (
                     <span>{`(${totalAppliedFilters})`}</span>
                   )}
