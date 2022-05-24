@@ -43,6 +43,7 @@ import {
   GridItem,
   premiumGrid,
   premiumGridItem,
+  presentingContentStyle,
 } from './PartnersGrids.styles';
 
 const presentingImage = {
@@ -182,7 +183,11 @@ const PartnersGrids = ({ hasDetails }) => (
     >
       <Title>le WAQ 2022 est présenté par</Title>
 
-      <Switcher threshold='768px' space='2.8rem' limit={2}>
+      <Switcher
+        threshold='768px'
+        space='calc(var(--container-gutter) * 2)'
+        limit={2}
+      >
         <PresentingWrapper>
           <div>
             <LogoCard image={presentingImage} isPresenting />
@@ -190,7 +195,7 @@ const PartnersGrids = ({ hasDetails }) => (
 
           {hasDetails && (
             <div>
-              <Center maxWidth='625px' gutters='0'>
+              <Center maxWidth='625px' gutters='0' css={presentingContentStyle}>
                 <PresentingText>
                   Ubisoft est reconnu internationalement, mais la franchise de
                   la ville de Québec se démarque particulièrement. Ayant acquis
