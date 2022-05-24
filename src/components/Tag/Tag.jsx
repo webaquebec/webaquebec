@@ -99,6 +99,7 @@ Tag.propTypes = {
     'developpement',
     'innovation',
     'communication-and-marketing',
+    'pitch-ton-waq',
   ]),
   /**
    * Specifies which data to show if the tag is a speaker one
@@ -118,7 +119,6 @@ Tag.propTypes = {
     'atelier',
     'qanda',
     'contenu-sur-demande',
-    'pitch-ton-waq',
     'table-ronde',
     '5-a-7',
     'keynote',

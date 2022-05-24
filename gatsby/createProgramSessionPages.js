@@ -16,7 +16,7 @@ const allowedTypes = [
   'conference',
   'qanda',
   'contenu-sur-demande',
-  'pitch-ton-waq',
+  // 'pitch-ton-waq',
   'table-ronde',
   'keynote',
   'panel',
