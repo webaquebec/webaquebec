@@ -14,8 +14,6 @@ import {
   StyledCard,
   Title,
   Complement,
-  // Star,
-  // Date,
   Content,
   CardButton,
 } from './Card.styles';
@@ -27,7 +25,6 @@ import Stack from '../../LayoutSections/Stack';
 const Card = ({
   title,
   titleAs,
-  // date,
   complement,
   complementAs,
   content,
@@ -41,7 +38,7 @@ const Card = ({
   <StyledCard to={to}>
     <Box
       padding='0'
-      borderWidth='3px'
+      borderWidth='2px'
       darkColor={color}
       lightColor={bgColor}
       css={cardBoxStyle}

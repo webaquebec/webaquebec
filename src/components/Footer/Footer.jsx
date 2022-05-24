@@ -1,7 +1,6 @@
 // vendors
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-import { useInView } from 'react-intersection-observer';
 
 // components
 import { hideVisually } from 'polished';
@@ -9,7 +8,6 @@ import Center from '../LayoutSections/Center';
 import Switcher from '../LayoutSections/Switcher';
 import Stack from '../LayoutSections/Stack/Stack';
 import SocialNews from '../SocialNews';
-// import LazyAnimation from '../LazyAnimation';
 
 // images
 import logo from '../../images/logo-waq-22.svg';
@@ -28,8 +26,6 @@ import {
   ArchiveItem,
   ArchiveLink,
   StyledFooter,
-  StickerWrapper,
-  Sticker,
   FooterPartners,
   FooterLogo,
 } from './Footer.styles';
@@ -82,29 +78,11 @@ const Footer = () => {
     },
   ];
 
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
-
   return (
     <StyledFooter>
       <Center maxWidth='1064px' gutters='var(--container-gutter)'>
         <Stack space='94px'>
-          <div
-            ref={ref}
-            css={`
-              position: relative;
-            `}
-          >
-            <StickerWrapper>
-              <Sticker
-                style={{ '--playState': inView ? 'running' : 'paused' }}
-              />
-            </StickerWrapper>
-
-            <SocialNews />
-          </div>
+          <SocialNews />
 
           <Switcher
             threshold='832px'

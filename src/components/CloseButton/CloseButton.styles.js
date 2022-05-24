@@ -28,8 +28,8 @@ export const Button = styled.button`
 
   ${breakpointsRange(
     [
-      { prop: 'width', sizes: [24, 34] },
-      { prop: 'height', sizes: [24, 34] },
+      { prop: 'width', sizes: [24, 24] },
+      { prop: 'height', sizes: [24, 24] },
     ],
     breakpoints.spacings
   )};

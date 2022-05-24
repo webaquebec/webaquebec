@@ -12,16 +12,11 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 import { fontWeights } from '../../../styles/typography';
 import breakpoints from '../../../styles/breakpoints';
 import { contentStyle } from '../Blocks.styles';
-import { greaterThan } from '../../../utils/mediaQuery';
 
 const Introduction = styled.p`
   ${contentStyle};
 
   font-weight: ${fontWeights.medium};
-
-  ${greaterThan(breakpoints[2])} {
-    font-weight: ${fontWeights.bold};
-  }
 
   ${breakpointsRange(
     [

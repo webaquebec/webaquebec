@@ -2,13 +2,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// styles
-import { Title, Star } from './ReadAlsoSection.styles';
-
 // components
 import Center from '../../../components/LayoutSections/Center';
 import CardGrid from '../../../components/CardGrid';
 import Card from '../../../components/CardGrid/Card';
+
+// styles
+import { sectionWrapper, Title, Star } from './ReadAlsoSection.styles';
 
 const ReadAlsoSection = ({ featuredPosts }) => {
   const posts = featuredPosts.map(({ node }) => {
@@ -25,9 +25,7 @@ const ReadAlsoSection = ({ featuredPosts }) => {
     <Center
       maxWidth='var(--max-container-width)'
       gutters='var(--container-gutter)'
-      css={`
-        width: calc(100% - 2 * var(--container-gutter));
-      `}
+      css={sectionWrapper}
     >
       <Title>À lire également</Title>
 

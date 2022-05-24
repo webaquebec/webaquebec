@@ -111,9 +111,7 @@ export const Top = styled.div`
 
   ${breakpointsRange(
     [
-      // { prop: 'paddingTop', sizes: [20, 57], bases: [16, 20] },
-      // { prop: 'paddingBottom', sizes: [20, 57], bases: [16, 20] },
-      { prop: '--top-height', sizes: [99, 227], bases: [16, 20] },
+      { prop: '--top-height', sizes: [75, 116], bases: [16, 20] },
       { prop: 'marginRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'marginLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -124,15 +122,6 @@ export const Top = styled.div`
 export const LogoWrapper = styled.div`
   grid-row: 1;
   grid-column: 2;
-`;
-
-export const Logo = styled.img`
-  display: block;
-
-  ${breakpointsRange(
-    [{ prop: 'height', sizes: [59, 113], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
 `;
 
 export const ButtonWrapper = styled.div`
@@ -158,20 +147,12 @@ export const primaryNavListStyle = css`
       breakpoints.spacings
     )};
   }
-
-  /* > :last-child {
-    ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [65, 114], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-  } */
 `;
 
 export const secondaryNavListStyle = css`
   ${breakpointsRange(
     [
       { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
-      // { prop: 'marginBottom', sizes: [72, 145], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -296,11 +277,6 @@ export const openedMenuStyle = css`
 `;
 
 export const Container = styled(Box)`
-  /* ${breakpointsRange(
-    [{ prop: '--frame-width', sizes: [5, 10], bases: [16, 20] }],
-    breakpoints.spacings
-  )}; */
-
   position: fixed;
   top: 0;
   right: 0;

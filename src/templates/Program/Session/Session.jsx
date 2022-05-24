@@ -12,7 +12,6 @@ import styled, { css } from 'styled-components';
 // components
 import SEO from '../../../components/SEO';
 import Center from '../../../components/LayoutSections/Center';
-import Hero from '../../../components/Hero';
 import Button from '../../../components/Button';
 import Tag from '../../../components/Tag';
 import SpeakerCard from '../../../components/SpeakerCard';
@@ -31,6 +30,7 @@ import IconArrow from '../../../images/IconArrow';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
+import { titleStyle } from '../../../styles/global';
 
 // styles
 const Container = styled(SectionContainer)`
@@ -40,9 +40,9 @@ const Container = styled(SectionContainer)`
   )};
 `;
 
-const heroWrapper = css`
+const PageTitle = styled.h1`
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [60, 80], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [80, 200], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -80,6 +80,7 @@ const EventTitle = styled.h2`
   margin-bottom: 16px;
 
   color: ${colors.bleu80};
+  font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
     [
@@ -288,16 +289,14 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
       <SEO title={title} description={description} />
 
       <Center
-        css={heroWrapper}
-        maxWidth='1064px'
+        maxWidth='var(--max-container-width)'
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <Hero
-          title='programmation'
-          year={session.edition}
-          displayYear={session.edition === 2021}
-        />
+        <PageTitle css={titleStyle}>
+          <span>program</span>mation
+          {edition === 2021 && <span>&nbsp;{edition}</span>}
+        </PageTitle>
       </Center>
 
       <Container forwardedAs='div' faded padded>

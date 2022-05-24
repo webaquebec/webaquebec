@@ -1,5 +1,5 @@
 // vendors
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
@@ -11,8 +11,14 @@ import VectorStar from '../../../images/VectorStar';
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 
-// // components
-// import Center from '../../../components/LayoutSections/Center';
+export const sectionWrapper = css`
+  width: calc(100% - 2 * var(--container-gutter));
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [80, 160], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
 
 export const Title = styled.h2`
   color: ${colors.bleu90};
@@ -27,16 +33,6 @@ export const Title = styled.h2`
     breakpoints.spacings
   )};
 `;
-
-// export const Container = styled(Center)`
-//   ${breakpointsRange(
-//     [
-//       { prop: 'marginTop', sizes: [100, 160], bases: [16, 20] },
-//       { prop: 'marginBottom', sizes: [180, 200], bases: [16, 20] },
-//     ],
-//     breakpoints.spacings
-//   )};
-// `;
 
 export const Star = styled(VectorStar)`
   margin-right: 8px;

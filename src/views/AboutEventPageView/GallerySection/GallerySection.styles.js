@@ -9,6 +9,7 @@ import { greaterThan } from '../../../utils/mediaQuery';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
+import { fontFamilies } from '../../../styles/typography';
 
 export const GalleryContainer = styled.section`
   position: relative;
@@ -23,7 +24,6 @@ export const GalleryContainer = styled.section`
     [
       { prop: 'paddingTop', sizes: [48, 120], bases: [16, 20] },
       { prop: 'paddingBottom', sizes: [48, 120], bases: [16, 20] },
-      // { prop: 'marginTop', sizes: [-196, -182], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [130, 40], bases: [16, 20] },
     ],
     breakpoints.spacings
@@ -34,6 +34,8 @@ export const GalleryTitle = styled.h4`
   margin-top: 0;
 
   color: ${colors.white};
+
+  font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(
     [
@@ -56,11 +58,7 @@ export const GalleryItem = styled.button`
   width: 100%;
   min-width: 232px;
 
-  /* max-height: 248px; */
-
   padding: 0;
-
-  /* min-height: 155px; */
 
   overflow: hidden;
 
@@ -70,10 +68,7 @@ export const GalleryItem = styled.button`
   opacity: 0.8;
 
   ${breakpointsRange(
-    [
-      { prop: 'margin', sizes: [4, 8], bases: [16, 20] },
-      // { prop: 'maxHeight', sizes: [155, 248], bases: [16, 20] },
-    ],
+    [{ prop: 'margin', sizes: [4, 8], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
