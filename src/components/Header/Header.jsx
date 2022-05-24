@@ -99,6 +99,11 @@ const Header = ({ pathname }) => {
     }
   };
 
+  const handleClickLogo = () => {
+    setOpened(false);
+    document.body.removeAttribute('style');
+  };
+
   return (
     <StyledHeader opened={opened}>
       <Center
@@ -107,7 +112,7 @@ const Header = ({ pathname }) => {
       >
         <Container>
           <LogoWrapper>
-            <Logo isHomePage={isHomePage} onClick={() => setOpened(false)} />
+            <Logo isHomePage={isHomePage} onClick={handleClickLogo} />
           </LogoWrapper>
 
           <MenuButtonWrapper>
