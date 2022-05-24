@@ -41,7 +41,7 @@ export const StickyTitle = styled.div`
 
   width: 320px;
   margin-right: 1.5rem;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
 
   color: ${colors.bleu80};
   font-weight: ${fontWeights.bold};
@@ -101,11 +101,13 @@ export const dateTabStyle = css`
   background-color: ${colors.white};
   border-radius: 4px;
 
-  /* &&.active,
+  &&.active,
   &&:focus,
   &&:hover {
-    color: ${colors.gris};
-  } */
+    color: ${colors.gris30};
+
+    background-color: ${colors.bleu80};
+  }
 
   > * {
     flex-grow: 1;

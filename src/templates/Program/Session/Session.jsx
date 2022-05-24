@@ -22,7 +22,6 @@ import Stack from '../../../components/LayoutSections/Stack';
 // utils
 import slugify from '../../../utils/strings/slugify';
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { greaterThan } from '../../../utils/mediaQuery';
 
 // images
 import IconArrow from '../../../images/IconArrow';
@@ -42,16 +41,10 @@ const Container = styled(SectionContainer)`
 `;
 
 const PageTitle = styled.h1`
-  display: none;
-
   ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [80, 200], bases: [16, 20] }],
     breakpoints.spacings
   )};
-
-  ${greaterThan(831)} {
-    display: block;
-  }
 `;
 
 const backArrow = css`

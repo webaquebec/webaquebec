@@ -102,7 +102,7 @@ const CodeConductPage = () => (
     <SEO title='Code de conduite' description='' />
 
     <Center
-      maxWidth='625px'
+      maxWidth='854px'
       gutters='var(--container-gutter)'
       withText
       intrinsic
