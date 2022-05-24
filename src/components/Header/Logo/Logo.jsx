@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { hideVisually } from 'polished';
 
 // images
-import LogoSVG from '../../../images/logo-waq-22.svg';
+import logoSVG from '../../../images/logo-waq-22.svg';
 
 // styles
 import { Img, LogoWrapperStyle } from './Logo.styles';
@@ -15,7 +15,7 @@ const Logo = ({ isHomePage }) => {
     return (
       <h1 css={LogoWrapperStyle}>
         <span css={hideVisually}>Web à Québec</span>
-        <Img src={LogoSVG} alt='' role='presentation' />
+        <Img src={logoSVG} alt='' role='presentation' />
       </h1>
     );
   }
@@ -29,7 +29,7 @@ const Logo = ({ isHomePage }) => {
     >
       <span css={hideVisually}>Accueil</span>
 
-      <Img src={LogoSVG} alt='' role='presentation' />
+      <Img src={logoSVG} alt='' role='presentation' />
     </Link>
   );
 };
