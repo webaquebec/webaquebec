@@ -203,7 +203,6 @@ const PartnersGrids = ({ hasDetails }) => (
                   tag='href'
                   rel='noopener noreferrer'
                   target='_blank'
-                  primary
                   small
                   animated
                 >

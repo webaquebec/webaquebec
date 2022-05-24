@@ -8,6 +8,7 @@ import SectionContainer from '../../../components/SectionContainer';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
+import { fontFamilies } from '../../../styles/typography';
 
 export const atRight = css`
   margin-left: auto;
@@ -15,10 +16,7 @@ export const atRight = css`
 
 export const Container = styled(SectionContainer)`
   ${breakpointsRange(
-    [
-      { prop: 'paddingBottom', sizes: [64, 207], bases: [16, 20] },
-      // { prop: 'marginBottom', sizes: [48, 68], bases: [16, 20] },
-    ],
+    [{ prop: 'paddingBottom', sizes: [64, 207], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
@@ -31,20 +29,13 @@ export const Container = styled(SectionContainer)`
   ::after {
     content: none;
   }
-
-  /* ::after {
-    bottom: -30vh;
-  } */
 `;
 
 export const ContentWrapper = styled.div`
   position: relative;
 
   ${breakpointsRange(
-    [
-      { prop: 'maxWidth', sizes: [272, 732], bases: [16, 20] },
-      // { prop: 'marginBottom', sizes: [64, 177], bases: [16, 20] },
-    ],
+    [{ prop: 'maxWidth', sizes: [272, 732], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
@@ -65,6 +56,8 @@ export const SectionPicture = styled(GatsbyImage)`
 export const SectionTitle = styled.h4`
   color: ${colors.bleu80};
 
+  font-family: ${fontFamilies.redaction};
+
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [20, 40], bases: [16, 20] },
@@ -73,16 +66,4 @@ export const SectionTitle = styled.h4`
     ],
     breakpoints.spacings
   )};
-`;
-
-export const PinkDecoration = styled.img`
-  position: absolute;
-  top: 0;
-  right: 0;
-`;
-
-export const AquaDecoration = styled.img`
-  position: absolute;
-  top: 30%;
-  left: 0;
 `;

@@ -16,11 +16,16 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { h1AltStyle, introStyle } from '../styles/global';
+import { titleStyle, introStyle } from '../styles/global';
 import colors from '../styles/colors';
 
 const FaqTitle = styled.h1`
   margin-bottom: 0;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 const FaqIntro = styled.div`
@@ -145,7 +150,7 @@ const FaqPage = () => (
       withText
       intrinsic
     >
-      <FaqTitle css={h1AltStyle}>FAQ</FaqTitle>
+      <FaqTitle css={titleStyle}>FAQ</FaqTitle>
       <FaqIntro css={introStyle}>
         <p>
           L’édition 2022 du Web à Québec (WAQ) aura lieu les 24, 25 et 26 mai

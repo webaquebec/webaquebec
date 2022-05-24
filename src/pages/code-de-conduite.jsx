@@ -14,12 +14,21 @@ import breakpointsRange from '../utils/breakpointsRange';
 import breakpoints from '../styles/breakpoints';
 import Center from '../components/LayoutSections/Center';
 import {
-  h1AltStyle,
+  titleStyle,
   h2Style,
   orderedListStyle,
   unorderedListStyle,
 } from '../styles/global';
 import colors from '../styles/colors';
+
+const PageTitle = styled.h1`
+  margin-bottom: 0;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
 
 const stackStyle = css`
   margin-bottom: 4rem;
@@ -93,12 +102,14 @@ const CodeConductPage = () => (
     <SEO title='Code de conduite' description='' />
 
     <Center
-      maxWidth='625px'
+      maxWidth='854px'
       gutters='var(--container-gutter)'
       withText
       intrinsic
     >
-      <h1 css={h1AltStyle}>Code de conduite</h1>
+      <PageTitle css={titleStyle}>
+        code <span>de</span> conduite
+      </PageTitle>
     </Center>
 
     <Container forwardedAs='div' faded padded>

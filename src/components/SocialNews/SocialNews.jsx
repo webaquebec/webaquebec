@@ -9,7 +9,6 @@ import {
   MediaText,
   MediaList,
   ContentContainer,
-  // SectionContainer,
   blockContainerStyle,
 } from './SocialNews.styles';
 import colors from '../../styles/colors';
@@ -106,7 +105,7 @@ const SocialNews = () => {
             <Button
               to='https://l.communication.quebecnumerique.com/T/WF/15110/SAbFfT/Optin/fr-CA/Form.ofsys'
               tag='href'
-              primary
+              inverted
               small
               animated
             >

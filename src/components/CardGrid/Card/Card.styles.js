@@ -27,6 +27,9 @@ export const contentBoxStyle = css`
 `;
 
 export const Title = styled.p`
+  color: ${colors.black};
+  font-weight: ${fontWeights.medium};
+
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [24, 24], bases: [16, 20] },
@@ -40,7 +43,7 @@ export const Complement = styled.p`
   display: flex;
   align-items: center;
 
-  color: ${colors.mauve80};
+  color: ${colors.bleu90};
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(

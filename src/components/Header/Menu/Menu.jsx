@@ -15,7 +15,7 @@ import Cluster from '../../LayoutSections/Cluster';
 import useHasMounted from '../../../hooks/useHasMounted';
 
 // images
-import logoSVG from '../../../images/logo-waq-22-sticker.svg';
+// import logoSVG from '../../../images/logo-waq-22.svg';
 import facebook from '../../../images/socialMedia/facebook.svg';
 import twitter from '../../../images/socialMedia/twitter.svg';
 import instagram from '../../../images/socialMedia/instagram.svg';
@@ -32,8 +32,7 @@ import {
   Container,
   // Gradient,
   Top,
-  LogoWrapper,
-  Logo,
+  // LogoWrapper,
   ListItem,
   NavPrimaryLink,
   NavSecondaryLink,
@@ -163,9 +162,9 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
 
       <Center maxWidth='var(--max-container-width)'>
         <Top>
-          <LogoWrapper>
-            <Logo src={logoSVG} alt='' role='presentation' />
-          </LogoWrapper>
+          {/* <LogoWrapper>
+            <img src={logoSVG} alt='' role='presentation' />
+          </LogoWrapper> */}
 
           {/* <ButtonWrapper>
             <CloseButton onClose={onClose} darked css={closeButtonStyle} />

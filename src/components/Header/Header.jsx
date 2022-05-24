@@ -16,10 +16,6 @@ import {
   StyledHeader,
   Container,
   LogoWrapper,
-  // StyledNav,
-  // PrimaryNavList,
-  // NavListItem,
-  // NavLink,
   MenuButtonWrapper,
   // BurgerButton,
   // BurgerImg,
@@ -110,37 +106,8 @@ const Header = ({ pathname }) => {
         gutters='var(--container-gutter)'
       >
         <Container>
-          {/* <StyledNav aria-label='Header Menu'>
-            <PrimaryNavList>
-              {primaryNavigation.map((item) => (
-                <NavListItem key={item.id}>
-                  {item.type === 'internal' ? (
-                    <NavLink
-                      as={Link}
-                      to={item.slug}
-                      activeClassName='active'
-                      partiallyActive
-                    >
-                      {item.label}
-                    </NavLink>
-                  ) : (
-                    <NavLink
-                      href={item.slug}
-                      activeClassName='active'
-                      partiallyActive
-                      rel='noopener noreferrer'
-                      target='_blank'
-                    >
-                      {item.label}
-                    </NavLink>
-                  )}
-                </NavListItem>
-              ))}
-            </PrimaryNavList>
-          </StyledNav> */}
-
           <LogoWrapper>
-            <Logo isHomePage={isHomePage} />
+            <Logo isHomePage={isHomePage} onClick={() => setOpened(false)} />
           </LogoWrapper>
 
           <MenuButtonWrapper>

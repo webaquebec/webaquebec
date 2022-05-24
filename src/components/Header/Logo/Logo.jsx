@@ -4,34 +4,18 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { hideVisually } from 'polished';
 
-import LazyAnimation from '../../LazyAnimation';
-
 // images
-import LogoSVG from '../../../images/logo-waq-22-sticker.svg';
+import logoSVG from '../../../images/logo-waq-22.svg';
 
 // styles
 import { Img, LogoWrapperStyle } from './Logo.styles';
-import { easing } from '../../../styles/animation';
 
-const Logo = ({ isHomePage }) => {
+const Logo = ({ isHomePage, onClick }) => {
   if (isHomePage) {
     return (
       <h1 css={LogoWrapperStyle}>
         <span css={hideVisually}>Web à Québec</span>
-
-        <LazyAnimation
-          transition={{
-            duration: '250ms',
-            easing: easing.outCustom,
-            scale: { initial: '0', final: '1' },
-            rotate: {
-              initial: '-5deg',
-              final: '0deg',
-            },
-          }}
-        >
-          <Img src={LogoSVG} alt='' role='presentation' />
-        </LazyAnimation>
+        <Img src={logoSVG} alt='' role='presentation' />
       </h1>
     );
   }
@@ -42,20 +26,23 @@ const Logo = ({ isHomePage }) => {
       to='/'
       activeClassName='active'
       partiallyActive
+      onClick={onClick}
     >
       <span css={hideVisually}>Accueil</span>
 
-      <Img src={LogoSVG} alt='' role='presentation' />
+      <Img src={logoSVG} alt='' role='presentation' />
     </Link>
   );
 };
 
 Logo.propTypes = {
   isHomePage: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 Logo.defaultProps = {
   isHomePage: false,
+  onClick: () => {},
 };
 
 export default Logo;

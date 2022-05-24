@@ -148,8 +148,8 @@ const KeynoteSection = () => {
       </Center>
 
       <CardsWrapper>
-        <KeynoteCard speaker={speakers[0]} big mobileRotationAngle={-5} />
-        <KeynoteCard speaker={speakers[1]} mobileRotationAngle={5} />
+        <KeynoteCard speaker={speakers[0]} mobileRotationAngle={-5} />
+        <KeynoteCard speaker={speakers[1]} big mobileRotationAngle={5} />
         <KeynoteCard speaker={speakers[2]} />
         <KeynoteCard speaker={speakers[3]} mobileRotationAngle={-10} />
         <KeynoteCard speaker={speakers[4]} />
