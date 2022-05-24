@@ -13,6 +13,7 @@ import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontFamilies, fontWeights } from '../../../styles/typography';
 import zIndexes from '../../../styles/zIndexes';
+import { speed } from '../../../styles/animation';
 
 // 480, 640, 832, 1060
 export const selfBreakpoints = [480, breakpoints[1], breakpoints[3], 1060];
@@ -40,6 +41,7 @@ export const StickyTitle = styled.div`
 
   width: 320px;
   margin-right: 1.5rem;
+  padding-left: 1rem;
 
   color: ${colors.bleu80};
   font-weight: ${fontWeights.bold};
@@ -99,11 +101,11 @@ export const dateTabStyle = css`
   background-color: ${colors.white};
   border-radius: 4px;
 
-  &&.active,
+  /* &&.active,
   &&:focus,
   &&:hover {
     color: ${colors.gris};
-  }
+  } */
 
   > * {
     flex-grow: 1;
@@ -115,16 +117,19 @@ export const dateTabStyle = css`
     background-color: transparent;
     border-color: transparent;
 
+    @media (prefers-reduced-motion: no-preference) {
+      transition: color ${speed.default};
+    }
+
+    will-change: color;
+
     &&.active,
     &&:focus,
     &&:hover {
-      color: ${colors.bleu80} !important;
+      color: ${colors.bleu80};
 
-      font-weight: ${fontWeights.bold};
-      font-family: ${fontFamilies.redaction};
-
-      background-color: transparent !important;
-      border-color: transparent !important;
+      background-color: transparent;
+      border-color: transparent;
 
       &::after {
         position: absolute;
@@ -135,11 +140,26 @@ export const dateTabStyle = css`
         width: calc(100% - 80px);
         height: 2px;
 
-        background-color: ${colors.bleu80};
+        background-color: currentColor;
         transform: translateX(-50%);
 
+        @media (prefers-reduced-motion: no-preference) {
+          transition: background-color ${speed.default};
+        }
+
         content: '';
+
+        will-change: background-color;
       }
+    }
+
+    &&.active,
+    &&:focus {
+      color: ${colors.bleu90};
+
+      /* font-weight: ${fontWeights.bold}; */
+
+      /* font-family: ${fontFamilies.redaction}; */
     }
   }
 `;
