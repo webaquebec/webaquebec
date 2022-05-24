@@ -132,6 +132,7 @@ const KeynoteSection = () => {
 
   return (
     <Center
+      as='section'
       css={wrapper}
       maxWidth='var(--max-container-width)'
       gutters='16px'
