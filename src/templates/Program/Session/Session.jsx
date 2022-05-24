@@ -30,22 +30,38 @@ import IconArrow from '../../../images/IconArrow';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
-import { titleStyle } from '../../../styles/global';
+// import { titleStyle } from '../../../styles/global';
 
 // styles
 const Container = styled(SectionContainer)`
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [150, 150], bases: [16, 20] }],
+    [
+      { prop: 'marginTop', sizes: [40, 80], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [192, 256], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
+
+  ::before,
+  ::after {
+    height: 10vh;
+  }
+
+  ::before {
+    top: -10vh;
+  }
+
+  ::after {
+    bottom: -10vh;
+  }
 `;
 
-const PageTitle = styled.h1`
-  ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [80, 200], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
+// const PageTitle = styled.h1`
+//   ${breakpointsRange(
+//     [{ prop: 'marginTop', sizes: [80, 200], bases: [16, 20] }],
+//     breakpoints.spacings
+//   )};
+// `;
 
 const backArrow = css`
   transform: rotate(180deg);
@@ -55,7 +71,7 @@ const backButton = css`
   margin-right: auto;
 
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [40, 60], bases: [16, 20] }],
+    [{ prop: 'marginBottom', sizes: [32, 32], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -75,7 +91,7 @@ const EventContainer = styled.div`
   )};
 `;
 
-const EventTitle = styled.h2`
+const EventTitle = styled.h1`
   margin-top: 0;
   margin-bottom: 16px;
 
@@ -288,7 +304,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
     <>
       <SEO title={title} description={description} />
 
-      <Center
+      {/* <Center
         maxWidth='var(--max-container-width)'
         gutters='var(--container-gutter)'
         intrinsic
@@ -297,9 +313,9 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
           <span>program</span>mation
           {edition === 2021 && <span>&nbsp;{edition}</span>}
         </PageTitle>
-      </Center>
+      </Center> */}
 
-      <Container forwardedAs='div' faded padded>
+      <Container forwardedAs='div' faded>
         <Center maxWidth='1064px' gutters='var(--container-gutter)' intrinsic>
           <Button
             to={pagePath}
