@@ -103,7 +103,7 @@ const Prices = () => (
             <Button
               to='https://ti.to/web-a-quebec/waq-2022'
               tag='href'
-              primary
+              inverted
               small
               animated
               rel='noopener noreferrer'

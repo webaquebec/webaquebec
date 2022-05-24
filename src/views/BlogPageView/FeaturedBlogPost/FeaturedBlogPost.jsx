@@ -49,7 +49,7 @@ const FeaturedBlogPost = ({ post }) => {
 
             <Excerpt dangerouslySetInnerHTML={{ __html: excerpt }} />
 
-            <Button to={to} tag='link' primary small>
+            <Button to={to} tag='link' inverted small>
               lire l&apos;article
             </Button>
           </Content>
