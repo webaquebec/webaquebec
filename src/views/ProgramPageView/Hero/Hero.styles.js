@@ -39,7 +39,7 @@ export const StickyTitle = styled.div`
   flex-shrink: 0;
   align-items: center;
 
-  width: 320px;
+  width: 324px;
   margin-right: 1.5rem;
   padding-left: 0.5rem;
 
