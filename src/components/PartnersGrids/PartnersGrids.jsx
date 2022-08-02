@@ -18,6 +18,7 @@ import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
 import logoLevio from '../../images/logoPartners/premium/logo-levio.svg';
 import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
 import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
+import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
 import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
 import logoLibeo from '../../images/logoPartners/associates/logo-libeo.svg';
@@ -93,6 +94,11 @@ const premiumImages = [
     src: logoLibeo,
     alt: 'Libéo | Innover pour simplifier votre transformation numérique',
     url: 'https://libeo.com',
+  },
+  {
+    src: logoOqlf,
+    alt: 'OQLF | Office québécois de la langue française',
+    url: 'https://www.oqlf.gouv.qc.ca/',
   },
 ];
 
