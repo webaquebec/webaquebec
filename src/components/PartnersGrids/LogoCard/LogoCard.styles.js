@@ -57,6 +57,8 @@ export const Image = styled.img`
 
   filter: invert(14%) sepia(100%) saturate(4664%) hue-rotate(221deg)
     brightness(61%) contrast(148%);
+
+  will-change: filter;
 `;
 
 export const Link = styled.a`
@@ -66,7 +68,7 @@ export const Link = styled.a`
 
   color: ${colors.bleu80};
 
-  background-color: ${colors.gris30};
+  /* background-color: ${colors.gris30}; */
   border: 2px solid;
   border-radius: 16px;
 
