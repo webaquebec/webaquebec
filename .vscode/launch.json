@@ -19,7 +19,7 @@
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/.bin/gatsby",
       "args": ["build"],
-      "runtimeArgs": ["--nolazy"],
+      // "runtimeArgs": ["--nolazy"],
       "console": "integratedTerminal"
     },
     {

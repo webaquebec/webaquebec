@@ -39,7 +39,9 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
     <StyledTag
       $designRoom={tagType === 'category' && category === 'design'}
       $commRoom={
-        tagType === 'category' && category === 'communication-and-marketing'
+        tagType === 'category' &&
+        (category === 'communication-et-marketing' ||
+          category === 'communication-and-marketing')
       }
       $devRoom={tagType === 'category' && category === 'developpement'}
       $innovationRoom={tagType === 'category' && category === 'innovation'}
@@ -99,6 +101,7 @@ Tag.propTypes = {
     'developpement',
     'innovation',
     'communication-and-marketing',
+    'communication-et-marketing',
     'pitch-ton-waq',
   ]),
   /**
