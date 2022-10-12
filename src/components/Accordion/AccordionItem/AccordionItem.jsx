@@ -1,5 +1,5 @@
 // vendors
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // utils
@@ -39,13 +39,10 @@ const AccordionItem = ({
   ...rest
 }) => {
   const [maxHeight, setMaxHeight] = useState(null);
-  const [accordionItemId, setAccordionItemId] = useState('');
 
   const headingRef = useRef(null);
 
-  useEffect(() => {
-    setAccordionItemId(randomString());
-  }, []);
+  const accordionItemId = useMemo(() => randomString(), []);
 
   useEffect(() => {
     if (headingRef.current) {
