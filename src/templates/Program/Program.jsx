@@ -28,7 +28,7 @@ import breakpointsRange from '../../utils/breakpointsRange';
 import { lessThan } from '../../utils/mediaQuery';
 import slugify from '../../utils/strings/slugify';
 import unSlugify from '../../utils/strings/unSlugify';
-import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
+import { eventTypesMap } from '../../utils/dataMapping';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
@@ -143,7 +143,7 @@ const Program = ({
   // Initialize filters once we got plannings from Swapcard
   useEffect(() => {
     const places = [];
-    const categories = [];
+    // const categories = [];
     const eventTypes = [];
 
     const addChoices = (value, array) => {
@@ -156,9 +156,9 @@ const Program = ({
       // Get all places for filters
       addChoices(session.place, places);
       // Get all categories for filters
-      session.categories.forEach((category) => {
-        addChoices(category, categories);
-      });
+      // session.categories.forEach((category) => {
+      //   addChoices(category, categories);
+      // });
       // Get all types for filters
       addChoices(session.type, eventTypes);
     });
@@ -175,16 +175,16 @@ const Program = ({
         },
       });
 
-      filterDispatcher({
-        type: 'UPDATE',
-        options: {
-          name: 'categories',
-          values: categories.map((value) => ({
-            name: categoriesMap[value],
-            value,
-          })),
-        },
-      });
+      // filterDispatcher({
+      //   type: 'UPDATE',
+      //   options: {
+      //     name: 'categories',
+      //     values: categories.map((value) => ({
+      //       name: categoriesMap[value],
+      //       value,
+      //     })),
+      //   },
+      // });
 
       filterDispatcher({
         type: 'UPDATE',
@@ -212,17 +212,17 @@ const Program = ({
       },
     });
 
-    filterDispatcher({
-      type: 'ADD',
-      options: {
-        name: 'categories',
-        title: 'Thématique',
-        values: categories.map((value) => ({
-          name: categoriesMap[value],
-          value,
-        })),
-      },
-    });
+    // filterDispatcher({
+    //   type: 'ADD',
+    //   options: {
+    //     name: 'categories',
+    //     title: 'Thématique',
+    //     values: categories.map((value) => ({
+    //       name: categoriesMap[value],
+    //       value,
+    //     })),
+    //   },
+    // });
 
     filterDispatcher({
       type: 'ADD',
@@ -273,7 +273,7 @@ const Program = ({
   if (filters.length > 0) {
     filteredProgram = program
       .filter((session) => applyFilter('place', session.place))
-      .filter((session) => applyFilter('categories', session.categories))
+      // .filter((session) => applyFilter('categories', session.categories))
       .filter((session) => applyFilter('type', session.type));
   }
 
@@ -316,7 +316,7 @@ const Program = ({
                         //     : undefined
                         // }
                         type={session.type}
-                        categories={session.categories}
+                        // categories={session.categories}
                         speakers={session.speakers}
                       />
                     ))}
