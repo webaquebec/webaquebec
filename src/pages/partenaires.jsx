@@ -55,6 +55,7 @@ const PartnersPage = () => (
       <PartnersTitle css={titleStyle}>
         parte<span>naires</span>
       </PartnersTitle>
+
       <PartnersIntro css={introStyle}>
         L’équipe du WAQ tient à remercier du fond du coeur tous les partenaires
         qui s’impliquent dans l’aventure. Par leur expertise, leur créativité et

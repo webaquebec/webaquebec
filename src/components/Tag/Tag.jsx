@@ -9,7 +9,7 @@ import vectorSpeaker from '../../images/tags/vectorSpeaker.svg';
 import unSlugify from '../../utils/strings/unSlugify';
 
 // utils
-import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
+import { eventTypesMap } from '../../utils/dataMapping';
 
 /**
  * @module Tag
@@ -49,7 +49,7 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
       $eventType={tagType === 'eventType'}
       $outlined={outlined}
     >
-      {tagType === 'category' && <span>{categoriesMap[category]}</span>}
+      {/* {tagType === 'category' && <span>{categoriesMap[category]}</span>} */}
       {tagType === 'speaker' && (
         <>
           <img css={TagIcon} src={vectorSpeaker} alt='' role='presentation' />

@@ -23,13 +23,13 @@ import {
 import BurgerButton from './BurgerButton';
 
 const primaryNavigation = [
-  {
-    id: 'programmation',
-    label: 'programmation',
-    slug: '/programmation/2022',
-    type: 'internal',
-    color: 'turquoise',
-  },
+  // {
+  //   id: 'programmation',
+  //   label: 'programmation',
+  //   slug: '/programmation/2022',
+  //   type: 'internal',
+  //   color: 'turquoise',
+  // },
   {
     id: 'blog',
     label: 'blogue',
@@ -59,12 +59,12 @@ const secondaryNavigation = [
     slug: '/partenaires',
     type: 'internal',
   },
-  {
-    id: 'faq',
-    label: 'FAQ',
-    slug: '/faq',
-    type: 'internal',
-  },
+  // {
+  //   id: 'faq',
+  //   label: 'FAQ',
+  //   slug: '/faq',
+  //   type: 'internal',
+  // },
   {
     id: 'code-of-conduct',
     label: 'code de conduite',
@@ -72,11 +72,17 @@ const secondaryNavigation = [
     type: 'internal',
   },
   {
-    id: 'edition2021',
-    label: 'édition 2021',
-    slug: '/programmation/2021',
+    id: 'edition2022',
+    label: 'édition 2022',
+    slug: '/programmation/2022',
     type: 'internal',
   },
+  // {
+  //   id: 'edition2021',
+  //   label: 'édition 2021',
+  //   slug: '/programmation/2021',
+  //   type: 'internal',
+  // },
 ];
 
 const navigation = {

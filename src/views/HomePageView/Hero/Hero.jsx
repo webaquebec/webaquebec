@@ -26,10 +26,10 @@ const Hero = () => (
   <StyledHero>
     <Center maxWidth='var(--max-container-width)' gutters='12px' withText>
       <h2 css={billboardStyle}>
-        24 au 26&nbsp;&nbsp;
+        23 au 25&nbsp;&nbsp;
         <br />
         &nbsp;&nbsp;mai&nbsp;
-        <span css={billboardAltStyle}>2022</span>
+        <span css={billboardAltStyle}>2023</span>
       </h2>
 
       <Center maxWidth='850px' gutters='0' withText>
@@ -65,8 +65,8 @@ const Hero = () => (
         >
           Au Terminal — Port de Québec
         </a>
-        <br />
-        et/ou en virtuel
+        {/* <br />
+        et/ou en virtuel */}
       </p>
     </Center>
   </StyledHero>

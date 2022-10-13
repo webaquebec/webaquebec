@@ -12,7 +12,7 @@ import SEO from '../components/SEO';
 import breakpointsRange from '../utils/breakpointsRange';
 
 // views
-import Prices from '../views/TicketsView/Prices';
+// import Prices from '../views/TicketsView/Prices';
 import CallToAction from '../views/TicketsView/CallToAction';
 
 // styles
@@ -81,25 +81,25 @@ const TicketsPage = () => (
       <TicketsTitle css={titleStyle}>
         bille<span>tterie</span>
       </TicketsTitle>
+
       <TicketsIntro css={introStyle}>
         <Stack>
           <p>
             Chaque année, des centaines de passionné.es de numérique participent
             au Web à Québec (WAQ). Que ce soit pour réseauter, découvrir les
             nouvelles tendances ou simplement vivre l&apos;ambiance unique du
-            WAQ, toutes les raisons sont bonnes de te joindre à nous lors de la
-            11e édition!
+            WAQ, toutes les raisons sont bonnes de te joindre à nous!
           </p>
-          <p>
+          {/* <p>
             Cette année, on se met en mode hybride en te donnant l&apos;option
             de participer sur place, au Terminal - Port de Québec, ou chez toi.
             C&apos;est comme tu le sens!
-          </p>
+          </p> */}
         </Stack>
       </TicketsIntro>
     </Center>
 
-    <Prices />
+    {/* <Prices /> */}
 
     <Container forwardedAs='div' faded>
       <CallToAction />

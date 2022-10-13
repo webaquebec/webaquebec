@@ -187,7 +187,7 @@ const PartnersGrids = ({ hasDetails }) => (
       intrinsic
       withText
     >
-      <Title>le WAQ 2022 est présenté par</Title>
+      <Title>le WAQ 2023 est présenté par</Title>
 
       <Switcher
         threshold='768px'
