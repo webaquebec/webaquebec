@@ -76,7 +76,6 @@ const secondaryNavigation = [
     label: 'édition 2022',
     slug: '/programmation/2022',
     type: 'internal',
-    color: 'turquoise',
   },
   // {
   //   id: 'edition2021',
