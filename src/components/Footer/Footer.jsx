@@ -10,7 +10,7 @@ import Stack from '../LayoutSections/Stack/Stack';
 import SocialNews from '../SocialNews';
 
 // images
-import logo from '../../images/logo-waq-22.svg';
+import logo from '../../images/logo-waq-23.svg';
 import logoVilleDeQuebec from '../../images/logoPartners/footer/logo-ville-de-quebec.svg';
 import logoQuebec from '../../images/logoPartners/footer/logo-quebec.svg';
 import logoPortQuebec from '../../images/logoPartners/footer/logo-port-quebec.svg';
@@ -32,6 +32,11 @@ import {
 
 const Footer = () => {
   const archives = [
+    {
+      year: '2022',
+      link: '/programmation/2022',
+      type: 'internal',
+    },
     {
       year: '2021',
       link: '/programmation/2021',

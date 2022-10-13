@@ -94,7 +94,7 @@ const Hero = ({ location, datePaths }) => {
       >
         <PageTitle css={titleStyle}>
           <span>program</span>mation
-          {current.edition === 2021 && <span>&nbsp;{current.edition}</span>}
+          {current.edition <= 2022 && <span>&nbsp;{current.edition}</span>}
         </PageTitle>
       </Center>
 
@@ -111,7 +111,7 @@ const Hero = ({ location, datePaths }) => {
           {!isVisible && !tablet && (
             <StickyTitle>
               <span>program</span>mation
-              <span css={current.edition > 2021 && hideVisually}>
+              <span css={current.edition > 2022 && hideVisually}>
                 &nbsp;{current.edition}
               </span>
               {/* {current.edition === 2021 && (
