@@ -55,8 +55,18 @@ export const Image = styled.img`
   height: auto;
   max-height: 60%;
 
-  filter: invert(14%) sepia(100%) saturate(4664%) hue-rotate(221deg)
-    brightness(61%) contrast(148%);
+  /* filter: invert(14%) sepia(100%) saturate(4664%) hue-rotate(211deg)
+    brightness(61%) contrast(148%); */
+  filter: invert(12%) sepia(100%) saturate(4664%) hue-rotate(222deg)
+    brightness(62%) contrast(148%);
+
+  /* Fallback on Safari 11+ only. Webkit seems to handle css filter differently. */
+  @media (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+      filter: contrast(0%) sepia(14%) invert(13%) saturate(8464%)
+        hue-rotate(197deg) brightness(35%);
+    }
+  }
 
   will-change: filter;
 `;
