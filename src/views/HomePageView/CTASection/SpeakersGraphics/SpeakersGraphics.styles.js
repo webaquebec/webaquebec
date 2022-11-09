@@ -8,6 +8,8 @@ import { lessThan } from '../../../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../../../styles/breakpoints';
+import colors from '../../../../styles/colors';
+import { fontFamilies, fontWeights } from '../../../../styles/typography';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -19,8 +21,8 @@ export const Container = styled.div`
   ${breakpointsRange(
     [
       { prop: 'minWidth', sizes: [333, 597], bases: [16, 20] },
-      { prop: 'margin-top', sizes: [104, 56], bases: [16, 20] },
-      { prop: 'paddingLeft', sizes: [0, 60], bases: [16, 20] },
+      { prop: 'margin-top', sizes: [104, 106], bases: [16, 20] },
+      { prop: 'paddingLeft', sizes: [0, 120], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -32,40 +34,46 @@ export const Container = styled.div`
       [{ prop: 'marginTop', sizes: [-23, -53], bases: [16, 20] }],
       breakpoints.spacings
     )};
-
-    z-index: 1;
   }
 
-  > :nth-child(1) {
+  /* > :nth-child(1) {
     position: relative;
-    z-index: 2;
+    z-index: 1;
+  } */
+
+  > :nth-child(1) {
+    z-index: 0;
+
+    transform: translateX(8%) rotate(8deg);
   }
 
   > :nth-child(2) {
-    transform: translateX(8%);
-  }
-
-  > :nth-child(3) {
     z-index: 0;
 
-    transform: translateX(43%);
+    transform: translateX(43%) rotate(-8deg);
 
     ${lessThan(420)} {
-      transform: translateX(28%);
+      transform: translateX(28%) rotate(-8deg);
     }
   }
 
-  > :nth-child(4) {
-    transform: translateX(3%);
+  > :nth-child(3) {
+    transform: translateX(3%) rotate(8deg);
   }
 `;
 
 export const SpeakerPicture = styled(GatsbyImage)`
+  border-radius: 16px;
   ${breakpointsRange(
     [
       {
-        prop: 'maxWidth',
-        sizes: [219, 319],
+        prop: 'width',
+        sizes: [200, 400],
+        bases: [16, 20],
+      },
+      {
+        prop: 'height',
+        sizes: [200, 400],
         bases: [16, 20],
       },
     ],
@@ -91,23 +99,26 @@ export const SpeakerSticker = styled.img`
     )};
 `;
 
-export const SpeakerTag = styled.img`
+export const SpeakerTag = styled.div`
   position: relative;
-  z-index: 2;
 
-  height: 100%;
+  font-weight: ${fontWeights.semiBold};
+  font-family: ${fontFamilies.redaction35};
 
-  ${({ $minWidth, $maxWidth }) =>
-    $minWidth &&
-    $maxWidth &&
-    breakpointsRange(
-      [
-        {
-          prop: 'width',
-          sizes: [$minWidth, $maxWidth],
-          bases: [16, 20],
-        },
-      ],
-      breakpoints.spacings
-    )};
+  background-color: ${colors.gris};
+  border: 2px solid ${colors.bleu};
+
+  border-radius: 16px;
+
+  ${breakpointsRange(
+    [
+      { prop: 'paddingTop', sizes: [4, 4] },
+      { prop: 'paddingRight', sizes: [14, 14] },
+      { prop: 'paddingBottom', sizes: [4, 4] },
+      { prop: 'paddingLeft', sizes: [14, 14] },
+      { prop: 'fontSize', sizes: [24, 38] },
+    ],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
 `;
