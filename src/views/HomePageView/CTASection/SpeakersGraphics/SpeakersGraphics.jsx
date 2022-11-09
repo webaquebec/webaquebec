@@ -5,53 +5,57 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import LazyAnimation from '../../../../components/LazyAnimation';
 
-// images
-import vectorStickerWindowFrame from '../../../../images/stickers/vectorStickerWindowFrame.svg';
-import vectorStickerSparkleHeart from '../../../../images/stickers/vectorStickerSparkleHeart.svg';
-import vectorStickerMegaphone from '../../../../images/stickers/vectorStickerMegaphone.svg';
-import vectorTagInnovation from '../../../../images/vectorTagInnovation.svg';
-import vectorTagDesign from '../../../../images/vectorTagDesign.svg';
-import vectorTagDevelopment from '../../../../images/vectorTagDevelopment.svg';
-import vectorTagCommMktg from '../../../../images/vectorTagCommMktg.svg';
+// utils
+import { lessThan } from '../../../../utils/mediaQuery';
 
 // styles
 import {
   Container,
   SpeakerPicture,
-  SpeakerSticker,
   SpeakerTag,
   Wrapper,
 } from './SpeakersGraphics.styles';
 import { easing } from '../../../../styles/animation';
-import { lessThan } from '../../../../utils/mediaQuery';
 
 const SpeakersGraphics = () => {
   const data = useStaticQuery(
     graphql`
       query {
         speaker1Picture: file(
-          relativePath: { eq: "img-speaker-draplin-duo-square.png" }
+          relativePath: { eq: "img-speaker-draplin-600x400.jpg" }
         ) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 319) {
+            fluid(
+              quality: 100
+              maxWidth: 400
+              duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+            ) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
         speaker2Picture: file(
-          relativePath: { eq: "img-speaker-2-duo-square.png" }
+          relativePath: { eq: "img-speaker-2-600x400.jpg" }
         ) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 319) {
+            fluid(
+              quality: 100
+              maxWidth: 400
+              duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+            ) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
         speaker3Picture: file(
-          relativePath: { eq: "img-speaker-vitali-duo-square.png" }
+          relativePath: { eq: "img-speaker-3-600x400.jpg" }
         ) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 319) {
+            fluid(
+              quality: 100
+              maxWidth: 400
+              duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+            ) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
@@ -76,16 +80,7 @@ const SpeakersGraphics = () => {
     <Wrapper>
       <Container>
         <div>
-          <SpeakerSticker
-            src={vectorStickerWindowFrame}
-            alt=''
-            role='presentation'
-            $minWidth='134'
-            $maxWidth='181'
-            css={`
-              transform: translateX(85%);
-            `}
-          />
+          <SpeakerPicture fluid={speaker1Picture} alt='' role='presentation' />
 
           <LazyAnimation
             transition={{
@@ -94,13 +89,13 @@ const SpeakersGraphics = () => {
               easing: easing.outCustom,
               scale: { initial: '0', final: '1' },
               rotate: {
-                initial: '22deg',
-                final: '0deg',
+                initial: '0deg',
+                final: '-14deg',
               },
             }}
             css={`
               position: absolute;
-              bottom: -36px;
+              top: -25px;
               right: 5%;
               z-index: 2;
 
@@ -109,18 +104,10 @@ const SpeakersGraphics = () => {
               }
             `}
           >
-            <SpeakerTag
-              src={vectorTagInnovation}
-              alt=''
-              role='presentation'
-              $minWidth='119'
-              $maxWidth='225'
-            />
+            <SpeakerTag>
+              <span>innovation</span>
+            </SpeakerTag>
           </LazyAnimation>
-        </div>
-
-        <div>
-          <SpeakerPicture fluid={speaker1Picture} alt='' role='presentation' />
 
           <LazyAnimation
             transition={{
@@ -129,64 +116,25 @@ const SpeakersGraphics = () => {
               easing: easing.outCustom,
               scale: { initial: '0', final: '1' },
               rotate: {
-                initial: '-22deg',
-                final: '0deg',
+                initial: '0deg',
+                final: '-8deg',
               },
             }}
             css={`
               position: absolute;
-              bottom: 90px;
+              bottom: 65px;
               left: -17%;
               z-index: 2;
             `}
           >
-            <SpeakerTag
-              src={vectorTagDesign}
-              alt=''
-              role='presentation'
-              $minWidth='95'
-              $maxWidth='145'
-            />
-          </LazyAnimation>
-
-          <LazyAnimation
-            transition={{
-              duration: '400ms',
-              delay: `${8 * 300}ms`,
-              easing: easing.outCustom,
-              scale: { initial: '0', final: '1' },
-              rotate: {
-                initial: '-12deg',
-                final: '0deg',
-              },
-            }}
-            css={`
-              position: absolute;
-              bottom: -45%;
-              left: 6%;
-              z-index: 2;
-
-              ${lessThan(420)} {
-                bottom: -30%;
-              }
-            `}
-          >
-            <SpeakerSticker
-              src={vectorStickerSparkleHeart}
-              alt=''
-              role='presentation'
-              $minWidth='139'
-              $maxWidth='231'
-            />
+            <SpeakerTag>
+              <span>design</span>
+            </SpeakerTag>
           </LazyAnimation>
         </div>
 
         <div>
           <SpeakerPicture fluid={speaker2Picture} alt='' role='presentation' />
-        </div>
-
-        <div>
-          <SpeakerPicture fluid={speaker3Picture} alt='' role='presentation' />
 
           <LazyAnimation
             transition={{
@@ -195,25 +143,25 @@ const SpeakersGraphics = () => {
               easing: easing.outCustom,
               scale: { initial: '0', final: '1' },
               rotate: {
-                initial: '22deg',
+                initial: '8deg',
                 final: '0deg',
               },
             }}
             css={`
               position: absolute;
-              top: -46px;
-              left: -11%;
+              top: 27%;
+              left: -37%;
               z-index: 2;
             `}
           >
-            <SpeakerTag
-              src={vectorTagDevelopment}
-              alt=''
-              role='presentation'
-              $minWidth='194'
-              $maxWidth='311'
-            />
+            <SpeakerTag>
+              <span>comm / mktg</span>
+            </SpeakerTag>
           </LazyAnimation>
+        </div>
+
+        <div>
+          <SpeakerPicture fluid={speaker3Picture} alt='' role='presentation' />
 
           <LazyAnimation
             transition={{
@@ -222,56 +170,25 @@ const SpeakersGraphics = () => {
               easing: easing.outCustom,
               scale: { initial: '0', final: '1' },
               rotate: {
-                initial: '-11deg',
-                final: '0deg',
+                initial: '-8deg',
+                final: '12deg',
               },
             }}
             css={`
               position: absolute;
-              top: 75px;
-              right: 3%;
+              top: 65px;
+              right: -10%;
               z-index: 2;
 
               ${lessThan(420)} {
-                top: 62px;
-                right: 14%;
+                top: 33px;
+                right: 6%;
               }
             `}
           >
-            <SpeakerTag
-              src={vectorTagCommMktg}
-              alt=''
-              role='presentation'
-              $minWidth='169'
-              $maxWidth='268'
-            />
-          </LazyAnimation>
-
-          <LazyAnimation
-            transition={{
-              duration: '400ms',
-              delay: `${5 * 300}ms`,
-              easing: easing.outCustom,
-              scale: { initial: '0', final: '1' },
-              rotate: {
-                initial: '-12deg',
-                final: '0deg',
-              },
-            }}
-            css={`
-              position: absolute;
-              bottom: -52%;
-              right: 22%;
-              z-index: 2;
-            `}
-          >
-            <SpeakerSticker
-              src={vectorStickerMegaphone}
-              alt=''
-              role='presentation'
-              $minWidth='128'
-              $maxWidth='247'
-            />
+            <SpeakerTag>
+              <span>développement</span>
+            </SpeakerTag>
           </LazyAnimation>
         </div>
       </Container>

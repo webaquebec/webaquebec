@@ -21,22 +21,30 @@ module.exports = {
         //
         // Defaults to false meaning GTM will only be loaded in production.
         includeInDevelopment: false,
-
         // Datalayer to be set before GTM is loaded
         // should be an object or a function that is executed in the browser
-        //
+        // Defaults to false
+        enableWebVitalsTracking: true,
         // Defaults to null
         defaultDataLayer: { platform: 'gatsby' },
       },
     },
     {
-      resolve: `gatsby-plugin-gtag`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: process.env.GTAG_ID,
-        // Puts tracking script in the head instead of the body
-        head: false,
-        // Enable ip anonymization
-        anonymize: true,
+        trackingIds: [process.env.GTAG_ID],
+        // This object gets passed directly to the gtag config command
+        // This config will be shared across all trackingIds
+        gtagConfig: {
+          // Enable ip anonymization
+          anonymize_ip: true,
+          // cookie_expires: 0,
+        },
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: false,
+        },
       },
     },
     {
