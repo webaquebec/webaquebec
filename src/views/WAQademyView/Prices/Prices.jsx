@@ -70,7 +70,7 @@ const Prices = () => (
             css={blockContainerStyle}
           >
             <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
-              <TicketTitle>Formations complète</TicketTitle>
+              <TicketTitle>Formation complète</TicketTitle>
 
               <TicketPrice>320$</TicketPrice>
 

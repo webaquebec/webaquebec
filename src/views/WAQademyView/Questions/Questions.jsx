@@ -19,7 +19,7 @@ const questions = [
   },
   {
     id: 2,
-    question: 'Première formation : Tony Aubé',
+    question: 'Prochaine formation : TikTok',
     answer: `<p>Le 16 février prochain, Tony Aubé présentera la première formation de la WAQadémie et portera sur Tiktok et tous ses secrets.</p>
                <p>Durée de la formation : 3h</p>
                <p>Dépêche-toi, les billets sont disponibles en quantité limitée!</p>`,

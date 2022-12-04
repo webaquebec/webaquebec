@@ -186,6 +186,31 @@ const optionsByLocation = {
       },
     ],
   },
+  waqademie: {
+    minLightness: colors.mauve80hsl.lightness,
+    colors: [
+      {
+        hue: colors.mauve80hsl.hue,
+        saturation: colors.mauve80hsl.saturation,
+        lightness: 100,
+      },
+      {
+        hue: colors.mauve80hsl.hue,
+        saturation: colors.mauve80hsl.saturation,
+        lightness: 95,
+      },
+      {
+        hue: colors.mauve80hsl.hue,
+        saturation: colors.mauve80hsl.saturation,
+        lightness: colors.mauve80hsl.lightness,
+      },
+      {
+        hue: colors.mauve80hsl.hue,
+        saturation: colors.mauve80hsl.saturation,
+        lightness: 100,
+      },
+    ],
+  },
 };
 
 const PixelGradient = ({ pathname }) => {
