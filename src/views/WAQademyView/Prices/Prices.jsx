@@ -30,9 +30,10 @@ const Prices = () => (
       >
         <BlocksWrapper>
           <Paper
-            lightColor={colors.bleu80}
-            darkColor={colors.gris30}
+            lightColor={colors.gris30}
+            darkColor={colors.bleu80}
             rounded
+            overlaid
             elevation={elevation.large}
             css={blockContainerStyle}
           >
@@ -46,7 +47,7 @@ const Prices = () => (
               <Button
                 to='https://ti.to/web-a-quebec/waq-2022'
                 tag='href'
-                inverted
+                secondary
                 small
                 animated
                 rel='noopener noreferrer'
@@ -62,10 +63,9 @@ const Prices = () => (
           </Paper>
 
           <Paper
-            lightColor={colors.gris30}
-            darkColor={colors.bleu80}
+            lightColor={colors.bleu80}
+            darkColor={colors.gris30}
             rounded
-            overlaid
             elevation={elevation.large}
             css={blockContainerStyle}
           >
@@ -77,7 +77,7 @@ const Prices = () => (
               <Button
                 to='https://ti.to/web-a-quebec/waq-2022'
                 tag='href'
-                secondary
+                inverted
                 small
                 animated
                 rel='noopener noreferrer'
