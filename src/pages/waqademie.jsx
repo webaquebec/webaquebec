@@ -17,6 +17,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../styles/breakpoints';
+import Stack from '../components/LayoutSections/Stack';
 
 const Container = styled(SectionContainer)`
   ${breakpointsRange(
@@ -45,11 +46,13 @@ const WAQademyPage = () => (
       description='Des formations pour les créateur·trices du Web, guidées par les principes fondateurs du WAQ.'
     />
 
-    <Title />
+    <Stack space='94px'>
+      <Title />
+
+      <Questions />
+    </Stack>
 
     <Container faded>
-      <Questions />
-
       <Prices />
 
       <CallToAction />
