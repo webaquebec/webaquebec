@@ -40,6 +40,8 @@ const Prices = () => (
             <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
               <TicketTitle color={colors.gris90}>
                 Déjeuner-conférence
+                <br />
+                TikTok
               </TicketTitle>
 
               <TicketPrice>30$</TicketPrice>
@@ -57,6 +59,8 @@ const Prices = () => (
               </Button>
 
               <TicketText>
+                16 février 2023
+                <br />
                 Inclus le petit-déjeuner et 45 minutes de conférences
               </TicketText>
             </Center>
@@ -70,7 +74,11 @@ const Prices = () => (
             css={blockContainerStyle}
           >
             <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
-              <TicketTitle>Formation complète</TicketTitle>
+              <TicketTitle>
+                Formation complète
+                <br />
+                TikTok
+              </TicketTitle>
 
               <TicketPrice>320$</TicketPrice>
 
@@ -87,6 +95,8 @@ const Prices = () => (
               </Button>
 
               <TicketText>
+                16 février 2023
+                <br />
                 Inclus le petit-déjeuner, 45 minutes de conférence et 3 heures
                 de formation
               </TicketText>
