@@ -50,11 +50,11 @@ const WAQademyPage = () => (
       <Title />
 
       <Questions />
+
+      <Prices />
     </Stack>
 
     <Container faded>
-      <Prices />
-
       <CallToAction />
     </Container>
   </>
