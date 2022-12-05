@@ -15,7 +15,7 @@ const questions = [
     id: 1,
     question: 'La WAQadémie, c’est quoi?',
     answer: `<p>Une journée type à la WAQadémie débute par un déjeuner-conférence ouvert à tous, à un coût modique. Quand certains retourneront au travail, d’autres poursuivront avec une formation d’une durée de 3h ou 6h en plus petit groupe, avec un·e expert·e sur une des thématiques phares du WAQ (communication, marketing, design et développement).</p>
-               <p>Une fois par mois, la communauté numérique de Québec pourra se réunir au 688 boul. Charest E., à Québec pour échanger, réseauter et apprendre, tout cela sans avoir à attendre le WAQ du mois de mai. Une excellente occasion pour recréer l’esprit festif du WAQ, sans prétention!</p>`,
+              <p>Plusieurs fois dans l’année, la communauté numérique de Québec pourra se réunir au 688 boul. Charest E., à Québec pour échanger, réseauter et apprendre, tout cela sans avoir à attendre le WAQ au printemps. Une excellente occasion pour recréer l’esprit festif du WAQ, sans prétention! </p>`,
   },
   {
     id: 2,
@@ -36,6 +36,7 @@ const Questions = () => (
           title={item.question}
           bordered
           rounded
+          expanded
         >
           <Stack
             css={waqademyItem}
