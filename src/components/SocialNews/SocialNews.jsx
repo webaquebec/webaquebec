@@ -51,7 +51,11 @@ const SocialNews = () => {
   ];
 
   return (
-    <Switcher threshold='768px' space='2rem' limit={2}>
+    <Switcher
+      threshold='768px'
+      space='calc(var(--container-gutter) * 2)'
+      limit={2}
+    >
       <div>
         <Paper
           lightColor={colors.gris30}
