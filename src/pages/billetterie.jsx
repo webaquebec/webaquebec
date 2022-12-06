@@ -12,7 +12,7 @@ import SEO from '../components/SEO';
 import breakpointsRange from '../utils/breakpointsRange';
 
 // views
-import Prices from '../views/TicketsView/Prices';
+// import Prices from '../views/TicketsView/Prices';
 import CallToAction from '../views/TicketsView/CallToAction';
 
 // styles
@@ -99,7 +99,7 @@ const TicketsPage = () => (
       </TicketsIntro>
     </Center>
 
-    <Prices />
+    {/* <Prices /> */}
 
     <Container forwardedAs='div' faded>
       <CallToAction />
