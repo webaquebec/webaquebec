@@ -87,6 +87,7 @@ export const Blob = styled.div`
   --ciel: ${colors.ciel80};
   --gris: ${colors.gris30};
   --blob-color: ${({ color }) => `var(--${color})`};
+  --mauve: ${colors.mauve};
 
   position: fixed;
   bottom: 0;
