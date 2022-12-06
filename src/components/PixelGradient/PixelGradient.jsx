@@ -187,7 +187,7 @@ const optionsByLocation = {
     ],
   },
   waqademie: {
-    minLightness: colors.mauve80hsl.lightness,
+    minLightness: 80,
     colors: [
       {
         hue: colors.mauve80hsl.hue,
@@ -197,12 +197,12 @@ const optionsByLocation = {
       {
         hue: colors.mauve80hsl.hue,
         saturation: colors.mauve80hsl.saturation,
-        lightness: 95,
+        lightness: colors.mauve80hsl.lightness,
       },
       {
         hue: colors.mauve80hsl.hue,
         saturation: colors.mauve80hsl.saturation,
-        lightness: colors.mauve80hsl.lightness,
+        lightness: 85,
       },
       {
         hue: colors.mauve80hsl.hue,
