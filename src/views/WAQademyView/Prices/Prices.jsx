@@ -41,7 +41,7 @@ const Prices = () => (
             <TicketPrice>30$</TicketPrice>
 
             <Button
-              to='https://my.weezevent.com/waqademie-tiktok-fevrier-2023'
+              to='https://my.weezevent.com/waqademie-tony-aube'
               tag='href'
               secondary
               small
@@ -71,7 +71,7 @@ const Prices = () => (
             <TicketPrice>320$</TicketPrice>
 
             <Button
-              to='https://my.weezevent.com/waqademie-tiktok-fevrier-2023'
+              to='https://my.weezevent.com/waqademie-tony-aube'
               tag='href'
               inverted
               small
