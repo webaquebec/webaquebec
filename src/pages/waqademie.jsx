@@ -20,22 +20,27 @@ import breakpoints from '../styles/breakpoints';
 import Stack from '../components/LayoutSections/Stack';
 
 const Container = styled(SectionContainer)`
+  padding-bottom: 0;
+
   ${breakpointsRange(
-    [{ prop: 'paddingTop', sizes: [98, 105], bases: [16, 20] }],
-    breakpoints.spacings
+    [
+      { prop: 'paddingTop', sizes: [98, 105] },
+      { prop: 'marginBottom', sizes: [202, 242] },
+    ],
+    breakpoints.spacings,
+    { bases: [16, 20] }
   )};
 
-  ::before,
-  ::after {
-    height: 30vh;
-  }
-
   ::before {
-    top: -30vh;
+    top: -20vh;
+
+    height: 20vh;
   }
 
   ::after {
-    bottom: -30vh;
+    bottom: -20vh;
+
+    height: 20vh;
   }
 `;
 
