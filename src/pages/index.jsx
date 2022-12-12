@@ -14,9 +14,8 @@ import breakpointsRange from '../utils/breakpointsRange';
 // views
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
-// import CTASection from '../views/HomePageView/CTASection';
 // import KeynoteSection from '../views/HomePageView/KeynoteSection';
-import CTASection from '../views/HomePageView/CTASection/CTASection';
+// import CTASection from '../views/HomePageView/CTASection/CTASection';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -43,7 +42,7 @@ const IndexPage = () => (
     <StatsSection />
 
     <SectionContainer forwardedAs='div' faded>
-      <CTASection />
+      {/* <CTASection /> */}
 
       {/* <KeynoteSection /> */}
 
