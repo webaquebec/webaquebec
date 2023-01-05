@@ -144,7 +144,7 @@ module.exports = {
       name: '💡 \tDocumenting source code.',
     },
     {
-      value: ':beers: oldmybeer',
+      value: ':beers: holdmybeer',
       name: '🍻 \tWriting code drunkenly.',
     },
     {
