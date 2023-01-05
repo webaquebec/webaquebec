@@ -6,6 +6,7 @@ import styled from 'styled-components';
 // components
 import SEO from '../components/SEO';
 import StyledSectionContainer from '../components/SectionContainer';
+import PartnersGrids from '../components/PartnersGrids';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
@@ -13,8 +14,8 @@ import breakpointsRange from '../utils/breakpointsRange';
 // views
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
-import CTASection from '../views/HomePageView/CTASection';
-import PartnersGrids from '../components/PartnersGrids';
+// import KeynoteSection from '../views/HomePageView/KeynoteSection';
+// import CTASection from '../views/HomePageView/CTASection/CTASection';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -22,7 +23,7 @@ import breakpoints from '../styles/breakpoints';
 const SectionContainer = styled(StyledSectionContainer)`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [186, 105], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [80, 188], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [168, 134], bases: [16, 20] },
     ],
     breakpoints.spacings
@@ -32,7 +33,7 @@ const SectionContainer = styled(StyledSectionContainer)`
 const IndexPage = () => (
   <>
     <SEO
-      title='Web à Québec | 24 au 26 mai 2022'
+      title='Web à Québec | 23 au 25 mai 2023'
       description='Le plus grand événement numérique francophone en Amérique du Nord.'
     />
 
@@ -41,7 +42,9 @@ const IndexPage = () => (
     <StatsSection />
 
     <SectionContainer forwardedAs='div' faded>
-      <CTASection />
+      {/* <CTASection /> */}
+
+      {/* <KeynoteSection /> */}
 
       <PartnersGrids />
     </SectionContainer>

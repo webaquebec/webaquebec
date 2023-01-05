@@ -12,7 +12,6 @@ import styled, { css } from 'styled-components';
 // components
 import SEO from '../../../components/SEO';
 import Center from '../../../components/LayoutSections/Center';
-import Hero from '../../../components/Hero';
 import Button from '../../../components/Button';
 import Tag from '../../../components/Tag';
 import SpeakerCard from '../../../components/SpeakerCard';
@@ -31,21 +30,38 @@ import IconArrow from '../../../images/IconArrow';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
+// import { titleStyle } from '../../../styles/global';
 
 // styles
 const Container = styled(SectionContainer)`
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [150, 150], bases: [16, 20] }],
+    [
+      { prop: 'marginTop', sizes: [40, 80], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [192, 256], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
+
+  ::before,
+  ::after {
+    height: 10vh;
+  }
+
+  ::before {
+    top: -10vh;
+  }
+
+  ::after {
+    bottom: -10vh;
+  }
 `;
 
-const heroWrapper = css`
-  ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [60, 80], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
+// const PageTitle = styled.h1`
+//   ${breakpointsRange(
+//     [{ prop: 'marginTop', sizes: [80, 200], bases: [16, 20] }],
+//     breakpoints.spacings
+//   )};
+// `;
 
 const backArrow = css`
   transform: rotate(180deg);
@@ -55,7 +71,7 @@ const backButton = css`
   margin-right: auto;
 
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [40, 60], bases: [16, 20] }],
+    [{ prop: 'marginBottom', sizes: [32, 32], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -75,11 +91,12 @@ const EventContainer = styled.div`
   )};
 `;
 
-const EventTitle = styled.h2`
+const EventTitle = styled.h1`
   margin-top: 0;
   margin-bottom: 16px;
 
   color: ${colors.bleu80};
+  font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
     [
@@ -287,20 +304,18 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
     <>
       <SEO title={title} description={description} />
 
-      <Center
-        css={heroWrapper}
-        maxWidth='1064px'
+      {/* <Center
+        maxWidth='var(--max-container-width)'
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <Hero
-          title='programmation'
-          year={session.edition}
-          displayYear={session.edition === 2021}
-        />
-      </Center>
+        <PageTitle css={titleStyle}>
+          <span>program</span>mation
+          {edition === 2021 && <span>&nbsp;{edition}</span>}
+        </PageTitle>
+      </Center> */}
 
-      <Container forwardedAs='div' faded padded>
+      <Container forwardedAs='div' faded>
         <Center maxWidth='1064px' gutters='var(--container-gutter)' intrinsic>
           <Button
             to={pagePath}
@@ -341,9 +356,9 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
                 {(categories.length > 0 || type || place) && (
                   <Cluster>
                     <div>
-                      {categories.map((category) => (
+                      {/* {categories.map((category) => (
                         <Tag key={`category-${category}`} category={category} />
-                      ))}
+                      ))} */}
 
                       {type && <Tag eventType={type} />}
 
@@ -439,7 +454,7 @@ export const sessionQuery = graphql`
                 width: 100
                 height: 100
                 quality: 90
-                duotone: { highlight: "#EBEBEB", shadow: "#000CA0" }
+                duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
               ) {
                 ...GatsbyImageSharpFixed_withWebp
               }

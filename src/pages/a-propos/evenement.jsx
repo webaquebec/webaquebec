@@ -11,10 +11,6 @@ import Center from '../../components/LayoutSections/Center';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
-import { lessThan } from '../../utils/mediaQuery';
-
-// images
-import vectorGrid from '../../images/vectorVideoGrid.svg';
 
 // views
 import AboutTabs from '../../views/AboutPagesView/AboutTabs';
@@ -50,19 +46,6 @@ const Video = styled.iframe`
 
   width: 100%;
   height: 100%;
-`;
-
-const VectorGrid = styled.img`
-  position: absolute;
-  right: 0;
-  bottom: -10%;
-  z-index: 1;
-
-  height: 90%;
-
-  ${lessThan(1280)} {
-    left: 20%;
-  }
 `;
 
 const VideoWrapper = styled.div`
@@ -147,8 +130,6 @@ const AboutEventPage = ({ data }) => {
               />
             </VideoContainer>
           </Center>
-
-          <VectorGrid src={vectorGrid} alt='' role='presentation' />
         </VideoWrapper>
       </IntroSection>
 

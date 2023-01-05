@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // styles
 import Container from './Paper.styles';
+import elevationStyle from '../../styles/elevation';
 
 /**
  *
@@ -24,6 +25,7 @@ const Paper = ({
   padded,
   inverted,
   overlaid,
+  elevation,
   children,
   ...rest
 }) => (
@@ -34,6 +36,7 @@ const Paper = ({
     invert={inverted}
     $rounded={rounded}
     $overlaid={overlaid}
+    $elevation={elevation}
     noBorder
     {...rest}
   >
@@ -70,6 +73,14 @@ Paper.propTypes = {
    * Whether to apply an overlay to the background.
    */
   overlaid: PropTypes.bool,
+  /**
+   * Whether to apply a shadow elevation.
+   */
+  elevation: PropTypes.oneOf([
+    elevationStyle.small,
+    elevationStyle.medium,
+    elevationStyle.large,
+  ]),
 };
 
 Paper.defaultProps = {
@@ -77,6 +88,7 @@ Paper.defaultProps = {
   padded: false,
   inverted: false,
   overlaid: false,
+  elevation: undefined,
 };
 
 export default Paper;

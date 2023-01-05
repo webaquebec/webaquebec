@@ -9,7 +9,6 @@ import {
   BackButton,
   PostTitle,
   PostDate,
-  FeaturedGrid,
   FeaturedPictureWrapper,
   FeaturedPicture,
 } from './HeroSection.styles';
@@ -19,7 +18,6 @@ import Center from '../../../components/LayoutSections/Center';
 
 // images
 import IconArrow from '../../../images/IconArrow';
-import vectorBlogPostHeroGrid from '../../../images/vectorBlogPostHeroGrid.svg';
 
 const backArrow = css`
   transform: rotate(180deg);
@@ -53,7 +51,6 @@ const HeroSection = ({ title, publishDate, featuredImage }) => (
     </Center>
 
     <FeaturedPictureWrapper>
-      <FeaturedGrid src={vectorBlogPostHeroGrid} alt='' role='presentation' />
       <FeaturedPicture fluid={featuredImage} alt='' role='presentation' />
     </FeaturedPictureWrapper>
   </>

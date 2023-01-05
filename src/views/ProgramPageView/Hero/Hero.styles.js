@@ -13,6 +13,7 @@ import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontFamilies, fontWeights } from '../../../styles/typography';
 import zIndexes from '../../../styles/zIndexes';
+import { speed } from '../../../styles/animation';
 
 // 480, 640, 832, 1060
 export const selfBreakpoints = [480, breakpoints[1], breakpoints[3], 1060];
@@ -38,17 +39,22 @@ export const StickyTitle = styled.div`
   flex-shrink: 0;
   align-items: center;
 
-  width: 320px;
+  width: 324px;
   margin-right: 1.5rem;
+  padding-left: 0.5rem;
 
   color: ${colors.bleu80};
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction20};
+  font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [24, 24], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [24, 32], bases: [16, 20] }],
     breakpoints.spacings
   )};
+
+  > span {
+    font-style: italic;
+  }
 `;
 
 export const YearSticker = styled.img`
@@ -88,21 +94,75 @@ export const dateTabStyle = css`
   min-height: 75px;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 18], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [16, 20], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
   background-color: ${colors.white};
-  border-radius: 16px;
+  border-radius: 4px;
 
   &&.active,
   &&:focus,
   &&:hover {
-    color: ${colors.gris};
+    color: ${colors.gris30};
+
+    background-color: ${colors.bleu80};
   }
 
   > * {
     flex-grow: 1;
+  }
+
+  ${greaterThan(831)} {
+    position: relative;
+
+    background-color: transparent;
+    border-color: transparent;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: color ${speed.default};
+    }
+
+    will-change: color;
+
+    &&.active,
+    &&:focus,
+    &&:hover {
+      color: ${colors.bleu80};
+
+      background-color: transparent;
+      border-color: transparent;
+
+      &::after {
+        position: absolute;
+        bottom: 16px;
+        left: 50%;
+
+        display: block;
+        width: calc(100% - 80px);
+        height: 2px;
+
+        background-color: currentColor;
+        transform: translateX(-50%);
+
+        @media (prefers-reduced-motion: no-preference) {
+          transition: background-color ${speed.default};
+        }
+
+        content: '';
+
+        will-change: background-color;
+      }
+    }
+
+    &&.active,
+    &&:focus {
+      color: ${colors.bleu90};
+
+      /* font-weight: ${fontWeights.bold}; */
+
+      /* font-family: ${fontFamilies.redaction}; */
+    }
   }
 `;
 

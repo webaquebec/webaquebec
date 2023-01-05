@@ -9,30 +9,27 @@ import Logo from './Logo';
 import Menu from './Menu';
 
 // images
-import vectorBurgerMenu from '../../images/vectorBurgerMenu.svg';
+// import vectorBurgerMenu from '../../images/vectorBurgerMenu.svg';
 
 // styles
 import {
   StyledHeader,
   Container,
   LogoWrapper,
-  // StyledNav,
-  // PrimaryNavList,
-  // NavListItem,
-  // NavLink,
   MenuButtonWrapper,
-  BurgerButton,
-  BurgerImg,
+  // BurgerButton,
+  // BurgerImg,
 } from './Header.styles';
+import BurgerButton from './BurgerButton';
 
 const primaryNavigation = [
-  {
-    id: 'programmation',
-    label: 'programmation',
-    slug: '/programmation/2022',
-    type: 'internal',
-    color: 'jaune',
-  },
+  // {
+  //   id: 'programmation',
+  //   label: 'programmation',
+  //   slug: '/programmation/2022',
+  //   type: 'internal',
+  //   color: 'turquoise',
+  // },
   {
     id: 'blog',
     label: 'blogue',
@@ -45,7 +42,14 @@ const primaryNavigation = [
     label: 'billetterie',
     slug: '/billetterie',
     type: 'internal',
-    color: 'turquoise',
+    color: 'ciel',
+  },
+  {
+    id: 'waqademy',
+    label: 'WAQadémie',
+    slug: '/waqademie',
+    type: 'internal',
+    color: 'mauve',
   },
 ];
 
@@ -62,12 +66,12 @@ const secondaryNavigation = [
     slug: '/partenaires',
     type: 'internal',
   },
-  {
-    id: 'faq',
-    label: 'FAQ',
-    slug: '/faq',
-    type: 'internal',
-  },
+  // {
+  //   id: 'faq',
+  //   label: 'FAQ',
+  //   slug: '/faq',
+  //   type: 'internal',
+  // },
   {
     id: 'code-of-conduct',
     label: 'code de conduite',
@@ -75,11 +79,17 @@ const secondaryNavigation = [
     type: 'internal',
   },
   {
-    id: 'edition2021',
-    label: 'édition 2021',
-    slug: '/programmation/2021',
+    id: 'edition2022',
+    label: 'édition 2022',
+    slug: '/programmation/2022',
     type: 'internal',
   },
+  // {
+  //   id: 'edition2021',
+  //   label: 'édition 2021',
+  //   slug: '/programmation/2021',
+  //   type: 'internal',
+  // },
 ];
 
 const navigation = {
@@ -102,6 +112,11 @@ const Header = ({ pathname }) => {
     }
   };
 
+  const handleClickLogo = () => {
+    setOpened(false);
+    document.body.removeAttribute('style');
+  };
+
   return (
     <StyledHeader opened={opened}>
       <Center
@@ -109,43 +124,15 @@ const Header = ({ pathname }) => {
         gutters='var(--container-gutter)'
       >
         <Container>
-          {/* <StyledNav aria-label='Header Menu'>
-            <PrimaryNavList>
-              {primaryNavigation.map((item) => (
-                <NavListItem key={item.id}>
-                  {item.type === 'internal' ? (
-                    <NavLink
-                      as={Link}
-                      to={item.slug}
-                      activeClassName='active'
-                      partiallyActive
-                    >
-                      {item.label}
-                    </NavLink>
-                  ) : (
-                    <NavLink
-                      href={item.slug}
-                      activeClassName='active'
-                      partiallyActive
-                      rel='noopener noreferrer'
-                      target='_blank'
-                    >
-                      {item.label}
-                    </NavLink>
-                  )}
-                </NavListItem>
-              ))}
-            </PrimaryNavList>
-          </StyledNav> */}
-
           <LogoWrapper>
-            <Logo isHomePage={isHomePage} />
+            <Logo isHomePage={isHomePage} onClick={handleClickLogo} />
           </LogoWrapper>
 
           <MenuButtonWrapper>
-            <BurgerButton onClick={handleClick}>
+            {/* <BurgerButton onClick={handleClick}>
               <BurgerImg src={vectorBurgerMenu} alt='Menu' focusable='false' />
-            </BurgerButton>
+            </BurgerButton> */}
+            <BurgerButton onClick={handleClick} opened={opened} />
           </MenuButtonWrapper>
         </Container>
       </Center>

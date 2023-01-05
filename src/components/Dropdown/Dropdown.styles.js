@@ -26,7 +26,7 @@ export const Container = styled(Box)`
 `;
 
 export const dropdownButtonWrapperExpandedStyle = css`
-  border-radius: 16px 16px 0 0;
+  border-radius: 4px 4px 0 0;
 `;
 
 export const DropdownButtonWrapper = styled.div`
@@ -39,8 +39,8 @@ export const DropdownButtonWrapper = styled.div`
 
   background-color: ${colors.white};
 
-  border: 3px solid ${colors.bleu80};
-  border-radius: 16px;
+  border: 2px solid ${colors.bleu80};
+  border-radius: 4px;
 
   ${breakpointsRange(
     [
@@ -112,9 +112,9 @@ export const DropdownMenu = styled.section`
   overflow: hidden;
 
   background-color: ${colors.white};
-  border: 3px solid ${colors.bleu80};
+  border: 2px solid ${colors.bleu80};
   border-top: 0;
-  border-radius: 0 0 16px 16px;
+  border-radius: 0 0 4px 4px;
 
   transform: translateY(${({ $expanded }) => ($expanded ? '0px' : '-40px')});
 
@@ -155,7 +155,7 @@ export const LinkButton = styled(Button)`
 
 export const Toggle = styled(IconChevron)`
   width: 100%;
-  max-width: 20px;
+  max-width: 14px;
   margin-left: 14px;
 
   color: ${colors.bleu80};

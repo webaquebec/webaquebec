@@ -32,49 +32,30 @@ export const TextWrapper = styled.span`
 
 export const animatedPrimaryStyle = css`
   :focus,
-  :hover:not(:disabled) {
+  :hover:not([disabled]) {
     transform: rotate3d(0, 0, 1, 4deg);
   }
 `;
 
 export const primaryStyle = css`
-  color: ${colors.bleu80};
-
-  background-color: ${colors.turquoise80};
+  --btn-color: ${colors.bleu80};
+  --btn-bg-color: ${colors.gris30};
+  --btn-border-color: currentColor;
 
   &.active,
   :focus,
-  :hover:not(:disabled) {
-    background-color: ${colors.turquoise40};
+  :hover:not([disabled]) {
+    --btn-color: ${colors.bleu90};
+    --btn-bg-color: ${colors.gris30};
   }
 
   ${({ $animated }) => $animated && animatedPrimaryStyle}
 `;
 
-export const outlinedPrimaryFocusHoverStyle = css`
-  color: ${colors.bleu};
-
-  background-color: ${colors.turquoise80};
-  border-color: ${colors.turquoise80};
-`;
-
-export const outlinedPrimaryStyle = css`
-  color: ${colors.turquoise80};
-
-  background-color: transparent;
-
-  &.active,
-  :focus,
-  :hover:not(:disabled) {
-    ${outlinedPrimaryFocusHoverStyle};
-  }
-`;
-
 export const outlinedFocusHoverStyle = css`
-  color: ${colors.turquoise80};
-
-  background-color: ${colors.bleu};
-  border-color: ${colors.bleu};
+  --btn-color: ${colors.gris30};
+  --btn-bg-color: ${colors.bleu80};
+  --btn-border-color: ${colors.bleu80};
 `;
 
 export const outlinedIconStyle = css`
@@ -88,8 +69,8 @@ export const outlinedIconStyle = css`
       position: absolute;
       left: 0;
 
-      width: 3px;
-      height: calc(100% + var(--padding-vertical) * 2 + 2 * 3px);
+      width: 2px;
+      height: calc(100% + var(--padding-vertical) * 2 + 2 * 2px);
 
       background-color: currentColor;
 
@@ -115,8 +96,8 @@ export const outlinedIconFirstStyle = css`
       position: absolute;
       right: 0;
 
-      width: 3px;
-      height: calc(100% + var(--padding-vertical) * 2 + 2 * 3px);
+      width: 2px;
+      height: calc(100% + var(--padding-vertical) * 2 + 2 * 2px);
 
       background-color: currentColor;
 
@@ -126,6 +107,10 @@ export const outlinedIconFirstStyle = css`
 `;
 
 export const outlinedStyle = css`
+  --btn-color: ${colors.bleu};
+  --btn-bg-color: transparent;
+  --btn-border-color: currentColor;
+
   ${breakpointsRange(
     [
       { prop: '--paddingVertical', sizes: [20, 20], bases: [16, 20] },
@@ -136,29 +121,63 @@ export const outlinedStyle = css`
 
   padding: var('--paddingVertical') var('--paddingHorizontal');
 
-  color: ${colors.bleu};
-
-  background-color: transparent;
-  border: 3px solid currentColor;
   border-radius: 5px;
 
   &.active,
   :focus,
-  :hover:not(:disabled) {
+  :hover:not([disabled]) {
     ${outlinedFocusHoverStyle}
   }
-
-  ${({ $primary }) => $primary && outlinedPrimaryStyle}
 
   ${({ $hasIcon }) => $hasIcon && outlinedIconStyle};
 
   ${({ $iconFirst }) => $iconFirst && outlinedIconFirstStyle};
 `;
 
+export const invertedPrimaryStyle = css`
+  --btn-color: ${colors.gris30};
+  --btn-bg-color: transparent;
+  --btn-border-color: currentColor;
+
+  &.active,
+  &:focus,
+  &:hover:not([disabled]) {
+    --btn-color: ${colors.gris40};
+    --btn-border-color: currentColor;
+  }
+`;
+
+export const invertedStyle = css`
+  --btn-color: ${colors.bleu80};
+  --btn-bg-color: ${colors.gris30};
+  --btn-border-color: var(--btn-bg-color);
+
+  &.active,
+  &:focus,
+  &:hover:not([disabled]) {
+    --btn-color: ${colors.bleu90};
+    --btn-bg-color: ${colors.gris40};
+    --btn-border-color: var(--btn-bg-color);
+  }
+
+  &[disabled] {
+    --btn-color: hsl(
+      ${colors.bleu80hsl.hue}deg ${colors.bleu80hsl.saturation}% 76% / 0.5
+    );
+    --btn-bg-color: hsl(
+      ${colors.bleu80hsl.hue}deg ${colors.bleu80hsl.saturation}%
+        ${colors.bleu80hsl.lightness}% / 0.5
+    );
+    --btn-border-color: var(--btn-bg-color);
+  }
+
+  ${({ $primary }) => $primary && invertedPrimaryStyle}
+`;
+
 export const smallStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [18, 18], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [16, 18], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [21, 21], bases: [18, 18], unit: '' },
       { prop: '--paddingVertical', sizes: [12, 12], bases: [16, 20] },
       { prop: '--paddingHorizontal', sizes: [30, 30], bases: [16, 20] },
@@ -226,13 +245,17 @@ export const animatedStyle = css`
   will-change: transform;
 
   :focus,
-  :hover:not(:disabled) {
+  :hover:not([disabled]) {
     transform: rotate3d(0, 0, 1, -4deg);
   }
 `;
 
 /* Default button styled */
 const StyledButton = styled.button`
+  --btn-color: ${colors.gris30};
+  --btn-bg-color: ${colors.bleu80};
+  --btn-border-color: var(--btn-bg-color);
+
   display: inline-flex;
   align-items: center;
 
@@ -248,14 +271,15 @@ const StyledButton = styled.button`
 
   padding: var(--padding-vertical) var(--padding-horizontal);
 
-  color: ${colors.turquoise80};
+  color: var(--btn-color);
 
   font-weight: ${fontWeights.medium};
   text-decoration: none;
 
-  background-color: ${colors.bleu80};
-  border: 0;
-  border-radius: 16px;
+  background-color: var(--btn-bg-color);
+
+  border: 2px solid var(--btn-border-color);
+  border-radius: 96px;
   outline: 0;
   cursor: pointer;
 
@@ -266,16 +290,18 @@ const StyledButton = styled.button`
   }
 
   &.active,
-  :focus,
-  :hover:not(:disabled) {
-    background-color: ${colors.bleu90};
+  &:focus,
+  &:hover:not([disabled]) {
+    --btn-bg-color: ${colors.bleu90};
   }
 
-  :disabled {
-    color: ${colors.gris100};
+  &[disabled] {
+    --btn-color: ${colors.gris80};
+    --btn-bg-color: ${colors.gris40};
 
-    background-color: ${colors.gris40};
     cursor: not-allowed;
+
+    pointer-events: none;
   }
 
   /* Apply animated style when animated props defined */
@@ -283,6 +309,9 @@ const StyledButton = styled.button`
 
   /* Apply primary style when primary props defined */
   ${({ $primary }) => $primary && primaryStyle}
+
+  /* Apply inverted style when inverted props defined */
+  ${({ $inverted }) => $inverted && invertedStyle}
 
   /* Apply small style when small props defined */
   ${({ $small }) => $small && smallStyle}

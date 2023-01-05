@@ -19,6 +19,7 @@ const Button = ({
   type,
   primary,
   outlined,
+  inverted,
   small,
   medium,
   renderIcon,
@@ -47,6 +48,7 @@ const Button = ({
       $hasIcon={!!renderIcon}
       $iconFirst={iconFirst}
       $outlined={outlined}
+      $inverted={inverted}
       $animated={animated}
       {...props}
     >
@@ -87,6 +89,10 @@ Button.propTypes = {
    */
   outlined: PropTypes.bool,
   /**
+   * Specifies the inverted style should be applied to the button
+   */
+  inverted: PropTypes.bool,
+  /**
    * Specifies whether the button is small or regular size
    */
   small: PropTypes.bool,
@@ -123,6 +129,7 @@ Button.defaultProps = {
   type: undefined,
   primary: false,
   outlined: false,
+  inverted: false,
   small: false,
   medium: false,
   disabled: false,
