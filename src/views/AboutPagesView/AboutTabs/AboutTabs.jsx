@@ -13,24 +13,24 @@ import {
   AboutItem,
   AboutLink,
 } from './AboutTabs.styles';
-import { h1AltStyle } from '../../../styles/global';
+import { titleStyle } from '../../../styles/global';
 
 const AboutTabs = ({ activeTabId }) => {
   const tabs = [
     {
       id: 0,
       name: 'l’événement',
-      pageUrl: 'evenement',
+      pageUrl: '/a-propos/evenement',
     },
     {
       id: 1,
       name: 'notre équipe',
-      pageUrl: 'notre-equipe',
+      pageUrl: '/a-propos/notre-equipe',
     },
     {
       id: 2,
       name: 'Québec Numérique',
-      pageUrl: 'quebec-numerique',
+      pageUrl: '/a-propos/quebec-numerique',
     },
   ];
 
@@ -42,16 +42,15 @@ const AboutTabs = ({ activeTabId }) => {
         withText
         intrinsic
       >
-        <PageTitle css={h1AltStyle}>à propos</PageTitle>
+        <PageTitle css={titleStyle}>
+          <span>à</span> propos
+        </PageTitle>
 
         <AboutNav>
           <AboutList>
             {tabs.map((tab) => (
               <AboutItem key={tab.id}>
-                <AboutLink
-                  href={tab.pageUrl}
-                  $isActive={activeTabId === tab.id}
-                >
+                <AboutLink to={tab.pageUrl} $isActive={activeTabId === tab.id}>
                   {tab.name}
                 </AboutLink>
               </AboutItem>

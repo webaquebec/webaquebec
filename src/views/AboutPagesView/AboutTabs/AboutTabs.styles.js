@@ -1,5 +1,6 @@
 // vendors
 import styled, { css } from 'styled-components';
+import { Link } from 'gatsby';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
@@ -8,6 +9,7 @@ import { greaterThan } from '../../../utils/mediaQuery';
 // styles
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
+import { fontFamilies, fontWeights } from '../../../styles/typography';
 
 export const PageTitle = styled.h1`
   color: ${colors.bleu90};
@@ -15,6 +17,8 @@ export const PageTitle = styled.h1`
 
 export const isActiveStyle = css`
   color: ${colors.bleu90};
+  font-weight: ${fontWeights.bold};
+  font-family: ${fontFamilies.redaction};
 
   &::after {
     display: block;
@@ -41,6 +45,8 @@ export const AboutNav = styled.nav`
 
 export const AboutList = styled.ul`
   display: flex;
+  margin-right: calc(var(--container-gutter) * -1);
+  padding-right: var(--container-gutter);
   overflow-x: auto;
 
   ${greaterThan(450)} {
@@ -57,7 +63,7 @@ export const AboutItem = styled.li`
   }
 `;
 
-export const AboutLink = styled.a`
+export const AboutLink = styled(Link)`
   color: ${colors.bleu80};
   text-decoration: none;
 
