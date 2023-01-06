@@ -1,7 +1,6 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hideVisually } from 'polished';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
@@ -16,22 +15,22 @@ import {
 } from './AboutTabs.styles';
 import { h1AltStyle } from '../../../styles/global';
 
-const AboutTabs = ({ title, activeTabId }) => {
+const AboutTabs = ({ activeTabId }) => {
   const tabs = [
     {
       id: 0,
       name: 'l’événement',
-      pageUrl: 'a-propos/evenement',
+      pageUrl: 'evenement',
     },
     {
       id: 1,
       name: 'notre équipe',
-      pageUrl: 'a-propos/notre-equipe',
+      pageUrl: 'notre-equipe',
     },
     {
       id: 2,
       name: 'Québec Numérique',
-      pageUrl: 'a-propos/quebec-numerique',
+      pageUrl: 'quebec-numerique',
     },
   ];
 
@@ -43,7 +42,6 @@ const AboutTabs = ({ title, activeTabId }) => {
         withText
         intrinsic
       >
-        <h1 css={hideVisually}>{title}</h1>
         <PageTitle css={h1AltStyle}>à propos</PageTitle>
 
         <AboutNav>
@@ -66,10 +64,6 @@ const AboutTabs = ({ title, activeTabId }) => {
 };
 
 AboutTabs.propTypes = {
-  /**
-   * Specifies the active page title
-   */
-  title: PropTypes.string.isRequired,
   /**
    * Specifies the active tab id
    */

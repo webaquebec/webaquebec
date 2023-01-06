@@ -9,7 +9,7 @@ import { greaterThan } from '../../../utils/mediaQuery';
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 
-export const PageTitle = styled.h2`
+export const PageTitle = styled.h1`
   color: ${colors.bleu90};
 `;
 
@@ -61,7 +61,7 @@ export const AboutLink = styled.a`
   color: ${colors.bleu80};
   text-decoration: none;
 
-  transition: all 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [16, 24], bases: [16, 20] }],
