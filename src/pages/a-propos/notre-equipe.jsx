@@ -16,6 +16,30 @@ import { greaterThan, lessThan } from '../../utils/mediaQuery';
 // views
 import AboutTabs from '../../views/AboutPagesView/AboutTabs';
 
+// images
+import alexisRodrigue from '../../images/about/volunteers/alexis_rodrigue.jpg';
+import annieDeshaies from '../../images/about/volunteers/annie_deshaies.jpg';
+import bertrandLirette from '../../images/about/volunteers/bertrand_lirette.jpg';
+import claudieMathieu from '../../images/about/volunteers/claudie_mathieu.jpg';
+import florianMartin from '../../images/about/volunteers/florian_martin.jpg';
+import inconnu from '../../images/about/volunteers/inconnu.jpg';
+import jeanDavidRheaume from '../../images/about/volunteers/jean-david_rheaume.jpg';
+import jeanNicolasGauthier from '../../images/about/volunteers/jean-nicolas_gauthier.jpg';
+import jeanPhilippeBougie from '../../images/about/volunteers/jean-philippe_bougie.jpg';
+import josiannePicard from '../../images/about/volunteers/josianne_picard.jpg';
+import julieRoyer from '../../images/about/volunteers/julie_royer.jpg';
+import krystinaHamel from '../../images/about/volunteers/krystina_hamel.jpg';
+import laurentHarel from '../../images/about/volunteers/laurent_harel.jpg';
+import marcVincentLetellier from '../../images/about/volunteers/marc-vincent_letellier.jpg';
+import marieMicheleBouchard from '../../images/about/volunteers/marie-michele_bouchard.jpg';
+import mariePierAmyot from '../../images/about/volunteers/marie-pier_amyot.jpg';
+import mariePierRoyDube from '../../images/about/volunteers/marie-pier_roy_dube.jpg';
+import maryElizabethLagace from '../../images/about/volunteers/mary-elizabeth_lagace.jpg';
+import mathieuLarouche from '../../images/about/volunteers/mathieu_larouche.jpg';
+import oceaneColling from '../../images/about/volunteers/oceane_colling.jpg';
+import rosalieSimard from '../../images/about/volunteers/rosalie_simard.jpg';
+import vincentBissonnette from '../../images/about/volunteers/vincent_bissonnette.jpg';
+
 // styles
 import breakpoints from '../../styles/breakpoints';
 import { introStyle } from '../../styles/global';
@@ -74,7 +98,7 @@ const GalleriesWrapper = styled.div`
   width: 100%;
   padding: 0 var(--container-gutter);
 
-  overflow: hidden;
+  overflow: visible;
 
   text-align: center;
 
@@ -106,7 +130,14 @@ const CAList = styled.ul`
 `;
 
 const CAItem = styled.li`
+  max-width: 80%;
   margin-bottom: 50px;
+  padding-bottom: 114px;
+
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [30, 50], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 
   &:last-child {
     margin-bottom: 0;
@@ -146,257 +177,189 @@ const OurTeamPage = () => {
           twitter: 'https://twitter.com/',
           website: 'https://google.com/',
         },
+      ],
+    },
+    {
+      id: 1,
+      name: 'comité de programmation',
+      members: [
         {
-          id: 1,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-        },
-        {
-          id: 2,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
-        },
-        {
-          id: 3,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
-        },
-        {
-          id: 4,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Amélie Bissonnette-Montminy',
-          job: 'Design et communication',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-          twitter: 'https://twitter.com/',
-          website: 'https://google.com/',
-        },
-        {
-          id: 5,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-        },
-        {
-          id: 6,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
-        },
-        {
-          id: 7,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
-        },
-        {
-          id: 8,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Amélie Bissonnette-Montminy',
-          job: 'Design et communication',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-          twitter: 'https://twitter.com/',
-          website: 'https://google.com/',
-        },
-        {
-          id: 9,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-        },
-        {
-          id: 10,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
-        },
-        {
-          id: 11,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
-        },
-        {
-          id: 12,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Amélie Bissonnette-Montminy',
-          job: 'Design et communication',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-          twitter: 'https://twitter.com/',
-          website: 'https://google.com/',
-        },
-        {
-          id: 13,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-        },
-        {
-          id: 14,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
+          id: 0,
+          photoUrl: alexisRodrigue,
+          name: 'Alexis Rodrigue',
+          job: '???',
+          email: 'alexis@alexisrodrigue.com',
         },
       ],
     },
     {
       id: 1,
-      name: 'comité design',
+      name: 'comité des communications',
       members: [
         {
           id: 0,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Amélie Bissonnette-Montminy',
-          job: 'Design et communication',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-          twitter: 'https://twitter.com/',
-          website: 'https://google.com/',
+          photoUrl: jeanDavidRheaume,
+          name: 'Jean-David Rhéaume',
+          job: 'Chargé de projet Web',
+          email: 'jean-david@webaquebec.org',
         },
         {
           id: 1,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
+          photoUrl: mariePierAmyot,
+          name: 'Marie-Pier Amyot',
+          job: '???',
+          email: 'marie-pier@webaquebec.org',
         },
         {
           id: 2,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
-        },
-        {
-          id: 3,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
-        },
-        {
-          id: 4,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Amélie Bissonnette-Montminy',
-          job: 'Design et communication',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-          twitter: 'https://twitter.com/',
-          website: 'https://google.com/',
-        },
-        {
-          id: 5,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
+          photoUrl: mariePierRoyDube,
+          name: 'Marie-Pier Roy Dubé',
+          job: '???',
+          email: 'mariepier.roydube@gmail.com',
         },
       ],
     },
     {
       id: 2,
+      name: 'comité design',
+      members: [
+        {
+          id: 0,
+          photoUrl: marieMicheleBouchard,
+          name: 'Marie-Michèle Bouchard',
+          job: 'Designer graphique',
+          email: 'marie-michele@webaquebec.org',
+        },
+        {
+          id: 1,
+          photoUrl: jeanNicolasGauthier,
+          name: 'Jean-Nicolas Gauthier',
+          job: 'Designer graphique',
+          email: 'jean-nicolas@webaquebec.org',
+        },
+        {
+          id: 2,
+          photoUrl: bertrandLirette,
+          name: 'Bertrand Lirette',
+          job: 'Curateur design',
+          email: 'blirette@webaquebec.org',
+        },
+        {
+          id: 3,
+          photoUrl: josiannePicard,
+          name: 'Josianne Picard',
+          job: '???',
+          email: 'josianne.picard@webaquebec.org',
+        },
+        {
+          id: 4,
+          photoUrl: marcVincentLetellier,
+          name: 'Marc-Vincent Letellier',
+          job: 'Designer graphique',
+          email: 'marc-vincent@webaquebec.org',
+        },
+        {
+          id: 5,
+          photoUrl: vincentBissonnette,
+          name: 'Vincent Bissonnette',
+          job: 'Designer graphique',
+          email: 'vincent.bissonnette@webaquebec.org',
+        },
+      ],
+    },
+    {
+      id: 3,
       name: 'comité web',
       members: [
         {
           id: 0,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Amélie Bissonnette-Montminy',
-          job: 'Design et communication',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-          twitter: 'https://twitter.com/',
-          website: 'https://google.com/',
+          photoUrl: florianMartin,
+          name: 'Florian Martin',
+          job: 'Développeur Web Frontend',
+          email: 'florian.martin@webaquebec.org',
         },
         {
           id: 1,
-          photoUrl: 'https://via.placeholder.com/250',
+          photoUrl: krystinaHamel,
           name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
+          job: 'Développeur Web Frontend',
+          email: 'krystina@webaquebec.org',
         },
         {
           id: 2,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
+          photoUrl: laurentHarel,
+          name: 'Laurent Harel',
+          job: 'Développeur Web Fullstack',
+          email: 'laurent@webaquebec.org',
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: 'divers',
+      members: [
+        {
+          id: 0,
+          photoUrl: annieDeshaies,
+          name: 'Annie Deshaies',
+          job: '???',
+          email: 'annie.deshaies@gmail.com',
+        },
+        {
+          id: 1,
+          photoUrl: claudieMathieu,
+          name: 'Claudie Mathieu',
+          job: '???',
+          email: 'claudie.mathieu@webaquebec.org',
         },
         {
           id: 3,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
+          photoUrl: inconnu,
+          name: 'Inconnu',
+          job: '???',
+          email: '???@webaquebec.org',
         },
         {
           id: 4,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Amélie Bissonnette-Montminy',
-          job: 'Design et communication',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
-          twitter: 'https://twitter.com/',
-          website: 'https://google.com/',
+          photoUrl: jeanPhilippeBougie,
+          name: 'Jean-Philippe Bougie',
+          job: '???',
+          email: 'jp.bougie@gmail.com',
         },
         {
           id: 5,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          email: 'email@webaquebec.org',
-          instagram: 'https://www.instagram.com/',
-          linkedin: 'https://www.linkedin.com/',
+          photoUrl: julieRoyer,
+          name: 'Julie Royer',
+          job: '???',
+          email: 'julie.royer@design.ulaval.ca',
         },
         {
           id: 6,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
+          photoUrl: maryElizabethLagace,
+          name: 'Mary-Élizabeth Lagacé',
+          job: '???',
+          email: 'mary-elizabeth@webaquebec.org',
         },
         {
           id: 7,
-          photoUrl: 'https://via.placeholder.com/250',
-          name: 'Krystina Hamel',
-          job: 'Développeur web front-end',
-          website: 'https://google.com/',
+          photoUrl: mathieuLarouche,
+          name: 'Mathieu Larouche',
+          job: '???',
+          email: 'matdube@gmail.com',
+        },
+        {
+          id: 8,
+          photoUrl: oceaneColling,
+          name: 'Océane Colling',
+          job: '???',
+          email: 'oceane.colling@webaquebec.org',
+        },
+        {
+          id: 9,
+          photoUrl: rosalieSimard,
+          name: 'Rosalie Simard',
+          job: '???',
+          email: 'rosalie.simard1@gmail.com',
         },
       ],
     },
@@ -405,30 +368,24 @@ const OurTeamPage = () => {
   const sectionCAData = [
     {
       id: 0,
-      photoUrl: 'https://via.placeholder.com/400',
-      name: 'Amélie Bissonnette-Montminy',
-      job: 'Design et communication',
+      photoUrl: jeanDavidRheaume,
+      name: 'Jean-David Rhéaume',
+      job: 'Responsable de lorem',
       email: 'email@webaquebec.org',
-      instagram: 'https://www.instagram.com/',
-      linkedin: 'https://www.linkedin.com/',
-      twitter: 'https://twitter.com/',
-      website: 'https://google.com/',
     },
     {
       id: 1,
-      photoUrl: 'https://via.placeholder.com/400',
-      name: 'Krystina Hamel',
-      job: 'Développeur web front-end',
+      photoUrl: jeanDavidRheaume,
+      name: 'Jean-David Rhéaume',
+      job: 'Responsable de ipsum',
       email: 'email@webaquebec.org',
-      instagram: 'https://www.instagram.com/',
-      linkedin: 'https://www.linkedin.com/',
     },
     {
       id: 2,
-      photoUrl: 'https://via.placeholder.com/400',
-      name: 'Krystina Hamel',
-      job: 'Développeur web front-end',
-      website: 'https://google.com/',
+      photoUrl: jeanDavidRheaume,
+      name: 'Jean-David Rhéaume',
+      job: 'Responsable de lorem ipsum',
+      email: 'email@webaquebec.org',
     },
   ];
 

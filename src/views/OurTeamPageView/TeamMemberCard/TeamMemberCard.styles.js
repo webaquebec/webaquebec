@@ -16,8 +16,17 @@ export const galleryStyleCard = css`
     transition: transform 200ms ease;
 
     ${greaterThan(680)} {
-      transform: rotate(-3deg);
+      transform: rotate(-3deg) scale(1.25);
     }
+  }
+`;
+
+export const MemberCard = styled.div`
+  position: relative;
+
+  &:hover,
+  &:focus {
+    z-index: 1;
 
     & > div {
       opacity: 1;
@@ -50,10 +59,6 @@ export const galleryStyleCard = css`
       content: '';
     }
   }
-`;
-
-export const MemberCard = styled.div`
-  position: relative;
 
   ${({ $galleryStyle }) => $galleryStyle && galleryStyleCard}
 `;
@@ -91,7 +96,6 @@ export const MemberPicture = styled.img`
 `;
 
 export const galleryStyleInfos = css`
-  position: absolute;
   bottom: 0;
   z-index: 1;
 
@@ -104,11 +108,7 @@ export const galleryStyleInfos = css`
   transition: opacity 200ms ease;
 
   ${breakpointsRange(
-    [
-      { prop: 'marginBottom', sizes: [24, 30], bases: [16, 20] },
-      { prop: 'marginLeft', sizes: [16, 16], bases: [16, 20] },
-      { prop: 'marginRight', sizes: [16, 16], bases: [16, 20] },
-    ],
+    [{ prop: 'margin', sizes: [16, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
@@ -118,10 +118,12 @@ export const galleryStyleInfos = css`
 `;
 
 export const MemberInfos = styled.div`
+  position: absolute;
+
   text-align: left;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [24, 30], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [24, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
@@ -130,7 +132,7 @@ export const MemberInfos = styled.div`
 
 export const galleryStyleName = css`
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [14, 12], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -141,29 +143,32 @@ export const MemberName = styled.p`
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [20, 20], bases: [16, 20] },
-      { prop: 'marginTop', sizes: [24, 30], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [4, 4], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
-
   ${({ $galleryStyle }) => $galleryStyle && galleryStyleName}
+`;
+
+export const galleryStyleJob = css`
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [12, 10], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 export const MemberJob = styled.p`
   margin: 0;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [12, 12], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [14, 12], bases: [16, 20] }],
     breakpoints.spacings
   )};
+  ${({ $galleryStyle }) => $galleryStyle && galleryStyleJob}
 `;
 
 export const galleryStyleList = css`
-  ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [16, 16], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
+  margin-top: 0;
 `;
 
 export const ContactList = styled.ul`
@@ -173,11 +178,6 @@ export const ContactList = styled.ul`
   padding: 0;
 
   list-style: none;
-
-  ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [24, 24], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
 
   ${({ $galleryStyle }) => $galleryStyle && galleryStyleList}
 `;

@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // images
-import test from '../../../images/test.png';
 import iconEmail from '../../../images/socialMedia/email.svg';
 import iconInstagram from '../../../images/socialMedia/instagram.svg';
 import iconLinkedin from '../../../images/socialMedia/linkedin.svg';
@@ -60,11 +59,11 @@ const TeamMemberCard = ({ member, galleryStyle }) => {
   return (
     <MemberCard $galleryStyle={galleryStyle}>
       <PictureWrapper>
-        <MemberPicture src={test} alt='' />
+        <MemberPicture src={member.photoUrl} alt='' />
       </PictureWrapper>
       <MemberInfos $galleryStyle={galleryStyle}>
         <MemberName $galleryStyle={galleryStyle}>{member.name}</MemberName>
-        <MemberJob>{member.job}</MemberJob>
+        <MemberJob $galleryStyle={galleryStyle}>{member.job}</MemberJob>
         <ContactList $galleryStyle={galleryStyle}>
           {contactLinks
             .filter((link) => link.url !== undefined)
