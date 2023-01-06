@@ -40,6 +40,8 @@ const JoinUsSection = () => (
               animated
               tag='href'
               to='https://quebecnumerique.com/nous-joindre'
+              target='_blank'
+              rel='noopener noreferrer'
             >
               en savoir plus
             </Button>
