@@ -9,7 +9,6 @@ import {
   MediaText,
   MediaList,
   ContentContainer,
-  // SectionContainer,
   blockContainerStyle,
 } from './SocialNews.styles';
 import colors from '../../styles/colors';
@@ -25,6 +24,7 @@ import facebook from '../../images/socialMedia/facebook.svg';
 import twitter from '../../images/socialMedia/twitter.svg';
 import instagram from '../../images/socialMedia/instagram.svg';
 import linkedin from '../../images/socialMedia/linkedin.svg';
+import elevation from '../../styles/elevation';
 
 const SocialNews = () => {
   const socialMedia = [
@@ -51,13 +51,18 @@ const SocialNews = () => {
   ];
 
   return (
-    <Switcher threshold='768px' space='2rem' limit={2}>
+    <Switcher
+      threshold='768px'
+      space='calc(var(--container-gutter) * 2)'
+      limit={2}
+    >
       <div>
         <Paper
           lightColor={colors.gris30}
           darkColor={colors.bleu80}
           rounded
           overlaid
+          elevation={elevation.large}
           css={blockContainerStyle}
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer}>
@@ -90,6 +95,7 @@ const SocialNews = () => {
           lightColor={colors.bleu80}
           darkColor={colors.gris30}
           rounded
+          elevation={elevation.large}
           css={blockContainerStyle}
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer}>
@@ -103,7 +109,7 @@ const SocialNews = () => {
             <Button
               to='https://l.communication.quebecnumerique.com/T/WF/15110/SAbFfT/Optin/fr-CA/Form.ofsys'
               tag='href'
-              primary
+              inverted
               small
               animated
             >

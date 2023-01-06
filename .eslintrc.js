@@ -25,6 +25,8 @@ module.exports = {
       },
     ],
     'react/jsx-props-no-spreading': 1,
+    'jsx-a11y/media-has-caption': 0,
+    'react/no-unknown-property': ['error', { ignore: ['css'] }],
   },
   env: {
     browser: true,

@@ -1,66 +1,47 @@
 // vendors
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
 
-// components
-import Button from '../../../components/Button';
-
 // styles
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
-import { fontFamilies, fontWeights } from '../../../styles/typography';
+import { fontWeights } from '../../../styles/typography';
+
+export const linkStyleHover = css`
+  :hover,
+  :focus {
+    text-decoration: none;
+  }
+`;
 
 export const StyledHero = styled.header`
   position: relative;
 
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [86, 130], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [120, 200], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [128, 173], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 `;
 
-export const MarqueeWrapper = styled.div`
-  position: relative;
+export const HeroIntro = styled.h3`
+  margin-top: 12px;
+  margin-bottom: 0;
 
-  width: 100%;
-  height: 100%;
-`;
-
-export const Dates = styled.p`
   color: ${colors.bleu80};
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
-  white-space: nowrap;
 
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [32, 94], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [32, 94], bases: [16, 20] },
-      { prop: 'fontSize', sizes: [64, 164], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [24, 40], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [28, 48], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [32, 48], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [120, 160], bases: [16, 20] },
     ],
-    breakpoints.spacings
-  )};
-`;
-
-export const StarSeparator = styled.img`
-  ${breakpointsRange(
-    [
-      { prop: 'marginLeft', sizes: [12, 64], bases: [16, 20] },
-      { prop: 'marginRight', sizes: [12, 64], bases: [16, 20] },
-      { prop: 'width', sizes: [24, 50], bases: [16, 20] },
-    ],
-    breakpoints.spacings
-  )};
-`;
-
-export const MapPin = styled.img`
-  ${breakpointsRange(
-    [{ prop: 'width', sizes: [25, 35], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -78,25 +59,11 @@ export const AddressFirstLine = styled.p`
   )};
 `;
 
-export const CallToAction = styled(Button)`
+export const MapPinIcon = styled.img`
+  height: 100%;
+
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [32, 32], bases: [16, 20] }],
+    [{ prop: 'width', sizes: [34, 64], bases: [16, 20] }],
     breakpoints.spacings
   )};
-`;
-
-export const StickerImg = styled.img`
-  ${({ $minWidth, $maxWidth }) =>
-    $minWidth &&
-    $maxWidth &&
-    breakpointsRange(
-      [
-        {
-          prop: 'width',
-          sizes: [$minWidth, $maxWidth],
-          bases: [16, 20],
-        },
-      ],
-      breakpoints.spacings
-    )};
 `;

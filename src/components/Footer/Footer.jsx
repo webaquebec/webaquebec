@@ -1,35 +1,47 @@
 // vendors
 import React from 'react';
-import { Link } from 'gatsby';
-import { useInView } from 'react-intersection-observer';
+import { Link as GatsbyLink } from 'gatsby';
 
 // components
+import { hideVisually } from 'polished';
 import Center from '../LayoutSections/Center';
 import Switcher from '../LayoutSections/Switcher';
 import Stack from '../LayoutSections/Stack/Stack';
 import SocialNews from '../SocialNews';
-// import LazyAnimation from '../LazyAnimation';
 
 // images
-import logo from '../../images/logo-waq-22.svg';
+import logo from '../../images/logo-waq-23.svg';
+import logoVilleDeQuebec from '../../images/logoPartners/footer/logo-ville-de-quebec.svg';
+import logoQuebec from '../../images/logoPartners/footer/logo-quebec.svg';
+import logoPortQuebec from '../../images/logoPartners/footer/logo-port-quebec.svg';
 
 // styles
 import {
-  StyledFooter,
-  FooterWrapper,
-  FooterTitle,
-  ContactLink,
-  LogoWrapper,
+  footerWrapperStyle,
+  Block,
+  Title,
+  Link,
   Logo,
   ArchivesList,
   ArchiveItem,
   ArchiveLink,
-  StickerWrapper,
-  Sticker,
+  StyledFooter,
+  FooterPartners,
+  FooterLogo,
 } from './Footer.styles';
 
 const Footer = () => {
   const archives = [
+    {
+      year: '2022',
+      link: '/programmation/2022',
+      type: 'internal',
+    },
+    {
+      year: '2021',
+      link: '/programmation/2021',
+      type: 'internal',
+    },
     {
       year: '2020',
       link: 'https://archives.webaquebec.org/programmation/2020/0',
@@ -53,73 +65,118 @@ const Footer = () => {
     { year: '2012', link: 'https://2012.webaquebec.org/' },
   ];
 
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
+  const footerPartners = [
+    {
+      src: logoVilleDeQuebec,
+      alt: 'Ville de Québec',
+      url: 'https://www.ville.quebec.qc.ca/',
+    },
+    {
+      src: logoQuebec,
+      alt: 'Québec',
+      url: 'https://www.quebec.ca/',
+    },
+    {
+      src: logoPortQuebec,
+      alt: 'Port de Québec',
+      url: 'https://www.portquebec.ca/',
+    },
+  ];
 
   return (
     <StyledFooter>
-      <Center maxWidth='1064px' gutters='32px'>
+      <Center maxWidth='1064px' gutters='var(--container-gutter)'>
         <Stack space='94px'>
-          <div
-            ref={ref}
-            css={`
-              position: relative;
-            `}
-          >
-            <StickerWrapper>
-              <Sticker
-                style={{ '--playState': inView ? 'running' : 'paused' }}
-              />
-            </StickerWrapper>
-
-            <SocialNews />
-          </div>
+          <SocialNews />
 
           <Switcher
-            threshold='768px'
+            threshold='832px'
             space='2rem'
-            limit={3}
-            css={FooterWrapper}
+            limit={4}
+            css={footerWrapperStyle}
           >
             <div>
-              <div>
-                <FooterTitle>Pour nous contacter</FooterTitle>
+              <Block>
+                <Title>
+                  <span css={hideVisually}>Web à Québec</span>
 
-                <ContactLink href='tel:1-877-334-2547'>
-                  1-877-334-2547
-                </ContactLink>
-                <ContactLink href='mailto:info@webaquebec.org'>
+                  <Link as={GatsbyLink} to='/'>
+                    <Logo src={logo} alt='Accueil' />
+                  </Link>
+                </Title>
+
+                <p
+                  css={`
+                    max-width: 200px;
+                  `}
+                >
+                  Événement coordonné par{' '}
+                  <Link
+                    href='https://quebecnumerique.com/'
+                    rel='noopener noreferrer'
+                    target='_blank'
+                  >
+                    Québec numérique
+                  </Link>
+                </p>
+              </Block>
+
+              <Block>
+                <Title>Pour nous contacter</Title>
+
+                <Link href='tel:1-877-334-2547'>1-877-334-2547</Link>
+                <br />
+                <Link href='mailto:info@webaquebec.org'>
                   info@webaquebec.org
-                </ContactLink>
-              </div>
-
-              <LogoWrapper>
-                <Link to='/'>
-                  <Logo src={logo} alt='Accueil' />
                 </Link>
-              </LogoWrapper>
+              </Block>
 
-              <div>
-                <FooterTitle>Archives</FooterTitle>
+              <Block>
+                <Title>Archives</Title>
 
                 <ArchivesList>
-                  {archives.map((year) => (
-                    <ArchiveItem key={year.year}>
-                      <ArchiveLink
-                        rel='noopener noreferrer'
-                        target='_blank'
-                        href={year.link}
-                      >
-                        {year.year}
-                      </ArchiveLink>
+                  {archives.map((archive) => (
+                    <ArchiveItem key={archive.year}>
+                      {archive.type && archive.type === 'internal' ? (
+                        <ArchiveLink as={GatsbyLink} to={archive.link}>
+                          {archive.year}
+                        </ArchiveLink>
+                      ) : (
+                        <ArchiveLink
+                          href={archive.link}
+                          rel='noopener noreferrer'
+                          target='_blank'
+                        >
+                          {archive.year}
+                        </ArchiveLink>
+                      )}
                     </ArchiveItem>
                   ))}
                 </ArchivesList>
-              </div>
+              </Block>
+
+              <Block>
+                <Title>
+                  <Link as={GatsbyLink} to='/code-de-conduite'>
+                    Code de conduite
+                  </Link>
+                </Title>
+              </Block>
             </div>
           </Switcher>
+
+          <FooterPartners>
+            {footerPartners.map((image) => (
+              <FooterLogo
+                href={image.url}
+                key={image.url}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <img src={image.src} alt={image.alt} />
+              </FooterLogo>
+            ))}
+          </FooterPartners>
         </Stack>
       </Center>
     </StyledFooter>

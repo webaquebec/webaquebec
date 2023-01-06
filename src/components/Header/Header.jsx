@@ -1,7 +1,7 @@
 // vendors
 import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
 // components
 import Center from '../LayoutSections/Center';
@@ -9,66 +9,93 @@ import Logo from './Logo';
 import Menu from './Menu';
 
 // images
-import vectorBurgerMenu from '../../images/vectorBurgerMenu.svg';
+// import vectorBurgerMenu from '../../images/vectorBurgerMenu.svg';
 
 // styles
 import {
   StyledHeader,
   Container,
   LogoWrapper,
-  StyledNav,
-  PrimaryNavList,
-  NavListItem,
-  NavLink,
   MenuButtonWrapper,
-  BurgerButton,
-  BurgerImg,
+  // BurgerButton,
+  // BurgerImg,
 } from './Header.styles';
+import BurgerButton from './BurgerButton';
 
 const primaryNavigation = [
-  {
-    id: 'prog',
-    label: 'Dernière édition',
-    slug: '/programmation/2021',
-    type: 'internal',
-    color: 'jaune',
-  },
   // {
-  //   id: 'blog',
-  //   label: 'blogue',
-  //   slug: '/blogue',
+  //   id: 'programmation',
+  //   label: 'programmation',
+  //   slug: '/programmation/2022',
   //   type: 'internal',
+  //   color: 'turquoise',
   // },
   {
-    id: 'faq',
-    label: 'FAQ',
-    slug: '/faq',
+    id: 'blog',
+    label: 'blogue',
+    slug: '/blogue',
     type: 'internal',
     color: 'rose',
   },
+  {
+    id: 'tickets',
+    label: 'billetterie',
+    slug: '/billetterie',
+    type: 'internal',
+    color: 'ciel',
+  },
+  {
+    id: 'waqademy',
+    label: 'WAQadémie',
+    slug: '/waqademie',
+    type: 'internal',
+    color: 'mauve',
+  },
+];
+
+const secondaryNavigation = [
   {
     id: 'about',
     label: 'à propos',
     slug: '/a-propos/evenement',
     type: 'internal',
-    color: 'turquoise',
   },
   {
-    id: 'tickets',
-    label: 'Billetterie',
-    slug: '/billetterie',
+    id: 'partners',
+    label: 'partenaires',
+    slug: '/partenaires',
     type: 'internal',
-    color: 'ciel',
   },
   // {
-  //   id: 'covid-19',
-  //   label: 'covid-19',
-  //   slug:
-  //     'https://archives.webaquebec.org/blogue/on-va-se-dire-les-vraies-affaires',
-  //   type: 'external',
-  //   color: 'ciel',
+  //   id: 'faq',
+  //   label: 'FAQ',
+  //   slug: '/faq',
+  //   type: 'internal',
+  // },
+  {
+    id: 'code-of-conduct',
+    label: 'code de conduite',
+    slug: '/code-de-conduite',
+    type: 'internal',
+  },
+  {
+    id: 'edition2022',
+    label: 'édition 2022',
+    slug: '/programmation/2022',
+    type: 'internal',
+  },
+  // {
+  //   id: 'edition2021',
+  //   label: 'édition 2021',
+  //   slug: '/programmation/2021',
+  //   type: 'internal',
   // },
 ];
+
+const navigation = {
+  primary: [...primaryNavigation],
+  secondary: [...secondaryNavigation],
+};
 
 const Header = ({ pathname }) => {
   const [opened, setOpened] = useState(false);
@@ -81,8 +108,13 @@ const Header = ({ pathname }) => {
     if (!opened) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.removeAttribute('style');
     }
+  };
+
+  const handleClickLogo = () => {
+    setOpened(false);
+    document.body.removeAttribute('style');
   };
 
   return (
@@ -92,43 +124,15 @@ const Header = ({ pathname }) => {
         gutters='var(--container-gutter)'
       >
         <Container>
-          <StyledNav aria-label='Header Menu'>
-            <PrimaryNavList>
-              {primaryNavigation.map((item) => (
-                <NavListItem key={item.id}>
-                  {item.type === 'internal' ? (
-                    <NavLink
-                      as={Link}
-                      to={item.slug}
-                      activeClassName='active'
-                      partiallyActive
-                    >
-                      {item.label}
-                    </NavLink>
-                  ) : (
-                    <NavLink
-                      href={item.slug}
-                      activeClassName='active'
-                      partiallyActive
-                      rel='noopener noreferrer'
-                      target='_blank'
-                    >
-                      {item.label}
-                    </NavLink>
-                  )}
-                </NavListItem>
-              ))}
-            </PrimaryNavList>
-          </StyledNav>
-
           <LogoWrapper>
-            <Logo isHomePage={isHomePage} />
+            <Logo isHomePage={isHomePage} onClick={handleClickLogo} />
           </LogoWrapper>
 
           <MenuButtonWrapper>
-            <BurgerButton onClick={handleClick}>
+            {/* <BurgerButton onClick={handleClick}>
               <BurgerImg src={vectorBurgerMenu} alt='Menu' focusable='false' />
-            </BurgerButton>
+            </BurgerButton> */}
+            <BurgerButton onClick={handleClick} opened={opened} />
           </MenuButtonWrapper>
         </Container>
       </Center>
@@ -137,7 +141,7 @@ const Header = ({ pathname }) => {
         pathname={pathname}
         opened={opened}
         onClose={handleClick}
-        primaryNavigation={primaryNavigation}
+        navigation={navigation}
       />
     </StyledHeader>
   );

@@ -11,24 +11,15 @@ import Center from '../../components/LayoutSections/Center';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
-import { lessThan } from '../../utils/mediaQuery';
-
-// images
-import vectorGrid from '../../images/vectorVideoGrid.svg';
 
 // views
+import AboutTabs from '../../views/AboutPagesView/AboutTabs';
 import IntroSection from '../../views/AboutEventPageView/IntroSection';
 import AboutEventSection from '../../views/AboutEventPageView/AboutEventSection';
 import GallerySection from '../../views/AboutEventPageView/GallerySection';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
-import { h1AltStyle } from '../../styles/global';
-import colors from '../../styles/colors';
-
-const AboutTitle = styled.h1`
-  color: ${colors.bleu80};
-`;
 
 const GallerySectionImg = styled(GatsbyImage)`
   max-width: 100%;
@@ -55,19 +46,6 @@ const Video = styled.iframe`
 
   width: 100%;
   height: 100%;
-`;
-
-const VectorGrid = styled.img`
-  position: absolute;
-  right: 0;
-  bottom: -10%;
-  z-index: 1;
-
-  height: 90%;
-
-  ${lessThan(1280)} {
-    left: 20%;
-  }
 `;
 
 const VideoWrapper = styled.div`
@@ -137,23 +115,9 @@ const AboutEventPage = ({ data }) => {
 
   return (
     <>
-      <SEO
-        title='À propos'
-        description='Tout ce que tu dois savoir sur le WAQ.'
-      />
+      <SEO title="L'événement" description='' />
 
-      <header>
-        <Center
-          maxWidth='770px'
-          gutters='var(--container-gutter)'
-          withText
-          intrinsic
-        >
-          <AboutTitle css={h1AltStyle}>à propos</AboutTitle>
-
-          {/* TODO: Tabs comes here */}
-        </Center>
-      </header>
+      <AboutTabs activeTabId={0} />
 
       <IntroSection title={`l'événement`} text={intro}>
         <VideoWrapper>
@@ -166,8 +130,6 @@ const AboutEventPage = ({ data }) => {
               />
             </VideoContainer>
           </Center>
-
-          <VectorGrid src={vectorGrid} alt='' role='presentation' />
         </VideoWrapper>
       </IntroSection>
 

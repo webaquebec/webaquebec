@@ -17,19 +17,25 @@ import {
   TicketText,
 } from './Prices.styles';
 import colors from '../../../styles/colors';
+import elevation from '../../../styles/elevation';
 
 const Prices = () => (
-  <Center maxWidth='1064px' gutters='32px'>
-    <Switcher threshold='768px' space='2rem' limit={2}>
+  <Center maxWidth='1124px' gutters='var(--container-gutter)'>
+    <Switcher
+      threshold='992px'
+      space='calc(var(--container-gutter) * 2)'
+      limit={2}
+    >
       <BlocksWrapper>
         <Paper
           lightColor={colors.gris30}
           darkColor={colors.bleu80}
           rounded
           overlaid
+          elevation={elevation.large}
           css={blockContainerStyle}
         >
-          <Center maxWidth='290px' intrinsic withText css={ContentContainer}>
+          <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
             <TicketTitle color={colors.gris90}>Billet virtuel</TicketTitle>
 
             <TicketPrice>195$</TicketPrice>
@@ -55,20 +61,53 @@ const Prices = () => (
         </Paper>
 
         <Paper
-          lightColor={colors.bleu80}
-          darkColor={colors.gris30}
+          lightColor={colors.gris30}
+          darkColor={colors.bleu80}
           rounded
+          overlaid
+          elevation={elevation.large}
           css={blockContainerStyle}
         >
-          <Center maxWidth='290px' intrinsic css={ContentContainer} withText>
-            <TicketTitle>Prévente présentiel</TicketTitle>
+          <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
+            <TicketTitle color={colors.gris90}>Billet journalier</TicketTitle>
 
-            <TicketPrice>595$</TicketPrice>
+            <TicketPrice>395$</TicketPrice>
 
             <Button
               to='https://ti.to/web-a-quebec/waq-2022'
               tag='href'
-              primary
+              secondary
+              small
+              animated
+              rel='noopener noreferrer'
+              target='_blank'
+            >
+              Réserver
+            </Button>
+
+            <TicketText>
+              Envie de venir faire ton tour, mais tu es seulement disponible une
+              journée? Choisis laquelle, on s&apos;occupe du reste!
+            </TicketText>
+          </Center>
+        </Paper>
+
+        <Paper
+          lightColor={colors.bleu80}
+          darkColor={colors.gris30}
+          rounded
+          elevation={elevation.large}
+          css={blockContainerStyle}
+        >
+          <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
+            <TicketTitle>Billet présentiel</TicketTitle>
+
+            <TicketPrice>895$</TicketPrice>
+
+            <Button
+              to='https://ti.to/web-a-quebec/waq-2022'
+              tag='href'
+              inverted
               small
               animated
               rel='noopener noreferrer'

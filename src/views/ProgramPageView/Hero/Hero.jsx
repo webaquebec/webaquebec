@@ -2,18 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useMedia } from 'react-use';
 import { navigate } from 'gatsby';
 
 // components
-import HeroGrid from '../../../components/HeroGrid/HeroGrid';
+import { hideVisually } from 'polished';
 import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
 import DropDown from '../../../components/Dropdown';
+import Center from '../../../components/LayoutSections/Center';
 
 // utils
 import { lessThanCondition } from '../../../utils/mediaQuery';
+import breakpointsRange from '../../../utils/breakpointsRange';
 
 // contexts
 import { useModal } from '../../../contexts/ModalContext';
@@ -22,21 +24,29 @@ import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
 // hooks
 // import useHasMounted from '../../../hooks/useHasMounted';
 
-// images
-import vectorYear2021 from '../../../images/vectorYear2021.svg';
-
 // styles
+import { titleStyle } from '../../../styles/global';
+import breakpoints from '../../../styles/breakpoints';
 import {
   selfBreakpoints,
   Wrapper,
   HeaderContent,
   StickyTitle,
-  YearSticker,
   DateList,
   DateListItem,
   dateTabStyle,
   dateTabTypoStyle,
 } from './Hero.styles';
+
+const PageTitle = styled.h1`
+  ${breakpointsRange(
+    [
+      { prop: 'marginTop', sizes: [80, 200], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [80, 200], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
 
 const willChangeOpacityStyle = css`
   will-change: opacity;
@@ -70,9 +80,23 @@ const Hero = ({ location, datePaths }) => {
 
   const totalAppliedFilters = getTotalAppliedFilters();
 
+  const totalDates = datePaths.length;
+
+  const minWidth = totalDates > 3 ? '736px' : '632px';
+
   return (
     <>
-      <HeroGrid ref={ref} title='programmation' displayYear />
+      <Center
+        ref={ref}
+        maxWidth='var(--max-container-width)'
+        gutters='var(--container-gutter)'
+        intrinsic
+      >
+        <PageTitle css={titleStyle}>
+          <span>program</span>mation
+          {current.edition <= 2022 && <span>&nbsp;{current.edition}</span>}
+        </PageTitle>
+      </Center>
 
       <Wrapper>
         <HeaderGradient
@@ -81,13 +105,18 @@ const Hero = ({ location, datePaths }) => {
         />
 
         <HeaderContent
-          maxWidth={!isVisible ? '1066px' : '736px'}
+          maxWidth={!isVisible ? '1066px' : minWidth}
           gutters={mobile ? '16px' : '32px'}
         >
           {!isVisible && !tablet && (
             <StickyTitle>
-              programmation
-              <YearSticker src={vectorYear2021} alt='2021' />
+              <span>program</span>mation
+              <span css={current.edition > 2022 && hideVisually}>
+                &nbsp;{current.edition}
+              </span>
+              {/* {current.edition === 2021 && (
+                <YearSticker src={vectorYear2021} alt='2021' />
+              )} */}
             </StickyTitle>
           )}
 
@@ -147,6 +176,7 @@ const Hero = ({ location, datePaths }) => {
                   `}
                 >
                   <span>Filtres</span>
+
                   {totalAppliedFilters > 0 && (
                     <span>{`(${totalAppliedFilters})`}</span>
                   )}
@@ -154,7 +184,7 @@ const Hero = ({ location, datePaths }) => {
               </div>
             </div>
           ) : (
-            <DateList>
+            <DateList $shrunk={totalDates <= 3}>
               {datePaths.map((item) => (
                 <DateListItem key={item.date}>
                   <Button

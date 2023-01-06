@@ -36,23 +36,27 @@ const Stack = styled.div`
   justify-content: flex-start;
 
   ${({ recursive }) => (recursive ? '*' : '> *')} {
-    margin-top: 0;
-    margin-bottom: 0;
+    /* margin-top: 0;
+    margin-bottom: 0; */
+    margin-block: 0;
   }
 
   ${({ recursive }) => (recursive ? '* + *' : '> * + *')} {
-    margin-top: ${({ space }) => space};
+    /* margin-top: ${({ space }) => space}; */
+    margin-block-start: ${({ space }) => space};
   }
 
   ${({ splitAfter }) =>
     splitAfter &&
     css`
       :only-child {
-        height: 100%;
+        /* height: 100%; */
+        block-size: 100%;
       }
 
       > :nth-child(${splitAfter}) {
-        margin-bottom: auto;
+        /* margin-bottom: auto; */
+        margin-block-end: auto;
       }
     `}
 `;
@@ -67,7 +71,7 @@ Stack.propTypes = {
    */
   splitAfter: PropTypes.number,
   /**
-   * Whether the spaces apply recursively (i.e. regardless of nesting level)
+   * Whether spaces apply recursively (i.e. regardless of nesting level)
    */
   recursive: PropTypes.bool,
 };

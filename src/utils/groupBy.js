@@ -5,8 +5,8 @@
  * @param  {String|Function} criteria The criteria to group by
  * @return {Object}                   The grouped object
  */
-module.exports = (arr, criteria) => {
-  return arr.reduce((obj, item) => {
+module.exports = (arr, criteria) =>
+  arr.reduce((obj, item) => {
     // Check if the criteria is a function to run on the item or a property of it
     const key =
       typeof criteria === 'function' ? criteria(item) : item[criteria];
@@ -23,4 +23,3 @@ module.exports = (arr, criteria) => {
     // Return the object to the next item in the loop
     return obj;
   }, {});
-};

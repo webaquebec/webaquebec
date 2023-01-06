@@ -15,10 +15,10 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
-import { unorderListStyle } from '../../../styles/global';
+import { unorderedListStyleAlt } from '../../../styles/global';
 
 export const Wrapper = styled.div`
-  color: ${colors.gris100};
+  color: ${colors.bleu80};
 
   ${breakpointsRange(
     [
@@ -39,9 +39,17 @@ export const Highlight = styled.p`
 
   ${breakpointsRange(
     [
+      { prop: 'marginBottom', sizes: [16, 40], bases: [16, 20] },
       { prop: 'fontSize', sizes: [24, 32], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [32, 38], bases: [24, 32], unit: '' },
     ],
+    breakpoints.spacings
+  )};
+`;
+
+export const Paragraph = styled.p`
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [24, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -59,9 +67,9 @@ const NoResults = () => {
         Oups ! Il n’y a aucun résultat pour les filtres sélectionnés.
       </Highlight>
 
-      <p>Voici ce que vous pouvez faire :</p>
+      <Paragraph>Voici ce que vous pouvez faire :</Paragraph>
 
-      <Stack as='ul' space='16px' css={unorderListStyle}>
+      <Stack as='ul' space='16px' css={unorderedListStyleAlt}>
         <li>Réinitialiser les filtres</li>
         <li>Réduire le nombre de filtres appliqués</li>
         <li>Tenter une nouvelle combinaison de filtres</li>

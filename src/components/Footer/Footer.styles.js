@@ -1,70 +1,72 @@
 // vendors
-import styled, { css, keyframes } from 'styled-components';
-import { em } from 'polished';
-
-// images
-import Sticker22 from '../../images/stickers/Sticker22';
+import styled, { css } from 'styled-components';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
-import { lessThan } from '../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
 import { fontWeights } from '../../styles/typography';
 import colors from '../../styles/colors';
 
-export const FooterWrapper = css`
+export const footerWrapperStyle = css`
   ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [56, 94], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
 
-export const FooterTitle = styled.h2`
-  margin-top: 0;
-
-  color: ${colors.bleu90};
+export const footerTextStyle = css`
+  color: ${colors.bleu80};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 18], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 24], bases: [16, 16], unit: '' },
+    ],
     breakpoints.spacings
   )};
 `;
 
-export const ContactLink = styled.a`
-  display: block;
+export const Title = styled.h2`
+  margin: 0;
+  margin-bottom: 14px;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu90};
   font-weight: ${fontWeights.bold};
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [20, 20], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 24], bases: [16, 16], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
+export const Block = styled.div`
+  ${footerTextStyle}
+`;
+
+export const Link = styled.a`
+  /* display: block; */
+
+  /* color: ${colors.bleu80};
+  font-weight: ${fontWeights.medium}; */
   text-decoration: none;
 
   word-break: normal;
 
-  ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [20, 24], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
-
-export const LogoWrapper = styled.div`
-  align-self: center;
-
-  text-align: center;
-
-  @media (max-width: ${em(846)}) {
-    order: -1;
+  :hover,
+  :focus {
+    text-decoration: underline;
   }
 `;
 
 export const Logo = styled.img`
   width: 100%;
-  max-height: 32px;
-`;
-
-export const ArchivesBlock = styled.div`
-  color: ${colors.gris90};
+  max-width: 117px;
 `;
 
 export const ArchivesList = styled.ul`
@@ -99,6 +101,11 @@ export const ArchiveLink = styled.a`
     [{ prop: 'lineHeight', sizes: [24, 32], bases: [16, 20], unit: '' }],
     breakpoints.spacings
   )};
+
+  :hover,
+  :focus {
+    text-decoration: underline;
+  }
 `;
 
 export const StyledFooter = styled.footer`
@@ -111,79 +118,26 @@ export const StyledFooter = styled.footer`
   )};
 `;
 
-export const StickerWrapper = styled.div`
-  position: absolute;
-  top: -${350 / 2 - 19}px;
-  left: -${350 / 2 - 9}px;
+export const FooterPartners = styled.div`
+  display: flex;
+  align-items: flex-end;
 
-  width: 350px;
-  height: auto;
-
-  ${lessThan(breakpoints.spacings[2])} {
-    top: -${290 / 2 + 50}px;
-    left: -${250 / 2 - 50}px;
-
-    width: 290px;
-  }
-
-  ${lessThan(breakpoints.spacings[1])} {
-    top: -${250 / 2 + 40}px;
-    left: -${250 / 2 - 83}px;
-
-    width: 250px;
-  }
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [50, 50], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
-const template = (i) => `
-        &:nth-child(${i}) {
-          animation-delay: ${i * 20}ms;
-         }
-      `;
+export const FooterLogo = styled.a`
+  ${breakpointsRange(
+    [
+      { prop: 'marginRight', sizes: [50, 50], bases: [16, 20] },
+      { prop: 'maxWidth', sizes: [100, 100], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
 
-const setAnimationDelays = () => {
-  let str = '';
-  for (let index = 0; index <= 80; index += 1) {
-    str += template(index);
-  }
-  return str;
-};
-
-const moving = keyframes`
-  from {
-    transform: translate3d(10px, 0, 0) rotate3d(0, 0, 1, -40deg);
-  }
-
-  to {
-    transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
-  }
-`;
-
-const appear = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
-
-export const Sticker = styled(Sticker22)`
-  .pog {
-    transform-origin: center;
-    transform-box: fill-box;
-
-    animation: ${moving} 500ms cubic-bezier(0.64, 0.57, 0.67, 1.53),
-      ${appear} 0s;
-    animation-play-state: var(--playState, paused);
-    animation-fill-mode: both;
-
-    will-change: opacity, transform;
-
-    ${setAnimationDelays()};
-
-    @media (prefers-reduced-motion: reduce) {
-      animation-name: none;
-    }
+  img {
+    max-width: 100%;
   }
 `;

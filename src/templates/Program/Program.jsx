@@ -24,11 +24,11 @@ import Filters from '../../views/ProgramPageView/Filters';
 import NoResults from '../../views/ProgramPageView/NoResults';
 
 // utils
-import slugify from '../../utils/strings/slugify';
 import breakpointsRange from '../../utils/breakpointsRange';
 import { lessThan } from '../../utils/mediaQuery';
+import slugify from '../../utils/strings/slugify';
 import unSlugify from '../../utils/strings/unSlugify';
-import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
+import { eventTypesMap } from '../../utils/dataMapping';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
@@ -65,7 +65,7 @@ const FiltersWrapper = styled.div`
 const Program = ({
   location,
   data,
-  pageContext: { eventDates, pagePaths, pageNumber },
+  pageContext: { eventDates, pagePaths },
 }) => {
   const {
     swapcard: { plannings },
@@ -79,6 +79,8 @@ const Program = ({
     applyFilter,
   } = useProgramFilters();
 
+  const formatDateStr = (value) => value.replace(/-/g, '/');
+
   /**
    * Get list of date and path from event dates.
    * Use memoization here to cache the result to avoid expensive calculation on every render.
@@ -88,12 +90,22 @@ const Program = ({
    * */
   const datePaths = useMemo(() => {
     // Re-arrange event dates the way we want to display them in our template
-    const displayableDates = eventDates.map((current, index, array) =>
-      index === array.length - 1 ? 'bonus !' : current
-    );
+    const displayableDates = eventDates.map((current) => {
+      const date = new Date(formatDateStr(current));
+      const eventYear = date.getFullYear();
+
+      // const isBonus = eventYear === 2021 && index === array.length - 1;
+
+      const options = { weekday: 'long', day: 'numeric', month: 'long' };
+
+      return {
+        edition: eventYear,
+        date: date.toLocaleDateString('fr-ca', options),
+      };
+    });
 
     const tempDatePaths = displayableDates.map((date, index) => ({
-      date,
+      ...date,
       path: pagePaths[index],
     }));
 
@@ -117,11 +129,12 @@ const Program = ({
     };
 
     const modifiedPlannings = plannings.map((planning) => ({
+      ...planning,
+      type: slugify(planning.type),
       time: {
         beginsAt: getFormattedTime(planning.beginsAt),
         endsAt: getFormattedTime(planning.endsAt),
       },
-      ...planning,
     }));
 
     return modifiedPlannings;
@@ -130,7 +143,7 @@ const Program = ({
   // Initialize filters once we got plannings from Swapcard
   useEffect(() => {
     const places = [];
-    const categories = [];
+    // const categories = [];
     const eventTypes = [];
 
     const addChoices = (value, array) => {
@@ -139,13 +152,13 @@ const Program = ({
       array.push(value);
     };
 
-    plannings.forEach((session) => {
+    program.forEach((session) => {
       // Get all places for filters
       addChoices(session.place, places);
       // Get all categories for filters
-      session.categories.forEach((category) => {
-        addChoices(category, categories);
-      });
+      // session.categories.forEach((category) => {
+      //   addChoices(category, categories);
+      // });
       // Get all types for filters
       addChoices(session.type, eventTypes);
     });
@@ -162,16 +175,16 @@ const Program = ({
         },
       });
 
-      filterDispatcher({
-        type: 'UPDATE',
-        options: {
-          name: 'categories',
-          values: categories.map((value) => ({
-            name: categoriesMap[value],
-            value,
-          })),
-        },
-      });
+      // filterDispatcher({
+      //   type: 'UPDATE',
+      //   options: {
+      //     name: 'categories',
+      //     values: categories.map((value) => ({
+      //       name: categoriesMap[value],
+      //       value,
+      //     })),
+      //   },
+      // });
 
       filterDispatcher({
         type: 'UPDATE',
@@ -199,17 +212,17 @@ const Program = ({
       },
     });
 
-    filterDispatcher({
-      type: 'ADD',
-      options: {
-        name: 'categories',
-        title: 'Thématique',
-        values: categories.map((value) => ({
-          name: categoriesMap[value],
-          value,
-        })),
-      },
-    });
+    // filterDispatcher({
+    //   type: 'ADD',
+    //   options: {
+    //     name: 'categories',
+    //     title: 'Thématique',
+    //     values: categories.map((value) => ({
+    //       name: categoriesMap[value],
+    //       value,
+    //     })),
+    //   },
+    // });
 
     filterDispatcher({
       type: 'ADD',
@@ -224,7 +237,7 @@ const Program = ({
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [plannings]);
+  }, [program]);
 
   // Scroll to the last selected session
   useEffect(() => {
@@ -260,7 +273,7 @@ const Program = ({
   if (filters.length > 0) {
     filteredProgram = program
       .filter((session) => applyFilter('place', session.place))
-      .filter((session) => applyFilter('categories', session.categories))
+      // .filter((session) => applyFilter('categories', session.categories))
       .filter((session) => applyFilter('type', session.type));
   }
 
@@ -296,13 +309,14 @@ const Program = ({
                         title={session.title}
                         content={session.description}
                         place={session.place}
-                        time={
-                          pageNumber !== eventDates.length
-                            ? session.time
-                            : undefined
-                        }
+                        time={session.time}
+                        // time={
+                        //   pageNumber !== eventDates.length
+                        //     ? session.time
+                        //     : undefined
+                        // }
                         type={session.type}
-                        categories={session.categories}
+                        // categories={session.categories}
                         speakers={session.speakers}
                       />
                     ))}
@@ -340,7 +354,7 @@ Program.propTypes = {
     previousPagePath: PropTypes.string,
     eventDates: PropTypes.arrayOf(PropTypes.string),
     pagePaths: PropTypes.arrayOf(PropTypes.string),
-    pageNumber: PropTypes.number,
+    // pageNumber: PropTypes.number,
   }).isRequired,
 };
 

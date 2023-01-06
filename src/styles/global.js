@@ -16,6 +16,7 @@ export const rootStyle = css`
   --container-gutter: 16px;
   --min-container-width: 320px;
   --max-container-width: 1280px;
+  --max-content-post-width: 854px;
 
   font-size: ${interpolate(16, 20, 480, 1280)};
 
@@ -44,6 +45,10 @@ export const htmlStyle = css`
   scroll-behavior: smooth;
 `;
 
+export const mainStyle = css`
+  overflow-x: hidden;
+`;
+
 export const bodyStyle = css`
   position: relative;
 
@@ -52,7 +57,7 @@ export const bodyStyle = css`
   font-weight: ${fontWeights.regular};
   font-family: ${fontFamilies.body};
   ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [26, 24], bases: [16, 20], unit: '' }],
+    [{ prop: 'lineHeight', sizes: [22, 30], bases: [16, 20], unit: '' }],
     breakpoints.spacings
   )};
   letter-spacing: 0.1px;
@@ -97,16 +102,40 @@ export const h1Style = css`
   )};
 `;
 
+// export const h1AltStyle = css`
+//   color: ${colors.bleu};
+
+//   font-weight: ${fontWeights.bold};
+//   font-family: ${fontFamilies.redaction35};
+//   ${breakpointsRange(
+//     [
+//       { prop: 'fontSize', sizes: [54, 68], bases: [16, 20] },
+//       { prop: 'lineHeight', sizes: [59, 75], bases: [54, 68], unit: '' },
+//     ],
+//     breakpoints.spacings
+//   )};
+// `;
+
 export const h1AltStyle = css`
+  color: ${colors.bleu};
+
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction};
+
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [54, 68], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [59, 75], bases: [54, 68], unit: '' },
+      { prop: 'fontSize', sizes: [36, 96], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [39, 105], bases: [36, 96], unit: '' },
     ],
     breakpoints.spacings
   )};
+`;
+
+export const h1AltItalicStyle = css`
+  ${h1AltStyle}
+
+  font-weight: ${fontWeights.regular};
+  font-style: italic;
 `;
 
 export const h2Style = css`
@@ -192,13 +221,37 @@ export const magnifyStyle = css`
   color: ${colors.bleu};
 
   font-weight: ${fontWeights.bold};
+  font-family: ${fontFamilies.redaction};
+
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [24, 40], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [30, 48], bases: [24, 40], unit: '' },
+      { prop: 'fontSize', sizes: [20, 40], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 48], bases: [20, 40], unit: '' },
     ],
     breakpoints.spacings
   )};
+`;
+
+export const billboardStyle = css`
+  color: ${colors.bleu};
+
+  font-weight: ${fontWeights.bold};
+  font-family: ${fontFamilies.redaction};
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [64, 200], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [58, 180], bases: [64, 200], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
+export const billboardAltStyle = css`
+  ${billboardStyle}
+
+  font-weight: ${fontWeights.regular};
+  font-style: italic;
 `;
 
 export const unbreakableStringStyle = css`
@@ -210,9 +263,31 @@ export const unstyledLinkStyle = css`
   text-decoration: inherit;
 `;
 
-export const titleStyle = css``;
+export const titleStyle = css`
+  ${h1AltStyle}
+
+  > span {
+    ${h1AltItalicStyle}
+  }
+`;
+
+export const captionStyle = css`
+  display: block;
+
+  text-align: center;
+
+  ${breakpointsRange(
+    [
+      { prop: 'paddingTop', sizes: [13, 13], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [13, 13], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
 
 export const caption1Style = css`
+  ${captionStyle}
+
   font-weight: ${fontWeights.regular};
   ${breakpointsRange(
     [
@@ -230,6 +305,8 @@ export const caption1MediumStyle = css`
 `;
 
 export const caption2Style = css`
+  ${captionStyle}
+
   font-weight: ${fontWeights.regular};
   ${breakpointsRange(
     [
@@ -247,6 +324,8 @@ export const caption2MediumStyle = css`
 `;
 
 export const caption3Style = css`
+  ${captionStyle}
+
   font-weight: ${fontWeights.regular};
   ${breakpointsRange(
     [
@@ -304,7 +383,101 @@ export const unstyledListStyle = css`
   list-style: none;
 `;
 
-export const unorderListStyle = css`
+export const orderedListCounterStyle = css`
+  display: inline-block;
+
+  /* width: 1.3em; */
+  margin-inline-end: 0.3em;
+
+  color: ${colors.bleu80};
+  font-weight: ${fontWeights.bold};
+
+  /* direction: rtl; */
+
+  content: counter(li) '.';
+  counter-increment: li;
+`;
+
+export const orderedListStyle = css`
+  &,
+  ol {
+    list-style: none;
+
+    counter-reset: li;
+  }
+
+  ol,
+  li:not(:first-of-type) {
+    ${breakpointsRange(
+      [{ prop: 'marginTop', sizes: [14, 16], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
+
+  /* li {
+    counter-increment: li;
+  } */
+
+  > li::before {
+    ${orderedListCounterStyle}
+  }
+
+  > li ol > li::before {
+    ${orderedListCounterStyle}
+
+    margin-inline-start: 0.675em;
+
+    /* margin-left: 0.675em; */
+
+    content: counter(li, lower-alpha) '.';
+  }
+
+  > li ol > li ol > li::before {
+    ${orderedListCounterStyle}
+
+    margin-inline-start: 2em;
+
+    content: '(' counter(li) ')';
+  }
+`;
+
+export const unorderedListStyle = css`
+  &,
+  ul {
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 16px;
+  }
+
+  li::before {
+    display: inline-block;
+
+    /* width: 1em; */
+    margin-inline-end: 0.5em;
+    margin-inline-start: 0.7em;
+
+    color: ${colors.bleu80};
+    font-weight: ${fontWeights.bold};
+
+    content: '•';
+  }
+
+  li li::before {
+    margin-inline-start: 1.7em;
+
+    content: '○';
+  }
+
+  li li li::before {
+    margin-inline-start: 3.2em;
+
+    content: '-';
+  }
+`;
+
+export const unorderedListStyleAlt = css`
   ${unstyledListStyle};
 
   li {
@@ -325,7 +498,19 @@ export const unorderListStyle = css`
   }
 `;
 
-export const orderListStyle = css``;
+export const resetStyle = css`
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    color: inherit;
+
+    word-break: break-word;
+  }
+`;
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -339,4 +524,10 @@ export const GlobalStyle = createGlobalStyle`
   body {
     ${bodyStyle};
   }
+
+  main {
+    ${mainStyle};
+  }
+
+  ${resetStyle};
 `;

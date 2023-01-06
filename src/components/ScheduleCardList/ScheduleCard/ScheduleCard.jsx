@@ -43,6 +43,7 @@ const ScheduleCard = ({
     design: colors.mauve,
     developpement: colors.ciel,
     innovation: colors.turquoise,
+    'communication-and-marketing': colors.rose,
     'communication-et-marketing': colors.rose,
   };
 
@@ -90,9 +91,9 @@ const ScheduleCard = ({
           {(categories.length > 0 || type || place) && (
             <Cluster>
               <div>
-                {categories.map((category) => (
+                {/* {categories.map((category) => (
                   <Tag key={category} category={category} />
-                ))}
+                ))} */}
 
                 {type && <Tag eventType={type} />}
 
@@ -152,6 +153,7 @@ ScheduleCard.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.oneOf([
       'design',
+      'communication-and-marketing',
       'communication-et-marketing',
       'developpement',
       'innovation',

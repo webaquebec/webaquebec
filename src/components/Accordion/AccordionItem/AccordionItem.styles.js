@@ -28,11 +28,10 @@ const borderedStyle = css`
     width: 100%;
     height: 100%;
 
+    border: 2px solid;
     border-radius: inherit;
 
     content: '';
-
-    ${({ $expanded }) => $expanded && borderStyle};
   }
 
   :focus-within ::before,
@@ -210,7 +209,6 @@ export const bigPanelStyle = css`
       { prop: 'paddingRight', sizes: [40, 40] },
       { prop: 'paddingBottom', sizes: [32, 32] },
       { prop: 'paddingLeft', sizes: [40, 40] },
-      // { prop: 'marginTop', sizes: [-14, -14] },
     ],
     breakpoints.spacings,
     { bases: [16, 20] }
