@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
+import { greaterThan } from '../../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
@@ -17,10 +18,15 @@ const Section = styled.div`
 
 const QuebecNumeriqueLogo = styled.img`
   max-width: 375px;
+  margin: 0 auto 50px;
   object-fit: contain;
 
+  ${greaterThan(797)} {
+    margin-right: 48px;
+  }
+
   ${breakpointsRange(
-    [{ prop: 'marginRight', sizes: [16, 48], bases: [16, 20] }],
+    [{ prop: 'maxWidth', sizes: [275, 375], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;

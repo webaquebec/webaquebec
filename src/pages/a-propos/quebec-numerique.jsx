@@ -1,24 +1,15 @@
 // vendors
 import React from 'react';
-import styled from 'styled-components';
 
 // components
 import SEO from '../../components/SEO';
-import Center from '../../components/LayoutSections/Center';
+
+// views
+import AboutTabs from '../../views/AboutPagesView/AboutTabs';
 import IntroSection from '../../views/AboutEventPageView/IntroSection';
-import SectionContainer from '../../components/SectionContainer';
 import ImagesSection from '../../views/AboutQuebecNumeriquePageView/ImagesSection';
 import JoinUsSection from '../../views/AboutQuebecNumeriquePageView/JoinUsSection';
 import WhoWeAreSection from '../../views/AboutQuebecNumeriquePageView/WhoWeAreSection';
-
-// styles
-import { h1AltStyle } from '../../styles/global';
-import colors from '../../styles/colors';
-
-const AboutTitle = styled.h1`
-  ${h1AltStyle}
-  color: ${colors.bleu80};
-`;
 
 const AboutQuebecNumeriquePage = () => {
   const intro =
@@ -28,25 +19,15 @@ const AboutQuebecNumeriquePage = () => {
     <>
       <SEO title='Québec Numérique' description='' />
 
-      <header>
-        <Center
-          maxWidth='770px'
-          gutters='var(--container-gutter)'
-          withText
-          intrinsic
-        >
-          <AboutTitle>à propos</AboutTitle>
+      <AboutTabs activeTabId={2} />
 
-          {/* TODO: Tabs come here */}
-        </Center>
-      </header>
+      <IntroSection title='Québec Numérique' text={intro} />
 
-      <SectionContainer faded>
-        <IntroSection title='Québec Numérique' text={intro} />
-        <ImagesSection />
-        <WhoWeAreSection />
-        <JoinUsSection />
-      </SectionContainer>
+      <ImagesSection />
+
+      <WhoWeAreSection />
+
+      <JoinUsSection />
     </>
   );
 };

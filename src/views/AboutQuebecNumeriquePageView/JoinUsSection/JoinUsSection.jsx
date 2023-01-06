@@ -36,7 +36,7 @@ const JoinUsSection = () => (
             </Paragraph>
             <Button
               small
-              primary
+              secondary
               animated
               tag='href'
               to='https://quebecnumerique.com/nous-joindre'
