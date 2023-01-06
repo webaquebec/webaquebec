@@ -10,21 +10,10 @@ import TeamMemberCard from '../TeamMemberCard';
 // utils
 import { lessThanCondition } from '../../../utils/mediaQuery';
 
-// images
-import vectorStar from '../../../images/stickers/vectorStickerAquaStar.svg';
-import vectorDesign from '../../../images/stickers/vectorStickerDesign.svg';
-import vectorMouse from '../../../images/stickers/vectorStickerMouse.svg';
-import vectorBigGrid from '../../../images/team/vectorBigGrid.svg';
-import vectorSmallGrid from '../../../images/team/vectorSmallGrid.svg';
-
 // styles
 import {
   TitleWrapper,
-  VectorStar,
-  VectorMouse,
-  VectorDesign,
   GalleryWrapper,
-  GalleryGrid,
   GalleryTitle,
   GalleryList,
   GalleryItem,
@@ -49,20 +38,11 @@ const TeamGallery = ({ membersData }) => {
       mobileFirstMembersList = membersData.members;
     }
   }
-  const isFirstSection = membersData.id === 0;
-  const isSecondSection = membersData.id === 1;
-  const isThirdSection = membersData.id === 2;
 
   return (
     <>
       <TitleWrapper>
         <GalleryTitle>{membersData.name}</GalleryTitle>
-        {isFirstSection && (
-          <VectorStar src={vectorStar} alt='' role='presentation' />
-        )}
-        {isThirdSection && (
-          <VectorMouse src={vectorMouse} alt='' role='presentation' />
-        )}
       </TitleWrapper>
       <GalleryWrapper>
         {mobile ? (
@@ -94,31 +74,20 @@ const TeamGallery = ({ membersData }) => {
             )}
           </>
         ) : (
-          <>
-            <Grid
-              css={galleryGrid}
-              minWidth='250px'
-              space='var(--container-gutter)'
-              limit='4'
-            >
-              {membersData.members.map((item) => (
-                <TeamMemberCard
-                  key={`gallery${membersData.id}-member${item.id}`}
-                  member={item}
-                  galleryStyle
-                />
-              ))}
-            </Grid>
-            {isFirstSection && (
-              <GalleryGrid src={vectorBigGrid} alt='' role='presentation' />
-            )}
-            {isThirdSection && (
-              <GalleryGrid src={vectorSmallGrid} alt='' role='presentation' />
-            )}
-            {isSecondSection && (
-              <VectorDesign src={vectorDesign} alt='' role='presentation' />
-            )}
-          </>
+          <Grid
+            css={galleryGrid}
+            minWidth='250px'
+            space='var(--container-gutter)'
+            limit='4'
+          >
+            {membersData.members.map((item) => (
+              <TeamMemberCard
+                key={`gallery${membersData.id}-member${item.id}`}
+                member={item}
+                galleryStyle
+              />
+            ))}
+          </Grid>
         )}
       </GalleryWrapper>
     </>

@@ -6,7 +6,6 @@ import styled, { css } from 'styled-components';
 // components
 import SEO from '../../components/SEO';
 import Center from '../../components/LayoutSections/Center';
-import SectionContainer from '../../components/SectionContainer';
 import TeamMemberCard from '../../views/OurTeamPageView/TeamMemberCard';
 import TeamGallery from '../../views/OurTeamPageView/TeamGallery';
 
@@ -14,39 +13,14 @@ import TeamGallery from '../../views/OurTeamPageView/TeamGallery';
 import breakpointsRange from '../../utils/breakpointsRange';
 import { greaterThan, lessThan } from '../../utils/mediaQuery';
 
-// images
-import stickerFlame from '../../images/stickers/vectorStickerFlame.svg';
-import stickerBomb from '../../images/stickers/vectorStickerBomb.svg';
-import pinkEllipse from '../../images/textures/pink-ellipse.svg';
-import purpleEllipse from '../../images/textures/purple-ellipse.svg';
+// views
+import AboutTabs from '../../views/AboutPagesView/AboutTabs';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
 import { introStyle } from '../../styles/global';
 import colors from '../../styles/colors';
-
-const Container = styled(SectionContainer)`
-  ${breakpointsRange(
-    [
-      { prop: 'paddingBottom', sizes: [148, 114], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [48, 68], bases: [16, 20] },
-    ],
-    breakpoints.spacings
-  )};
-
-  ::before,
-  ::after {
-    height: 30vh;
-  }
-
-  ::before {
-    top: -30vh;
-  }
-
-  ::after {
-    bottom: -30vh;
-  }
-`;
+import { fontFamilies } from '../../styles/typography';
 
 const AboutIntro = styled.p`
   ${breakpointsRange(
@@ -55,20 +29,10 @@ const AboutIntro = styled.p`
   )};
 `;
 
-const PinkDecoration = styled.img`
-  position: absolute;
-  top: 0;
-  right: 0;
-`;
-
-const PurpleDecoration = styled.img`
-  position: absolute;
-  left: 0;
-`;
-
 const sectionTitle = css`
   color: ${colors.bleu80};
 
+  font-family: ${fontFamilies.redaction};
   text-align: center;
 
   ${breakpointsRange(
@@ -86,7 +50,7 @@ const VolunteersTitle = styled.h2`
   display: inline-flex;
   justify-content: center;
 
-  transform: rotate(-7deg);
+  font-family: ${fontFamilies.redaction};
 `;
 
 const TitleLines = styled.div`
@@ -106,19 +70,6 @@ const TitleLines = styled.div`
   }
 `;
 
-const VolunteerSticker = styled.img`
-  ${lessThan(832)} {
-    position: absolute;
-    top: -20px;
-    right: 20px;
-  }
-
-  ${breakpointsRange(
-    [{ prop: 'width', sizes: [50, 90], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
-
 const GalleriesWrapper = styled.div`
   width: 100%;
   padding: 0 var(--container-gutter);
@@ -133,14 +84,10 @@ const GalleriesWrapper = styled.div`
 `;
 
 const CATitle = styled.h2`
-  transform: rotate(3deg);
-`;
-
-const CASticker = styled.img`
   ${breakpointsRange(
     [
-      { prop: 'width', sizes: [56, 140], bases: [16, 20] },
-      { prop: 'marginRight', sizes: [10, 30], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [24, 64], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [24, 64], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -489,6 +436,8 @@ const OurTeamPage = () => {
     <>
       <SEO title='Notre équipe' description='Nos bénévoles annuels de feu' />
 
+      <AboutTabs activeTabId={1} />
+
       <Center
         maxWidth='770px'
         gutters='var(--container-gutter)'
@@ -504,46 +453,31 @@ const OurTeamPage = () => {
         </AboutIntro>
       </Center>
 
-      <Container forwardedAs='div' faded>
-        <Center maxWidth='1080px' intrinsic>
-          <PinkDecoration src={pinkEllipse} alt='' role='presentation' />
+      <Center maxWidth='1080px' intrinsic>
+        <VolunteersTitle css={sectionTitle}>
+          <TitleLines>
+            <span>nos bénévoles</span>
+            <span>annuels de feu</span>
+          </TitleLines>
+        </VolunteersTitle>
 
-          <VolunteersTitle css={sectionTitle}>
-            <TitleLines>
-              <span>nos bénévoles</span>
-              <span>annuels de feu</span>
-            </TitleLines>
-            <VolunteerSticker src={stickerFlame} alt='' role='presentation' />
-          </VolunteersTitle>
+        <GalleriesWrapper>
+          {sectionsData.map((item) => (
+            <TeamGallery key={`gallery${item.id}`} membersData={item} />
+          ))}
+        </GalleriesWrapper>
+      </Center>
 
-          <GalleriesWrapper>
-            {sectionsData.map((item) => (
-              <>
-                <TeamGallery key={`gallery${item.id}`} membersData={item} />
-                {item.id === 0 && (
-                  <PurpleDecoration
-                    src={purpleEllipse}
-                    alt=''
-                    role='presentation'
-                  />
-                )}
-              </>
-            ))}
-          </GalleriesWrapper>
-
-          <CATitle css={sectionTitle}>
-            <CASticker src={stickerBomb} alt='' role='presentation' />
-            notre C.A.
-          </CATitle>
-          <CAList>
-            {sectionCAData.map((item) => (
-              <CAItem>
-                <TeamMemberCard key={`ca-${item.id}`} member={item} />
-              </CAItem>
-            ))}
-          </CAList>
-        </Center>
-      </Container>
+      <Center maxWidth='1080px' intrinsic gutters='var(--container-gutter)'>
+        <CATitle css={sectionTitle}>notre C.A.</CATitle>
+        <CAList>
+          {sectionCAData.map((item) => (
+            <CAItem>
+              <TeamMemberCard key={`ca-${item.id}`} member={item} />
+            </CAItem>
+          ))}
+        </CAList>
+      </Center>
     </>
   );
 };

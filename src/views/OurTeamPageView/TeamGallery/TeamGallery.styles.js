@@ -8,7 +8,6 @@ import { lessThan } from '../../../utils/mediaQuery';
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
-import { fontFamilies } from '../../../styles/typography';
 
 export const TitleWrapper = styled.div`
   position: relative;
@@ -16,45 +15,11 @@ export const TitleWrapper = styled.div`
   display: inline-block;
 `;
 
-export const VectorStar = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 0;
-
-  transform: translate(-50%, -50%);
-
-  ${breakpointsRange(
-    [{ prop: 'width', sizes: [45, 120], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
-
-export const VectorMouse = styled.img`
-  position: absolute;
-  top: 50%;
-  left: -10px;
-
-  transform: translateX(-100%);
-
-  ${breakpointsRange(
-    [{ prop: 'width', sizes: [20, 35], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
-
-export const VectorDesign = styled.img`
-  position: absolute;
-  right: 0;
-
-  transform: translateY(-100%);
-`;
-
 export const GalleryTitle = styled.h3`
   position: relative;
   z-index: 1;
 
   color: ${colors.bleu80};
-  font-family: ${fontFamilies.redaction35};
 
   ${breakpointsRange(
     [
@@ -72,15 +37,6 @@ export const GalleryWrapper = styled.div`
     [{ prop: 'marginBottom', sizes: [24, 90], bases: [16, 20] }],
     breakpoints.spacings
   )};
-`;
-
-export const GalleryGrid = styled.img`
-  position: absolute;
-  left: 0;
-
-  width: 100%;
-
-  transform: translateY(calc(-100% - 64px));
 `;
 
 export const GalleryList = styled.ul`
