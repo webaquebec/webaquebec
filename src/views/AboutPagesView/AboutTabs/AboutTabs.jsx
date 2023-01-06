@@ -1,7 +1,6 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hideVisually } from 'polished';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
@@ -14,24 +13,24 @@ import {
   AboutItem,
   AboutLink,
 } from './AboutTabs.styles';
-import { h1AltStyle } from '../../../styles/global';
+import { titleStyle } from '../../../styles/global';
 
-const AboutTabs = ({ title, activeTabId }) => {
+const AboutTabs = ({ activeTabId }) => {
   const tabs = [
     {
       id: 0,
       name: 'l’événement',
-      pageUrl: 'a-propos/evenement',
+      pageUrl: '/a-propos/evenement',
     },
     {
       id: 1,
       name: 'notre équipe',
-      pageUrl: 'a-propos/notre-equipe',
+      pageUrl: '/a-propos/notre-equipe',
     },
     {
       id: 2,
       name: 'Québec Numérique',
-      pageUrl: 'a-propos/quebec-numerique',
+      pageUrl: '/a-propos/quebec-numerique',
     },
   ];
 
@@ -43,17 +42,15 @@ const AboutTabs = ({ title, activeTabId }) => {
         withText
         intrinsic
       >
-        <h1 css={hideVisually}>{title}</h1>
-        <PageTitle css={h1AltStyle}>à propos</PageTitle>
+        <PageTitle css={titleStyle}>
+          <span>à</span> propos
+        </PageTitle>
 
         <AboutNav>
           <AboutList>
             {tabs.map((tab) => (
               <AboutItem key={tab.id}>
-                <AboutLink
-                  href={tab.pageUrl}
-                  $isActive={activeTabId === tab.id}
-                >
+                <AboutLink to={tab.pageUrl} $isActive={activeTabId === tab.id}>
                   {tab.name}
                 </AboutLink>
               </AboutItem>
@@ -66,10 +63,6 @@ const AboutTabs = ({ title, activeTabId }) => {
 };
 
 AboutTabs.propTypes = {
-  /**
-   * Specifies the active page title
-   */
-  title: PropTypes.string.isRequired,
   /**
    * Specifies the active tab id
    */
