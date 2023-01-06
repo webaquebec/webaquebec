@@ -58,4 +58,4 @@ LogoCard.defaultProps = {
   isPresenting: false,
 };
 
-export default LogoCard;
+export default React.memo(LogoCard);

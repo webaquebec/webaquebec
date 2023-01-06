@@ -1,5 +1,6 @@
 // vendors
 import styled, { css } from 'styled-components';
+import colors from '../../styles/colors';
 
 // components
 import Box from '../LayoutSections/Box';
@@ -19,6 +20,13 @@ const overlaidStyle = css`
   }
 `;
 
+const elevationStyle = css`
+  --shadow-color: ${colors.bleu80hsl.hue}deg ${colors.bleu80hsl.saturation}%
+    ${colors.bleu80hsl.lightness}%;
+
+  box-shadow: ${({ $elevation }) => $elevation};
+`;
+
 const Container = styled(Box)`
   position: relative;
 
@@ -34,10 +42,7 @@ const Container = styled(Box)`
 
     border-radius: inherit;
 
-    /* FIXME: This is hell. Find another way if a drop-shadow is required. */
-
-    /* filter: drop-shadow(0 30px 80px rgba(0, 12, 158, 0.5)); */
-
+    /* box-shadow: 0 30px 80px rgba(0, 12, 158, 0.5); */
     mix-blend-mode: normal;
 
     content: '';
@@ -46,6 +51,8 @@ const Container = styled(Box)`
   ${({ $rounded }) => $rounded && roundedStyle};
 
   ${({ $overlaid }) => $overlaid && overlaidStyle};
+
+  ${({ $elevation }) => $elevation && elevationStyle};
 `;
 
 export default Container;

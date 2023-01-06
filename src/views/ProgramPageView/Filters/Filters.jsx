@@ -137,7 +137,7 @@ const Filters = ({ onChange, onReset }) => {
           {FiltersContent}
 
           <CTAWrapper>
-            <CTAButton onClick={handleClick}>Voir les résultats</CTAButton>
+            <CTAButton onClick={handleClick}>voir les résultats</CTAButton>
           </CTAWrapper>
         </Modal>
       ) : (

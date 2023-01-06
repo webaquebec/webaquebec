@@ -6,7 +6,7 @@ import Button from '../../../components/Button';
 import Center from '../../../components/LayoutSections/Center';
 
 // styles
-import { ctaButton, CTATitle } from './CallToAction.styles';
+import { ctaButtonStyle, CTATitle } from './CallToAction.styles';
 import { introStyle } from '../../../styles/global';
 
 const CallToAction = () => (
@@ -16,6 +16,24 @@ const CallToAction = () => (
     </CTATitle>
 
     <p css={introStyle}>
+      Nos billets ne sont pas encore en vente, mais inscris-toi sur notre liste
+      d’attente et nous t’enverrons un courriel dès l’ouverture de la
+      billetterie.
+    </p>
+
+    <Button
+      to='https://ti.to/web-a-quebec/waq23/fr'
+      tag='href'
+      primary
+      animated
+      rel='noopener noreferrer'
+      target='_blank'
+      css={ctaButtonStyle}
+    >
+      Réserver ma place
+    </Button>
+
+    {/* <p css={introStyle}>
       Pour faire ton achat, tu seras redirigé.e directement vers la plateforme{' '}
       <a
         href='https://ti.to/web-a-quebec/waq-2022'
@@ -34,10 +52,10 @@ const CallToAction = () => (
       animated
       rel='noopener noreferrer'
       target='_blank'
-      css={ctaButton}
+      css={ctaButtonStyle}
     >
       Acheter mon billet
-    </Button>
+    </Button> */}
   </Center>
 );
 

@@ -45,6 +45,10 @@ export const htmlStyle = css`
   scroll-behavior: smooth;
 `;
 
+export const mainStyle = css`
+  overflow-x: hidden;
+`;
+
 export const bodyStyle = css`
   position: relative;
 
@@ -98,18 +102,40 @@ export const h1Style = css`
   )};
 `;
 
+// export const h1AltStyle = css`
+//   color: ${colors.bleu};
+
+//   font-weight: ${fontWeights.bold};
+//   font-family: ${fontFamilies.redaction35};
+//   ${breakpointsRange(
+//     [
+//       { prop: 'fontSize', sizes: [54, 68], bases: [16, 20] },
+//       { prop: 'lineHeight', sizes: [59, 75], bases: [54, 68], unit: '' },
+//     ],
+//     breakpoints.spacings
+//   )};
+// `;
+
 export const h1AltStyle = css`
   color: ${colors.bleu};
 
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction};
+
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [54, 68], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [59, 75], bases: [54, 68], unit: '' },
+      { prop: 'fontSize', sizes: [36, 96], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [39, 105], bases: [36, 96], unit: '' },
     ],
     breakpoints.spacings
   )};
+`;
+
+export const h1AltItalicStyle = css`
+  ${h1AltStyle}
+
+  font-weight: ${fontWeights.regular};
+  font-style: italic;
 `;
 
 export const h2Style = css`
@@ -195,6 +221,7 @@ export const magnifyStyle = css`
   color: ${colors.bleu};
 
   font-weight: ${fontWeights.bold};
+  font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(
     [
@@ -203,6 +230,28 @@ export const magnifyStyle = css`
     ],
     breakpoints.spacings
   )};
+`;
+
+export const billboardStyle = css`
+  color: ${colors.bleu};
+
+  font-weight: ${fontWeights.bold};
+  font-family: ${fontFamilies.redaction};
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [64, 200], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [58, 180], bases: [64, 200], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
+export const billboardAltStyle = css`
+  ${billboardStyle}
+
+  font-weight: ${fontWeights.regular};
+  font-style: italic;
 `;
 
 export const unbreakableStringStyle = css`
@@ -214,7 +263,13 @@ export const unstyledLinkStyle = css`
   text-decoration: inherit;
 `;
 
-export const titleStyle = css``;
+export const titleStyle = css`
+  ${h1AltStyle}
+
+  > span {
+    ${h1AltItalicStyle}
+  }
+`;
 
 export const captionStyle = css`
   display: block;
@@ -468,6 +523,10 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     ${bodyStyle};
+  }
+
+  main {
+    ${mainStyle};
   }
 
   ${resetStyle};

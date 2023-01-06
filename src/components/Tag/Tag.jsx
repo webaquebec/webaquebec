@@ -9,7 +9,7 @@ import vectorSpeaker from '../../images/tags/vectorSpeaker.svg';
 import unSlugify from '../../utils/strings/unSlugify';
 
 // utils
-import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
+import { eventTypesMap } from '../../utils/dataMapping';
 
 /**
  * @module Tag
@@ -39,7 +39,9 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
     <StyledTag
       $designRoom={tagType === 'category' && category === 'design'}
       $commRoom={
-        tagType === 'category' && category === 'communication-and-marketing'
+        tagType === 'category' &&
+        (category === 'communication-et-marketing' ||
+          category === 'communication-and-marketing')
       }
       $devRoom={tagType === 'category' && category === 'developpement'}
       $innovationRoom={tagType === 'category' && category === 'innovation'}
@@ -47,7 +49,7 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
       $eventType={tagType === 'eventType'}
       $outlined={outlined}
     >
-      {tagType === 'category' && <span>{categoriesMap[category]}</span>}
+      {/* {tagType === 'category' && <span>{categoriesMap[category]}</span>} */}
       {tagType === 'speaker' && (
         <>
           <img css={TagIcon} src={vectorSpeaker} alt='' role='presentation' />
@@ -99,6 +101,8 @@ Tag.propTypes = {
     'developpement',
     'innovation',
     'communication-and-marketing',
+    'communication-et-marketing',
+    'pitch-ton-waq',
   ]),
   /**
    * Specifies which data to show if the tag is a speaker one
@@ -118,7 +122,6 @@ Tag.propTypes = {
     'atelier',
     'qanda',
     'contenu-sur-demande',
-    'pitch-ton-waq',
     'table-ronde',
     '5-a-7',
     'keynote',

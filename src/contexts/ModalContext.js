@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useMemo, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 export const ModalContext = React.createContext();
@@ -16,10 +16,10 @@ export const ModalProvider = ({ children }) => {
     setIsOpen(false);
   };
 
+  const value = useMemo(() => ({ open, close, isOpen }), [isOpen]);
+
   return (
-    <ModalContext.Provider value={{ open, close, isOpen }}>
-      {children}
-    </ModalContext.Provider>
+    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
   );
 };
 

@@ -12,18 +12,45 @@ import breakpoints from '../../../styles/breakpoints';
 import { fontFamilies, fontWeights } from '../../../styles/typography';
 import zIndexes from '../../../styles/zIndexes';
 import colors from '../../../styles/colors';
+import { speed } from '../../../styles/animation';
 
-const gradientAnimation = keyframes`
+// const gradientAnimation = keyframes`
+//   0% {
+//     background-position: 0;
+//   }
+
+//   50% {
+//     background-position: 1200%;
+//   }
+
+//   100% {
+//     background-position: 0;
+//   }
+// `;
+
+const blobAnimation = keyframes`
   0% {
-    background-position: 0;
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  38% {
+    transform: translate(50%, -50%) scale(1.45);
   }
 
   50% {
-    background-position: 1200%;
+    transform: translate(50%, -50%) scale(1.455);
+  }
+
+  65% {
+    transform: translate(50%, -50%) scale(1.45);
+  }
+
+  95% {
+    transform: translate(0, 0) scale(1);
   }
 
   100% {
-    background-position: 0;
+    transform: translate(0, 0) scale(1);
   }
 `;
 
@@ -53,44 +80,41 @@ export const navStyle = css`
   overflow-y: auto;
 `;
 
-export const Gradient = styled.div`
-  --jaune-start: ${colors.jaune80};
-  --jaune-end: ${colors.jaune30};
-  --turquoise-start: ${colors.turquoise80};
-  --turquoise-end: ${colors.turquoise30};
-  --rose-start: ${colors.rose80};
-  --rose-end: ${colors.rose30};
-  --ciel-start: ${colors.ciel80};
-  --ciel-end: ${colors.ciel30};
-  --gradient-color-start: ${({ color }) => `var(--${color}-start)`};
-  --gradient-color-end: ${({ color }) => `var(--${color}-end)`};
+export const Blob = styled.div`
+  --jaune: ${colors.jaune80};
+  --turquoise: ${colors.turquoise80};
+  --rose: ${colors.rose80};
+  --ciel: ${colors.ciel80};
+  --gris: ${colors.gris30};
+  --blob-color: ${({ color }) => `var(--${color})`};
+  --mauve: ${colors.mauve};
 
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: -1;
 
-  width: 100%;
-  height: 100%;
+  width: 60rem;
+  height: 60rem;
 
-  background-image: linear-gradient(
-    90deg,
-    var(--gradient-color-start),
-    var(--gradient-color-end),
-    var(--gradient-color-start)
-  );
-  background-size: 1200% 100%;
+  background-color: var(--blob-color);
 
-  opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
+  border-radius: 50%;
 
-  animation: ${gradientAnimation} 150s linear infinite;
+  opacity: 0.7;
+
+  filter: blur(64px);
+
+  mix-blend-mode: multiply;
+
+  transition: background-color ${speed.default};
+
+  animation: ${blobAnimation} 15s infinite;
   animation-play-state: ${({ isVisible }) =>
     isVisible ? 'running' : 'paused'};
 
-  ${({ isActive, restartAnimation }) =>
-    (!isActive || restartAnimation) && disableAnimationStyle};
-
-  content: '';
+  /* ${({ isActive, restartAnimation }) =>
+    (!isActive || restartAnimation) && disableAnimationStyle}; */
 
   will-change: background-position;
 
@@ -111,9 +135,7 @@ export const Top = styled.div`
 
   ${breakpointsRange(
     [
-      // { prop: 'paddingTop', sizes: [20, 57], bases: [16, 20] },
-      // { prop: 'paddingBottom', sizes: [20, 57], bases: [16, 20] },
-      { prop: '--top-height', sizes: [99, 227], bases: [16, 20] },
+      { prop: '--top-height', sizes: [75, 116], bases: [16, 20] },
       { prop: 'marginRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'marginLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -124,15 +146,6 @@ export const Top = styled.div`
 export const LogoWrapper = styled.div`
   grid-row: 1;
   grid-column: 2;
-`;
-
-export const Logo = styled.img`
-  display: block;
-
-  ${breakpointsRange(
-    [{ prop: 'height', sizes: [59, 113], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
 `;
 
 export const ButtonWrapper = styled.div`
@@ -158,20 +171,12 @@ export const primaryNavListStyle = css`
       breakpoints.spacings
     )};
   }
-
-  /* > :last-child {
-    ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [65, 114], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-  } */
 `;
 
 export const secondaryNavListStyle = css`
   ${breakpointsRange(
     [
       { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
-      // { prop: 'marginBottom', sizes: [72, 145], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -296,11 +301,6 @@ export const openedMenuStyle = css`
 `;
 
 export const Container = styled(Box)`
-  /* ${breakpointsRange(
-    [{ prop: '--frame-width', sizes: [5, 10], bases: [16, 20] }],
-    breakpoints.spacings
-  )}; */
-
   position: fixed;
   top: 0;
   right: 0;
