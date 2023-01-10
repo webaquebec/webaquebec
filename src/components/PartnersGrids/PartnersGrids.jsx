@@ -9,27 +9,30 @@ import Center from '../LayoutSections/Center';
 // import Switcher from '../LayoutSections/Switcher';
 
 // images
-import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
-import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
+// import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
+// import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
 import logoVideotronRGB from '../../images/logoPartners/premium/logo-videotron-rgb.svg';
 import logoVideotronWhite from '../../images/logoPartners/premium/logo-videotron-white.svg';
 import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
 // import logoLevio from '../../images/logoPartners/premium/logo-levio.svg';
 import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
 // import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
-// import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
+import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
-import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
-import logoFlots from '../../images/logoPartners/associates/logo-flots.svg';
+// import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
+// import logoFlots from '../../images/logoPartners/associates/logo-flots.svg';
 // import logoMicrosoft from '../../images/logoPartners/associates/logo-microsoft.svg';
 // import logoPwc from '../../images/logoPartners/associates/logo-pwc.svg';
 // import logoRobic from '../../images/logoPartners/associates/logo-robic.svg';
-import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
-import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
-import logoGrenierAuxNouvelles from '../../images/logoPartners/associates/logo-grenier-aux-nouvelles.svg';
+// import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
+// import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
+// import logoGrenierAuxNouvelles from '../../images/logoPartners/associates/logo-grenier-aux-nouvelles.svg';
 import logoZenika from '../../images/logoPartners/supporters/logo-zenika.svg';
 // import logoBotpress from '../../images/logoPartners/supporters/logo-botpress.svg';
-import logoApollo13 from '../../images/logoPartners/supporters/logo-apollo13.svg';
+// import logoApollo13 from '../../images/logoPartners/supporters/logo-apollo13.svg';
+import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg';
+import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
+import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
 
 // styles
 import {
@@ -51,11 +54,6 @@ import {
 
 const premiumImages = [
   {
-    src: logoUbisoft,
-    alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
-    url: 'https://www.ubisoft.com/fr-ca/',
-  },
-  {
     src: logoVideotronWhite,
     srcAlt: logoVideotronRGB,
     alt: 'Vidéotron | Services de Téléphonie, Internet, Télévision et Mobile',
@@ -67,10 +65,30 @@ const premiumImages = [
     url: 'https://www.quebecor.com/fr/',
   },
   {
-    src: logoVooban,
-    alt: 'Vooban | Le leader de la transformation digitale',
-    url: 'https://vooban.com/',
+    src: logoOqlf,
+    alt: 'OQLF | Office québécois de la langue française',
+    url: 'https://www.oqlf.gouv.qc.ca/',
   },
+  // {
+  //   src: logoJournalQuebec,
+  //   alt: 'Le Journal de Québec',
+  //   url: 'https://www.journaldequebec.com/',
+  // },
+  // {
+  //   src: logoTVA,
+  //   alt: 'Groupe TVA',
+  //   url: 'https://www.groupetva.ca/',
+  // },
+  // {
+  //   src: logoVooban,
+  //   alt: 'Vooban | Le leader de la transformation digitale',
+  //   url: 'https://vooban.com/',
+  // },
+  // {
+  //   src: logoUbisoft,
+  //   alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
+  //   url: 'https://www.ubisoft.com/fr-ca/',
+  // },
   // {
   //   src: logoLevio,
   //   alt: 'Levio affaires et technologies - Au coeur de la transformation numérique',
@@ -81,11 +99,6 @@ const premiumImages = [
   //   alt: 'iXmédia | Agence numérique. Experts sympathiques',
   //   url: 'https://www.ixmedia.com/',
   // },
-  // {
-  //   src: logoOqlf,
-  //   alt: 'OQLF | Office québécois de la langue française',
-  //   url: 'https://www.oqlf.gouv.qc.ca/',
-  // },
 ];
 
 const associatesImages = [
@@ -95,20 +108,35 @@ const associatesImages = [
     url: 'https://www.equisoft.com/fr/',
   },
   {
+    src: logoPetal,
+    alt: 'Petal Solutions | Orchestrateur de soins en temps réel pour les organisations de santé',
+    url: 'https://www.petal-health.com/fr-ca',
+  },
+  {
+    src: logoDeMarque,
+    alt: 'DeMarque | Livres numériques, livres audio, lecture et apprentissage',
+    url: 'https://www.demarque.com/',
+  },
+  {
+    src: logoThirdbridge,
+    alt: "Thirdbridge | Votre partenaire d'innovation",
+    url: 'https://www.thirdbridge.ca/fr/',
+  },
+  {
     src: logoFernandez,
     alt: 'Fernandez relations publiques',
     url: 'https://fernandezrp.ca/',
   },
-  {
-    src: logoBeet,
-    alt: 'Beet agence à Québec – Création de sites web et production vidéo',
-    url: 'https://boitebeet.com/',
-  },
-  {
-    src: logoFlots,
-    alt: 'Novarium | Campus d’innovation du Saint-Laurent',
-    url: 'https://novarium.co',
-  },
+  // {
+  //   src: logoBeet,
+  //   alt: 'Beet agence à Québec – Création de sites web et production vidéo',
+  //   url: 'https://boitebeet.com/',
+  // },
+  // {
+  //   src: logoFlots,
+  //   alt: 'Novarium | Campus d’innovation du Saint-Laurent',
+  //   url: 'https://novarium.co',
+  // },
   // {
   //   src: logoMicrosoft,
   //   alt: 'Microsoft | Nuage, ordinateurs, Applications et jeux',
@@ -124,21 +152,11 @@ const associatesImages = [
   //   alt: 'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
   //   url: 'https://www.robic.ca/',
   // },
-  {
-    src: logoTVA,
-    alt: 'Groupe TVA',
-    url: 'https://www.groupetva.ca/',
-  },
-  {
-    src: logoJournalQuebec,
-    alt: 'Le Journal de Québec',
-    url: 'https://www.journaldequebec.com/',
-  },
-  {
-    src: logoGrenierAuxNouvelles,
-    alt: 'Grenier aux nouvelles',
-    url: 'https://www.grenier.qc.ca/',
-  },
+  // {
+  //   src: logoGrenierAuxNouvelles,
+  //   alt: 'Grenier aux nouvelles',
+  //   url: 'https://www.grenier.qc.ca/',
+  // },
 ];
 
 const supportersImages = [
@@ -152,11 +170,11 @@ const supportersImages = [
   //   alt: 'Build Chatbots | Chatbot for Developers',
   //   url: 'https://botpress.com/',
   // },
-  {
-    src: logoApollo13,
-    alt: 'Accompagnement de startups | Apollo13',
-    url: 'https://apollo13.co/',
-  },
+  // {
+  //   src: logoApollo13,
+  //   alt: 'Accompagnement de startups | Apollo13',
+  //   url: 'https://apollo13.co/',
+  // },
 ];
 
 // const PartnersGrids = ({ hasDetails }) => (
