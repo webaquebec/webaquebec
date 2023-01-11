@@ -9,7 +9,7 @@ import Center from '../LayoutSections/Center';
 // import Switcher from '../LayoutSections/Switcher';
 
 // images
-// import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
+import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
 // import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
 import logoVideotronRGB from '../../images/logoPartners/premium/logo-videotron-rgb.svg';
 import logoVideotronWhite from '../../images/logoPartners/premium/logo-videotron-white.svg';
@@ -46,11 +46,7 @@ import {
   // presentingContentStyle,
 } from './PartnersGrids.styles';
 
-// const presentingImage = {
-//   src: logoUbisoft,
-//   alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
-//   url: 'https://www.ubisoft.com/fr-ca/',
-// };
+// const presentingImage = { };
 
 const premiumImages = [
   {
@@ -68,6 +64,11 @@ const premiumImages = [
     src: logoOqlf,
     alt: 'OQLF | Office québécois de la langue française',
     url: 'https://www.oqlf.gouv.qc.ca/',
+  },
+  {
+    src: logoUbisoft,
+    alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
+    url: 'https://www.ubisoft.com/fr-ca/',
   },
   // {
   //   src: logoJournalQuebec,
