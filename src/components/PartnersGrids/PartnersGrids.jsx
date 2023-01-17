@@ -33,6 +33,7 @@ import logoZenika from '../../images/logoPartners/supporters/logo-zenika.svg';
 import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg';
 import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
 import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
+import logoNventive from '../../images/logoPartners/associates/logo-nventive.svg';
 
 // styles
 import {
@@ -127,6 +128,11 @@ const associatesImages = [
     src: logoFernandez,
     alt: 'Fernandez relations publiques',
     url: 'https://fernandezrp.ca/',
+  },
+  {
+    src: logoNventive,
+    alt: 'nventive',
+    url: 'https://nventive.com/fr',
   },
   // {
   //   src: logoBeet,
