@@ -27,40 +27,7 @@ const Prices = () => (
       limit={2}
     >
       <BlocksWrapper>
-        <Paper
-          lightColor={colors.gris30}
-          darkColor={colors.bleu80}
-          rounded
-          overlaid
-          elevation={elevation.large}
-          css={blockContainerStyle}
-        >
-          <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
-            <TicketTitle color={colors.gris90}>Billet virtuel</TicketTitle>
-
-            <TicketPrice>195$</TicketPrice>
-
-            <Button
-              to='https://ti.to/web-a-quebec/waq-2022'
-              tag='href'
-              secondary
-              small
-              animated
-              rel='noopener noreferrer'
-              target='_blank'
-            >
-              Réserver
-            </Button>
-
-            <TicketText>
-              Pour écouter les conférences en direct ou en rediffusion. En
-              pantalon, pas de pantalon. On n&apos;arrête pas le progrès comme
-              on dit!
-            </TicketText>
-          </Center>
-        </Paper>
-
-        <Paper
+        {/* <Paper
           lightColor={colors.gris30}
           darkColor={colors.bleu80}
           rounded
@@ -90,6 +57,38 @@ const Prices = () => (
               journée? Choisis laquelle, on s&apos;occupe du reste!
             </TicketText>
           </Center>
+        </Paper> */}
+
+        <Paper
+          lightColor={colors.gris30}
+          darkColor={colors.bleu80}
+          rounded
+          overlaid
+          elevation={elevation.large}
+          css={blockContainerStyle}
+        >
+          <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
+            <TicketTitle color={colors.gris90}>Billet étudiant</TicketTitle>
+
+            <TicketPrice>250$</TicketPrice>
+
+            <Button
+              to='https://ti.to/web-a-quebec/waq23'
+              tag='href'
+              secondary
+              small
+              animated
+              rel='noopener noreferrer'
+              target='_blank'
+            >
+              Réserver
+            </Button>
+
+            <TicketText>
+              Pour participer aux activités et assister aux conférences tout en
+              respectant ton budget étudiant!
+            </TicketText>
+          </Center>
         </Paper>
 
         <Paper
@@ -105,7 +104,7 @@ const Prices = () => (
             <TicketPrice>895$</TicketPrice>
 
             <Button
-              to='https://ti.to/web-a-quebec/waq-2022'
+              to='https://ti.to/web-a-quebec/waq23'
               tag='href'
               inverted
               small
