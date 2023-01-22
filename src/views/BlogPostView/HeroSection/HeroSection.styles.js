@@ -4,7 +4,7 @@ import GatsbyImage from 'gatsby-image';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { greaterThan, lessThan } from '../../../utils/mediaQuery';
+import { greaterThan } from '../../../utils/mediaQuery';
 
 // components
 import Button from '../../../components/Button/Button';
@@ -14,16 +14,8 @@ import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
 
-// images
-import vectorBlogPostHeroGrid from '../../../images/vectorBlogPostHeroGrid.svg';
-
 export const TitleWrapper = styled.div`
   position: relative;
-
-  /* ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [40, 60], bases: [16, 20] }],
-    breakpoints.spacings
-  )}; */
 `;
 
 export const BackButton = styled(Button)`
@@ -40,6 +32,7 @@ export const PostTitle = styled.h1`
   margin-top: 0;
 
   color: ${colors.bleu};
+  font-weight: ${fontWeights.medium};
 
   text-align: center;
 
@@ -66,38 +59,6 @@ export const FeaturedPictureWrapper = styled.div`
   justify-content: center;
 
   overflow: hidden;
-
-  /* background-image: url(${vectorBlogPostHeroGrid});
-  background-position: center;
-  background-size: cover; */
-
-  /* ${breakpointsRange(
-    [
-      { prop: 'minHeight', sizes: [300, 531], bases: [16, 20] },
-      { prop: 'marginTop', sizes: [32, 62], bases: [16, 20] },
-    ],
-    breakpoints.spacings
-  )}; */
-`;
-
-export const FeaturedGrid = styled.img`
-  position: absolute;
-
-  min-width: 100%;
-  height: 100%;
-
-  ${breakpointsRange(
-    [{ prop: 'minHeight', sizes: [300, 531], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-
-  /* ${lessThan(breakpoints[3])} {
-    width: 150%;
-  }
-
-  ${lessThan(breakpoints[1])} {
-    width: 200%;
-  } */
 `;
 
 export const FeaturedPicture = styled(GatsbyImage)`

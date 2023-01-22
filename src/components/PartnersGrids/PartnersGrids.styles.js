@@ -28,6 +28,8 @@ export const Title = styled.h2`
 export const PresentingWrapper = styled.div`
   align-items: center;
 
+  overflow-x: hidden;
+
   text-align: center;
 
   ${greaterThan(800)} {
@@ -44,6 +46,10 @@ export const PresentingText = styled.p`
     ],
     breakpoints.spacings
   )};
+`;
+
+export const presentingContentStyle = css`
+  padding-left: 0.8125rem;
 `;
 
 export const premiumGrid = css`

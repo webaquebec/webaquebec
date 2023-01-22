@@ -8,23 +8,25 @@ import Center from '../components/LayoutSections/Center';
 import SectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 
-// // images
-// import ogImagePreSale from '../images/og/og-img-waq-22-pre-sale.jpg';
-
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
 
 // views
-import Prices from '../views/TicketsView/Prices';
+// import Prices from '../views/TicketsView/Prices';
 import CallToAction from '../views/TicketsView/CallToAction';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { h1AltStyle, introStyle } from '../styles/global';
+import { titleStyle, introStyle } from '../styles/global';
 import Stack from '../components/LayoutSections/Stack';
 
 const TicketsTitle = styled.h1`
   margin-bottom: 0;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 const TicketsIntro = styled.div`
@@ -44,7 +46,6 @@ const Container = styled(SectionContainer)`
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [98, 105] },
-      // { prop: 'paddingBottom', sizes: [26, 54] },
       { prop: 'marginBottom', sizes: [202, 242] },
     ],
     breakpoints.spacings,
@@ -77,26 +78,28 @@ const TicketsPage = () => (
       withText
       intrinsic
     >
-      <TicketsTitle css={h1AltStyle}>billetterie</TicketsTitle>
+      <TicketsTitle css={titleStyle}>
+        bille<span>tterie</span>
+      </TicketsTitle>
+
       <TicketsIntro css={introStyle}>
         <Stack>
           <p>
             Chaque année, des centaines de passionné.es de numérique participent
             au Web à Québec (WAQ). Que ce soit pour réseauter, découvrir les
             nouvelles tendances ou simplement vivre l&apos;ambiance unique du
-            WAQ, toutes les raisons sont bonnes de te joindre à nous lors de la
-            11e édition!
+            WAQ, toutes les raisons sont bonnes de te joindre à nous!
           </p>
-          <p>
+          {/* <p>
             Cette année, on se met en mode hybride en te donnant l&apos;option
             de participer sur place, au Terminal - Port de Québec, ou chez toi.
             C&apos;est comme tu le sens!
-          </p>
+          </p> */}
         </Stack>
       </TicketsIntro>
     </Center>
 
-    <Prices />
+    {/* <Prices /> */}
 
     <Container forwardedAs='div' faded>
       <CallToAction />

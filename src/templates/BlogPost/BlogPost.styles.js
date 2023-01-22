@@ -24,10 +24,8 @@ export const spaceStyle = css`
 export const Container = styled(SectionContainer)`
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [98, 105], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [24, 100], bases: [16, 20] },
       { prop: 'paddingBottom', sizes: [148, 114], bases: [16, 20] },
-      { prop: 'marginTop', sizes: [68, 88], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [48, 68], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
