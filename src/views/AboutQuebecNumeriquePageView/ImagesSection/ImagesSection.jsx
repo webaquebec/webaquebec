@@ -19,7 +19,7 @@ const ImageContainer = styled.div`
   justify-content: space-between;
 
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [40, 120], bases: [16, 20] }],
+    [{ prop: 'marginBottom', sizes: [64, 120], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;

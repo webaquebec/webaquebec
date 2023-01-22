@@ -11,7 +11,7 @@ import { introStyle, magnifyStyle } from '../../../styles/global';
 
 const Section = styled.div`
   ${breakpointsRange(
-    [{ prop: 'paddingBottom', sizes: [164, 64], bases: [16, 20] }],
+    [{ prop: 'paddingBottom', sizes: [94, 64], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
