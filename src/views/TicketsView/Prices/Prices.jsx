@@ -60,6 +60,36 @@ const Prices = () => (
         </Paper> */}
 
         <Paper
+          lightColor={colors.bleu80}
+          darkColor={colors.gris30}
+          rounded
+          elevation={elevation.large}
+          css={blockContainerStyle}
+        >
+          <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
+            <TicketTitle>Billet accès complet (prévente)</TicketTitle>
+
+            <TicketPrice>595$</TicketPrice>
+
+            <Button
+              to='https://ti.to/web-a-quebec/waq23'
+              tag='href'
+              inverted
+              small
+              animated
+              rel='noopener noreferrer'
+              target='_blank'
+            >
+              Réserver
+            </Button>
+
+            <TicketText color={colors.white}>
+              Pour t’assurer de ne rien manquer, tout au long du WAQ!
+            </TicketText>
+          </Center>
+        </Paper>
+
+        <Paper
           lightColor={colors.gris30}
           darkColor={colors.bleu80}
           rounded
@@ -87,38 +117,6 @@ const Prices = () => (
             <TicketText>
               Pour participer aux activités et assister aux conférences tout en
               respectant ton budget étudiant!
-            </TicketText>
-          </Center>
-        </Paper>
-
-        <Paper
-          lightColor={colors.bleu80}
-          darkColor={colors.gris30}
-          rounded
-          elevation={elevation.large}
-          css={blockContainerStyle}
-        >
-          <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
-            <TicketTitle>Billet présentiel</TicketTitle>
-
-            <TicketPrice>895$</TicketPrice>
-
-            <Button
-              to='https://ti.to/web-a-quebec/waq23'
-              tag='href'
-              inverted
-              small
-              animated
-              rel='noopener noreferrer'
-              target='_blank'
-            >
-              Réserver
-            </Button>
-
-            <TicketText color={colors.white}>
-              Pour participer aux activités en personne et voir les
-              conférencier.ère.s qui pourront être avec nous. Vous pourrez pas
-              les toucher, mais presque!
             </TicketText>
           </Center>
         </Paper>

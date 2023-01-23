@@ -13,7 +13,8 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // views
 import Prices from '../views/TicketsView/Prices';
-import CallToAction from '../views/TicketsView/CallToAction';
+// import CallToAction from '../views/TicketsView/CallToAction';
+import TermsAndConditions from '../views/TicketsView/TermsAndConditions/TermsAndConditions';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -102,7 +103,8 @@ const TicketsPage = () => (
     <Prices />
 
     <Container forwardedAs='div' faded>
-      <CallToAction />
+      {/* <CallToAction /> */}
+      <TermsAndConditions />
     </Container>
   </>
 );
