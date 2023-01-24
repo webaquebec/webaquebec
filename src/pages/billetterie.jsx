@@ -70,7 +70,7 @@ const TicketsPage = () => (
   <>
     <SEO
       title='Billetterie'
-      description='Viens vivre le WAQ en formule hybride du 24 au 26 mai 2022. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
+      description='Viens vivre le WAQ du 23 au 25 mai 2023. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
     />
 
     <Center
