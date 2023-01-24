@@ -19,7 +19,7 @@ import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
 // import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
 import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
-// import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
+import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
 // import logoFlots from '../../images/logoPartners/associates/logo-flots.svg';
 // import logoMicrosoft from '../../images/logoPartners/associates/logo-microsoft.svg';
 // import logoPwc from '../../images/logoPartners/associates/logo-pwc.svg';
@@ -134,11 +134,11 @@ const associatesImages = [
     alt: 'nventive',
     url: 'https://nventive.com/fr',
   },
-  // {
-  //   src: logoBeet,
-  //   alt: 'Beet agence à Québec – Création de sites web et production vidéo',
-  //   url: 'https://boitebeet.com/',
-  // },
+  {
+    src: logoBeet,
+    alt: 'Beet agence à Québec – Création de sites web et production vidéo',
+    url: 'https://boitebeet.com/',
+  },
   // {
   //   src: logoFlots,
   //   alt: 'Novarium | Campus d’innovation du Saint-Laurent',
