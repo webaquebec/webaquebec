@@ -24,8 +24,8 @@ import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
 // import logoMicrosoft from '../../images/logoPartners/associates/logo-microsoft.svg';
 // import logoPwc from '../../images/logoPartners/associates/logo-pwc.svg';
 // import logoRobic from '../../images/logoPartners/associates/logo-robic.svg';
-// import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
-// import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
+import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
+import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
 // import logoGrenierAuxNouvelles from '../../images/logoPartners/associates/logo-grenier-aux-nouvelles.svg';
 import logoZenika from '../../images/logoPartners/supporters/logo-zenika.svg';
 // import logoBotpress from '../../images/logoPartners/supporters/logo-botpress.svg';
@@ -71,16 +71,6 @@ const premiumImages = [
     alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
     url: 'https://www.ubisoft.com/fr-ca/',
   },
-  // {
-  //   src: logoJournalQuebec,
-  //   alt: 'Le Journal de Québec',
-  //   url: 'https://www.journaldequebec.com/',
-  // },
-  // {
-  //   src: logoTVA,
-  //   alt: 'Groupe TVA',
-  //   url: 'https://www.groupetva.ca/',
-  // },
   // {
   //   src: logoVooban,
   //   alt: 'Vooban | Le leader de la transformation digitale',
@@ -184,6 +174,19 @@ const supportersImages = [
   // },
 ];
 
+const mediaImages = [
+  {
+    src: logoJournalQuebec,
+    alt: 'Le Journal de Québec',
+    url: 'https://www.journaldequebec.com/',
+  },
+  {
+    src: logoTVA,
+    alt: 'Groupe TVA',
+    url: 'https://www.groupetva.ca/',
+  },
+];
+
 // const PartnersGrids = ({ hasDetails }) => (
 const PartnersGrids = () => (
   <>
@@ -280,6 +283,24 @@ const PartnersGrids = () => (
 
       <Grid>
         {supportersImages.map((image) => (
+          <GridItem key={image.url}>
+            <LogoCard image={image} />
+          </GridItem>
+        ))}
+      </Grid>
+    </Center>
+
+    <Center
+      as='section'
+      maxWidth='900px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title>nos partenaires médias</Title>
+
+      <Grid>
+        {mediaImages.map((image) => (
           <GridItem key={image.url}>
             <LogoCard image={image} />
           </GridItem>
