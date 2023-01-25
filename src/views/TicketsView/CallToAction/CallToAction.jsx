@@ -15,7 +15,7 @@ const CallToAction = () => (
       Joins-toi au plus grand événement numérique en Amérique du Nord
     </CTATitle>
 
-    <p css={introStyle}>
+    {/* <p css={introStyle}>
       Nos billets ne sont pas encore en vente, mais inscris-toi sur notre liste
       d’attente et nous t’enverrons un courriel dès l’ouverture de la
       billetterie.
@@ -31,12 +31,12 @@ const CallToAction = () => (
       css={ctaButtonStyle}
     >
       Réserver ma place
-    </Button>
+    </Button> */}
 
-    {/* <p css={introStyle}>
+    <p css={introStyle}>
       Pour faire ton achat, tu seras redirigé.e directement vers la plateforme{' '}
       <a
-        href='https://ti.to/web-a-quebec/waq-2022'
+        href='https://ti.to/web-a-quebec/waq23'
         rel='noopener noreferrer'
         target='_blank'
       >
@@ -46,7 +46,7 @@ const CallToAction = () => (
     </p>
 
     <Button
-      to='https://ti.to/web-a-quebec/waq-2022'
+      to='https://ti.to/web-a-quebec/waq23'
       tag='href'
       primary
       animated
@@ -55,7 +55,7 @@ const CallToAction = () => (
       css={ctaButtonStyle}
     >
       Acheter mon billet
-    </Button> */}
+    </Button>
   </Center>
 );
 
