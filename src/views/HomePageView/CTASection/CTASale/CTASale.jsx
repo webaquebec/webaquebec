@@ -16,8 +16,8 @@ const CTASale = () => (
         <CTATitle>Vente en cours</CTATitle>
 
         <CTAIntro>
-          Après 2 années d’absence, le WAQ est de retour en{' '}
-          <strong>mode hybride</strong>. Assiste à un événement incontournable!
+          La prévente du WAQ bat son plein! Réserve ton billet au meilleur prix
+          de l’année!
         </CTAIntro>
 
         <Button to='/billetterie' tag='link' primary animated>

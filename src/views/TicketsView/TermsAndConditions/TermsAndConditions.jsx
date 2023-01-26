@@ -15,10 +15,8 @@ const TermsAndConditions = () => (
 
     <ul css={unorderedListStyle}>
       <li>
-        Il est possible de transférer un billet à une autre personne avant le
-        début de l’événement. Tu peux le transférer par toi-même jusqu’à une
-        semaine avant le début de l’événement. Ensuite, il faudra communiquer
-        avec quelqu’un de notre équipe.
+        Les billets sont des ventes finales (aucun remboursement), mais peuvent
+        être transférés à une autre personne une fois la transaction complétée.
       </li>
       <li>
         En participant à l’événement, tu t’engages à respecter le{' '}
