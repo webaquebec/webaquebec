@@ -10,7 +10,7 @@ import Center from '../LayoutSections/Center';
 
 // images
 import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
-// import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
+import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
 import logoVideotronRGB from '../../images/logoPartners/premium/logo-videotron-rgb.svg';
 import logoVideotronWhite from '../../images/logoPartners/premium/logo-videotron-white.svg';
 import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
@@ -71,11 +71,11 @@ const premiumImages = [
     alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
     url: 'https://www.ubisoft.com/fr-ca/',
   },
-  // {
-  //   src: logoVooban,
-  //   alt: 'Vooban | Le leader de la transformation digitale',
-  //   url: 'https://vooban.com/',
-  // },
+  {
+    src: logoVooban,
+    alt: 'Vooban | Le leader de la transformation digitale',
+    url: 'https://vooban.com/',
+  },
   // {
   //   src: logoUbisoft,
   //   alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
