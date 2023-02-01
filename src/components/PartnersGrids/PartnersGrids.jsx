@@ -58,11 +58,6 @@ const premiumImages = [
     url: 'https://videotron.com/',
   },
   {
-    src: logoQuebecor,
-    alt: 'Québecor',
-    url: 'https://www.quebecor.com/fr/',
-  },
-  {
     src: logoOqlf,
     alt: 'OQLF | Office québécois de la langue française',
     url: 'https://www.oqlf.gouv.qc.ca/',
@@ -190,6 +185,11 @@ const mediaImages = [
     src: logoTVA,
     alt: 'Groupe TVA',
     url: 'https://www.groupetva.ca/',
+  },
+  {
+    src: logoQuebecor,
+    alt: 'Québecor',
+    url: 'https://www.quebecor.com/fr/',
   },
 ];
 
