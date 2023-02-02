@@ -20,6 +20,7 @@ import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
 import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
 import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
+import logoEmergensys from '../../images/logoPartners/associates/logo-emergensys.png';
 // import logoFlots from '../../images/logoPartners/associates/logo-flots.svg';
 // import logoMicrosoft from '../../images/logoPartners/associates/logo-microsoft.svg';
 // import logoPwc from '../../images/logoPartners/associates/logo-pwc.svg';
@@ -55,11 +56,6 @@ const premiumImages = [
     srcAlt: logoVideotronRGB,
     alt: 'Vidéotron | Services de Téléphonie, Internet, Télévision et Mobile',
     url: 'https://videotron.com/',
-  },
-  {
-    src: logoQuebecor,
-    alt: 'Québecor',
-    url: 'https://www.quebecor.com/fr/',
   },
   {
     src: logoOqlf,
@@ -126,8 +122,13 @@ const associatesImages = [
   },
   {
     src: logoBeet,
-    alt: 'Beet agence à Québec – Création de sites web et production vidéo',
+    alt: 'Beet agence à Québec | Création de sites web et production vidéo',
     url: 'https://boitebeet.com/',
+  },
+  {
+    src: logoEmergensys,
+    alt: 'Emergensys | Parce que chaque seconde compte',
+    url: 'https://www.emergensys.net/fr/',
   },
   // {
   //   src: logoFlots,
@@ -184,6 +185,11 @@ const mediaImages = [
     src: logoTVA,
     alt: 'Groupe TVA',
     url: 'https://www.groupetva.ca/',
+  },
+  {
+    src: logoQuebecor,
+    alt: 'Québecor',
+    url: 'https://www.quebecor.com/fr/',
   },
 ];
 
