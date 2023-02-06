@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 
+// components
 import Paper from '../Paper';
+
 // utils
 import { lessThan } from '../../utils/mediaQuery';
 import breakpointsRange from '../../utils/breakpointsRange';
