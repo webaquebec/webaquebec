@@ -13,6 +13,7 @@ import '../../fonts/Redaction/redaction.css';
 import Footer from '../Footer';
 import Header from '../Header';
 import PixelGradient from '../PixelGradient/PixelGradient';
+import CookieBanner from '../CookieBanner';
 
 /**
  * The common Layout shared across all pages
@@ -37,6 +38,8 @@ const Layout = ({ children, location }) => {
       <main>{children}</main>
 
       <Footer />
+
+      <CookieBanner location={location} />
     </>
   );
 };
