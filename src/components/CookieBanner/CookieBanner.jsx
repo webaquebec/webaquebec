@@ -24,7 +24,7 @@ import {
 } from './CookieBanner.styles';
 
 const CookieBanner = ({ location }) => {
-  if (isBrowser) {
+  if (isBrowser()) {
     initializeAndTrack(location);
   }
 
