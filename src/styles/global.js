@@ -4,10 +4,11 @@ import { rem } from 'polished';
 
 // utils
 import interpolate from '../utils/math/interpolate';
+import { lessThan, greaterThan } from '../utils/mediaQuery';
 
 // styles
 import { fontFamilies, fontWeights } from './typography';
-import { lessThan, greaterThan } from '../utils/mediaQuery';
+import { speed } from './animation';
 import breakpoints from './breakpoints';
 import breakpointsRange from '../utils/breakpointsRange';
 import colors from './colors';
@@ -366,7 +367,51 @@ export const pixelated100Style = css`
   font-family: ${fontFamilies.redaction100};
 `;
 
-export const linkStyle = css``;
+export const linkStyle = css`
+  position: relative;
+  z-index: 1;
+
+  display: inline-block;
+
+  color: inherit;
+  text-decoration: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color ${speed.superfast};
+  }
+
+  ::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: ${colors.bleu};
+
+    scale: 1 0.1;
+    transform-origin: bottom;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: scale ${speed.fast};
+    }
+
+    content: '';
+  }
+
+  :hover,
+  :focus {
+    color: ${colors.white};
+
+    ::after {
+      scale: 1 1;
+    }
+  }
+
+  /* border-bottom: 2px solid #000CA0; */
+`;
 
 export const externalLinkStyle = css``;
 
