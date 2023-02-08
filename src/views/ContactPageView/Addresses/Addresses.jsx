@@ -15,8 +15,8 @@ import vectorUnicorn from '../../../images/vectorUnicorn.svg';
 
 // styles
 import {
-  AddresseName,
-  AddressesSpan,
+  AddressName,
+  // AddressesSpan,
   ContactInfo,
   MapContainer,
   OurAddresses,
@@ -34,7 +34,7 @@ const StickerHeading = ({ sticker, name }) => {
   return (
     <StickerHeaderSpan>
       <Sticker src={stickerSvg} role='presentation' alt='' />
-      <AddresseName>{name}</AddresseName>
+      <AddressName>{name}</AddressName>
     </StickerHeaderSpan>
   );
 };
@@ -46,14 +46,14 @@ StickerHeading.propTypes = {
 
 const Addresses = () => (
   <SectionContainer>
-    <Center maxWidth='1280px' gutters='var(--container-gutter)'>
+    <Center maxWidth='1064px' gutters='var(--container-gutter)'>
       <Sidebar
-        // contentMin='458px'
-        // sideWidth='37%'
-        // space='calc(var(--container-gutter) * 2)'
-        contentMin='58%'
-        sideWidth='322px'
-        space='0'
+        contentMin='320px'
+        sideWidth='39%'
+        space='calc(var(--container-gutter) * 2)'
+        // contentMin='58%'
+        // sideWidth='322px'
+        // space='0'
       >
         <div
         // css={`
@@ -61,33 +61,30 @@ const Addresses = () => (
         // `}
         >
           <div>
-            <OurAddresses>
-              nos
-              <AddressesSpan> adresses</AddressesSpan>
-            </OurAddresses>
+            <OurAddresses>nos adresses</OurAddresses>
 
-            <Stack space='24px'>
+            <Stack space='calc(var(--container-gutter) * 2)'>
               <div>
                 <StickerHeading sticker='target' name='nos bureaux' />
 
                 <ContactInfo>
                   <span css={hideVisually}>Québec Numérique</span>
 
-                  <div>
-                    <span>330 Rue Saint-Vallier E Bureau 300,</span>
-                    <br />
-                    <span> Québec</span>,<span> QC </span>
-                    <span>G1K 9C5</span>
-                  </div>
+                  <Stack>
+                    <div>
+                      <span>330 Rue Saint-Vallier E Bureau 300,</span>
+                      <br />
+                      <span> Québec</span>,<span> QC </span>
+                      <span>G1K 9C5</span>
+                    </div>
 
-                  <br />
-
-                  <div>
-                    <span>Téléphone : </span>
-                    <Telephone href='tel:+18773342547'>
-                      (877) 334-2547
-                    </Telephone>
-                  </div>
+                    <div>
+                      <span>Téléphone : </span>
+                      <Telephone href='tel:+18773342547'>
+                        (877) 334-2547
+                      </Telephone>
+                    </div>
+                  </Stack>
                 </ContactInfo>
               </div>
 
@@ -97,10 +94,11 @@ const Addresses = () => (
                 <ContactInfo>
                   <span css={hideVisually}>Web à Québec 2022</span>
 
-                  <div>
-                    <span css={hideVisually}>
-                      Terminal de croisière - Port de Québec
-                    </span>
+                  <span css={hideVisually}>
+                    Terminal de croisière - Port de Québec
+                  </span>
+
+                  <Stack>
                     <div>
                       <span>84 Rue Dalhousie,</span>
                       <br />
@@ -108,15 +106,13 @@ const Addresses = () => (
                       <span>G1K 4C4</span>
                     </div>
 
-                    <br />
-
                     <div>
                       <span>Téléphone : </span>
                       <Telephone href='tel:+14186496409'>
                         (418) 649-6409
                       </Telephone>
                     </div>
-                  </div>
+                  </Stack>
                 </ContactInfo>
               </div>
             </Stack>

@@ -2,12 +2,15 @@
 import styled from 'styled-components';
 
 // utils
+import GatsbyImage from 'gatsby-image';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
 import { h4Style, introStyle } from '../../../styles/global';
 import colors from '../../../styles/colors';
+import { greaterThan } from '../../../utils/mediaQuery';
+import { fontFamilies } from '../../../styles/typography';
 
 export const SectionContainer = styled.section`
   ${breakpointsRange(
@@ -18,27 +21,46 @@ export const SectionContainer = styled.section`
     breakpoints.spacings
   )};
 `;
-
 export const TextContainer = styled.div`
-  ${breakpointsRange(
+  display: flex;
+
+  ${greaterThan(811)} {
+    justify-content: flex-end;
+  }
+`;
+
+export const TextWrapper = styled.div`
+  /* ${breakpointsRange(
     [{ prop: 'marginLeft', sizes: [71, 107], bases: [16, 20] }],
     breakpoints.spacings
-  )};
+  )}; */
 
-  max-width: 426px;
+  ${greaterThan(811)} {
+    max-width: 426px;
+  }
 `;
 
 export const ImgContainer = styled.div`
   object-fit: contain;
 `;
 
-export const Img = styled.img`
+export const Img = styled(GatsbyImage)`
   width: 100%;
+
+  ${breakpointsRange(
+    [{ prop: 'borderRadius', sizes: [16, 16], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+
+  border: 3px solid ${colors.bleu};
 `;
 
 export const Title = styled.h2`
   ${h4Style}
+
   color: ${colors.bleu80};
+  font-family: ${fontFamilies.redaction};
+
   ${breakpointsRange(
     [
       { prop: 'marginTop', sizes: [24, 70], bases: [16, 20] },
@@ -56,7 +78,7 @@ export const Text = styled.p`
   color: ${colors.gris100};
 
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [24, 56], bases: [16, 20] }],
+    [{ prop: 'marginBottom', sizes: [24, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;

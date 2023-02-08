@@ -26,16 +26,25 @@ export const MapContainer = styled.div`
   justify-content: end;
   width: 100%;
   max-width: 748px;
-  min-height: 213px;
+  min-height: 250px;
   overflow: hidden;
 
   background-color: white;
   border: 3px solid ${colors.bleu80};
   border-radius: 16px;
+
+  canvas {
+    border-radius: 16px;
+  }
+
+  .mapboxgl-ctrl-bottom-right {
+    right: 14px;
+  }
 `;
 
 export const OurAddresses = styled.h2`
   ${h3Style}
+
   margin: 0;
   ${breakpointsRange(
     [{ prop: 'margin-bottom', sizes: [26, 30], bases: [16, 20] }],
@@ -43,6 +52,8 @@ export const OurAddresses = styled.h2`
   )};
 
   color: ${colors.bleu80};
+
+  font-family: ${fontFamilies.redaction};
 
   @media (max-width: 800px) {
     ${breakpointsRange(
@@ -52,9 +63,9 @@ export const OurAddresses = styled.h2`
   }
 `;
 
-export const AddressesSpan = styled.span`
-  font-family: ${fontFamilies.redaction20};
-`;
+// export const AddressesSpan = styled.span`
+//   font-family: ${fontFamilies.redaction20};
+// `;
 
 export const StickerHeaderSpan = styled.div`
   display: flex;
@@ -68,7 +79,7 @@ export const Sticker = styled.img`
   )};
 `;
 
-export const AddresseName = styled.h3`
+export const AddressName = styled.h3`
   ${h6Style}
   margin: 0;
   padding-left: 14px;
