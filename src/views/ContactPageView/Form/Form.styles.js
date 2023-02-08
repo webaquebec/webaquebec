@@ -9,25 +9,27 @@ import TextAreaField from '../../../components/TextAreaField/TextAreaField';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
-import { h4Style } from '../../../styles/global';
+import { h3Style, linkStyle } from '../../../styles/global';
 import colors from '../../../styles/colors';
+import { fontFamilies } from '../../../styles/typography';
 
 export const SectionContainer = styled.section`
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [24, 57], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [176, 238], bases: [16, 20] },
+      // { prop: 'paddingBottom', sizes: [176, 138], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 `;
 
 export const Title = styled.h2`
-  ${h4Style}
+  ${h3Style}
 
   margin-top: 0;
 
   color: ${colors.bleu80};
+  font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(
     [{ prop: 'marginBottom', sizes: [16, 58], bases: [16, 20] }],
@@ -47,10 +49,17 @@ export const TextArea = styled(TextAreaField)`
 export const ButtonContainer = styled.div`
   display: flex;
   flex-flow: row;
+  align-items: center;
   justify-content: flex-end;
 
-  ${breakpointsRange(
+  /* ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [16, 22], bases: [16, 20] }],
     breakpoints.spacings
-  )};
+  )}; */
+`;
+
+export const NotificationContainer = styled.div`
+  a {
+    ${linkStyle}
+  }
 `;
