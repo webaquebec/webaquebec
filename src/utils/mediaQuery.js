@@ -18,7 +18,8 @@ const generateGreaterThanValueString = (breakpoint) => {
   let [value, unit] = getValueAndUnit(breakpoint);
 
   if (unit === 'px' || unit === '') {
-    value /= baseValue;
+    // value /= baseValue;
+    value = (value + 0.02) / baseValue;
 
     unit = 'em';
   }
