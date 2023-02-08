@@ -6,7 +6,7 @@ import mapboxgl from 'mapbox-gl';
 import unicornMarker from '../../images/vectorUnicorn.svg';
 import targetMarker from '../../images/vectorTarget.svg';
 
-mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
+const MAPBOX_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
 
 const defaultOptions = {
   style: 'mapbox://styles/qc-num/ckz7b0xxl002e14th30urqx2w',
@@ -36,6 +36,7 @@ const Map = () => {
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
+      accessToken: MAPBOX_TOKEN,
       ...defaultOptions,
     });
 
