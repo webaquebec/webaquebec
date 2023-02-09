@@ -59,7 +59,7 @@ const fieldIdsMap = {
 const genericErrorMessage = `❌ Une erreur s'est produite de notre côté. Veuillez réessayer à nouveau.<br />
                             Si le problème persiste, veuillez écrire à <a href='mailto:info@webaquebec.org'>info@webaquebec.org</a>.`;
 
-const API_URL = process.env.WP_API_URL_ROOT;
+const API_URL = process.env.GATSBY_WP_API_URL_ROOT;
 
 const Form = () => {
   const [userNotification, setUserNotification] = React.useState('');

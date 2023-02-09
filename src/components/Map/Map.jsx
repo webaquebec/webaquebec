@@ -6,7 +6,7 @@ import mapboxgl from 'mapbox-gl';
 import unicornMarker from '../../images/vectorUnicorn.svg';
 import targetMarker from '../../images/vectorTarget.svg';
 
-const MAPBOX_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
+const MAPBOX_TOKEN = process.env.GATSBY_MAPBOX_ACCESS_TOKEN;
 
 const defaultOptions = {
   style: 'mapbox://styles/qc-num/ckz7b0xxl002e14th30urqx2w',
@@ -54,7 +54,7 @@ const Map = () => {
 
       new mapboxgl.Marker(el).setLngLat(marker.coordinates).addTo(map.current);
     });
-  });
+  }, []);
 
   const style = {
     width: '100%',
