@@ -25,7 +25,7 @@ const JoinUsSection = () => (
         <div>
           <QuebecNumeriqueLogo
             src={logoQuebecNumerique}
-            alt='Québec Numérique'
+            alt='Québec numérique'
           />
           <Column>
             <Title>pour nous joindre</Title>
