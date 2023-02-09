@@ -10,7 +10,7 @@ import Center from '../LayoutSections/Center';
 
 // images
 import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
-// import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
+import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
 import logoVideotronRGB from '../../images/logoPartners/premium/logo-videotron-rgb.svg';
 import logoVideotronWhite from '../../images/logoPartners/premium/logo-videotron-white.svg';
 import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
@@ -19,13 +19,14 @@ import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
 // import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
 import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
-// import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
+import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
+import logoEmergensys from '../../images/logoPartners/associates/logo-emergensys.png';
 // import logoFlots from '../../images/logoPartners/associates/logo-flots.svg';
 // import logoMicrosoft from '../../images/logoPartners/associates/logo-microsoft.svg';
 // import logoPwc from '../../images/logoPartners/associates/logo-pwc.svg';
 // import logoRobic from '../../images/logoPartners/associates/logo-robic.svg';
-// import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
-// import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
+import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
+import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
 // import logoGrenierAuxNouvelles from '../../images/logoPartners/associates/logo-grenier-aux-nouvelles.svg';
 import logoZenika from '../../images/logoPartners/supporters/logo-zenika.svg';
 // import logoBotpress from '../../images/logoPartners/supporters/logo-botpress.svg';
@@ -57,11 +58,6 @@ const premiumImages = [
     url: 'https://videotron.com/',
   },
   {
-    src: logoQuebecor,
-    alt: 'Québecor',
-    url: 'https://www.quebecor.com/fr/',
-  },
-  {
     src: logoOqlf,
     alt: 'OQLF | Office québécois de la langue française',
     url: 'https://www.oqlf.gouv.qc.ca/',
@@ -71,21 +67,11 @@ const premiumImages = [
     alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
     url: 'https://www.ubisoft.com/fr-ca/',
   },
-  // {
-  //   src: logoJournalQuebec,
-  //   alt: 'Le Journal de Québec',
-  //   url: 'https://www.journaldequebec.com/',
-  // },
-  // {
-  //   src: logoTVA,
-  //   alt: 'Groupe TVA',
-  //   url: 'https://www.groupetva.ca/',
-  // },
-  // {
-  //   src: logoVooban,
-  //   alt: 'Vooban | Le leader de la transformation digitale',
-  //   url: 'https://vooban.com/',
-  // },
+  {
+    src: logoVooban,
+    alt: 'Vooban | Le leader de la transformation digitale',
+    url: 'https://vooban.com/',
+  },
   // {
   //   src: logoUbisoft,
   //   alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
@@ -134,11 +120,16 @@ const associatesImages = [
     alt: 'nventive',
     url: 'https://nventive.com/fr',
   },
-  // {
-  //   src: logoBeet,
-  //   alt: 'Beet agence à Québec – Création de sites web et production vidéo',
-  //   url: 'https://boitebeet.com/',
-  // },
+  {
+    src: logoBeet,
+    alt: 'Beet agence à Québec | Création de sites web et production vidéo',
+    url: 'https://boitebeet.com/',
+  },
+  {
+    src: logoEmergensys,
+    alt: 'Emergensys | Parce que chaque seconde compte',
+    url: 'https://www.emergensys.net/fr/',
+  },
   // {
   //   src: logoFlots,
   //   alt: 'Novarium | Campus d’innovation du Saint-Laurent',
@@ -182,6 +173,24 @@ const supportersImages = [
   //   alt: 'Accompagnement de startups | Apollo13',
   //   url: 'https://apollo13.co/',
   // },
+];
+
+const mediaImages = [
+  {
+    src: logoJournalQuebec,
+    alt: 'Le Journal de Québec',
+    url: 'https://www.journaldequebec.com/',
+  },
+  {
+    src: logoTVA,
+    alt: 'Groupe TVA',
+    url: 'https://www.groupetva.ca/',
+  },
+  {
+    src: logoQuebecor,
+    alt: 'Québecor',
+    url: 'https://www.quebecor.com/fr/',
+  },
 ];
 
 // const PartnersGrids = ({ hasDetails }) => (
@@ -280,6 +289,24 @@ const PartnersGrids = () => (
 
       <Grid>
         {supportersImages.map((image) => (
+          <GridItem key={image.url}>
+            <LogoCard image={image} />
+          </GridItem>
+        ))}
+      </Grid>
+    </Center>
+
+    <Center
+      as='section'
+      maxWidth='900px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title>nos partenaires médias</Title>
+
+      <Grid>
+        {mediaImages.map((image) => (
           <GridItem key={image.url}>
             <LogoCard image={image} />
           </GridItem>
