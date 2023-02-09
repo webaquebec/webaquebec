@@ -60,12 +60,12 @@ const secondaryNavigation = [
     slug: '/a-propos/evenement',
     type: 'internal',
   },
-  {
-    id: 'partners',
-    label: 'partenaires',
-    slug: '/partenaires',
-    type: 'internal',
-  },
+  // {
+  //   id: 'partners',
+  //   label: 'partenaires',
+  //   slug: '/partenaires',
+  //   type: 'internal',
+  // },
   // {
   //   id: 'faq',
   //   label: 'FAQ',
