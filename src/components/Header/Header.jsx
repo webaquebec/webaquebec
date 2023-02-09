@@ -79,12 +79,6 @@ const secondaryNavigation = [
     type: 'internal',
   },
   {
-    id: 'policy-and-privacy',
-    label: 'politique et confidentialité',
-    slug: '/politique-et-confidentialite',
-    type: 'internal',
-  },
-  {
     id: 'edition2022',
     label: 'édition 2022',
     slug: '/programmation/2022',

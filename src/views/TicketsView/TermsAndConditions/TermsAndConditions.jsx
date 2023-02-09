@@ -15,6 +15,10 @@ const TermsAndConditions = () => (
 
     <ul css={unorderedListStyle}>
       <li>
+        Tous les billets vendus sont nominatifs et ne pourront pas être échangés
+        entre participant·es une fois l’événement débuté.
+      </li>
+      <li>
         Les billets sont des ventes finales (aucun remboursement), mais peuvent
         être transférés à une autre personne une fois la transaction complétée.
       </li>

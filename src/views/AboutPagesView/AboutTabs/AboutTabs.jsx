@@ -29,7 +29,7 @@ const AboutTabs = ({ activeTabId }) => {
     // },
     {
       id: 2,
-      name: 'Québec Numérique',
+      name: 'Québec numérique',
       pageUrl: '/a-propos/quebec-numerique',
     },
   ];

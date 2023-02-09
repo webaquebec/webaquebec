@@ -54,11 +54,11 @@ const AboutQuebecNumeriquePage = ({ data }) => {
 
   return (
     <>
-      <SEO title='Québec Numérique' description={intro} />
+      <SEO title='Québec numérique' description={intro} />
 
       <AboutTabs activeTabId={2} />
 
-      <IntroSection title='Québec Numérique' text={intro} />
+      <IntroSection title='Québec numérique' text={intro} />
 
       <ImagesSection images={images} />
 
