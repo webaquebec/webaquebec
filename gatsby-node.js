@@ -37,3 +37,23 @@ exports.createSchemaCustomization = ({ actions }) => {
   `;
   createTypes(typeDefs);
 };
+
+/**
+ * Fix for making mapbox-gl works with gatsby in production
+ * https://github.com/gatsbyjs/gatsby/issues/6667#issuecomment-459542083
+ *
+ */
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /mapbox-gl/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    });
+  }
+};
