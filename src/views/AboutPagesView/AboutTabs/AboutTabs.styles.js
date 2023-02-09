@@ -22,8 +22,6 @@ export const PageTitle = styled.h1`
 `;
 
 export const isActiveStyle = css`
-  color: ${colors.bleu90};
-
   /* font-weight: ${fontWeights.bold}; */
 
   /* font-family: ${fontFamilies.redaction}; */
@@ -36,7 +34,7 @@ export const isActiveStyle = css`
     background-color: currentColor;
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: background-color ${speed.default};
+      transition: background-color ${speed.fast};
     }
 
     content: '';
@@ -90,12 +88,12 @@ export const AboutLink = styled(Link)`
 
   align-items: center;
 
-  color: ${colors.bleu80};
+  color: ${({ $isActive }) => ($isActive ? colors.bleu90 : colors.bleu)};
   font-weight: ${fontWeights.medium};
   text-decoration: none;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: color ${speed.default};
+    transition: color ${speed.fast};
   }
 
   will-change: color;
@@ -108,8 +106,6 @@ export const AboutLink = styled(Link)`
   &:hover,
   &:focus {
     ${isActiveStyle};
-
-    color: ${colors.bleu80};
   }
 
   ${({ $isActive }) => $isActive && isActiveStyle};
