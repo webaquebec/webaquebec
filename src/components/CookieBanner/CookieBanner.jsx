@@ -54,8 +54,9 @@ const CookieBanner = ({ location }) => {
             <Stack css={contentStyle}>
               <p>
                 Le site du Web à Québec (WAQ) utilise des cookies pour te
-                garantir une meilleure expérience de navigation. Si tu continues
-                à utiliser ce site, on suppose que tu es d’accord avec cela!
+                garantir une meilleure expérience de navigation. En cliquant sur
+                &quot;Accepter&quot;, on suppose que tu es d&apos;accord avec
+                cela!
               </p>
 
               <ButtonContainer>
@@ -63,8 +64,13 @@ const CookieBanner = ({ location }) => {
                   Accepter
                 </Button>
 
-                <Button to='/' tag='link' small primary>
-                  Politique de confidentialité
+                <Button
+                  to='/politique-et-confidentialite'
+                  tag='link'
+                  small
+                  primary
+                >
+                  Plus d&apos;information
                 </Button>
               </ButtonContainer>
             </Stack>

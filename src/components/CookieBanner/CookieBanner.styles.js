@@ -10,6 +10,7 @@ import breakpointsRange from '../../utils/breakpointsRange';
 // styles
 import zIndexes from '../../styles/zIndexes';
 import breakpoints from '../../styles/breakpoints';
+import colors from '../../styles/colors';
 
 export const Container = styled(Paper)`
   position: fixed;
@@ -17,7 +18,7 @@ export const Container = styled(Paper)`
   bottom: 0;
   z-index: ${zIndexes.tooltip};
 
-  max-width: 624px;
+  max-width: 584px;
   margin: var(--container-gutter);
 
   ::before {
@@ -47,6 +48,8 @@ export const Cookie = styled.div`
 `;
 
 export const contentStyle = css`
+  color: ${colors.black};
+
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [15, 15], bases: [16, 20] },
