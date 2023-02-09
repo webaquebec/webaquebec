@@ -161,6 +161,11 @@ const Footer = () => {
                     Code de conduite
                   </Link>
                 </Title>
+                <Title>
+                  <Link as={GatsbyLink} to='/politique-et-confidentialite'>
+                    Politique et confidentialité
+                  </Link>
+                </Title>
               </Block>
             </div>
           </Switcher>
