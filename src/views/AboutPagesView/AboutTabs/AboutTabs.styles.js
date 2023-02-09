@@ -21,11 +21,7 @@ export const PageTitle = styled.h1`
   )};
 `;
 
-export const isActiveStyle = css`
-  /* font-weight: ${fontWeights.bold}; */
-
-  /* font-family: ${fontFamilies.redaction}; */
-
+export const hoverFocusStyle = css`
   &::after {
     display: block;
     width: 85%;
@@ -41,6 +37,13 @@ export const isActiveStyle = css`
 
     will-change: background-color;
   }
+`;
+
+export const isActiveStyle = css`
+  font-weight: ${fontWeights.bold};
+  font-family: ${fontFamilies.redaction};
+
+  ${hoverFocusStyle};
 `;
 
 export const AboutNav = styled.nav`
@@ -72,6 +75,11 @@ export const AboutList = styled.ul`
 export const AboutItem = styled.li`
   flex-shrink: 0;
   margin-right: 30px;
+
+  ${breakpointsRange(
+    [{ prop: 'minWidth', sizes: [147, 225], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 
   &:last-child {
     margin-right: 0;
@@ -105,7 +113,7 @@ export const AboutLink = styled(Link)`
 
   &:hover,
   &:focus {
-    ${isActiveStyle};
+    ${hoverFocusStyle};
   }
 
   ${({ $isActive }) => $isActive && isActiveStyle};
