@@ -19,6 +19,7 @@
     "gatsby": "^4.13.1",
     "gatsby-image": "^3.5.0",
     "gatsby-plugin-facebook-pixel": "^1.0.7",
+    "gatsby-plugin-gdpr-cookies": "^2.0.9",
     "gatsby-plugin-google-gtag": "^4.24.0",
     "gatsby-plugin-google-tagmanager": "^4.24.0",
     "gatsby-plugin-graphql-loader": "^1.0.2",
