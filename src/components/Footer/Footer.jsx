@@ -91,7 +91,7 @@ const Footer = () => {
 
           <Switcher
             threshold='832px'
-            space='2rem'
+            space='1.5rem'
             limit={4}
             css={footerWrapperStyle}
           >
@@ -162,7 +162,13 @@ const Footer = () => {
                   </Link>
                 </Title>
                 <Title>
-                  <Link as={GatsbyLink} to='/politique-et-confidentialite'>
+                  <Link
+                    as={GatsbyLink}
+                    to='/politique-et-confidentialite'
+                    css={`
+                      white-space: pre;
+                    `}
+                  >
                     Politique et confidentialité
                   </Link>
                 </Title>
