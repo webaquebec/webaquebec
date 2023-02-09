@@ -33,13 +33,13 @@ const Layout = ({ children, location }) => {
 
       <PixelGradient pathname={pathname} />
 
+      <CookieBanner location={location} />
+
       <Header pathname={pathname} />
 
       <main>{children}</main>
 
       <Footer />
-
-      <CookieBanner location={location} />
     </>
   );
 };
