@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 // components
 import Stack from '../components/LayoutSections/Stack';
 import SectionContainer from '../components/SectionContainer';
+import Center from '../components/LayoutSections/Center';
 import SEO from '../components/SEO';
 
 // utils
@@ -12,7 +13,6 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import Center from '../components/LayoutSections/Center';
 import {
   titleStyle,
   h2Style,
@@ -71,18 +71,27 @@ const Container = styled(SectionContainer)`
 `;
 
 const ContactInformation = () => (
-  <p>
-    Courrier : Québec numérique, 330, rue Saint-Vallier Est, bureau 300,
-    <br />
-    Québec (QC) G1K 9C5
-    <br />
-    Courriel :{' '}
-    <Link href='mailto:vieprivee@quebecnumerique.com'>
-      vieprivee@quebecnumerique.com
-    </Link>
-    <br />
-    Téléphone : <Link href='tel:1-877-334-2547'>1 877-334-2547</Link>
-  </p>
+  <Stack>
+    <div>
+      Courrier :
+      <br />
+      Québec numérique,
+      <br />
+      330, rue Saint-Vallier Est, bureau 300,
+      <br />
+      Québec (QC) G1K 9C5
+      <br />
+    </div>
+    <div>
+      Courriel :{' '}
+      <Link href='mailto:vieprivee@quebecnumerique.com'>
+        vieprivee@quebecnumerique.com
+      </Link>
+    </div>
+    <div>
+      Téléphone : <Link href='tel:1-877-334-2547'>1 877-334-2547</Link>
+    </div>
+  </Stack>
 );
 
 const PolicyPrivacyPage = () => (
