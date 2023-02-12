@@ -87,7 +87,7 @@ export const TicketPrice = styled.div`
 
     margin-top: 5px;
 
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   sub {

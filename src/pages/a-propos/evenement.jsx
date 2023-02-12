@@ -13,20 +13,13 @@ import Center from '../../components/LayoutSections/Center';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 // views
+import AboutTabs from '../../views/AboutPagesView/AboutTabs';
 import IntroSection from '../../views/AboutEventPageView/IntroSection';
 import AboutEventSection from '../../views/AboutEventPageView/AboutEventSection';
 import GallerySection from '../../views/AboutEventPageView/GallerySection';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
-import { titleStyle } from '../../styles/global';
-
-const PageTitle = styled.h1`
-  ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
 
 const GallerySectionImg = styled(GatsbyImage)`
   max-width: 100%;
@@ -124,20 +117,7 @@ const AboutEventPage = ({ data }) => {
     <>
       <SEO title="L'événement" description='' />
 
-      <header>
-        <Center
-          maxWidth='770px'
-          gutters='var(--container-gutter)'
-          withText
-          intrinsic
-        >
-          <PageTitle css={titleStyle}>
-            <span>à</span> propos
-          </PageTitle>
-
-          {/* TODO: Tabs comes here */}
-        </Center>
-      </header>
+      <AboutTabs activeTabId={0} />
 
       <IntroSection title={`l'événement`} text={intro}>
         <VideoWrapper>

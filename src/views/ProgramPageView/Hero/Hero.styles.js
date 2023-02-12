@@ -89,7 +89,7 @@ export const DateListItem = styled.li`
 `;
 
 export const dateTabStyle = css`
-  min-width: 125px;
+  min-width: 185px;
   height: 100%;
   min-height: 75px;
 
@@ -125,6 +125,11 @@ export const dateTabStyle = css`
 
     will-change: color;
 
+    &&.active {
+      font-weight: ${fontWeights.bold};
+      font-family: ${fontFamilies.redaction};
+    }
+
     &&.active,
     &&:focus,
     &&:hover {
@@ -158,10 +163,6 @@ export const dateTabStyle = css`
     &&.active,
     &&:focus {
       color: ${colors.bleu90};
-
-      /* font-weight: ${fontWeights.bold}; */
-
-      /* font-family: ${fontFamilies.redaction}; */
     }
   }
 `;

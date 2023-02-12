@@ -14,6 +14,7 @@ import '../../fonts/Redaction/redaction.css';
 import Footer from '../Footer';
 import Header from '../Header';
 import PixelGradient from '../PixelGradient/PixelGradient';
+import CookieBanner from '../CookieBanner';
 
 /**
  * The common Layout shared across all pages
@@ -32,6 +33,8 @@ const Layout = ({ children, location }) => {
       <GlobalStyle />
 
       <PixelGradient pathname={pathname} />
+
+      <CookieBanner location={location} />
 
       <Header pathname={pathname} />
 

@@ -39,14 +39,18 @@ export const animatedPrimaryStyle = css`
 
 export const primaryStyle = css`
   --btn-color: ${colors.bleu80};
-  --btn-bg-color: ${colors.gris30};
+
+  /* --btn-bg-color: ${colors.gris30}; */
+  --btn-bg-color: transparent;
   --btn-border-color: currentColor;
 
   &.active,
   :focus,
   :hover:not([disabled]) {
     --btn-color: ${colors.bleu90};
-    --btn-bg-color: ${colors.gris30};
+
+    /* --btn-bg-color: ${colors.gris30}; */
+    --btn-bg-color: transparent;
   }
 
   ${({ $animated }) => $animated && animatedPrimaryStyle}
@@ -258,6 +262,7 @@ const StyledButton = styled.button`
 
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 
   ${breakpointsRange(
     [
@@ -274,6 +279,7 @@ const StyledButton = styled.button`
   color: var(--btn-color);
 
   font-weight: ${fontWeights.medium};
+  text-align: center;
   text-decoration: none;
 
   background-color: var(--btn-bg-color);

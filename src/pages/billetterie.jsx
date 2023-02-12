@@ -12,8 +12,9 @@ import SEO from '../components/SEO';
 import breakpointsRange from '../utils/breakpointsRange';
 
 // views
-// import Prices from '../views/TicketsView/Prices';
-import CallToAction from '../views/TicketsView/CallToAction';
+import Prices from '../views/TicketsView/Prices';
+// import CallToAction from '../views/TicketsView/CallToAction';
+import TermsAndConditions from '../views/TicketsView/TermsAndConditions/TermsAndConditions';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -69,7 +70,7 @@ const TicketsPage = () => (
   <>
     <SEO
       title='Billetterie'
-      description='Viens vivre le WAQ en formule hybride du 24 au 26 mai 2022. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
+      description='Viens vivre le WAQ du 23 au 25 mai 2023. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
     />
 
     <Center
@@ -99,10 +100,11 @@ const TicketsPage = () => (
       </TicketsIntro>
     </Center>
 
-    {/* <Prices /> */}
+    <Prices />
 
     <Container forwardedAs='div' faded>
-      <CallToAction />
+      {/* <CallToAction /> */}
+      <TermsAndConditions />
     </Container>
   </>
 );

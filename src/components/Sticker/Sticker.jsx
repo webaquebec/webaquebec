@@ -9,39 +9,37 @@ import LazyAnimation from '../LazyAnimation';
 import { easing } from '../../styles/animation';
 import StickerImg from './Sticker.styles';
 
-const Sticker = ({ sticker, index }) => {
-  return (
-    <LazyAnimation
-      transition={{
-        threshold: 1,
-        duration: '400ms',
-        delay: `${(index + 1) * 250}ms`,
-        easing: easing.outCustom,
-        scale: { initial: '0', final: '1' },
-        rotate: {
-          initial: sticker.transform.rotate.initial,
-          final: sticker.transform.rotate.final,
-        },
-      }}
-      css={`
-        position: absolute;
-        top: ${sticker.position.top || ''};
-        right: ${sticker.position.right || ''};
-        bottom: ${sticker.position.bottom || ''};
-        left: ${sticker.position.left || ''};
-        z-index: ${sticker.zIndex || ''};
-      `}
-    >
-      <StickerImg
-        src={sticker.src}
-        role='presentation'
-        alt=''
-        $minWidth={sticker.size.minWidth}
-        $maxWidth={sticker.size.maxWidth}
-      />
-    </LazyAnimation>
-  );
-};
+const Sticker = ({ sticker, index }) => (
+  <LazyAnimation
+    transition={{
+      threshold: 1,
+      duration: '400ms',
+      delay: `${(index + 1) * 250}ms`,
+      easing: easing.outCustom,
+      scale: { initial: '0', final: '1' },
+      rotate: {
+        initial: sticker.transform.rotate.initial,
+        final: sticker.transform.rotate.final,
+      },
+    }}
+    css={`
+      position: absolute;
+      top: ${sticker.position.top || ''};
+      right: ${sticker.position.right || ''};
+      bottom: ${sticker.position.bottom || ''};
+      left: ${sticker.position.left || ''};
+      z-index: ${sticker.zIndex || ''};
+    `}
+  >
+    <StickerImg
+      src={sticker.src}
+      role='presentation'
+      alt=''
+      $minWidth={sticker.size.minWidth}
+      $maxWidth={sticker.size.maxWidth}
+    />
+  </LazyAnimation>
+);
 
 Sticker.propTypes = {
   /**

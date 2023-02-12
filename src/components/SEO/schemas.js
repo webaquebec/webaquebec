@@ -25,7 +25,7 @@ const location = [
 
 const organizer = {
   '@type': 'Organization',
-  name: 'Québec Numérique',
+  name: 'Québec numérique',
   url: 'https://quebecnumerique.com/',
   telephone: '+1 877-334-2547',
   location: {
