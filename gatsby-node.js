@@ -43,17 +43,17 @@ exports.createSchemaCustomization = ({ actions }) => {
  * https://github.com/gatsbyjs/gatsby/issues/6667#issuecomment-459542083
  *
  */
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /mapbox-gl/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    });
-  }
-};
+// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+//   if (stage === 'build-html') {
+//     actions.setWebpackConfig({
+//       module: {
+//         rules: [
+//           {
+//             test: /mapbox-gl/,
+//             use: loaders.null(),
+//           },
+//         ],
+//       },
+//     });
+//   }
+// };
