@@ -1,9 +1,11 @@
 // vendors
 import React, { useEffect, useRef } from 'react';
+// Fix transpilation issue with mapbox-gl
+// https://docs.mapbox.com/mapbox-gl-js/guides/install/#excluding-mapbox-gl-js-explicitly-from-transpilation
 // eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
 import mapboxgl from '!mapbox-gl';
 
-// icons
+// images
 import unicornMarker from '../../images/vectorUnicorn.svg';
 import targetMarker from '../../images/vectorTarget.svg';
 
