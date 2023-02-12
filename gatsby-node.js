@@ -40,23 +40,21 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 /**
  * Fix for making mapbox-gl works with gatsby in production
- * Excluding Mapbox GL JS explicitly from transpilation
- * https://docs.mapbox.com/mapbox-gl-js/guides/install/#excluding-mapbox-gl-js-explicitly-from-transpilation
+ * https://docs.mapbox.com/mapbox-gl-js/guides/install/#transpiling
  *
  */
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {
     actions.setWebpackConfig({
       module: {
         rules: [
           {
+            test: /@mapbox/,
+            use: loaders.null(),
+          },
+          {
             test: /mapbox-gl/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                ignore: ['./node_modules/mapbox-gl/dist/mapbox-gl.js'],
-              },
-            },
+            use: loaders.null(),
           },
         ],
       },
