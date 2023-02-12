@@ -57,7 +57,7 @@ const fieldIdsMap = {
 };
 
 const genericErrorMessage = `❌ Une erreur s'est produite de notre côté. Veuillez réessayer à nouveau.<br />
-                            Si le problème persiste, veuillez écrire à <a href='mailto:info@webaquebec.org'>info@webaquebec.org</a>.`;
+                            Si le problème persiste, veuillez écrire un courriel à <a href='mailto:info@webaquebec.org'>info@webaquebec.org</a>.`;
 
 const API_URL = process.env.GATSBY_WP_API_URL_ROOT;
 
@@ -212,7 +212,7 @@ const Form = () => {
                         helperText={touched.lastName ? errors.lastName : ''}
                       />
                       <TextInputField
-                        label='courriel*'
+                        label='courriel'
                         placeholder='courriel'
                         name='email'
                         value={values.email}
@@ -225,7 +225,7 @@ const Form = () => {
 
                     <div>
                       <TextArea
-                        label='votre message*'
+                        label='votre message'
                         placeholder='votre message'
                         name='message'
                         value={values.message}
