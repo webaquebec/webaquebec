@@ -43,21 +43,21 @@ exports.createSchemaCustomization = ({ actions }) => {
  * https://docs.mapbox.com/mapbox-gl-js/guides/install/#transpiling
  *
  */
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /@mapbox/,
-            use: loaders.null(),
-          },
-          {
-            test: /mapbox-gl/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    });
-  }
-};
+// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+//   if (stage === 'build-html') {
+//     actions.setWebpackConfig({
+//       module: {
+//         rules: [
+//           {
+//             test: /@mapbox/,
+//             use: loaders.null(),
+//           },
+//           {
+//             test: /mapbox-gl/,
+//             use: loaders.null(),
+//           },
+//         ],
+//       },
+//     });
+//   }
+// };

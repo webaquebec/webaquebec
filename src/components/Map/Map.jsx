@@ -1,6 +1,7 @@
 // vendors
 import React, { useEffect, useRef } from 'react';
-import mapboxgl from 'mapbox-gl';
+// eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
+import mapboxgl from '!mapbox-gl';
 
 // icons
 import unicornMarker from '../../images/vectorUnicorn.svg';
