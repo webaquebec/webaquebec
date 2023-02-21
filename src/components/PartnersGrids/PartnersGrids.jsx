@@ -35,6 +35,7 @@ import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg
 import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
 import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
 import logoNventive from '../../images/logoPartners/associates/logo-nventive.svg';
+import logoEdgenda from '../../images/logoPartners/associates/logo-edgenda.svg';
 
 // styles
 import {
@@ -129,6 +130,11 @@ const associatesImages = [
     src: logoEmergensys,
     alt: 'Emergensys | Parce que chaque seconde compte',
     url: 'https://www.emergensys.net/fr/',
+  },
+  {
+    src: logoEdgenda,
+    alt: 'Edgenda | Service conseils - Transformation',
+    url: 'https://edgenda.com/',
   },
   // {
   //   src: logoFlots,
