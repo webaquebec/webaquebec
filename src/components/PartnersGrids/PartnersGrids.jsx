@@ -133,8 +133,8 @@ const associatesImages = [
   },
   {
     src: logoEdgenda,
-    alt: 'Edgenda | Service conseils - Transformation',
-    url: 'https://edgenda.com/',
+    alt: "AFI Expertise | Firme de solutions d'apprentissage en bureautique, gestion et technologies de l'information",
+    url: 'https://www.afiexpertise.com/fr',
   },
   // {
   //   src: logoFlots,
