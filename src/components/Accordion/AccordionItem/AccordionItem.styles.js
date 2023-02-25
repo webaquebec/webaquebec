@@ -221,6 +221,11 @@ export const PanelContent = styled.div`
   > * {
     margin: 0;
   }
+
+  .partner-logo {
+    width: 150px;
+    margin-bottom: 16px;
+  }
 `;
 
 export const Toggle = styled(IconChevron)`
