@@ -71,7 +71,7 @@ const Prices = () => (
             <TicketPrice>320$</TicketPrice>
 
             <Button
-              to='https://my.weezevent.com/waqademie-tony-aube'
+              to='https://my.weezevent.com/google-analytics-4'
               tag='href'
               inverted
               small
