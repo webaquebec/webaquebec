@@ -27,7 +27,7 @@ const Prices = () => (
       limit={2}
     >
       <BlocksWrapper>
-        <Paper
+        {/* <Paper
           lightColor={colors.gris30}
           darkColor={colors.bleu80}
           rounded
@@ -56,7 +56,7 @@ const Prices = () => (
               Inclus le petit-déjeuner et 45 minutes de conférences
             </TicketText>
           </Center>
-        </Paper>
+        </Paper> */}
 
         <Paper
           lightColor={colors.bleu80}
@@ -66,7 +66,7 @@ const Prices = () => (
           css={blockContainerStyle}
         >
           <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
-            <TicketTitle>Formation complète</TicketTitle>
+            <TicketTitle>Formation</TicketTitle>
 
             <TicketPrice>320$</TicketPrice>
 
@@ -83,8 +83,8 @@ const Prices = () => (
             </Button>
 
             <TicketText>
-              Inclus le petit-déjeuner, 45 minutes de conférence et 3 heures de
-              formation
+              Inclus le petit-déjeuner, des collations, du réseautage et 3
+              heures de formation
             </TicketText>
           </Center>
         </Paper>
