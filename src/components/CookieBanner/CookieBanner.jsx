@@ -1,15 +1,14 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 // vendors
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { initializeAndTrack } from 'gatsby-plugin-gdpr-cookies';
 
 // components
 import Button from '../Button';
-// import Paper from '../Paper';
 
 // hooks
-import useStickyState, { isBrowser } from '../../hooks/useStickyState';
+import useStickyState from '../../hooks/useStickyState';
 
 // styles
 import colors from '../../styles/colors';
@@ -19,24 +18,42 @@ import {
   ButtonContainer,
   Container,
   Cookie,
+  Link,
   Wrapper,
   contentStyle,
+  noWrapStyle,
 } from './CookieBanner.styles';
 
 const CookieBanner = ({ location }) => {
-  if (isBrowser()) {
-    initializeAndTrack(location);
-  }
+  // if (isBrowser()) {
+  //   initializeAndTrack(location);
+  // }
+  initializeAndTrack(location);
 
   const [bannerHidden, setBannerHidden] = useStickyState(
     false,
     'consentCookieHidden'
   );
 
-  const enableAnalytics = () => {
-    document.cookie = 'gatsby-gdpr-google-analytics=true';
-    setBannerHidden(true);
+  const setCookie = (key, value) => {
+    document.cookie = `${key}=${value}`;
   };
+
+  const enableAnalytics = useCallback(() => {
+    setCookie('gatsby-gdpr-google-analytics', true);
+    setCookie('gatsby-gdpr-google-tagmanager', true);
+    setCookie('gatsby-gdpr-facebook-pixel', true);
+
+    setBannerHidden(true);
+  }, [setBannerHidden]);
+
+  const disableAnalytics = useCallback(() => {
+    setCookie('gatsby-gdpr-google-analytics', false);
+    setCookie('gatsby-gdpr-google-tagmanager', false);
+    setCookie('gatsby-gdpr-facebook-pixel', false);
+
+    setBannerHidden(true);
+  }, [setBannerHidden]);
 
   return (
     <>
@@ -44,34 +61,38 @@ const CookieBanner = ({ location }) => {
         <Container
           lightColor={colors.white}
           darkColor={colors.bleu80}
+          elevation={elevation.large}
           rounded
           overlaid
-          elevation={elevation.large}
         >
           <Wrapper>
             <Cookie>🍪</Cookie>
 
-            <Stack css={contentStyle}>
+            <Stack space='var(--container-gutter)' css={contentStyle}>
               <p>
                 Le site du Web à Québec (WAQ) utilise des cookies pour te
-                garantir une meilleure expérience de navigation. En cliquant sur
-                &quot;Accepter&quot;, on suppose que tu es d&apos;accord avec
-                cela!
+                garantir une meilleure expérience de navigation. En cliquant sur{' '}
+                <span css={noWrapStyle}>&laquo; Accepter &raquo;</span>, on
+                suppose que tu es d&apos;accord avec cela!{' '}
+                <Link to='/politique-et-confidentialite'>En savoir plus</Link>
               </p>
 
               <ButtonContainer>
                 <Button onClick={enableAnalytics} small>
                   Accepter
                 </Button>
+                <Button onClick={disableAnalytics} primary small>
+                  Refuser
+                </Button>
 
-                <Button
+                {/* <Button
                   to='/politique-et-confidentialite'
                   tag='link'
                   small
                   primary
                 >
                   Plus d&apos;information
-                </Button>
+                </Button> */}
               </ButtonContainer>
             </Stack>
           </Wrapper>
