@@ -14,6 +14,7 @@ import Footer from '../Footer';
 import Header from '../Header';
 import PixelGradient from '../PixelGradient/PixelGradient';
 import CookieBanner from '../CookieBanner';
+import ClientOnly from '../ClientOnly/ClientOnly';
 
 /**
  * The common Layout shared across all pages
@@ -33,7 +34,9 @@ const Layout = ({ children, location }) => {
 
       <PixelGradient pathname={pathname} />
 
-      <CookieBanner location={location} />
+      <ClientOnly>
+        <CookieBanner location={location} />
+      </ClientOnly>
 
       <Header pathname={pathname} />
 
