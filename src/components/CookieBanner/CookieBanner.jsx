@@ -25,9 +25,6 @@ import {
 } from './CookieBanner.styles';
 
 const CookieBanner = ({ location }) => {
-  // if (isBrowser()) {
-  //   initializeAndTrack(location);
-  // }
   initializeAndTrack(location);
 
   const [bannerHidden, setBannerHidden] = useStickyState(
@@ -39,21 +36,23 @@ const CookieBanner = ({ location }) => {
     document.cookie = `${key}=${value}`;
   };
 
+  const initAnalyticsCookies = useCallback((value) => {
+    setCookie('gatsby-gdpr-google-analytics', value);
+    setCookie('gatsby-gdpr-google-tagmanager', value);
+    setCookie('gatsby-gdpr-facebook-pixel', value);
+  }, []);
+
   const enableAnalytics = useCallback(() => {
-    setCookie('gatsby-gdpr-google-analytics', true);
-    setCookie('gatsby-gdpr-google-tagmanager', true);
-    setCookie('gatsby-gdpr-facebook-pixel', true);
+    initAnalyticsCookies(true);
 
     setBannerHidden(true);
-  }, [setBannerHidden]);
+  }, [initAnalyticsCookies, setBannerHidden]);
 
   const disableAnalytics = useCallback(() => {
-    setCookie('gatsby-gdpr-google-analytics', false);
-    setCookie('gatsby-gdpr-google-tagmanager', false);
-    setCookie('gatsby-gdpr-facebook-pixel', false);
+    initAnalyticsCookies(false);
 
     setBannerHidden(true);
-  }, [setBannerHidden]);
+  }, [initAnalyticsCookies, setBannerHidden]);
 
   return (
     <>
@@ -84,15 +83,6 @@ const CookieBanner = ({ location }) => {
                 <Button onClick={disableAnalytics} primary small>
                   Refuser
                 </Button>
-
-                {/* <Button
-                  to='/politique-et-confidentialite'
-                  tag='link'
-                  small
-                  primary
-                >
-                  Plus d&apos;information
-                </Button> */}
               </ButtonContainer>
             </Stack>
           </Wrapper>
