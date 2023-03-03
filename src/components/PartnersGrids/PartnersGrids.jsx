@@ -36,6 +36,7 @@ import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
 import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
 import logoNventive from '../../images/logoPartners/associates/logo-nventive.svg';
 import logoEdgenda from '../../images/logoPartners/associates/logo-edgenda.svg';
+import logoProjetTeamForward from '../../images/logoPartners/supporters/logo-projet-team-forward.svg';
 
 // styles
 import {
@@ -168,6 +169,11 @@ const supportersImages = [
     src: logoZenika,
     alt: 'Zenika | Cabinet d’innovation technologique',
     url: 'https://zenika.com/fr-CA',
+  },
+  {
+    src: logoProjetTeamForward,
+    alt: 'Projet Team Forward | Une nouvelle façon de donner',
+    url: 'https://projetteamforward.org/',
   },
   // {
   //   src: logoBotpress,
