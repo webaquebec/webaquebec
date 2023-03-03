@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Link as GatsbyLink } from 'gatsby';
 
 // components
 import Paper from '../Paper';
@@ -64,11 +65,31 @@ export const contentStyle = css`
   )};
 `;
 
+export const noWrapStyle = css`
+  white-space: nowrap;
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
   gap: 12px;
 
   ${lessThan(580)} {
     flex-direction: column;
+  }
+`;
+
+export const Link = styled(GatsbyLink)`
+  position: relative;
+
+  color: ${colors.bleu};
+  text-decoration: none;
+
+  border-bottom: 2px solid currentColor;
+
+  ${noWrapStyle};
+
+  :hover,
+  :focus {
+    color: ${colors.bleu90};
   }
 `;
