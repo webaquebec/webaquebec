@@ -356,9 +356,14 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
                 {(categories.length > 0 || type || place) && (
                   <Cluster>
                     <div>
-                      {/* {categories.map((category) => (
-                        <Tag key={`category-${category}`} category={category} />
-                      ))} */}
+                      {categories
+                        .filter((category) => category.value)
+                        .map((category) => (
+                          <Tag
+                            key={`category-${category.value}`}
+                            category={category.value}
+                          />
+                        ))}
 
                       {type && <Tag eventType={type} />}
 
@@ -414,7 +419,11 @@ export const sessionQuery = graphql`
         id
         beginsAt
         endsAt
-        categories
+        categories: fields {
+          ... on Swapcard_MultipleSelectField {
+            value
+          }
+        }
         configuration {
           maxSeats
         }
