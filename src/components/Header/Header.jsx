@@ -23,13 +23,13 @@ import {
 import BurgerButton from './BurgerButton';
 
 const primaryNavigation = [
-  // {
-  //   id: 'programmation',
-  //   label: 'programmation',
-  //   slug: '/programmation/2022',
-  //   type: 'internal',
-  //   color: 'turquoise',
-  // },
+  {
+    id: 'programmation',
+    label: 'programmation',
+    slug: '/programmation/2023',
+    type: 'internal',
+    color: 'turquoise',
+  },
   {
     id: 'blog',
     label: 'blogue',
