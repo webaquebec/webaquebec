@@ -17,7 +17,7 @@ export const footerWrapperStyle = css`
 `;
 
 export const footerTextStyle = css`
-  color: ${colors.bleu80};
+  color: ${colors.bleu90};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
@@ -88,7 +88,7 @@ export const ArchiveItem = styled.li`
 `;
 
 export const ArchiveLink = styled.a`
-  color: ${colors.bleu80};
+  color: ${colors.bleu90};
   font-weight: ${fontWeights.bold};
   text-decoration: none;
 

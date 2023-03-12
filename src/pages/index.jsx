@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 // components
 import SEO from '../components/SEO';
+import LavaLamp from '../components/LavaLamp';
 import StyledSectionContainer from '../components/SectionContainer';
 import PartnersGrids from '../components/PartnersGrids';
 
@@ -36,6 +37,8 @@ const IndexPage = () => (
       title='Web à Québec | 23 au 25 mai 2023'
       description='Le plus grand événement numérique francophone en Amérique du Nord.'
     />
+
+    <LavaLamp />
 
     <Hero />
 

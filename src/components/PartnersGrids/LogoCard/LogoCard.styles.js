@@ -12,7 +12,7 @@ import breakpoints from '../../../styles/breakpoints';
 export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[7]];
 
 export const premiumStyle = css`
-  background-color: ${colors.bleu80};
+  background-color: ${colors.bleu90};
 
   ${breakpointsRange(
     [

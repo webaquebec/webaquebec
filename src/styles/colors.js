@@ -1,6 +1,7 @@
 const black = '#000000';
 const white = '#ffffff';
 const red = '#E0302A';
+const beige = '#FFF7E9';
 
 const bleu10 = '#EBECFF';
 const bleu20 = '#D1D5FF';
@@ -65,11 +66,11 @@ const gris80 = '#858585';
 const gris90 = '#5E5E5E';
 const gris100 = '#383838';
 
-// #000CA0
+// #7976B5
 const bleu80hsl = {
-  hue: 236,
-  saturation: 100,
-  lightness: 31,
+  hue: 243,
+  saturation: 30,
+  lightness: 59,
 };
 // #2FF0CC
 const turquoise80hsl = {
@@ -83,11 +84,11 @@ const jaune80hsl = {
   saturation: 94,
   lightness: 63,
 };
-// #FF58D1
+// #F49D9F
 const rose80hsl = {
-  hue: 317,
-  saturation: 100,
-  lightness: 67,
+  hue: 359,
+  saturation: 80,
+  lightness: 79,
 };
 // #9958ED
 const mauve80hsl = {
@@ -106,6 +107,7 @@ const colors = {
   black,
   white,
   red,
+  beige,
 
   bleu10,
   bleu20,
@@ -186,6 +188,7 @@ const alias = {
   mauve: colors.mauve80,
   ciel: colors.ciel80,
   gris: colors.gris30,
+  beige: colors.beige,
 };
 
 export default { ...colors, ...alias };

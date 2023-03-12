@@ -59,7 +59,7 @@ const SocialNews = () => {
       <div>
         <Paper
           lightColor={colors.gris30}
-          darkColor={colors.bleu80}
+          darkColor={colors.bleu90}
           rounded
           overlaid
           elevation={elevation.large}
@@ -92,7 +92,7 @@ const SocialNews = () => {
         </Paper>
 
         <Paper
-          lightColor={colors.bleu80}
+          lightColor={colors.bleu90}
           darkColor={colors.gris30}
           rounded
           elevation={elevation.large}

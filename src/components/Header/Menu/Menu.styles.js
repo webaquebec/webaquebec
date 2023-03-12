@@ -81,13 +81,13 @@ export const navStyle = css`
 `;
 
 export const Blob = styled.div`
-  --jaune: ${colors.jaune80};
-  --turquoise: ${colors.turquoise80};
-  --rose: ${colors.rose80};
-  --ciel: ${colors.ciel80};
-  --gris: ${colors.gris30};
+  --jaune: ${colors.jaune20};
+  --turquoise: ${colors.turquoise20};
+  --rose: ${colors.rose20};
+  --ciel: ${colors.ciel20};
+  --gris: ${colors.gris20};
   --blob-color: ${({ color }) => `var(--${color})`};
-  --mauve: ${colors.mauve};
+  --mauve: ${colors.mauve20};
 
   position: fixed;
   bottom: 0;
@@ -312,7 +312,7 @@ export const Container = styled(Box)`
   width: 100%;
   height: 100%;
 
-  background-color: ${colors.gris};
+  background-color: ${colors.beige};
 
   visibility: hidden;
   opacity: 0;

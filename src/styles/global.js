@@ -229,10 +229,11 @@ export const magnifyStyle = css`
 `;
 
 export const billboardStyle = css`
-  color: ${colors.bleu};
+  color: ${colors.bleu90};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
+  text-shadow: 3px 3px 0 ${colors.turquoise30}, 6px 6px 0 ${colors.bleu80};
 
   ${breakpointsRange(
     [

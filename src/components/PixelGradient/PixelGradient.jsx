@@ -15,23 +15,23 @@ const optionsByLocation = {
     minLightness: colors.jaune80hsl.lightness,
     colors: [
       {
-        hue: colors.jaune80hsl.hue,
-        saturation: colors.jaune80hsl.saturation,
+        hue: colors.bleu80hsl.hue,
+        saturation: colors.bleu80hsl.saturation,
         lightness: 100,
       },
       {
-        hue: colors.jaune80hsl.hue,
-        saturation: colors.jaune80hsl.saturation,
-        lightness: colors.jaune80hsl.lightness,
+        hue: colors.bleu80hsl.hue,
+        saturation: colors.bleu80hsl.saturation,
+        lightness: colors.bleu80hsl.lightness,
       },
       {
-        hue: colors.jaune80hsl.hue,
-        saturation: colors.jaune80hsl.saturation,
-        lightness: colors.jaune80hsl.lightness,
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
+        lightness: colors.rose80hsl.lightness,
       },
       {
-        hue: colors.jaune80hsl.hue,
-        saturation: colors.jaune80hsl.saturation,
+        hue: colors.rose80hsl.hue,
+        saturation: colors.rose80hsl.saturation,
         lightness: 100,
       },
     ],
