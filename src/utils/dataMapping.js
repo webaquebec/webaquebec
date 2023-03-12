@@ -10,6 +10,7 @@ export const categoriesMap = {
 // Event type tag
 export const eventTypesMap = {
   conference: 'Conférence',
+  conferences: 'Conférence',
   activite: 'Activité',
   atelier: 'Atelier',
   qanda: 'Q&A',
