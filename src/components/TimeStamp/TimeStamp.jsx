@@ -10,7 +10,7 @@ const TimeStamp = ({ beginsAt, endsAt, ...rest }) => (
   <Box
     padding='12px'
     lightColor={colors.white}
-    darkColor={colors.gris80}
+    darkColor={colors.gris90}
     borderWidth='2px'
     css={`
       min-width: 69px;
