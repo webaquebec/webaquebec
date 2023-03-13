@@ -43,8 +43,11 @@ const ScheduleCard = ({
     design: colors.mauve,
     developpement: colors.ciel,
     innovation: colors.turquoise,
-    'communication-and-marketing': colors.rose,
-    'communication-et-marketing': colors.rose,
+    'communication-and-marketing': colors.rose60,
+    'communication-et-marketing': colors.rose60,
+    'jeu-video': colors.ciel90,
+    'competences-transversales': colors.jaune,
+    'communication-dans-ladministration-publique': colors.rose100,
   };
 
   return (
@@ -153,10 +156,14 @@ ScheduleCard.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.oneOf([
       'design',
-      'communication-and-marketing',
-      'communication-et-marketing',
       'developpement',
       'innovation',
+      'communication-and-marketing',
+      'communication-et-marketing',
+      'pitch-ton-waq',
+      'jeu-video',
+      'competences-transversales',
+      'communication-dans-ladministration-publique',
     ])
   ),
   /**
