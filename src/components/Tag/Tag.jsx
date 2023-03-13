@@ -10,6 +10,42 @@ import unSlugify from '../../utils/strings/unSlugify';
 
 // utils
 import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
+import colors from '../../styles/colors';
+
+const categoryColors = {
+  design: {
+    color: colors.mauve80,
+    bgColor: colors.mauve10,
+  },
+  developpement: {
+    color: colors.ciel80,
+    bgColor: colors.ciel10,
+  },
+  innovation: {
+    color: colors.turquoise90,
+    bgColor: colors.turquoise10,
+  },
+  'communication-and-marketing': {
+    color: colors.rose80,
+    bgColor: colors.rose10,
+  },
+  'communication-et-marketing': {
+    color: colors.rose80,
+    bgColor: colors.rose10,
+  },
+  'jeu-video': {
+    color: colors.ciel90,
+    bgColor: colors.ciel20,
+  },
+  'competences-transversales': {
+    color: `hsl(${colors.jaune80hsl.hue} ${colors.jaune80hsl.saturation}% 24%)`,
+    bgColor: colors.jaune20,
+  },
+  'communication-dans-ladministration-publique': {
+    color: colors.rose100,
+    bgColor: colors.rose10,
+  },
+};
 
 /**
  * @module Tag
@@ -37,14 +73,7 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
 
   return (
     <StyledTag
-      $designRoom={tagType === 'category' && category === 'design'}
-      $commRoom={
-        tagType === 'category' &&
-        (category === 'communication-et-marketing' ||
-          category === 'communication-and-marketing')
-      }
-      $devRoom={tagType === 'category' && category === 'developpement'}
-      $innovationRoom={tagType === 'category' && category === 'innovation'}
+      $category={tagType === 'category' && categoryColors[category]}
       $speaker={tagType === 'speaker'}
       $eventType={tagType === 'eventType'}
       $outlined={outlined}
@@ -103,6 +132,9 @@ Tag.propTypes = {
     'communication-and-marketing',
     'communication-et-marketing',
     'pitch-ton-waq',
+    'jeu-video',
+    'competences-transversales',
+    'communication-dans-ladministration-publique',
   ]),
   /**
    * Specifies which data to show if the tag is a speaker one
