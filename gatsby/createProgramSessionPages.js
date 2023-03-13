@@ -14,13 +14,14 @@ const allowedTypes = [
   'activite',
   'atelier',
   'conference',
+  'conferences',
   'qanda',
   'contenu-sur-demande',
-  // 'pitch-ton-waq',
   'table-ronde',
   'keynote',
   'panel',
   'rediffusion',
+  // 'pitch-ton-waq',
   // 'reseautage',
   // 'en-direct',
 ];
@@ -37,6 +38,19 @@ const getPlannings = async ({ graphql, reporter, variables }) => {
   const { eventIds, page, pageSize } = variables;
   const result = await graphql(`
     {
+      edition2023: swapcard {
+        plannings(
+          eventId: "${eventIds[2023]}"
+          page: ${page}
+          pageSize: ${pageSize}
+        ) {
+          beginsAt
+          id
+          title
+          type
+        }
+      }
+
       edition2022: swapcard {
         plannings(
           eventId: "${eventIds[2022]}"
@@ -74,10 +88,14 @@ const getPlannings = async ({ graphql, reporter, variables }) => {
   }
 
   const {
-    data: { edition2021, edition2022 },
+    data: { edition2021, edition2022, edition2023 },
   } = result;
 
-  const plannings = [...edition2022.plannings, ...edition2021.plannings];
+  const plannings = [
+    ...edition2022.plannings,
+    ...edition2021.plannings,
+    ...edition2023.plannings,
+  ];
   // const plannings = { edition2022, edition2021 };
 
   // eslint-disable-next-line consistent-return
@@ -209,7 +227,8 @@ const createProgram = async ({
 module.exports = async ({ graphql, actions, reporter }) => {
   const variables = {
     eventIds: {
-      2022: `${process.env.SWAPCARD_EVENT_ID}`,
+      2023: `${process.env.SWAPCARD_EVENT_ID}`,
+      2022: `${process.env.SWAPCARD_EVENT_ID_2022}`,
       2021: `${process.env.SWAPCARD_EVENT_ID_2021}`,
     },
     page: 1,

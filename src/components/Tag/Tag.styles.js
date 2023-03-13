@@ -9,30 +9,6 @@ import colors from '../../styles/colors';
 import { fontWeights } from '../../styles/typography';
 import breakpoints from '../../styles/breakpoints';
 
-export const designRoomStyle = css`
-  color: ${colors.mauve80};
-
-  background-color: ${colors.mauve10};
-`;
-
-export const commRoomStyle = css`
-  color: ${colors.rose80};
-
-  background-color: ${colors.rose10};
-`;
-
-export const devRoomStyle = css`
-  color: ${colors.ciel80};
-
-  background-color: ${colors.ciel10};
-`;
-
-export const innovationRoomStyle = css`
-  color: ${colors.turquoise90};
-
-  background-color: ${colors.turquoise10};
-`;
-
 export const speakerStyle = css`
   color: ${colors.bleu80};
   font-weight: ${fontWeights.normal};
@@ -93,15 +69,13 @@ export const StyledTag = styled.div`
   display: inline-flex;
   align-items: center;
 
-  /* margin: 0 16px 16px 0; */
-
   padding: 12px;
 
-  color: ${colors.gris90};
+  color: ${({ $category }) => $category.color || colors.gris90};
   font-weight: ${fontWeights.medium};
   vertical-align: top;
 
-  background-color: ${colors.gris20};
+  background-color: ${({ $category }) => $category.bgColor || colors.gris20};
   border-radius: 8px;
 
   ${breakpointsRange(
@@ -112,28 +86,12 @@ export const StyledTag = styled.div`
     breakpoints.spacings
   )};
 
-  /* Apply designRoom style when designRoom props defined */
-  ${({ $designRoom }) => $designRoom && designRoomStyle}
-
-  /* Apply commRoom style when commRoom props defined */
-  ${({ $commRoom }) => $commRoom && commRoomStyle}
-  
-  /* Apply devRoom style when devRoom props defined */
-  ${({ $devRoom }) => $devRoom && devRoomStyle}
-  
-  /* Apply innovationRoom style when innovationRoom props defined */
-  ${({ $innovationRoom }) => $innovationRoom && innovationRoomStyle}
-
   /* Apply speaker style when speaker props defined */
   ${({ $speaker }) => $speaker && speakerStyle}
-  
+
   /* Apply eventType style when eventType props defined */
   ${({ $eventType }) => $eventType && eventTypeStyle}
-  
+
   /* Apply eventType style when eventType props defined */
   ${({ $outlined }) => $outlined && outlinedStyle}
-`;
-
-export const Design = css`
-  background-color: ${colors.gris20};
 `;
