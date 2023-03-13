@@ -100,7 +100,7 @@ export const StyledScheduleCard = styled(Link)`
 
       > * {
         color: ${({ $accentColor }) =>
-          $accentColor ? getContrast($accentColor) : colors.gris90};
+          $accentColor && getContrast($accentColor)};
       }
     }
   }

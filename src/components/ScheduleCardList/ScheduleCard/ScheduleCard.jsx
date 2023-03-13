@@ -53,7 +53,7 @@ const ScheduleCard = ({
   return (
     <StyledScheduleCard
       to={to}
-      $accentColor={categoryColors[categories[0]]}
+      $accentColor={categoryColors[categories[0]] || colors.gris90}
       {...rest}
     >
       <Container
