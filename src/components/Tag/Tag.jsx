@@ -97,13 +97,8 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
       )}
       {tagType === 'eventType' && (
         <>
-          <span>
-            <img
-              css={TagIcon}
-              src={vectorEventType}
-              alt=''
-              role='presentation'
-            />
+          <span css={TagIcon}>
+            <img src={vectorEventType} alt='' role='presentation' />
           </span>
           <span>{eventTypesMap[eventType]}</span>
         </>
