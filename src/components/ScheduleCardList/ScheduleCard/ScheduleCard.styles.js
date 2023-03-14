@@ -8,6 +8,7 @@ import TimeStamp from '../../TimeStamp';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
+import getContrast from '../../../utils/getContrast';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
@@ -98,7 +99,8 @@ export const StyledScheduleCard = styled(Link)`
       border-color: var(--accentColor);
 
       > * {
-        filter: brightness(100);
+        color: ${({ $accentColor }) =>
+          $accentColor && getContrast($accentColor)};
       }
     }
   }
