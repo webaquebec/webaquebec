@@ -26,20 +26,20 @@ const categoryColors = {
     bgColor: colors.turquoise10,
   },
   'communication-and-marketing': {
-    color: colors.rose80,
-    bgColor: colors.rose10,
-  },
-  'communication-et-marketing': {
-    color: colors.rose80,
-    bgColor: colors.rose10,
-  },
-  'jeu-video': {
-    color: colors.ciel90,
-    bgColor: colors.ciel20,
-  },
-  'competences-transversales': {
     color: `hsl(${colors.jaune80hsl.hue} ${colors.jaune80hsl.saturation}% 24%)`,
     bgColor: colors.jaune20,
+  },
+  'communication-et-marketing': {
+    color: `hsl(${colors.jaune80hsl.hue} ${colors.jaune80hsl.saturation}% 24%)`,
+    bgColor: colors.jaune20,
+  },
+  'jeu-video': {
+    color: colors.rose100,
+    bgColor: colors.rose10,
+  },
+  'competences-transversales': {
+    color: colors.rose100,
+    bgColor: colors.rose10,
   },
   'communication-dans-ladministration-publique': {
     color: colors.rose100,
