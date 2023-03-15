@@ -160,10 +160,10 @@ export const dateTabStyle = css`
       }
     }
 
-    &&.active,
+    /* &&.active,
     &&:focus {
       color: ${colors.bleu90};
-    }
+    } */
   }
 `;
 
