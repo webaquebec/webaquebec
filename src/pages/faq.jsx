@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 
 // components
 import SEO from '../components/SEO';
+import LavaLamp from '../components/LavaLamp';
 import Center from '../components/LayoutSections/Center';
 import Accordion from '../components/Accordion';
 import AccordionItem from '../components/Accordion/AccordionItem';
@@ -143,6 +144,8 @@ const data = [
 const FaqPage = () => (
   <>
     <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ22.' />
+
+    <LavaLamp blobColor={colors.jaune30} />
 
     <Center
       maxWidth='625px'

@@ -233,7 +233,7 @@ export const billboardStyle = css`
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
-  text-shadow: 3px 3px 0 ${colors.turquoise30}, 6px 6px 0 ${colors.bleu80};
+  text-shadow: 2px 2px 0 ${colors.turquoise30}, 5px 5px 0 ${colors.bleu80};
 
   ${breakpointsRange(
     [

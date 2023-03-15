@@ -1,6 +1,6 @@
 // vendor
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 // images
 import VectorGoo from '../../images/VectorGoo';
@@ -8,21 +8,30 @@ import VectorGoo from '../../images/VectorGoo';
 // styles
 import { Lamp, Lava, Blob } from './LavaLamp.styles';
 
-const LavaLamp = () => (
+const LavaLamp = ({ blobColor }) => (
   <>
     <Lamp>
       <Lava>
-        <Blob />
-        <Blob />
-        <Blob />
-        <Blob />
-        <Blob />
-        <Blob />
-        <Blob />
-        <Blob />
-        <Blob />
-        <Blob className='top' />
-        <Blob className='bottom' />
+        {Array.from(Array(7), (e, i) => (
+          <Blob
+            key={i}
+            css={`
+              background: ${blobColor};
+            `}
+          />
+        ))}
+        <Blob
+          className='top'
+          css={`
+            background: ${blobColor};
+          `}
+        />
+        <Blob
+          className='bottom'
+          css={`
+            background: ${blobColor};
+          `}
+        />
       </Lava>
     </Lamp>
     <VectorGoo
@@ -33,20 +42,15 @@ const LavaLamp = () => (
   </>
 );
 
-// LavaLamp.propTypes = {
-//   /**
-//    * Specifies the primary color used for blobs
-//    */
-//   primaryColor: PropTypes.string,
-//   /**
-//    * Specifies the primary color used for blobs
-//    */
-//   secondaryColor: PropTypes.string,
-// };
+LavaLamp.propTypes = {
+  /**
+   * Specifies the color used for blobs
+   */
+  blobColor: PropTypes.string,
+};
 
-// LavaLamp.defaultProps = {
-//   primaryColor: 'turquoise30',
-//   secondaryColor: 'turquoise10',
-// };
+LavaLamp.defaultProps = {
+  blobColor: '#ffb5af',
+};
 
 export default LavaLamp;

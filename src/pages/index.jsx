@@ -20,6 +20,7 @@ import CTASection from '../views/HomePageView/CTASection/CTASection';
 
 // styles
 import breakpoints from '../styles/breakpoints';
+import colors from '../styles/colors';
 
 const SectionContainer = styled(StyledSectionContainer)`
   ${breakpointsRange(
@@ -38,7 +39,7 @@ const IndexPage = () => (
       description='Le plus grand événement numérique francophone en Amérique du Nord.'
     />
 
-    <LavaLamp />
+    <LavaLamp blobColor={colors.salmon} />
 
     <Hero />
 

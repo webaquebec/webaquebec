@@ -1,9 +1,6 @@
 // vendors
 import styled, { keyframes } from 'styled-components';
 
-// styles
-import colors from '../../styles/colors';
-
 const blobOne = keyframes`
   0%,
   100% {
@@ -120,7 +117,6 @@ export const Lava = styled.div`
 export const Blob = styled.div`
   position: absolute;
 
-  background: ${colors.turquoise20};
   border-radius: 50%;
 
   &.top {

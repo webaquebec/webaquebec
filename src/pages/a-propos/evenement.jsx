@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 // components
 import SEO from '../../components/SEO';
+import LavaLamp from '../../components/LavaLamp';
 import Center from '../../components/LayoutSections/Center';
 
 // utils
@@ -20,6 +21,7 @@ import GallerySection from '../../views/AboutEventPageView/GallerySection';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
+import colors from '../../styles/colors';
 
 const GallerySectionImg = styled(GatsbyImage)`
   max-width: 100%;
@@ -116,6 +118,8 @@ const AboutEventPage = ({ data }) => {
   return (
     <>
       <SEO title="L'événement" description='' />
+
+      <LavaLamp blobColor={colors.rose20} />
 
       <AboutTabs activeTabId={0} />
 

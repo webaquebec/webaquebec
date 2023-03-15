@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 // components
 import SEO from '../../components/SEO';
+import LavaLamp from '../../components/LavaLamp';
 import SectionContainer from '../../components/SectionContainer';
 
 // views
@@ -20,6 +21,7 @@ import breakpointsRange from '../../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
+import colors from '../../styles/colors';
 
 const Container = styled(SectionContainer)`
   padding-bottom: 0;
@@ -55,6 +57,8 @@ const AboutQuebecNumeriquePage = ({ data }) => {
   return (
     <>
       <SEO title='Québec numérique' description={intro} />
+
+      <LavaLamp blobColor={colors.rose20} />
 
       <AboutTabs activeTabId={2} />
 

@@ -11,6 +11,7 @@ import ScheduleCardList from '../../components/ScheduleCardList';
 import ScheduleCard from '../../components/ScheduleCardList/ScheduleCard';
 import StyledSectionContainer from '../../components/SectionContainer';
 import Switcher from '../../components/LayoutSections/Switcher';
+import LavaLamp from '../../components/LavaLamp';
 
 // contexts
 import { useProgramFilters } from '../../contexts/ProgramFiltersContext';
@@ -34,6 +35,7 @@ import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 import breakpoints from '../../styles/breakpoints';
 import { selfBreakpoints as filtersSelfBreakpoints } from '../../views/ProgramPageView/Filters/Filters.styles';
 // import Layout from '../../components/Layout/Layout';
+import colors from '../../styles/colors';
 
 const SectionContainer = styled(StyledSectionContainer)`
   min-height: 800px;
@@ -287,6 +289,8 @@ const Program = ({
         description='Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec.'
         image={ogImgProgram}
       />
+
+      <LavaLamp blobColor={colors.mauve30} />
 
       <Hero datePaths={datePaths} location={location} />
 

@@ -2,6 +2,7 @@ const black = '#000000';
 const white = '#ffffff';
 const red = '#E0302A';
 const beige = '#FFF7E9';
+const salmon = '#FFB5AF';
 
 const bleu10 = '#EBECFF';
 const bleu20 = '#D1D5FF';
@@ -67,6 +68,48 @@ const gris90 = '#5E5E5E';
 const gris100 = '#383838';
 
 // #7976B5
+const wildBlueHsl = {
+  hue: 243,
+  saturation: 30,
+  lightness: 59,
+};
+// #FFB5AF
+const salmonHsl = {
+  hue: 5,
+  saturation: 100,
+  lightness: 84,
+};
+// #D5BAF8
+const mauve30Hsl = {
+  hue: 266,
+  saturation: 82,
+  lightness: 85,
+};
+// #D4FCF5
+const turquoise20hsl = {
+  hue: 170,
+  saturation: 87,
+  lightness: 91,
+};
+// #FDF9C4
+const jaune30hsl = {
+  hue: 56,
+  saturation: 93,
+  lightness: 88,
+};
+// #CCEAFF
+const ciel20hsl = {
+  hue: 205,
+  saturation: 100,
+  lightness: 90,
+};
+// #FFD6F4
+const rose20hsl = {
+  hue: 316,
+  saturation: 100,
+  lightness: 92,
+};
+// #000CA0
 const bleu80hsl = {
   hue: 243,
   saturation: 30,
@@ -84,11 +127,11 @@ const jaune80hsl = {
   saturation: 94,
   lightness: 63,
 };
-// #F49D9F
+// #FF58D1
 const rose80hsl = {
-  hue: 359,
-  saturation: 80,
-  lightness: 79,
+  hue: 317,
+  saturation: 100,
+  lightness: 67,
 };
 // #9958ED
 const mauve80hsl = {
@@ -108,6 +151,9 @@ const colors = {
   white,
   red,
   beige,
+  salmon,
+  salmonHsl,
+  wildBlueHsl,
 
   bleu10,
   bleu20,
@@ -121,6 +167,7 @@ const colors = {
 
   turquoise10,
   turquoise20,
+  turquoise20hsl,
   turquoise30,
   turquoise40,
   turquoise60,
@@ -132,6 +179,7 @@ const colors = {
   jaune10,
   jaune20,
   jaune30,
+  jaune30hsl,
   jaune40,
   jaune60,
   jaune80,
@@ -141,6 +189,7 @@ const colors = {
 
   rose10,
   rose20,
+  rose20hsl,
   rose30,
   rose40,
   rose60,
@@ -152,6 +201,7 @@ const colors = {
   mauve10,
   mauve20,
   mauve30,
+  mauve30Hsl,
   mauve40,
   mauve60,
   mauve80,
@@ -161,6 +211,7 @@ const colors = {
 
   ciel10,
   ciel20,
+  ciel20hsl,
   ciel30,
   ciel40,
   ciel60,

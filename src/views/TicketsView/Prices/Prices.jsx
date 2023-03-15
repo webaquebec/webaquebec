@@ -60,7 +60,7 @@ const Prices = () => (
         </Paper> */}
 
         <Paper
-          lightColor={colors.bleu80}
+          lightColor={colors.bleu90}
           darkColor={colors.gris30}
           rounded
           elevation={elevation.large}
