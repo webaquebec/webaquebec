@@ -43,10 +43,10 @@ const ScheduleCard = ({
     design: colors.mauve,
     developpement: colors.ciel,
     innovation: colors.turquoise,
-    'communication-and-marketing': colors.rose60,
-    'communication-et-marketing': colors.rose60,
-    'jeu-video': colors.ciel90,
-    'competences-transversales': colors.jaune,
+    'communication-and-marketing': colors.jaune,
+    'communication-et-marketing': colors.jaune,
+    'jeu-video': colors.rose100,
+    'competences-transversales': colors.rose100,
     'communication-dans-ladministration-publique': colors.rose100,
   };
 

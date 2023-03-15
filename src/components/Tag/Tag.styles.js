@@ -61,6 +61,8 @@ export const outlinedStyle = css`
 `;
 
 export const TagIcon = css`
+  display: flex;
+  align-items: center;
   height: 15px;
   margin-right: 8px;
 `;
@@ -73,7 +75,6 @@ export const StyledTag = styled.div`
 
   color: ${({ $category }) => $category.color || colors.gris90};
   font-weight: ${fontWeights.medium};
-  vertical-align: top;
 
   background-color: ${({ $category }) => $category.bgColor || colors.gris20};
   border-radius: 8px;
