@@ -27,7 +27,7 @@ import NoResults from '../../views/ProgramPageView/NoResults';
 import breakpointsRange from '../../utils/breakpointsRange';
 import { lessThan } from '../../utils/mediaQuery';
 import slugify from '../../utils/strings/slugify';
-import unSlugify from '../../utils/strings/unSlugify';
+// import unSlugify from '../../utils/strings/unSlugify';
 import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 
 // styles
@@ -145,7 +145,7 @@ const Program = ({
 
   // Initialize filters once we got plannings from Swapcard
   useEffect(() => {
-    const places = [];
+    // const places = [];
     const categories = [];
     const eventTypes = [];
 
@@ -157,7 +157,7 @@ const Program = ({
 
     program.forEach((session) => {
       // Get all places for filters
-      addChoices(session.place, places);
+      // addChoices(session.place, places);
       // Get all categories for filters
       session.categories.forEach((category) => {
         addChoices(category, categories);
@@ -167,16 +167,16 @@ const Program = ({
     });
 
     if (filters.length > 0) {
-      filterDispatcher({
-        type: 'UPDATE',
-        options: {
-          name: 'place',
-          values: places.map((value) => ({
-            name: unSlugify(value),
-            value,
-          })),
-        },
-      });
+      // filterDispatcher({
+      //   type: 'UPDATE',
+      //   options: {
+      //     name: 'place',
+      //     values: places.map((value) => ({
+      //       name: unSlugify(value),
+      //       value,
+      //     })),
+      //   },
+      // });
 
       filterDispatcher({
         type: 'UPDATE',
@@ -203,17 +203,17 @@ const Program = ({
       return;
     }
 
-    filterDispatcher({
-      type: 'ADD',
-      options: {
-        name: 'place',
-        title: 'Lieu',
-        values: places.map((value) => ({
-          name: unSlugify(value),
-          value,
-        })),
-      },
-    });
+    // filterDispatcher({
+    //   type: 'ADD',
+    //   options: {
+    //     name: 'place',
+    //     title: 'Lieu',
+    //     values: places.map((value) => ({
+    //       name: unSlugify(value),
+    //       value,
+    //     })),
+    //   },
+    // });
 
     filterDispatcher({
       type: 'ADD',
@@ -275,7 +275,7 @@ const Program = ({
   let filteredProgram = program;
   if (filters.length > 0) {
     filteredProgram = program
-      .filter((session) => applyFilter('place', session.place))
+      // .filter((session) => applyFilter('place', session.place))
       .filter((session) => applyFilter('categories', session.categories))
       .filter((session) => applyFilter('type', session.type));
   }
