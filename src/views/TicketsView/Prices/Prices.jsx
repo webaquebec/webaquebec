@@ -27,7 +27,7 @@ const Prices = () => (
       limit={2}
     >
       <BlocksWrapper>
-        {/* <Paper
+        <Paper
           lightColor={colors.gris30}
           darkColor={colors.bleu80}
           rounded
@@ -41,7 +41,7 @@ const Prices = () => (
             <TicketPrice>395$</TicketPrice>
 
             <Button
-              to='https://ti.to/web-a-quebec/waq-2022'
+              to='https://ti.to/web-a-quebec/waq23'
               tag='href'
               secondary
               small
@@ -57,7 +57,7 @@ const Prices = () => (
               journée? Choisis laquelle, on s&apos;occupe du reste!
             </TicketText>
           </Center>
-        </Paper> */}
+        </Paper>
 
         <Paper
           lightColor={colors.bleu80}
