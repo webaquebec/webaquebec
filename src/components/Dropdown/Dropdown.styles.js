@@ -75,8 +75,8 @@ export const DropdownButton = styled.button`
 
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [24, 24] },
-      { prop: 'paddingBottom', sizes: [24, 24] },
+      { prop: 'paddingTop', sizes: [20, 24] },
+      { prop: 'paddingBottom', sizes: [20, 24] },
       { prop: 'paddingLeft', sizes: [20, 20] },
       { prop: 'paddingRight', sizes: [20, 20] },
     ],
