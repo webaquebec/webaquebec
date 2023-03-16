@@ -89,9 +89,10 @@ export const DateListItem = styled.li`
 `;
 
 export const dateTabStyle = css`
-  min-width: 185px;
+  min-width: 140px;
   height: 100%;
-  min-height: 75px;
+
+  /* min-height: 75px; */
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [16, 20], bases: [16, 20] }],
