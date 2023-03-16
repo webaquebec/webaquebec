@@ -8,7 +8,7 @@ import 'sanitize.css';
 import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
 
-import '../../fonts/Redaction/redaction.css';
+// import '../../fonts/Redaction/redaction.css';
 
 import Footer from '../Footer';
 import Header from '../Header';
