@@ -67,9 +67,9 @@ const Prices = () => (
           css={blockContainerStyle}
         >
           <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
-            <TicketTitle>Billet accès complet (prévente)</TicketTitle>
+            <TicketTitle>Billet accès complet</TicketTitle>
 
-            <TicketPrice>595$</TicketPrice>
+            <TicketPrice>895$</TicketPrice>
 
             <Button
               to='https://ti.to/web-a-quebec/waq23'
