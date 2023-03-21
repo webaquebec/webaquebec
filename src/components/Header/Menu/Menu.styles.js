@@ -158,7 +158,7 @@ export const primaryNavListStyle = css`
   ${breakpointsRange(
     [
       { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [35, 145], bases: [16, 20] },
+      // { prop: 'marginBottom', sizes: [35, 145], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],

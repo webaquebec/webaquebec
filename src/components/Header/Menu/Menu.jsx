@@ -228,10 +228,6 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
                   css`
                     transition-delay: 0ms;
                   `}
-
-                  :nth-last-child(2) {
-                    flex-grow: 1;
-                  }
                 `}
               >
                 {item.type === 'internal' ? (
