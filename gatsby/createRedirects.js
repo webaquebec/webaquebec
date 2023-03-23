@@ -19,6 +19,11 @@ module.exports = async ({ actions, reporter }) => {
       toPath: '/a-propos/evenement',
       isPermanent: false,
     },
+    {
+      fromPath: '/waqademie',
+      toPath: '/',
+      isPermanent: false,
+    },
   ];
 
   redirects.forEach((redirect) => {
