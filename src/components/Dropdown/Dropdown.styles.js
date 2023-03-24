@@ -39,7 +39,7 @@ export const DropdownButtonWrapper = styled.div`
 
   background-color: ${colors.white};
 
-  border: 2px solid ${colors.bleu80};
+  border: 2px solid ${colors.bleu};
   border-radius: 4px;
 
   ${breakpointsRange(
@@ -112,7 +112,7 @@ export const DropdownMenu = styled.section`
   overflow: hidden;
 
   background-color: ${colors.white};
-  border: 2px solid ${colors.bleu80};
+  border: 2px solid ${colors.bleu};
   border-top: 0;
   border-radius: 0 0 4px 4px;
 
@@ -158,7 +158,7 @@ export const Toggle = styled(IconChevron)`
   max-width: 14px;
   margin-left: 14px;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu};
 
   transform: ${({ $expanded }) => ($expanded ? `rotate(180deg)` : `none`)};
 

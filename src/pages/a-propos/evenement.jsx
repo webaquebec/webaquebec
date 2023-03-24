@@ -119,7 +119,7 @@ const AboutEventPage = ({ data }) => {
     <>
       <SEO title="L'événement" description='' />
 
-      <LavaLamp blobColor={colors.rose20} />
+      <LavaLamp blobColor={colors.apricot} />
 
       <AboutTabs activeTabId={0} />
 

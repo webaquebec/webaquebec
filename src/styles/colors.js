@@ -1,8 +1,12 @@
 const black = '#000000';
 const white = '#ffffff';
 const red = '#E0302A';
-const beige = '#FFF7E9';
-const salmon = '#FFB5AF';
+const earlyDawn = '#FFF7E9';
+const darkEarlyDawn = '#E4DDD1';
+const cherry = '#BD002D';
+const apricot = '#FFAE73';
+const darkBlue = '#00034D';
+const blush = '#ED9694';
 
 const bleu10 = '#EBECFF';
 const bleu20 = '#D1D5FF';
@@ -11,7 +15,7 @@ const bleu40 = '#3847FF';
 const bleu60 = '#0012EB';
 const bleu80 = '#000CA0';
 const bleu90 = '#00086B';
-const bleu100 = '#000438';
+const bleu100 = '#00034D';
 
 const turquoise10 = '#ECFEFA';
 const turquoise20 = '#D4FCF5';
@@ -67,48 +71,6 @@ const gris80 = '#858585';
 const gris90 = '#5E5E5E';
 const gris100 = '#383838';
 
-// #7976B5
-const wildBlueHsl = {
-  hue: 243,
-  saturation: 30,
-  lightness: 59,
-};
-// #FFB5AF
-const salmonHsl = {
-  hue: 5,
-  saturation: 100,
-  lightness: 84,
-};
-// #D5BAF8
-const mauve30Hsl = {
-  hue: 266,
-  saturation: 82,
-  lightness: 85,
-};
-// #D4FCF5
-const turquoise20hsl = {
-  hue: 170,
-  saturation: 87,
-  lightness: 91,
-};
-// #FDF9C4
-const jaune30hsl = {
-  hue: 56,
-  saturation: 93,
-  lightness: 88,
-};
-// #CCEAFF
-const ciel20hsl = {
-  hue: 205,
-  saturation: 100,
-  lightness: 90,
-};
-// #FFD6F4
-const rose20hsl = {
-  hue: 316,
-  saturation: 100,
-  lightness: 92,
-};
 // #000CA0
 const bleu80hsl = {
   hue: 243,
@@ -150,10 +112,12 @@ const colors = {
   black,
   white,
   red,
-  beige,
-  salmon,
-  salmonHsl,
-  wildBlueHsl,
+  earlyDawn,
+  darkEarlyDawn,
+  cherry,
+  apricot,
+  darkBlue,
+  blush,
 
   bleu10,
   bleu20,
@@ -167,7 +131,6 @@ const colors = {
 
   turquoise10,
   turquoise20,
-  turquoise20hsl,
   turquoise30,
   turquoise40,
   turquoise60,
@@ -179,7 +142,6 @@ const colors = {
   jaune10,
   jaune20,
   jaune30,
-  jaune30hsl,
   jaune40,
   jaune60,
   jaune80,
@@ -189,7 +151,6 @@ const colors = {
 
   rose10,
   rose20,
-  rose20hsl,
   rose30,
   rose40,
   rose60,
@@ -201,7 +162,6 @@ const colors = {
   mauve10,
   mauve20,
   mauve30,
-  mauve30Hsl,
   mauve40,
   mauve60,
   mauve80,
@@ -211,7 +171,6 @@ const colors = {
 
   ciel10,
   ciel20,
-  ciel20hsl,
   ciel30,
   ciel40,
   ciel60,
@@ -232,14 +191,14 @@ const colors = {
 
 const alias = {
   text: colors.gris90,
-  bleu: colors.bleu80,
+  bleu: colors.bleu100,
   turquoise: colors.turquoise80,
   jaune: colors.jaune80,
   rose: colors.rose80,
   mauve: colors.mauve80,
   ciel: colors.ciel80,
   gris: colors.gris30,
-  beige: colors.beige,
+  earlyDawn: colors.earlyDawn,
 };
 
 export default { ...colors, ...alias };

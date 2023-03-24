@@ -75,7 +75,7 @@ const TicketsPage = () => (
       description='Viens vivre le WAQ du 23 au 25 mai 2023. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
     />
 
-    <LavaLamp blobColor={colors.ciel20} />
+    <LavaLamp blobColor={colors.cherry} />
 
     <Center
       maxWidth='625px'

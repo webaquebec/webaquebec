@@ -78,7 +78,7 @@ const BlogPage = ({ data }) => {
         description='Tout ce que tu dois savoir sur le WAQ22.'
       />
 
-      <LavaLamp blobColor={colors.turquoise30} />
+      <LavaLamp blobColor={colors.apricot} />
 
       <Center
         maxWidth='var(--max-container-width)'

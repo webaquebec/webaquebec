@@ -13,6 +13,7 @@ import {
   StyledHero,
   HeroIntro,
   linkStyleHover,
+  Address,
   MapPinIcon,
 } from './Hero.styles';
 
@@ -38,36 +39,38 @@ const Hero = () => (
         </HeroIntro>
       </Center>
 
-      <a
-        href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        <MapPinIcon src={vectorMapPin} alt='Au Terminal — Port de Québec' />
-      </a>
-
-      <p
-        css={`
-          color: ${colors.bleu};
-          font-weight: ${fontWeights.semiBold};
-
-          ${breakpointsRange(
-            [{ prop: 'fontSize', sizes: [18, 24], bases: [16, 20] }],
-            breakpoints.spacings
-          )};
-        `}
-      >
+      <Address>
         <a
           href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492'
           target='_blank'
           rel='noopener noreferrer'
-          css={linkStyleHover}
         >
-          Au Terminal — Port de Québec
+          <MapPinIcon src={vectorMapPin} alt='Au Terminal — Port de Québec' />
         </a>
-        {/* <br />
-        et/ou en virtuel */}
-      </p>
+
+        <p
+          css={`
+            color: ${colors.bleu100};
+            font-weight: ${fontWeights.semiBold};
+
+            ${breakpointsRange(
+              [{ prop: 'fontSize', sizes: [16, 20], bases: [16, 20] }],
+              breakpoints.spacings
+            )};
+          `}
+        >
+          <a
+            href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492'
+            target='_blank'
+            rel='noopener noreferrer'
+            css={linkStyleHover}
+          >
+            Au Terminal — Port de Québec
+          </a>
+          {/* <br />
+          et/ou en virtuel */}
+        </p>
+      </Address>
     </Center>
   </StyledHero>
 );

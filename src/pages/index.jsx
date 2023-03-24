@@ -16,7 +16,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
 // import KeynoteSection from '../views/HomePageView/KeynoteSection';
-// import CTASection from '../views/HomePageView/CTASection/CTASection';
+import CTASection from '../views/HomePageView/CTASection/CTASection';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -39,14 +39,14 @@ const IndexPage = () => (
       description='Le plus grand événement numérique francophone en Amérique du Nord.'
     />
 
-    <LavaLamp blobColor={colors.salmon} />
+    <LavaLamp blobColor={colors.cherry} />
 
     <Hero />
 
-    <StatsSection />
-
     <SectionContainer forwardedAs='div' faded>
-      {/* <CTASection /> */}
+      <StatsSection />
+
+      <CTASection />
 
       {/* <KeynoteSection /> */}
 

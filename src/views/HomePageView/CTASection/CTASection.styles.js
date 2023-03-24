@@ -13,7 +13,7 @@ export const SectionContainer = styled.section`
     Find a better way to fix it globally */
   overflow: hidden;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu};
 
   ${breakpointsRange(
     [{ prop: 'paddingBottom', sizes: [115, 210], bases: [16, 20] }],

@@ -58,7 +58,7 @@ const AboutQuebecNumeriquePage = ({ data }) => {
     <>
       <SEO title='Québec numérique' description={intro} />
 
-      <LavaLamp blobColor={colors.rose20} />
+      <LavaLamp blobColor={colors.apricot} />
 
       <AboutTabs activeTabId={2} />
 

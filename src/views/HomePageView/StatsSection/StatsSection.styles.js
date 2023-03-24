@@ -13,7 +13,7 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 export const SectionContainer = styled.section`
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [80, 173], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [32, 50], bases: [16, 20] },
       { prop: 'paddingBottom', sizes: [80, 176], bases: [16, 20] },
     ],
     breakpoints.spacings
@@ -34,8 +34,15 @@ export const StatItem = styled.li`
   )};
 `;
 
+export const StatImg = styled.img`
+  ${breakpointsRange(
+    [{ prop: 'width', sizes: [150, 250], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
 export const StatDescription = styled.p`
-  color: ${colors.bleu};
+  color: ${colors.bleu100};
   font-weight: ${fontWeights.bold};
   text-align: center;
   word-break: normal;

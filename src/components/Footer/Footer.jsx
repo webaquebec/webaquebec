@@ -10,7 +10,7 @@ import Stack from '../LayoutSections/Stack/Stack';
 import SocialNews from '../SocialNews';
 
 // images
-import logo from '../../images/logo-waq-23.png';
+import logo from '../../images/logo-waq-23.svg';
 import logoVilleDeQuebec from '../../images/logoPartners/footer/logo-ville-de-quebec.svg';
 import logoQuebec from '../../images/logoPartners/footer/logo-quebec.svg';
 import logoPortQuebec from '../../images/logoPartners/footer/logo-port-quebec.svg';

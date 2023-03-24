@@ -8,7 +8,7 @@ const blobOne = keyframes`
   }
 
   50% {
-    transform: translatey(-800%);
+    transform: translatey(-50vh);
   }
 `;
 
@@ -19,7 +19,7 @@ const blobTwo = keyframes`
   }
 
   50% {
-    transform: translatey(-420%);
+    transform: translatey(-120vh);
   }
 `;
 
@@ -30,7 +30,7 @@ const blobThree = keyframes`
   }
 
   50% {
-    transform: translatey(-305%);
+    transform: translatey(-50vh);
   }
 `;
 
@@ -41,18 +41,18 @@ const blobFour = keyframes`
   }
 
   50% {
-    transform: translatey(-605%);
+    transform: translatey(-100vh);
   }
 `;
 
 const blobFive = keyframes`
   0%,
   100% {
-    transform: translatey(0);
+    transform: translatey(-);
   }
 
   50% {
-     transform: translatey(-700%);
+     transform: translatey(-90vh);
   }
 `;
 
@@ -63,7 +63,7 @@ const blobSix = keyframes`
   }
 
   50% {
-     transform: translatey(-700%);
+     transform: translatey(-40vh);
   }
 `;
 
@@ -74,7 +74,7 @@ const blobSeven = keyframes`
   }
 
   50% {
-     transform: translatey(-300%);
+     transform: translatey(-30vh);
   }
 `;
 
@@ -111,23 +111,13 @@ export const Lava = styled.div`
 
   opacity: 0.75;
 
-  filter: url('#goo');
+  filter: url('#goo') blur(3px);
 `;
 
 export const Blob = styled.div`
   position: absolute;
 
   border-radius: 50%;
-
-  &.top {
-    top: -3%;
-    left: 0;
-
-    width: 100%;
-    height: 4%;
-
-    border-radius: 50%;
-  }
 
   &.bottom {
     bottom: -3%;
@@ -140,8 +130,8 @@ export const Blob = styled.div`
   }
 
   &:nth-child(1) {
-    bottom: -15%;
-    left: 35%;
+    bottom: -15vh;
+    left: 35vw;
 
     width: 100px;
     height: 100px;
@@ -151,8 +141,8 @@ export const Blob = styled.div`
   }
 
   &:nth-child(2) {
-    right: 24%;
-    bottom: -65%;
+    right: 24vw;
+    bottom: -65vh;
 
     width: 200px;
     height: 200px;
@@ -162,8 +152,8 @@ export const Blob = styled.div`
   }
 
   &:nth-child(3) {
-    bottom: -15%;
-    left: 54%;
+    bottom: -15vh;
+    left: 54vw;
 
     width: 150px;
     height: 150px;
@@ -173,8 +163,8 @@ export const Blob = styled.div`
   }
 
   &:nth-child(4) {
-    bottom: -19%;
-    left: 30%;
+    bottom: -19vh;
+    left: 20vw;
 
     width: 135px;
     height: 135px;
@@ -184,8 +174,8 @@ export const Blob = styled.div`
   }
 
   &:nth-child(5) {
-    bottom: -25%;
-    left: 34%;
+    bottom: -25vh;
+    left: 34vw;
 
     width: 55px;
     height: 55px;
@@ -195,8 +185,8 @@ export const Blob = styled.div`
   }
 
   &:nth-child(6) {
-    right: 34%;
-    bottom: -25%;
+    right: 34vw;
+    bottom: -25vh;
 
     width: 35px;
     height: 35px;
@@ -206,8 +196,8 @@ export const Blob = styled.div`
   }
 
   &:nth-child(7) {
-    right: 40%;
-    bottom: -85%;
+    right: 40vw;
+    bottom: -85vh;
 
     width: 235px;
     height: 235px;

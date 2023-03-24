@@ -12,7 +12,7 @@ import breakpoints from '../../../styles/breakpoints';
 export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[7]];
 
 export const premiumStyle = css`
-  background-color: ${colors.bleu90};
+  background-color: ${colors.bleu100};
 
   ${breakpointsRange(
     [
@@ -61,8 +61,8 @@ export const Image = styled.img`
   /* filter: invert(12%) sepia(100%) saturate(4664%) hue-rotate(222deg)
     brightness(62%) contrast(148%); */
 
-  filter: invert(12%) sepia(100%) saturate(8664%) hue-rotate(222deg)
-    brightness(64%) contrast(148%);
+  filter: brightness(0) saturate(100%) invert(9%) sepia(32%) saturate(7058%)
+    hue-rotate(231deg) brightness(86%) contrast(121%);
 
   /* Fallback on Safari 11+ only. Webkit seems to handle css filter differently. */
   @media (min-resolution: 0.001dpcm) {
@@ -80,9 +80,9 @@ export const Link = styled.a`
   align-items: center;
   justify-content: center;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu100};
 
-  /* background-color: ${colors.gris30}; */
+  background-color: ${colors.white};
   border: 2px solid;
   border-radius: 16px;
 

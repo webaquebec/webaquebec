@@ -290,7 +290,7 @@ const Program = ({
         image={ogImgProgram}
       />
 
-      <LavaLamp blobColor={colors.mauve30} />
+      <LavaLamp blobColor={colors.apricot} />
 
       <Hero datePaths={datePaths} location={location} />
 

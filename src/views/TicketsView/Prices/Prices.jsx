@@ -28,8 +28,8 @@ const Prices = () => (
     >
       <BlocksWrapper>
         <Paper
-          lightColor={colors.gris30}
-          darkColor={colors.bleu80}
+          lightColor={colors.earlyDawn}
+          darkColor={colors.bleu100}
           rounded
           overlaid
           elevation={elevation.large}
@@ -60,8 +60,8 @@ const Prices = () => (
         </Paper>
 
         <Paper
-          lightColor={colors.bleu90}
-          darkColor={colors.gris30}
+          lightColor={colors.bleu100}
+          darkColor={colors.earlyDawn}
           rounded
           elevation={elevation.large}
           css={blockContainerStyle}
@@ -90,8 +90,8 @@ const Prices = () => (
         </Paper>
 
         <Paper
-          lightColor={colors.gris30}
-          darkColor={colors.bleu80}
+          lightColor={colors.earlyDawn}
+          darkColor={colors.bleu100}
           rounded
           overlaid
           elevation={elevation.large}

@@ -18,7 +18,7 @@ import { fontWeights } from '../../../styles/typography';
 import { unorderedListStyleAlt } from '../../../styles/global';
 
 export const Wrapper = styled.div`
-  color: ${colors.bleu80};
+  color: ${colors.bleu};
 
   ${breakpointsRange(
     [

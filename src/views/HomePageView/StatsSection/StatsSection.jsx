@@ -9,29 +9,37 @@ import LazyAnimation from '../../../components/LazyAnimation';
 
 // styles
 import { easing } from '../../../styles/animation';
-import { billboardStyle, billboardAltStyle } from '../../../styles/global';
 import {
   SectionContainer,
   StatsList,
   StatItem,
+  StatImg,
   StatDescription,
 } from './StatsSection.styles';
+
+// images
+import imgStat80 from '../../../images/stats/img-stat-80.png';
+import imgStat3 from '../../../images/stats/img-stat-3.png';
+import imgStat50 from '../../../images/stats/img-stat-50.png';
 
 const Stats = () => {
   const data = [
     {
       id: 0,
       number: 80,
+      img: imgStat80,
       description: 'conférences, ateliers et plus',
     },
     {
       id: 1,
       number: 3,
+      img: imgStat3,
       description: 'journées<br />intensives',
     },
     {
       id: 2,
       number: 50,
+      img: imgStat50,
       description: "bénévoles fantastiques à l'année",
     },
   ];
@@ -58,13 +66,7 @@ const Stats = () => {
                     scale: { initial: '0', final: '1' },
                   }}
                 >
-                  <span css={billboardStyle}>
-                    {index === 0 ? (
-                      <span css={billboardAltStyle}>{stat.number}</span>
-                    ) : (
-                      stat.number
-                    )}
-                  </span>
+                  <StatImg src={stat.img} alt={stat.number} />
                 </LazyAnimation>
 
                 <LazyAnimation

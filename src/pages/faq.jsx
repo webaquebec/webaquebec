@@ -67,7 +67,7 @@ const faqItem = css`
   )};
 
   a {
-    color: ${colors.bleu};
+    color: ${colors.bleu100};
   }
 `;
 
@@ -145,7 +145,7 @@ const FaqPage = () => (
   <>
     <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ22.' />
 
-    <LavaLamp blobColor={colors.jaune30} />
+    <LavaLamp blobColor={colors.darkBlue} />
 
     <Center
       maxWidth='625px'

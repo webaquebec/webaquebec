@@ -22,7 +22,7 @@ SectionContainer.propTypes = {
 SectionContainer.defaultProps = {
   faded: false,
   padded: false,
-  bgColor: colors.beige,
+  bgColor: colors.earlyDawn,
 };
 
 export default SectionContainer;

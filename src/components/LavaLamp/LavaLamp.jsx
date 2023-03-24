@@ -21,12 +21,6 @@ const LavaLamp = ({ blobColor }) => (
           />
         ))}
         <Blob
-          className='top'
-          css={`
-            background: ${blobColor};
-          `}
-        />
-        <Blob
           className='bottom'
           css={`
             background: ${blobColor};
@@ -50,7 +44,7 @@ LavaLamp.propTypes = {
 };
 
 LavaLamp.defaultProps = {
-  blobColor: '#ffb5af',
+  blobColor: '#BD002D',
 };
 
 export default LavaLamp;

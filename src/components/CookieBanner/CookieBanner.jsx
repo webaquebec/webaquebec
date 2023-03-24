@@ -59,7 +59,7 @@ const CookieBanner = ({ location }) => {
       {!bannerHidden && (
         <Container
           lightColor={colors.white}
-          darkColor={colors.bleu80}
+          darkColor={colors.bleu}
           elevation={elevation.large}
           rounded
           overlaid

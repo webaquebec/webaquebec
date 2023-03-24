@@ -155,7 +155,7 @@ AccordionItem.propTypes = {
 AccordionItem.defaultProps = {
   titleAs: null,
   bgColor: colors.white,
-  color: colors.bleu,
+  color: colors.bleu100,
   big: false,
   expanded: false,
   bordered: false,
