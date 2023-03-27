@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import Center from '../components/LayoutSections/Center';
 import SectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
-import LavaLamp from '../components/LavaLamp';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
@@ -21,7 +20,6 @@ import TermsAndConditions from '../views/TicketsView/TermsAndConditions/TermsAnd
 import breakpoints from '../styles/breakpoints';
 import { titleStyle, introStyle } from '../styles/global';
 import Stack from '../components/LayoutSections/Stack';
-import colors from '../styles/colors';
 
 const TicketsTitle = styled.h1`
   margin-bottom: 0;
@@ -74,8 +72,6 @@ const TicketsPage = () => (
       title='Billetterie'
       description='Viens vivre le WAQ du 23 au 25 mai 2023. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
     />
-
-    <LavaLamp blobColor={colors.cherry} />
 
     <Center
       maxWidth='625px'

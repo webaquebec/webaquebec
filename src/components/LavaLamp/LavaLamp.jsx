@@ -7,44 +7,66 @@ import VectorGoo from '../../images/VectorGoo';
 
 // styles
 import { Lamp, Lava, Blob } from './LavaLamp.styles';
+import colors from '../../styles/colors';
 
-const LavaLamp = ({ blobColor }) => (
-  <>
-    <Lamp>
-      <Lava>
-        {Array.from(Array(7), (e, i) => (
+const optionsByLocation = {
+  home: 'cherry',
+  programmation: 'apricot',
+  blogue: 'apricot',
+  faq: 'darkBlue',
+  billetterie: 'cherry',
+  partenaires: 'darkBlue',
+  'a-propos': 'apricot',
+  waqademie: 'cherry',
+};
+
+const LavaLamp = ({ pathname }) => {
+  const getOptionsByLocation = () => {
+    if (pathname === undefined || pathname === '/')
+      return optionsByLocation.home;
+
+    return optionsByLocation[pathname];
+  };
+
+  const current = getOptionsByLocation() || optionsByLocation.home;
+  return (
+    <>
+      <Lamp>
+        <Lava>
+          {Array.from(Array(7), (e, i) => (
+            <Blob
+              key={i}
+              css={`
+                background: ${colors[current]};
+              `}
+            />
+          ))}
           <Blob
-            key={i}
+            className='bottom'
             css={`
-              background: ${blobColor};
+              background: ${colors[current]};
             `}
           />
-        ))}
-        <Blob
-          className='bottom'
-          css={`
-            background: ${blobColor};
-          `}
-        />
-      </Lava>
-    </Lamp>
-    <VectorGoo
-      css={`
-        display: none;
-      `}
-    />
-  </>
-);
+        </Lava>
+      </Lamp>
+      <VectorGoo
+        css={`
+          display: none;
+        `}
+      />
+    </>
+  );
+};
 
 LavaLamp.propTypes = {
   /**
-   * Specifies the color used for blobs
+   * Specifies the pathname of the page
    */
-  blobColor: PropTypes.string,
+  pathname: PropTypes.string,
 };
 
 LavaLamp.defaultProps = {
-  blobColor: '#BD002D',
+  pathname: undefined,
 };
 
 export default LavaLamp;

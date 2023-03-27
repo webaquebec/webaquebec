@@ -9,7 +9,6 @@ import VectorStar from '../images/VectorStar';
 
 // components
 import SEO from '../components/SEO';
-import LavaLamp from '../components/LavaLamp';
 import Center from '../components/LayoutSections/Center';
 import SectionContainer from '../components/SectionContainer';
 import CardGrid from '../components/CardGrid';
@@ -22,7 +21,6 @@ import breakpoints from '../styles/breakpoints';
 
 // styles
 import { titleStyle } from '../styles/global';
-import colors from '../styles/colors';
 
 const PageTitle = styled.h1`
   ${breakpointsRange(
@@ -77,8 +75,6 @@ const BlogPage = ({ data }) => {
         title='Blogue'
         description='Tout ce que tu dois savoir sur le WAQ22.'
       />
-
-      <LavaLamp blobColor={colors.apricot} />
 
       <Center
         maxWidth='var(--max-container-width)'
