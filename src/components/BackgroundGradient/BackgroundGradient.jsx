@@ -12,9 +12,9 @@ const optionsByLocation = {
   home: ['cherry', 'apricot'],
   programmation: ['apricot', 'earlyDawn'],
   blogue: ['apricot', 'earlyDawn'],
-  faq: ['darkBlue', 'blush'],
+  faq: ['bleu40', 'blush'],
   billetterie: ['cherry', 'apricot'],
-  partenaires: ['darkBlue', 'blush'],
+  partenaires: ['bleu40', 'blush'],
   'a-propos': ['apricot', 'earlyDawn'],
   waqademie: ['cherry', 'apricot'],
 };

@@ -61,14 +61,14 @@ export const Image = styled.img`
   /* filter: invert(12%) sepia(100%) saturate(4664%) hue-rotate(222deg)
     brightness(62%) contrast(148%); */
 
-  filter: brightness(0) saturate(100%) invert(9%) sepia(32%) saturate(7058%)
-    hue-rotate(231deg) brightness(86%) contrast(121%);
+  filter: brightness(0) invert(9%) sepia(32%) saturate(7058%) hue-rotate(231deg)
+    brightness(86%) contrast(121%);
 
   /* Fallback on Safari 11+ only. Webkit seems to handle css filter differently. */
   @media (min-resolution: 0.001dpcm) {
     @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-      filter: contrast(0%) sepia(14%) invert(13%) saturate(8464%)
-        hue-rotate(197deg) brightness(35%);
+      filter: brightness(0) invert(9%) sepia(32%) saturate(7129%)
+        hue-rotate(148deg) brightness(90%) contrast(174%);
     }
   }
 

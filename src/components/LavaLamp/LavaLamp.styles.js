@@ -112,6 +112,12 @@ export const Lava = styled.div`
   opacity: 0.75;
 
   filter: url('#goo') blur(3px);
+
+  @media (prefers-reduced-motion: reduce) {
+    && > * {
+      animation: none;
+    }
+  }
 `;
 
 export const Blob = styled.div`

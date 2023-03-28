@@ -5,7 +5,7 @@ const earlyDawn = '#FFF7E9';
 const darkEarlyDawn = '#E4DDD1';
 const cherry = '#BD002D';
 const apricot = '#FFAE73';
-const darkBlue = '#00034D';
+const mauve = '#9958ED';
 const blush = '#ED9694';
 
 const bleu10 = '#EBECFF';
@@ -73,9 +73,9 @@ const gris100 = '#383838';
 
 // #000CA0
 const bleu80hsl = {
-  hue: 243,
-  saturation: 30,
-  lightness: 59,
+  hue: 236,
+  saturation: 100,
+  lightness: 31,
 };
 // #2FF0CC
 const turquoise80hsl = {
@@ -116,7 +116,7 @@ const colors = {
   darkEarlyDawn,
   cherry,
   apricot,
-  darkBlue,
+  mauve,
   blush,
 
   bleu10,

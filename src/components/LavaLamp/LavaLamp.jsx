@@ -13,9 +13,9 @@ const optionsByLocation = {
   home: 'cherry',
   programmation: 'apricot',
   blogue: 'apricot',
-  faq: 'darkBlue',
+  faq: 'mauve',
   billetterie: 'cherry',
-  partenaires: 'darkBlue',
+  partenaires: 'mauve',
   'a-propos': 'apricot',
   waqademie: 'cherry',
 };
