@@ -34,6 +34,7 @@ const Layout = ({ children, location }) => {
       <GlobalStyle />
 
       <BackgroundGradient pathname={pathname} />
+
       <LavaLamp pathname={pathname} />
 
       <ClientOnly>
