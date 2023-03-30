@@ -48,8 +48,14 @@ export const HeroIntro = styled.h3`
 
 export const Address = styled.div`
   display: flex;
+  gap: 4px;
   align-items: center;
   justify-content: center;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [32, 36], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 export const MapPinIcon = styled.img`

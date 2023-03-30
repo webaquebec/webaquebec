@@ -54,7 +54,7 @@ const Hero = () => (
             font-weight: ${fontWeights.semiBold};
 
             ${breakpointsRange(
-              [{ prop: 'fontSize', sizes: [16, 20], bases: [16, 20] }],
+              [{ prop: 'fontSize', sizes: [17, 20], bases: [16, 20] }],
               breakpoints.spacings
             )};
           `}
