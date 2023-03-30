@@ -39,7 +39,7 @@ const fadedStyle = css`
   }
 
   ::before {
-    /** FIXME: Temporary fix due to a weird gap issue on mobile display. 
+    /** FIXME: Temporary fix due to a weird gap issue on mobile display.
      *  Find a better way to fix it.
      **/
     top: -49.999vh;

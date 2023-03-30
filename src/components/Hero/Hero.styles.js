@@ -12,7 +12,7 @@ import breakpoints from '../../styles/breakpoints';
 export const GridTitle = styled.h1`
   margin: 0;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction35};
@@ -33,7 +33,7 @@ export const GridTitleWrapper = styled.div`
   display: inline-block;
 
   background-color: ${colors.gris30};
-  border: 3px solid ${colors.bleu80};
+  border: 3px solid ${colors.bleu};
   transform: rotate3d(0, 0, 1, 3.82deg);
 
   ${breakpointsRange(

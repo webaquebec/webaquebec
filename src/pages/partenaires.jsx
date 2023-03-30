@@ -27,7 +27,7 @@ const SectionContainer = styled(StyledSectionContainer)`
 const PartnersTitle = styled.h1`
   margin-bottom: 0;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu};
 
   ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],

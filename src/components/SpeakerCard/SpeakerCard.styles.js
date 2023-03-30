@@ -87,7 +87,7 @@ export const LinkIcon = styled.img`
 export const SpeakerHeader = styled.p`
   margin: 0;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu};
 `;
 
 export const HeaderInfo = styled.span`

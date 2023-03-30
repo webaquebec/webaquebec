@@ -28,28 +28,28 @@ const primaryNavigation = [
     label: 'programmation',
     slug: '/programmation/2023',
     type: 'internal',
-    color: 'turquoise',
+    color: 'apricot',
   },
   {
     id: 'blog',
     label: 'blogue',
     slug: '/blogue',
     type: 'internal',
-    color: 'rose',
+    color: 'apricot',
   },
   {
     id: 'tickets',
     label: 'billetterie',
     slug: '/billetterie',
     type: 'internal',
-    color: 'ciel',
+    color: 'cherry',
   },
   // {
   //   id: 'waqademy',
   //   label: 'WAQadémie',
   //   slug: '/waqademie',
   //   type: 'internal',
-  //   color: 'mauve',
+  //   color: 'cherry',
   // },
 ];
 

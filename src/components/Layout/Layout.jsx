@@ -12,7 +12,8 @@ import 'sanitize.css/typography.css';
 
 import Footer from '../Footer';
 import Header from '../Header';
-import PixelGradient from '../PixelGradient/PixelGradient';
+import BackgroundGradient from '../BackgroundGradient/BackgroundGradient';
+import LavaLamp from '../LavaLamp';
 import CookieBanner from '../CookieBanner';
 import ClientOnly from '../ClientOnly/ClientOnly';
 
@@ -32,7 +33,9 @@ const Layout = ({ children, location }) => {
     <>
       <GlobalStyle />
 
-      <PixelGradient pathname={pathname} />
+      <BackgroundGradient pathname={pathname} />
+
+      <LavaLamp pathname={pathname} />
 
       <ClientOnly>
         <CookieBanner location={location} />

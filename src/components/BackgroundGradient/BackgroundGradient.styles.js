@@ -1,9 +1,22 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import GrainyNoise from '../../images/textures/grainy-noise.png';
 import zIndexes from '../../styles/zIndexes';
+// import colors from '../../styles/colors';
 
-export const canvasStyle = css`
+export const Background = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: ${zIndexes.background};
+
+  width: 100vw;
+  height: 100vh;
+`;
+
+export const Gradient = styled.div`
   position: fixed;
   top: 0;
   right: 0;
@@ -16,7 +29,7 @@ export const canvasStyle = css`
 
   overflow: hidden;
 
-  transform: scale(1.5);
+  opacity: 0.5;
 `;
 
 export const Noise = styled.div`
@@ -33,7 +46,7 @@ export const Noise = styled.div`
   background-image: url(${GrainyNoise});
   background-repeat: repeat;
 
-  opacity: 1;
+  opacity: 0.5;
 
   user-select: none;
   pointer-events: none;

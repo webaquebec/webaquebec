@@ -16,7 +16,8 @@ const overlaidStyle = css`
     background-color: ${({ lightColor, darkColor, invert }) =>
       invert ? darkColor : lightColor};
 
-    mix-blend-mode: overlay;
+    /* mix-blend-mode: overlay; */
+    mix-blend-mode: hard-light;
   }
 `;
 

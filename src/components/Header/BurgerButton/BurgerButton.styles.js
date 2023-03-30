@@ -27,7 +27,7 @@ export const Line = styled.span`
   width: var(--width-icon);
   height: var(--height-line);
 
-  background: ${colors.bleu};
+  background: ${colors.bleu100};
   border-radius: 50px;
 
   will-change: tranform;

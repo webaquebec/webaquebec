@@ -58,7 +58,7 @@ const CTAApp = () => {
       </ContentWrap>
 
       <ImageWrap>
-        <Image src={vectorPhone} alt='cellphone' />
+        <Image src={vectorPhone} alt='' role='presentation' />
       </ImageWrap>
     </CTAWrap>
   );
