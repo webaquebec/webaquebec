@@ -44,13 +44,13 @@ const primaryNavigation = [
     type: 'internal',
     color: 'cherry',
   },
-  {
-    id: 'waqademy',
-    label: 'WAQadémie',
-    slug: '/waqademie',
-    type: 'internal',
-    color: 'cherry',
-  },
+  // {
+  //   id: 'waqademy',
+  //   label: 'WAQadémie',
+  //   slug: '/waqademie',
+  //   type: 'internal',
+  //   color: 'cherry',
+  // },
 ];
 
 const secondaryNavigation = [
