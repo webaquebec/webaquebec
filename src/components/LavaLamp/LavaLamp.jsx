@@ -29,32 +29,32 @@ const LavaLamp = ({ pathname }) => {
   };
 
   const current = getOptionsByLocation() || optionsByLocation.home;
+
   return (
-    <>
-      <Lamp>
-        <Lava>
-          {Array.from(Array(7), (e, i) => (
-            <Blob
-              key={i}
-              css={`
-                background: ${colors[current]};
-              `}
-            />
-          ))}
+    <Lamp>
+      <Lava>
+        {Array.from(Array(7), (e, i) => (
           <Blob
-            className='bottom'
+            key={i}
             css={`
               background: ${colors[current]};
             `}
           />
-        </Lava>
-      </Lamp>
+        ))}
+        <Blob
+          className='bottom'
+          css={`
+            background: ${colors[current]};
+          `}
+        />
+      </Lava>
+
       <VectorGoo
         css={`
           display: none;
         `}
       />
-    </>
+    </Lamp>
   );
 };
 

@@ -112,12 +112,6 @@ export const Lava = styled.div`
   opacity: 0.75;
 
   filter: url('#goo') blur(3px);
-
-  @media (prefers-reduced-motion: reduce) {
-    && > * {
-      animation: none;
-    }
-  }
 `;
 
 export const Blob = styled.div`
@@ -210,5 +204,20 @@ export const Blob = styled.div`
 
     animation: ${wobble} 16s ease-in-out alternate infinite,
       ${blobSeven} ease-in-out 32s infinite;
+  }
+
+  will-change: transform;
+
+  /* FIXME: Temporary fallback on Safari only due to an issue with applied SVG filters */
+  @media (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+      filter: blur(3px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    && {
+      animation: none;
+    }
   }
 `;
