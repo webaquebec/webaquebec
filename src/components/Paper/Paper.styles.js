@@ -10,11 +10,14 @@ const roundedStyle = css`
 `;
 
 const overlaidStyle = css`
+  background-color: transparent;
+
   ::before {
     background-color: ${({ lightColor, darkColor, invert }) =>
       invert ? darkColor : lightColor};
 
-    mix-blend-mode: overlay;
+    /* mix-blend-mode: overlay; */
+    mix-blend-mode: hard-light;
   }
 `;
 
