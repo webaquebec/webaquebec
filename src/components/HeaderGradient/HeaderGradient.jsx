@@ -55,7 +55,7 @@ HeaderGradient.propTypes = {
 };
 
 HeaderGradient.defaultProps = {
-  fillColor: colors.gris30,
+  fillColor: colors.earlyDawn,
   visible: false,
 };
 

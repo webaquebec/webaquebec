@@ -66,7 +66,7 @@ const faqItem = css`
   )};
 
   a {
-    color: ${colors.bleu};
+    color: ${colors.bleu100};
   }
 `;
 

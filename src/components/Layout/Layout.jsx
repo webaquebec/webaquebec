@@ -9,12 +9,14 @@ import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import '../../fonts/Redaction/redaction.css';
+// import '../../fonts/Redaction/redaction.css';
 
 import Footer from '../Footer';
 import Header from '../Header';
-import PixelGradient from '../PixelGradient/PixelGradient';
+import BackgroundGradient from '../BackgroundGradient/BackgroundGradient';
+import LavaLamp from '../LavaLamp';
 import CookieBanner from '../CookieBanner';
+import ClientOnly from '../ClientOnly/ClientOnly';
 
 /**
  * The common Layout shared across all pages
@@ -32,9 +34,13 @@ const Layout = ({ children, location }) => {
     <>
       <GlobalStyle />
 
-      <PixelGradient pathname={pathname} />
+      <BackgroundGradient pathname={pathname} />
 
-      <CookieBanner location={location} />
+      <LavaLamp pathname={pathname} />
+
+      <ClientOnly>
+        <CookieBanner location={location} />
+      </ClientOnly>
 
       <Header pathname={pathname} />
 

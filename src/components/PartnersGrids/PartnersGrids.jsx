@@ -35,6 +35,8 @@ import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg
 import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
 import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
 import logoNventive from '../../images/logoPartners/associates/logo-nventive.svg';
+import logoEdgenda from '../../images/logoPartners/associates/logo-edgenda.svg';
+import logoProjetTeamForward from '../../images/logoPartners/supporters/logo-projet-team-forward.svg';
 
 // styles
 import {
@@ -130,6 +132,11 @@ const associatesImages = [
     alt: 'Emergensys | Parce que chaque seconde compte',
     url: 'https://www.emergensys.net/fr/',
   },
+  {
+    src: logoEdgenda,
+    alt: "AFI Expertise | Firme de solutions d'apprentissage en bureautique, gestion et technologies de l'information",
+    url: 'https://www.afiexpertise.com/fr',
+  },
   // {
   //   src: logoFlots,
   //   alt: 'Novarium | Campus d’innovation du Saint-Laurent',
@@ -162,6 +169,11 @@ const supportersImages = [
     src: logoZenika,
     alt: 'Zenika | Cabinet d’innovation technologique',
     url: 'https://zenika.com/fr-CA',
+  },
+  {
+    src: logoProjetTeamForward,
+    alt: 'Projet Team Forward | Une nouvelle façon de donner',
+    url: 'https://projetteamforward.org/',
   },
   // {
   //   src: logoBotpress,

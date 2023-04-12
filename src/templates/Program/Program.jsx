@@ -27,8 +27,8 @@ import NoResults from '../../views/ProgramPageView/NoResults';
 import breakpointsRange from '../../utils/breakpointsRange';
 import { lessThan } from '../../utils/mediaQuery';
 import slugify from '../../utils/strings/slugify';
-import unSlugify from '../../utils/strings/unSlugify';
-import { eventTypesMap } from '../../utils/dataMapping';
+// import unSlugify from '../../utils/strings/unSlugify';
+import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
@@ -130,6 +130,9 @@ const Program = ({
 
     const modifiedPlannings = plannings.map((planning) => ({
       ...planning,
+      categories: planning.categories
+        .map((category) => category.value)
+        .filter((category) => categoriesMap[category]),
       type: slugify(planning.type),
       time: {
         beginsAt: getFormattedTime(planning.beginsAt),
@@ -142,8 +145,8 @@ const Program = ({
 
   // Initialize filters once we got plannings from Swapcard
   useEffect(() => {
-    const places = [];
-    // const categories = [];
+    // const places = [];
+    const categories = [];
     const eventTypes = [];
 
     const addChoices = (value, array) => {
@@ -154,37 +157,37 @@ const Program = ({
 
     program.forEach((session) => {
       // Get all places for filters
-      addChoices(session.place, places);
+      // addChoices(session.place, places);
       // Get all categories for filters
-      // session.categories.forEach((category) => {
-      //   addChoices(category, categories);
-      // });
+      session.categories.forEach((category) => {
+        addChoices(category, categories);
+      });
       // Get all types for filters
       addChoices(session.type, eventTypes);
     });
 
     if (filters.length > 0) {
-      filterDispatcher({
-        type: 'UPDATE',
-        options: {
-          name: 'place',
-          values: places.map((value) => ({
-            name: unSlugify(value),
-            value,
-          })),
-        },
-      });
-
       // filterDispatcher({
       //   type: 'UPDATE',
       //   options: {
-      //     name: 'categories',
-      //     values: categories.map((value) => ({
-      //       name: categoriesMap[value],
+      //     name: 'place',
+      //     values: places.map((value) => ({
+      //       name: unSlugify(value),
       //       value,
       //     })),
       //   },
       // });
+
+      filterDispatcher({
+        type: 'UPDATE',
+        options: {
+          name: 'categories',
+          values: categories.map((value) => ({
+            name: categoriesMap[value],
+            value,
+          })),
+        },
+      });
 
       filterDispatcher({
         type: 'UPDATE',
@@ -200,29 +203,29 @@ const Program = ({
       return;
     }
 
-    filterDispatcher({
-      type: 'ADD',
-      options: {
-        name: 'place',
-        title: 'Lieu',
-        values: places.map((value) => ({
-          name: unSlugify(value),
-          value,
-        })),
-      },
-    });
-
     // filterDispatcher({
     //   type: 'ADD',
     //   options: {
-    //     name: 'categories',
-    //     title: 'Thématique',
-    //     values: categories.map((value) => ({
-    //       name: categoriesMap[value],
+    //     name: 'place',
+    //     title: 'Lieu',
+    //     values: places.map((value) => ({
+    //       name: unSlugify(value),
     //       value,
     //     })),
     //   },
     // });
+
+    filterDispatcher({
+      type: 'ADD',
+      options: {
+        name: 'categories',
+        title: 'Thématique',
+        values: categories.map((value) => ({
+          name: categoriesMap[value],
+          value,
+        })),
+      },
+    });
 
     filterDispatcher({
       type: 'ADD',
@@ -243,7 +246,7 @@ const Program = ({
   useEffect(() => {
     if (typeof window === 'undefined' || state === null) return;
 
-    const anchor = document.querySelector(`#${state.sessionId}`);
+    const anchor = document.querySelector(`#${CSS.escape(state.sessionId)}`);
 
     if (anchor === null) return;
 
@@ -272,8 +275,8 @@ const Program = ({
   let filteredProgram = program;
   if (filters.length > 0) {
     filteredProgram = program
-      .filter((session) => applyFilter('place', session.place))
-      // .filter((session) => applyFilter('categories', session.categories))
+      // .filter((session) => applyFilter('place', session.place))
+      .filter((session) => applyFilter('categories', session.categories))
       .filter((session) => applyFilter('type', session.type));
   }
 
@@ -316,7 +319,7 @@ const Program = ({
                         //     : undefined
                         // }
                         type={session.type}
-                        // categories={session.categories}
+                        categories={session.categories}
                         speakers={session.speakers}
                       />
                     ))}
@@ -400,7 +403,6 @@ export const programQuery = graphql`
           language
           value
         }
-        categories
         speakers {
           id
           firstName
@@ -409,6 +411,11 @@ export const programQuery = graphql`
           organization
           jobTitle
           photoUrl
+        }
+        categories: fields {
+          ... on Swapcard_MultipleSelectField {
+            value
+          }
         }
       }
     }

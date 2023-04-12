@@ -18,7 +18,7 @@ export const Img = styled.img`
   display: block;
 
   ${breakpointsRange(
-    [{ prop: 'height', sizes: [29, 55], bases: [16, 20] }],
+    [{ prop: 'height', sizes: [40, 65], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;

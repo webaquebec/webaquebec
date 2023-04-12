@@ -55,7 +55,7 @@ export const SectionPicture = styled(GatsbyImage)`
 `;
 
 export const SectionTitle = styled.h4`
-  color: ${colors.bleu80};
+  color: ${colors.bleu};
 
   font-family: ${fontFamilies.redaction};
 

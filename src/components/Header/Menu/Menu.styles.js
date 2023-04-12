@@ -81,13 +81,9 @@ export const navStyle = css`
 `;
 
 export const Blob = styled.div`
-  --jaune: ${colors.jaune80};
-  --turquoise: ${colors.turquoise80};
-  --rose: ${colors.rose80};
-  --ciel: ${colors.ciel80};
-  --gris: ${colors.gris30};
+  --cherry: ${colors.cherry};
+  --apricot: ${colors.apricot};
   --blob-color: ${({ color }) => `var(--${color})`};
-  --mauve: ${colors.mauve};
 
   position: fixed;
   bottom: 0;
@@ -101,7 +97,7 @@ export const Blob = styled.div`
 
   border-radius: 50%;
 
-  opacity: 0.7;
+  opacity: 0.3;
 
   filter: blur(64px);
 
@@ -158,7 +154,7 @@ export const primaryNavListStyle = css`
   ${breakpointsRange(
     [
       { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [35, 145], bases: [16, 20] },
+      // { prop: 'marginBottom', sizes: [35, 145], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -312,7 +308,7 @@ export const Container = styled(Box)`
   width: 100%;
   height: 100%;
 
-  background-color: ${colors.gris};
+  background-color: ${colors.earlyDawn};
 
   visibility: hidden;
   opacity: 0;

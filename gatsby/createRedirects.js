@@ -11,7 +11,7 @@ module.exports = async ({ actions, reporter }) => {
     },
     {
       fromPath: '/programmation',
-      toPath: '/programmation/2022',
+      toPath: '/programmation/2023',
       isPermanent: false,
     },
     {
@@ -19,10 +19,16 @@ module.exports = async ({ actions, reporter }) => {
       toPath: '/a-propos/evenement',
       isPermanent: false,
     },
+    {
+      fromPath: '/waqademie',
+      toPath: '/',
+      isPermanent: false,
+      force: true,
+    },
   ];
 
   redirects.forEach((redirect) => {
-    const { fromPath, toPath, isPermanent } = redirect;
+    const { fromPath, toPath, isPermanent, force } = redirect;
 
     reporter.info(`creating redirect: ${fromPath} to ${toPath}`);
 
@@ -30,6 +36,7 @@ module.exports = async ({ actions, reporter }) => {
       fromPath,
       toPath,
       isPermanent,
+      force,
     });
   });
 };

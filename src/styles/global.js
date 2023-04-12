@@ -41,8 +41,6 @@ export const htmlStyle = css`
   padding: 0;
 
   /* Do not add overflow: hidden on html style which causing issue with sticky header */
-
-  background-color: ${colors.gris};
   scroll-behavior: smooth;
 `;
 
@@ -99,22 +97,8 @@ export const h1Style = css`
   )};
 `;
 
-// export const h1AltStyle = css`
-//   color: ${colors.bleu};
-
-//   font-weight: ${fontWeights.bold};
-//   font-family: ${fontFamilies.redaction35};
-//   ${breakpointsRange(
-//     [
-//       { prop: 'fontSize', sizes: [54, 68], bases: [16, 20] },
-//       { prop: 'lineHeight', sizes: [59, 75], bases: [54, 68], unit: '' },
-//     ],
-//     breakpoints.spacings
-//   )};
-// `;
-
 export const h1AltStyle = css`
-  color: ${colors.bleu};
+  color: ${colors.bleu100};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
@@ -203,7 +187,7 @@ export const h6AltStyle = css`
 `;
 
 export const introStyle = css`
-  color: ${colors.bleu90};
+  color: ${colors.bleu100};
 
   ${breakpointsRange(
     [
@@ -215,7 +199,7 @@ export const introStyle = css`
 `;
 
 export const magnifyStyle = css`
-  color: ${colors.bleu};
+  color: ${colors.bleu100};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
@@ -230,7 +214,7 @@ export const magnifyStyle = css`
 `;
 
 export const billboardStyle = css`
-  color: ${colors.bleu};
+  color: ${colors.bleu100};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
@@ -430,7 +414,7 @@ export const orderedListCounterStyle = css`
   /* width: 1.3em; */
   margin-inline-end: 0.3em;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu};
   font-weight: ${fontWeights.bold};
 
   /* direction: rtl; */
@@ -499,7 +483,7 @@ export const unorderedListStyle = css`
     margin-inline-end: 0.5em;
     margin-inline-start: 0.7em;
 
-    color: ${colors.bleu80};
+    color: ${colors.bleu};
     font-weight: ${fontWeights.bold};
 
     content: '•';
