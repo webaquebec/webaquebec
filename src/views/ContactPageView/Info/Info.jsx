@@ -37,9 +37,9 @@ const Info = ({ picture }) => (
             <TextWrapper>
               <Title>Québec Numérique</Title>
               <Text>
-                Texte standard lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam.
+                L’équipe de bénévoles derrière le WAQ est supportée par Québec
+                numérique. Tu as des questions ou besoin d’information?
+                Lâche-nous un coup de fil ou écris-nous, on est pas gênants!
               </Text>
 
               <Button

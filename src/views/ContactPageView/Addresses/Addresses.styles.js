@@ -30,7 +30,7 @@ export const MapContainer = styled.div`
   overflow: hidden;
 
   background-color: white;
-  border: 3px solid ${colors.bleu80};
+  border: 3px solid ${colors.bleu100};
   border-radius: 16px;
 
   canvas {
@@ -51,7 +51,7 @@ export const OurAddresses = styled.h2`
     breakpoints.spacings
   )};
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu100};
 
   font-family: ${fontFamilies.redaction};
 
@@ -84,7 +84,7 @@ export const AddressName = styled.h3`
   margin: 0;
   padding-left: 14px;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu100};
 `;
 
 export const ContactInfo = styled.div`

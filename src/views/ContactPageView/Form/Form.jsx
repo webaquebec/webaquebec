@@ -25,11 +25,9 @@ import {
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string()
-    .required('Insérez votre prénom')
     .min(2, 'Le prénom inséré est trop court')
     .max(50, 'Le prénom inséré est trop long'),
   lastName: Yup.string()
-    .required('Insérez votre nom')
     .min(2, 'Le nom inséré est trop court')
     .max(50, 'Le nom inséré est trop long'),
   email: Yup.string()

@@ -17,23 +17,13 @@ import Info from '../views/ContactPageView/Info';
 // styles
 import breakpointsRange from '../utils/breakpointsRange';
 import breakpoints from '../styles/breakpoints';
-import { introStyle, titleStyle } from '../styles/global';
+import { titleStyle } from '../styles/global';
 
 const ContactTitle = styled.h1`
   ${titleStyle};
 
   ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
-
-const ContactIntro = styled.p`
-  ${introStyle};
-
-  margin-bottom: 0;
-  ${breakpointsRange(
-    [{ prop: 'margin-top', sizes: [16, 8], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -78,11 +68,6 @@ const ContactPage = ({ data }) => {
         <ContactTitle>
           nous <span>joindre</span>
         </ContactTitle>
-
-        <ContactIntro>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </ContactIntro>
       </Center>
 
       <StyledSection forwardedAs='div' faded>

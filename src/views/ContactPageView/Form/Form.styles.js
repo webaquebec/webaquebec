@@ -28,7 +28,7 @@ export const Title = styled.h2`
 
   margin-top: 0;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu100};
   font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(

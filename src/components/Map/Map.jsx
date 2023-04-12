@@ -14,7 +14,7 @@ const MAPBOX_TOKEN = process.env.GATSBY_MAPBOX_ACCESS_TOKEN;
 const defaultOptions = {
   style: 'mapbox://styles/qc-num/ckz7b0xxl002e14th30urqx2w',
   center: { lat: 46.81425, lng: -71.211725 },
-  zoom: 14,
+  zoom: 13,
 };
 
 const markers = [

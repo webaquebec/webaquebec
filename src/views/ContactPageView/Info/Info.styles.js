@@ -58,7 +58,7 @@ export const Img = styled(GatsbyImage)`
 export const Title = styled.h2`
   ${h4Style}
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu100};
   font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(
