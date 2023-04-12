@@ -1,5 +1,5 @@
 // vendors
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const blobOne = keyframes`
   0%,
@@ -48,7 +48,7 @@ const blobFour = keyframes`
 const blobFive = keyframes`
   0%,
   100% {
-    transform: translatey(-);
+    transform: translatey(0);
   }
 
   50% {
@@ -88,6 +88,10 @@ const wobble = keyframes`
   }
 `;
 
+export const gooStyle = css`
+  filter: url('#goo') blur(3px);
+`;
+
 export const Lamp = styled.div`
   position: fixed;
   top: 50%;
@@ -111,7 +115,11 @@ export const Lava = styled.div`
 
   opacity: 0.75;
 
-  filter: url('#goo') blur(3px);
+  filter: blur(4px);
+
+  will-change: transform;
+
+  ${({ $hasGoo }) => $hasGoo && gooStyle};
 `;
 
 export const Blob = styled.div`
@@ -204,15 +212,6 @@ export const Blob = styled.div`
 
     animation: ${wobble} 16s ease-in-out alternate infinite,
       ${blobSeven} ease-in-out 32s infinite;
-  }
-
-  will-change: transform;
-
-  /* FIXME: Temporary fallback on Safari only due to an issue with applied SVG filters */
-  @media (min-resolution: 0.001dpcm) {
-    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-      filter: blur(3px);
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {

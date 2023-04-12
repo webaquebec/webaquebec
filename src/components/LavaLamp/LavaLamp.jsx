@@ -1,6 +1,7 @@
 // vendor
 import React from 'react';
 import PropTypes from 'prop-types';
+import { isChrome, isEdge } from 'react-device-detect';
 
 // images
 import VectorGoo from '../../images/VectorGoo';
@@ -32,7 +33,7 @@ const LavaLamp = ({ pathname }) => {
 
   return (
     <Lamp>
-      <Lava>
+      <Lava $hasGoo={isChrome || isEdge}>
         {Array.from(Array(7), (e, i) => (
           <Blob
             key={i}
