@@ -17,7 +17,7 @@ import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
 // import logoLevio from '../../images/logoPartners/premium/logo-levio.svg';
 import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
 // import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
-import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
+// import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
 import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
 import logoEmergensys from '../../images/logoPartners/associates/logo-emergensys.png';
@@ -37,6 +37,10 @@ import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbrid
 import logoNventive from '../../images/logoPartners/associates/logo-nventive.svg';
 import logoEdgenda from '../../images/logoPartners/associates/logo-edgenda.svg';
 import logoProjetTeamForward from '../../images/logoPartners/supporters/logo-projet-team-forward.svg';
+import logoDashThis from '../../images/logoPartners/associates/logo-dashthis.svg';
+import logoPortQuebec from '../../images/logoPartners/footer/logo-port-quebec.svg';
+import logoQuebec from '../../images/logoPartners/footer/logo-quebec.svg';
+import logoVilleQuebec from '../../images/logoPartners/footer/logo-ville-de-quebec.svg';
 
 // styles
 import {
@@ -58,11 +62,6 @@ const premiumImages = [
     srcAlt: logoVideotronRGB,
     alt: 'Vidéotron | Services de Téléphonie, Internet, Télévision et Mobile',
     url: 'https://videotron.com/',
-  },
-  {
-    src: logoOqlf,
-    alt: 'OQLF | Office québécois de la langue française',
-    url: 'https://www.oqlf.gouv.qc.ca/',
   },
   {
     src: logoUbisoft,
@@ -203,6 +202,29 @@ const mediaImages = [
     alt: 'Québecor',
     url: 'https://www.quebecor.com/fr/',
   },
+  {
+    src: logoDashThis,
+    alt: 'DashThis',
+    url: 'https://dashthis.com/',
+  },
+];
+
+const publicImages = [
+  {
+    src: logoVilleQuebec,
+    alt: 'Ville de Québec',
+    url: 'https://www.ville.quebec.qc.ca/',
+  },
+  {
+    src: logoQuebec,
+    alt: 'Gouvernement du Québec',
+    url: 'https://www.quebec.ca/',
+  },
+  {
+    src: logoPortQuebec,
+    alt: 'Port de Québec',
+    url: 'https://www.portquebec.ca/',
+  },
 ];
 
 // const PartnersGrids = ({ hasDetails }) => (
@@ -315,10 +337,28 @@ const PartnersGrids = () => (
       intrinsic
       withText
     >
-      <Title>nos partenaires médias</Title>
+      <Title>nos partenaires diffusion</Title>
 
       <Grid>
         {mediaImages.map((image) => (
+          <GridItem key={image.url}>
+            <LogoCard image={image} />
+          </GridItem>
+        ))}
+      </Grid>
+    </Center>
+
+    <Center
+      as='section'
+      maxWidth='1024px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title>nos partenaires publics</Title>
+
+      <Grid>
+        {publicImages.map((image) => (
           <GridItem key={image.url}>
             <LogoCard image={image} />
           </GridItem>
