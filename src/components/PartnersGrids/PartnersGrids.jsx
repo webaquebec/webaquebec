@@ -316,7 +316,7 @@ const PartnersGrids = () => (
       intrinsic
       withText
     >
-      <Title>nos partenaires diffusion</Title>
+      <Title>nos partenaires de diffusion</Title>
 
       <Grid>
         {mediaImages.map((image) => (
