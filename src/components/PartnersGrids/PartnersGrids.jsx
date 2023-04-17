@@ -202,7 +202,7 @@ const mediaImages = [
   {
     src: logoDashThis,
     alt: 'DashThis',
-    url: 'https://dashthis.com/',
+    url: 'https://fr.dashthis.com/',
   },
 ];
 
