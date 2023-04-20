@@ -50,7 +50,7 @@ export const ButtonContainer = styled.div`
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 
   /* ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [16, 22], bases: [16, 20] }],

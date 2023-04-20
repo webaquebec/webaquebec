@@ -18,7 +18,7 @@ import stripHtmlTags from '../../../utils/strings/stripHtmlTags';
 import {
   ButtonContainer,
   NotificationContainer,
-  RequiredFields,
+  // RequiredFields,
   SectionContainer,
   TextArea,
   Title,
@@ -26,9 +26,11 @@ import {
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string()
+    .required('Insérez votre prénom')
     .min(2, 'Le prénom inséré est trop court')
     .max(50, 'Le prénom inséré est trop long'),
   lastName: Yup.string()
+    .required('Insérez votre nom')
     .min(2, 'Le nom inséré est trop court')
     .max(50, 'Le nom inséré est trop long'),
   email: Yup.string()
@@ -211,7 +213,7 @@ const Form = () => {
                         helperText={touched.lastName ? errors.lastName : ''}
                       />
                       <TextInputField
-                        label='courriel*'
+                        label='courriel'
                         placeholder='courriel'
                         name='email'
                         value={values.email}
@@ -224,7 +226,7 @@ const Form = () => {
 
                     <div>
                       <TextArea
-                        label='votre message*'
+                        label='votre message'
                         placeholder='votre message'
                         name='message'
                         value={values.message}
@@ -238,7 +240,7 @@ const Form = () => {
                 </Switcher>
 
                 <ButtonContainer>
-                  <RequiredFields>Champs obligatoires</RequiredFields>
+                  {/* <RequiredFields>Champs obligatoires</RequiredFields> */}
 
                   <Button small animated type='submit'>
                     envoyer
