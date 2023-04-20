@@ -50,12 +50,25 @@ export const ButtonContainer = styled.div`
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 
   /* ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [16, 22], bases: [16, 20] }],
     breakpoints.spacings
   )}; */
+`;
+
+export const RequiredFields = styled.div`
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [14, 16], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+
+  ::before {
+    color: ${colors.bleu100};
+
+    content: '*';
+  }
 `;
 
 export const NotificationContainer = styled.div`

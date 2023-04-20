@@ -18,6 +18,7 @@ import stripHtmlTags from '../../../utils/strings/stripHtmlTags';
 import {
   ButtonContainer,
   NotificationContainer,
+  RequiredFields,
   SectionContainer,
   TextArea,
   Title,
@@ -210,7 +211,7 @@ const Form = () => {
                         helperText={touched.lastName ? errors.lastName : ''}
                       />
                       <TextInputField
-                        label='courriel'
+                        label='courriel*'
                         placeholder='courriel'
                         name='email'
                         value={values.email}
@@ -223,7 +224,7 @@ const Form = () => {
 
                     <div>
                       <TextArea
-                        label='votre message'
+                        label='votre message*'
                         placeholder='votre message'
                         name='message'
                         value={values.message}
@@ -237,6 +238,8 @@ const Form = () => {
                 </Switcher>
 
                 <ButtonContainer>
+                  <RequiredFields>Champs obligatoires</RequiredFields>
+
                   <Button small animated type='submit'>
                     envoyer
                   </Button>
