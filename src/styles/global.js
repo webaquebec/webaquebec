@@ -360,13 +360,15 @@ export const linkStyle = css`
   color: inherit;
   text-decoration: none;
 
+  outline-offset: -1px;
+
   @media (prefers-reduced-motion: no-preference) {
     transition: color ${speed.superfast};
   }
 
   ::after {
     position: absolute;
-    bottom: 0;
+    bottom: 2px;
     left: 0;
     z-index: -1;
 
@@ -390,11 +392,9 @@ export const linkStyle = css`
     color: ${colors.white};
 
     ::after {
-      scale: 1 1;
+      scale: 1 0.87;
     }
   }
-
-  /* border-bottom: 2px solid #000CA0; */
 `;
 
 export const externalLinkStyle = css``;
