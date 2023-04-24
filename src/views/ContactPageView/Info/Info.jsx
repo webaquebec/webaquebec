@@ -30,12 +30,12 @@ const Info = ({ picture }) => (
       >
         <div>
           <ImgContainer>
-            <Img fluid={picture} alt='Les membres de Québec Numérique' />
+            <Img fluid={picture} alt='Les membres de Québec numérique' />
           </ImgContainer>
 
           <TextContainer>
             <TextWrapper>
-              <Title>Québec Numérique</Title>
+              <Title>Québec numérique</Title>
               <Text>
                 L’équipe de bénévoles derrière le WAQ est supportée par Québec
                 numérique. Tu as des questions ou besoin d’information?

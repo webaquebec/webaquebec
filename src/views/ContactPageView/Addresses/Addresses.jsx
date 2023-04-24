@@ -68,7 +68,7 @@ const Addresses = () => (
                 <StickerHeading sticker='target' name='nos bureaux' />
 
                 <ContactInfo>
-                  <span css={hideVisually}>Québec Numérique</span>
+                  <span css={hideVisually}>Québec numérique</span>
 
                   <Stack>
                     <div>
