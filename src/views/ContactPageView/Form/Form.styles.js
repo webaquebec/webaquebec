@@ -58,6 +58,20 @@ export const ButtonContainer = styled.div`
   )}; */
 `;
 
+export const ButtonContent = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  ${breakpointsRange(
+    [
+      { prop: 'height', sizes: [18, 21], bases: [16, 20] },
+      { prop: 'width', sizes: [62, 75], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
 export const RequiredFields = styled.div`
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [14, 16], bases: [16, 20] }],

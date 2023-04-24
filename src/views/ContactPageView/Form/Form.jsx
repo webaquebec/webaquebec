@@ -14,9 +14,13 @@ import TextInputField from '../../../components/TextInputField';
 // utils
 import stripHtmlTags from '../../../utils/strings/stripHtmlTags';
 
+// images
+import VectorLoader from '../../../images/VectorLoader';
+
 // styles
 import {
   ButtonContainer,
+  ButtonContent,
   NotificationContainer,
   // RequiredFields,
   SectionContainer,
@@ -95,7 +99,6 @@ const Form = () => {
 
   const handleSubmit = useCallback(
     async (values, actions) => {
-      // const { firstName, lastName, email, message, botField } = values;
       const { botField } = values;
 
       if (botField) return false;
@@ -133,6 +136,8 @@ const Form = () => {
           console.log(response.message);
 
           setUserNotification(response.message);
+
+          actions.resetForm();
         }
 
         // display errors back from the form service api when applied
@@ -147,6 +152,8 @@ const Form = () => {
         actions.setSubmitting(false);
       } catch (error) {
         setUserNotification(genericErrorMessage);
+
+        actions.setSubmitting(false);
 
         console.error(error);
       }
@@ -172,6 +179,7 @@ const Form = () => {
             values,
             errors,
             touched,
+            isSubmitting,
           }) => (
             <form onSubmit={formikHandleSubmit}>
               <Stack space='var(--container-gutter)'>
@@ -242,8 +250,24 @@ const Form = () => {
                 <ButtonContainer>
                   {/* <RequiredFields>Champs obligatoires</RequiredFields> */}
 
-                  <Button small animated type='submit'>
-                    envoyer
+                  <Button
+                    small
+                    animated
+                    type='submit'
+                    onClick={() => setUserNotification('')}
+                    style={{ pointerEvents: isSubmitting ? 'none' : 'auto' }}
+                  >
+                    <ButtonContent>
+                      {isSubmitting ? (
+                        <VectorLoader
+                          css={`
+                            width: 60%;
+                          `}
+                        />
+                      ) : (
+                        `envoyer`
+                      )}
+                    </ButtonContent>
                   </Button>
                 </ButtonContainer>
 
