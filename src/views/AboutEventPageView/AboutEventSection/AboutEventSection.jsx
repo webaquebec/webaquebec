@@ -11,6 +11,7 @@ import {
   atRight,
   Container,
   ContentWrapper,
+  SectionParagraph,
   SectionPicture,
   SectionTitle,
 } from './AboutEventSection.styles';
@@ -25,7 +26,7 @@ const AboutEventSection = ({ items }) => (
           <div>
             <SectionPicture fluid={item.photoSrc} alt={item.title} />
             <SectionTitle>{item.title}</SectionTitle>
-            <p dangerouslySetInnerHTML={{ __html: item.text }} />
+            <SectionParagraph dangerouslySetInnerHTML={{ __html: item.text }} />
           </div>
         </ContentWrapper>
       ))}

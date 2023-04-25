@@ -6,8 +6,8 @@ import { Link as GatsbyLink } from 'gatsby';
 import Center from '../../../components/LayoutSections/Center';
 
 // styles
-import { Link, TermsTitle } from './TermsAndConditions.styles';
-import { unorderedListStyle } from '../../../styles/global';
+import { TermsTitle } from './TermsAndConditions.styles';
+import { linkStyle, unorderedListStyle } from '../../../styles/global';
 
 const TermsAndConditions = () => (
   <Center maxWidth='854px' gutters='var(--container-gutter)'>
@@ -24,9 +24,9 @@ const TermsAndConditions = () => (
       </li>
       <li>
         En participant à l’événement, tu t’engages à respecter le{' '}
-        <Link as={GatsbyLink} to='/code-de-conduite'>
+        <GatsbyLink to='/code-de-conduite' css={linkStyle}>
           code de conduite
-        </Link>{' '}
+        </GatsbyLink>{' '}
         du WAQ.
       </li>
       <li>
@@ -54,7 +54,10 @@ const TermsAndConditions = () => (
     <p>
       Pour toute question concernant les conditions de vente, tu peux
       communiquer avec nous à l’adresse :{' '}
-      <Link href='mailto:info@webaquebec.org'>info@webaquebec.org</Link>.
+      <a href='mailto:info@webaquebec.org' css={linkStyle}>
+        info@webaquebec.org
+      </a>
+      .
     </p>
   </Center>
 );

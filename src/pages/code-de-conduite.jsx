@@ -6,20 +6,20 @@ import styled, { css } from 'styled-components';
 import Stack from '../components/LayoutSections/Stack';
 import SectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
+import Center from '../components/LayoutSections/Center';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import Center from '../components/LayoutSections/Center';
 import {
   titleStyle,
   h2Style,
   orderedListStyle,
   unorderedListStyle,
+  linkStyle,
 } from '../styles/global';
-import colors from '../styles/colors';
 
 const PageTitle = styled.h1`
   margin-bottom: 0;
@@ -74,12 +74,7 @@ const OrderedList = styled.ol`
 `;
 
 const Link = styled.a`
-  position: relative;
-
-  color: inherit;
-  text-decoration: none;
-
-  border-bottom: 2px solid ${colors.bleu};
+  ${linkStyle}
 `;
 
 const Container = styled(SectionContainer)`

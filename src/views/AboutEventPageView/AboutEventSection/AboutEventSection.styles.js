@@ -9,6 +9,7 @@ import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
 import { fontFamilies } from '../../../styles/typography';
+import { linkStyle } from '../../../styles/global';
 
 export const atRight = css`
   margin-left: auto;
@@ -66,4 +67,10 @@ export const SectionTitle = styled.h4`
     ],
     breakpoints.spacings
   )};
+`;
+
+export const SectionParagraph = styled.p`
+  a {
+    ${linkStyle}
+  }
 `;
