@@ -73,6 +73,12 @@ const secondaryNavigation = [
     type: 'internal',
   },
   {
+    id: 'contact',
+    label: 'nous joindre',
+    slug: '/contact',
+    type: 'internal',
+  },
+  {
     id: 'code-of-conduct',
     label: 'code de conduite',
     slug: '/code-de-conduite',
