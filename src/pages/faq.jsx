@@ -8,6 +8,7 @@ import SEO from '../components/SEO';
 import Center from '../components/LayoutSections/Center';
 import Accordion from '../components/Accordion';
 import AccordionItem from '../components/Accordion/AccordionItem';
+import SectionContainer from '../components/SectionContainer';
 import Stack from '../components/LayoutSections/Stack';
 
 // utils
@@ -31,7 +32,7 @@ const FaqIntro = styled.div`
   margin-top: 1rem;
 `;
 
-const Container = styled.div`
+const Container = styled(SectionContainer)`
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [98, 105], bases: [16, 20] },
@@ -136,7 +137,7 @@ const FaqPage = () => (
       </FaqIntro>
     </Center>
 
-    <Container>
+    <Container forwardedAs='div' faded>
       <Center maxWidth='850px' gutters='var(--container-gutter)'>
         <Accordion multiple collapsible>
           {data.map((item) => (
@@ -145,7 +146,6 @@ const FaqPage = () => (
               titleAs='h2'
               title={item.question}
               color={colors.bleu100}
-              bgColor={colors.earlyDawn}
               bordered
               rounded
             >
