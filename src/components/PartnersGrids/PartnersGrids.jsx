@@ -174,7 +174,7 @@ const supportersImages = [
   },
   {
     src: logoRandstad,
-    alt: 'Randstad',
+    alt: 'Randstad Canada',
     url: 'https://www.randstad.ca/fr/',
   },
   // {
@@ -261,13 +261,7 @@ const PartnersGrids = () => (
       </Switcher>
     </Center> */}
 
-    <Center
-      as='section'
-      maxWidth='1024px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
+    <Center as='section' maxWidth='1024px' gutters='var(--container-gutter)' intrinsic withText>
       <Title>nos partenaires principaux</Title>
 
       <Grid css={premiumGrid}>
@@ -279,13 +273,7 @@ const PartnersGrids = () => (
       </Grid>
     </Center>
 
-    <Center
-      as='section'
-      maxWidth='900px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
+    <Center as='section' maxWidth='900px' gutters='var(--container-gutter)' intrinsic withText>
       <Title>nos partenaires associés</Title>
 
       <Grid>
@@ -297,13 +285,7 @@ const PartnersGrids = () => (
       </Grid>
     </Center>
 
-    <Center
-      as='section'
-      maxWidth='900px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
+    <Center as='section' maxWidth='900px' gutters='var(--container-gutter)' intrinsic withText>
       <Title>nos partenaires supporteurs</Title>
 
       <Grid>
@@ -315,13 +297,7 @@ const PartnersGrids = () => (
       </Grid>
     </Center>
 
-    <Center
-      as='section'
-      maxWidth='900px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
+    <Center as='section' maxWidth='900px' gutters='var(--container-gutter)' intrinsic withText>
       <Title>nos partenaires de diffusion</Title>
 
       <Grid>
