@@ -53,7 +53,7 @@ export const Container = styled(Box)`
 
   overflow: hidden;
 
-  background-color: ${colors.white};
+  background-color: ${({ $lightColor }) => `${$lightColor}`};
 
   will-change: max-height;
 

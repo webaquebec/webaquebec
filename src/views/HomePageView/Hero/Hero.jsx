@@ -5,14 +5,17 @@ import React from 'react';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
 // styles
-import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
 import breakpoints from '../../../styles/breakpoints';
-import { billboardStyle, billboardAltStyle } from '../../../styles/global';
+import {
+  billboardStyle,
+  billboardAltStyle,
+  linkStyle,
+} from '../../../styles/global';
 import {
   StyledHero,
   HeroIntro,
-  linkStyleHover,
+  // linkStyleHover,
   Address,
   MapPinIcon,
 } from './Hero.styles';
@@ -50,9 +53,6 @@ const Hero = () => (
 
         <p
           css={`
-            color: ${colors.bleu100};
-            font-weight: ${fontWeights.semiBold};
-
             ${breakpointsRange(
               [{ prop: 'fontSize', sizes: [17, 20], bases: [16, 20] }],
               breakpoints.spacings
@@ -63,7 +63,11 @@ const Hero = () => (
             href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492'
             target='_blank'
             rel='noopener noreferrer'
-            css={linkStyleHover}
+            css={`
+              ${linkStyle};
+
+              font-weight: ${fontWeights.semiBold};
+            `}
           >
             Au Terminal — Port de Québec
           </a>

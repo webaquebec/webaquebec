@@ -20,10 +20,10 @@ export const defaultStyle = css`
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [14, 16], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [24, 22], bases: [14, 16] },
+      { prop: 'lineHeight', sizes: [24, 24], bases: [14, 16], unit: '' },
       { prop: 'paddingTop', sizes: [14, 20], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [12, 20], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [5, 9], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [10, 10], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [12, 20], bases: [16, 20] },
     ],
     breakpoints.spacings

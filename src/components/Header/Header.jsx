@@ -66,12 +66,18 @@ const secondaryNavigation = [
     slug: '/partenaires',
     type: 'internal',
   },
-  // {
-  //   id: 'faq',
-  //   label: 'FAQ',
-  //   slug: '/faq',
-  //   type: 'internal',
-  // },
+  {
+    id: 'faq',
+    label: 'FAQ',
+    slug: '/faq',
+    type: 'internal',
+  },
+  {
+    id: 'contact',
+    label: 'nous joindre',
+    slug: '/contact',
+    type: 'internal',
+  },
   {
     id: 'code-of-conduct',
     label: 'code de conduite',
