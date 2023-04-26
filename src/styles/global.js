@@ -352,12 +352,24 @@ export const pixelated100Style = css`
 `;
 
 export const linkStyle = css`
+  color: ${colors.bleu100};
+  font-weight: ${fontWeights.medium};
+
+  :focus,
+  :hover {
+    text-decoration: none;
+  }
+`;
+
+/** FIXME: Broken style on word break. Find a working way to achieve the same result */
+export const linkStyleAlt = css`
   position: relative;
+
   z-index: 1;
 
   display: inline-block;
 
-  color: inherit;
+  color: ${colors.bleu100};
   text-decoration: none;
 
   outline-offset: -1px;
