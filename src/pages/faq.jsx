@@ -16,7 +16,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { titleStyle, introStyle } from '../styles/global';
+import { titleStyle, introStyle, linkStyle } from '../styles/global';
 import colors from '../styles/colors';
 
 const FaqTitle = styled.h1`
@@ -66,7 +66,7 @@ const faqItem = css`
   )};
 
   a {
-    color: ${colors.bleu100};
+    ${linkStyle};
   }
 `;
 
@@ -95,7 +95,7 @@ const data = [
   {
     id: 5,
     question: 'À quel endroit se déroule le WAQ?',
-    answer: `<p>L’événement se déroule au <a href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492' target='_blank' rel='noopener noreferrer'>Terminal du Port de Québec, au 84 rue Dalhousie</a>, dans la ville de Québec.</p>`,
+    answer: `<p>L’événement se déroule au <a href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492' target='_blank' rel='noopener noreferrer'>Terminal du Port de Québec</a>, au 84 rue Dalhousie, dans la ville de Québec.</p>`,
   },
   {
     id: 6,
