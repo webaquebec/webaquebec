@@ -38,7 +38,7 @@ import logoNventive from '../../images/logoPartners/associates/logo-nventive.svg
 import logoEdgenda from '../../images/logoPartners/associates/logo-edgenda.svg';
 import logoProjetTeamForward from '../../images/logoPartners/supporters/logo-projet-team-forward.svg';
 import logoDashThis from '../../images/logoPartners/associates/logo-dashthis.svg';
-import logoRandstand from '../../images/logoPartners/supporters/logo-randstand.svg';
+import logoRandstad from '../../images/logoPartners/supporters/logo-randstad.svg';
 
 // styles
 import {
@@ -173,8 +173,8 @@ const supportersImages = [
     url: 'https://projetteamforward.org/',
   },
   {
-    src: logoRandstand,
-    alt: 'Randstand',
+    src: logoRandstad,
+    alt: 'Randstad',
     url: 'https://www.randstad.ca/fr/',
   },
   // {
