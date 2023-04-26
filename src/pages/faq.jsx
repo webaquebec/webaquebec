@@ -74,7 +74,7 @@ const data = [
   {
     id: 1,
     question: 'Est-ce possible de partager un billet présentiel?',
-    answer: `<p>Chaque personne qui sera sur place devra avoir son propre billet puisque les billets sont nominatifs. Ça nous permettra de t’offrir une meilleure expérience, notamment en te réservant un repas qui respecte des allergies et intolérances (si tu en as), en ayant un accès à l’application mobile (pour les rediffusions et créer des contacts) et de te créer un profil qui te correspond, et en ayant ton nom (oui, le tien!) sur ta cocarde pour les moments de réseautage. Bref, il est donc impossible de partager un billet présentiel. Si tes collègues et toi aviez l’habitude d’échanger un seul billet, sache que des <a target="_blank" href="https://ti.to/web-a-quebec/waq-2022/fr">billets journaliers</a> sont disponibles!</p>`,
+    answer: `<p>Chaque personne qui sera sur place devra avoir son propre billet puisque les billets sont nominatifs. Ça nous permettra de t’offrir une meilleure expérience, notamment en te réservant un repas qui respecte des allergies et intolérances (si tu en as), en ayant un accès à l’application mobile (pour les rediffusions et créer des contacts) et de te créer un profil qui te correspond, et en ayant ton nom (oui, le tien!) sur ta cocarde pour les moments de réseautage. Bref, il est donc impossible de partager un billet présentiel. Si tes collègues et toi aviez l’habitude d’échanger un seul billet, sache que des <a href="https://ti.to/web-a-quebec/waq-2022/fr"  target="_blank" rel="noopener noreferrer">billets journaliers</a> sont disponibles!</p>`,
   },
   {
     id: 2,
@@ -85,7 +85,7 @@ const data = [
   {
     id: 3,
     question: 'Quel est le coût des billets?',
-    answer: `<p>Billet présentiel : <br />Jouralier : 395$ <br />Régulier : 895$ <br />Étudiant : 250$ <br />Tous les prix sont avant taxes. Pour acheter ton billet <a target="_blank" href="https://webaquebec.org/billetterie">clique ici</a></p>`,
+    answer: `<p>Billet présentiel : <br />Journalier : 395$ <br />Régulier : 895$ <br />Étudiant : 250$ <br /><br />Tous les prix sont avant taxes. Pour acheter ton billet, clique <a href="/billetterie">ici</a></p>`,
   },
   {
     id: 4,
@@ -95,7 +95,7 @@ const data = [
   {
     id: 5,
     question: 'À quel endroit se déroule le WAQ?',
-    answer: `<p>L’événement se déroule au Terminal du Port de Québec, au 84 rue Dalhousie, dans la ville de Québec.</p>`,
+    answer: `<p>L’événement se déroule au <a href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492' target='_blank' rel='noopener noreferrer'>Terminal du Port de Québec, au 84 rue Dalhousie</a>, dans la ville de Québec.</p>`,
   },
   {
     id: 6,
