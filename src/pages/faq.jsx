@@ -79,8 +79,8 @@ const data = [
   {
     id: 2,
     question: 'Comment transférer mon billet à une autre personne?',
-    answer: `<p>Pour transférer votre billet à une autre personne, tu dois le faire AVANT que l’événement débute, car le billet ne peut pas être échangé entre personnes une fois que le WAQ a débuté. Tu dois repartir du courriel de confirmation reçu lors de la réservation de ton billet.</p>
-             <p>Clique sur <b>Voir la commande</b><br />Clique sur <b>Voir/Éditer le billet à échanger</b><br />Dans le haut de la page qui s’ouvre, clique sur <b>Re-assigner</b><br />Coche <b>Supprimer les réponses associées</b><br />Sur la page qui s’affiche, clique sur <b>Billet complet</b> du billet surligné en jaune.<br />Clique sur le bouton bleu <b>Répondre</b>, et répondre à toutes les questions obligatoires</p>`,
+    answer: `<p>Pour transférer ton billet à une autre personne, tu dois le faire AVANT que l’événement débute, car le billet ne peut pas être échangé entre personnes une fois que le WAQ a débuté. Tu dois repartir du courriel de confirmation reçu lors de la réservation de ton billet.</p>
+             <p>Clique sur <b>Voir la commande</b><br />Clique sur <b>Voir/Éditer le billet à échanger</b><br />Dans le haut de la page qui s’ouvre, clique sur <b>Re-assigner</b><br />Coche <b>Supprimer les réponses associées</b><br />Sur la page qui s’affiche, clique sur <b>Billet complet</b> du billet surligné en jaune.<br />Clique sur le bouton bleu <b>Répondre</b>, et réponds à toutes les questions obligatoires</p>`,
   },
   {
     id: 3,
@@ -129,7 +129,7 @@ const FaqPage = () => (
       <FaqTitle css={titleStyle}>FAQ</FaqTitle>
       <FaqIntro css={introStyle}>
         L’édition 2023 du Web à Québec (WAQ) aura lieu les 23, 24 et 25 mai
-        prochains. L&apos;évenement a fait un retour dans le futur avec une
+        prochains. L&apos;événement a fait un retour dans le futur avec une
         édition 100% présentielle 😎. On tente de répondre à toutes tes
         questions ici!
         <br />

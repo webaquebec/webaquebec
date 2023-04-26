@@ -30,17 +30,17 @@ import {
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string()
-    .required('Insérez votre prénom')
+    .required('Insère ton prénom')
     .min(2, 'Le prénom inséré est trop court')
     .max(50, 'Le prénom inséré est trop long'),
   lastName: Yup.string()
-    .required('Insérez votre nom')
+    .required('Insère ton nom')
     .min(2, 'Le nom inséré est trop court')
     .max(50, 'Le nom inséré est trop long'),
   email: Yup.string()
-    .required('Insérez votre adresse courriel')
-    .email('Insérez une adresse courriel valide'),
-  message: Yup.string().required('Insérez votre message'),
+    .required('Insère ton adresse courriel')
+    .email('Insère une adresse courriel valide'),
+  message: Yup.string().required('Insère ton message'),
 });
 
 const initialValues = {
@@ -166,7 +166,7 @@ const Form = () => {
   return (
     <SectionContainer>
       <Center maxWidth='1064px' gutters='var(--container-gutter)'>
-        <Title>contactez-nous</Title>
+        <Title>contacte-nous</Title>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -234,8 +234,8 @@ const Form = () => {
 
                     <div>
                       <TextArea
-                        label='votre message'
-                        placeholder='votre message'
+                        label='ton message'
+                        placeholder='ton message'
                         name='message'
                         value={values.message}
                         onChange={handleChange}
