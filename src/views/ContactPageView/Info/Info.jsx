@@ -39,7 +39,7 @@ const Info = ({ picture }) => (
               <Text>
                 L’équipe de bénévoles derrière le WAQ est supportée par Québec
                 numérique. Tu as des questions ou besoin d’information?
-                Lâche-nous un coup de fil ou écris-nous, on est pas gênants!
+                Lâche-nous un coup de fil ou écris-nous, on est pas gênant.es!
               </Text>
 
               <Button

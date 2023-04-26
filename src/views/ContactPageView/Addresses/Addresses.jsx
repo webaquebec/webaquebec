@@ -89,7 +89,7 @@ const Addresses = () => (
               </div>
 
               <div>
-                <StickerHeading sticker='unicorn' name="l'évènement" />
+                <StickerHeading sticker='unicorn' name="l'événement" />
 
                 <ContactInfo>
                   <span css={hideVisually}>Web à Québec 2022</span>
