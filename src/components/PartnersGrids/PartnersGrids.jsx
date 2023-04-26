@@ -38,6 +38,7 @@ import logoNventive from '../../images/logoPartners/associates/logo-nventive.svg
 import logoEdgenda from '../../images/logoPartners/associates/logo-edgenda.svg';
 import logoProjetTeamForward from '../../images/logoPartners/supporters/logo-projet-team-forward.svg';
 import logoDashThis from '../../images/logoPartners/associates/logo-dashthis.svg';
+import logoRandstad from '../../images/logoPartners/supporters/logo-randstad.svg';
 
 // styles
 import {
@@ -171,6 +172,11 @@ const supportersImages = [
     alt: 'Projet Team Forward | Une nouvelle façon de donner',
     url: 'https://projetteamforward.org/',
   },
+  {
+    src: logoRandstad,
+    alt: 'Randstad Canada',
+    url: 'https://www.randstad.ca/fr/',
+  },
   // {
   //   src: logoBotpress,
   //   alt: 'Build Chatbots | Chatbot for Developers',
@@ -255,13 +261,7 @@ const PartnersGrids = () => (
       </Switcher>
     </Center> */}
 
-    <Center
-      as='section'
-      maxWidth='1024px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
+    <Center as='section' maxWidth='1024px' gutters='var(--container-gutter)' intrinsic withText>
       <Title>nos partenaires principaux</Title>
 
       <Grid css={premiumGrid}>
@@ -273,13 +273,7 @@ const PartnersGrids = () => (
       </Grid>
     </Center>
 
-    <Center
-      as='section'
-      maxWidth='900px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
+    <Center as='section' maxWidth='900px' gutters='var(--container-gutter)' intrinsic withText>
       <Title>nos partenaires associés</Title>
 
       <Grid>
@@ -291,13 +285,7 @@ const PartnersGrids = () => (
       </Grid>
     </Center>
 
-    <Center
-      as='section'
-      maxWidth='900px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
+    <Center as='section' maxWidth='900px' gutters='var(--container-gutter)' intrinsic withText>
       <Title>nos partenaires supporteurs</Title>
 
       <Grid>
@@ -309,13 +297,7 @@ const PartnersGrids = () => (
       </Grid>
     </Center>
 
-    <Center
-      as='section'
-      maxWidth='900px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
+    <Center as='section' maxWidth='900px' gutters='var(--container-gutter)' intrinsic withText>
       <Title>nos partenaires de diffusion</Title>
 
       <Grid>
