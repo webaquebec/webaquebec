@@ -116,7 +116,7 @@ export const MemberInfos = styled.div`
 
 export const galleryStyleName = css`
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [14, 12], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [14, 14], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -136,7 +136,7 @@ export const MemberName = styled.p`
 
 export const galleryStyleJob = css`
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [12, 10], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [12, 12], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;

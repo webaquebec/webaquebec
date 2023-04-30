@@ -59,6 +59,7 @@ const secondaryNavigation = [
     label: 'à propos',
     slug: '/a-propos/evenement',
     type: 'internal',
+    color: 'apricot',
   },
   {
     id: 'partners',
