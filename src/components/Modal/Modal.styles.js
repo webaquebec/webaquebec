@@ -157,7 +157,7 @@ export const StyledModal = styled(ReactModalAdapter).attrs({
     bottom: 0;
     left: 0;
 
-    z-index: ${zIndices.modal};
+    z-index: ${zIndices.popover};
 
     display: flex;
     flex-direction: column;

@@ -74,20 +74,17 @@ export const navStyle = css`
   max-height: calc(100vh - var(--top-height));
 
   padding-right: var(--container-gutter);
-  padding-bottom: 30px;
+  padding-bottom: calc(var(--container-gutter) * 4);
   padding-left: var(--container-gutter);
 
   overflow-y: auto;
 `;
 
 export const Blob = styled.div`
-  --jaune: ${colors.jaune80};
-  --turquoise: ${colors.turquoise80};
-  --rose: ${colors.rose80};
-  --ciel: ${colors.ciel80};
-  --gris: ${colors.gris30};
-  --blob-color: ${({ color }) => `var(--${color})`};
+  --cherry: ${colors.cherry};
+  --apricot: ${colors.apricot};
   --mauve: ${colors.mauve};
+  --blob-color: ${({ color }) => `var(--${color})`};
 
   position: fixed;
   bottom: 0;
@@ -101,7 +98,7 @@ export const Blob = styled.div`
 
   border-radius: 50%;
 
-  opacity: 0.7;
+  opacity: 0.3;
 
   filter: blur(64px);
 
@@ -158,7 +155,7 @@ export const primaryNavListStyle = css`
   ${breakpointsRange(
     [
       { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [35, 145], bases: [16, 20] },
+      // { prop: 'marginBottom', sizes: [35, 145], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -227,6 +224,10 @@ export const ListItem = styled.li`
 
   :nth-child(5) {
     transition-delay: calc(400ms + var(--transition-additional-delay));
+  }
+
+  :nth-child(6) {
+    transition-delay: calc(500ms + var(--transition-additional-delay));
   }
 
   img {
@@ -312,7 +313,7 @@ export const Container = styled(Box)`
   width: 100%;
   height: 100%;
 
-  background-color: ${colors.gris};
+  background-color: ${colors.earlyDawn};
 
   visibility: hidden;
   opacity: 0;

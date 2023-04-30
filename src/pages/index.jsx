@@ -39,9 +39,9 @@ const IndexPage = () => (
 
     <Hero />
 
-    <StatsSection />
-
     <SectionContainer forwardedAs='div' faded>
+      <StatsSection />
+
       {/* <CTASection /> */}
 
       {/* <KeynoteSection /> */}

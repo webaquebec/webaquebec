@@ -4,10 +4,11 @@ import { rem } from 'polished';
 
 // utils
 import interpolate from '../utils/math/interpolate';
+import { lessThan, greaterThan } from '../utils/mediaQuery';
 
 // styles
 import { fontFamilies, fontWeights } from './typography';
-import { lessThan, greaterThan } from '../utils/mediaQuery';
+import { speed } from './animation';
 import breakpoints from './breakpoints';
 import breakpointsRange from '../utils/breakpointsRange';
 import colors from './colors';
@@ -40,13 +41,7 @@ export const htmlStyle = css`
   padding: 0;
 
   /* Do not add overflow: hidden on html style which causing issue with sticky header */
-
-  background-color: ${colors.gris};
   scroll-behavior: smooth;
-`;
-
-export const mainStyle = css`
-  overflow-x: hidden;
 `;
 
 export const bodyStyle = css`
@@ -102,22 +97,8 @@ export const h1Style = css`
   )};
 `;
 
-// export const h1AltStyle = css`
-//   color: ${colors.bleu};
-
-//   font-weight: ${fontWeights.bold};
-//   font-family: ${fontFamilies.redaction35};
-//   ${breakpointsRange(
-//     [
-//       { prop: 'fontSize', sizes: [54, 68], bases: [16, 20] },
-//       { prop: 'lineHeight', sizes: [59, 75], bases: [54, 68], unit: '' },
-//     ],
-//     breakpoints.spacings
-//   )};
-// `;
-
 export const h1AltStyle = css`
-  color: ${colors.bleu};
+  color: ${colors.bleu100};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
@@ -206,7 +187,7 @@ export const h6AltStyle = css`
 `;
 
 export const introStyle = css`
-  color: ${colors.bleu90};
+  color: ${colors.bleu100};
 
   ${breakpointsRange(
     [
@@ -218,7 +199,7 @@ export const introStyle = css`
 `;
 
 export const magnifyStyle = css`
-  color: ${colors.bleu};
+  color: ${colors.bleu100};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
@@ -233,7 +214,7 @@ export const magnifyStyle = css`
 `;
 
 export const billboardStyle = css`
-  color: ${colors.bleu};
+  color: ${colors.bleu100};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
@@ -370,7 +351,63 @@ export const pixelated100Style = css`
   font-family: ${fontFamilies.redaction100};
 `;
 
-export const linkStyle = css``;
+export const linkStyle = css`
+  color: ${colors.bleu100};
+  font-weight: ${fontWeights.medium};
+
+  :focus,
+  :hover {
+    text-decoration: none;
+  }
+`;
+
+/** FIXME: Broken style on word break. Find a working way to achieve the same result */
+export const linkStyleAlt = css`
+  position: relative;
+
+  z-index: 1;
+
+  display: inline-block;
+
+  color: ${colors.bleu100};
+  text-decoration: none;
+
+  outline-offset: -1px;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color ${speed.superfast};
+  }
+
+  ::after {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: ${colors.bleu};
+
+    scale: 1 0.1;
+    transform-origin: bottom;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: scale ${speed.fast};
+    }
+
+    content: '';
+  }
+
+  :hover,
+  :focus {
+    color: ${colors.white};
+
+    ::after {
+      scale: 1 0.87;
+    }
+  }
+`;
 
 export const externalLinkStyle = css``;
 
@@ -389,7 +426,7 @@ export const orderedListCounterStyle = css`
   /* width: 1.3em; */
   margin-inline-end: 0.3em;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu};
   font-weight: ${fontWeights.bold};
 
   /* direction: rtl; */
@@ -458,7 +495,7 @@ export const unorderedListStyle = css`
     margin-inline-end: 0.5em;
     margin-inline-start: 0.7em;
 
-    color: ${colors.bleu80};
+    color: ${colors.bleu};
     font-weight: ${fontWeights.bold};
 
     content: '•';
@@ -523,10 +560,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     ${bodyStyle};
-  }
-
-  main {
-    ${mainStyle};
   }
 
   ${resetStyle};

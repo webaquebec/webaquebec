@@ -53,7 +53,7 @@ export const Container = styled(Box)`
 
   overflow: hidden;
 
-  background-color: ${colors.white};
+  background-color: ${({ $lightColor }) => `${$lightColor}`};
 
   will-change: max-height;
 
@@ -220,6 +220,11 @@ export const PanelContent = styled.div`
 
   > * {
     margin: 0;
+  }
+
+  .partner-logo {
+    width: 150px;
+    margin-bottom: 16px;
   }
 `;
 

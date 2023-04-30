@@ -132,7 +132,7 @@ Card.defaultProps = {
   complement: null,
   complementAs: null,
   color: colors.bleu,
-  bgColor: colors.gris,
+  bgColor: colors.white,
 };
 
 export default Card;

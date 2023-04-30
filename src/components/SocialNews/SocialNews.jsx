@@ -58,8 +58,8 @@ const SocialNews = () => {
     >
       <div>
         <Paper
-          lightColor={colors.gris30}
-          darkColor={colors.bleu80}
+          lightColor={colors.earlyDawn}
+          darkColor={colors.bleu100}
           rounded
           overlaid
           elevation={elevation.large}
@@ -92,8 +92,8 @@ const SocialNews = () => {
         </Paper>
 
         <Paper
-          lightColor={colors.bleu80}
-          darkColor={colors.gris30}
+          lightColor={colors.bleu100}
+          darkColor={colors.earlyDawn}
           rounded
           elevation={elevation.large}
           css={blockContainerStyle}

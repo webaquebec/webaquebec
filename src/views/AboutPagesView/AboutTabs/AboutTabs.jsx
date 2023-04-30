@@ -22,14 +22,14 @@ const AboutTabs = ({ activeTabId }) => {
       name: 'l’événement',
       pageUrl: '/a-propos/evenement',
     },
-    {
-      id: 1,
-      name: 'notre équipe',
-      pageUrl: '/a-propos/notre-equipe',
-    },
+    // {
+    //   id: 1,
+    //   name: 'notre équipe',
+    //   pageUrl: '/a-propos/notre-equipe',
+    // },
     {
       id: 2,
-      name: 'Québec Numérique',
+      name: 'Québec numérique',
       pageUrl: '/a-propos/quebec-numerique',
     },
   ];

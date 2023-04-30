@@ -51,15 +51,15 @@ const WAQademyPage = () => (
       description='Des formations pour les créateur·trices du Web, guidées par les principes fondateurs du WAQ.'
     />
 
-    <Stack space='94px'>
-      <Title />
-
-      <Questions />
-
-      <Prices />
-    </Stack>
+    <Title />
 
     <Container faded>
+      <Stack space='94px'>
+        <Questions />
+
+        <Prices />
+      </Stack>
+
       <CallToAction />
     </Container>
   </>

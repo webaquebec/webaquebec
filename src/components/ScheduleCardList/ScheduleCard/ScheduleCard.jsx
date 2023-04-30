@@ -43,14 +43,17 @@ const ScheduleCard = ({
     design: colors.mauve,
     developpement: colors.ciel,
     innovation: colors.turquoise,
-    'communication-and-marketing': colors.rose,
-    'communication-et-marketing': colors.rose,
+    'communication-and-marketing': colors.jaune,
+    'communication-et-marketing': colors.jaune,
+    'jeu-video': colors.rose100,
+    'competences-transversales': colors.rose100,
+    'communication-dans-ladministration-publique': colors.rose100,
   };
 
   return (
     <StyledScheduleCard
       to={to}
-      $accentColor={categoryColors[categories[0]]}
+      $accentColor={categoryColors[categories[0]] || colors.gris90}
       {...rest}
     >
       <Container
@@ -91,9 +94,9 @@ const ScheduleCard = ({
           {(categories.length > 0 || type || place) && (
             <Cluster>
               <div>
-                {/* {categories.map((category) => (
+                {categories.map((category) => (
                   <Tag key={category} category={category} />
-                ))} */}
+                ))}
 
                 {type && <Tag eventType={type} />}
 
@@ -153,10 +156,14 @@ ScheduleCard.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.oneOf([
       'design',
-      'communication-and-marketing',
-      'communication-et-marketing',
       'developpement',
       'innovation',
+      'communication-and-marketing',
+      'communication-et-marketing',
+      'pitch-ton-waq',
+      'jeu-video',
+      'competences-transversales',
+      'communication-dans-ladministration-publique',
     ])
   ),
   /**

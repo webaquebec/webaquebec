@@ -25,7 +25,7 @@ const location = [
 
 const organizer = {
   '@type': 'Organization',
-  name: 'Québec Numérique',
+  name: 'Québec numérique',
   url: 'https://quebecnumerique.com/',
   telephone: '+1 877-334-2547',
   location: {
@@ -79,8 +79,8 @@ const eventSchema = {
   name: 'Web à Québec',
   description:
     'Le plus grand événement numérique francophone en Amérique du Nord',
-  startDate: '2022-05-24',
-  endDate: '2022-05-26',
+  startDate: '2023-05-23',
+  endDate: '2023-05-25',
   eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
   eventStatus: 'https://schema.org/EventScheduled',
   sameAs: [

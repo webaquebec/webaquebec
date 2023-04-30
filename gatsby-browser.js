@@ -13,6 +13,9 @@ import { ProgramFiltersProvider } from './src/contexts/ProgramFiltersContext';
 import { ModalProvider } from './src/contexts/ModalContext';
 import Layout from './src/components/Layout/Layout';
 
+// fonts
+import './static/fonts/Redaction/redaction.css';
+
 // Apply Layout component to every page/template
 export const wrapPageElement = ({ element, props }) => (
   // props provide same data to Layout as Page element will get

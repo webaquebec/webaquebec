@@ -8,8 +8,9 @@ import Center from '../../../components/LayoutSections/Center';
 // styles
 import { CTAContent, SectionContainer } from './CTASection.styles';
 
-// import CTAApp from './CTAApp';
-import CTASpeakersCall from './CTASpeakersCall/CTASpeakersCall';
+import CTAApp from './CTAApp';
+// import CTASpeakersCall from './CTASpeakersCall/CTASpeakersCall';
+// import CTASale from './CTASale';
 
 const CTASection = () => (
   <SectionContainer>
@@ -17,8 +18,9 @@ const CTASection = () => (
 
     <Center maxWidth='1080px' gutters='var(--container-gutter)'>
       <CTAContent>
-        {/* <CTAApp /> */}
-        <CTASpeakersCall />
+        <CTAApp />
+        {/* <CTASpeakersCall /> */}
+        {/* <CTASale /> */}
       </CTAContent>
     </Center>
   </SectionContainer>

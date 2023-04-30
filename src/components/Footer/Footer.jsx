@@ -10,7 +10,7 @@ import Stack from '../LayoutSections/Stack/Stack';
 import SocialNews from '../SocialNews';
 
 // images
-import logo from '../../images/logo-waq-23.svg';
+import logo from '../../images/logo-waq-23.png';
 import logoVilleDeQuebec from '../../images/logoPartners/footer/logo-ville-de-quebec.svg';
 import logoQuebec from '../../images/logoPartners/footer/logo-quebec.svg';
 import logoPortQuebec from '../../images/logoPartners/footer/logo-port-quebec.svg';
@@ -91,7 +91,7 @@ const Footer = () => {
 
           <Switcher
             threshold='832px'
-            space='2rem'
+            space='1.5rem'
             limit={4}
             css={footerWrapperStyle}
           >
@@ -159,6 +159,17 @@ const Footer = () => {
                 <Title>
                   <Link as={GatsbyLink} to='/code-de-conduite'>
                     Code de conduite
+                  </Link>
+                </Title>
+                <Title>
+                  <Link
+                    as={GatsbyLink}
+                    to='/politique-et-confidentialite'
+                    css={`
+                      white-space: pre;
+                    `}
+                  >
+                    Politique et confidentialité
                   </Link>
                 </Title>
               </Block>

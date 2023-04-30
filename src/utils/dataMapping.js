@@ -5,11 +5,16 @@ export const categoriesMap = {
   'communication-et-marketing': 'Communication & marketing',
   'communication-and-marketing': 'Communication & marketing',
   'pitch-ton-waq': 'Pitch ton WAQ',
+  'jeu-video': 'Jeu vidéo',
+  'competences-transversales': 'Compétences transversales',
+  'communication-dans-ladministration-publique':
+    'Communication dans l’administration publique',
 };
 
 // Event type tag
 export const eventTypesMap = {
   conference: 'Conférence',
+  conferences: 'Conférence',
   activite: 'Activité',
   atelier: 'Atelier',
   qanda: 'Q&A',

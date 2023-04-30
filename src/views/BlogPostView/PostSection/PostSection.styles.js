@@ -9,6 +9,7 @@ import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
 import { contentStyle } from '../../../components/Blocks/Blocks.styles';
+import { linkStyle } from '../../../styles/global';
 
 export const stackStyle = css`
   > * {
@@ -36,12 +37,7 @@ export const stackStyle = css`
   }
 
   a {
-    position: relative;
-
-    color: inherit;
-    text-decoration: none;
-
-    border-bottom: 2px solid ${colors.bleu};
+    ${linkStyle}
   }
 `;
 

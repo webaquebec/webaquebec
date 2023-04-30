@@ -38,24 +38,24 @@ export const animatedPrimaryStyle = css`
 `;
 
 export const primaryStyle = css`
-  --btn-color: ${colors.bleu80};
-  --btn-bg-color: ${colors.gris30};
+  --btn-color: ${colors.bleu100};
+  --btn-bg-color: transparent;
   --btn-border-color: currentColor;
 
   &.active,
   :focus,
   :hover:not([disabled]) {
-    --btn-color: ${colors.bleu90};
-    --btn-bg-color: ${colors.gris30};
+    --btn-color: ${colors.bleu100};
+    --btn-bg-color: transparent;
   }
 
   ${({ $animated }) => $animated && animatedPrimaryStyle}
 `;
 
 export const outlinedFocusHoverStyle = css`
-  --btn-color: ${colors.gris30};
-  --btn-bg-color: ${colors.bleu80};
-  --btn-border-color: ${colors.bleu80};
+  --btn-color: ${colors.earlyDawn};
+  --btn-bg-color: ${colors.bleu100};
+  --btn-border-color: ${colors.bleu100};
 `;
 
 export const outlinedIconStyle = css`
@@ -107,7 +107,7 @@ export const outlinedIconFirstStyle = css`
 `;
 
 export const outlinedStyle = css`
-  --btn-color: ${colors.bleu};
+  --btn-color: ${colors.bleu100};
   --btn-bg-color: transparent;
   --btn-border-color: currentColor;
 
@@ -135,28 +135,28 @@ export const outlinedStyle = css`
 `;
 
 export const invertedPrimaryStyle = css`
-  --btn-color: ${colors.gris30};
+  --btn-color: ${colors.earlyDawn};
   --btn-bg-color: transparent;
   --btn-border-color: currentColor;
 
   &.active,
   &:focus,
   &:hover:not([disabled]) {
-    --btn-color: ${colors.gris40};
+    --btn-color: ${colors.darkEarlyDawn};
     --btn-border-color: currentColor;
   }
 `;
 
 export const invertedStyle = css`
-  --btn-color: ${colors.bleu80};
-  --btn-bg-color: ${colors.gris30};
+  --btn-color: ${colors.bleu100};
+  --btn-bg-color: ${colors.earlyDawn};
   --btn-border-color: var(--btn-bg-color);
 
   &.active,
   &:focus,
   &:hover:not([disabled]) {
-    --btn-color: ${colors.bleu90};
-    --btn-bg-color: ${colors.gris40};
+    --btn-color: ${colors.bleu100};
+    --btn-bg-color: ${colors.darkEarlyDawn};
     --btn-border-color: var(--btn-bg-color);
   }
 
@@ -252,12 +252,13 @@ export const animatedStyle = css`
 
 /* Default button styled */
 const StyledButton = styled.button`
-  --btn-color: ${colors.gris30};
-  --btn-bg-color: ${colors.bleu80};
+  --btn-color: ${colors.earlyDawn};
+  --btn-bg-color: ${colors.bleu100};
   --btn-border-color: var(--btn-bg-color);
 
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 
   ${breakpointsRange(
     [
@@ -274,6 +275,7 @@ const StyledButton = styled.button`
   color: var(--btn-color);
 
   font-weight: ${fontWeights.medium};
+  text-align: center;
   text-decoration: none;
 
   background-color: var(--btn-bg-color);
@@ -292,7 +294,7 @@ const StyledButton = styled.button`
   &.active,
   &:focus,
   &:hover:not([disabled]) {
-    --btn-bg-color: ${colors.bleu90};
+    --btn-bg-color: ${colors.bleu100};
   }
 
   &[disabled] {

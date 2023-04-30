@@ -1,15 +1,12 @@
+// vendors
 import styled from 'styled-components';
-import breakpoints from '../../../styles/breakpoints';
-import breakpointsRange from '../../../utils/breakpointsRange';
+
+// styles
+import { caption2Style } from '../../../styles/global';
 import { contentStyle } from '../Blocks.styles';
 
 export const Container = styled.div`
   --max-content-post-width: 1066px;
-
-  /* ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [56, 40], bases: [16, 20] }],
-    breakpoints.spacings
-  )}; */
 
   figure {
     margin: 0;
@@ -24,6 +21,10 @@ export const Container = styled.div`
 
   figure img {
     border-radius: 12px;
+  }
+
+  figure figcaption {
+    ${caption2Style};
   }
 `;
 

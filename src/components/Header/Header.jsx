@@ -23,34 +23,34 @@ import {
 import BurgerButton from './BurgerButton';
 
 const primaryNavigation = [
-  // {
-  //   id: 'programmation',
-  //   label: 'programmation',
-  //   slug: '/programmation/2022',
-  //   type: 'internal',
-  //   color: 'turquoise',
-  // },
+  {
+    id: 'programmation',
+    label: 'programmation',
+    slug: '/programmation/2023',
+    type: 'internal',
+    color: 'apricot',
+  },
   {
     id: 'blog',
     label: 'blogue',
     slug: '/blogue',
     type: 'internal',
-    color: 'rose',
+    color: 'apricot',
   },
   {
     id: 'tickets',
     label: 'billetterie',
     slug: '/billetterie',
     type: 'internal',
-    color: 'ciel',
+    color: 'cherry',
   },
-  {
-    id: 'waqademy',
-    label: 'WAQadémie',
-    slug: '/waqademie',
-    type: 'internal',
-    color: 'mauve',
-  },
+  // {
+  //   id: 'waqademy',
+  //   label: 'WAQadémie',
+  //   slug: '/waqademie',
+  //   type: 'internal',
+  //   color: 'cherry',
+  // },
 ];
 
 const secondaryNavigation = [
@@ -66,12 +66,18 @@ const secondaryNavigation = [
     slug: '/partenaires',
     type: 'internal',
   },
-  // {
-  //   id: 'faq',
-  //   label: 'FAQ',
-  //   slug: '/faq',
-  //   type: 'internal',
-  // },
+  {
+    id: 'faq',
+    label: 'FAQ',
+    slug: '/faq',
+    type: 'internal',
+  },
+  {
+    id: 'contact',
+    label: 'nous joindre',
+    slug: '/contact',
+    type: 'internal',
+  },
   {
     id: 'code-of-conduct',
     label: 'code de conduite',
