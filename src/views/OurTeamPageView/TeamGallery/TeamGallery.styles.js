@@ -19,7 +19,7 @@ export const GalleryTitle = styled.h3`
   position: relative;
   z-index: 1;
 
-  color: ${colors.bleu80};
+  color: ${colors.bleu90};
 
   ${breakpointsRange(
     [
@@ -47,7 +47,7 @@ export const GalleryList = styled.ul`
   flex-wrap: nowrap;
   align-items: center;
 
-  margin: 0 -24px 8px;
+  margin: 0 -16px 8px -24px;
   padding: 0;
   padding-bottom: calc(0.5 * var(--container-gutter));
 

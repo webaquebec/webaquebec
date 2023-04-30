@@ -36,6 +36,7 @@ import mathieuLarouche from '../../images/about/volunteers/mathieu_larouche.jpg'
 import oceaneColling from '../../images/about/volunteers/oceane_colling.jpg';
 import vincentBissonnette from '../../images/about/volunteers/vincent_bissonnette.jpg';
 import placeholder from '../../images/about/volunteers/placeholder.jpg';
+import placeholder2 from '../../images/about/volunteers/placeholder2.jpg';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
@@ -51,7 +52,7 @@ const AboutIntro = styled.p`
 `;
 
 const sectionTitle = css`
-  color: ${colors.bleu80};
+  color: ${colors.bleu90};
 
   font-family: ${fontFamilies.redaction};
   text-align: center;
@@ -142,7 +143,7 @@ const OurTeamPage = () => {
         },
         {
           id: 5,
-          photoUrl: placeholder,
+          photoUrl: placeholder2,
           name: 'Chany Lagueux',
           job: 'Piste design',
         },
@@ -166,7 +167,7 @@ const OurTeamPage = () => {
         },
         {
           id: 9,
-          photoUrl: placeholder,
+          photoUrl: placeholder2,
           name: 'Jean-François Verville',
           job: 'Piste communication',
         },
@@ -184,7 +185,7 @@ const OurTeamPage = () => {
         },
         {
           id: 12,
-          photoUrl: placeholder,
+          photoUrl: placeholder2,
           name: 'Claudine Beaudoin',
           job: 'Piste innovation',
         },
@@ -196,7 +197,7 @@ const OurTeamPage = () => {
         },
         {
           id: 14,
-          photoUrl: placeholder,
+          photoUrl: placeholder2,
           name: 'Hugues Foltz',
           job: 'Piste innovation',
         },
@@ -225,7 +226,7 @@ const OurTeamPage = () => {
         },
         {
           id: 2,
-          photoUrl: placeholder,
+          photoUrl: placeholder2,
           name: 'Karianne Giroux',
         },
         {
@@ -235,7 +236,7 @@ const OurTeamPage = () => {
         },
         {
           id: 4,
-          photoUrl: placeholder,
+          photoUrl: placeholder2,
           name: 'Nadia Chih',
         },
         {
@@ -321,7 +322,7 @@ const OurTeamPage = () => {
       members: [
         {
           id: 0,
-          photoUrl: placeholder,
+          photoUrl: placeholder2,
           name: 'Jessica Sinclair',
         },
         {

@@ -39,6 +39,14 @@ const TeamGallery = ({ membersData }) => {
     }
   }
 
+  const handleScroll = (e) => {
+    e.currentTarget.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    });
+  };
+
   return (
     <>
       <TitleWrapper>
@@ -50,11 +58,13 @@ const TeamGallery = ({ membersData }) => {
             <GalleryList>
               {mobileFirstMembersList.map((item) => (
                 <GalleryItem key={item.id}>
-                  <TeamMemberCard
-                    key={`mobile-gallery${membersData.id}-member${item.id}`}
-                    member={item}
-                    galleryStyle
-                  />
+                  <div onClick={handleScroll} aria-hidden='true'>
+                    <TeamMemberCard
+                      key={`mobile-gallery${membersData.id}-member${item.id}`}
+                      member={item}
+                      galleryStyle
+                    />
+                  </div>
                 </GalleryItem>
               ))}
             </GalleryList>
@@ -63,11 +73,13 @@ const TeamGallery = ({ membersData }) => {
               <GalleryList>
                 {mobileSecondMembersList.map((item) => (
                   <GalleryItem key={item.id}>
-                    <TeamMemberCard
-                      key={`mobile-gallery${membersData.id}-member${item.id}`}
-                      member={item}
-                      galleryStyle
-                    />
+                    <div onClick={handleScroll} aria-hidden='true'>
+                      <TeamMemberCard
+                        key={`mobile-gallery${membersData.id}-member${item.id}`}
+                        member={item}
+                        galleryStyle
+                      />
+                    </div>
                   </GalleryItem>
                 ))}
               </GalleryList>

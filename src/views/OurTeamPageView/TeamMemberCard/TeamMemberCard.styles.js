@@ -14,60 +14,11 @@ export const galleryStyleCard = css`
   &:hover,
   &:focus {
     transition: transform 200ms ease;
-
-    ${greaterThan(680)} {
-      transform: rotate(-3deg) scale(1.25);
-    }
   }
 `;
 
 export const MemberCard = styled.div`
   position: relative;
-
-  &:hover,
-  &:focus {
-    z-index: 1;
-
-    & > div {
-      opacity: 1;
-
-      &::after {
-        opacity: 0;
-      }
-
-      & > img {
-        filter: inherit;
-      }
-    }
-
-    &::after {
-      position: absolute;
-      top: 0;
-
-      display: block;
-      width: 100%;
-      height: 100%;
-
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.5) 100%
-      );
-
-      border-radius: 12px;
-
-      content: '';
-    }
-  }
-
-  ${({ $galleryStyle }) => $galleryStyle && galleryStyleCard}
-`;
-
-export const PictureWrapper = styled.div`
-  position: relative;
-
-  border: 4px solid ${colors.bleu80};
-  border-radius: 16px;
 
   &::after {
     position: absolute;
@@ -77,22 +28,53 @@ export const PictureWrapper = styled.div`
     width: 100%;
     height: 100%;
 
-    background: rgba(0, 12, 160, 0.3);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 60%,
+      rgba(30, 30, 80, 0.8) 100%
+    );
 
-    opacity: 1;
+    border-radius: 12px;
 
-    transition: opacity 200ms ease;
+    opacity: 0;
 
     content: '';
   }
+
+  ${greaterThan(680)} {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    z-index: 1;
+
+    &::after {
+      opacity: 1;
+    }
+
+    & > div {
+      opacity: 1;
+    }
+  }
+
+  ${({ $galleryStyle }) => $galleryStyle && galleryStyleCard}
+`;
+
+export const PictureWrapper = styled.div`
+  position: relative;
+
+  border: 4px solid ${colors.bleu90};
+  border-radius: 16px;
 `;
 
 export const MemberPicture = styled.img`
   width: 100%;
 
   border-radius: 12px;
-
-  filter: grayscale(1);
 `;
 
 export const galleryStyleInfos = css`
@@ -112,8 +94,8 @@ export const galleryStyleInfos = css`
     breakpoints.spacings
   )};
 
-  img {
-    filter: brightness(0) invert(1);
+  ${greaterThan(680)} {
+    opacity: 1;
   }
 `;
 
@@ -121,6 +103,8 @@ export const MemberInfos = styled.div`
   position: absolute;
 
   text-align: left;
+
+  text-shadow: 2px 1px ${colors.black};
 
   ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [24, 24], bases: [16, 20] }],
