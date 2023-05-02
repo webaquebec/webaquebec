@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 
 // components
 import SEO from '../../components/SEO';
+import SectionContainer from '../../components/SectionContainer';
 import Center from '../../components/LayoutSections/Center';
 import TeamGallery from '../../views/OurTeamPageView/TeamGallery';
 
@@ -89,6 +90,28 @@ const TitleLines = styled.div`
         breakpoints.spacings
       )};
     }
+  }
+`;
+
+const Container = styled(SectionContainer)`
+  padding-bottom: 0;
+
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [90, 242] }],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
+
+  ::before {
+    top: -60vh;
+
+    height: 60vh;
+  }
+
+  ::after {
+    bottom: -40vh;
+
+    height: 40vh;
   }
 `;
 
@@ -362,13 +385,17 @@ const OurTeamPage = () => {
             <span>annuels de feu</span>
           </TitleLines>
         </VolunteersTitle>
-
-        <GalleriesWrapper>
-          {sectionsData.map((item) => (
-            <TeamGallery key={`gallery${item.id}`} membersData={item} />
-          ))}
-        </GalleriesWrapper>
       </Center>
+
+      <Container forwardedAs='div' faded>
+        <Center maxWidth='1080px' intrinsic>
+          <GalleriesWrapper>
+            {sectionsData.map((item) => (
+              <TeamGallery key={`gallery${item.id}`} membersData={item} />
+            ))}
+          </GalleriesWrapper>
+        </Center>
+      </Container>
     </>
   );
 };
