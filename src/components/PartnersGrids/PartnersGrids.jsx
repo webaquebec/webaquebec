@@ -39,6 +39,8 @@ import logoEdgenda from '../../images/logoPartners/associates/logo-edgenda.svg';
 import logoProjetTeamForward from '../../images/logoPartners/supporters/logo-projet-team-forward.svg';
 import logoDashThis from '../../images/logoPartners/associates/logo-dashthis.svg';
 import logoRandstad from '../../images/logoPartners/supporters/logo-randstad.svg';
+import logoCrackmediaRGB from '../../images/logoPartners/supporters/logo-crackmedia-rgb.svg';
+import logoCrackmediaBlack from '../../images/logoPartners/supporters/logo-crackmedia-black.svg';
 
 // styles
 import {
@@ -108,6 +110,7 @@ const associatesImages = [
     src: logoThirdbridge,
     alt: "Thirdbridge | Votre partenaire d'innovation",
     url: 'https://www.thirdbridge.ca/fr/',
+    bigger: true,
   },
   {
     src: logoFernandez,
@@ -176,6 +179,13 @@ const supportersImages = [
     src: logoRandstad,
     alt: 'Randstad Canada',
     url: 'https://www.randstad.ca/fr/',
+  },
+  {
+    src: logoCrackmediaBlack,
+    srcAlt: logoCrackmediaRGB,
+    alt: 'Crackmedia Network | Leader en Monétisation de Trafic Web',
+    url: 'https://crakmedia.com/',
+    bigger: true,
   },
   // {
   //   src: logoBotpress,
@@ -261,7 +271,13 @@ const PartnersGrids = () => (
       </Switcher>
     </Center> */}
 
-    <Center as='section' maxWidth='1024px' gutters='var(--container-gutter)' intrinsic withText>
+    <Center
+      as='section'
+      maxWidth='1024px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
       <Title>nos partenaires principaux</Title>
 
       <Grid css={premiumGrid}>
@@ -273,7 +289,13 @@ const PartnersGrids = () => (
       </Grid>
     </Center>
 
-    <Center as='section' maxWidth='900px' gutters='var(--container-gutter)' intrinsic withText>
+    <Center
+      as='section'
+      maxWidth='900px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
       <Title>nos partenaires associés</Title>
 
       <Grid>
@@ -285,7 +307,13 @@ const PartnersGrids = () => (
       </Grid>
     </Center>
 
-    <Center as='section' maxWidth='900px' gutters='var(--container-gutter)' intrinsic withText>
+    <Center
+      as='section'
+      maxWidth='900px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
       <Title>nos partenaires supporteurs</Title>
 
       <Grid>
@@ -297,7 +325,13 @@ const PartnersGrids = () => (
       </Grid>
     </Center>
 
-    <Center as='section' maxWidth='900px' gutters='var(--container-gutter)' intrinsic withText>
+    <Center
+      as='section'
+      maxWidth='900px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
       <Title>nos partenaires de diffusion</Title>
 
       <Grid>
