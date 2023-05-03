@@ -14,7 +14,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 // views
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
-// import KeynoteSection from '../views/HomePageView/KeynoteSection';
+import KeynoteSection from '../views/HomePageView/KeynoteSection';
 // import CTASection from '../views/HomePageView/CTASection/CTASection';
 
 // styles
@@ -44,7 +44,7 @@ const IndexPage = () => (
 
       {/* <CTASection /> */}
 
-      {/* <KeynoteSection /> */}
+      <KeynoteSection />
 
       <PartnersGrids />
     </SectionContainer>
