@@ -3,8 +3,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 // styles
-import { wrapper, CardsWrapper, Title, Intro } from './KeynoteSection.styles';
-import { magnifyStyle, introStyle } from '../../../styles/global';
+import { wrapper, CardsWrapper, Title } from './KeynoteSection.styles';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
@@ -104,15 +103,7 @@ const KeynoteSection = () => {
       gutters='16px'
       intrinsic
     >
-      <Title css={magnifyStyle}>conférenciers principaux</Title>
-
-      <Center maxWidth='640px'>
-        <Intro css={introStyle}>
-          {/* Le WAQ veut vous connaître! Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. */}
-        </Intro>
-      </Center>
+      <Title>conférenciers principaux</Title>
 
       <Center maxWidth='1024px'>
         <CardsWrapper>
@@ -120,12 +111,10 @@ const KeynoteSection = () => {
           <KeynoteCard speaker={speakers[1]} big mobileRotationAngle={5} />
           <KeynoteCard speaker={speakers[2]} />
           <KeynoteCard speaker={speakers[3]} big mobileRotationAngle={-10} />
-          {/* <KeynoteCard speaker={speakers[4]} />
-          <KeynoteCard speaker={speakers[5]} big mobileRotationAngle={5} /> */}
         </CardsWrapper>
       </Center>
 
-      <Button tag='link' to='/programmation/2022'>
+      <Button tag='link' to='/programmation/2023'>
         voir la programmation
       </Button>
     </Center>
