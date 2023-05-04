@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 // import iconWebsite from '../../../images/socialMedia/website.svg';
 
 // styles
+// import { graphql, useStaticQuery } from 'gatsby';
 import {
   MemberCard,
   PictureWrapper,
@@ -22,7 +23,30 @@ import {
   // ContactIcon,
 } from './TeamMemberCard.styles';
 
+// const volunteersPictureQuery = graphql`
+//   fragment volunteerPhotoFragment on File {
+//     childImageSharp {
+//       fluid(quality: 99, maxWidth: 500) {
+//         ...GatsbyImageSharpFluid_withWebp
+//       }
+//     }
+//   }
+
+//   query {
+//     allFile(filter: { dir: { regex: "/volunteers/" } }) {
+//       edges {
+//         node {
+//           name
+//           ...volunteerPhotoFragment
+//         }
+//       }
+//     }
+//   }
+// `;
+
 const TeamMemberCard = ({ member, galleryStyle }) => (
+  // const data = useStaticQuery(volunteersPictureQuery);
+
   // const contactLinks = [
   //   {
   //     type: 'email',
@@ -58,8 +82,9 @@ const TeamMemberCard = ({ member, galleryStyle }) => (
 
   <MemberCard $galleryStyle={galleryStyle}>
     <PictureWrapper>
-      <MemberPicture src={member.photoUrl} alt='' />
+      <MemberPicture fluid={member.picture} alt={member.name} />
     </PictureWrapper>
+
     <MemberInfos $galleryStyle={galleryStyle}>
       <MemberName $galleryStyle={galleryStyle}>{member.name}</MemberName>
       <MemberJob $galleryStyle={galleryStyle}>{member.job}</MemberJob>
@@ -83,7 +108,13 @@ TeamMemberCard.propTypes = {
    */
   member: PropTypes.shape({
     id: PropTypes.number,
-    photoUrl: PropTypes.string,
+    picture: PropTypes.shape({
+      src: PropTypes.string,
+      srcSet: PropTypes.string,
+      srcSetWebp: PropTypes.string,
+      aspecRatio: PropTypes.number,
+      base64: PropTypes.string,
+    }).isRequired,
     name: PropTypes.string.isRequired,
     job: PropTypes.string,
     email: PropTypes.string,

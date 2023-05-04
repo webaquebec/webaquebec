@@ -8,6 +8,9 @@ import { lessThan } from '../../../utils/mediaQuery';
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
+import { speed } from '../../../styles/animation';
+
+export const breakpoint = 896;
 
 export const TitleWrapper = styled.div`
   position: relative;
@@ -45,6 +48,7 @@ export const GalleryList = styled.ul`
 
   display: flex;
   flex-wrap: nowrap;
+  gap: var(--container-gutter);
   align-items: center;
 
   margin: 0 -16px 8px -24px;
@@ -55,7 +59,7 @@ export const GalleryList = styled.ul`
 
   list-style: none;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
 
   ::before,
   ::after {
@@ -64,17 +68,9 @@ export const GalleryList = styled.ul`
     content: '';
   }
 
-  > * {
-    flex: 0 0 calc(25% - var(--container-gutter) * 2);
-
-    :not(:last-child) {
-      margin-right: var(--container-gutter);
-    }
-  }
-
-  ${lessThan(540)} {
-    && > * {
-      flex: 0 0 calc(45% - var(--container-gutter) * 2);
+  ${lessThan(breakpoint)} {
+    ::-webkit-scrollbar {
+      display: none;
     }
   }
 `;
@@ -82,14 +78,20 @@ export const GalleryList = styled.ul`
 export const GalleryItem = styled.li`
   scroll-snap-align: center;
 
-  transition: all 200ms ease;
+  transition: flex-basis ${speed.fast};
 
-  ${lessThan(680)} {
-    &:hover,
+  ${lessThan(breakpoint)} {
+    flex: 0 0 calc(45% - var(--container-gutter) * 2);
+
     &:active,
+    &:hover,
     &:focus {
-      flex: 0 0 calc(70% - var(--container-gutter) * 2);
+      flex-basis: calc(55% - var(--container-gutter) * 2);
     }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `;
 

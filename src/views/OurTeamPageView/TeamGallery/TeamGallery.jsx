@@ -18,10 +18,12 @@ import {
   GalleryList,
   GalleryItem,
   galleryGrid,
+  breakpoint,
 } from './TeamGallery.styles';
 
 const TeamGallery = ({ membersData }) => {
-  const mobile = useMedia(lessThanCondition(680));
+  const mobile = useMedia(lessThanCondition(breakpoint));
+
   let mobileFirstMembersList;
   let mobileSecondMembersList;
   if (membersData.members.length > 0) {
@@ -52,6 +54,7 @@ const TeamGallery = ({ membersData }) => {
       <TitleWrapper>
         <GalleryTitle>{membersData.name}</GalleryTitle>
       </TitleWrapper>
+
       <GalleryWrapper>
         {mobile ? (
           <>
@@ -113,7 +116,13 @@ TeamGallery.propTypes = {
     members: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
-        photoUrl: PropTypes.string,
+        picture: PropTypes.shape({
+          src: PropTypes.string,
+          srcSet: PropTypes.string,
+          srcSetWebp: PropTypes.string,
+          aspecRatio: PropTypes.number,
+          base64: PropTypes.string,
+        }).isRequired,
         name: PropTypes.string.isRequired,
         job: PropTypes.string,
         email: PropTypes.string,

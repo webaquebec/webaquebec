@@ -2,6 +2,7 @@
 import styled, { css } from 'styled-components';
 
 // utils
+import GatsbyImage from 'gatsby-image';
 import breakpointsRange from '../../../utils/breakpointsRange';
 import { greaterThan } from '../../../utils/mediaQuery';
 
@@ -9,11 +10,13 @@ import { greaterThan } from '../../../utils/mediaQuery';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
+import { breakpoint } from '../TeamGallery/TeamGallery.styles';
+import { speed } from '../../../styles/animation';
 
 export const galleryStyleCard = css`
   &:hover,
   &:focus {
-    transition: transform 200ms ease;
+    transition: transform ${speed.fast};
   }
 `;
 
@@ -39,10 +42,12 @@ export const MemberCard = styled.div`
 
     opacity: 0;
 
+    transition: opacity ${speed.fast};
+
     content: '';
   }
 
-  ${greaterThan(680)} {
+  ${greaterThan(breakpoint)} {
     &::after {
       opacity: 1;
     }
@@ -71,7 +76,7 @@ export const PictureWrapper = styled.div`
   border-radius: 16px;
 `;
 
-export const MemberPicture = styled.img`
+export const MemberPicture = styled(GatsbyImage)`
   width: 100%;
 
   border-radius: 12px;
@@ -87,14 +92,14 @@ export const galleryStyleInfos = css`
 
   opacity: 0;
 
-  transition: opacity 200ms ease;
+  transition: opacity ${speed.fast};
 
   ${breakpointsRange(
     [{ prop: 'margin', sizes: [16, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
-  ${greaterThan(680)} {
+  ${greaterThan(breakpoint)} {
     opacity: 1;
   }
 `;
