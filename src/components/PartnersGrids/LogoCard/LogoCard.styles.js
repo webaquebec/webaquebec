@@ -46,6 +46,11 @@ export const presentingStyle = css`
   )};
 `;
 
+export const biggerStyle = css`
+  width: 75%;
+  max-height: 75%;
+`;
+
 export const Image = styled.img`
   display: flex;
   align-items: center;
@@ -54,6 +59,8 @@ export const Image = styled.img`
   width: 60%;
   height: auto;
   max-height: 60%;
+
+  ${({ $bigger }) => $bigger && biggerStyle};
 
   /* filter: invert(14%) sepia(100%) saturate(4664%) hue-rotate(211deg)
     brightness(61%) contrast(148%); */
