@@ -8,6 +8,7 @@ import { greaterThan } from '../../../utils/mediaQuery';
 // styles
 import breakpoints from '../../../styles/breakpoints';
 import { fontFamilies } from '../../../styles/typography';
+import { magnifyStyle, pixelatedStyle } from '../../../styles/global';
 
 export const wrapper = css`
   position: relative;
@@ -24,13 +25,19 @@ export const wrapper = css`
 `;
 
 export const Title = styled.h2`
-  margin: 0;
-
-  font-family: ${fontFamilies.redaction35};
   text-align: center;
 
+  /* font-family: ${fontFamilies.redaction35}; */
+
+  ${magnifyStyle}
+
+  ${pixelatedStyle}
+
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [16, 16], bases: [16, 20] }],
+    [
+      // { prop: 'marginTop', sizes: [80, 160], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [48, 64], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
