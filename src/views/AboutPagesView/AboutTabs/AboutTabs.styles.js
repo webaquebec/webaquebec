@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { greaterThan } from '../../../utils/mediaQuery';
+import { greaterThan, lessThan } from '../../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
@@ -60,12 +60,18 @@ export const AboutNav = styled.nav`
 
 export const AboutList = styled.ul`
   display: flex;
+  gap: calc(var(--container-gutter) * 2);
   margin-right: calc(var(--container-gutter) * -1);
+  margin-left: calc(var(--container-gutter) * -1);
   padding-right: var(--container-gutter);
   padding-bottom: var(--container-gutter);
   overflow-x: auto;
 
-  ${greaterThan(450)} {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  ${greaterThan(576)} {
     justify-content: space-evenly;
     margin: 0;
     padding: 0;
@@ -74,18 +80,17 @@ export const AboutList = styled.ul`
 
 export const AboutItem = styled.li`
   flex-shrink: 0;
-  margin-right: 30px;
 
   ${breakpointsRange(
-    [{ prop: 'minWidth', sizes: [147, 225], bases: [16, 20] }],
-    breakpoints.spacings
+    [{ prop: 'minWidth', sizes: [137, 225], bases: [16, 20] }],
+    [breakpoints.spacings]
   )};
 
-  &:last-child {
-    margin-right: 0;
+  ${lessThan(360)} {
+    min-width: ${107 / 16}rem;
   }
 
-  ${greaterThan(450)} {
+  ${greaterThan(576)} {
     margin: 0;
   }
 `;
