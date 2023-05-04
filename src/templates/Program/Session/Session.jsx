@@ -22,6 +22,7 @@ import Stack from '../../../components/LayoutSections/Stack';
 // utils
 import slugify from '../../../utils/strings/slugify';
 import breakpointsRange from '../../../utils/breakpointsRange';
+import { categoriesMap } from '../../../utils/dataMapping';
 
 // images
 import IconArrow from '../../../images/IconArrow';
@@ -357,7 +358,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
                   <Cluster>
                     <div>
                       {categories
-                        .filter((category) => category.value)
+                        .filter((category) => categoriesMap[category.value])
                         .map((category) => (
                           <Tag
                             key={`category-${category.value}`}
