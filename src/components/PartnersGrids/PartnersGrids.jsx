@@ -41,6 +41,7 @@ import logoDashThis from '../../images/logoPartners/associates/logo-dashthis.svg
 import logoRandstad from '../../images/logoPartners/supporters/logo-randstad.svg';
 import logoCrackmediaRGB from '../../images/logoPartners/supporters/logo-crackmedia-rgb.svg';
 import logoCrackmediaBlack from '../../images/logoPartners/supporters/logo-crackmedia-black.svg';
+import logoEvolvingWeb from '../../images/logoPartners/supporters/logo-evolving-web.svg';
 
 // styles
 import {
@@ -185,6 +186,12 @@ const supportersImages = [
     srcAlt: logoCrackmediaRGB,
     alt: 'Crackmedia Network | Leader en Monétisation de Trafic Web',
     url: 'https://crakmedia.com/',
+    bigger: true,
+  },
+  {
+    src: logoEvolvingWeb,
+    alt: 'Evolving Web | Agence de conception et de développement Drupal à Montréal',
+    url: 'https://evolvingweb.com/fr',
     bigger: true,
   },
   // {
