@@ -103,7 +103,7 @@ const KeynoteSection = () => {
       gutters='16px'
       intrinsic
     >
-      <Title>conférenciers principaux</Title>
+      <Title>conférences vedettes</Title>
 
       <Center maxWidth='1024px'>
         <CardsWrapper>
