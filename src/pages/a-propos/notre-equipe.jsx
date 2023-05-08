@@ -307,6 +307,11 @@ const sectionsData = [
         pictureId: 'placeholder',
         name: 'Léane Mei Dostie Chalifour',
       },
+      {
+        id: 7,
+        pictureId: 'placeholder2',
+        name: 'Geneviève Nadeau',
+      },
     ],
   },
   {
