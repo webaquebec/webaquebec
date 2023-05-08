@@ -78,7 +78,7 @@ const Hero = () => (
 
       <CTAWrapper>
         <Button to='/billetterie' tag='link' animated>
-          Réserve ta place
+          Réserver ma place
         </Button>
       </CTAWrapper>
     </Center>
