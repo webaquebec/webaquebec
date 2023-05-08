@@ -66,3 +66,10 @@ export const MapPinIcon = styled.img`
     breakpoints.spacings
   )};
 `;
+
+export const CTAWrapper = styled.div`
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [32, 36], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;

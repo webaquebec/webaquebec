@@ -18,10 +18,12 @@ import {
   // linkStyleHover,
   Address,
   MapPinIcon,
+  CTAWrapper,
 } from './Hero.styles';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
+import Button from '../../../components/Button';
 
 // images
 import vectorMapPin from '../../../images/vectorMapPin.svg';
@@ -71,10 +73,14 @@ const Hero = () => (
           >
             Au Terminal — Port de Québec
           </a>
-          {/* <br />
-          et/ou en virtuel */}
         </p>
       </Address>
+
+      <CTAWrapper>
+        <Button to='/billetterie' tag='link' animated>
+          Réserver ma place
+        </Button>
+      </CTAWrapper>
     </Center>
   </StyledHero>
 );
