@@ -42,6 +42,7 @@ import logoRandstad from '../../images/logoPartners/supporters/logo-randstad.svg
 import logoCrackmediaRGB from '../../images/logoPartners/supporters/logo-crackmedia-rgb.svg';
 import logoCrackmediaBlack from '../../images/logoPartners/supporters/logo-crackmedia-black.svg';
 import logoEvolvingWeb from '../../images/logoPartners/supporters/logo-evolving-web.svg';
+import logoLibeo from '../../images/logoPartners/supporters/logo-libeo.svg';
 
 // styles
 import {
@@ -193,6 +194,11 @@ const supportersImages = [
     alt: 'Evolving Web | Agence de conception et de développement Drupal à Montréal',
     url: 'https://evolvingweb.com/fr',
     bigger: true,
+  },
+  {
+    src: logoLibeo,
+    alt: 'Libéo',
+    url: 'https://libeo.com/',
   },
   // {
   //   src: logoBotpress,
