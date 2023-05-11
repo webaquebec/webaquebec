@@ -247,7 +247,7 @@ const sectionsData = [
       {
         id: 2,
         pictureId: 'placeholder2',
-        name: 'Karianne Giroux',
+        name: 'Kariann Giroux',
       },
       {
         id: 3,
