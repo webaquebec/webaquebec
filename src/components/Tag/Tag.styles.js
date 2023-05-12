@@ -73,10 +73,11 @@ export const StyledTag = styled.div`
 
   padding: 12px;
 
-  color: ${({ $category }) => $category.color || colors.gris90};
+  color: ${({ $category }) => ($category && $category.color) || colors.gris90};
   font-weight: ${fontWeights.medium};
 
-  background-color: ${({ $category }) => $category.bgColor || colors.gris20};
+  background-color: ${({ $category }) =>
+    ($category && $category.bgColor) || colors.gris20};
   border-radius: 8px;
 
   ${breakpointsRange(

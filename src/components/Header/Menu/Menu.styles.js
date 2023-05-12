@@ -74,7 +74,7 @@ export const navStyle = css`
   max-height: calc(100vh - var(--top-height));
 
   padding-right: var(--container-gutter);
-  padding-bottom: 30px;
+  padding-bottom: calc(var(--container-gutter) * 4);
   padding-left: var(--container-gutter);
 
   overflow-y: auto;
@@ -83,6 +83,7 @@ export const navStyle = css`
 export const Blob = styled.div`
   --cherry: ${colors.cherry};
   --apricot: ${colors.apricot};
+  --mauve: ${colors.mauve};
   --blob-color: ${({ color }) => `var(--${color})`};
 
   position: fixed;
@@ -223,6 +224,10 @@ export const ListItem = styled.li`
 
   :nth-child(5) {
     transition-delay: calc(400ms + var(--transition-additional-delay));
+  }
+
+  :nth-child(6) {
+    transition-delay: calc(500ms + var(--transition-additional-delay));
   }
 
   img {

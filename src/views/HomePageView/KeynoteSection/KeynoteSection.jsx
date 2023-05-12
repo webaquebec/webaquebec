@@ -3,8 +3,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 // styles
-import { wrapper, CardsWrapper, Title, Intro } from './KeynoteSection.styles';
-import { magnifyStyle, introStyle } from '../../../styles/global';
+import { wrapper, CardsWrapper, Title } from './KeynoteSection.styles';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
@@ -24,34 +23,22 @@ const speakersPictureQuery = graphql`
     }
   }
   query {
-    speakerDanielLamarre: file(
-      relativePath: { eq: "keynotes/speaker-daniel-lamarre.jpg" }
+    speakerJoshuaDavis: file(
+      relativePath: { eq: "keynotes/speaker-joshua-davis.jpg" }
     ) {
       ...speakerPhotoFragment
     }
-    speakerJeanBelanger: file(
-      relativePath: { eq: "keynotes/speaker-jean-belanger.jpg" }
+    speakerFaraiMadzima: file(
+      relativePath: { eq: "keynotes/speaker-farai-madzima.jpg" }
     ) {
       ...speakerPhotoFragment
     }
-    speakerKatieMartell: file(
-      relativePath: { eq: "keynotes/speaker-katie-martell.jpg" }
+    speakerGregGifford: file(
+      relativePath: { eq: "keynotes/speaker-greg-gifford.jpg" }
     ) {
       ...speakerPhotoFragment
     }
-    speakerPieraGelardi: file(
-      relativePath: { eq: "keynotes/speaker-piera-gelardi.jpg" }
-    ) {
-      ...speakerPhotoFragment
-    }
-    speakerRavyPor: file(
-      relativePath: { eq: "keynotes/speaker-ravy-por.jpg" }
-    ) {
-      ...speakerPhotoFragment
-    }
-    speakerTinaTouli: file(
-      relativePath: { eq: "keynotes/speaker-tina-touli.jpg" }
-    ) {
+    speakerSnask: file(relativePath: { eq: "keynotes/speaker-snask.jpg" }) {
       ...speakerPhotoFragment
     }
   }
@@ -61,72 +48,50 @@ const KeynoteSection = () => {
   const data = useStaticQuery(speakersPictureQuery);
 
   const {
-    speakerDanielLamarre: {
-      childImageSharp: { fluid: speakerDanielLamarre },
+    speakerJoshuaDavis: {
+      childImageSharp: { fluid: speakerJoshuaDavis },
     },
-    speakerJeanBelanger: {
-      childImageSharp: { fluid: speakerJeanBelanger },
+    speakerFaraiMadzima: {
+      childImageSharp: { fluid: speakerFaraiMadzima },
     },
-    speakerKatieMartell: {
-      childImageSharp: { fluid: speakerKatieMartell },
+    speakerGregGifford: {
+      childImageSharp: { fluid: speakerGregGifford },
     },
-    speakerPieraGelardi: {
-      childImageSharp: { fluid: speakerPieraGelardi },
-    },
-    speakerRavyPor: {
-      childImageSharp: { fluid: speakerRavyPor },
-    },
-    speakerTinaTouli: {
-      childImageSharp: { fluid: speakerTinaTouli },
+    speakerSnask: {
+      childImageSharp: { fluid: speakerSnask },
     },
   } = data;
 
   const speakers = [
     {
-      firstName: 'Daniel',
-      lastName: 'Lamarre',
-      organization: 'Cirque du Soleil',
+      firstName: 'Joshua',
+      lastName: 'Davis',
+      organization: 'Joshua Davis Studios',
+      detailPageUrl: '/programmation/26-years-of-random/',
+      picture: speakerJoshuaDavis,
+    },
+    {
+      firstName: 'Farai',
+      lastName: 'Madzima',
+      organization: 'Shopify',
       detailPageUrl:
-        '/programmation/la-pensee-creative-moteur-pour-linnovation-et-le-succes-en-entreprise/',
-      picture: speakerDanielLamarre,
+        '/programmation/the-only-one-of-your-kind-in-the-room-perils-and-opportunities/',
+      picture: speakerFaraiMadzima,
     },
     {
-      firstName: 'Jean',
-      lastName: 'Bélanger',
-      organization: 'Premier Tech',
-      detailPageUrl: '/programmation/keynote-jean-belanger/',
-      picture: speakerJeanBelanger,
-    },
-    {
-      firstName: 'Katie',
-      lastName: 'Martell',
-      organization: 'Rabble Rouser Productions',
+      firstName: 'Greg',
+      lastName: 'Gifford',
+      organization: 'Search Lab Digital',
       detailPageUrl:
-        '/programmation/woke-washed-the-collision-of-social-movements-and-marketing/',
-      picture: speakerKatieMartell,
+        '/programmation/a-tactical-guide-to-superhero-level-local-seo/',
+      picture: speakerGregGifford,
     },
     {
-      firstName: 'Piera',
-      lastName: 'Gelardi',
-      organization: 'Refinery29',
-      detailPageUrl: '/programmation/keynote-piera-gelardi/',
-      picture: speakerPieraGelardi,
-    },
-    {
-      firstName: 'Ravy',
-      lastName: 'Por',
-      organization: 'KPMG Canada',
-      detailPageUrl:
-        '/programmation/intelligence-artificielle-lalgorithme-qui-change-votre-vie/',
-      picture: speakerRavyPor,
-    },
-    {
-      firstName: 'Tina',
-      lastName: 'Touli',
-      organization: 'Tina Touli',
-      detailPageUrl:
-        '/programmation/blending-the-physical-and-the-digital-worlds/',
-      picture: speakerTinaTouli,
+      firstName: 'Freddie Öst &',
+      lastName: 'Erik Kockum',
+      organization: 'SNASK',
+      detailPageUrl: '/programmation/change-is-fuking-inevitable/',
+      picture: speakerSnask,
     },
   ];
 
@@ -138,26 +103,18 @@ const KeynoteSection = () => {
       gutters='16px'
       intrinsic
     >
-      <Title css={magnifyStyle}>conférenciers principaux</Title>
+      <Title>conférences vedettes</Title>
 
-      <Center maxWidth='640px'>
-        <Intro css={introStyle}>
-          {/* Le WAQ veut vous connaître! Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. */}
-        </Intro>
+      <Center maxWidth='1024px'>
+        <CardsWrapper>
+          <KeynoteCard speaker={speakers[0]} mobileRotationAngle={-5} />
+          <KeynoteCard speaker={speakers[1]} big mobileRotationAngle={5} />
+          <KeynoteCard speaker={speakers[2]} />
+          <KeynoteCard speaker={speakers[3]} big mobileRotationAngle={-10} />
+        </CardsWrapper>
       </Center>
 
-      <CardsWrapper>
-        <KeynoteCard speaker={speakers[0]} mobileRotationAngle={-5} />
-        <KeynoteCard speaker={speakers[1]} big mobileRotationAngle={5} />
-        <KeynoteCard speaker={speakers[2]} />
-        <KeynoteCard speaker={speakers[3]} mobileRotationAngle={-10} />
-        <KeynoteCard speaker={speakers[4]} />
-        <KeynoteCard speaker={speakers[5]} big mobileRotationAngle={5} />
-      </CardsWrapper>
-
-      <Button tag='link' to='/programmation/2022'>
+      <Button tag='link' to='/programmation/2023'>
         voir la programmation
       </Button>
     </Center>

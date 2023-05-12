@@ -59,19 +59,26 @@ const secondaryNavigation = [
     label: 'à propos',
     slug: '/a-propos/evenement',
     type: 'internal',
+    color: 'apricot',
   },
-  // {
-  //   id: 'partners',
-  //   label: 'partenaires',
-  //   slug: '/partenaires',
-  //   type: 'internal',
-  // },
-  // {
-  //   id: 'faq',
-  //   label: 'FAQ',
-  //   slug: '/faq',
-  //   type: 'internal',
-  // },
+  {
+    id: 'partners',
+    label: 'partenaires',
+    slug: '/partenaires',
+    type: 'internal',
+  },
+  {
+    id: 'faq',
+    label: 'FAQ',
+    slug: '/faq',
+    type: 'internal',
+  },
+  {
+    id: 'contact',
+    label: 'nous joindre',
+    slug: '/contact',
+    type: 'internal',
+  },
   {
     id: 'code-of-conduct',
     label: 'code de conduite',

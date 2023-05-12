@@ -17,7 +17,7 @@ import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
 // import logoLevio from '../../images/logoPartners/premium/logo-levio.svg';
 import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
 // import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
-import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
+// import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
 import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
 import logoEmergensys from '../../images/logoPartners/associates/logo-emergensys.png';
@@ -37,6 +37,12 @@ import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbrid
 import logoNventive from '../../images/logoPartners/associates/logo-nventive.svg';
 import logoEdgenda from '../../images/logoPartners/associates/logo-edgenda.svg';
 import logoProjetTeamForward from '../../images/logoPartners/supporters/logo-projet-team-forward.svg';
+import logoDashThis from '../../images/logoPartners/associates/logo-dashthis.svg';
+import logoRandstad from '../../images/logoPartners/supporters/logo-randstad.svg';
+import logoCrackmediaRGB from '../../images/logoPartners/supporters/logo-crackmedia-rgb.svg';
+import logoCrackmediaBlack from '../../images/logoPartners/supporters/logo-crackmedia-black.svg';
+import logoEvolvingWeb from '../../images/logoPartners/supporters/logo-evolving-web.svg';
+import logoLibeo from '../../images/logoPartners/supporters/logo-libeo.svg';
 
 // styles
 import {
@@ -58,11 +64,6 @@ const premiumImages = [
     srcAlt: logoVideotronRGB,
     alt: 'Vidéotron | Services de Téléphonie, Internet, Télévision et Mobile',
     url: 'https://videotron.com/',
-  },
-  {
-    src: logoOqlf,
-    alt: 'OQLF | Office québécois de la langue française',
-    url: 'https://www.oqlf.gouv.qc.ca/',
   },
   {
     src: logoUbisoft,
@@ -111,6 +112,7 @@ const associatesImages = [
     src: logoThirdbridge,
     alt: "Thirdbridge | Votre partenaire d'innovation",
     url: 'https://www.thirdbridge.ca/fr/',
+    bigger: true,
   },
   {
     src: logoFernandez,
@@ -175,6 +177,29 @@ const supportersImages = [
     alt: 'Projet Team Forward | Une nouvelle façon de donner',
     url: 'https://projetteamforward.org/',
   },
+  {
+    src: logoRandstad,
+    alt: 'Randstad Canada',
+    url: 'https://www.randstad.ca/fr/',
+  },
+  {
+    src: logoCrackmediaBlack,
+    srcAlt: logoCrackmediaRGB,
+    alt: 'Crackmedia Network | Leader en Monétisation de Trafic Web',
+    url: 'https://crakmedia.com/',
+    bigger: true,
+  },
+  {
+    src: logoEvolvingWeb,
+    alt: 'Evolving Web | Agence de conception et de développement Drupal à Montréal',
+    url: 'https://evolvingweb.com/fr',
+    bigger: true,
+  },
+  {
+    src: logoLibeo,
+    alt: 'Libéo',
+    url: 'https://libeo.com/',
+  },
   // {
   //   src: logoBotpress,
   //   alt: 'Build Chatbots | Chatbot for Developers',
@@ -202,6 +227,11 @@ const mediaImages = [
     src: logoQuebecor,
     alt: 'Québecor',
     url: 'https://www.quebecor.com/fr/',
+  },
+  {
+    src: logoDashThis,
+    alt: 'DashThis',
+    url: 'https://fr.dashthis.com/',
   },
 ];
 
@@ -315,7 +345,7 @@ const PartnersGrids = () => (
       intrinsic
       withText
     >
-      <Title>nos partenaires médias</Title>
+      <Title>nos partenaires de diffusion</Title>
 
       <Grid>
         {mediaImages.map((image) => (
