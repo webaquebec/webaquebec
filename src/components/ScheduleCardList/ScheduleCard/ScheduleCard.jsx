@@ -45,7 +45,7 @@ const ScheduleCard = ({
     innovation: colors.turquoise,
     'communication-and-marketing': colors.jaune,
     'communication-et-marketing': colors.jaune,
-    'jeu-video': colors.rose100,
+    'jeux-video': colors.rose100,
     'competences-transversales': colors.rose100,
     'communication-dans-ladministration-publique': colors.rose100,
   };
@@ -161,7 +161,7 @@ ScheduleCard.propTypes = {
       'communication-and-marketing',
       'communication-et-marketing',
       'pitch-ton-waq',
-      'jeu-video',
+      'jeux-video',
       'competences-transversales',
       'communication-dans-ladministration-publique',
     ])
