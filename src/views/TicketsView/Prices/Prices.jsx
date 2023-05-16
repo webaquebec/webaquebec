@@ -102,16 +102,8 @@ const Prices = () => (
 
             <TicketPrice>250$</TicketPrice>
 
-            <Button
-              to='https://ti.to/web-a-quebec/waq23'
-              tag='href'
-              secondary
-              small
-              animated
-              rel='noopener noreferrer'
-              target='_blank'
-            >
-              Réserver
+            <Button secondary small disabled>
+              Complet
             </Button>
 
             <TicketText>
