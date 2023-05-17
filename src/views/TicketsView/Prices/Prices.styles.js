@@ -7,6 +7,7 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 // styles
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
+import colors from '../../../styles/colors';
 
 export const blockContainerStyle = css`
   max-width: 525px;
@@ -20,6 +21,13 @@ export const blockContainerStyle = css`
     ],
     breakpoints.spacings,
     { bases: [16, 20] }
+  )};
+`;
+
+export const buttonStyle = css`
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+    breakpoints.spacings
   )};
 `;
 
@@ -51,6 +59,35 @@ export const TicketTitle = styled.h2`
     ],
     breakpoints.spacings
   )};
+`;
+
+export const TicketBadge = styled.p`
+  padding: 6px 8px;
+
+  ${breakpointsRange(
+    [
+      { prop: 'marginTop', sizes: [20, 20], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [22, 22], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 32], bases: [18, 24], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
+
+  color: ${colors.white};
+  text-transform: uppercase;
+
+  background: ${`linear-gradient(45deg, ${colors.apricot}, hsl(
+    ${colors.blushHsl.hue},
+    80%,
+    65%
+  ) 30%, hsl(
+    ${colors.blushHsl.hue},
+    80%,
+    68%
+  ) 75%, ${colors.apricot})`};
+
+  border-radius: 4px;
+  transform: rotate(-10deg);
 `;
 
 export const TicketPrice = styled.div`
