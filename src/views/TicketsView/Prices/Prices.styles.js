@@ -87,7 +87,7 @@ export const TicketBadge = styled.p`
   ) 75%, ${colors.apricot})`};
 
   border-radius: 4px;
-  transform: rotate(-10deg);
+  transform: rotate(-7deg);
 `;
 
 export const TicketPrice = styled.div`
