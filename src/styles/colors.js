@@ -71,6 +71,12 @@ const gris80 = '#858585';
 const gris90 = '#5E5E5E';
 const gris100 = '#383838';
 
+// #00034D
+const bleu100hsl = {
+  hue: 238,
+  saturation: 100,
+  lightness: 15,
+};
 // #000CA0
 const bleu80hsl = {
   hue: 236,
@@ -107,6 +113,12 @@ const ciel80hsl = {
   saturation: 100,
   lightness: 50,
 };
+// #BD002D
+const cherryhsl = {
+  hue: 346,
+  saturation: 100,
+  lightness: 37,
+};
 
 const colors = {
   black,
@@ -115,6 +127,7 @@ const colors = {
   earlyDawn,
   darkEarlyDawn,
   cherry,
+  cherryhsl,
   apricot,
   mauve,
   blush,
@@ -128,6 +141,7 @@ const colors = {
   bleu80hsl,
   bleu90,
   bleu100,
+  bleu100hsl,
 
   turquoise10,
   turquoise20,
