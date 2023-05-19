@@ -108,6 +108,12 @@ module.exports = {
               fontDisplay: 'swap',
               strategy: 'selfHosted', // 'base64' || 'cdn'
             },
+            {
+              family: 'Press Start 2P',
+              variants: ['400'],
+              fontDisplay: 'swap',
+              strategy: 'selfHosted', // 'base64' || 'cdn'
+            },
           ],
         },
       },
