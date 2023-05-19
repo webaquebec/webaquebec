@@ -424,13 +424,14 @@ export const MenuLabel = styled.label`
     animation: ${glow} 2s linear infinite;
   }
 
+  /*
   input:checked + span::before {
     position: absolute;
     top: -2px;
     left: -25px;
 
     content: '▶';
-  }
+  } */
 `;
 
 export const PlayInstructions = styled.div`

@@ -13,6 +13,8 @@ export const Container = styled.div`
 
   width: 100%;
   padding: 1rem 0;
+
+  pointer-events: none;
 `;
 
 export const Wrapper = styled.div`
@@ -64,6 +66,7 @@ export const Button = styled.button`
   opacity: 0.8;
 
   appearance: none;
+  pointer-events: auto;
 `;
 
 export const ButtonWrapper = styled.span`
