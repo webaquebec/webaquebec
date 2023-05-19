@@ -222,6 +222,8 @@ export const Container = styled.div`
   position: relative;
 
   overflow: auto;
+
+  background-color: ${({ $bgColor }) => $bgColor};
 `;
 
 export const CRTScreenEffect = styled.div`

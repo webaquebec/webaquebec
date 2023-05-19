@@ -12,6 +12,8 @@ import {
   ContentContainer,
   blockContainerStyle,
   SnakyButton,
+  GameWrapper,
+  gameContainerStyle,
 } from './SocialNews.styles';
 import colors from '../../styles/colors';
 
@@ -167,25 +169,14 @@ const SocialNews = () => {
             </Center>
           </div>
 
+          {/* Easter Egg 🐣 */}
+          {/* Available on desktop only for now. Disabled on Safari because... it's Safari 🤦‍♂️ */}
           {isDesktop && !isSafari && (
             <>
-              <div
+              <GameWrapper
                 css={`
                   /* This part controls the flip */
                   backface-visibility: hidden;
-
-                  /* Size and card position */
-                  position: absolute;
-                  inset: 0;
-                  width: 100%;
-                  height: 100%;
-
-                  display: flex;
-                  justify-content: center;
-
-                  font-size: 4em;
-
-                  border-radius: inherit;
 
                   transform: rotateY(180deg);
                 `}
@@ -194,26 +185,10 @@ const SocialNews = () => {
                   <SnakeGame
                     fit
                     onExit={handleClick}
-                    css={`
-                      position: relative;
-                      width: 100%;
-                      height: 100%;
-                      padding: 1rem;
-
-                      display: flex;
-                      justify-content: center;
-
-                      background-color: ${`hsl(
-                        ${colors.mauve80hsl.hue},
-                        ${colors.mauve80hsl.saturation}%,
-                        15%
-                    )`};
-
-                      border-radius: inherit;
-                    `}
+                    css={gameContainerStyle}
                   />
                 )}
-              </div>
+              </GameWrapper>
 
               <SnakyButton
                 type='button'

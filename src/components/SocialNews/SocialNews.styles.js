@@ -76,6 +76,32 @@ export const ContentContainer = css`
   height: 100%;
 `;
 
+export const GameWrapper = styled.div`
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  font-size: 4em;
+
+  border-radius: inherit;
+`;
+
+export const gameContainerStyle = css`
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+
+  border-radius: inherit;
+`;
+
 export const SnakyButton = styled.button`
   position: absolute;
   right: 0;

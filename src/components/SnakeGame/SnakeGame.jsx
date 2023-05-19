@@ -43,7 +43,7 @@ const SnakeGame = ({ fit, fillColor, strokeColor, onExit, ...rest }) => {
   }, [handleScroll]);
 
   return (
-    <Container {...rest}>
+    <Container $bgColor={fillColor} {...rest}>
       <CRTScreenEffect />
 
       {isPlaying ? (
