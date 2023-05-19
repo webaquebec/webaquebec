@@ -1,7 +1,10 @@
-// vendor
+// vendors
 import React from 'react';
 import PropTypes from 'prop-types';
 import { isChrome, isEdge } from 'react-device-detect';
+
+// contexts
+import { useGlobalContext } from '../../contexts/GlobalContext';
 
 // images
 import VectorGoo from '../../images/VectorGoo';
@@ -22,6 +25,8 @@ const optionsByLocation = {
 };
 
 const LavaLamp = ({ pathname }) => {
+  const { pauseAnimation } = useGlobalContext();
+
   const getOptionsByLocation = () => {
     if (pathname === undefined || pathname === '/')
       return optionsByLocation.home;
@@ -36,7 +41,8 @@ const LavaLamp = ({ pathname }) => {
       <Lava $hasGoo={isChrome || isEdge}>
         {Array.from(Array(7), (e, i) => (
           <Blob
-            key={i}
+            key={`blob-${i}`}
+            $paused={pauseAnimation}
             css={`
               background: ${colors[current]};
             `}

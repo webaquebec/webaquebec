@@ -214,6 +214,10 @@ export const Blob = styled.div`
       ${blobSeven} ease-in-out 32s infinite;
   }
 
+  && {
+    animation-play-state: ${({ $paused }) => ($paused ? 'paused' : 'running')};
+  }
+
   @media (prefers-reduced-motion: reduce) {
     && {
       animation: none;
