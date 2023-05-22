@@ -8,9 +8,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Context Provider
-import { ProgramFiltersProvider } from './src/contexts/ProgramFiltersContext';
+// contexts
+import { GlobalProvider } from './src/contexts/GlobalContext';
 import { ModalProvider } from './src/contexts/ModalContext';
+import { ProgramFiltersProvider } from './src/contexts/ProgramFiltersContext';
+
+// components
 import Layout from './src/components/Layout/Layout';
 
 // Apply Layout component to every page and template
@@ -21,9 +24,11 @@ export const wrapPageElement = ({ element, props }) => (
 );
 
 export const wrapRootElement = ({ element }) => (
-  <ModalProvider>
-    <ProgramFiltersProvider>{element}</ProgramFiltersProvider>
-  </ModalProvider>
+  <GlobalProvider>
+    <ModalProvider>
+      <ProgramFiltersProvider>{element}</ProgramFiltersProvider>
+    </ModalProvider>
+  </GlobalProvider>
 );
 
 export const onRenderBody = ({ setHeadComponents }) => {
