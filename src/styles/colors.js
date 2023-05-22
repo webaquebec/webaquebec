@@ -119,6 +119,12 @@ const cherryhsl = {
   saturation: 100,
   lightness: 37,
 };
+// #ED9694
+const blushHsl = {
+  hue: 1,
+  saturation: 71,
+  lightness: 75,
+};
 
 const colors = {
   black,
@@ -131,6 +137,7 @@ const colors = {
   apricot,
   mauve,
   blush,
+  blushHsl,
 
   bleu10,
   bleu20,
