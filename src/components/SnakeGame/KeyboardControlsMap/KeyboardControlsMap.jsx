@@ -1,5 +1,6 @@
 // vendors
 import React, { useCallback } from 'react';
+import { hideVisually } from 'polished';
 
 // contexts
 import { useSnakeGame } from '../SnakeGame.context';
@@ -38,7 +39,8 @@ const KeyboardControlsMap = () => {
         >
           <Title>Keyboard Controls</Title>
           <CloseButton type='button' onClick={handleClose}>
-            x
+            <span css={hideVisually}>Fermer</span>
+            <span>x</span>
           </CloseButton>
         </div>
 
