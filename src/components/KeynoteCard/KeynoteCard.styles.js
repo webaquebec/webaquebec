@@ -46,11 +46,11 @@ export const Wrapper = styled(Link)`
     background-color: ${colors.bleu};
   }
 
-  /* ${greaterThan(1024)} {
+  ${greaterThan(1024)} {
     :not(:hover, :focus) {
       transform: rotate(0) !important;
     }
-  } */
+  }
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;

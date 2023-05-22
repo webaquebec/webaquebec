@@ -28,9 +28,7 @@ const speakersPictureQuery = graphql`
     ) {
       ...speakerPhotoFragment
     }
-    speakerFaraiMadzima: file(
-      relativePath: { eq: "keynotes/speaker-farai-madzima.jpg" }
-    ) {
+    speakerSnask: file(relativePath: { eq: "keynotes/speaker-snask.jpg" }) {
       ...speakerPhotoFragment
     }
     speakerGregGifford: file(
@@ -38,7 +36,19 @@ const speakersPictureQuery = graphql`
     ) {
       ...speakerPhotoFragment
     }
-    speakerSnask: file(relativePath: { eq: "keynotes/speaker-snask.jpg" }) {
+    speakerFaraiMadzima: file(
+      relativePath: { eq: "keynotes/speaker-farai-madzima.jpg" }
+    ) {
+      ...speakerPhotoFragment
+    }
+    speakerMariePierStHilaire: file(
+      relativePath: { eq: "keynotes/speaker-marie-pier-st-hilaire.jpg" }
+    ) {
+      ...speakerPhotoFragment
+    }
+    speakerSashaLuccioni: file(
+      relativePath: { eq: "keynotes/speaker-sasha-luccioni.jpg" }
+    ) {
       ...speakerPhotoFragment
     }
   }
@@ -51,14 +61,20 @@ const KeynoteSection = () => {
     speakerJoshuaDavis: {
       childImageSharp: { fluid: speakerJoshuaDavis },
     },
-    speakerFaraiMadzima: {
-      childImageSharp: { fluid: speakerFaraiMadzima },
+    speakerSnask: {
+      childImageSharp: { fluid: speakerSnask },
     },
     speakerGregGifford: {
       childImageSharp: { fluid: speakerGregGifford },
     },
-    speakerSnask: {
-      childImageSharp: { fluid: speakerSnask },
+    speakerFaraiMadzima: {
+      childImageSharp: { fluid: speakerFaraiMadzima },
+    },
+    speakerMariePierStHilaire: {
+      childImageSharp: { fluid: speakerMariePierStHilaire },
+    },
+    speakerSashaLuccioni: {
+      childImageSharp: { fluid: speakerSashaLuccioni },
     },
   } = data;
 
@@ -71,12 +87,11 @@ const KeynoteSection = () => {
       picture: speakerJoshuaDavis,
     },
     {
-      firstName: 'Farai',
-      lastName: 'Madzima',
-      organization: 'Shopify',
-      detailPageUrl:
-        '/programmation/the-only-one-of-your-kind-in-the-room-perils-and-opportunities/',
-      picture: speakerFaraiMadzima,
+      firstName: 'Freddie Öst &',
+      lastName: 'Erik Kockum',
+      organization: 'SNASK',
+      detailPageUrl: '/programmation/change-is-fuking-inevitable/',
+      picture: speakerSnask,
     },
     {
       firstName: 'Greg',
@@ -87,11 +102,28 @@ const KeynoteSection = () => {
       picture: speakerGregGifford,
     },
     {
-      firstName: 'Freddie Öst &',
-      lastName: 'Erik Kockum',
-      organization: 'SNASK',
-      detailPageUrl: '/programmation/change-is-fuking-inevitable/',
-      picture: speakerSnask,
+      firstName: 'Farai',
+      lastName: 'Madzima',
+      organization: 'Shopify',
+      detailPageUrl:
+        '/programmation/the-only-one-of-your-kind-in-the-room-perils-and-opportunities/',
+      picture: speakerFaraiMadzima,
+    },
+    {
+      firstName: 'Marie-Pier',
+      lastName: 'St-Hilaire',
+      organization: 'Edgenda/AFI',
+      detailPageUrl:
+        '/programmation/competences-transversales-a-lere-numerique-es-tu-strategique/',
+      picture: speakerMariePierStHilaire,
+    },
+    {
+      firstName: 'Sasha',
+      lastName: 'Luccioni',
+      organization: 'Hugging Face',
+      detailPageUrl:
+        '/programmation/generative-ai-the-good-the-bad-and-the-bias/',
+      picture: speakerSashaLuccioni,
     },
   ];
 
@@ -105,14 +137,14 @@ const KeynoteSection = () => {
     >
       <Title>conférences vedettes</Title>
 
-      <Center maxWidth='1024px'>
-        <CardsWrapper>
-          <KeynoteCard speaker={speakers[0]} mobileRotationAngle={-5} />
-          <KeynoteCard speaker={speakers[1]} big mobileRotationAngle={5} />
-          <KeynoteCard speaker={speakers[2]} />
-          <KeynoteCard speaker={speakers[3]} big mobileRotationAngle={-10} />
-        </CardsWrapper>
-      </Center>
+      <CardsWrapper>
+        <KeynoteCard speaker={speakers[0]} mobileRotationAngle={-5} />
+        <KeynoteCard speaker={speakers[1]} big mobileRotationAngle={5} />
+        <KeynoteCard speaker={speakers[2]} />
+        <KeynoteCard speaker={speakers[3]} mobileRotationAngle={-10} />
+        <KeynoteCard speaker={speakers[4]} />
+        <KeynoteCard speaker={speakers[5]} big mobileRotationAngle={5} />
+      </CardsWrapper>
 
       <Button tag='link' to='/programmation/2023'>
         voir la programmation
