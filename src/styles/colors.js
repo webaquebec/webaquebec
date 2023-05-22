@@ -114,7 +114,7 @@ const ciel80hsl = {
   lightness: 50,
 };
 // #BD002D
-const cherryhsl = {
+const cherryHsl = {
   hue: 346,
   saturation: 100,
   lightness: 37,
@@ -133,7 +133,7 @@ const colors = {
   earlyDawn,
   darkEarlyDawn,
   cherry,
-  cherryhsl,
+  cherryHsl,
   apricot,
   mauve,
   blush,

@@ -98,7 +98,7 @@ const GameScreen = ({ fit, strokeColor, onReset }) => {
   const food = useRef({
     x: 5,
     y: 5,
-    color: `hsl(${colors.cherryhsl.hue}, ${colors.cherryhsl.hue}%, 60%)`,
+    color: `hsl(${colors.cherryHsl.hue}, ${colors.cherryHsl.hue}%, 60%)`,
     draw: (ctx, cellSize, padding) => {
       ctx.fillStyle = food.current.color;
       ctx.shadowColor = food.current.color;
