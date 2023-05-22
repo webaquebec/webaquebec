@@ -1,9 +1,26 @@
 // vendors
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // styles
 import colors from '../../../styles/colors';
 import elevation from '../../../styles/elevation';
+import { speed } from '../../../styles/animation';
+
+export const toggleTipStyle = css`
+  top: 15px;
+  right: 15px;
+
+  z-index: 2;
+
+  > span {
+    right: 135%;
+    left: unset;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity ${speed.fast};
+  }
+`;
 
 export const Container = styled.div`
   position: absolute;
