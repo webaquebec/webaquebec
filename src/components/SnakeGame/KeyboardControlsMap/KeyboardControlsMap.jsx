@@ -77,19 +77,19 @@ const KeyboardControlsMap = () => {
             <Stack space='0.35rem'>
               <SectionColumns>
                 <div>Left</div>
-                <div>A or Left Arrow</div>
+                <div>Arrow Left or A</div>
               </SectionColumns>
               <SectionColumns>
                 <div>Right</div>
-                <div>D or Right Arrow</div>
+                <div>Arrow Right or D</div>
               </SectionColumns>
               <SectionColumns>
                 <div>Up</div>
-                <div>W or Up Arrow</div>
+                <div>Arrow Up or W</div>
               </SectionColumns>
               <SectionColumns>
                 <div>Down</div>
-                <div>S or Down Arrow</div>
+                <div>Arrow Down or S</div>
               </SectionColumns>
             </Stack>
           </Stack>
