@@ -139,7 +139,7 @@ const sectionsData = [
       },
       {
         id: 1,
-        pictureId: 'placeholder',
+        pictureId: 'antoine_lefrancois',
         name: 'Antoine Lefrançois',
         job: 'Piste développement',
       },
@@ -163,7 +163,7 @@ const sectionsData = [
       },
       {
         id: 5,
-        pictureId: 'placeholder2',
+        pictureId: 'chany_lagueux',
         name: 'Chany Lagueux',
         job: 'Piste design',
       },
@@ -246,17 +246,17 @@ const sectionsData = [
       },
       {
         id: 2,
-        pictureId: 'placeholder2',
+        pictureId: 'kariann_giroux',
         name: 'Kariann Giroux',
       },
       {
         id: 3,
-        pictureId: 'placeholder',
+        pictureId: 'alexandra_plante',
         name: 'Alexandra Plante',
       },
       {
         id: 4,
-        pictureId: 'placeholder2',
+        pictureId: 'nadia_chih',
         name: 'Nadia Chih',
       },
       {
