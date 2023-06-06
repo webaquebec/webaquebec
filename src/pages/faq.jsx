@@ -82,16 +82,16 @@ const data = [
     answer: `<p>Pour transférer ton billet à une autre personne, tu dois le faire AVANT que l’événement débute, car le billet ne peut pas être échangé entre personnes une fois que le WAQ a débuté. Tu dois repartir du courriel de confirmation reçu lors de la réservation de ton billet.</p>
              <p>Clique sur <b>Voir la commande</b><br />Clique sur <b>Voir/Éditer le billet à échanger</b><br />Dans le haut de la page qui s’ouvre, clique sur <b>Re-assigner</b><br />Coche <b>Supprimer les réponses associées</b><br />Sur la page qui s’affiche, clique sur <b>Billet complet</b> du billet surligné en jaune.<br />Clique sur le bouton bleu <b>Répondre</b>, et réponds à toutes les questions obligatoires</p>`,
   },
-  {
-    id: 3,
-    question: 'Quel est le coût des billets?',
-    answer: `<p>Billet présentiel : <br />Journalier : 395$ <br />Régulier : 895$ <br />Étudiant : 250$ <br /><br />Tous les prix sont avant taxes. Pour acheter ton billet, clique <a href="/billetterie">ici</a></p>`,
-  },
-  {
-    id: 4,
-    question: 'Y a-t-il des billets étudiants?',
-    answer: `<p>Oui, les billets étudiants sont au coût de 250$ pour un accès complet au WAQ. Procure-toi ton billet dans notre billetterie. Les étudiants peuvent aussi avoir accès gratuitement aux rediffusions une fois le WAQ terminé. </p>`,
-  },
+  // {
+  //   id: 3,
+  //   question: 'Quel est le coût des billets?',
+  //   answer: `<p>Billet présentiel : <br />Journalier : 395$ <br />Régulier : 895$ <br />Étudiant : 250$ <br /><br />Tous les prix sont avant taxes. Pour acheter ton billet, clique <a href="/billetterie">ici</a></p>`,
+  // },
+  // {
+  //   id: 4,
+  //   question: 'Y a-t-il des billets étudiants?',
+  //   answer: `<p>Oui, les billets étudiants sont au coût de 250$ pour un accès complet au WAQ.</p>`,
+  // },
   {
     id: 5,
     question: 'À quel endroit se déroule le WAQ?',
@@ -103,11 +103,11 @@ const data = [
       'Comment est-ce que je peux accéder à l’application mobile du WAQ?',
     answer: `<p>L’application sera disponible dans l’App Store et dans Google Play à compter du 15 mai. Si tu as déjà ton billet du WAQ, tu recevras un courriel pour t’informer de sa disponibilité. Si tu ne reçois pas de courriel, mais que tu as bien ton billet, écris-nous à <a href="mailto:info@webaquebec.org">info@webaquebec.org</a>.</p>`,
   },
-  {
-    id: 7,
-    question: 'Est-ce qu’il y a des billets virtuels à l’édition 2023?',
-    answer: `<p>Non, avec le retour à la normal, le WAQ a fait un retour dans le futur avec une édition 100% présentielle.</p>`,
-  },
+  // {
+  //   id: 7,
+  //   question: 'Est-ce qu’il y a des billets virtuels à l’édition 2023?',
+  //   answer: `<p>Non, avec le retour à la normal, le WAQ a fait un retour dans le futur avec une édition 100% présentielle.</p>`,
+  // },
   {
     id: 8,
     question:
@@ -118,7 +118,7 @@ const data = [
 
 const FaqPage = () => (
   <>
-    <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ22.' />
+    <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ.' />
 
     <Center
       maxWidth='625px'
@@ -128,10 +128,8 @@ const FaqPage = () => (
     >
       <FaqTitle css={titleStyle}>FAQ</FaqTitle>
       <FaqIntro css={introStyle}>
-        L’édition 2023 du Web à Québec (WAQ) aura lieu les 23, 24 et 25 mai
-        prochains. L&apos;événement a fait un retour dans le futur avec une
-        édition 100% présentielle 😎. On tente de répondre à toutes tes
-        questions ici!
+        L&apos;événement a fait un retour dans le futur avec une édition 100%
+        présentielle 😎. On tente de répondre à toutes tes questions ici!
         <br />
         <span>👇</span>
       </FaqIntro>

@@ -37,13 +37,13 @@ const primaryNavigation = [
     type: 'internal',
     color: 'apricot',
   },
-  {
-    id: 'tickets',
-    label: 'billetterie',
-    slug: '/billetterie',
-    type: 'internal',
-    color: 'cherry',
-  },
+  // {
+  //   id: 'tickets',
+  //   label: 'billetterie',
+  //   slug: '/billetterie',
+  //   type: 'internal',
+  //   color: 'cherry',
+  // },
   // {
   //   id: 'waqademy',
   //   label: 'WAQadémie',
