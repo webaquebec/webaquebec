@@ -18,12 +18,12 @@ import {
   // linkStyleHover,
   Address,
   MapPinIcon,
-  CTAWrapper,
+  // CTAWrapper,
 } from './Hero.styles';
 
 // components
 import Center from '../../../components/LayoutSections/Center';
-import Button from '../../../components/Button';
+// import Button from '../../../components/Button';
 
 // images
 import vectorMapPin from '../../../images/vectorMapPin.svg';
@@ -32,10 +32,10 @@ const Hero = () => (
   <StyledHero>
     <Center maxWidth='var(--max-container-width)' gutters='12px' withText>
       <h2 css={billboardStyle}>
-        23 au 25&nbsp;&nbsp;
+        28 au 30&nbsp;&nbsp;
         <br />
         &nbsp;&nbsp;mai&nbsp;
-        <span css={billboardAltStyle}>2023</span>
+        <span css={billboardAltStyle}>2024</span>
       </h2>
 
       <Center maxWidth='850px' gutters='0' withText>
@@ -76,11 +76,11 @@ const Hero = () => (
         </p>
       </Address>
 
-      <CTAWrapper>
+      {/* <CTAWrapper>
         <Button to='/billetterie' tag='link' animated>
           Réserver ma place
         </Button>
-      </CTAWrapper>
+      </CTAWrapper> */}
     </Center>
   </StyledHero>
 );
