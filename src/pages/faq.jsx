@@ -87,11 +87,11 @@ const data = [
   //   question: 'Quel est le coût des billets?',
   //   answer: `<p>Billet présentiel : <br />Journalier : 395$ <br />Régulier : 895$ <br />Étudiant : 250$ <br /><br />Tous les prix sont avant taxes. Pour acheter ton billet, clique <a href="/billetterie">ici</a></p>`,
   // },
-  {
-    id: 4,
-    question: 'Y a-t-il des billets étudiants?',
-    answer: `<p>Oui, les billets étudiants sont au coût de 250$ pour un accès complet au WAQ.</p>`,
-  },
+  // {
+  //   id: 4,
+  //   question: 'Y a-t-il des billets étudiants?',
+  //   answer: `<p>Oui, les billets étudiants sont au coût de 250$ pour un accès complet au WAQ.</p>`,
+  // },
   {
     id: 5,
     question: 'À quel endroit se déroule le WAQ?',
