@@ -1,6 +1,5 @@
 // vendors
-import React from 'react';
-// import { hideVisually } from 'polished';
+import React, { useState } from 'react';
 
 // styles
 import {
@@ -17,6 +16,7 @@ import colors from '../../styles/colors';
 import Switcher from '../LayoutSections/Switcher';
 import Center from '../LayoutSections/Center';
 import Paper from '../Paper';
+import Modal from '../Modal';
 import Button from '../Button';
 
 // images
@@ -26,99 +26,120 @@ import instagram from '../../images/socialMedia/instagram.svg';
 import linkedin from '../../images/socialMedia/linkedin.svg';
 import elevation from '../../styles/elevation';
 
+// utils
+import randomString from '../../utils/math/randomString';
+import NewsletterModal from '../NewsletterCard/NewsletterModal/NewsletterModal';
+
+const socialMedia = [
+  {
+    name: 'Facebook',
+    img: facebook,
+    link: 'https://www.facebook.com/webaquebec/',
+  },
+  {
+    name: 'Twitter',
+    img: twitter,
+    link: 'https://twitter.com/webaquebec',
+  },
+  {
+    name: 'Instagram',
+    img: instagram,
+    link: 'https://www.instagram.com/webaquebec/',
+  },
+  {
+    name: 'Linkedin',
+    img: linkedin,
+    link: 'https://www.linkedin.com/company/web-qu-bec',
+  },
+];
+
+const customId = randomString();
+
 const SocialNews = () => {
-  const socialMedia = [
-    {
-      name: 'Facebook',
-      img: facebook,
-      link: 'https://www.facebook.com/webaquebec/',
-    },
-    {
-      name: 'Twitter',
-      img: twitter,
-      link: 'https://twitter.com/webaquebec',
-    },
-    {
-      name: 'Instagram',
-      img: instagram,
-      link: 'https://www.instagram.com/webaquebec/',
-    },
-    {
-      name: 'Linkedin',
-      img: linkedin,
-      link: 'https://www.linkedin.com/company/web-qu-bec',
-    },
-  ];
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => setModalVisible(true);
+  const closeModal = () => setModalVisible(false);
 
   return (
-    <Switcher
-      threshold='768px'
-      space='calc(var(--container-gutter) * 2)'
-      limit={2}
-    >
-      <div>
-        <Paper
-          lightColor={colors.earlyDawn}
-          darkColor={colors.bleu100}
-          rounded
-          overlaid
-          elevation={elevation.large}
-          css={blockContainerStyle}
+    <>
+      <Switcher
+        threshold='768px'
+        space='calc(var(--container-gutter) * 2)'
+        limit={2}
+      >
+        <div>
+          <Paper
+            lightColor={colors.earlyDawn}
+            darkColor={colors.bleu100}
+            rounded
+            overlaid
+            elevation={elevation.large}
+            css={blockContainerStyle}
+          >
+            <Center maxWidth='290px' intrinsic css={ContentContainer}>
+              <ContactTitle color={colors.gris90}>
+                Suis-nous sur les médias sociaux
+              </ContactTitle>
+
+              <ContactText css={MediaText}>
+                Annonces, événements, concours, anecdotes, contenu inédit et une
+                belle communauté t’y attendent.
+              </ContactText>
+
+              <MediaList>
+                {socialMedia.map((media) => (
+                  <li key={`media-item-${media.name}`}>
+                    <a
+                      href={media.link}
+                      rel='noopener noreferrer'
+                      target='_blank'
+                    >
+                      <img src={media.img} alt={media.name} />
+                    </a>
+                  </li>
+                ))}
+              </MediaList>
+            </Center>
+          </Paper>
+
+          <Paper
+            lightColor={colors.bleu100}
+            darkColor={colors.earlyDawn}
+            rounded
+            elevation={elevation.large}
+            css={blockContainerStyle}
+          >
+            <Center maxWidth='290px' intrinsic css={ContentContainer}>
+              <ContactTitle>Ne manque rien</ContactTitle>
+
+              <ContactText>
+                Pour des nouveautés, des promotions, du contenu exclusif et une
+                bonne dose de WAQ, abonne-toi à notre infolettre.
+              </ContactText>
+
+              <Button onClick={openModal} inverted small animated>
+                M&apos;abonner
+              </Button>
+            </Center>
+          </Paper>
+        </div>
+      </Switcher>
+
+      {modalVisible && (
+        <Modal
+          isOpen={modalVisible}
+          aria={{ labbelledby: customId }}
+          onClose={closeModal}
+          closeTimeoutMS={200}
+          fullSceen
+          noBorder
+          noTransition
         >
-          <Center maxWidth='290px' intrinsic css={ContentContainer}>
-            <ContactTitle color={colors.gris90}>
-              Suis-nous sur les médias sociaux
-            </ContactTitle>
-
-            <ContactText css={MediaText}>
-              Annonces, événements, concours, anecdotes, contenu inédit et une
-              belle communauté t’y attendent.
-            </ContactText>
-
-            <MediaList>
-              {socialMedia.map((media) => (
-                <li key={`media-item-${media.name}`}>
-                  <a
-                    href={media.link}
-                    rel='noopener noreferrer'
-                    target='_blank'
-                  >
-                    <img src={media.img} alt={media.name} />
-                  </a>
-                </li>
-              ))}
-            </MediaList>
-          </Center>
-        </Paper>
-
-        <Paper
-          lightColor={colors.bleu100}
-          darkColor={colors.earlyDawn}
-          rounded
-          elevation={elevation.large}
-          css={blockContainerStyle}
-        >
-          <Center maxWidth='290px' intrinsic css={ContentContainer}>
-            <ContactTitle>Ne manque rien</ContactTitle>
-
-            <ContactText>
-              Pour des nouveautés, des promotions, du contenu exclusif et une
-              bonne dose de WAQ, abonne-toi à notre infolettre.
-            </ContactText>
-
-            <Button
-              to='https://l.communication.quebecnumerique.com/T/WF/15110/SAbFfT/Optin/fr-CA/Form.ofsys'
-              tag='href'
-              inverted
-              small
-              animated
-            >
-              M&apos;abonner
-            </Button>
-          </Center>
-        </Paper>
-      </div>
-    </Switcher>
+          <NewsletterModal />
+        </Modal>
+      )}
+    </>
   );
 };
 
