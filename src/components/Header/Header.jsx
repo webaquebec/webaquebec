@@ -24,8 +24,8 @@ import BurgerButton from './BurgerButton';
 
 const primaryNavigation = [
   {
-    id: 'programmation',
-    label: 'programmation',
+    id: 'edition2023',
+    label: 'édition 2023',
     slug: '/programmation/2023',
     type: 'internal',
     color: 'apricot',
@@ -37,13 +37,13 @@ const primaryNavigation = [
     type: 'internal',
     color: 'apricot',
   },
-  // {
-  //   id: 'tickets',
-  //   label: 'billetterie',
-  //   slug: '/billetterie',
-  //   type: 'internal',
-  //   color: 'cherry',
-  // },
+  {
+    id: 'tickets',
+    label: 'billetterie',
+    slug: '/billetterie',
+    type: 'internal',
+    color: 'cherry',
+  },
   // {
   //   id: 'waqademy',
   //   label: 'WAQadémie',

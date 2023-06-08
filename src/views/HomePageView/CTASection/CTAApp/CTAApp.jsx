@@ -37,12 +37,12 @@ const CTAApp = () => {
   return (
     <CTAWrap>
       <ContentWrap>
-        <Title>découvrez notre application</Title>
+        <Title>rediffusions en cours</Title>
 
         <Text>
-          Que ce soit pour faire ton horaire, réseauter, écouter les
-          conférences, ou tout simplement vivre le WAQ à 100%, l’application
-          sera ton meilleur compagnon pour l’événement!
+          Les rediffusions des conférences du WAQ23 sont en cours dans
+          l’application de l’événement! Disponibles pour les détenteur·rices de
+          billets seulement.
         </Text>
 
         <Button

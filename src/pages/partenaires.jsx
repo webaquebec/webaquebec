@@ -8,6 +8,7 @@ import Center from '../components/LayoutSections/Center';
 import StyledSectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 import PartnersGrids from '../components/PartnersGrids';
+import Button from '../components/Button/Button';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
@@ -37,6 +38,10 @@ const PartnersTitle = styled.h1`
 
 const PartnersIntro = styled.p`
   margin-top: 1rem;
+`;
+
+const BecomePartnerCTA = styled(Button)`
+  margin: 2em;
 `;
 
 const PartnersPage = () => (
@@ -69,6 +74,15 @@ const PartnersPage = () => (
         qui s’impliquent dans l’aventure. Par leur expertise, leur créativité et
         leur soutien, ils contribuent directement au succès de l’événement.
       </PartnersIntro>
+
+      <BecomePartnerCTA
+        to='mailto:dominic.guay@quebecnumerique.com'
+        tag='href'
+        small
+        animated
+      >
+        Devenir partenaire
+      </BecomePartnerCTA>
     </Center>
 
     <SectionContainer forwardedAs='div' faded>
