@@ -47,15 +47,23 @@ const PartnersPage = () => (
     />
 
     <Center
-      maxWidth='625px'
+      maxWidth='825px'
       gutters='var(--container-gutter)'
       withText
       intrinsic
     >
       <PartnersTitle css={titleStyle}>
         parte<span>naires</span>
+        <span>&nbsp;2023</span>
       </PartnersTitle>
+    </Center>
 
+    <Center
+      maxWidth='625px'
+      gutters='var(--container-gutter)'
+      withText
+      intrinsic
+    >
       <PartnersIntro css={introStyle}>
         L’équipe du WAQ tient à remercier du fond du coeur tous les partenaires
         qui s’impliquent dans l’aventure. Par leur expertise, leur créativité et
@@ -64,7 +72,7 @@ const PartnersPage = () => (
     </Center>
 
     <SectionContainer forwardedAs='div' faded>
-      <PartnersGrids hasDetails />
+      <PartnersGrids />
     </SectionContainer>
   </>
 );

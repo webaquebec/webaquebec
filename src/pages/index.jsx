@@ -46,7 +46,7 @@ const IndexPage = () => (
 
       {/* <KeynoteSection /> */}
 
-      <PartnersGrids />
+      <PartnersGrids titled />
     </SectionContainer>
   </>
 );
