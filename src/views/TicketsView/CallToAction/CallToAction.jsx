@@ -32,7 +32,7 @@ const CallToAction = () => (
       css={ctaButtonStyle}
     >
       Réserver ma place
-    </Button> 
+    </Button>
 
     <p css={introStyle}>
       Pour faire ton achat, tu seras redirigé.e directement vers la plateforme{' '}
@@ -53,7 +53,7 @@ const CallToAction = () => (
     </p>
 
     <Button
-      to='https://ti.to/web-a-quebec/waq23'
+      to='https://ti.to/web-a-quebec/waq24/fr'
       tag='href'
       animated
       rel='noopener noreferrer'
