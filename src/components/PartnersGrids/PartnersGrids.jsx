@@ -1,12 +1,13 @@
 // vendors
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 // components
 import LogoCard from './LogoCard';
 import Center from '../LayoutSections/Center';
 // import Button from '../Button';
 // import Switcher from '../LayoutSections/Switcher';
+// import Stack from '../LayoutSections/Stack/Stack';
 
 // images
 import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
@@ -29,8 +30,6 @@ import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
 import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
 // import logoGrenierAuxNouvelles from '../../images/logoPartners/associates/logo-grenier-aux-nouvelles.svg';
 import logoZenika from '../../images/logoPartners/supporters/logo-zenika.svg';
-// import logoBotpress from '../../images/logoPartners/supporters/logo-botpress.svg';
-// import logoApollo13 from '../../images/logoPartners/supporters/logo-apollo13.svg';
 import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg';
 import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
 import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
@@ -43,6 +42,8 @@ import logoCrackmediaRGB from '../../images/logoPartners/supporters/logo-crackme
 import logoCrackmediaBlack from '../../images/logoPartners/supporters/logo-crackmedia-black.svg';
 import logoEvolvingWeb from '../../images/logoPartners/supporters/logo-evolving-web.svg';
 import logoLibeo from '../../images/logoPartners/supporters/logo-libeo.svg';
+// import logoBotpress from '../../images/logoPartners/supporters/logo-botpress.svg';
+// import logoApollo13 from '../../images/logoPartners/supporters/logo-apollo13.svg';
 
 // styles
 import {
@@ -51,8 +52,8 @@ import {
   // PresentingText,
   Grid,
   GridItem,
-  premiumGrid,
-  premiumGridItem,
+  // premiumGrid,
+  // premiumGridItem,
   // presentingContentStyle,
 } from './PartnersGrids.styles';
 
@@ -235,8 +236,15 @@ const mediaImages = [
   },
 ];
 
+const partnersLogos = [
+  ...premiumImages,
+  ...associatesImages,
+  ...supportersImages,
+  ...mediaImages,
+];
+
 // const PartnersGrids = ({ hasDetails }) => (
-const PartnersGrids = () => (
+const PartnersGrids = ({ titled }) => (
   <>
     {/* <Center
       as='section'
@@ -286,12 +294,37 @@ const PartnersGrids = () => (
 
     <Center
       as='section'
+      maxWidth='900px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title
+        style={{
+          visibility: titled ? '' : 'hidden',
+          marginTop: titled ? '' : '0',
+        }}
+      >
+        partenaires 2023
+      </Title>
+
+      <Grid>
+        {partnersLogos.map((image) => (
+          <GridItem key={image.url}>
+            <LogoCard image={image} />
+          </GridItem>
+        ))}
+      </Grid>
+    </Center>
+
+    {/* <Center
+      as='section'
       maxWidth='1024px'
       gutters='var(--container-gutter)'
       intrinsic
       withText
     >
-      <Title>nos partenaires principaux</Title>
+      <Title>partenaires principaux</Title>
 
       <Grid css={premiumGrid}>
         {premiumImages.map((image) => (
@@ -300,9 +333,9 @@ const PartnersGrids = () => (
           </GridItem>
         ))}
       </Grid>
-    </Center>
+    </Center> */}
 
-    <Center
+    {/* <Center
       as='section'
       maxWidth='900px'
       gutters='var(--container-gutter)'
@@ -318,9 +351,9 @@ const PartnersGrids = () => (
           </GridItem>
         ))}
       </Grid>
-    </Center>
+    </Center> */}
 
-    <Center
+    {/* <Center
       as='section'
       maxWidth='900px'
       gutters='var(--container-gutter)'
@@ -336,9 +369,9 @@ const PartnersGrids = () => (
           </GridItem>
         ))}
       </Grid>
-    </Center>
+    </Center> */}
 
-    <Center
+    {/* <Center
       as='section'
       maxWidth='900px'
       gutters='var(--container-gutter)'
@@ -354,7 +387,7 @@ const PartnersGrids = () => (
           </GridItem>
         ))}
       </Grid>
-    </Center>
+    </Center> */}
   </>
 );
 
@@ -363,10 +396,15 @@ PartnersGrids.propTypes = {
    * Whether the grid has details or not.
    */
   // hasDetails: PropTypes.bool,
+  /**
+   * Whether the grid has a title or not.
+   */
+  titled: PropTypes.bool,
 };
 
 PartnersGrids.defaultProps = {
   // hasDetails: false,
+  titled: false,
 };
 
 export default PartnersGrids;

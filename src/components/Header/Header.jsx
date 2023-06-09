@@ -23,13 +23,13 @@ import {
 import BurgerButton from './BurgerButton';
 
 const primaryNavigation = [
-  {
-    id: 'programmation',
-    label: 'programmation',
-    slug: '/programmation/2023',
-    type: 'internal',
-    color: 'apricot',
-  },
+  // {
+  //   id: 'Programmation',
+  //   label: 'programmation',
+  //   slug: '/programmation/2023',
+  //   type: 'internal',
+  //   color: 'apricot',
+  // },
   {
     id: 'blog',
     label: 'blogue',
@@ -37,13 +37,13 @@ const primaryNavigation = [
     type: 'internal',
     color: 'apricot',
   },
-  // {
-  //   id: 'tickets',
-  //   label: 'billetterie',
-  //   slug: '/billetterie',
-  //   type: 'internal',
-  //   color: 'cherry',
-  // },
+  {
+    id: 'tickets',
+    label: 'billetterie',
+    slug: '/billetterie',
+    type: 'internal',
+    color: 'cherry',
+  },
   // {
   //   id: 'waqademy',
   //   label: 'WAQadémie',
@@ -86,9 +86,9 @@ const secondaryNavigation = [
     type: 'internal',
   },
   {
-    id: 'edition2022',
-    label: 'édition 2022',
-    slug: '/programmation/2022',
+    id: 'edition2023',
+    label: 'édition 2023',
+    slug: '/programmation/2023',
     type: 'internal',
   },
   // {
