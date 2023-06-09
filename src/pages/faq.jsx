@@ -117,14 +117,12 @@ const data = [
   {
     id: 1,
     question: `Quand et où se déroulera la prochaine édition du WAQ?`,
-    answer: `<p>La prochaine édition se tiendra du 28 au 30 mai 2024, au Terminal - Port de Québec, dans la buccolique ville de Québec.</p>`,
+    answer: `<p>La prochaine édition se tiendra du <strong>28 au 30 mai 2024</strong>, au <a href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492' target='_blank' rel='noopener noreferrer'>Terminal - Port de Québec</a>, dans la buccolique ville de Québec.</p>`,
   },
   {
     id: 2,
     question: `Comment est-ce que je peux réserver ma place pour le WAQ24?`,
-    answer: `<p>Les billets pour le WAQ24 ne sont pas encore disponibles. Par contre, tu peux t’inscrire à notre liste d’attente - tu recevras un courriel aussitôt qu’il sera possible de réserver ta place!</p>
-<a href="https://ti.to/web-a-quebec/waq24/fr" target="_blank">Je m’inscris</a>
-`,
+    answer: `<p>Les billets pour le WAQ24 ne sont pas encore disponibles. Par contre, tu peux t’inscrire à notre liste d’attente - tu recevras un courriel aussitôt qu’il sera possible de réserver ta place!</p><p><a href="https://ti.to/web-a-quebec/waq24/fr" target="_blank">Je m’inscris</a></p>`,
   },
   {
     id: 3,
