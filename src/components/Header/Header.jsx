@@ -44,6 +44,13 @@ const primaryNavigation = [
     type: 'internal',
     color: 'cherry',
   },
+  {
+    id: 'speakers',
+    label: 'appel à conférences',
+    slug: '/appel-a-conferences',
+    type: 'internal',
+    color: 'cherry',
+  },
   // {
   //   id: 'waqademy',
   //   label: 'WAQadémie',
