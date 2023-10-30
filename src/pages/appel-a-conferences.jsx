@@ -132,11 +132,12 @@ const LimitDate = styled.p`
   )};
 `;
 
+// const video = {
+//   src: 'https://www.youtube.com/embed/UoVLfEjkH9o',
+//   title: 'Video Player: WAQ21 - Merci aux bénévoles et aux partenaires!',
+// };
+
 const SpeakersCall = () => (
-  // const video = {
-  //   src: 'https://www.youtube.com/embed/UoVLfEjkH9o',
-  //   title: 'Video Player: WAQ21 - Merci aux bénévoles et aux partenaires!',
-  // };
   <>
     <SEO
       title='Appel à conférences'
