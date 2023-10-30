@@ -41,32 +41,32 @@ const SpeakersIntro = styled.div`
   )};
 `;
 
-const VideoContainer = styled.div`
-  position: relative;
+// const VideoContainer = styled.div`
+//   position: relative;
 
-  padding-top: 56.25%;
-`;
+//   padding-top: 56.25%;
+// `;
 
-const Video = styled.iframe`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
+// const Video = styled.iframe`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: 2;
 
-  width: 100%;
-  height: 100%;
-`;
+//   width: 100%;
+//   height: 100%;
+// `;
 
-const VideoWrapper = styled.div`
-  position: relative;
+// const VideoWrapper = styled.div`
+//   position: relative;
 
-  overflow-y: visible;
+//   overflow-y: visible;
 
-  ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [60, 130], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
+//   ${breakpointsRange(
+//     [{ prop: 'marginBottom', sizes: [60, 130], bases: [16, 20] }],
+//     breakpoints.spacings
+//   )};
+// `;
 
 const Container = styled(SectionContainer)`
   padding-bottom: 0;
@@ -132,45 +132,52 @@ const LimitDate = styled.p`
   )};
 `;
 
-const SpeakersCall = () => {
-  const video = {
-    src: 'https://www.youtube.com/embed/UoVLfEjkH9o',
-    title: 'Video Player: WAQ21 - Merci aux bénévoles et aux partenaires!',
-  };
-  return (
-    <>
-      <SEO title='Appel à conférences' description='' />
+const SpeakersCall = () => (
+  // const video = {
+  //   src: 'https://www.youtube.com/embed/UoVLfEjkH9o',
+  //   title: 'Video Player: WAQ21 - Merci aux bénévoles et aux partenaires!',
+  // };
+  <>
+    <SEO
+      title='Appel à conférences'
+      description='Le Web à Québec (WAQ) est l’occasion de rassembler des professionnels, développeurs, étudiants et passionnés de l’industrie du numérique à Québec.'
+    />
 
-      <Center
-        maxWidth='1240px'
-        gutters='var(--container-gutter)'
-        withText
-        intrinsic
-      >
-        <SpeakersTitle css={titleStyle}>
-          <span>appel à</span> conférences
-        </SpeakersTitle>
-      </Center>
+    <Center
+      maxWidth='1240px'
+      gutters='var(--container-gutter)'
+      withText
+      intrinsic
+    >
+      <SpeakersTitle css={titleStyle}>
+        <span>appel à</span> conférences
+      </SpeakersTitle>
+    </Center>
 
-      <Center
-        maxWidth='850px'
-        gutters='var(--container-gutter)'
-        withText
-        intrinsic
-      >
-        <SpeakersIntro css={introStyle}>
-          <Stack>
-            <p>
-              Courte intro de bienvenue. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </p>
-          </Stack>
-        </SpeakersIntro>
-      </Center>
+    <Center
+      maxWidth='850px'
+      gutters='var(--container-gutter)'
+      withText
+      intrinsic
+    >
+      <SpeakersIntro css={introStyle}>
+        <Stack>
+          <p>
+            Le Web à Québec (WAQ) est l’occasion de rassembler des
+            professionnels, développeurs, étudiants et passionnés de l’industrie
+            du numérique à Québec. C’est un événement créé par et pour la
+            communauté se déroulant sur 3 jours, du 28 au 30 mai 2024 au
+            Terminal - Port de Québec. L’une des grandes forces du WAQ est la
+            qualité de ses conférences. Si vous souhaitez voir votre conférence
+            affichée dans la programmation 2024 du WAQ, déposez votre
+            candidature!
+          </p>
+        </Stack>
+      </SpeakersIntro>
+    </Center>
 
-      <Container forwardedAs='div' faded>
-        <VideoWrapper>
+    <Container forwardedAs='div' faded>
+      {/* <VideoWrapper>
           <Center maxWidth='1060px' gutters='var(--container-gutter)'>
             <VideoContainer>
               <Video
@@ -180,55 +187,78 @@ const SpeakersCall = () => {
               />
             </VideoContainer>
           </Center>
-        </VideoWrapper>
-        <Center maxWidth='850px' gutters='var(--container-gutter)'>
-          <TextContent>
-            <h2>Ceci est un sous-titre</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-              optio perspiciatis consequatur atque nulla doloribus? Iusto
-              quibusdam laudantium minima dolore odio nisi facilis voluptatum
-              eius nostrum debitis, et dolorum quas!
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-              optio perspiciatis consequatur atque nulla doloribus? Iusto
-              quibusdam laudantium minima dolore odio nisi facilis voluptatum
-              eius nostrum debitis, et dolorum quas!
-            </p>
-            <h2>Ceci est un sous-titre</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-              optio perspiciatis consequatur atque nulla doloribus? Iusto
-              quibusdam laudantium minima dolore odio nisi facilis voluptatum
-              eius nostrum debitis, et dolorum quas!
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-              optio perspiciatis consequatur atque nulla doloribus? Iusto
-              quibusdam laudantium minima dolore odio nisi facilis voluptatum
-              eius nostrum debitis, et dolorum quas!
-            </p>
-          </TextContent>
+        </VideoWrapper> */}
+      <Center maxWidth='850px' gutters='var(--container-gutter)'>
+        <TextContent>
+          <h2>À quoi ressemble une conférence au WAQ?</h2>
+          <p>
+            Les conférences du WAQ portent généralement sur les thèmes:
+            communication et marketing, design, développement Web, innovation et
+            tout autre thème intéressant et pertinent pour la communauté
+            numérique. Alors, si votre conférence sort des sentiers battus,
+            n’hésitez pas à nous la proposer.
+          </p>
+          <p>
+            Les conférences sont généralement une présentation d’études de cas,
+            les meilleurs conseils ou des histoires de défis surmontés sous un
+            format de présentation de 45 minutes. Il est STRICTEMENT INTERDIT de
+            faire des pitchs de vente sur vos produits et services.
+          </p>
+          <h2>Prêt à vous lancer?</h2>
+          <p>Avant de déposer votre candidature, vous devez avoir :</p>
+          <ul>
+            <li>10 minutes de votre temps;</li>
+            <li>un court paragraphe expliquant votre conférence;</li>
+            <li>
+              une vidéo de 1 à 3 minutes présentant votre sujet (ou une vidéo
+              d’une de vos présentations).
+            </li>
+          </ul>
+          <p>
+            La vidéo peut être faite de manière très simple. C’est une façon de
+            constater votre passion pour le sujet discuté, en quelques minutes.
+            Alors, assurez-vous d’avoir saisi vos informations avec le plus de
+            justesse possible.
+          </p>
+          <p>
+            Vous devez soumettre autant de candidatures que de propositions de
+            conférence.
+          </p>
+          <h2>Et ensuite?</h2>
+          <p>
+            Le comité de programmation étudie toutes les propositions reçues. Le
+            choix des candidatures retenues est basé sur la pertinence et la
+            qualité du sujet proposé. Les conférencier.ières retenu.es seront
+            contacté.ées en mars 2024.
+          </p>
+          <p>
+            En raison de la grande quantité de soumissions reçues, nous nous
+            excusons à l’avance de ne pouvoir donner la raison exacte des refus.
+          </p>
+          <p>
+            Si vous avez des questions, communiquez avec nous à l’adresse{' '}
+            <a href='mailto:conferences@quebecnumerique.com'>
+              conferences@quebecnumerique.com
+            </a>
+          </p>
+        </TextContent>
 
-          <Center maxWidth='1060px' withText intrinsic>
-            <LimitDate>Date limite, le 0 janvier 2024</LimitDate>
-            <Button
-              to='https://yr21i4wwzuv.typeform.com/to/vgbK9zTW'
-              tag='href'
-              rel='noopener noreferrer'
-              target='_blank'
-              animated
-            >
-              Poser ma candidature
-            </Button>
-          </Center>
+        <Center maxWidth='1060px' withText intrinsic>
+          <LimitDate>Date limite, le 0 janvier 2024</LimitDate>
+          <Button
+            to='https://yr21i4wwzuv.typeform.com/to/vgbK9zTW'
+            tag='href'
+            rel='noopener noreferrer'
+            target='_blank'
+            animated
+          >
+            Déposer ma candidature
+          </Button>
         </Center>
-      </Container>
-    </>
-  );
-};
-
+      </Center>
+    </Container>
+  </>
+);
 SpeakersCall.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
