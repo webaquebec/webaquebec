@@ -1,7 +1,7 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // components
 import Button from '../components/Button';
@@ -41,32 +41,43 @@ const SpeakersIntro = styled.div`
   )};
 `;
 
-// const VideoContainer = styled.div`
-//   position: relative;
+const introCTA = css`
+  ${breakpointsRange(
+    [
+      { prop: 'marginTop', sizes: [24, 32] },
+      { prop: 'marginBottom', sizes: [32, 40] },
+    ],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
+`;
 
-//   padding-top: 56.25%;
-// `;
+const VideoContainer = styled.div`
+  position: relative;
 
-// const Video = styled.iframe`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   z-index: 2;
+  padding-top: 56.25%;
+`;
 
-//   width: 100%;
-//   height: 100%;
-// `;
+const Video = styled.iframe`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
 
-// const VideoWrapper = styled.div`
-//   position: relative;
+  width: 100%;
+  height: 100%;
+`;
 
-//   overflow-y: visible;
+const VideoWrapper = styled.div`
+  position: relative;
 
-//   ${breakpointsRange(
-//     [{ prop: 'marginBottom', sizes: [60, 130], bases: [16, 20] }],
-//     breakpoints.spacings
-//   )};
-// `;
+  overflow-y: visible;
+
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [60, 130], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
 
 const Container = styled(SectionContainer)`
   padding-bottom: 0;
@@ -132,10 +143,10 @@ const LimitDate = styled.p`
   )};
 `;
 
-// const video = {
-//   src: 'https://www.youtube.com/embed/UoVLfEjkH9o',
-//   title: 'Video Player: WAQ21 - Merci aux bénévoles et aux partenaires!',
-// };
+const video = {
+  src: 'https://www.youtube.com/embed/34lvNZ9WW1k?si=DgYvBSX9KRdVLV8h',
+  title: 'Video Player: WAQ23 - Aftermovie',
+};
 
 const SpeakersCall = () => (
   <>
@@ -169,75 +180,84 @@ const SpeakersCall = () => (
             du numérique à Québec. C’est un événement créé par et pour la
             communauté se déroulant sur 3 jours, du 28 au 30 mai 2024 au
             Terminal - Port de Québec. L’une des grandes forces du WAQ est la
-            qualité de ses conférences. Si vous souhaitez voir votre conférence
-            affichée dans la programmation 2024 du WAQ, déposez votre
-            candidature!
+            qualité de ses conférences. Si tu souhaites voir ton nom dans la
+            liste des conférences de l’édition 2024, dépose ta candidature!
           </p>
         </Stack>
       </SpeakersIntro>
+      <Button
+        to='https://form.jotform.com/231845751374259/prefill/652fe1be6665611018d5cc116195'
+        tag='href'
+        rel='noopener noreferrer'
+        target='_blank'
+        animated
+        css={introCTA}
+      >
+        Déposer ma candidature
+      </Button>
     </Center>
 
     <Container forwardedAs='div' faded>
-      {/* <VideoWrapper>
-          <Center maxWidth='1060px' gutters='var(--container-gutter)'>
-            <VideoContainer>
-              <Video
-                src={video.src}
-                title={video.title}
-                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-              />
-            </VideoContainer>
-          </Center>
-        </VideoWrapper> */}
+      <VideoWrapper>
+        <Center maxWidth='1060px' gutters='var(--container-gutter)'>
+          <VideoContainer>
+            <Video
+              src={video.src}
+              title={video.title}
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            />
+          </VideoContainer>
+        </Center>
+      </VideoWrapper>
       <Center maxWidth='850px' gutters='var(--container-gutter)'>
         <TextContent>
           <h2>À quoi ressemble une conférence au WAQ?</h2>
           <p>
-            Les conférences du WAQ portent généralement sur les thèmes:
-            communication et marketing, design, développement Web, innovation et
-            tout autre thème intéressant et pertinent pour la communauté
-            numérique. Alors, si votre conférence sort des sentiers battus,
-            n’hésitez pas à nous la proposer.
+            Les conférences du WAQ portent généralement sur les thèmes suivants
+            : communication et marketing, design, développement, innovation et
+            tous autres thèmes intéressants et pertinents pour la communauté
+            numérique. Alors, si ta conférence sort des sentiers battus,
+            n’hésite pas à nous la proposer.
           </p>
           <p>
             Les conférences sont généralement une présentation d’études de cas,
             les meilleurs conseils ou des histoires de défis surmontés sous un
             format de présentation de 45 minutes. Il est STRICTEMENT INTERDIT de
-            faire des pitchs de vente sur vos produits et services.
+            faire des pitchs de vente sur des produits et services.
           </p>
-          <h2>Prêt à vous lancer?</h2>
-          <p>Avant de déposer votre candidature, vous devez avoir :</p>
+          <h2>Prêt à te lancer?</h2>
+          <p>Avant de déposer une proposition de conférence, tu dois avoir :</p>
           <ul>
-            <li>10 minutes de votre temps;</li>
-            <li>un court paragraphe expliquant votre conférence;</li>
+            <li>10 minutes de ton temps;</li>
+            <li>un court paragraphe expliquant ta conférence;</li>
             <li>
-              une vidéo de 1 à 3 minutes présentant votre sujet (ou une vidéo
-              d’une de vos présentations).
+              une vidéo de 1 à 3 minutes présentant ton sujet (ou une vidéo
+              d’une de tes présentations).
             </li>
           </ul>
           <p>
             La vidéo peut être faite de manière très simple. C’est une façon de
-            constater votre passion pour le sujet discuté, en quelques minutes.
-            Alors, assurez-vous d’avoir saisi vos informations avec le plus de
-            justesse possible.
+            constater la passion pour le sujet discuté, en quelques minutes.
+            Alors, assure toi d’avoir saisi tes informations avec le plus de
+            justesse possible!
           </p>
           <p>
-            Vous devez soumettre autant de candidatures que de propositions de
-            conférence.
+            Tu peux soumettre autant de propositions de conférences différentes
+            que tu le souhaites.
           </p>
           <h2>Et ensuite?</h2>
           <p>
             Le comité de programmation étudie toutes les propositions reçues. Le
             choix des candidatures retenues est basé sur la pertinence et la
-            qualité du sujet proposé. Les conférencier.ières retenu.es seront
-            contacté.ées en mars 2024.
+            qualité du sujet proposé. Les conférencier·ières retenu·es seront
+            contacté·ées en février 2024.
           </p>
           <p>
             En raison de la grande quantité de soumissions reçues, nous nous
             excusons à l’avance de ne pouvoir donner la raison exacte des refus.
           </p>
           <p>
-            Si vous avez des questions, communiquez avec nous à l’adresse{' '}
+            Si tu as des questions, écris-nous à l’adresse
             <a href='mailto:conferences@quebecnumerique.com'>
               conferences@quebecnumerique.com
             </a>
@@ -247,7 +267,7 @@ const SpeakersCall = () => (
         <Center maxWidth='1060px' withText intrinsic>
           <LimitDate>Date limite, le 0 janvier 2024</LimitDate>
           <Button
-            to='https://yr21i4wwzuv.typeform.com/to/vgbK9zTW'
+            to='https://form.jotform.com/231845751374259/prefill/652fe1be6665611018d5cc116195'
             tag='href'
             rel='noopener noreferrer'
             target='_blank'
