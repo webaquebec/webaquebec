@@ -265,7 +265,7 @@ const SpeakersCall = () => (
         </TextContent>
 
         <Center maxWidth='1060px' withText intrinsic>
-          <LimitDate>Date limite, le 0 janvier 2024</LimitDate>
+          <LimitDate>Date limite, le 15 janvier 2024</LimitDate>
           <Button
             to='https://form.jotform.com/231845751374259/prefill/652fe1be6665611018d5cc116195'
             tag='href'
