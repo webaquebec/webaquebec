@@ -267,7 +267,7 @@ const SpeakersCall = () => (
             excusons à l’avance de ne pouvoir donner la raison exacte des refus.
           </p>
           <p>
-            Si tu as des questions, écris-nous à l’adresse
+            Si tu as des questions, écris-nous à l’adresse{' '}
             <a href='mailto:conferences@quebecnumerique.com'>
               conferences@quebecnumerique.com
             </a>
