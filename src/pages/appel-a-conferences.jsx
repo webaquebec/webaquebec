@@ -126,6 +126,16 @@ const TextContent = styled.div`
       breakpoints.spacings
     )};
   }
+
+  ul {
+    ${breakpointsRange(
+      [
+        { prop: 'marginLeft', sizes: [16, 24], bases: [16, 20] },
+        { prop: 'marginBottom', sizes: [16, 32], bases: [16, 20] },
+      ],
+      breakpoints.spacings
+    )};
+  }
 `;
 
 const LimitDate = styled.p`
