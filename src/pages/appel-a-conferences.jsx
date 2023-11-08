@@ -12,7 +12,8 @@ import SEO from '../components/SEO';
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
 
-// views
+// images
+import ogImgSpeakersCall from '../images/og/og-img-waq-24-speakers-call.png';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -163,6 +164,7 @@ const SpeakersCall = () => (
     <SEO
       title='Appel à conférences'
       description='Le Web à Québec (WAQ) est l’occasion de rassembler des professionnels, développeurs, étudiants et passionnés de l’industrie du numérique à Québec.'
+      image={ogImgSpeakersCall}
     />
 
     <Center
