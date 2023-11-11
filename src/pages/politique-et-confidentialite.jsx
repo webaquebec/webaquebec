@@ -79,7 +79,7 @@ const ContactInformation = () => (
       <br />
       330, rue Saint-Vallier Est, bureau 300,
       <br />
-      Québec (QC) G1K 9C5
+      Québec (Qc) G1K 9C5
       <br />
     </div>
     <div>
@@ -118,23 +118,28 @@ const PolicyPrivacyPage = () => (
             <p>
               Devant le développement des nouveaux outils de communication, il
               est nécessaire de porter une attention particulière à la
-              protection de la vie privée. C’est pourquoi le Web Québec (WAQ)
-              s’engage à respecter la confidentialité des renseignements
-              personnels collectés.
+              protection de la vie privée. C’est pourquoi nous nous engageons à
+              respecter la confidentialité des renseignements personnels que
+              nous collectons.
             </p>
           </Stack>
 
           <Stack>
-            <h2 css={headingStyle}>À propos du site web</h2>
+            <h2 css={headingStyle}>Site Web de Québec Numérique</h2>
 
             <p>
-              Le site Web du Web à Québec (WAQ) est opéré par Québec numérique
-              (QN) (opérateur)
-            </p>
-
-            <p>
-              L’utilisateur(trice) qui consulte le site Web est lié par les
-              présentes conditions.
+              Le site{' '}
+              <Link href='https://webaquebec.org/'>Web à Québec (WAQ)</Link> est
+              opéré par{' '}
+              <Link
+                href='https://quebecnumerique.com/'
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                Québec numérique
+              </Link>{' '}
+              (opérateur). L’utilisateur qui consulte le site Web est lié par
+              les présentes conditions.
             </p>
 
             <p>
@@ -155,7 +160,7 @@ const PolicyPrivacyPage = () => (
           </Stack>
 
           <Stack>
-            <h2 css={headingStyle}>Collecte de renseignements personnels</h2>
+            <h2 css={headingStyle}>Collecte des renseignements personnels</h2>
 
             <p>Nous collectons les renseignements suivants:</p>
 
@@ -167,17 +172,20 @@ const PolicyPrivacyPage = () => (
             </UnorderedList>
 
             <p>
-              Les renseignements personnels sont recueillis au travers de
-              formulaires et de l’interactivité établie entre notre site Web et
-              l’utilisateur. Le WAQ utilise également des fichiers témoins
-              (cookies) et/ou journaux pour réunir des informations qui te
-              concernent.
+              Les renseignements personnels que nous collectons sont recueillis
+              au travers de formulaires et l’interactivité établie entre vous et
+              notre site Web. Nous utilisons également des fichiers témoins
+              (cookies) et/ou journaux pour réunir des informations vous
+              concernant.
             </p>
 
             <p>
               Il est à noter que les renseignements utilisateurs ne sont jamais
               divulgués à des tiers ni utilisés à des fins commerciales, à moins
-              que ton consentement ait été donné.
+              que votre consentement ait été donné. Les renseignements récoltés
+              pour un projet donné serviront seulement pour ce projet et ne
+              seront en aucun temps transférés aux autres projets de
+              l’organisation.
             </p>
           </Stack>
 
@@ -192,30 +200,24 @@ const PolicyPrivacyPage = () => (
             <UnorderedList>
               <li>Formulaire d’inscription à l’infolettre</li>
               <li>Formulaire de contact</li>
-              <li>Formulaire d’achat de billets</li>
-              <li>Fiche participant(e) dans l’application de l’événement</li>
             </UnorderedList>
 
             <p>
-              Le WAQ collecte les renseignements des utilisateurs(trices) qui
+              Nous collectons les renseignements des utilisateurs qui
               s’inscrivent à notre liste de diffusion (nom, prénom, adresse
-              électronique). Les renseignements ainsi collectés le sont pour les
-              finalités suivantes :
+              électronique). Nous utilisons les renseignements ainsi collectés
+              pour les finalités suivantes:
             </p>
 
             <UnorderedList>
-              <li>Informations</li>
-              <li>Offres promotionnelles</li>
+              <li>Informations/Offres promotionnelles</li>
               <li>Statistiques</li>
               <li>Contact</li>
             </UnorderedList>
 
             <p>
               Ces données ne sont jamais vendues à des tiers et les abonnés
-              peuvent se désabonner à tout moment. Elles peuvent cependant être
-              partagées aux partenaires du WAQ si le consentement de
-              l’utilisateur(trice) a été donné au moment de l’abonnement ou de
-              l’achat d’un billet.
+              peuvent se désabonner à tout moment.
             </p>
           </Stack>
 
@@ -223,28 +225,11 @@ const PolicyPrivacyPage = () => (
             <h2 css={headingStyle}>Commentaires</h2>
 
             <p>
-              Quand un commentaire est laissé sur notre site Web, les données
-              inscrites dans le formulaire de commentaire, mais aussi ton
-              adresse IP et l’agent utilisateur de ton navigateur sont collectés
-              pour nous aider à la détection des commentaires indésirables.
-            </p>
-
-            <p>
-              Une chaîne anonymisée créée à partir de ton adresse de messagerie
-              (également appelée <i>hash</i>) peut être envoyée au service
-              Gravatar pour vérifier si tu utilises ce dernier. Les clauses de
-              confidentialité du service Gravatar sont disponibles ici :{' '}
-              <Link href='https://automattic.com/privacy/'>
-                https://automattic.com/privacy/
-              </Link>
-              .
-            </p>
-
-            <p>
-              Après validation de ton commentaire, ta photo de profil sera
-              visible publiquement à côté de ton commentaire. Les commentaires
-              des visiteurs peuvent être vérifiés à l’aide d’un service
-              automatisé de détection des commentaires indésirables.
+              Quand vous laissez un commentaire sur notre site Web, les données
+              inscrites dans le formulaire de commentaire, mais aussi votre
+              adresse IP et l’agent utilisateur de votre navigateur sont
+              collectés pour nous aider à la détection des commentaires
+              indésirables.
             </p>
           </Stack>
 
@@ -262,70 +247,16 @@ const PolicyPrivacyPage = () => (
           </Stack>
 
           <Stack>
-            <h2 css={headingStyle}>Fichiers témoins (cookies)</h2>
-
-            <p>
-              Si tu déposes un commentaire sur notre site Web, il te sera
-              proposé d’enregistrer ton nom, adresse de messagerie et site Web
-              dans des cookies. C’est uniquement pour ton confort afin de ne pas
-              avoir à saisir ces informations si tu déposes un autre commentaire
-              plus tard. Ces cookies expirent au bout d’un an.
-            </p>
-
-            <p>
-              Si tu as un compte et que tu te connectes sur ce site, un cookie
-              temporaire sera créé afin de déterminer si ton navigateur accepte
-              les cookies. Il ne contient pas de données personnelles et sera
-              supprimé automatiquement à la fermeture de ton navigateur.
-            </p>
-
-            <p>
-              Lorsque tu te connectes, nous mettons en place un certain nombre
-              de cookies pour enregistrer tes informations de connexion et tes
-              préférences d’écran. La durée de vie d’un cookie de connexion est
-              de deux jours, celle d’un cookie d’option d’écran est d’un an. Si
-              tu coches « Se souvenir de moi », le cookie de connexion sera
-              conservé pendant deux semaines. Si tu te déconnectes de ton
-              compte, le cookie de connexion sera effacé.
-            </p>
-
-            <p>
-              En modifiant ou en publiant un article, un cookie supplémentaire
-              sera enregistré dans ton navigateur. Ce cookie ne comprend aucune
-              donnée personnelle. Il indique simplement l’identifiant de
-              l’article que tu dois modifier. Il expire au bout d’un jour.
-            </p>
-          </Stack>
-
-          <Stack>
-            <h2 css={headingStyle}>Contenus embarqués depuis d’autres site</h2>
-
-            <p>
-              Les pages de ce site peuvent inclure des contenus intégrés (par
-              exemple, des vidéos, images, des widgets, etc.). Le contenu
-              intégré depuis d’autres sites se comporte de la même manière que
-              si le(la) visiteur(euse) se rendait sur cet autre site.
-            </p>
-
-            <p>
-              Ces sites Web pourraient collecter des données sur toi, utiliser
-              des cookies, embarquer des outils de suivis tiers, suivre tes
-              interactions avec ce contenus embarqués si tu disposes d’un compte
-              connecté sur leur site Web.
-            </p>
-          </Stack>
-
-          <Stack>
             <h2 css={headingStyle}>
               Opérations de marketing automatisé et/ou de profilage réalisées à
               l’aide des données personnelles
             </h2>
 
             <p>
-              Si tu visites certaines pages de ce site, il est possible que ton
-              navigateur enregistre un cookie pour une durée maximale d’un an
-              pour que nous puissions diffuser de la publicité pertinente via le
-              réseau Google AdWords et le pixel Facebook.
+              Si vous visitez certaines pages de ce site, il est possible que
+              votre navigateur enregistre un cookie pour une durée maximale d’un
+              an pour que nous puissions diffuser de la publicité pertinente via
+              le réseau Google AdWords et le pixel Facebook.
             </p>
           </Stack>
 
@@ -342,33 +273,10 @@ const PolicyPrivacyPage = () => (
             <h2 css={headingStyle}>Durée de stockage des données</h2>
 
             <p>
-              Si tu laisses un commentaire, le commentaire et ses métadonnées
-              sont conservés indéfiniment. Cela permet de reconnaître et
-              d’approuver automatiquement les commentaires suivants au lieu de
-              les laisser dans la file de modération.
-            </p>
-
-            <p>
-              Pour les utilisateurs(trices) qui s’enregistrent sur notre site
-              (seulement si cela est possible), nous stockons également les
-              données personnelles indiquées dans leur profil. Tous les
-              utilisateurs(trices) peuvent voir, modifier ou supprimer leurs
-              informations personnelles à tout moment (à l’exception de leur nom
-              d’utilisateur). Les gestionnaires du site peuvent aussi voir et
-              modifier ces informations. Les mots de passe, pour leur part, sont
-              encryptés dans les bases de données.
-            </p>
-
-            <p>
               Les données récoltées via les formulaires, le cas échéant, sont
               conservées indéfiniment sur nos serveurs internes et/ou dans un
               CRM. L’accès à nos serveurs physiques est restreint aux seules
-              personnes qui disposent de l’autorisation d’y accéder. Nous nous
-              engageons à reconnaître un droit d’accès et de rectification aux
-              personnes concernées et désireuses de consulter, modifier, voire
-              radier les informations les concernant. Il est à noter que les
-              abonné(e)s à notre liste de diffusion peuvent se désabonner à tout
-              moment.
+              personnes qui disposent de l’autorisation d’y accéder.
             </p>
           </Stack>
 
@@ -378,20 +286,35 @@ const PolicyPrivacyPage = () => (
             </h2>
 
             <p>
-              Nous nous engageons ainsi à t’offrir un droit d’opposition et de
-              retrait quant à tes renseignements personnels. Le droit
-              d’opposition s’entend comme étant la possibilité offerte aux
-              internautes de refuser que leurs renseignements personnels soient
-              utilisés à certaines fins mentionnées lors de la collecte (voir la
-              section « Collecte des renseignements personnels »). Le droit de
-              retrait s’entend comme étant la possibilité offerte aux
-              internautes de demander à ce que leurs renseignements personnels
-              ne figurent plus, par exemple, dans une liste de diffusion.
+              Nous nous engageons à reconnaître un droit d’accès et de
+              rectification aux personnes concernées et désireuses de consulter,
+              modifier, voire radier les informations les concernant.
             </p>
 
             <p>
-              Pour pouvoir exercer ces droits, tu dois communiquer directement
-              avec notre équipe par :
+              Il est à noter que les abonnés à notre liste de diffusion peuvent
+              se désabonner à tout moment.
+            </p>
+
+            <p>
+              Nous nous engageons ainsi à vous offrir un droit d’opposition et
+              de retrait quant à vos renseignements personnels. Le droit
+              d’opposition s’entend comme étant la possibilité offerte aux
+              internautes de refuser que leurs renseignements personnels soient
+              utilisés à certaines fins mentionnées lors de la collecte (voir la
+              section « Collecte des renseignements personnels »).
+            </p>
+
+            <p>
+              Le droit de retrait s’entend comme étant la possibilité offerte
+              aux internautes de demander à ce que leurs renseignements
+              personnels ne figurent plus, par exemple, dans une liste de
+              diffusion.
+            </p>
+
+            <p>
+              Pour pouvoir exercer ces droits, vous pouvez communiquer
+              directement avec notre équipe par :
             </p>
 
             <ContactInformation />
@@ -408,25 +331,27 @@ const PolicyPrivacyPage = () => (
             </p>
 
             <p>
-              Pour ce faire, tu peux communiquer directement avec notre équipe
-              par:
+              Pour ce faire, vous pouvez communiquer directement avec notre
+              équipe par:
             </p>
 
             <ContactInformation />
           </Stack>
 
           <Stack>
-            <h2 css={headingStyle}>Quels sont vos droits sur vos données?</h2>
+            <h2 css={headingStyle}>
+              Quels sont vos droits d’accès sur vos données?
+            </h2>
 
             <p>
-              Si tu as un compte ou si tu as laissé des commentaires sur ce
-              site, tu peux demander à recevoir un fichier contenant toutes les
-              données personnelles que nous possédons à ton sujet, incluant
-              celles que tu nous as fournies. Tu peux également demander la
-              suppression des données personnelles te concernant, de même que la
-              rectification si les renseignements sont inexacts, incomplets ou
-              équivoques. Ceci ne prend pas en compte les données conservées à
-              des fins administratives, légales ou pour des raisons de sécurité.
+              Vous pouvez demander à recevoir un fichier contenant toutes les
+              données personnelles que nous possédons à votre sujet, incluant
+              celles que vous nous avez fournies. Vous pouvez également demander
+              la suppression des données personnelles vous concernant, de même
+              que la rectification si les renseignements sont inexacts,
+              incomplets ou équivoques. Ceci ne prend pas en compte les données
+              conservées à des fins administratives, légales ou pour des raisons
+              de sécurité.
             </p>
           </Stack>
 
@@ -438,18 +363,18 @@ const PolicyPrivacyPage = () => (
               énoncées dans la législation provinciale et fédérale canadienne.
             </p>
 
-            <p>Nous nous engageons aussi à :</p>
+            <p>Québec numérique s’engage aussi à:</p>
 
             <AlphabeticalList>
               <li>
-                Prendre les mesures raisonnables pour diminuer le risques qu’un
+                prendre les mesures raisonnables pour diminuer le risques qu’un
                 préjudice soit causé et éviter que de nouveaux incidents de même
                 nature se produire si nous avons des motifs de croire qu’un
                 incident de confidentialité impliquant un renseignement
                 personnel s’est produit;
               </li>
               <li>
-                Aviser la Commission d’accès à l’information et toute personne
+                aviser la Commission d’accès à l’information et toute personne
                 dont un renseignement personnel est concerné par l’incident si
                 l’incident présente un préjudice sérieux pour les personnes
                 concernées.
@@ -488,8 +413,16 @@ const PolicyPrivacyPage = () => (
 
             <p>
               Pour toute question, veuillez communiquer avec nous à{' '}
-              <Link href='mailto:info@webaquebec.org'>info@webaquebec.org</Link>
-              .
+              <Link href='mailto:info@quebecnumerique.com'>
+                info@quebecnumerique.com
+              </Link>
+            </p>
+
+            <p>
+              <em>
+                Veuillez noter que le genre masculin est utilisé dans ce
+                document dans le seul but d’alléger le texte.
+              </em>
             </p>
           </Stack>
         </Stack>
