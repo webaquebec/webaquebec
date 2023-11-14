@@ -53,27 +53,6 @@ module.exports = {
         pixelId: inProduction && process.env.FACEBOOK_PIXEL_ID,
       },
     },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          trackingId: process.env.GTAG_ID, // leave empty if you want to disable the tracker
-          cookieName: 'gatsby-gdpr-google-analytics', // default
-          anonymize: true, // default
-          allowAdFeatures: false, // default
-        },
-        googleTagManager: {
-          trackingId: process.env.GTM_ID, // leave empty if you want to disable the tracker
-          cookieName: 'gatsby-gdpr-google-tagmanager', // default
-          dataLayerName: 'dataLayer', // default
-        },
-        facebookPixel: {
-          pixelId: process.env.FACEBOOK_PIXEL_ID, // leave empty if you want to disable the tracker
-          cookieName: 'gatsby-gdpr-facebook-pixel', // default
-        },
-        environments: ['production'],
-      },
-    },
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-image`,
     'gatsby-plugin-sharp',
