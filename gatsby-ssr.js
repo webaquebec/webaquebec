@@ -205,15 +205,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
     />,
   ];
 
-  const cookieyesScript = [
-    <script
-      id='cookieyes'
-      type='text/javascript'
-      src='https://cdn-cookieyes.com/client_data/e486fe454c7a6b64819c4ffd/script.js'
-    />,
-  ];
-
-  setHeadComponents([...preloadFonts, ...cookieyesScript]);
+  setHeadComponents([...preloadFonts]);
 };
 
 wrapRootElement.propTypes = {
