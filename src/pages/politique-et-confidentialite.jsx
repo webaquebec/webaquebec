@@ -79,7 +79,7 @@ const ContactInformation = () => (
       <br />
       330, rue Saint-Vallier Est, bureau 300,
       <br />
-      Québec (Qc) G1K 9C5
+      Québec (QC) G1K 9C5
       <br />
     </div>
     <div>
@@ -125,7 +125,7 @@ const PolicyPrivacyPage = () => (
           </Stack>
 
           <Stack>
-            <h2 css={headingStyle}>Site Web de Québec Numérique</h2>
+            <h2 css={headingStyle}>Site Web du Web à Québec</h2>
 
             <p>
               Le site{' '}
@@ -218,18 +218,6 @@ const PolicyPrivacyPage = () => (
             <p>
               Ces données ne sont jamais vendues à des tiers et les abonnés
               peuvent se désabonner à tout moment.
-            </p>
-          </Stack>
-
-          <Stack>
-            <h2 css={headingStyle}>Commentaires</h2>
-
-            <p>
-              Quand vous laissez un commentaire sur notre site Web, les données
-              inscrites dans le formulaire de commentaire, mais aussi votre
-              adresse IP et l’agent utilisateur de votre navigateur sont
-              collectés pour nous aider à la détection des commentaires
-              indésirables.
             </p>
           </Stack>
 
