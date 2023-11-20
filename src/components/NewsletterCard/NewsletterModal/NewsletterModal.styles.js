@@ -22,8 +22,7 @@ export const NewsletterModalPaper = css`
   flex-flow: column nowrap;
 `;
 
-export const NewsletterModalTitle = styled.h3`
-  /* pour éviter le bouton de fermeture */
+export const NewsletterModalTitle = styled.h2`
   padding-right: 64px;
 
   ${breakpointsRange(
@@ -47,24 +46,4 @@ export const NewsletterModalParagraph = styled.p`
   font-family: ${fontFamilies.body};
 `;
 
-export const NewsletterModalFormContainer = styled.div`
-  button {
-    ${breakpointsRange(
-      [{ prop: 'marginTop', sizes: [32, 64] }],
-      breakpoints.spacings,
-      { bases: [16, 20] }
-    )};
-  }
-
-  label {
-    ${breakpointsRange(
-      [{ prop: 'marginTop', sizes: [16, 32] }],
-      breakpoints.spacings,
-      { bases: [16, 20] }
-    )};
-  }
-`;
-
-export const CheckboxHelperText = styled.div`
-  color: red;
-`;
+export const NewsletterModalFormContainer = styled.div``;

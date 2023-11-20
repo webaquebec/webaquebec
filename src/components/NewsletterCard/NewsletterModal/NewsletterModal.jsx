@@ -12,6 +12,7 @@ import Checkbox from '../../Checkbox/Checkbox';
 import Center from '../../LayoutSections/Center';
 import Paper from '../../Paper';
 import FormHelperText from '../../FormHelperText';
+import Stack from '../../LayoutSections/Stack';
 
 // styles
 import colors from '../../../styles/colors';
@@ -86,96 +87,112 @@ const NewsletterModal = () => {
         rounded
         css={NewsletterModalPaper}
       >
-        <NewsletterModalTitle>
-          abonne toi à l&apos;infolettre
-        </NewsletterModalTitle>
+        <Stack>
+          <NewsletterModalTitle>
+            abonne toi à l&apos;infolettre
+          </NewsletterModalTitle>
 
-        <NewsletterModalParagraph>
-          Pour ne rien manquer en ce qui concerne le WAQ et les diverses
-          activités lui étant lié
-        </NewsletterModalParagraph>
+          <NewsletterModalParagraph>
+            Pour ne rien manquer en ce qui concerne le WAQ et les diverses
+            activités lui étant lié
+          </NewsletterModalParagraph>
 
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({
-            handleBlur,
-            handleChange,
-            handleSubmit: formikHandleSubmit,
-            values,
-            errors,
-            touched,
-          }) => (
-            <form onSubmit={formikHandleSubmit}>
-              <NewsletterModalFormContainer>
-                <label htmlFor='input-bot-field' css={hideVisually}>
-                  Only for verification. Dont fill this out:{' '}
-                  <input
-                    id='input-bot-field'
-                    name='botField'
-                    autoComplete='off'
-                    onChange={handleChange}
-                  />
-                </label>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({
+              handleBlur,
+              handleChange,
+              handleSubmit: formikHandleSubmit,
+              values,
+              errors,
+              touched,
+            }) => (
+              <form
+                onSubmit={formikHandleSubmit}
+                css={`
+                  margin-top: 0;
+                `}
+              >
+                <NewsletterModalFormContainer>
+                  <Stack>
+                    <label htmlFor='input-bot-field' css={hideVisually}>
+                      Only for verification. Dont fill this out:{' '}
+                      <input
+                        id='input-bot-field'
+                        name='botField'
+                        autoComplete='off'
+                        onChange={handleChange}
+                      />
+                    </label>
 
-                <TextInputField
-                  label='ton courriel'
-                  placeholder='ton courriel'
-                  name='email'
-                  type='email'
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  error={errors.email && touched.email}
-                  helperText={touched.email ? errors.email : ''}
-                />
-
-                <Checkbox
-                  name='conditions'
-                  css={{ color: 'white' }}
-                  checked={values.conditions}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                >
-                  <div>
-                    <span>
-                      Je désire recevoir des nouvelles du WAQ par courriel et je
-                      consens à la{' '}
-                      <Link
-                        href='/politique-et-confidentialite'
-                        target='_blank'
-                      >
-                        politique de confidentialité
-                      </Link>
-                    </span>
-                    <FormHelperText
-                      css={{ paddingLeft: '0' }}
-                      error={errors.conditions && touched.conditions}
-                    >
-                      {touched.conditions ? errors.conditions : ''}
-                    </FormHelperText>
-                  </div>
-                </Checkbox>
-
-                <Button type='submit' small inverted>
-                  Je m&apos;abonne!
-                </Button>
-
-                {userNotification && (
-                  <div css={{ marginTop: '32px' }}>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: userNotification,
-                      }}
+                    <TextInputField
+                      label='ton courriel'
+                      placeholder='ton courriel'
+                      name='email'
+                      type='email'
+                      value={values.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      error={errors.email && touched.email}
+                      helperText={touched.email ? errors.email : ''}
                     />
-                  </div>
-                )}
-              </NewsletterModalFormContainer>
-            </form>
-          )}
-        </Formik>
+
+                    <Checkbox
+                      name='conditions'
+                      css={{ color: 'white' }}
+                      checked={values.conditions}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    >
+                      <div>
+                        <span>
+                          Je désire recevoir des nouvelles du WAQ par courriel
+                          et je consens à la{' '}
+                          <Link
+                            href='/politique-et-confidentialite'
+                            target='_blank'
+                          >
+                            politique de confidentialité
+                          </Link>
+                        </span>
+                        <FormHelperText
+                          css={{ paddingLeft: '0' }}
+                          error={errors.conditions && touched.conditions}
+                        >
+                          {touched.conditions ? errors.conditions : ''}
+                        </FormHelperText>
+                      </div>
+                    </Checkbox>
+
+                    <Button
+                      type='submit'
+                      small
+                      inverted
+                      css={`
+                        width: max-content;
+                      `}
+                    >
+                      Je m&apos;abonne!
+                    </Button>
+
+                    {userNotification && (
+                      <div css={{ marginTop: '32px' }}>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: userNotification,
+                          }}
+                        />
+                      </div>
+                    )}
+                  </Stack>
+                </NewsletterModalFormContainer>
+              </form>
+            )}
+          </Formik>
+        </Stack>
       </Paper>
     </Center>
   );
