@@ -2,10 +2,10 @@ import fetch from 'node-fetch';
 
 const initBody = (email) => ({
   AuthKey: {
-    idKey: process.env.GATSBY_NEWSLETTER_AUTH_ID,
-    Key: process.env.GATSBY_NEWSLETTER_AUTH_KEY,
+    idKey: process.env.NEWSLETTER_API_AUTH_ID,
+    Key: process.env.NEWSLETTER_API_AUTH_KEY,
   },
-  idProject: process.env.GATSBY_NEWSLETTER_PROJECT_ID,
+  idProject: process.env.NEWSLETTER_API_PROJECT_ID,
   Records: [
     {
       ID: {
@@ -34,7 +34,7 @@ async function addContact({ body }, res) {
 
   try {
     const response = await (
-      await fetch(process.env.GATSBY_NEWSLETTER_API_URL, {
+      await fetch(process.env.NEWSLETTER_API_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
