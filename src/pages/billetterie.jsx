@@ -12,9 +12,9 @@ import SEO from '../components/SEO';
 import breakpointsRange from '../utils/breakpointsRange';
 
 // views
-import Prices from '../views/TicketsView/Prices';
-// import CallToAction from '../views/TicketsView/CallToAction';
-import TermsAndConditions from '../views/TicketsView/TermsAndConditions/TermsAndConditions';
+// import Prices from '../views/TicketsView/Prices';
+import CallToAction from '../views/TicketsView/CallToAction';
+// import TermsAndConditions from '../views/TicketsView/TermsAndConditions/TermsAndConditions';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -70,7 +70,7 @@ const TicketsPage = () => (
   <>
     <SEO
       title='Billetterie'
-      description='Viens vivre le WAQ du 23 au 25 mai 2023. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
+      description='Viens vivre le WAQ du 28 au 30 mai 2024. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
     />
 
     <Center
@@ -91,20 +91,15 @@ const TicketsPage = () => (
             nouvelles tendances ou simplement vivre l&apos;ambiance unique du
             WAQ, toutes les raisons sont bonnes de te joindre à nous!
           </p>
-          {/* <p>
-            Cette année, on se met en mode hybride en te donnant l&apos;option
-            de participer sur place, au Terminal - Port de Québec, ou chez toi.
-            C&apos;est comme tu le sens!
-          </p> */}
         </Stack>
       </TicketsIntro>
     </Center>
 
-    <Prices />
+    {/* <Prices /> */}
 
     <Container forwardedAs='div' faded>
-      {/* <CallToAction /> */}
-      <TermsAndConditions />
+      <CallToAction />
+      {/* <TermsAndConditions /> */}
     </Container>
   </>
 );

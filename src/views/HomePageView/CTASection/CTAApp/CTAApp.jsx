@@ -1,6 +1,6 @@
 // vendors
 import React, { useEffect, useState } from 'react';
-import { isAndroid, isIOS } from 'react-device-detect';
+import { isAndroid, isIOS, isDesktop } from 'react-device-detect';
 
 // images
 import vectorPhone from '../../../../images/vectorPhone.svg';
@@ -22,7 +22,7 @@ const CTAApp = () => {
   const [appLink, setAppLink] = useState(null);
 
   useEffect(() => {
-    let link = 'https://app.swapcard.com/event/web-a-quebec-waq22';
+    let link = 'https://app.swapcard.com/event/web-a-quebec-waq23';
 
     if (isAndroid) {
       link =
@@ -37,12 +37,12 @@ const CTAApp = () => {
   return (
     <CTAWrap>
       <ContentWrap>
-        <Title>découvrez notre application</Title>
+        <Title>rediffusions en cours</Title>
 
         <Text>
-          Que ce soit pour faire ton horaire, réseauter, écouter les
-          conférences, ou tout simplement vivre le WAQ à 100%, l’application
-          sera ton meilleur compagnon pour l’événement!
+          Les rediffusions des conférences du WAQ23 sont en cours dans
+          l’application de l’événement! Disponibles pour les détenteur·rices de
+          billets seulement.
         </Text>
 
         <Button
@@ -53,7 +53,7 @@ const CTAApp = () => {
           small
           animated
         >
-          télécharger l&lsquo;application
+          {isDesktop ? `accéder à` : `télécharger`} l&lsquo;application
         </Button>
       </ContentWrap>
 

@@ -71,54 +71,74 @@ const faqItem = css`
 `;
 
 const data = [
+  // {
+  //   id: 1,
+  //   question: 'Est-ce possible de partager un billet présentiel?',
+  //   answer: `<p>Chaque personne qui sera sur place devra avoir son propre billet puisque les billets sont nominatifs. Ça nous permettra de t’offrir une meilleure expérience, notamment en te réservant un repas qui respecte des allergies et intolérances (si tu en as), en ayant un accès à l’application mobile (pour les rediffusions et créer des contacts) et de te créer un profil qui te correspond, et en ayant ton nom (oui, le tien!) sur ta cocarde pour les moments de réseautage. Bref, il est donc impossible de partager un billet présentiel. Si tes collègues et toi aviez l’habitude d’échanger un seul billet, sache que des <a href="https://ti.to/web-a-quebec/waq-2022/fr"  target="_blank" rel="noopener noreferrer">billets journaliers</a> sont disponibles!</p>`,
+  // },
+  // {
+  //   id: 2,
+  //   question: 'Comment transférer mon billet à une autre personne?',
+  //   answer: `<p>Pour transférer ton billet à une autre personne, tu dois le faire AVANT que l’événement débute, car le billet ne peut pas être échangé entre personnes une fois que le WAQ a débuté. Tu dois repartir du courriel de confirmation reçu lors de la réservation de ton billet.</p>
+  //            <p>Clique sur <b>Voir la commande</b><br />Clique sur <b>Voir/Éditer le billet à échanger</b><br />Dans le haut de la page qui s’ouvre, clique sur <b>Re-assigner</b><br />Coche <b>Supprimer les réponses associées</b><br />Sur la page qui s’affiche, clique sur <b>Billet complet</b> du billet surligné en jaune.<br />Clique sur le bouton bleu <b>Répondre</b>, et réponds à toutes les questions obligatoires</p>`,
+  // },
+  // {
+  //   id: 3,
+  //   question: 'Quel est le coût des billets?',
+  //   answer: `<p>Billet présentiel : <br />Journalier : 395$ <br />Régulier : 895$ <br />Étudiant : 250$ <br /><br />Tous les prix sont avant taxes. Pour acheter ton billet, clique <a href="/billetterie">ici</a></p>`,
+  // },
+  // {
+  //   id: 4,
+  //   question: 'Y a-t-il des billets étudiants?',
+  //   answer: `<p>Oui, les billets étudiants sont au coût de 250$ pour un accès complet au WAQ.</p>`,
+  // },
+  // {
+  //   id: 5,
+  //   question: 'À quel endroit se déroule le WAQ?',
+  //   answer: `<p>L’événement se déroule au <a href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492' target='_blank' rel='noopener noreferrer'>Terminal du Port de Québec</a>, au 84 rue Dalhousie, dans la ville de Québec.</p>`,
+  // },
+  // {
+  //   id: 6,
+  //   question:
+  //     'Comment est-ce que je peux accéder à l’application mobile du WAQ?',
+  //   answer: `<p>L’application sera disponible dans l’App Store et dans Google Play à compter du 15 mai. Si tu as déjà ton billet du WAQ, tu recevras un courriel pour t’informer de sa disponibilité. Si tu ne reçois pas de courriel, mais que tu as bien ton billet, écris-nous à <a href="mailto:info@webaquebec.org">info@webaquebec.org</a>.</p>`,
+  // },
+  // {
+  //   id: 7,
+  //   question: 'Est-ce qu’il y a des billets virtuels à l’édition 2023?',
+  //   answer: `<p>Non, avec le retour à la normal, le WAQ a fait un retour dans le futur avec une édition 100% présentielle.</p>`,
+  // },
+  // {
+  //   id: 8,
+  //   question:
+  //     'Comment dois-je faire pour soumettre une proposition de conférence?',
+  //   answer: `<p>L’appel à conférences pour l’édition 2023 est terminé. Cependant, tu peux toujours nous écrire à <a href="mailto:conferences@quebecnumerique.com">conferences@quebecnumerique.com</a> pour obtenir les détails reliés à l’édition 2024.</p>`,
+  // },
   {
     id: 1,
-    question: 'Est-ce possible de partager un billet présentiel?',
-    answer: `<p>Chaque personne qui sera sur place devra avoir son propre billet puisque les billets sont nominatifs. Ça nous permettra de t’offrir une meilleure expérience, notamment en te réservant un repas qui respecte des allergies et intolérances (si tu en as), en ayant un accès à l’application mobile (pour les rediffusions et créer des contacts) et de te créer un profil qui te correspond, et en ayant ton nom (oui, le tien!) sur ta cocarde pour les moments de réseautage. Bref, il est donc impossible de partager un billet présentiel. Si tes collègues et toi aviez l’habitude d’échanger un seul billet, sache que des <a href="https://ti.to/web-a-quebec/waq-2022/fr"  target="_blank" rel="noopener noreferrer">billets journaliers</a> sont disponibles!</p>`,
+    question: `Quand et où se déroulera la prochaine édition du WAQ?`,
+    answer: `<p>La prochaine édition se tiendra du <strong>28 au 30 mai 2024</strong>, au <a href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492' target='_blank' rel='noopener noreferrer'>Terminal - Port de Québec</a>, dans la buccolique ville de Québec.</p>`,
   },
   {
     id: 2,
-    question: 'Comment transférer mon billet à une autre personne?',
-    answer: `<p>Pour transférer ton billet à une autre personne, tu dois le faire AVANT que l’événement débute, car le billet ne peut pas être échangé entre personnes une fois que le WAQ a débuté. Tu dois repartir du courriel de confirmation reçu lors de la réservation de ton billet.</p>
-             <p>Clique sur <b>Voir la commande</b><br />Clique sur <b>Voir/Éditer le billet à échanger</b><br />Dans le haut de la page qui s’ouvre, clique sur <b>Re-assigner</b><br />Coche <b>Supprimer les réponses associées</b><br />Sur la page qui s’affiche, clique sur <b>Billet complet</b> du billet surligné en jaune.<br />Clique sur le bouton bleu <b>Répondre</b>, et réponds à toutes les questions obligatoires</p>`,
+    question: `Comment est-ce que je peux réserver ma place pour le WAQ24?`,
+    answer: `<p>Les billets pour le WAQ24 ne sont pas encore disponibles. Par contre, tu peux t’inscrire à notre liste d’attente - tu recevras un courriel aussitôt qu’il sera possible de réserver ta place!</p><p><a href="https://ti.to/web-a-quebec/waq24/fr" target="_blank">Je m’inscris</a></p>`,
   },
   {
     id: 3,
-    question: 'Quel est le coût des billets?',
-    answer: `<p>Billet présentiel : <br />Journalier : 395$ <br />Régulier : 895$ <br />Étudiant : 250$ <br /><br />Tous les prix sont avant taxes. Pour acheter ton billet, clique <a href="/billetterie">ici</a></p>`,
+    question: `Comment faire pour que mon entreprise soit partenaire du WAQ?`,
+    answer: `<p>Tout d’abord, bonne décision! Ensuite, écris à Dominic, notre directeur des partenariats stratégiques et du développement des affaires, à <a href="mailto:dominic.guay@quebecnumerique.com">dominic.guay@quebecnumerique.com</a>.</p>`,
   },
   {
     id: 4,
-    question: 'Y a-t-il des billets étudiants?',
-    answer: `<p>Oui, les billets étudiants sont au coût de 250$ pour un accès complet au WAQ. Procure-toi ton billet dans notre billetterie. Les étudiants peuvent aussi avoir accès gratuitement aux rediffusions une fois le WAQ terminé. </p>`,
-  },
-  {
-    id: 5,
-    question: 'À quel endroit se déroule le WAQ?',
-    answer: `<p>L’événement se déroule au <a href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492' target='_blank' rel='noopener noreferrer'>Terminal du Port de Québec</a>, au 84 rue Dalhousie, dans la ville de Québec.</p>`,
-  },
-  {
-    id: 6,
-    question:
-      'Comment est-ce que je peux accéder à l’application mobile du WAQ?',
-    answer: `<p>L’application sera disponible dans l’App Store et dans Google Play à compter du 15 mai. Si tu as déjà ton billet du WAQ, tu recevras un courriel pour t’informer de sa disponibilité. Si tu ne reçois pas de courriel, mais que tu as bien ton billet, écris-nous à <a href="mailto:info@webaquebec.org">info@webaquebec.org</a>.</p>`,
-  },
-  {
-    id: 7,
-    question: 'Est-ce qu’il y a des billets virtuels à l’édition 2023?',
-    answer: `<p>Non, avec le retour à la normal, le WAQ a fait un retour dans le futur avec une édition 100% présentielle.</p>`,
-  },
-  {
-    id: 8,
-    question:
-      'Comment dois-je faire pour soumettre une proposition de conférence?',
-    answer: `<p>L’appel à conférences pour l’édition 2023 est terminé. Cependant, tu peux toujours nous écrire à <a href="mailto:conferences@quebecnumerique.com">conferences@quebecnumerique.com</a> pour obtenir les détails reliés à l’édition 2024.</p>`,
+    question: `J’aimerais soumettre une proposition de conférence. Comment faire?`,
+    answer: `<p>L’appel à conférences pour le WAQ24 n’est pas encore en cours. Abonne-toi à l’infolettre, et tu seras informé·e aussitôt qu’il sera possible de déposer une proposition. Tu peux aussi nous écrire à <a href="mailto:conferences@quebecnumerique.com">conferences@quebecnumerique.com</a> si tu as des questions!</p>`,
   },
 ];
 
 const FaqPage = () => (
   <>
-    <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ22.' />
+    <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ.' />
 
     <Center
       maxWidth='625px'
@@ -128,10 +148,8 @@ const FaqPage = () => (
     >
       <FaqTitle css={titleStyle}>FAQ</FaqTitle>
       <FaqIntro css={introStyle}>
-        L’édition 2023 du Web à Québec (WAQ) aura lieu les 23, 24 et 25 mai
-        prochains. L&apos;événement a fait un retour dans le futur avec une
-        édition 100% présentielle 😎. On tente de répondre à toutes tes
-        questions ici!
+        L&apos;événement a fait un retour dans le futur avec une édition 100%
+        présentielle 😎. On tente de répondre à toutes tes questions ici!
         <br />
         <span>👇</span>
       </FaqIntro>

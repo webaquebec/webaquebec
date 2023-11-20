@@ -25,13 +25,7 @@ const CTASpeakersCall = () => (
           soumettre ta candidature!
         </CTAIntro>
 
-        <Button
-          to='https://yr21i4wwzuv.typeform.com/to/vgbK9zTW'
-          tag='href'
-          rel='noopener noreferrer'
-          target='_blank'
-          animated
-        >
+        <Button to='/appel-a-conferences' tag='href' animated>
           Ma candidature
         </Button>
       </div>

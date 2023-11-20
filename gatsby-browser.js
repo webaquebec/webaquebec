@@ -8,9 +8,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Context Provider
-import { ProgramFiltersProvider } from './src/contexts/ProgramFiltersContext';
+// contexts
+import { GlobalProvider } from './src/contexts/GlobalContext';
 import { ModalProvider } from './src/contexts/ModalContext';
+import { ProgramFiltersProvider } from './src/contexts/ProgramFiltersContext';
+
+// components
 import Layout from './src/components/Layout/Layout';
 
 // fonts
@@ -25,9 +28,11 @@ export const wrapPageElement = ({ element, props }) => (
 
 // Enable Modal and Program filters on every page/template
 export const wrapRootElement = ({ element }) => (
-  <ModalProvider>
-    <ProgramFiltersProvider>{element}</ProgramFiltersProvider>
-  </ModalProvider>
+  <GlobalProvider>
+    <ModalProvider>
+      <ProgramFiltersProvider>{element}</ProgramFiltersProvider>
+    </ModalProvider>
+  </GlobalProvider>
 );
 
 // Define a custom scroll behavior

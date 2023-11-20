@@ -298,12 +298,12 @@ const StyledButton = styled.button`
   }
 
   &[disabled] {
-    --btn-color: ${colors.gris80};
+    --btn-color: ${colors.gris90};
     --btn-bg-color: ${colors.gris40};
 
     cursor: not-allowed;
 
-    pointer-events: none;
+    /* pointer-events: none; */
   }
 
   /* Apply animated style when animated props defined */

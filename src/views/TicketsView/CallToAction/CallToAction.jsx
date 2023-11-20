@@ -12,7 +12,8 @@ import { introStyle } from '../../../styles/global';
 const CallToAction = () => (
   <Center maxWidth='850px' gutters='var(--container-gutter)' withText intrinsic>
     <CTATitle>
-      Joins-toi au plus grand événement numérique en Amérique du Nord
+      {/* Joins-toi au plus grand événement numérique en Amérique du Nord */}
+      Inscris-toi sur la liste d&lsquo;attente
     </CTATitle>
 
     {/* <p css={introStyle}>
@@ -31,30 +32,35 @@ const CallToAction = () => (
       css={ctaButtonStyle}
     >
       Réserver ma place
-    </Button> */}
+    </Button>
 
     <p css={introStyle}>
       Pour faire ton achat, tu seras redirigé.e directement vers la plateforme{' '}
       <a
-        href='https://ti.to/web-a-quebec/waq23'
+        href='https://ti.to/web-a-quebec/waq24/fr'
         rel='noopener noreferrer'
         target='_blank'
       >
         Tito
       </a>{' '}
       afin d&apos;effectuer ta transaction.
+    </p> */}
+
+    <p css={introStyle}>
+      Ne manque pas la prévente des billets pour la prochaine édition du WAQ et
+      inscris-toi sur la liste d’attente. Tu seras avisé·e dès que les billets
+      seront disponibles!
     </p>
 
     <Button
-      to='https://ti.to/web-a-quebec/waq23'
+      to='https://ti.to/web-a-quebec/waq24/fr'
       tag='href'
-      primary
       animated
       rel='noopener noreferrer'
       target='_blank'
       css={ctaButtonStyle}
     >
-      Acheter mon billet
+      Je m&lsquo;inscris
     </Button>
   </Center>
 );

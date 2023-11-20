@@ -7,6 +7,7 @@ export const fontFamilies = {
   redaction50: "'Redaction 50', serif",
   redaction70: "'Redaction 70', serif",
   redaction100: "'Redaction 100', serif",
+  pressStart2P: "'Press Start 2P', cursive",
 };
 
 export const fontWeights = {

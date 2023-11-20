@@ -15,9 +15,6 @@ import Switcher from '../../components/LayoutSections/Switcher';
 // contexts
 import { useProgramFilters } from '../../contexts/ProgramFiltersContext';
 
-// images
-import ogImgProgram from '../../images/og/og-img-program-disponible.jpg';
-
 // views
 import Hero from '../../views/ProgramPageView/Hero';
 import Filters from '../../views/ProgramPageView/Filters';
@@ -167,17 +164,6 @@ const Program = ({
     });
 
     if (filters.length > 0) {
-      // filterDispatcher({
-      //   type: 'UPDATE',
-      //   options: {
-      //     name: 'place',
-      //     values: places.map((value) => ({
-      //       name: unSlugify(value),
-      //       value,
-      //     })),
-      //   },
-      // });
-
       filterDispatcher({
         type: 'UPDATE',
         options: {
@@ -202,18 +188,6 @@ const Program = ({
 
       return;
     }
-
-    // filterDispatcher({
-    //   type: 'ADD',
-    //   options: {
-    //     name: 'place',
-    //     title: 'Lieu',
-    //     values: places.map((value) => ({
-    //       name: unSlugify(value),
-    //       value,
-    //     })),
-    //   },
-    // });
 
     filterDispatcher({
       type: 'ADD',
@@ -275,7 +249,6 @@ const Program = ({
   let filteredProgram = program;
   if (filters.length > 0) {
     filteredProgram = program
-      // .filter((session) => applyFilter('place', session.place))
       .filter((session) => applyFilter('categories', session.categories))
       .filter((session) => applyFilter('type', session.type));
   }
@@ -285,7 +258,6 @@ const Program = ({
       <SEO
         title='Programmation'
         description='Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec.'
-        image={ogImgProgram}
       />
 
       <Hero datePaths={datePaths} location={location} />
@@ -313,11 +285,6 @@ const Program = ({
                         content={session.description}
                         place={session.place}
                         time={session.time}
-                        // time={
-                        //   pageNumber !== eventDates.length
-                        //     ? session.time
-                        //     : undefined
-                        // }
                         type={session.type}
                         categories={session.categories}
                         speakers={session.speakers}

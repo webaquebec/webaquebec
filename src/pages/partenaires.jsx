@@ -8,6 +8,7 @@ import Center from '../components/LayoutSections/Center';
 import StyledSectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 import PartnersGrids from '../components/PartnersGrids';
+import Button from '../components/Button/Button';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
@@ -39,6 +40,10 @@ const PartnersIntro = styled.p`
   margin-top: 1rem;
 `;
 
+const BecomePartnerCTA = styled(Button)`
+  margin: 2em;
+`;
+
 const PartnersPage = () => (
   <>
     <SEO
@@ -47,24 +52,41 @@ const PartnersPage = () => (
     />
 
     <Center
-      maxWidth='625px'
+      maxWidth='825px'
       gutters='var(--container-gutter)'
       withText
       intrinsic
     >
       <PartnersTitle css={titleStyle}>
         parte<span>naires</span>
+        <span>&nbsp;2023</span>
       </PartnersTitle>
+    </Center>
 
+    <Center
+      maxWidth='625px'
+      gutters='var(--container-gutter)'
+      withText
+      intrinsic
+    >
       <PartnersIntro css={introStyle}>
         L’équipe du WAQ tient à remercier du fond du coeur tous les partenaires
         qui s’impliquent dans l’aventure. Par leur expertise, leur créativité et
         leur soutien, ils contribuent directement au succès de l’événement.
       </PartnersIntro>
+
+      <BecomePartnerCTA
+        to='mailto:dominic.guay@quebecnumerique.com'
+        tag='href'
+        small
+        animated
+      >
+        Devenir partenaire
+      </BecomePartnerCTA>
     </Center>
 
     <SectionContainer forwardedAs='div' faded>
-      <PartnersGrids hasDetails />
+      <PartnersGrids />
     </SectionContainer>
   </>
 );

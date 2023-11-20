@@ -13,8 +13,10 @@ import {
   BlocksWrapper,
   ContentContainer,
   TicketTitle,
+  TicketBadge,
   TicketPrice,
   TicketText,
+  buttonStyle,
 } from './Prices.styles';
 import colors from '../../../styles/colors';
 import elevation from '../../../styles/elevation';
@@ -22,7 +24,7 @@ import elevation from '../../../styles/elevation';
 const Prices = () => (
   <Center maxWidth='1124px' gutters='var(--container-gutter)'>
     <Switcher
-      threshold='992px'
+      threshold='1080px'
       space='calc(var(--container-gutter) * 2)'
       limit={2}
     >
@@ -37,19 +39,20 @@ const Prices = () => (
         >
           <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
             <TicketTitle color={colors.gris90}>Billet journalier</TicketTitle>
+            <TicketBadge>Complet</TicketBadge>
 
             <TicketPrice>395$</TicketPrice>
 
             <Button
               to='https://ti.to/web-a-quebec/waq23'
               tag='href'
-              secondary
               small
               animated
               rel='noopener noreferrer'
               target='_blank'
+              css={buttonStyle}
             >
-              Réserver
+              Joindre la liste d&apos;attente
             </Button>
 
             <TicketText>
@@ -68,19 +71,21 @@ const Prices = () => (
         >
           <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
             <TicketTitle>Billet accès complet</TicketTitle>
+            <TicketBadge>Complet</TicketBadge>
 
             <TicketPrice>895$</TicketPrice>
 
             <Button
-              to='https://ti.to/web-a-quebec/waq23'
+              to='https://ti.to/web-a-quebec/waq23/fr?waiting_list_id=zuq7qid1eyq'
               tag='href'
               inverted
               small
               animated
               rel='noopener noreferrer'
               target='_blank'
+              css={buttonStyle}
             >
-              Réserver
+              Joindre la liste d&apos;attente
             </Button>
 
             <TicketText color={colors.white}>
@@ -99,19 +104,20 @@ const Prices = () => (
         >
           <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
             <TicketTitle color={colors.gris90}>Billet étudiant</TicketTitle>
+            <TicketBadge>Complet</TicketBadge>
 
             <TicketPrice>250$</TicketPrice>
 
             <Button
-              to='https://ti.to/web-a-quebec/waq23'
+              to='https://ti.to/web-a-quebec/waq23/fr?waiting_list_id=ojjloxhqez4'
               tag='href'
-              secondary
               small
               animated
               rel='noopener noreferrer'
               target='_blank'
+              css={buttonStyle}
             >
-              Réserver
+              Joindre la liste d&apos;attente
             </Button>
 
             <TicketText>

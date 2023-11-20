@@ -23,7 +23,7 @@ import { useRef, useEffect } from 'react';
 //   return false;
 // };
 
-const useCanvas = (draw) => {
+const useCanvas = (callback, fps = undefined) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -33,17 +33,26 @@ const useCanvas = (draw) => {
     let animationFrameId;
 
     const render = () => {
-      // frameCount += 1;
-      // updateCanvasSize(canvas, context);
-      draw(context);
-      animationFrameId = window.requestAnimationFrame(render);
+      // throttle requestAnimationFrame to a specific frame rate
+      if (fps) {
+        setTimeout(() => {
+          animationFrameId = window.requestAnimationFrame(render);
+
+          callback(context, canvas);
+        }, 1000 / fps);
+      } else {
+        callback(context, canvas);
+        animationFrameId = window.requestAnimationFrame(render);
+        // frameCount += 1;
+        // updateCanvasSize(canvas, context);
+      }
     };
     render();
 
     return () => {
       window.cancelAnimationFrame(animationFrameId);
     };
-  }, [draw]);
+  }, [callback, fps]);
 
   return canvasRef;
 };

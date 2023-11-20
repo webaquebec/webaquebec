@@ -15,8 +15,8 @@ import breakpointsRange from '../utils/breakpointsRange';
 // views
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
-import KeynoteSection from '../views/HomePageView/KeynoteSection';
-// import CTASection from '../views/HomePageView/CTASection/CTASection';
+// import KeynoteSection from '../views/HomePageView/KeynoteSection';
+import CTASection from '../views/HomePageView/CTASection/CTASection';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -34,7 +34,7 @@ const SectionContainer = styled(StyledSectionContainer)`
 const IndexPage = () => (
   <>
     <SEO
-      title='Web à Québec | 23 au 25 mai 2023'
+      title='Web à Québec | 28 au 30 mai 2024'
       description='Le plus grand événement numérique francophone en Amérique du Nord.'
     />
 
@@ -43,13 +43,13 @@ const IndexPage = () => (
     <SectionContainer forwardedAs='div' faded>
       <StatsSection />
 
-      {/* <CTASection /> */}
+      <CTASection />
 
-      <KeynoteSection />
+      {/* <KeynoteSection /> */}
 
       <NewsletterCard />
 
-      <PartnersGrids />
+      <PartnersGrids titled />
     </SectionContainer>
   </>
 );

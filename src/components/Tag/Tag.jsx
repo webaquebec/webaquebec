@@ -33,7 +33,7 @@ const categoryColors = {
     color: `hsl(${colors.jaune80hsl.hue} ${colors.jaune80hsl.saturation}% 24%)`,
     bgColor: colors.jaune20,
   },
-  'jeu-video': {
+  'jeux-video': {
     color: colors.rose100,
     bgColor: colors.rose10,
   },
@@ -127,7 +127,7 @@ Tag.propTypes = {
     'communication-and-marketing',
     'communication-et-marketing',
     'pitch-ton-waq',
-    'jeu-video',
+    'jeux-video',
     'competences-transversales',
     'communication-dans-ladministration-publique',
   ]),
