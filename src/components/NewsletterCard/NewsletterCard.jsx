@@ -49,10 +49,9 @@ const NewsletterCard = () => {
       {modalVisible && (
         <Modal
           isOpen={modalVisible}
-          aria={{ labbelledby: customId }}
+          aria-labelledby={customId}
           onClose={closeModal}
           closeTimeoutMS={200}
-          fullSceen
           noBorder
           noTransition
         >
