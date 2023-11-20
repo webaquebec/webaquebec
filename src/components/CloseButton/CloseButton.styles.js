@@ -20,8 +20,15 @@ const buttonDarkStyle = css`
 
 export const Button = styled.button`
   position: absolute;
-  top: 32px;
-  right: 32px;
+
+  ${breakpointsRange(
+    [
+      { prop: 'top', sizes: [24, 32] },
+      { prop: 'right', sizes: [36, 44] },
+    ],
+    breakpoints.spacings
+  )};
+
   z-index: ${zIndexes.popover + 1};
 
   display: flex;
