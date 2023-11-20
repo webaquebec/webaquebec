@@ -15,8 +15,6 @@ import Footer from '../Footer';
 import Header from '../Header';
 import BackgroundGradient from '../BackgroundGradient/BackgroundGradient';
 import LavaLamp from '../LavaLamp';
-import CookieBanner from '../CookieBanner';
-import ClientOnly from '../ClientOnly/ClientOnly';
 
 /**
  * The common Layout shared across all pages
@@ -37,10 +35,6 @@ const Layout = ({ children, location }) => {
       <BackgroundGradient pathname={pathname} />
 
       <LavaLamp pathname={pathname} />
-
-      <ClientOnly>
-        <CookieBanner location={location} />
-      </ClientOnly>
 
       <Header pathname={pathname} />
 
