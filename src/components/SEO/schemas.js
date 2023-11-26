@@ -79,8 +79,8 @@ const eventSchema = {
   name: 'Web à Québec',
   description:
     'Le plus grand événement numérique francophone en Amérique du Nord',
-  startDate: '2023-05-23',
-  endDate: '2023-05-25',
+  startDate: '2024-05-28',
+  endDate: '2024-05-30',
   eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
   eventStatus: 'https://schema.org/EventScheduled',
   sameAs: [
