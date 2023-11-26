@@ -199,8 +199,8 @@ const sectionsData = [
       },
       {
         id: 11,
-        pictureId: 'placeholder',
-        name: 'Martine Rioux',
+        pictureId: 'placeholder2',
+        name: 'Jean Benoît Dubé',
         job: 'Piste communication',
       },
       {
@@ -218,7 +218,7 @@ const sectionsData = [
       {
         id: 14,
         pictureId: 'placeholder2',
-        name: 'Hugues Foltz',
+        name: 'Rosalie Simard',
         job: 'Piste innovation',
       },
       {
@@ -243,6 +243,7 @@ const sectionsData = [
         id: 1,
         pictureId: 'oceane_colling',
         name: 'Océane Colling',
+        job: 'Responsable du comité',
       },
       {
         id: 2,
@@ -269,6 +270,16 @@ const sectionsData = [
         pictureId: 'mary-elizabeth_lagace',
         name: 'Mary-Élizabeth Lagacé',
       },
+      {
+        id: 7,
+        pictureId: 'placeholder',
+        name: 'Léanne Deblois',
+      },
+      {
+        id: 8,
+        pictureId: 'placeholder2',
+        name: 'Sandrine Thivierge',
+      },
     ],
   },
   {
@@ -288,29 +299,34 @@ const sectionsData = [
         job: 'Responsable du comité',
       },
       {
-        id: 3,
+        id: 2,
         pictureId: 'josianne_picard',
         name: 'Josianne Picard',
       },
       {
-        id: 4,
+        id: 3,
         pictureId: 'claudie_mathieu',
         name: 'Claudie Mathieu',
       },
       {
+        id: 4,
+        pictureId: 'placeholder2',
+        name: 'Geneviève Nadeau',
+      },
+      {
         id: 5,
-        pictureId: 'vincent_bissonnette',
-        name: 'Vincent Bissonnette',
+        pictureId: 'placeholder',
+        name: 'Miguël Lapointe Duchesne',
       },
       {
         id: 6,
-        pictureId: 'placeholder',
-        name: 'Léane Mei Dostie Chalifour',
+        pictureId: 'placeholder2',
+        name: 'Kathleen Higgins',
       },
       {
         id: 7,
-        pictureId: 'placeholder2',
-        name: 'Geneviève Nadeau',
+        pictureId: 'placeholder',
+        name: 'Andréanne Boucher',
       },
     ],
   },
@@ -341,22 +357,22 @@ const sectionsData = [
       },
     ],
   },
-  {
-    id: 4,
-    name: 'comité VIP',
-    members: [
-      {
-        id: 0,
-        pictureId: 'placeholder2',
-        name: 'Jessica Sinclair',
-      },
-      {
-        id: 1,
-        pictureId: 'placeholder',
-        name: 'Cynthia Lafontaine',
-      },
-    ],
-  },
+  // {
+  //   id: 4,
+  //   name: 'comité VIP',
+  //   members: [
+  //     {
+  //       id: 0,
+  //       pictureId: 'placeholder2',
+  //       name: 'Jessica Sinclair',
+  //     },
+  //     {
+  //       id: 1,
+  //       pictureId: 'placeholder',
+  //       name: 'Cynthia Lafontaine',
+  //     },
+  //   ],
+  // },
 ];
 
 const OurTeamPage = () => {
