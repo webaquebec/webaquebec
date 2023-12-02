@@ -4,11 +4,14 @@ import GatsbyImage from 'gatsby-image';
 
 import SectionContainer from '../../../components/SectionContainer';
 
+// utils
+import { greaterThan } from '../../../utils/mediaQuery';
+
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { fontFamilies } from '../../../styles/typography';
+import { fontFamilies, fontWeights } from '../../../styles/typography';
 import { linkStyle } from '../../../styles/global';
 
 export const atRight = css`
@@ -69,8 +72,49 @@ export const SectionTitle = styled.h4`
   )};
 `;
 
-export const SectionParagraph = styled.p`
+export const SectionText = styled.div`
   a {
     ${linkStyle}
+  }
+`;
+
+export const ArchivesList = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 4px 40px;
+  padding: 0;
+
+  list-style: none;
+
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [18, 24], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+
+  ${greaterThan(768)} {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+`;
+
+export const ArchiveItem = styled.li`
+  /* margin-right: 40px; */
+`;
+
+export const ArchiveLink = styled.a`
+  color: ${colors.bleu100};
+  font-weight: ${fontWeights.bold};
+  text-decoration: none;
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [12, 16], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 32], bases: [16, 20], unit: '' },
+    ],
+    breakpoints.spacings
+  )};
+
+  :hover,
+  :focus {
+    text-decoration: underline;
   }
 `;

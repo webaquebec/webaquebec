@@ -28,7 +28,7 @@ const JoinUsSection = () => (
             alt='Québec numérique'
           />
           <Column>
-            <Title>pour nous joindre</Title>
+            <Title>Pour nous joindre</Title>
             <Paragraph>
               L’équipe de bénévoles derrière le WAQ est supportée par Québec
               numérique. Tu as des questions ou besoin d’information? Lâche-nous
