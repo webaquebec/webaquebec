@@ -93,12 +93,10 @@ export const ArchiveLink = styled.a`
   text-decoration: none;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [12, 12], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-
-  ${breakpointsRange(
-    [{ prop: 'lineHeight', sizes: [24, 32], bases: [16, 20], unit: '' }],
+    [
+      { prop: 'fontSize', sizes: [12, 12], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [24, 32], bases: [16, 20], unit: '' },
+    ],
     breakpoints.spacings
   )};
 
