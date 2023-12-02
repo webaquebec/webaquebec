@@ -393,11 +393,11 @@ const OurTeamPage = () => {
         intrinsic
       >
         <AboutIntro css={introStyle}>
-          Donner vie au WAQ, c’est beaucoup de travail. Une chance qu’on peut
-          compter sur une fabuleuse équipe de bénévoles qui investit temps et
-          amour. ❤️ Chaque personne qui s&apos;implique amène son talent, son
+          Créé par et pour la communauté numérique, et rendu possible grâce au
+          dévouement d’une équipe de plus de 100 bénévoles qui investit temps et
+          amour ❤️ Chaque personne qui s’implique amène son talent, son
           expertise et sa personnalité. C’est ce qui fait du WAQ un événement
-          aussi exceptionnel!
+          aussi unique et exceptionnel!
         </AboutIntro>
       </Center>
 
