@@ -11,6 +11,7 @@ import Center from '../../components/LayoutSections/Center';
 
 // utils
 import breakpointsRange from '../../utils/breakpointsRange';
+import { greaterThan } from '../../utils/mediaQuery';
 
 // views
 import AboutTabs from '../../views/AboutPagesView/AboutTabs';
@@ -31,6 +32,10 @@ const GallerySectionImg = styled(GatsbyImage)`
     [{ prop: 'marginTop', sizes: [40, 80], bases: [16, 20] }],
     breakpoints.spacings
   )};
+
+  ${greaterThan(1024)} {
+    width: 840px;
+  }
 `;
 
 const VideoContainer = styled.div`
@@ -69,15 +74,6 @@ const IntroParagraph = styled.p`
 
 const AboutEventPage = ({ data }) => {
   const {
-    // programmationSectionPicture: {
-    //   childImageSharp: { fluid: programmationSectionPicture },
-    // },
-    // communitySectionPicture: {
-    //   childImageSharp: { fluid: communitySectionPicture },
-    // },
-    // partnersSectionPicture: {
-    //   childImageSharp: { fluid: partnersSectionPicture },
-    // },
     adaptabilitySectionPicture: {
       childImageSharp: { fluid: adaptabilitySectionPicture },
     },
@@ -93,20 +89,17 @@ const AboutEventPage = ({ data }) => {
   const sectionsData = [
     {
       id: 0,
-      // photoSrc: programmationSectionPicture,
       title: 'Une programmation unique',
       text: '<p>Couvrant le numérique sous toutes ses facettes, le WAQ propose des conférences sur la communication, le marketing, le design, le développement, l’innovation et toutautres thèmes intéressants et pertinents pour la communauté rassemblée à l’événement. Des conférencières et des conférenciers reconnu(.e)s du Québec comme de l’international se relaient sur scène pour satisfaire ta curiosité.</p>',
     },
     {
       id: 1,
-      // photoSrc: communitySectionPicture,
       title: 'Un retour sur notre histoire',
       text: '<p>Après avoir vu le jour en 2010, le WAQ a su s’adapter aux dernières tendances du numérique, faire connaître son offre de conférences à l’international et même d’offrir un événement virtuel durant… l’année qu’on connaît tous. 🤷 Après tout ça, le WAQ est maintenant l’événement local de calibre international que tu connais.</p><p>Quelle est vraiment l’évolution du WAQ à travers les années? Découvre le en visitant les dernières éditions. 👇</p>',
       hasArchives: true,
     },
     {
       id: 2,
-      // photoSrc: partnersSectionPicture,
       title: 'Merci à nos précieux partenaires',
       text: 'Le WAQ n’existerait pas sans le soutien inestimable de ses précieux partenaires. Que ce soit par leur contribution à la mise en place de l’événement ou par leur animation sur les lieux, ils nous en mettent toujours plein la vue - et les papilles gustatives! 😛',
     },

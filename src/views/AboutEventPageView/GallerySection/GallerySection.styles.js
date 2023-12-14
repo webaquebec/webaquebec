@@ -48,6 +48,7 @@ export const GalleryTitle = styled.h4`
 
 export const GalleryText = styled.div`
   color: ${colors.white};
+  text-align: center;
   ${breakpointsRange(
     [{ prop: 'marginBottom', sizes: [40, 120], bases: [16, 20] }],
     breakpoints.spacings
