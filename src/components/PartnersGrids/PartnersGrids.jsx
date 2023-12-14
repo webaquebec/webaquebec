@@ -12,36 +12,37 @@ import Center from '../LayoutSections/Center';
 // images
 import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
 import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
-import logoVideotronRGB from '../../images/logoPartners/premium/logo-videotron-rgb.svg';
-import logoVideotronWhite from '../../images/logoPartners/premium/logo-videotron-white.svg';
-import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
+import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
+import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg';
+import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
+import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
+import logoNooe from '../../images/logoPartners/associates/logo-nooe.webp';
+// import logoVideotronRGB from '../../images/logoPartners/premium/logo-videotron-rgb.svg';
+// import logoVideotronWhite from '../../images/logoPartners/premium/logo-videotron-white.svg';
+// import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
 // import logoLevio from '../../images/logoPartners/premium/logo-levio.svg';
-import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
+// import logoEquisoft from '../../images/logoPartners/premium/logo-equisoft.svg';
 // import logoIxmedia from '../../images/logoPartners/premium/logo-ixmedia.svg';
 // import logoOqlf from '../../images/logoPartners/premium/logo-oqlf.svg';
-import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
-import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
-import logoEmergensys from '../../images/logoPartners/associates/logo-emergensys.png';
+// import logoBeet from '../../images/logoPartners/associates/logo-beet.svg';
+// import logoEmergensys from '../../images/logoPartners/associates/logo-emergensys.png';
 // import logoFlots from '../../images/logoPartners/associates/logo-flots.svg';
 // import logoMicrosoft from '../../images/logoPartners/associates/logo-microsoft.svg';
 // import logoPwc from '../../images/logoPartners/associates/logo-pwc.svg';
 // import logoRobic from '../../images/logoPartners/associates/logo-robic.svg';
-import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
-import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
+// import logoTVA from '../../images/logoPartners/associates/logo-tva.svg';
+// import logoJournalQuebec from '../../images/logoPartners/associates/logo-journal-de-quebec.svg';
 // import logoGrenierAuxNouvelles from '../../images/logoPartners/associates/logo-grenier-aux-nouvelles.svg';
-import logoZenika from '../../images/logoPartners/supporters/logo-zenika.svg';
-import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg';
-import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
-import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
-import logoNventive from '../../images/logoPartners/associates/logo-nventive.svg';
-import logoEdgenda from '../../images/logoPartners/associates/logo-edgenda.svg';
-import logoProjetTeamForward from '../../images/logoPartners/supporters/logo-projet-team-forward.svg';
-import logoDashThis from '../../images/logoPartners/associates/logo-dashthis.svg';
-import logoRandstad from '../../images/logoPartners/supporters/logo-randstad.svg';
-import logoCrackmediaRGB from '../../images/logoPartners/supporters/logo-crackmedia-rgb.svg';
-import logoCrackmediaBlack from '../../images/logoPartners/supporters/logo-crackmedia-black.svg';
-import logoEvolvingWeb from '../../images/logoPartners/supporters/logo-evolving-web.svg';
-import logoLibeo from '../../images/logoPartners/supporters/logo-libeo.svg';
+// import logoZenika from '../../images/logoPartners/supporters/logo-zenika.svg';
+// import logoNventive from '../../images/logoPartners/associates/logo-nventive.svg';
+// import logoEdgenda from '../../images/logoPartners/associates/logo-edgenda.svg';
+// import logoProjetTeamForward from '../../images/logoPartners/supporters/logo-projet-team-forward.svg';
+// import logoDashThis from '../../images/logoPartners/associates/logo-dashthis.svg';
+// import logoRandstad from '../../images/logoPartners/supporters/logo-randstad.svg';
+// import logoCrackmediaRGB from '../../images/logoPartners/supporters/logo-crackmedia-rgb.svg';
+// import logoCrackmediaBlack from '../../images/logoPartners/supporters/logo-crackmedia-black.svg';
+// import logoEvolvingWeb from '../../images/logoPartners/supporters/logo-evolving-web.svg';
+// import logoLibeo from '../../images/logoPartners/supporters/logo-libeo.svg';
 // import logoBotpress from '../../images/logoPartners/supporters/logo-botpress.svg';
 // import logoApollo13 from '../../images/logoPartners/supporters/logo-apollo13.svg';
 
@@ -59,188 +60,56 @@ import {
 
 // const presentingImage = { };
 
-const premiumImages = [
-  {
-    src: logoVideotronWhite,
-    srcAlt: logoVideotronRGB,
-    alt: 'Vidéotron | Services de Téléphonie, Internet, Télévision et Mobile',
-    url: 'https://videotron.com/',
-  },
-  {
-    src: logoUbisoft,
-    alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
-    url: 'https://www.ubisoft.com/fr-ca/',
-  },
-  {
-    src: logoVooban,
-    alt: 'Vooban | Le leader de la transformation digitale',
-    url: 'https://vooban.com/',
-  },
-  // {
-  //   src: logoUbisoft,
-  //   alt: 'Ubisoft | Le plus grand studio de développement de jeu vidéo au monde',
-  //   url: 'https://www.ubisoft.com/fr-ca/',
-  // },
-  // {
-  //   src: logoLevio,
-  //   alt: 'Levio affaires et technologies - Au coeur de la transformation numérique',
-  //   url: 'https://levio.ca/',
-  // },
-  // {
-  //   src: logoIxmedia,
-  //   alt: 'iXmédia | Agence numérique. Experts sympathiques',
-  //   url: 'https://www.ixmedia.com/',
-  // },
-];
-
-const associatesImages = [
-  {
-    src: logoEquisoft,
-    alt: "Equisoft | Solutions logicielles d'assurance et d'investissement",
-    url: 'https://www.equisoft.com/fr/',
-  },
+const creativePartners = [
   {
     src: logoPetal,
-    alt: 'Petal Solutions | Orchestrateur de soins en temps réel pour les organisations de santé',
+    alt: 'Petal',
     url: 'https://www.petal-health.com/fr-ca',
   },
   {
     src: logoDeMarque,
-    alt: 'DeMarque | Livres numériques, livres audio, lecture et apprentissage',
-    url: 'https://www.demarque.com/',
+    alt: 'DeMarque',
+    url: 'https://www.demarque.com',
   },
   {
     src: logoThirdbridge,
-    alt: "Thirdbridge | Votre partenaire d'innovation",
-    url: 'https://www.thirdbridge.ca/fr/',
-    bigger: true,
+    alt: 'Thirdbridge',
+    url: 'https://www.thirdbridge.ca',
   },
   {
     src: logoFernandez,
-    alt: 'Fernandez relations publiques',
-    url: 'https://fernandezrp.ca/',
+    alt: 'Fernandez',
+    url: 'https://fernandezrp.ca',
   },
   {
-    src: logoNventive,
-    alt: 'nventive',
-    url: 'https://nventive.com/fr',
+    src: logoUbisoft,
+    alt: 'Ubisoft Québec',
+    url: 'https://quebec.ubisoft.com/fr',
   },
   {
-    src: logoBeet,
-    alt: 'Beet agence à Québec | Création de sites web et production vidéo',
-    url: 'https://boitebeet.com/',
-  },
-  {
-    src: logoEmergensys,
-    alt: 'Emergensys | Parce que chaque seconde compte',
-    url: 'https://www.emergensys.net/fr/',
-  },
-  {
-    src: logoEdgenda,
-    alt: "AFI Expertise | Firme de solutions d'apprentissage en bureautique, gestion et technologies de l'information",
-    url: 'https://www.afiexpertise.com/fr',
-  },
-  // {
-  //   src: logoFlots,
-  //   alt: 'Novarium | Campus d’innovation du Saint-Laurent',
-  //   url: 'https://novarium.co',
-  // },
-  // {
-  //   src: logoMicrosoft,
-  //   alt: 'Microsoft | Nuage, ordinateurs, Applications et jeux',
-  //   url: 'https://www.microsoft.com/fr-ca',
-  // },
-  // {
-  //   src: logoPwc,
-  //   alt: 'PwC Canada',
-  //   url: 'https://www.pwc.com/ca/fr/',
-  // },
-  // {
-  //   src: logoRobic,
-  //   alt: 'ROBIC | Spécialistes en propriété intellectuelle | Droit, brevets, marques',
-  //   url: 'https://www.robic.ca/',
-  // },
-  // {
-  //   src: logoGrenierAuxNouvelles,
-  //   alt: 'Grenier aux nouvelles',
-  //   url: 'https://www.grenier.qc.ca/',
-  // },
-];
-
-const supportersImages = [
-  {
-    src: logoZenika,
-    alt: 'Zenika | Cabinet d’innovation technologique',
-    url: 'https://zenika.com/fr-CA',
-  },
-  {
-    src: logoProjetTeamForward,
-    alt: 'Projet Team Forward | Une nouvelle façon de donner',
-    url: 'https://projetteamforward.org/',
-  },
-  {
-    src: logoRandstad,
-    alt: 'Randstad Canada',
-    url: 'https://www.randstad.ca/fr/',
-  },
-  {
-    src: logoCrackmediaBlack,
-    srcAlt: logoCrackmediaRGB,
-    alt: 'Crackmedia Network | Leader en Monétisation de Trafic Web',
-    url: 'https://crakmedia.com/',
-    bigger: true,
-  },
-  {
-    src: logoEvolvingWeb,
-    alt: 'Evolving Web | Agence de conception et de développement Drupal à Montréal',
-    url: 'https://evolvingweb.com/fr',
-    bigger: true,
-  },
-  {
-    src: logoLibeo,
-    alt: 'Libéo',
-    url: 'https://libeo.com/',
-  },
-  // {
-  //   src: logoBotpress,
-  //   alt: 'Build Chatbots | Chatbot for Developers',
-  //   url: 'https://botpress.com/',
-  // },
-  // {
-  //   src: logoApollo13,
-  //   alt: 'Accompagnement de startups | Apollo13',
-  //   url: 'https://apollo13.co/',
-  // },
-];
-
-const mediaImages = [
-  {
-    src: logoJournalQuebec,
-    alt: 'Le Journal de Québec',
-    url: 'https://www.journaldequebec.com/',
-  },
-  {
-    src: logoTVA,
-    alt: 'Groupe TVA',
-    url: 'https://www.groupetva.ca/',
-  },
-  {
-    src: logoQuebecor,
-    alt: 'Québecor',
-    url: 'https://www.quebecor.com/fr/',
-  },
-  {
-    src: logoDashThis,
-    alt: 'DashThis',
-    url: 'https://fr.dashthis.com/',
+    src: logoVooban,
+    alt: 'Vooban',
+    url: 'https://vooban.com',
   },
 ];
 
-const partnersLogos = [
-  ...premiumImages,
-  ...associatesImages,
-  ...supportersImages,
-  ...mediaImages,
+const communityPartners = [
+  {
+    src: logoNooe,
+    alt: 'Nooé',
+    url: 'https://www.nooe.org',
+  },
+];
+
+const partners = [
+  {
+    title: 'partenaires créatifs',
+    images: creativePartners,
+  },
+  {
+    title: 'partenaires communautés',
+    images: communityPartners,
+  },
 ];
 
 // const PartnersGrids = ({ hasDetails }) => (
@@ -292,102 +161,32 @@ const PartnersGrids = ({ titled }) => (
       </Switcher>
     </Center> */}
 
-    <Center
-      as='section'
-      maxWidth='900px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
-      <Title
-        style={{
-          visibility: titled ? '' : 'hidden',
-          marginTop: titled ? '' : '0',
-        }}
+    {partners.map((partner) => (
+      <Center
+        as='section'
+        maxWidth='900px'
+        gutters='var(--container-gutter)'
+        intrinsic
+        withText
       >
-        partenaires 2023
-      </Title>
+        <Title
+          style={{
+            visibility: titled ? '' : 'hidden',
+            marginTop: titled ? '' : '0',
+          }}
+        >
+          {partner.title}
+        </Title>
 
-      <Grid>
-        {partnersLogos.map((image) => (
-          <GridItem key={image.url}>
-            <LogoCard image={image} />
-          </GridItem>
-        ))}
-      </Grid>
-    </Center>
-
-    {/* <Center
-      as='section'
-      maxWidth='1024px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
-      <Title>partenaires principaux</Title>
-
-      <Grid css={premiumGrid}>
-        {premiumImages.map((image) => (
-          <GridItem key={image.url} css={premiumGridItem}>
-            <LogoCard image={image} isPremium />
-          </GridItem>
-        ))}
-      </Grid>
-    </Center> */}
-
-    {/* <Center
-      as='section'
-      maxWidth='900px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
-      <Title>nos partenaires associés</Title>
-
-      <Grid>
-        {associatesImages.map((image) => (
-          <GridItem key={image.url}>
-            <LogoCard image={image} />
-          </GridItem>
-        ))}
-      </Grid>
-    </Center> */}
-
-    {/* <Center
-      as='section'
-      maxWidth='900px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
-      <Title>nos partenaires supporteurs</Title>
-
-      <Grid>
-        {supportersImages.map((image) => (
-          <GridItem key={image.url}>
-            <LogoCard image={image} />
-          </GridItem>
-        ))}
-      </Grid>
-    </Center> */}
-
-    {/* <Center
-      as='section'
-      maxWidth='900px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
-      <Title>nos partenaires de diffusion</Title>
-
-      <Grid>
-        {mediaImages.map((image) => (
-          <GridItem key={image.url}>
-            <LogoCard image={image} />
-          </GridItem>
-        ))}
-      </Grid>
-    </Center> */}
+        <Grid>
+          {partner.images.map((image) => (
+            <GridItem key={image.url}>
+              <LogoCard image={image} />
+            </GridItem>
+          ))}
+        </Grid>
+      </Center>
+    ))}
   </>
 );
 
