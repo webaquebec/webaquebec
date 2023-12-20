@@ -1,6 +1,6 @@
 // vendors
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 // components
 import LogoCard from './LogoCard';
@@ -112,8 +112,7 @@ const partners = [
   },
 ];
 
-// const PartnersGrids = ({ hasDetails }) => (
-const PartnersGrids = ({ titled }) => (
+const PartnersGrids = () => (
   <>
     {/* <Center
       as='section'
@@ -169,14 +168,7 @@ const PartnersGrids = ({ titled }) => (
         intrinsic
         withText
       >
-        <Title
-          style={{
-            visibility: titled ? '' : 'hidden',
-            marginTop: titled ? '' : '0',
-          }}
-        >
-          {partner.title}
-        </Title>
+        <Title>{partner.title}</Title>
 
         <Grid>
           {partner.images.map((image) => (
@@ -198,12 +190,12 @@ PartnersGrids.propTypes = {
   /**
    * Whether the grid has a title or not.
    */
-  titled: PropTypes.bool,
+  // titled: PropTypes.bool,
 };
 
 PartnersGrids.defaultProps = {
   // hasDetails: false,
-  titled: false,
+  // titled: false,
 };
 
 export default PartnersGrids;
