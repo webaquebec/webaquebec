@@ -107,7 +107,7 @@ const partners = [
     images: creativePartners,
   },
   {
-    title: 'partenaires communautés',
+    title: 'partenaires communauté',
     images: communityPartners,
   },
 ];
