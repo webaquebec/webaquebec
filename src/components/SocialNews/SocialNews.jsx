@@ -28,6 +28,7 @@ import facebook from '../../images/socialMedia/facebook.svg';
 import twitter from '../../images/socialMedia/twitter.svg';
 import instagram from '../../images/socialMedia/instagram.svg';
 import linkedin from '../../images/socialMedia/linkedin.svg';
+import tiktok from '../../images/socialMedia/tiktok.svg';
 import elevation from '../../styles/elevation';
 import { easing, speed } from '../../styles/animation';
 import SnakeGame from '../SnakeGame';
@@ -58,6 +59,11 @@ const SocialNews = () => {
       name: 'Linkedin',
       img: linkedin,
       link: 'https://www.linkedin.com/company/web-qu-bec',
+    },
+    {
+      name: 'Tiktok',
+      img: tiktok,
+      link: 'https://www.tiktok.com/@webaquebec',
     },
   ];
 
