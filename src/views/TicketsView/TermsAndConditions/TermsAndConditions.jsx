@@ -14,16 +14,22 @@ const TermsAndConditions = () => (
     <TermsTitle>TERMES ET CONDITIONS</TermsTitle>
 
     <ul css={unorderedListStyle}>
+      <li>Les billets sont des ventes finales (aucun remboursement).</li>
       <li>
-        Tous les billets vendus sont nominatifs et ne pourront pas être échangés
-        entre participant·es une fois l’événement débuté.
+        Il est possible de transférer un billet à une autre personne jusqu’au 12
+        mai 2024. Après cette date, il faudra communiquer avec quelqu’un de
+        notre équipe.
       </li>
       <li>
-        Les billets sont des ventes finales (aucun remboursement), mais peuvent
-        être transférés à une autre personne une fois la transaction complétée.
+        Si le billet NOMINATIF Accès complet ou Accès journalier a été acheté,
+        il est impossible de le partager entre participant·es.
       </li>
       <li>
-        En participant à l’événement, tu t’engages à respecter le{' '}
+        Si un billet ENTREPRISE est acheté, il est possible qu’il soit partagé
+        entre participant·es d’une même entreprise.
+      </li>
+      <li>
+        En participant à l’événement, tu t’engages à respecter à la lettre le{' '}
         <GatsbyLink to='/code-de-conduite' css={linkStyle}>
           code de conduite
         </GatsbyLink>{' '}
@@ -35,19 +41,16 @@ const TermsAndConditions = () => (
       </li>
       <li>
         Il est de ta responsabilité d’attribuer chacun des billets réservés à
-        un·e participant·e unique. Si tes billets ne sont pas attribués à un·e
-        participant·e unique, il sera impossible d’accéder à la plateforme
-        événementielle pour écouter les rediffusions.
+        un·e participant·e unique.
       </li>
       <li>
         S’il y a lieu, le ou la participant·e s’engage à respecter les mesures
         sanitaires en place au moment de l’événement.
       </li>
       <li>
-        En entrant sur les lieux du Terminal – Port de Québec, les
-        participant·es acceptent d’être photographié·e, filmé·e et enregistré·e.
-        Le matériel produit pourra ensuite être utilisé par le WAQ à des fins
-        promotionnelles.
+        En entrant sur les lieux du Terminal – Port de Québec, tu acceptes
+        d’être photographié·e, filmé·e et enregistré·e. Le matériel produit
+        pourra ensuite être utilisé par le WAQ à des fins promotionnelles.
       </li>
     </ul>
 
