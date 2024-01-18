@@ -14,11 +14,22 @@ const TermsAndConditions = () => (
     <TermsTitle>TERMES ET CONDITIONS</TermsTitle>
 
     <ul css={unorderedListStyle}>
+      <li>Tous les prix affichés sont avant taxes et en devise canadienne.</li>
       <li>Les billets sont des ventes finales (aucun remboursement).</li>
+      <li>
+        Les tarifs en prévente (accès complet à 695 $ et accès complet -
+        entreprise à 905 $) sont valides jusqu’au 20 mars 2024 inclusivement.
+        Ensuite, les tarifs passeront respectivement à 995 $ et 1205 $ jusqu’à
+        l’événement.
+      </li>
       <li>
         Il est possible de transférer un billet à une autre personne jusqu’au 12
         mai 2024. Après cette date, il faudra communiquer avec quelqu’un de
         notre équipe.
+      </li>
+      <li>
+        Les tarifs journaliers sont valides à partir du 21 mars 2024, moment où
+        la programmation sera rendue disponible.
       </li>
       <li>
         Si le billet NOMINATIF Accès complet ou Accès journalier a été acheté,
@@ -26,7 +37,8 @@ const TermsAndConditions = () => (
       </li>
       <li>
         Si un billet ENTREPRISE est acheté, il est possible qu’il soit partagé
-        entre participant·es d’une même entreprise.
+        entre participant·es d’une même entreprise. Une seule personne à la fois
+        peut être présente dans le Terminal de croisière - Port de Québec.
       </li>
       <li>
         En participant à l’événement, tu t’engages à respecter à la lettre le{' '}
@@ -36,16 +48,8 @@ const TermsAndConditions = () => (
         du WAQ.
       </li>
       <li>
-        À moins qu’il en soit autrement, tous les prix indiqués sont en devise
-        canadienne.
-      </li>
-      <li>
         Il est de ta responsabilité d’attribuer chacun des billets réservés à
         un·e participant·e unique.
-      </li>
-      <li>
-        S’il y a lieu, le ou la participant·e s’engage à respecter les mesures
-        sanitaires en place au moment de l’événement.
       </li>
       <li>
         En entrant sur les lieux du Terminal – Port de Québec, tu acceptes

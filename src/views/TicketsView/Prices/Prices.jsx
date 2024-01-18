@@ -43,7 +43,7 @@ const Prices = () => (
             <TicketPrice>695$</TicketPrice>
 
             <Button
-              to='https://ti.to/web-a-quebec/waq24/fr?waiting_list_id=zuq7qid1eyq'
+              to='https://ti.to/web-a-quebec/waq24/fr'
               tag='href'
               inverted
               small
@@ -52,7 +52,7 @@ const Prices = () => (
               target='_blank'
               css={buttonStyle}
             >
-              M’inscrire à la liste d’attente
+              Acheter mon billet
             </Button>
 
             <TicketText color={colors.white}>
@@ -65,10 +65,6 @@ const Prices = () => (
                 </li>
                 <li>tes repas et boissons durant les 3 jours.</li>
               </ul>
-              <small>
-                *Tarif valide jusqu’au 20 mars inclusivement. Ensuite, il sera
-                de 995 $.
-              </small>
             </TicketText>
           </Center>
         </Paper>
@@ -87,8 +83,8 @@ const Prices = () => (
 
             <TicketPrice>450$</TicketPrice>
 
-            {/* <Button
-              to='https://ti.to/web-a-quebec/waq23'
+            <Button
+              to='https://ti.to/web-a-quebec/waq24/fr'
               tag='href'
               small
               animated
@@ -96,8 +92,8 @@ const Prices = () => (
               target='_blank'
               css={buttonStyle}
             >
-              Acheter mon billet
-            </Button> */}
+              Disponible le 21 mars
+            </Button>
 
             <TicketText>
               <p>Tu n’es pas disponible les 3 jours? On a pensé à toi.</p>
@@ -106,10 +102,6 @@ const Prices = () => (
                 <li>tes repas et boissons;</li>
                 <li>un 5 à 7 exceptionnel.</li>
               </ul>
-              <small>
-                *Disponible dès le 21 mars 2024. Après tout, pourquoi choisir un
-                billet journalier sans connaître la programmation!
-              </small>
             </TicketText>
           </Center>
         </Paper>
@@ -131,7 +123,7 @@ const Prices = () => (
             <TicketPrice>905$</TicketPrice>
 
             <Button
-              to='https://ti.to/web-a-quebec/waq24/fr?waiting_list_id=ojjloxhqez4'
+              to='https://ti.to/web-a-quebec/waq24/fr'
               tag='href'
               small
               animated
@@ -139,7 +131,7 @@ const Prices = () => (
               target='_blank'
               css={buttonStyle}
             >
-              M’inscrire à la liste d’attente
+              Acheter mon billet
             </Button>
 
             <TicketText>
@@ -160,13 +152,6 @@ const Prices = () => (
                   cocarde.
                 </li>
               </ul>
-              <small>
-                *Tarif valide jusqu’au 20 mars inclusivement. Ensuite, il sera
-                de 1205 $. Ce billet peut être partagé entre plusieurs
-                personnes, mais une seule personne à la fois peut être dans le
-                Terminal - Port de Québec et participer aux activités de
-                l’événement.
-              </small>
             </TicketText>
           </Center>
         </Paper>
@@ -186,7 +171,7 @@ const Prices = () => (
             <TicketPrice>300$</TicketPrice>
 
             <Button
-              to='https://ti.to/web-a-quebec/waq24/fr?waiting_list_id=ojjloxhqez4'
+              to='https://ti.to/web-a-quebec/waq24/fr'
               tag='href'
               small
               animated
@@ -194,7 +179,7 @@ const Prices = () => (
               target='_blank'
               css={buttonStyle}
             >
-              M’inscrire à la liste d’attente
+              Acheter mon billet
             </Button>
 
             <TicketText>

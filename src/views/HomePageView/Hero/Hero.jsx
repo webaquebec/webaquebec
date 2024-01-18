@@ -39,9 +39,7 @@ const Hero = () => (
       </h2>
 
       <Center maxWidth='850px' gutters='0' withText>
-        <HeroIntro>
-          le plus grand événement numérique francophone en Amérique du Nord
-        </HeroIntro>
+        <HeroIntro>l’événement local de calibre international</HeroIntro>
       </Center>
 
       <Address>

@@ -159,20 +159,19 @@ export const TicketText = styled.div`
     breakpoints.spacings
   )};
 
+  p {
+    ${breakpointsRange(
+      [{ prop: 'marginBottom', sizes: [8, 8], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
+
   ul {
     ${breakpointsRange(
       [
         { prop: 'fontSize', sizes: [14, 14], bases: [16, 20] },
         { prop: 'paddingLeft', sizes: [20, 20], bases: [16, 20] },
       ],
-      breakpoints.spacings
-    )};
-  }
-
-  small {
-    display: block;
-    ${breakpointsRange(
-      [{ prop: 'marginTop', sizes: [16, 24], bases: [16, 20] }],
       breakpoints.spacings
     )};
   }
