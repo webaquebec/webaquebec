@@ -137,7 +137,7 @@ const Prices = () => (
             <TicketText>
               <p>
                 Tu veux assister aux conférences du matin et passer le relais à
-                ta collègue en pm ? C’est le billet qu’il vous faut !
+                ta collègue en pm? C’est le billet qu’il vous faut!
               </p>
               <ul>
                 <li>3 journées de conférences;</li>
