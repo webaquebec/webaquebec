@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import SEO from '../components/SEO';
 import StyledSectionContainer from '../components/SectionContainer';
 import PartnersGrids from '../components/PartnersGrids';
+import NewsletterCard from '../components/NewsletterCard';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
@@ -45,6 +46,8 @@ const IndexPage = () => (
       <CTASection />
 
       {/* <KeynoteSection /> */}
+
+      <NewsletterCard />
 
       <PartnersGrids titled />
     </SectionContainer>

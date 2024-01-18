@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 // utils
 import { lessThan } from '../../utils/mediaQuery';
+import breakpointsRange from '../../utils/breakpointsRange';
 
 // images
 import IconPlus from '../../images/IconPlus';
@@ -11,7 +12,7 @@ import IconPlus from '../../images/IconPlus';
 import colors from '../../styles/colors';
 import { speed } from '../../styles/animation';
 import breakpoints from '../../styles/breakpoints';
-import breakpointsRange from '../../utils/breakpointsRange';
+import zIndexes from '../../styles/zIndexes';
 
 const buttonDarkStyle = css`
   color: ${colors.bleu};
@@ -19,8 +20,16 @@ const buttonDarkStyle = css`
 
 export const Button = styled.button`
   position: absolute;
-  top: 32px;
-  right: 32px;
+
+  ${breakpointsRange(
+    [
+      { prop: 'top', sizes: [24, 32] },
+      { prop: 'right', sizes: [36, 44] },
+    ],
+    breakpoints.spacings
+  )};
+
+  z-index: ${zIndexes.popover + 1};
 
   display: flex;
   align-items: center;
