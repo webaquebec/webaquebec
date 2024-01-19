@@ -10,7 +10,7 @@ module.exports = {
     description:
       'Le plus grand événement numérique francophone en Amérique du Nord.',
     siteUrl: 'https://webaquebec.org',
-    image: '/og-img-waq-23.png',
+    image: '/og-img-waq-24.png',
   },
   plugins: [
     {

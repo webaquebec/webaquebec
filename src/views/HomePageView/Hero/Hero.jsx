@@ -39,7 +39,9 @@ const Hero = () => (
       </h2>
 
       <Center maxWidth='850px' gutters='0' withText>
-        <HeroIntro>l’événement local de calibre international</HeroIntro>
+        <HeroIntro>
+          l’événement numérique local de calibre international
+        </HeroIntro>
       </Center>
 
       <Address>
