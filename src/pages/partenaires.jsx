@@ -59,7 +59,7 @@ const PartnersPage = () => (
     >
       <PartnersTitle css={titleStyle}>
         parte<span>naires</span>
-        <span>&nbsp;2023</span>
+        <span>&nbsp;2024</span>
       </PartnersTitle>
     </Center>
 
