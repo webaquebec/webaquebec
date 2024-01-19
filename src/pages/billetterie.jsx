@@ -12,9 +12,9 @@ import SEO from '../components/SEO';
 import breakpointsRange from '../utils/breakpointsRange';
 
 // views
-// import Prices from '../views/TicketsView/Prices';
-import CallToAction from '../views/TicketsView/CallToAction';
-// import TermsAndConditions from '../views/TicketsView/TermsAndConditions/TermsAndConditions';
+import Prices from '../views/TicketsView/Prices';
+// import CallToAction from '../views/TicketsView/CallToAction';
+import TermsAndConditions from '../views/TicketsView/TermsAndConditions/TermsAndConditions';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -95,11 +95,11 @@ const TicketsPage = () => (
       </TicketsIntro>
     </Center>
 
-    {/* <Prices /> */}
+    <Prices />
 
     <Container forwardedAs='div' faded>
-      <CallToAction />
-      {/* <TermsAndConditions /> */}
+      {/* <CallToAction /> */}
+      <TermsAndConditions />
     </Container>
   </>
 );

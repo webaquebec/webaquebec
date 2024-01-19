@@ -13,7 +13,7 @@ import {
   BlocksWrapper,
   ContentContainer,
   TicketTitle,
-  TicketBadge,
+  // TicketBadge,
   TicketPrice,
   TicketText,
   buttonStyle,
@@ -30,6 +30,46 @@ const Prices = () => (
     >
       <BlocksWrapper>
         <Paper
+          lightColor={colors.bleu100}
+          darkColor={colors.earlyDawn}
+          rounded
+          elevation={elevation.large}
+          css={blockContainerStyle}
+        >
+          <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
+            <TicketTitle>Billet accès complet</TicketTitle>
+            {/* <TicketBadge>Complet</TicketBadge> */}
+
+            <TicketPrice>695$</TicketPrice>
+
+            <Button
+              to='https://ti.to/web-a-quebec/waq24/fr'
+              tag='href'
+              inverted
+              small
+              animated
+              rel='noopener noreferrer'
+              target='_blank'
+              css={buttonStyle}
+            >
+              Acheter mon billet
+            </Button>
+
+            <TicketText color={colors.white}>
+              <p>Tu ne veux rien manquer du WAQ? </p>
+              <ul>
+                <li>3 journées de conférences;</li>
+                <li>
+                  un accès pour écouter les contenus de la salle principale en
+                  rediffusion; les meilleurs 5 à 7 en ville;
+                </li>
+                <li>tes repas et boissons durant les 3 jours.</li>
+              </ul>
+            </TicketText>
+          </Center>
+        </Paper>
+
+        <Paper
           lightColor={colors.earlyDawn}
           darkColor={colors.bleu100}
           rounded
@@ -39,12 +79,12 @@ const Prices = () => (
         >
           <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
             <TicketTitle color={colors.gris90}>Billet journalier</TicketTitle>
-            <TicketBadge>Complet</TicketBadge>
+            {/* <TicketBadge>Complet</TicketBadge> */}
 
-            <TicketPrice>395$</TicketPrice>
+            <TicketPrice>450$</TicketPrice>
 
             <Button
-              to='https://ti.to/web-a-quebec/waq23'
+              to='https://ti.to/web-a-quebec/waq24/fr'
               tag='href'
               small
               animated
@@ -52,44 +92,66 @@ const Prices = () => (
               target='_blank'
               css={buttonStyle}
             >
-              Joindre la liste d&apos;attente
+              Disponible le 21 mars
             </Button>
 
             <TicketText>
-              Envie de venir faire ton tour, mais tu es seulement disponible une
-              journée? Choisis laquelle, on s&apos;occupe du reste!
+              <p>Tu n’es pas disponible les 3 jours? On a pensé à toi.</p>
+              <ul>
+                <li>une journée de conférence;</li>
+                <li>tes repas et boissons;</li>
+                <li>un 5 à 7 exceptionnel.</li>
+              </ul>
             </TicketText>
           </Center>
         </Paper>
+      </BlocksWrapper>
 
+      <BlocksWrapper>
         <Paper
-          lightColor={colors.bleu100}
-          darkColor={colors.earlyDawn}
+          lightColor={colors.earlyDawn}
+          darkColor={colors.bleu100}
           rounded
+          overlaid
           elevation={elevation.large}
           css={blockContainerStyle}
         >
-          <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
-            <TicketTitle>Billet accès complet</TicketTitle>
-            <TicketBadge>Complet</TicketBadge>
+          <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
+            <TicketTitle color={colors.gris90}>Billet entreprise</TicketTitle>
+            {/* <TicketBadge>Complet</TicketBadge> */}
 
-            <TicketPrice>895$</TicketPrice>
+            <TicketPrice>905$</TicketPrice>
 
             <Button
-              to='https://ti.to/web-a-quebec/waq23/fr?waiting_list_id=zuq7qid1eyq'
+              to='https://ti.to/web-a-quebec/waq24/fr'
               tag='href'
-              inverted
               small
               animated
               rel='noopener noreferrer'
               target='_blank'
               css={buttonStyle}
             >
-              Joindre la liste d&apos;attente
+              Acheter mon billet
             </Button>
 
-            <TicketText color={colors.white}>
-              Pour t’assurer de ne rien manquer, tout au long du WAQ!
+            <TicketText>
+              <p>
+                Tu veux assister aux conférences du matin et passer le relais à
+                ta collègue en pm? C’est le billet qu’il vous faut!
+              </p>
+              <ul>
+                <li>3 journées de conférences;</li>
+                <li>
+                  6 accès pour écouter les contenus de la salle principale en
+                  rediffusion;
+                </li>
+                <li>les meilleurs 5 à 7 en ville;</li>
+                <li>tes repas et boissons durant les 3 jours;</li>
+                <li>
+                  une gestion des billets pour faciliter la cueillette de ta
+                  cocarde.
+                </li>
+              </ul>
             </TicketText>
           </Center>
         </Paper>
@@ -104,12 +166,12 @@ const Prices = () => (
         >
           <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
             <TicketTitle color={colors.gris90}>Billet étudiant</TicketTitle>
-            <TicketBadge>Complet</TicketBadge>
+            {/* <TicketBadge>Complet</TicketBadge> */}
 
-            <TicketPrice>250$</TicketPrice>
+            <TicketPrice>300$</TicketPrice>
 
             <Button
-              to='https://ti.to/web-a-quebec/waq23/fr?waiting_list_id=ojjloxhqez4'
+              to='https://ti.to/web-a-quebec/waq24/fr'
               tag='href'
               small
               animated
@@ -117,12 +179,21 @@ const Prices = () => (
               target='_blank'
               css={buttonStyle}
             >
-              Joindre la liste d&apos;attente
+              Acheter mon billet
             </Button>
 
             <TicketText>
-              Pour participer aux activités et assister aux conférences tout en
-              respectant ton budget étudiant!
+              <p>Te former, réseauter et 5à7ter. Quoi demander de plus?</p>
+              <ul>
+                <li>un billet à un prix réduit;</li>
+                <li>3 journées de conférences;</li>
+                <li>tes repas et boissons durant les 3 jours;</li>
+                <li>
+                  un accès pour écouter les contenus de la salle principale en
+                  rediffusion;
+                </li>
+                <li>les meilleurs 5 à 7 en ville.</li>
+              </ul>
             </TicketText>
           </Center>
         </Paper>

@@ -10,7 +10,7 @@ import { fontWeights } from '../../../styles/typography';
 import colors from '../../../styles/colors';
 
 export const blockContainerStyle = css`
-  max-width: 525px;
+  max-width: 450px;
 
   ${breakpointsRange(
     [
@@ -43,10 +43,18 @@ export const BlocksWrapper = styled.div`
   justify-content: center;
 
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [40, 120] }],
+    [{ prop: 'marginBottom', sizes: [16, 16] }],
     breakpoints.spacings,
     { bases: [16, 20] }
   )};
+
+  &:last-child {
+    ${breakpointsRange(
+      [{ prop: 'marginBottom', sizes: [40, 120] }],
+      breakpoints.spacings,
+      { bases: [16, 20] }
+    )};
+  }
 `;
 
 export const TicketTitle = styled.h2`
@@ -137,8 +145,11 @@ export const TicketPrice = styled.div`
   }
 `;
 
-export const TicketText = styled.p`
+export const TicketText = styled.div`
   flex-grow: 1;
+
+  text-align: left;
+
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
@@ -147,4 +158,21 @@ export const TicketText = styled.p`
     ],
     breakpoints.spacings
   )};
+
+  p {
+    ${breakpointsRange(
+      [{ prop: 'marginBottom', sizes: [8, 8], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
+
+  ul {
+    ${breakpointsRange(
+      [
+        { prop: 'fontSize', sizes: [14, 14], bases: [16, 20] },
+        { prop: 'paddingLeft', sizes: [20, 20], bases: [16, 20] },
+      ],
+      breakpoints.spacings
+    )};
+  }
 `;
