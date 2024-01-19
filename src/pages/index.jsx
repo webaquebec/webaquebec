@@ -34,7 +34,7 @@ const IndexPage = () => (
   <>
     <SEO
       title='Web à Québec | 28 au 30 mai 2024'
-      description='Le plus grand événement numérique francophone en Amérique du Nord.'
+      description='Le WAQ, c’est une communauté de passionnés qui déploie annuellement un événement numérique local de calibre international. Trois jours de conférences et de rencontres exceptionnelles.'
     />
 
     <Hero />

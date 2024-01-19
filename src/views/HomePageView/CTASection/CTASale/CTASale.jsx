@@ -13,11 +13,12 @@ const CTASale = () => (
   <Switcher threshold='855px' space='2rem' limit={2}>
     <div>
       <div>
-        <CTATitle>Vente en cours</CTATitle>
+        <CTATitle>Réserve ta place</CTATitle>
 
         <CTAIntro>
-          La prévente du WAQ bat son plein! Réserve ton billet au meilleur prix
-          de l’année!
+          Ne manque pas la prévente des billets pour la prochaine édition du WAQ
+          et inscris-toi sur la liste d’attente. Tu seras avisé dès que les
+          billets seront disponibles!
         </CTAIntro>
 
         <Button to='/billetterie' tag='link' primary animated>

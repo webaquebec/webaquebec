@@ -10,7 +10,10 @@ import colors from '../../../styles/colors';
 
 export const ctaButtonStyle = css`
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [32, 32], bases: [16, 20] }],
+    [
+      { prop: 'marginTop', sizes: [32, 32], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [80, 120], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
