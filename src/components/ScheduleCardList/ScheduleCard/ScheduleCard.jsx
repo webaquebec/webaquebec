@@ -21,6 +21,17 @@ import {
   noTimeStyle,
 } from './ScheduleCard.styles';
 
+const categoryColors = {
+  design: colors.mauve,
+  developpement: colors.ciel,
+  innovation: colors.turquoise,
+  'communication-and-marketing': colors.jaune,
+  'communication-et-marketing': colors.jaune,
+  'jeux-video': colors.rose100,
+  'competences-transversales': colors.rose100,
+  'communication-dans-ladministration-publique': colors.rose100,
+};
+
 /**
  *
  * @module ScheduleCard
@@ -38,77 +49,64 @@ const ScheduleCard = ({
   speakers,
   to,
   ...rest
-}) => {
-  const categoryColors = {
-    design: colors.mauve,
-    developpement: colors.ciel,
-    innovation: colors.turquoise,
-    'communication-and-marketing': colors.jaune,
-    'communication-et-marketing': colors.jaune,
-    'jeux-video': colors.rose100,
-    'competences-transversales': colors.rose100,
-    'communication-dans-ladministration-publique': colors.rose100,
-  };
-
-  return (
-    <StyledScheduleCard
-      to={to}
-      $accentColor={categoryColors[categories[0]] || colors.gris90}
-      {...rest}
+}) => (
+  <StyledScheduleCard
+    to={to}
+    $accentColor={categoryColors[categories[0]] || colors.gris90}
+    {...rest}
+  >
+    <Container
+      lightColor={colors.white}
+      darkColor={colors.gris90}
+      css={time ? undefined : noTimeStyle}
     >
-      <Container
-        lightColor={colors.white}
-        darkColor={colors.gris90}
-        css={time ? undefined : noTimeStyle}
-      >
-        {time && (
-          <div
-            css={`
-              position: absolute;
-              top: ${content ? '40px' : '20px'};
-              left: -8px;
-            `}
-          >
-            <StyledTimeStamp beginsAt={time.beginsAt} endsAt={time.endsAt} />
-          </div>
+      {time && (
+        <div
+          css={`
+            position: absolute;
+            top: ${content ? '40px' : '20px'};
+            left: -8px;
+          `}
+        >
+          <StyledTimeStamp beginsAt={time.beginsAt} endsAt={time.endsAt} />
+        </div>
+      )}
+
+      <Stack>
+        <Title as={titleAs}>{title}</Title>
+
+        {content && (
+          <Content
+            as={contentAs}
+            dangerouslySetInnerHTML={{
+              __html: truncate(content, 168, true),
+            }}
+          />
         )}
 
-        <Stack>
-          <Title as={titleAs}>{title}</Title>
+        {speakers.map((speaker) => (
+          <div key={speaker.id}>
+            <Tag speaker={speaker} />
+          </div>
+        ))}
 
-          {content && (
-            <Content
-              as={contentAs}
-              dangerouslySetInnerHTML={{
-                __html: truncate(content, 168, true),
-              }}
-            />
-          )}
+        {(categories.length > 0 || type || place) && (
+          <Cluster>
+            <div>
+              {categories.map((category) => (
+                <Tag key={category} category={category} />
+              ))}
 
-          {speakers.map((speaker) => (
-            <div key={speaker.id}>
-              <Tag speaker={speaker} />
+              {type && <Tag eventType={type} />}
+
+              {place && <Tag place={place} />}
             </div>
-          ))}
-
-          {(categories.length > 0 || type || place) && (
-            <Cluster>
-              <div>
-                {categories.map((category) => (
-                  <Tag key={category} category={category} />
-                ))}
-
-                {type && <Tag eventType={type} />}
-
-                {place && <Tag place={place} />}
-              </div>
-            </Cluster>
-          )}
-        </Stack>
-      </Container>
-    </StyledScheduleCard>
-  );
-};
+          </Cluster>
+        )}
+      </Stack>
+    </Container>
+  </StyledScheduleCard>
+);
 
 ScheduleCard.propTypes = {
   /**

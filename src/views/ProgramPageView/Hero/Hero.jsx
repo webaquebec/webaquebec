@@ -7,7 +7,7 @@ import { useMedia } from 'react-use';
 import { navigate } from 'gatsby';
 
 // components
-import { hideVisually } from 'polished';
+// import { hideVisually } from 'polished';
 import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
 import DropDown from '../../../components/Dropdown';
@@ -31,7 +31,7 @@ import {
   selfBreakpoints,
   Wrapper,
   HeaderContent,
-  StickyTitle,
+  // StickyTitle,
   DateList,
   DateListItem,
   dateTabStyle,
@@ -60,7 +60,7 @@ const Hero = ({ location, datePaths }) => {
   const isVisible = inView;
 
   // < 1060
-  const tablet = useMedia(lessThanCondition(selfBreakpoints[3]));
+  // const tablet = useMedia(lessThanCondition(selfBreakpoints[3]));
   // < 832
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
 
@@ -105,20 +105,20 @@ const Hero = ({ location, datePaths }) => {
         />
 
         <HeaderContent
-          maxWidth={!isVisible ? '1066px' : minWidth}
+          maxWidth={!isVisible ? '632px' : minWidth}
           gutters={mobile ? '16px' : '32px'}
         >
-          {!isVisible && !tablet && (
+          {/* !isVisible && !tablet && (
             <StickyTitle>
               <span>program</span>mation
               <span css={current.edition > 2023 && hideVisually}>
                 &nbsp;{current.edition}
               </span>
-              {/* {current.edition === 2021 && (
+              { {current.edition === 2021 && (
                 <YearSticker src={vectorYear2021} alt='2021' />
-              )} */}
+              )} }
             </StickyTitle>
-          )}
+          ) */}
 
           {mobile ? (
             <div

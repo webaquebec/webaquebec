@@ -7,10 +7,10 @@ import styled from 'styled-components';
 // components
 import SEO from '../../components/SEO';
 import Center from '../../components/LayoutSections/Center';
-import ScheduleCardList from '../../components/ScheduleCardList';
+// import ScheduleCardList from '../../components/ScheduleCardList';
 import ScheduleCard from '../../components/ScheduleCardList/ScheduleCard';
 import StyledSectionContainer from '../../components/SectionContainer';
-import Switcher from '../../components/LayoutSections/Switcher';
+import Stack from '../../components/LayoutSections/Stack';
 
 // contexts
 import { useProgramFilters } from '../../contexts/ProgramFiltersContext';
@@ -51,6 +51,11 @@ const FiltersWrapper = styled.div`
     max-width: 0;
     margin: 0;
   }
+`;
+
+const ColumnContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
 `;
 
 /**
@@ -253,6 +258,17 @@ const Program = ({
       .filter((session) => applyFilter('type', session.type));
   }
 
+  let columnedProgram = {};
+  filteredProgram.forEach((session) => {
+    if (!columnedProgram[session.place]) {
+      columnedProgram[session.place] = [];
+    }
+    columnedProgram[session.place].push(session);
+  });
+  columnedProgram = Object.values(columnedProgram);
+
+  console.log(columnedProgram);
+
   return (
     <>
       <SEO
@@ -264,39 +280,41 @@ const Program = ({
 
       <SectionContainer id='program-section' forwardedAs='div' faded>
         <Center maxWidth='1066px'>
-          <Switcher threshold='768px' space='24px'>
-            <div>
-              <FiltersWrapper>
-                <Filters
-                  onChange={handleFilterChange}
-                  onReset={handleClickReset}
-                />
-              </FiltersWrapper>
+          <Stack space='1.5rem'>
+            <FiltersWrapper>
+              <Filters
+                onChange={handleFilterChange}
+                onReset={handleClickReset}
+              />
+            </FiltersWrapper>
 
-              <div>
-                {filteredProgram.length > 0 ? (
-                  <ScheduleCardList>
-                    {filteredProgram.map((session) => (
-                      <ScheduleCard
-                        id={session.id}
-                        key={session.id}
-                        to={`/programmation/${slugify(session.title)}/`}
-                        title={session.title}
-                        content={session.description}
-                        place={session.place}
-                        time={session.time}
-                        type={session.type}
-                        categories={session.categories}
-                        speakers={session.speakers}
-                      />
-                    ))}
-                  </ScheduleCardList>
-                ) : (
-                  <NoResults />
-                )}
-              </div>
+            <div>
+              <ColumnContainer>
+                {columnedProgram.map((column) => (
+                  <>
+                    <div> {`${column[0].place}`} </div>
+                    <div>
+                      {column.map((session) => (
+                        <ScheduleCard
+                          id={session.id}
+                          key={session.id}
+                          to={`/programmation/${slugify(session.title)}/`}
+                          title={session.title}
+                          content={session.description}
+                          place={session.place}
+                          time={session.time}
+                          type={session.type}
+                          categories={session.categories}
+                          speakers={session.speakers}
+                        />
+                      ))}
+                    </div>
+                  </>
+                ))}
+              </ColumnContainer>
+              {filteredProgram.length === 0 && <NoResults />}
             </div>
-          </Switcher>
+          </Stack>
         </Center>
       </SectionContainer>
     </>
