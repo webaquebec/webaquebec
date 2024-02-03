@@ -17,6 +17,8 @@ import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg
 import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
 import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
 import logoNooe from '../../images/logoPartners/associates/logo-nooe.webp';
+import logoBarberie from '../../images/logoPartners/associates/logo-barberie.png';
+import logoCiao from '../../images/logoPartners/associates/logo-ciao.png';
 // import logoVideotronRGB from '../../images/logoPartners/premium/logo-videotron-rgb.svg';
 // import logoVideotronWhite from '../../images/logoPartners/premium/logo-videotron-white.svg';
 // import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
@@ -93,11 +95,24 @@ const creativePartners = [
   },
 ];
 
+const festivePartners = [
+  {
+    src: logoCiao,
+    alt: 'Ciao',
+    url: 'https://www.ciao.ca',
+  },
+];
+
 const communityPartners = [
   {
     src: logoNooe,
     alt: 'Nooé',
     url: 'https://www.nooe.org',
+  },
+  {
+    src: logoBarberie,
+    alt: 'Barberie',
+    url: 'https://www.labarberie.com',
   },
 ];
 
@@ -105,6 +120,10 @@ const partners = [
   {
     title: 'partenaires créatifs',
     images: creativePartners,
+  },
+  {
+    title: 'partenaires festifs',
+    images: festivePartners,
   },
   {
     title: 'partenaires communauté',
