@@ -2,7 +2,6 @@
 import styled, { css } from 'styled-components';
 
 // utils
-import { em } from 'polished';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 // styles
@@ -53,10 +52,14 @@ export const MediaList = styled.ul`
   padding: 0;
 
   list-style: none;
+`;
 
-  @media (max-width: ${em(846)}) {
-    max-width: 216px;
-  }
+export const SocialIcon = styled.img`
+  ${breakpointsRange(
+    [{ prop: 'width', sizes: [24, 30] }],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
 `;
 
 export const blockContainerStyle = css`
@@ -153,6 +156,12 @@ export const SnakyButton = styled.button`
     transition: opacity ${speed.superslow} ease-out;
 
     content: '';
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    ::after {
+      transition: none;
+    }
   }
 
   > span:last-child {

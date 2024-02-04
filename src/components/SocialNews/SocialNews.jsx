@@ -14,6 +14,7 @@ import {
   SnakyButton,
   GameWrapper,
   gameContainerStyle,
+  SocialIcon,
 } from './SocialNews.styles';
 import colors from '../../styles/colors';
 
@@ -29,6 +30,7 @@ import twitter from '../../images/socialMedia/twitter.svg';
 import instagram from '../../images/socialMedia/instagram.svg';
 import linkedin from '../../images/socialMedia/linkedin.svg';
 import tiktok from '../../images/socialMedia/tiktok.svg';
+import youtube from '../../images/socialMedia/youtube.svg';
 import elevation from '../../styles/elevation';
 import { easing, speed } from '../../styles/animation';
 import SnakeGame from '../SnakeGame';
@@ -49,6 +51,11 @@ const SocialNews = () => {
       name: 'Twitter',
       img: twitter,
       link: 'https://twitter.com/webaquebec',
+    },
+    {
+      name: 'Youtube',
+      img: youtube,
+      link: 'https://www.youtube.com/@waqwebaquebec/videos',
     },
     {
       name: 'Instagram',
@@ -112,7 +119,7 @@ const SocialNews = () => {
                     rel='noopener noreferrer'
                     target='_blank'
                   >
-                    <img src={media.img} alt={media.name} />
+                    <SocialIcon src={media.img} alt={media.name} />
                   </a>
                 </li>
               ))}
