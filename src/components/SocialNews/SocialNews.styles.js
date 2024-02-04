@@ -145,21 +145,6 @@ export const SnakyButton = styled.button`
     content: '';
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    ::after {
-      position: absolute;
-      inset: 0;
-
-      background-color: ${colors.bleu100};
-      border-radius: inherit;
-      opacity: var(--opacity);
-
-      transition: none;
-
-      content: '';
-    }
-  }
-
   ::after {
     position: absolute;
     inset: 0;
@@ -171,6 +156,12 @@ export const SnakyButton = styled.button`
     transition: opacity ${speed.superslow} ease-out;
 
     content: '';
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    ::after {
+      transition: none;
+    }
   }
 
   > span:last-child {
