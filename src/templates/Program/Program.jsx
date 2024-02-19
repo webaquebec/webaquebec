@@ -26,6 +26,7 @@ import { lessThan } from '../../utils/mediaQuery';
 import slugify from '../../utils/strings/slugify';
 // import unSlugify from '../../utils/strings/unSlugify';
 import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
+import colors from '../../styles/colors';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
@@ -53,9 +54,38 @@ const FiltersWrapper = styled.div`
   }
 `;
 
-const ColumnContainer = styled.div`
+const GridContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
+
+  ${lessThan(breakpoints.spacings[1])} {
+    flex-flow: column nowrap;
+  }
+`;
+
+const ColumnWrapper = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0.25rem;
+`;
+
+const ColumnContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+`;
+
+const Place = styled.div`
+  height: 4rem;
+
+  margin-bottom: 0.5rem;
+
+  padding: 0.5rem;
+
+  color: ${colors.gris100};
+
+  background: ${colors.white};
+
+  border-radius: 0.5rem;
 `;
 
 /**
@@ -260,10 +290,10 @@ const Program = ({
 
   let columnedProgram = {};
   filteredProgram.forEach((session) => {
-    if (!columnedProgram[session.place]) {
-      columnedProgram[session.place] = [];
+    if (!columnedProgram[session.categories[0]]) {
+      columnedProgram[session.categories[0]] = [];
     }
-    columnedProgram[session.place].push(session);
+    columnedProgram[session.categories[0]].push(session);
   });
   columnedProgram = Object.values(columnedProgram);
 
@@ -279,7 +309,7 @@ const Program = ({
       <Hero datePaths={datePaths} location={location} />
 
       <SectionContainer id='program-section' forwardedAs='div' faded>
-        <Center maxWidth='1066px'>
+        <Center maxWidth='1296px'>
           <Stack space='1.5rem'>
             <FiltersWrapper>
               <Filters
@@ -289,11 +319,11 @@ const Program = ({
             </FiltersWrapper>
 
             <div>
-              <ColumnContainer>
+              <GridContainer>
                 {columnedProgram.map((column) => (
-                  <>
-                    <div> {`${column[0].place}`} </div>
-                    <div>
+                  <ColumnWrapper>
+                    <Place> {`${column[0].categories[0]}`} </Place>
+                    <ColumnContainer>
                       {column.map((session) => (
                         <ScheduleCard
                           id={session.id}
@@ -308,10 +338,10 @@ const Program = ({
                           speakers={session.speakers}
                         />
                       ))}
-                    </div>
-                  </>
+                    </ColumnContainer>
+                  </ColumnWrapper>
                 ))}
-              </ColumnContainer>
+              </GridContainer>
               {filteredProgram.length === 0 && <NoResults />}
             </div>
           </Stack>

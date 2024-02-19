@@ -60,19 +60,13 @@ const ScheduleCard = ({
       darkColor={colors.gris90}
       css={time ? undefined : noTimeStyle}
     >
-      {time && (
-        <div
-          css={`
-            position: absolute;
-            top: ${content ? '40px' : '20px'};
-            left: -8px;
-          `}
-        >
-          <StyledTimeStamp beginsAt={time.beginsAt} endsAt={time.endsAt} />
-        </div>
-      )}
-
       <Stack>
+        {time && (
+          <div>
+            <StyledTimeStamp beginsAt={time.beginsAt} endsAt={time.endsAt} />
+          </div>
+        )}
+
         <Title as={titleAs}>{title}</Title>
 
         {content && (
@@ -98,8 +92,6 @@ const ScheduleCard = ({
               ))}
 
               {type && <Tag eventType={type} />}
-
-              {place && <Tag place={place} />}
             </div>
           </Cluster>
         )}

@@ -20,11 +20,7 @@ const TimeStamp = ({ beginsAt, endsAt, ...rest }) => (
     `}
     {...rest}
   >
-    <TimeWrapper>
-      {beginsAt}
-      <br />
-      <span>{`à ${endsAt}`}</span>
-    </TimeWrapper>
+    <TimeWrapper>{`${beginsAt} à ${endsAt}`}</TimeWrapper>
   </Box>
 );
 

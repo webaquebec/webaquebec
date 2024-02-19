@@ -17,14 +17,10 @@ import { fontWeights } from '../../../styles/typography';
 
 export const Container = styled(Paper)`
   ${breakpointsRange(
-    [
-      { prop: 'padding-top', sizes: [40, 40], bases: [16, 20] },
-      { prop: 'padding-right', sizes: [16, 40], bases: [16, 20] },
-      { prop: 'padding-bottom', sizes: [40, 40], bases: [16, 20] },
-      { prop: 'padding-left', sizes: [75, 80], bases: [16, 20] },
-    ],
+    [{ prop: 'padding', sizes: [8, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
+  border-radius: 0.5rem;
 
   ::after {
     position: absolute;
@@ -64,23 +60,31 @@ export const Title = styled.h2`
     breakpoints.spacings
   )};
 
-  line-height: ${26 / 20};
+  line-height: ${24 / 20};
 `;
 
 export const Content = styled.div`
+  flex-shrink: 1;
+
+  overflow: hidden;
+
   font-weight: ${fontWeights.regular};
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
-  line-height: ${23 / 16};
+  line-height: ${20 / 16};
+
+  text-overflow: ellipsis;
 `;
 
 export const StyledScheduleCard = styled(Link)`
   --accentColor: ${({ $accentColor }) => $accentColor || colors.gris90};
 
   position: relative;
+
+  height: 600px;
 
   text-decoration: none;
 
