@@ -19,6 +19,9 @@ import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbrid
 import logoNooe from '../../images/logoPartners/associates/logo-nooe.webp';
 import logoBarberie from '../../images/logoPartners/associates/logo-barberie.png';
 import logoCiao from '../../images/logoPartners/associates/logo-ciao.png';
+import logoBobba from '../../images/logoPartners/associates/logo-bobba.png';
+import logoEvive from '../../images/logoPartners/associates/logo-evive.png';
+import logoNovicom from '../../images/logoPartners/associates/logo-novicom.png';
 // import logoVideotronRGB from '../../images/logoPartners/premium/logo-videotron-rgb.svg';
 // import logoVideotronWhite from '../../images/logoPartners/premium/logo-videotron-white.svg';
 // import logoQuebecor from '../../images/logoPartners/premium/logo-quebecor.svg';
@@ -109,10 +112,28 @@ const communityPartners = [
     alt: 'Nooé',
     url: 'https://www.nooe.org',
   },
+];
+
+const providerPartners = [
   {
     src: logoBarberie,
     alt: 'Barberie',
     url: 'https://www.labarberie.com',
+  },
+  {
+    src: logoEvive,
+    alt: 'Evive',
+    url: 'https://evivenutrition.ca',
+  },
+  {
+    src: logoNovicom,
+    alt: 'Novicom - Groupe CLR',
+    url: 'https://www.groupeclr.com/novicom',
+  },
+  {
+    src: logoBobba,
+    alt: 'Bobba',
+    url: 'https://bobbadrink.com',
   },
 ];
 
@@ -128,6 +149,10 @@ const partners = [
   {
     title: 'partenaires communauté',
     images: communityPartners,
+  },
+  {
+    title: 'partenaires fournisseurs',
+    images: providerPartners,
   },
 ];
 
