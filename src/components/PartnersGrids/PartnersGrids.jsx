@@ -19,7 +19,7 @@ import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbrid
 import logoNooe from '../../images/logoPartners/associates/logo-nooe.webp';
 import logoBarberie from '../../images/logoPartners/associates/logo-barberie.png';
 import logoCiao from '../../images/logoPartners/associates/logo-ciao.png';
-import logoBobba from '../../images/logoPartners/associates/logo-bobba.png';
+import logoBobba from '../../images/logoPartners/associates/logo-bobba.svg';
 import logoEvive from '../../images/logoPartners/associates/logo-evive.png';
 import logoNovicom from '../../images/logoPartners/associates/logo-novicom.png';
 // import logoVideotronRGB from '../../images/logoPartners/premium/logo-videotron-rgb.svg';
