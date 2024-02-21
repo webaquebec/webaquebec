@@ -18,7 +18,7 @@ import logoBarberie from '../../images/logoPartners/associates/logo-barberie.png
 import logoCiao from '../../images/logoPartners/associates/logo-ciao.png';
 import logoBobba from '../../images/logoPartners/associates/logo-bobba.svg';
 import logoEvive from '../../images/logoPartners/associates/logo-evive.png';
-import logoNovicom from '../../images/logoPartners/associates/logo-novicom.png';
+import logoNovicom from '../../images/logoPartners/associates/logo-novicom.svg';
 
 // styles
 import { Title, Grid, GridItem } from './PartnersGrids.styles';
