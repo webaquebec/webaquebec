@@ -1,5 +1,5 @@
 // vendors
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // components
 import Box from '../../LayoutSections/Box';
@@ -12,47 +12,6 @@ import breakpoints from '../../../styles/breakpoints';
 import { fontFamilies, fontWeights } from '../../../styles/typography';
 import zIndexes from '../../../styles/zIndexes';
 import colors from '../../../styles/colors';
-import { speed } from '../../../styles/animation';
-
-// const gradientAnimation = keyframes`
-//   0% {
-//     background-position: 0;
-//   }
-
-//   50% {
-//     background-position: 1200%;
-//   }
-
-//   100% {
-//     background-position: 0;
-//   }
-// `;
-
-const blobAnimation = keyframes`
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-
-  38% {
-    transform: translate(50%, -50%) scale(1.45);
-  }
-
-  50% {
-    transform: translate(50%, -50%) scale(1.455);
-  }
-
-  65% {
-    transform: translate(50%, -50%) scale(1.45);
-  }
-
-  95% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-`;
 
 export const closeButtonStyle = css`
   position: relative;
@@ -61,6 +20,12 @@ export const closeButtonStyle = css`
 
 export const disableAnimationStyle = css`
   animation-name: none;
+`;
+
+export const MenuWrapper = styled.div`
+  height: 100%;
+
+  transition: background-color 200ms ease-in-out;
 `;
 
 export const containerStyle = css`
@@ -78,46 +43,6 @@ export const navStyle = css`
   padding-left: var(--container-gutter);
 
   overflow-y: auto;
-`;
-
-export const Blob = styled.div`
-  --cherry: ${colors.cherry};
-  --apricot: ${colors.apricot};
-  --mauve: ${colors.mauve};
-  --blob-color: ${({ color }) => `var(--${color})`};
-
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-
-  width: 60rem;
-  height: 60rem;
-
-  background-color: var(--blob-color);
-
-  border-radius: 50%;
-
-  opacity: 0.3;
-
-  filter: blur(64px);
-
-  mix-blend-mode: multiply;
-
-  transition: background-color ${speed.default};
-
-  animation: ${blobAnimation} 15s infinite;
-  animation-play-state: ${({ isVisible }) =>
-    isVisible ? 'running' : 'paused'};
-
-  /* ${({ isActive, restartAnimation }) =>
-    (!isActive || restartAnimation) && disableAnimationStyle}; */
-
-  will-change: background-position;
-
-  @media (prefers-reduced-motion: reduce) {
-    ${disableAnimationStyle};
-  }
 `;
 
 export const Top = styled.div`
