@@ -29,7 +29,7 @@ const Dropdown = ({ title, children, ...rest }) => {
     <Container
       padding='0'
       lightColor={colors.white}
-      darkColor={colors.bleu}
+      darkColor={colors.blueberry}
       {...rest}
     >
       <DropdownButtonWrapper $expanded={expanded}>

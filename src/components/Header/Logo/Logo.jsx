@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { hideVisually } from 'polished';
 
 // images
-import logo from '../../../images/logo-waq.png';
+import logo from '../../../images/logo-waq.svg';
 
 // styles
 import { Img, LogoWrapperStyle } from './Logo.styles';

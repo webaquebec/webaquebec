@@ -14,7 +14,7 @@ import { speed } from '../../styles/animation';
 export const Wrapper = styled.div``;
 
 export const IconCross = styled(IconPlus)`
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
   transform: rotate(45deg);
 `;
@@ -39,7 +39,7 @@ export const ActionButton = styled.button`
   margin: 0;
   padding: 0;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
   line-height: 0;
 
   background: none;
@@ -167,6 +167,28 @@ export const StyledModal = styled(ReactModalAdapter).attrs({
     width: 100vw;
     max-height: 100vh;
 
+    @media screen and (prefers-reduced-motion: reduce) {
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        background-color: rgba(0, 0, 0, 0.6);
+
+        opacity: 0;
+
+        transition: none;
+
+        content: '';
+
+        will-change: opacity;
+      }
+    }
+
     &::before {
       position: absolute;
       top: 0;
@@ -193,6 +215,51 @@ export const StyledModal = styled(ReactModalAdapter).attrs({
 
     &[class*='--before-close']::before {
       opacity: 0;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .Content {
+      position: relative;
+
+      padding: ${({ $padding }) => $padding};
+
+      /* overflow-x: hidden;
+    overflow-y: auto; */
+
+      color: ${({ $color }) => $color};
+
+      background-color: ${({ $bgColor }) => $bgColor};
+      border: ${({ $noBorder, $borderWidth }) =>
+        !$noBorder && `${$borderWidth} solid`};
+
+      transform: translate3d(0, 100%, 0);
+
+      transition: none;
+
+      will-change: transform;
+
+      &[class*='--after-open'] {
+        transform: translate3d(0, 0, 0);
+      }
+
+      &[class*='--before-close'] {
+        transform: translate3d(0, 100%, 0);
+      }
+
+      ${({ $fullScreen }) => $fullScreen && fullScreenStyle};
+
+      ${({ $invert }) => $invert && invertStyle};
+
+      /* Apply a transparent outline in the absence of a border
+    to restore the box shape on high contrast themes */
+      ${({ $noBorder }) => $noBorder && outlineStyle}
+
+      ${({ $round }) => $round && roundStyle};
+
+      :focus {
+        outline: 0;
+      }
     }
   }
 

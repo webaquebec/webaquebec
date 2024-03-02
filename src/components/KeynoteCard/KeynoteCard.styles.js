@@ -16,14 +16,14 @@ import { fontWeights } from '../../styles/typography';
 export const Wrapper = styled(Link)`
   overflow: hidden;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
   text-align: center;
   text-decoration: none;
 
   background-color: ${colors.gris30};
 
-  border: 3px solid ${colors.bleu};
+  border: 3px solid ${colors.blueberry};
   border-radius: 16px;
 
   transition: transform ${speed.default};
@@ -43,7 +43,7 @@ export const Wrapper = styled(Link)`
   :focus {
     color: ${colors.white};
 
-    background-color: ${colors.bleu};
+    background-color: ${colors.blueberry};
   }
 
   ${greaterThan(1024)} {
@@ -86,7 +86,7 @@ export const SpeakerPicture = styled(Img)`
     width: 100%;
     height: 3px;
 
-    background-color: ${colors.bleu};
+    background-color: ${colors.blueberry};
 
     content: '';
   }

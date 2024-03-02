@@ -61,8 +61,8 @@ const RadioButton = ({
 
   const defaultTheme = {
     color: {
-      label: checked ? colors.bleu : colors.gris80,
-      radio: checked && colors.bleu,
+      label: checked ? colors.blueberry : colors.gris80,
+      radio: checked && colors.blueberry,
     },
   };
 

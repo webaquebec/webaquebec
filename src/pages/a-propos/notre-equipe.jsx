@@ -30,7 +30,7 @@ const AboutIntro = styled.p`
 `;
 
 const sectionTitle = css`
-  color: ${colors.bleu90};
+  color: ${colors.blueberry90};
 
   font-family: ${fontFamilies.redaction};
   text-align: center;

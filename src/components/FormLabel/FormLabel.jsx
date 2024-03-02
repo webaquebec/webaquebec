@@ -60,7 +60,7 @@ export const floatingLabelStyle = css`
 const FormLabel = styled.label`
   position: relative;
 
-  color: ${({ disabled }) => (disabled ? colors.gris100 : colors.bleu)};
+  color: ${({ disabled }) => (disabled ? colors.gris100 : colors.blueberry)};
 
   ${breakpointsRange(
     [

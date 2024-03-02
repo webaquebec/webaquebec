@@ -23,7 +23,7 @@ export const CTAWrap = styled.div`
 
   margin-top: 110px;
 
-  border: 2px solid ${colors.bleu100};
+  border: 2px solid ${colors.blueberry100};
   border-radius: 16px;
 
   ${breakpointsRange(
@@ -53,7 +53,7 @@ export const Text = styled.p`
 
   padding-bottom: 32px;
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
 `;
 
 export const ContentWrap = styled.div`

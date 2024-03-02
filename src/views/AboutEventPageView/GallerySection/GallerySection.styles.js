@@ -15,8 +15,8 @@ export const GalleryContainer = styled.section`
   position: relative;
 
   background: linear-gradient(
-    ${colors.bleu} 0,
-    ${colors.bleu} 70%,
+    ${colors.blueberry} 0,
+    ${colors.blueberry} 70%,
     rgba(255, 255, 255, 0) 100%
   );
 

@@ -58,7 +58,7 @@ export const SectionPicture = styled(GatsbyImage)`
 `;
 
 export const SectionTitle = styled.h4`
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
   font-family: ${fontFamilies.redaction};
 
@@ -101,7 +101,7 @@ export const ArchiveItem = styled.li`
 `;
 
 export const ArchiveLink = styled.a`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
   font-weight: ${fontWeights.bold};
   text-decoration: none;
 

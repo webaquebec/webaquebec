@@ -52,13 +52,13 @@ export const Img = styled(GatsbyImage)`
     breakpoints.spacings
   )};
 
-  border: 3px solid ${colors.bleu};
+  border: 3px solid ${colors.blueberry};
 `;
 
 export const Title = styled.h2`
   ${h4Style}
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
   font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(

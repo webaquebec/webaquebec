@@ -43,7 +43,7 @@ export const Complement = styled.p`
   display: flex;
   align-items: center;
 
-  color: ${colors.bleu90};
+  color: ${colors.blueberry90};
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(

@@ -14,6 +14,20 @@ import { breakpoint } from '../TeamGallery/TeamGallery.styles';
 import { speed } from '../../../styles/animation';
 
 export const galleryStyleCard = css`
+  @media screen and (prefers-reduced-motion: reduce) {
+    &:hover,
+    &:focus {
+      transition: none;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    &:hover,
+    &:focus {
+      transition: none;
+    }
+  }
+
   &:hover,
   &:focus {
     transition: transform ${speed.fast};
@@ -22,6 +36,32 @@ export const galleryStyleCard = css`
 
 export const MemberCard = styled.div`
   position: relative;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    &::after {
+      position: absolute;
+      top: 0;
+
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(30, 30, 80, 0.8) 100%
+      );
+
+      border-radius: 12px;
+
+      opacity: 0;
+
+      transition: none;
+
+      content: '';
+    }
+  }
 
   &::after {
     position: absolute;
@@ -72,7 +112,7 @@ export const MemberCard = styled.div`
 export const PictureWrapper = styled.div`
   position: relative;
 
-  border: 4px solid ${colors.bleu90};
+  border: 4px solid ${colors.blueberry90};
   border-radius: 16px;
 `;
 

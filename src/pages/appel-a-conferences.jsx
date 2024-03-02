@@ -140,7 +140,7 @@ const TextContent = styled.div`
 `;
 
 const LimitDate = styled.p`
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
 

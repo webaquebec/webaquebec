@@ -22,8 +22,8 @@ const overlaidStyle = css`
 `;
 
 const elevationStyle = css`
-  --shadow-color: ${colors.bleu80hsl.hue}deg ${colors.bleu80hsl.saturation}%
-    ${colors.bleu80hsl.lightness}%;
+  --shadow-color: ${colors.blueberry80hsl.hue}deg
+    ${colors.blueberry80hsl.saturation}% ${colors.blueberry80hsl.lightness}%;
 
   box-shadow: ${({ $elevation }) => $elevation};
 `;

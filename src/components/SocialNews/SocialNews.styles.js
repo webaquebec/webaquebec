@@ -138,7 +138,7 @@ export const SnakyButton = styled.button`
 
     background: ${`radial-gradient(
       transparent 30%,
-      ${colors.bleu100} 55%)`};
+      ${colors.blueberry100} 55%)`};
 
     border-radius: inherit;
 
@@ -149,7 +149,7 @@ export const SnakyButton = styled.button`
     position: absolute;
     inset: 0;
 
-    background-color: ${colors.bleu100};
+    background-color: ${colors.blueberry100};
     border-radius: inherit;
     opacity: var(--opacity);
 

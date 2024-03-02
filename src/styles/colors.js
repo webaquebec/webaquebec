@@ -1,22 +1,47 @@
 const black = '#000000';
 const white = '#ffffff';
-const red = '#E0302A';
-const earlyDawn = '#FFF7E9';
-const darkEarlyDawn = '#E4DDD1';
+const red = '#BD002D';
+// À débarasser
 const cherry = '#BD002D';
 const apricot = '#FFAE73';
 const mauve = '#9958ED';
 const blush = '#ED9694';
 
-const bleu10 = '#EBECFF';
-const bleu20 = '#D1D5FF';
-const bleu30 = '#858EFF';
-const bleu40 = '#3847FF';
-const bleu60 = '#0012EB';
-const bleu80 = '#000CA0';
-const bleu90 = '#00086B';
-const bleu100 = '#00034D';
+const peach5 = '#FFF7E9';
+const peach80 = '#E4D3B4';
 
+const blueberry5 = '#F2F2F2';
+const blueberry10 = '#E1E2EA';
+const blueberry20 = '#C2C6D6';
+const blueberry30 = '#A4A9C1';
+const blueberry40 = '#868CAC';
+const blueberry50 = '#686F97';
+const blueberry60 = '#535979';
+const blueberry80 = '#3E435B';
+const blueberry90 = '#2A2D3D';
+const blueberry100 = '#0B1237';
+
+const watermelon10 = '#FCD1D7';
+const watermelon20 = '#F5A3AA';
+const watermelon50 = '#ED5B68';
+const watermelon65 = '#A1121E';
+
+const kiwi20 = '#DCF8A1';
+const kiwi50 = '#B1EE2F';
+const kiwi65 = '#71A00D';
+const kiwi75 = '#5A7F0A';
+
+const pineapple20 = '#FDEDB6';
+const pineapple50 = '#FFC701';
+const pineapple65 = '#B88400';
+const pineapple75 = '#804F00';
+
+const plum10 = '#ECDEEC';
+const plum20 = '#D9BEDA';
+const plum50 = '#A360A6';
+const plum65 = '#714171';
+
+// À débarasser
 const turquoise10 = '#ECFEFA';
 const turquoise20 = '#D4FCF5';
 const turquoise30 = '#BCFAEF';
@@ -72,13 +97,13 @@ const gris90 = '#5E5E5E';
 const gris100 = '#383838';
 
 // #00034D
-const bleu100hsl = {
+const blueberry100hsl = {
   hue: 238,
   saturation: 100,
   lightness: 15,
 };
 // #000CA0
-const bleu80hsl = {
+const blueberry80hsl = {
   hue: 236,
   saturation: 100,
   lightness: 31,
@@ -130,8 +155,6 @@ const colors = {
   black,
   white,
   red,
-  earlyDawn,
-  darkEarlyDawn,
   cherry,
   cherryHsl,
   apricot,
@@ -139,17 +162,43 @@ const colors = {
   blush,
   blushHsl,
 
-  bleu10,
-  bleu20,
-  bleu30,
-  bleu40,
-  bleu60,
-  bleu80,
-  bleu80hsl,
-  bleu90,
-  bleu100,
-  bleu100hsl,
+  peach5,
+  peach80,
 
+  blueberry5,
+  blueberry10,
+  blueberry20,
+  blueberry30,
+  blueberry40,
+  blueberry50,
+  blueberry60,
+  blueberry80,
+  blueberry80hsl,
+  blueberry90,
+  blueberry100,
+  blueberry100hsl,
+
+  watermelon10,
+  watermelon20,
+  watermelon50,
+  watermelon65,
+
+  kiwi20,
+  kiwi50,
+  kiwi65,
+  kiwi75,
+
+  pineapple20,
+  pineapple50,
+  pineapple65,
+  pineapple75,
+
+  plum10,
+  plum20,
+  plum50,
+  plum65,
+
+  // À débarasser
   turquoise10,
   turquoise20,
   turquoise30,
@@ -211,15 +260,20 @@ const colors = {
 };
 
 const alias = {
-  text: colors.gris90,
-  bleu: colors.bleu100,
+  text: colors.blueberry100,
+  peach: colors.peach5,
+  blueberry: colors.blueberry100,
+  watermelon: colors.watermelon50,
+  kiwi: colors.kiwi50,
+  pineapple: colors.pineapple50,
+  plum: colors.plum50,
+  // À débarasser
   turquoise: colors.turquoise80,
   jaune: colors.jaune80,
   rose: colors.rose80,
   mauve: colors.mauve80,
   ciel: colors.ciel80,
   gris: colors.gris30,
-  earlyDawn: colors.earlyDawn,
 };
 
 export default { ...colors, ...alias };

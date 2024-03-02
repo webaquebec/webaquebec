@@ -27,7 +27,7 @@ export const Line = styled.span`
   width: var(--width-icon);
   height: var(--height-line);
 
-  background: ${colors.bleu100};
+  background: ${colors.blueberry100};
   border-radius: 50px;
 
   will-change: tranform;
@@ -95,7 +95,7 @@ export const Button = styled.button`
   > span {
     position: absolute;
 
-    color: ${colors.bleu};
+    color: ${colors.blueberry};
 
     word-break: keep-all;
 

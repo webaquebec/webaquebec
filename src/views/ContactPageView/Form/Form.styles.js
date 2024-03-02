@@ -28,7 +28,7 @@ export const Title = styled.h2`
 
   margin-top: 0;
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
   font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(
@@ -79,7 +79,7 @@ export const RequiredFields = styled.div`
   )};
 
   ::before {
-    color: ${colors.bleu100};
+    color: ${colors.blueberry100};
 
     content: '*';
   }

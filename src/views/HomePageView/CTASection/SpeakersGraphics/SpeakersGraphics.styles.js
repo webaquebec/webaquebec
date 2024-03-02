@@ -106,7 +106,7 @@ export const SpeakerTag = styled.div`
   font-family: ${fontFamilies.redaction35};
 
   background-color: ${colors.gris};
-  border: 2px solid ${colors.bleu};
+  border: 2px solid ${colors.blueberry};
 
   border-radius: 16px;
 

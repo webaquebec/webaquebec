@@ -101,7 +101,8 @@ export const AboutLink = styled(Link)`
 
   align-items: center;
 
-  color: ${({ $isActive }) => ($isActive ? colors.bleu90 : colors.bleu)};
+  color: ${({ $isActive }) =>
+    $isActive ? colors.blueberry90 : colors.blueberry};
   font-weight: ${fontWeights.medium};
   text-decoration: none;
 

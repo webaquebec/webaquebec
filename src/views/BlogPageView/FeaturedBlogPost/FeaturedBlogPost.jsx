@@ -26,8 +26,8 @@ const FeaturedBlogPost = ({ post }) => {
 
   return (
     <Paper
-      lightColor={colors.bleu100}
-      darkColor={colors.earlyDawn}
+      lightColor={colors.blueberry100}
+      darkColor={colors.peach}
       rounded
       css={postWrapperStyle}
     >

@@ -12,7 +12,7 @@ import breakpoints from '../../../styles/breakpoints';
 export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[7]];
 
 export const premiumStyle = css`
-  background-color: ${colors.bleu100};
+  background-color: ${colors.blueberry100};
 
   ${breakpointsRange(
     [
@@ -87,7 +87,7 @@ export const Link = styled.a`
   align-items: center;
   justify-content: center;
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
 
   background-color: ${colors.white};
   border: 2px solid;

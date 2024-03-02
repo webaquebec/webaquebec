@@ -42,7 +42,7 @@ export const StatImg = styled.img`
 `;
 
 export const StatDescription = styled.p`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
   font-weight: ${fontWeights.bold};
   text-align: center;
   word-break: normal;

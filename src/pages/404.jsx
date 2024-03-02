@@ -49,7 +49,7 @@ const Heading = styled.h1`
 `;
 
 const Info = styled.p`
-  color: ${colors.bleu90};
+  color: ${colors.blueberry90};
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(

@@ -98,7 +98,7 @@ export const h1Style = css`
 `;
 
 export const h1AltStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
@@ -187,7 +187,7 @@ export const h6AltStyle = css`
 `;
 
 export const introStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
 
   ${breakpointsRange(
     [
@@ -199,7 +199,7 @@ export const introStyle = css`
 `;
 
 export const magnifyStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
@@ -214,7 +214,7 @@ export const magnifyStyle = css`
 `;
 
 export const billboardStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
 
   font-weight: ${fontWeights.bold};
   font-family: ${fontFamilies.redaction};
@@ -352,7 +352,7 @@ export const pixelated100Style = css`
 `;
 
 export const linkStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
   font-weight: ${fontWeights.medium};
 
   :focus,
@@ -369,7 +369,7 @@ export const linkStyleAlt = css`
 
   display: inline-block;
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry100};
   text-decoration: none;
 
   outline-offset: -1px;
@@ -387,7 +387,7 @@ export const linkStyleAlt = css`
     width: 100%;
     height: 100%;
 
-    background-color: ${colors.bleu};
+    background-color: ${colors.blueberry};
 
     scale: 1 0.1;
     transform-origin: bottom;
@@ -426,7 +426,7 @@ export const orderedListCounterStyle = css`
   /* width: 1.3em; */
   margin-inline-end: 0.3em;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.bold};
 
   /* direction: rtl; */
@@ -495,7 +495,7 @@ export const unorderedListStyle = css`
     margin-inline-end: 0.5em;
     margin-inline-start: 0.7em;
 
-    color: ${colors.bleu};
+    color: ${colors.blueberry};
     font-weight: ${fontWeights.bold};
 
     content: '•';
@@ -527,7 +527,7 @@ export const unorderedListStyleAlt = css`
     margin-right: 12px;
     margin-left: 8px;
 
-    color: ${colors.bleu};
+    color: ${colors.blueberry};
     font-size: 30px;
     line-height: 0;
 

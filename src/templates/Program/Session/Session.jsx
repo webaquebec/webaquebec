@@ -96,7 +96,7 @@ const EventTitle = styled.h1`
   margin-top: 0;
   margin-bottom: 16px;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
@@ -158,7 +158,7 @@ const EventDescription = styled.div`
       width: 1em;
       margin-left: -1em;
 
-      color: ${colors.bleu};
+      color: ${colors.blueberry};
       font-weight: ${fontWeights.bold};
 
       content: '•';
@@ -201,7 +201,7 @@ const EventDescription = styled.div`
       width: 1.3em;
       margin-left: -1.3em;
 
-      color: ${colors.bleu};
+      color: ${colors.blueberry};
       font-weight: ${fontWeights.bold};
 
       direction: rtl;

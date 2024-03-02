@@ -52,7 +52,7 @@ const Link = styled.a`
   color: inherit;
   text-decoration: none;
 
-  border-bottom: 2px solid ${colors.bleu};
+  border-bottom: 2px solid ${colors.blueberry};
 `;
 
 const Container = styled(SectionContainer)`

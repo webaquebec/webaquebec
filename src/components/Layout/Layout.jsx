@@ -13,8 +13,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import Footer from '../Footer';
 import Header from '../Header';
-import BackgroundGradient from '../BackgroundGradient/BackgroundGradient';
-import LavaLamp from '../LavaLamp';
+import PageBackground from '../PageBackground/PageBackground';
 
 /**
  * The common Layout shared across all pages
@@ -32,9 +31,7 @@ const Layout = ({ children, location }) => {
     <>
       <GlobalStyle />
 
-      <BackgroundGradient pathname={pathname} />
-
-      <LavaLamp pathname={pathname} />
+      <PageBackground pathname={pathname} />
 
       <Header pathname={pathname} />
 

@@ -22,7 +22,7 @@ export const GalleryTitle = styled.h3`
   position: relative;
   z-index: 1;
 
-  color: ${colors.bleu90};
+  color: ${colors.blueberry90};
 
   ${breakpointsRange(
     [

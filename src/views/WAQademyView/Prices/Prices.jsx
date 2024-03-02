@@ -29,7 +29,7 @@ const Prices = () => (
       <BlocksWrapper>
         {/* <Paper
           lightColor={colors.gris30}
-          darkColor={colors.bleu}
+          darkColor={colors.blueberry}
           rounded
           overlaid
           elevation={elevation.large}
@@ -59,7 +59,7 @@ const Prices = () => (
         </Paper> */}
 
         <Paper
-          lightColor={colors.bleu}
+          lightColor={colors.blueberry}
           darkColor={colors.gris30}
           rounded
           elevation={elevation.large}

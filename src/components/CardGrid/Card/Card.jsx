@@ -131,7 +131,7 @@ Card.defaultProps = {
   contentAs: null,
   complement: null,
   complementAs: null,
-  color: colors.bleu,
+  color: colors.blueberry,
   bgColor: colors.white,
 };
 

@@ -14,7 +14,7 @@ const FormHelperText = styled.p`
   margin-top: ${rem(2)};
   margin-bottom: 0;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
   ${breakpointsRange(
     [
