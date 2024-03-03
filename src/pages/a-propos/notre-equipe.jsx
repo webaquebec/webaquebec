@@ -32,7 +32,7 @@ const AboutIntro = styled.p`
 const sectionTitle = css`
   color: ${colors.blueberry90};
 
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
   text-align: center;
 
   ${breakpointsRange(
@@ -50,7 +50,7 @@ const VolunteersTitle = styled.h2`
   display: inline-flex;
   justify-content: center;
 
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 `;
 
 const TitleLines = styled.div`

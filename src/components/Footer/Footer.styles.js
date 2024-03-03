@@ -17,7 +17,7 @@ export const footerWrapperStyle = css`
 `;
 
 export const footerTextStyle = css`
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
@@ -33,7 +33,7 @@ export const Title = styled.h2`
   margin: 0;
   margin-bottom: 14px;
 
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(
@@ -88,7 +88,7 @@ export const ArchiveItem = styled.li`
 `;
 
 export const ArchiveLink = styled.a`
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
   font-weight: ${fontWeights.bold};
   text-decoration: none;
 

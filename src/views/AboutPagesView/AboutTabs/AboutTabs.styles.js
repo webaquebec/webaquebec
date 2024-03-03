@@ -41,7 +41,7 @@ export const hoverFocusStyle = css`
 
 export const isActiveStyle = css`
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   ${hoverFocusStyle};
 `;

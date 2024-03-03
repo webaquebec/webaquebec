@@ -11,7 +11,6 @@ import breakpointsRange from '../utils/breakpointsRange';
 import colors from '../styles/colors';
 import breakpoints from '../styles/breakpoints';
 import { fontWeights } from '../styles/typography';
-import { pixelated35Style } from '../styles/global';
 
 const Container = styled.div`
   display: flex;
@@ -42,8 +41,6 @@ const Heading = styled.h1`
     [{ prop: 'fontSize', sizes: [128, 320], bases: [16, 20] }],
     breakpoints.spacings
   )};
-
-  ${pixelated35Style};
 
   backdrop-filter: opacity(0);
 `;

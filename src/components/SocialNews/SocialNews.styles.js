@@ -54,6 +54,17 @@ export const MediaList = styled.ul`
   list-style: none;
 `;
 
+export const SocialLink = styled.a`
+  display: inline-block;
+
+  transition: transform ${speed.fast};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+`;
+
 export const SocialIcon = styled.img`
   ${breakpointsRange(
     [{ prop: 'width', sizes: [24, 30] }],
@@ -138,7 +149,7 @@ export const SnakyButton = styled.button`
 
     background: ${`radial-gradient(
       transparent 30%,
-      ${colors.blueberry100} 55%)`};
+      ${colors.blueberry10} 55%)`};
 
     border-radius: inherit;
 
@@ -149,7 +160,7 @@ export const SnakyButton = styled.button`
     position: absolute;
     inset: 0;
 
-    background-color: ${colors.blueberry100};
+    background-color: ${colors.blueberry10};
     border-radius: inherit;
     opacity: var(--opacity);
 

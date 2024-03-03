@@ -1,0 +1,139 @@
+@font-face {
+  font-weight: 100;
+  font-family: 'Radio Grotesk';
+  font-style: normal;
+  font-display: swap;
+  src: local('Radio Grotesk'), url('PPRadioGrotesk-Thin.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 100;
+  font-family: 'Radio Grotesk';
+  font-style: italic;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-ThinItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 200;
+  font-family: 'Radio Grotesk';
+  font-style: normal;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-Ultralight.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 200;
+  font-family: 'Radio Grotesk';
+  font-style: italic;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-UltralightItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 300;
+  font-family: 'Radio Grotesk';
+  font-style: normal;
+  font-display: swap;
+  src: local('Radio Grotesk'), url('PPRadioGrotesk-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 300;
+  font-family: 'Radio Grotesk';
+  font-style: italic;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-LightItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: 'Radio Grotesk';
+  font-style: normal;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: 'Radio Grotesk';
+  font-style: italic;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-RegularItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-family: 'Radio Grotesk';
+  font-style: normal;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-family: 'Radio Grotesk';
+  font-style: italic;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-MediumItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: 'Radio Grotesk';
+  font-style: normal;
+  font-display: swap;
+  src: local('Radio Grotesk'), url('PPRadioGrotesk-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: 'Radio Grotesk';
+  font-style: italic;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 800;
+  font-family: 'Radio Grotesk';
+  font-style: normal;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-Ultrabold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 800;
+  font-family: 'Radio Grotesk';
+  font-style: italic;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-UltraboldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-family: 'Radio Grotesk';
+  font-style: normal;
+  font-display: swap;
+  src: local('Radio Grotesk'), url('PPRadioGrotesk-Black.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-family: 'Radio Grotesk';
+  font-style: italic;
+  font-display: swap;
+  src: local('Radio Grotesk'),
+    url('PPRadioGrotesk-BlackItalic.woff2') format('woff2');
+}

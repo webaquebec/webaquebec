@@ -142,7 +142,7 @@ const TextContent = styled.div`
 const LimitDate = styled.p`
   color: ${colors.blueberry};
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [

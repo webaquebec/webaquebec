@@ -15,7 +15,7 @@ export const GridTitle = styled.h1`
   color: ${colors.blueberry};
 
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [

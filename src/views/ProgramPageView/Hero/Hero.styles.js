@@ -45,7 +45,7 @@ export const StickyTitle = styled.div`
 
   color: ${colors.blueberry};
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [24, 32], bases: [16, 20] }],
@@ -128,7 +128,7 @@ export const dateTabStyle = css`
 
     &&.active {
       font-weight: ${fontWeights.bold};
-      font-family: ${fontFamilies.redaction};
+      font-family: ${fontFamilies.redaction10};
     }
 
     &&.active,
@@ -170,7 +170,7 @@ export const dateTabStyle = css`
 
 export const dateTabTypoStyle = css`
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [18, 20], bases: [16, 20] }],

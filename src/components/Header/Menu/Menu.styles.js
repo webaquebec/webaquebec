@@ -12,11 +12,7 @@ import breakpoints from '../../../styles/breakpoints';
 import { fontFamilies, fontWeights } from '../../../styles/typography';
 import zIndexes from '../../../styles/zIndexes';
 import colors from '../../../styles/colors';
-
-export const closeButtonStyle = css`
-  position: relative;
-  inset: 0;
-`;
+import { speed } from '../../../styles/animation';
 
 export const disableAnimationStyle = css`
   animation-name: none;
@@ -65,22 +61,10 @@ export const Top = styled.div`
   )};
 `;
 
-export const LogoWrapper = styled.div`
-  grid-row: 1;
-  grid-column: 2;
-`;
-
-export const ButtonWrapper = styled.div`
-  grid-row: 1;
-  grid-column: 3;
-  justify-self: flex-end;
-`;
-
 export const primaryNavListStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
-      // { prop: 'marginBottom', sizes: [35, 145], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [60, 100], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -98,7 +82,7 @@ export const primaryNavListStyle = css`
 export const secondaryNavListStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [60, 100], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -114,7 +98,7 @@ export const secondaryNavListStyle = css`
 
   > :last-child {
     ${breakpointsRange(
-      [{ prop: 'marginTop', sizes: [65, 114], bases: [16, 20] }],
+      [{ prop: 'marginTop', sizes: [65, 65], bases: [16, 20] }],
       breakpoints.spacings
     )};
   }
@@ -168,6 +152,7 @@ export const ListItem = styled.li`
 `;
 
 export const NavPrimaryLink = styled.a`
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
@@ -183,12 +168,48 @@ export const NavPrimaryLink = styled.a`
   &.active,
   :hover,
   :focus {
+    position: relative;
+
     font-weight: ${fontWeights.bold};
     font-family: ${fontFamilies.redaction10};
+  }
+
+  &.active {
+    display: block;
+
+    transform: rotate(-6deg);
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      font-weight: inherit;
+      font-family: inherit;
+
+      content: attr(data-text);
+    }
+
+    &::before {
+      color: var(--sticker-color);
+
+      -webkit-text-stroke: 10px var(--sticker-color);
+    }
+
+    &::after {
+      z-index: -2;
+
+      color: ${colors.blueberry};
+
+      -webkit-text-stroke: 16px ${colors.blueberry};
+    }
   }
 `;
 
 export const NavSecondaryLink = styled.a`
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
@@ -252,4 +273,15 @@ export const Container = styled(Box)`
   will-change: opacity, visibility;
 
   ${({ $opened }) => $opened && openedMenuStyle};
+`;
+
+export const SocialLink = styled.a`
+  display: inline-block;
+
+  transition: transform ${speed.fast};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;

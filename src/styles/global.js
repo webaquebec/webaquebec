@@ -71,7 +71,7 @@ export const bodyMediumStyle = css`
 export const bodyAltStyle = css`
   font-weight: ${fontWeights.regular};
   font-size: 1.05em;
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction10};
   ${breakpointsRange(
     [{ prop: 'lineHeight', sizes: [26, 28], bases: [16, 23], unit: '' }],
     breakpoints.spacings
@@ -98,10 +98,10 @@ export const h1Style = css`
 `;
 
 export const h1AltStyle = css`
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
 
-  font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
+  font-weight: ${fontWeights.ultrabold};
+  font-family: ${fontFamilies.radioGrotesk};
 
   ${breakpointsRange(
     [
@@ -176,7 +176,7 @@ export const h6Style = css`
 
 export const h6AltStyle = css`
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction10};
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [21, 27], bases: [16, 20] },
@@ -187,7 +187,7 @@ export const h6AltStyle = css`
 `;
 
 export const introStyle = css`
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
 
   ${breakpointsRange(
     [
@@ -199,10 +199,10 @@ export const introStyle = css`
 `;
 
 export const magnifyStyle = css`
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
 
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [
@@ -214,10 +214,10 @@ export const magnifyStyle = css`
 `;
 
 export const billboardStyle = css`
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
 
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [
@@ -324,35 +324,11 @@ export const caption3MediumStyle = css`
 `;
 
 export const pixelatedStyle = css`
-  font-family: ${fontFamilies.redaction};
-`;
-
-export const pixelated10Style = css`
   font-family: ${fontFamilies.redaction10};
 `;
 
-export const pixelated20Style = css`
-  font-family: ${fontFamilies.redaction20};
-`;
-
-export const pixelated35Style = css`
-  font-family: ${fontFamilies.redaction35};
-`;
-
-export const pixelated50Style = css`
-  font-family: ${fontFamilies.redaction50};
-`;
-
-export const pixelated70Style = css`
-  font-family: ${fontFamilies.redaction70};
-`;
-
-export const pixelated100Style = css`
-  font-family: ${fontFamilies.redaction100};
-`;
-
 export const linkStyle = css`
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
   font-weight: ${fontWeights.medium};
 
   :focus,
@@ -369,7 +345,7 @@ export const linkStyleAlt = css`
 
   display: inline-block;
 
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
   text-decoration: none;
 
   outline-offset: -1px;

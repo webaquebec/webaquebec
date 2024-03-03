@@ -32,7 +32,7 @@ export const CTATitle = styled.p`
   ${magnifyStyle}
 
   span {
-    font-family: ${fontFamilies.redaction35};
+    font-family: ${fontFamilies.redaction10};
   }
 `;
 

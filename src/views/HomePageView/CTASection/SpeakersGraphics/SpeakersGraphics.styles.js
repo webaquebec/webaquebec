@@ -103,7 +103,7 @@ export const SpeakerTag = styled.div`
   position: relative;
 
   font-weight: ${fontWeights.semiBold};
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction10};
 
   background-color: ${colors.gris};
   border: 2px solid ${colors.blueberry};

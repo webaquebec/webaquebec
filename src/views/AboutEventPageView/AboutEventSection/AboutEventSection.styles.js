@@ -60,7 +60,7 @@ export const SectionPicture = styled(GatsbyImage)`
 export const SectionTitle = styled.h4`
   color: ${colors.blueberry};
 
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [
@@ -101,7 +101,7 @@ export const ArchiveItem = styled.li`
 `;
 
 export const ArchiveLink = styled.a`
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
   font-weight: ${fontWeights.bold};
   text-decoration: none;
 

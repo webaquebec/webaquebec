@@ -61,7 +61,7 @@ const Checkbox = ({
 
   const primaryTheme = {
     color: {
-      label: checked ? colors.turquoise80 : colors.gris80,
+      label: checked ? colors.turquoise : colors.gris80,
       checkmark: colors.blueberry,
       background: checked ? colors.turquoise : 'transparent',
     },

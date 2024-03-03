@@ -26,5 +26,5 @@ export const Link = styled.a`
   color: inherit;
   text-decoration: none;
 
-  border-bottom: 2px solid ${colors.blueberry100};
+  border-bottom: 2px solid ${colors.blueberry10};
 `;

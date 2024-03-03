@@ -27,7 +27,7 @@ export const wrapper = css`
 export const Title = styled.h2`
   text-align: center;
 
-  /* font-family: ${fontFamilies.redaction35}; */
+  /* font-family: ${fontFamilies.redaction10}; */
 
   ${magnifyStyle}
 

@@ -27,7 +27,7 @@ export const Line = styled.span`
   width: var(--width-icon);
   height: var(--height-line);
 
-  background: ${colors.blueberry100};
+  background: ${colors.blueberry10};
   border-radius: 50px;
 
   will-change: tranform;

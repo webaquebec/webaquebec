@@ -68,8 +68,8 @@ const RadioButton = ({
 
   const primaryTheme = {
     color: {
-      label: checked ? colors.turquoise80 : colors.gris80,
-      radio: checked && colors.turquoise80,
+      label: checked ? colors.turquoise : colors.gris80,
+      radio: checked && colors.turquoise,
     },
   };
 

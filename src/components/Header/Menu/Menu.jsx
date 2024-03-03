@@ -15,7 +15,6 @@ import Cluster from '../../LayoutSections/Cluster';
 import useHasMounted from '../../../hooks/useHasMounted';
 
 // images
-// import logoSVG from '../../../images/logo-waq-22.svg';
 import facebook from '../../../images/socialMedia/facebook.svg';
 import twitter from '../../../images/socialMedia/twitter.svg';
 import instagram from '../../../images/socialMedia/instagram.svg';
@@ -24,7 +23,6 @@ import linkedin from '../../../images/socialMedia/linkedin.svg';
 // styles
 import colors from '../../../styles/colors';
 import {
-  // closeButtonStyle,
   containerStyle,
   navStyle,
   primaryNavListStyle,
@@ -32,11 +30,10 @@ import {
   MenuWrapper,
   Container,
   Top,
-  // LogoWrapper,
   ListItem,
   NavPrimaryLink,
   NavSecondaryLink,
-  // ButtonWrapper,
+  SocialLink,
 } from './Menu.styles';
 
 const socialMedia = [
@@ -140,17 +137,15 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
         `}
       >
         <Center maxWidth='var(--max-container-width)'>
-          <Top>
-            {/* <LogoWrapper>
-              <img src={logoSVG} alt='' role='presentation' />
-            </LogoWrapper> */}
+          <Top />
 
-            {/* <ButtonWrapper>
-              <CloseButton onClose={onClose} darked css={closeButtonStyle} />
-            </ButtonWrapper> */}
-          </Top>
-
-          <Grid as='nav' space='38px' minWidth='300px' collapsed css={navStyle}>
+          <Grid
+            as='nav'
+            space='0 38px'
+            minWidth='300px'
+            collapsed
+            css={navStyle}
+          >
             <Stack as='ul' css={primaryNavListStyle}>
               {navigation.primary.map((item) => (
                 <ListItem key={item.id}>
@@ -164,6 +159,10 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
                       to={item.slug}
                       activeClassName='active'
                       partiallyActive
+                      data-text={item.label}
+                      css={`
+                        --sticker-color: ${colors[item.color]};
+                      `}
                       onClick={onClose}
                       onMouseOver={handleMouseOver(item.color)}
                       onMouseOut={handleMouseOut(item.color)}
@@ -250,7 +249,7 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
                 </ListItem>
               ))}
 
-              <Cluster as='li' space='2rem'>
+              <Cluster as='li' space='1.5rem'>
                 <ul>
                   {socialMedia.map((media) => (
                     <ListItem
@@ -264,13 +263,13 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
                         `}
                       `}
                     >
-                      <a
+                      <SocialLink
                         href={media.link}
                         rel='noopener noreferrer'
                         target='_blank'
                       >
                         <img src={media.img} alt={media.name} />
-                      </a>
+                      </SocialLink>
                     </ListItem>
                   ))}
                 </ul>

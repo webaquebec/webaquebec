@@ -36,14 +36,14 @@ const FormHelperText = styled.p`
   ${(props) =>
     props.error &&
     css`
-      color: ${colors.red};
+      color: ${colors.cherry};
     `}
 
   ${(props) =>
     props.error &&
     props.disabled &&
     css`
-      color: ${lighten(0.16, colors.red)};
+      color: ${lighten(0.16, colors.cherry)};
     `}
 `;
 

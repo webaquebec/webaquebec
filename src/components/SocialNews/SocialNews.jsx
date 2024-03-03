@@ -14,6 +14,7 @@ import {
   SnakyButton,
   GameWrapper,
   gameContainerStyle,
+  SocialLink,
   SocialIcon,
 } from './SocialNews.styles';
 import colors from '../../styles/colors';
@@ -95,7 +96,7 @@ const SocialNews = () => {
       <div>
         <Paper
           lightColor={colors.peach}
-          darkColor={colors.blueberry100}
+          darkColor={colors.blueberry10}
           rounded
           overlaid
           elevation={elevation.large}
@@ -114,13 +115,13 @@ const SocialNews = () => {
             <MediaList>
               {socialMedia.map((media) => (
                 <li key={`media-item-${media.name}`}>
-                  <a
+                  <SocialLink
                     href={media.link}
                     rel='noopener noreferrer'
                     target='_blank'
                   >
                     <SocialIcon src={media.img} alt={media.name} />
-                  </a>
+                  </SocialLink>
                 </li>
               ))}
             </MediaList>
@@ -128,7 +129,7 @@ const SocialNews = () => {
         </Paper>
 
         <Paper
-          lightColor={colors.blueberry100}
+          lightColor={colors.blueberry10}
           darkColor={colors.peach}
           elevation={elevation.large}
           rounded

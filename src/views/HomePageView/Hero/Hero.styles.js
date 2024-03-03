@@ -32,7 +32,7 @@ export const HeroIntro = styled.h3`
   margin-top: 12px;
   margin-bottom: 0;
 
-  color: ${colors.blueberry100};
+  color: ${colors.blueberry10};
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(

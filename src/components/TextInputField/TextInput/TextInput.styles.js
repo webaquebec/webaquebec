@@ -80,14 +80,14 @@ export const TextInputOutline = styled.span`
   ${(props) =>
     props.error &&
     css`
-      border-color: ${colors.red};
+      border-color: ${colors.cherry};
     `}
 
   ${(props) =>
     props.error &&
     props.disabled &&
     css`
-      border-color: ${lighten(0.16, colors.red)};
+      border-color: ${lighten(0.16, colors.cherry)};
     `}
 `;
 

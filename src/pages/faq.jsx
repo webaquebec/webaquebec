@@ -149,7 +149,7 @@ const FaqPage = () => (
               key={`faq-${item.id}`}
               titleAs='h2'
               title={item.question}
-              color={colors.blueberry100}
+              color={colors.blueberry10}
               bordered
               rounded
             >

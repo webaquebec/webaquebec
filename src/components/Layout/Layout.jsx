@@ -9,8 +9,6 @@ import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-// import '../../fonts/Redaction/redaction.css';
-
 import Footer from '../Footer';
 import Header from '../Header';
 import PageBackground from '../PageBackground/PageBackground';

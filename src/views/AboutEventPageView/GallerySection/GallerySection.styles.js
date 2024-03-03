@@ -35,7 +35,7 @@ export const GalleryTitle = styled.h4`
 
   color: ${colors.white};
 
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [
