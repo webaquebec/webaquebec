@@ -7,6 +7,10 @@ import Button from '../components/Button';
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
 
+// images
+import notFound from '../images/stickers/404.svg';
+import bubbleWrap from '../images/textures/bubbleWrap.png';
+
 // styles
 import colors from '../styles/colors';
 import breakpoints from '../styles/breakpoints';
@@ -17,70 +21,70 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 32px;
+  overflow-x: hidden;
 
   ${breakpointsRange(
-    [
-      { prop: 'marginTop', sizes: [56, 94], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [156, 194], bases: [16, 20] },
-    ],
+    [{ prop: 'marginTop', sizes: [50, 130], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
   text-align: center;
 `;
 
-const Heading = styled.h1`
-  /* max-width: 540; */
-  margin-top: 0;
-  margin-bottom: 0;
+const TextureWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  z-index: -1;
 
-  color: ${colors.black};
-
-  line-height: 1;
-  ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [128, 320], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-
-  backdrop-filter: opacity(0);
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
 `;
+const BubbleTexture = styled.img``;
 
-const Info = styled.p`
-  color: ${colors.blueberry90};
-  font-weight: ${fontWeights.bold};
-
+const NotFound = styled.img`
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [18, 32], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [24, 32], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [24, 40], bases: [16, 20] },
+      { prop: 'maxWidth', sizes: [200, 350], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 `;
 
-const CTAButton = styled(Button)``;
+const Info = styled.p`
+  color: ${colors.blueberry};
+  font-weight: ${fontWeights.ultrabold};
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [18, 24], bases: [16, 20] },
+      { prop: 'maxWidth', sizes: [300, 350], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
+const CTAButton = styled(Button)`
+  ${breakpointsRange(
+    [{ prop: 'marginTop', sizes: [24, 40], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
 
 // markup
 const NotFoundPage = () => (
   <Container>
-    <div
-      css={`
-        mix-blend-mode: overlay;
-      `}
-    >
-      <Heading>404</Heading>
-    </div>
+    <TextureWrapper>
+      <BubbleTexture src={bubbleWrap} alt='' />
+    </TextureWrapper>
+    <NotFound src={notFound} alt='404' />
 
-    <Info>
-      Oups!{' '}
-      <span role='img' aria-label='Pensive emoji'>
-        😬
-      </span>{' '}
-      La page que vous recherchez semble introuvable.
-    </Info>
+    <Info>Oups!</Info>
+    <Info>La page que vous recherchez semble introuvable.</Info>
 
     <CTAButton to='/' tag='link'>
-      Retourner à l&apos;accueil
+      retourner à l&apos;accueil
     </CTAButton>
   </Container>
 );

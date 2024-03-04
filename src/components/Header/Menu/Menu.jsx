@@ -127,9 +127,10 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
       lightColor={colors.white}
       darkColor={colors.bleu}
       $opened={opened}
-      css={
-        (containerStyle, `background-color: ${colors[backgroundColor.color]};`)
-      }
+      css={[
+        containerStyle,
+        `background-color: ${colors[backgroundColor.color]};`,
+      ]}
     >
       <MenuWrapper
         css={`

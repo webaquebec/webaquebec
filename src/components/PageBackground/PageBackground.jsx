@@ -17,6 +17,7 @@ const optionsByLocation = {
   partenaires: 'pineapple',
   'a-propos': 'plum',
   waqademie: 'watermelon',
+  404: 'watermelon',
 };
 
 const PageBackground = ({ pathname }) => {

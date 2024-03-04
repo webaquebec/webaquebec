@@ -17,7 +17,7 @@ export const footerWrapperStyle = css`
 `;
 
 export const footerTextStyle = css`
-  color: ${colors.blueberry10};
+  color: ${colors.blueberry100};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
@@ -33,7 +33,7 @@ export const Title = styled.h2`
   margin: 0;
   margin-bottom: 14px;
 
-  color: ${colors.blueberry10};
+  color: ${colors.blueberry100};
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(
@@ -88,7 +88,7 @@ export const ArchiveItem = styled.li`
 `;
 
 export const ArchiveLink = styled.a`
-  color: ${colors.blueberry10};
+  color: ${colors.blueberry100};
   font-weight: ${fontWeights.bold};
   text-decoration: none;
 
@@ -109,7 +109,7 @@ export const ArchiveLink = styled.a`
 export const StyledFooter = styled.footer`
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [60, 134], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [200, 320], bases: [16, 20] },
       { prop: 'paddingBottom', sizes: [60, 96], bases: [16, 20] },
     ],
     breakpoints.spacings

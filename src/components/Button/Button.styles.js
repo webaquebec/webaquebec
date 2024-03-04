@@ -265,7 +265,7 @@ const StyledButton = styled.button`
     [
       { prop: 'fontSize', sizes: [16, 20], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [19, 24], bases: [16, 20], unit: '' },
-      { prop: '--paddingVertical', sizes: [28, 28], bases: [16, 20] },
+      { prop: '--paddingVertical', sizes: [16, 16], bases: [16, 20] },
       { prop: '--paddingHorizontal', sizes: [32, 32], bases: [16, 20] },
     ],
     breakpoints.spacings
@@ -275,32 +275,33 @@ const StyledButton = styled.button`
 
   color: var(--btn-color);
 
-  font-weight: ${fontWeights.medium};
+  font-weight: ${fontWeights.bold};
   text-align: center;
   text-decoration: none;
 
   background-color: var(--btn-bg-color);
 
   border: 2px solid var(--btn-border-color);
-  border-radius: 96px;
+  border-radius: 8px;
   outline: 0;
   cursor: pointer;
 
   appearance: none;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: transform ${speed.fast};
+    transition: all ${speed.fast};
   }
 
   &.active,
   &:focus,
   &:hover:not([disabled]) {
-    --btn-bg-color: ${colors.blueberry10};
+    color: ${colors.blueberry10};
+
+    background-color: ${colors.watermelon};
   }
 
   &[disabled] {
-    --btn-color: ${colors.gris90};
-    --btn-bg-color: ${colors.gris40};
+    --btn-bg-color: ${colors.blueberry60};
 
     cursor: not-allowed;
 

@@ -47,8 +47,8 @@ export const BurgerImg = styled.img`
 export const StyledHeader = styled.header`
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [24, 32], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [24, 32], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [8, 64], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [8, 64], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};

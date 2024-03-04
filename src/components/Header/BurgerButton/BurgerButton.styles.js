@@ -70,7 +70,7 @@ export const activeStyle = css`
 export const Button = styled.button`
   --width-icon: 32px;
   --height-icon: 32px;
-  --height-line: 4px;
+  --height-line: 3px;
   --rotation: 45deg;
   --translate-X: 0;
   --translate-Y: calc((var(--height-icon) - 12px) / 2);

@@ -26,7 +26,7 @@ export const MenuWrapper = styled.div`
 
 export const containerStyle = css`
   ${breakpointsRange(
-    [{ prop: '--top-height', sizes: [99, 227], bases: [16, 20] }],
+    [{ prop: '--top-height', sizes: [80, 230], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -53,7 +53,7 @@ export const Top = styled.div`
 
   ${breakpointsRange(
     [
-      { prop: '--top-height', sizes: [75, 116], bases: [16, 20] },
+      { prop: '--top-height', sizes: [80, 230], bases: [16, 20] },
       { prop: 'marginRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'marginLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -64,7 +64,7 @@ export const Top = styled.div`
 export const primaryNavListStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [60, 100], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [48, 40], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -73,7 +73,7 @@ export const primaryNavListStyle = css`
 
   > * + * {
     ${breakpointsRange(
-      [{ prop: 'marginTop', sizes: [32, 80], bases: [16, 20] }],
+      [{ prop: 'marginTop', sizes: [32, 40], bases: [16, 20] }],
       breakpoints.spacings
     )};
   }
@@ -82,7 +82,7 @@ export const primaryNavListStyle = css`
 export const secondaryNavListStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [60, 100], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [64, 40], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -157,8 +157,8 @@ export const NavPrimaryLink = styled.a`
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [32, 40], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [60, 48], bases: [32, 40], unit: '' },
+      { prop: 'fontSize', sizes: [30, 48], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [38, 60], bases: [32, 40], unit: '' },
     ],
     breakpoints.spacings
   )};
