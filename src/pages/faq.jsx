@@ -16,7 +16,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { titleStyle, introStyle, linkStyle } from '../styles/global';
+import { h1AltStyle, introStyle, linkStyle } from '../styles/global';
 import colors from '../styles/colors';
 
 const FaqTitle = styled.h1`
@@ -133,7 +133,7 @@ const FaqPage = () => (
       withText
       intrinsic
     >
-      <FaqTitle css={titleStyle}>FAQ</FaqTitle>
+      <FaqTitle css={h1AltStyle}>FAQ</FaqTitle>
       <FaqIntro css={introStyle}>
         On tente de répondre à toutes tes questions ici!
         <br />

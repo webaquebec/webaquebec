@@ -31,7 +31,7 @@ import IconArrow from '../../../images/IconArrow';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
-// import { titleStyle } from '../../../styles/global';
+// import { h1AltStyle } from '../../../styles/global';
 
 // styles
 const Container = styled(SectionContainer)`
@@ -310,7 +310,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <PageTitle css={titleStyle}>
+        <PageTitle css={h1AltStyle}>
           <span>program</span>mation
           {edition === 2021 && <span>&nbsp;{edition}</span>}
         </PageTitle>

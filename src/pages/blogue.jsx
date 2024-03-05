@@ -20,7 +20,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 import breakpoints from '../styles/breakpoints';
 
 // styles
-import { titleStyle } from '../styles/global';
+import { h1AltStyle } from '../styles/global';
 
 const PageTitle = styled.h1`
   ${breakpointsRange(
@@ -81,7 +81,7 @@ const BlogPage = ({ data }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <PageTitle css={titleStyle}>blogue</PageTitle>
+        <PageTitle css={h1AltStyle}>blogue</PageTitle>
       </Center>
 
       <Center

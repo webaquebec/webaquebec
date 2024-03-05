@@ -98,25 +98,18 @@ export const h1Style = css`
 `;
 
 export const h1AltStyle = css`
-  color: ${colors.blueberry10};
+  color: ${colors.blueberry};
 
   font-weight: ${fontWeights.ultrabold};
   font-family: ${fontFamilies.radioGrotesk};
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [36, 96], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [39, 105], bases: [36, 96], unit: '' },
+      { prop: 'fontSize', sizes: [36, 164], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [39, 180], bases: [36, 96], unit: '' },
     ],
     breakpoints.spacings
   )};
-`;
-
-export const h1AltItalicStyle = css`
-  ${h1AltStyle}
-
-  font-weight: ${fontWeights.regular};
-  font-style: italic;
 `;
 
 export const h2Style = css`
@@ -242,14 +235,6 @@ export const unbreakableStringStyle = css`
 export const unstyledLinkStyle = css`
   color: inherit;
   text-decoration: inherit;
-`;
-
-export const titleStyle = css`
-  ${h1AltStyle}
-
-  > span {
-    ${h1AltItalicStyle}
-  }
 `;
 
 export const captionStyle = css`

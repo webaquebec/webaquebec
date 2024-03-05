@@ -17,7 +17,7 @@ import ogImgSpeakersCall from '../images/og/og-img-waq-24-speakers-call.png';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { titleStyle, introStyle } from '../styles/global';
+import { h1AltStyle, introStyle } from '../styles/global';
 import Stack from '../components/LayoutSections/Stack';
 import { fontFamilies, fontWeights } from '../styles/typography';
 import colors from '../styles/colors';
@@ -173,9 +173,7 @@ const SpeakersCall = () => (
       withText
       intrinsic
     >
-      <SpeakersTitle css={titleStyle}>
-        <span>appel à</span> conférences
-      </SpeakersTitle>
+      <SpeakersTitle css={h1AltStyle}>appel à conférences</SpeakersTitle>
     </Center>
 
     <Center

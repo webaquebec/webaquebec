@@ -15,7 +15,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { introStyle, titleStyle } from '../styles/global';
+import { introStyle, h1AltStyle } from '../styles/global';
 import colors from '../styles/colors';
 
 const SectionContainer = styled(StyledSectionContainer)`
@@ -57,10 +57,7 @@ const PartnersPage = () => (
       withText
       intrinsic
     >
-      <PartnersTitle css={titleStyle}>
-        parte<span>naires</span>
-        <span>&nbsp;2024</span>
-      </PartnersTitle>
+      <PartnersTitle css={h1AltStyle}>partenaires</PartnersTitle>
     </Center>
 
     <Center

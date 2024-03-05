@@ -17,10 +17,10 @@ import Info from '../views/ContactPageView/Info';
 // styles
 import breakpointsRange from '../utils/breakpointsRange';
 import breakpoints from '../styles/breakpoints';
-import { titleStyle } from '../styles/global';
+import { h1AltStyle } from '../styles/global';
 
 const ContactTitle = styled.h1`
-  ${titleStyle};
+  ${h1AltStyle};
 
   ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
@@ -65,9 +65,7 @@ const ContactPage = ({ data }) => {
         withText
         intrinsic
       >
-        <ContactTitle>
-          nous <span>joindre</span>
-        </ContactTitle>
+        <ContactTitle>nous joindre</ContactTitle>
       </Center>
 
       <StyledSection forwardedAs='div' faded>

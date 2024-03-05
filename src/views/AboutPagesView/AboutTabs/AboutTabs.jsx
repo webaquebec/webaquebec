@@ -13,7 +13,7 @@ import {
   AboutItem,
   AboutLink,
 } from './AboutTabs.styles';
-import { titleStyle } from '../../../styles/global';
+import { h1AltStyle } from '../../../styles/global';
 
 const AboutTabs = ({ activeTabId }) => {
   const tabs = [
@@ -42,9 +42,7 @@ const AboutTabs = ({ activeTabId }) => {
         withText
         intrinsic
       >
-        <PageTitle css={titleStyle}>
-          <span>à</span> propos
-        </PageTitle>
+        <PageTitle css={h1AltStyle}>à propos</PageTitle>
 
         <AboutNav>
           <AboutList>

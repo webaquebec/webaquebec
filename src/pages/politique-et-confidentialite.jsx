@@ -14,7 +14,7 @@ import breakpointsRange from '../utils/breakpointsRange';
 // styles
 import breakpoints from '../styles/breakpoints';
 import {
-  titleStyle,
+  h1AltStyle,
   h2Style,
   unorderedListStyle,
   orderedListStyle,
@@ -104,9 +104,7 @@ const PolicyPrivacyPage = () => (
       withText
       intrinsic
     >
-      <PageTitle css={titleStyle}>
-        politique <span>et</span> confidentialité
-      </PageTitle>
+      <PageTitle css={h1AltStyle}>politique et confidentialité</PageTitle>
     </Center>
 
     <Container forwardedAs='div' faded padded>
