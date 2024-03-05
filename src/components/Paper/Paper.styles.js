@@ -16,7 +16,6 @@ const overlaidStyle = css`
     background-color: ${({ lightColor, darkColor, invert }) =>
       invert ? darkColor : lightColor};
 
-    /* mix-blend-mode: overlay; */
     mix-blend-mode: hard-light;
   }
 `;
@@ -26,6 +25,10 @@ const elevationStyle = css`
     ${colors.blueberry80hsl.saturation}% ${colors.blueberry80hsl.lightness}%;
 
   box-shadow: ${({ $elevation }) => $elevation};
+`;
+
+const outlinedStyle = css`
+  border: 2px solid ${colors.blueberry};
 `;
 
 const Container = styled(Box)`
@@ -43,7 +46,6 @@ const Container = styled(Box)`
 
     border-radius: inherit;
 
-    /* box-shadow: 0 30px 80px rgba(0, 12, 158, 0.5); */
     mix-blend-mode: normal;
 
     content: '';
@@ -54,6 +56,8 @@ const Container = styled(Box)`
   ${({ $overlaid }) => $overlaid && overlaidStyle};
 
   ${({ $elevation }) => $elevation && elevationStyle};
+
+  ${({ $outlined }) => $outlined && outlinedStyle};
 `;
 
 export default Container;

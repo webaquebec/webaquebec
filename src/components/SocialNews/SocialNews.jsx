@@ -5,6 +5,7 @@ import { isSafari, isDesktop } from 'react-device-detect';
 
 // styles
 import {
+  stickerStyle,
   ContactTitle,
   ContactText,
   MediaText,
@@ -26,6 +27,8 @@ import Paper from '../Paper';
 import Button from '../Button';
 
 // images
+import stickerWaq from '../../images/stickers/waqAlpha.svg';
+import stickerWebAQuebec from '../../images/stickers/webAQuebecAlpha.svg';
 import facebook from '../../images/socialMedia/facebook.svg';
 import twitter from '../../images/socialMedia/twitter.svg';
 import instagram from '../../images/socialMedia/instagram.svg';
@@ -93,18 +96,22 @@ const SocialNews = () => {
       space='calc(var(--container-gutter) * 2)'
       limit={2}
     >
-      <div>
+      <div
+        css={`
+          position: relative;
+        `}
+      >
+        <img css={stickerStyle} src={stickerWaq} alt='WAQ' />
         <Paper
           lightColor={colors.peach}
-          darkColor={colors.blueberry10}
           rounded
-          overlaid
-          elevation={elevation.large}
+          elevation={elevation.none}
+          outlined
           css={blockContainerStyle}
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer}>
             <ContactTitle color={colors.gris90}>
-              Suis-nous sur les médias sociaux
+              Suis-nous en ligne
             </ContactTitle>
 
             <ContactText css={MediaText}>
@@ -129,10 +136,10 @@ const SocialNews = () => {
         </Paper>
 
         <Paper
-          lightColor={colors.blueberry10}
-          darkColor={colors.peach}
-          elevation={elevation.large}
+          lightColor={colors.peach}
           rounded
+          elevation={elevation.none}
+          outlined
           css={`
             --opacity: 1;
 
@@ -171,14 +178,8 @@ const SocialNews = () => {
                 tabIndex={flip ? '-1' : ''}
                 to='https://l.communication.quebecnumerique.com/T/WF/15110/SAbFfT/Optin/fr-CA/Form.ofsys'
                 tag='href'
-                inverted
-                small
-                animated
-                // css={`
-                //   pointer-events: ${flip ? 'none' : ''};
-                // `}
               >
-                M&apos;abonner
+                Je veux m&apos;abonner!
               </Button>
             </Center>
           </div>
@@ -223,6 +224,7 @@ const SocialNews = () => {
             </>
           )}
         </Paper>
+        <img css={stickerStyle} src={stickerWebAQuebec} alt='Web à Québec' />
       </div>
     </Switcher>
   );
