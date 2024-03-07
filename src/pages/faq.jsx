@@ -8,11 +8,13 @@ import SEO from '../components/SEO';
 import Center from '../components/LayoutSections/Center';
 import Accordion from '../components/Accordion';
 import AccordionItem from '../components/Accordion/AccordionItem';
-import SectionContainer from '../components/SectionContainer';
 import Stack from '../components/LayoutSections/Stack';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
+
+// images
+import plasticBag from '../images/textures/plasticBag.png';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -23,37 +25,37 @@ const FaqTitle = styled.h1`
   margin-bottom: 0;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [60, 110], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
 
 const FaqIntro = styled.div`
-  margin-top: 1rem;
-`;
-
-const Container = styled(SectionContainer)`
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [98, 105], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [148, 114], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [48, 68], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [16, 24], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [60, 100], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
+`;
 
-  ::before,
-  ::after {
-    height: 30vh;
-  }
+const TextureWrapper = styled.div`
+  position: absolute;
+  z-index: -1;
 
-  ::before {
-    top: -30vh;
-  }
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
 
-  ::after {
-    bottom: -30vh;
-  }
+  ${breakpointsRange(
+    [{ prop: 'top', sizes: [100, 150], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+const PlasticTexture = styled.img`
+  width: 100%;
 `;
 
 const faqItem = css`
@@ -141,27 +143,30 @@ const FaqPage = () => (
       </FaqIntro>
     </Center>
 
-    <Container forwardedAs='div' faded>
-      <Center maxWidth='850px' gutters='var(--container-gutter)'>
-        <Accordion multiple collapsible>
-          {data.map((item) => (
-            <AccordionItem
-              key={`faq-${item.id}`}
-              titleAs='h2'
-              title={item.question}
-              color={colors.blueberry10}
-              bordered
-              rounded
-            >
-              <Stack
-                css={faqItem}
-                dangerouslySetInnerHTML={{ __html: item.answer }}
-              />
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </Center>
-    </Container>
+    <TextureWrapper>
+      <PlasticTexture src={plasticBag} alt='' />
+    </TextureWrapper>
+
+    <Center maxWidth='850px' gutters='var(--container-gutter)'>
+      <Accordion multiple collapsible>
+        {data.map((item) => (
+          <AccordionItem
+            key={`faq-${item.id}`}
+            titleAs='h2'
+            title={item.question}
+            color={colors.blueberry10}
+            lightColor={colors.peach}
+            bordered
+            rounded
+          >
+            <Stack
+              css={faqItem}
+              dangerouslySetInnerHTML={{ __html: item.answer }}
+            />
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </Center>
   </>
 );
 

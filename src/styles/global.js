@@ -106,7 +106,7 @@ export const h1AltStyle = css`
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [36, 164], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [39, 180], bases: [36, 96], unit: '' },
+      { prop: 'lineHeight', sizes: [39, 100], bases: [36, 96], unit: '' },
     ],
     breakpoints.spacings
   )};

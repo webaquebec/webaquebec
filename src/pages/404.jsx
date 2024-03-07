@@ -33,14 +33,21 @@ const Container = styled.div`
 
 const TextureWrapper = styled.div`
   position: absolute;
-  top: 0;
   z-index: -1;
 
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
+
+  ${breakpointsRange(
+    [{ prop: 'top', sizes: [100, 150], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
-const BubbleTexture = styled.img``;
+
+const BubbleTexture = styled.img`
+  width: 100%;
+`;
 
 const NotFound = styled.img`
   ${breakpointsRange(
