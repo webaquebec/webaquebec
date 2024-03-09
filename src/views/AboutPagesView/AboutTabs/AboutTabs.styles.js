@@ -9,40 +9,40 @@ import { greaterThan, lessThan } from '../../../utils/mediaQuery';
 // styles
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
-import { fontFamilies, fontWeights } from '../../../styles/typography';
+import { fontWeights } from '../../../styles/typography';
 import { speed } from '../../../styles/animation';
 
 export const PageTitle = styled.h1`
   margin-bottom: 0;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [60, 110], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
 
+export const TextureWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+`;
+
+export const PlasticTexture = styled.img`
+  width: 90%;
+`;
+
 export const hoverFocusStyle = css`
   &::after {
-    display: block;
-    width: 85%;
-    height: 2px;
-
-    background-color: currentColor;
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: background-color ${speed.fast};
-    }
-
-    content: '';
-
-    will-change: background-color;
+    background-color: ${colors.blueberry};
   }
 `;
 
 export const isActiveStyle = css`
-  font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction10};
-
   ${hoverFocusStyle};
 `;
 
@@ -101,9 +101,8 @@ export const AboutLink = styled(Link)`
 
   align-items: center;
 
-  color: ${({ $isActive }) =>
-    $isActive ? colors.blueberry90 : colors.blueberry};
-  font-weight: ${fontWeights.medium};
+  color: ${colors.blueberry};
+  font-weight: ${fontWeights.ultrabold};
   text-decoration: none;
 
   @media (prefers-reduced-motion: no-preference) {
@@ -116,6 +115,22 @@ export const AboutLink = styled(Link)`
     [{ prop: 'fontSize', sizes: [16, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
+
+  &::after {
+    display: block;
+    width: 85%;
+    height: 2px;
+
+    background-color: transparent;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background-color ${speed.fast};
+    }
+
+    content: '';
+
+    will-change: background-color;
+  }
 
   &:hover,
   &:focus {

@@ -112,7 +112,7 @@ export const MemberCard = styled.div`
 export const PictureWrapper = styled.div`
   position: relative;
 
-  border: 4px solid ${colors.blueberry90};
+  border: 4px solid ${colors.blueberry};
   border-radius: 16px;
 `;
 

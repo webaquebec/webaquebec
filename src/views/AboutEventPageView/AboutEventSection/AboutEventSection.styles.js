@@ -11,7 +11,7 @@ import { greaterThan } from '../../../utils/mediaQuery';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { fontFamilies, fontWeights } from '../../../styles/typography';
+import { fontWeights } from '../../../styles/typography';
 import { linkStyle } from '../../../styles/global';
 
 export const atRight = css`
@@ -59,8 +59,6 @@ export const SectionPicture = styled(GatsbyImage)`
 
 export const SectionTitle = styled.h4`
   color: ${colors.blueberry};
-
-  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [

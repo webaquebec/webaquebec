@@ -8,6 +8,7 @@ import IconArrow from '../../../images/IconArrow';
 
 // styles
 import colors from '../../../styles/colors';
+import { pictureFilter } from '../../../styles/global';
 import {
   cardBoxStyle,
   contentBoxStyle,
@@ -43,7 +44,7 @@ const Card = ({
       lightColor={bgColor}
       css={cardBoxStyle}
     >
-      <Img fluid={picture} role='presentation' alt='' />
+      <Img css={pictureFilter} fluid={picture} role='presentation' alt='' />
 
       <Box
         noBorder
@@ -132,7 +133,7 @@ Card.defaultProps = {
   complement: null,
   complementAs: null,
   color: colors.blueberry,
-  bgColor: colors.white,
+  bgColor: colors.peach,
 };
 
 export default Card;

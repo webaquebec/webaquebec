@@ -155,9 +155,9 @@ export const invertedStyle = css`
   &.active,
   &:focus,
   &:hover:not([disabled]) {
-    --btn-color: ${colors.blueberry10};
-    --btn-bg-color: ${colors.peach};
-    --btn-border-color: var(--btn-bg-color);
+    --btn-color: ${colors.peach};
+    --btn-bg-color: ${colors.blueberry};
+    --btn-border-color: var(--btn-color);
   }
 
   &[disabled] {
@@ -295,9 +295,9 @@ const StyledButton = styled.button`
   &.active,
   &:focus,
   &:hover:not([disabled]) {
-    color: ${colors.blueberry10};
-
-    background-color: ${colors.watermelon};
+    --btn-color: ${colors.blueberry10};
+    --btn-bg-color: transparent;
+    --btn-border-color: var(--btn-color);
   }
 
   &[disabled] {

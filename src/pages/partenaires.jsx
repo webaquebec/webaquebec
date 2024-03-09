@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 // components
 import Center from '../components/LayoutSections/Center';
-import StyledSectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 import PartnersGrids from '../components/PartnersGrids';
 import Button from '../components/Button/Button';
@@ -13,17 +12,13 @@ import Button from '../components/Button/Button';
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
 
+// images
+import plasticWrap from '../images/textures/plasticWrap.png';
+
 // styles
 import breakpoints from '../styles/breakpoints';
 import { introStyle, h1AltStyle } from '../styles/global';
 import colors from '../styles/colors';
-
-const SectionContainer = styled(StyledSectionContainer)`
-  ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [168, 134], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
 
 const PartnersTitle = styled.h1`
   margin-bottom: 0;
@@ -31,9 +26,28 @@ const PartnersTitle = styled.h1`
   color: ${colors.blueberry};
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [60, 110], bases: [16, 20] }],
     breakpoints.spacings
   )};
+`;
+
+const TextureWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  ${breakpointsRange(
+    [{ prop: 'top', sizes: [150, 400], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+const PlasticTexture = styled.img`
+  width: 100%;
 `;
 
 const PartnersIntro = styled.p`
@@ -52,13 +66,17 @@ const PartnersPage = () => (
     />
 
     <Center
-      maxWidth='825px'
+      maxWidth='900px'
       gutters='var(--container-gutter)'
       withText
       intrinsic
     >
       <PartnersTitle css={h1AltStyle}>partenaires</PartnersTitle>
     </Center>
+
+    <TextureWrapper>
+      <PlasticTexture src={plasticWrap} alt='' />
+    </TextureWrapper>
 
     <Center
       maxWidth='625px'
@@ -82,9 +100,7 @@ const PartnersPage = () => (
       </BecomePartnerCTA>
     </Center>
 
-    <SectionContainer forwardedAs='div' faded>
-      <PartnersGrids />
-    </SectionContainer>
+    <PartnersGrids />
   </>
 );
 

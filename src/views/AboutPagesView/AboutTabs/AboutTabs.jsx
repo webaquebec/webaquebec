@@ -5,9 +5,14 @@ import PropTypes from 'prop-types';
 // components
 import Center from '../../../components/LayoutSections/Center';
 
+// images
+import plasticBag from '../../../images/textures/plasticBag.png';
+
 // styles
 import {
   PageTitle,
+  TextureWrapper,
+  PlasticTexture,
   AboutNav,
   AboutList,
   AboutItem,
@@ -43,6 +48,10 @@ const AboutTabs = ({ activeTabId }) => {
         intrinsic
       >
         <PageTitle css={h1AltStyle}>à propos</PageTitle>
+
+        <TextureWrapper>
+          <PlasticTexture src={plasticBag} alt='' />
+        </TextureWrapper>
 
         <AboutNav>
           <AboutList>

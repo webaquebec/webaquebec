@@ -6,7 +6,6 @@ import styled, { css } from 'styled-components';
 // components
 import { graphql, useStaticQuery } from 'gatsby';
 import SEO from '../../components/SEO';
-import SectionContainer from '../../components/SectionContainer';
 import Center from '../../components/LayoutSections/Center';
 import TeamGallery from '../../views/OurTeamPageView/TeamGallery';
 
@@ -20,7 +19,6 @@ import AboutTabs from '../../views/AboutPagesView/AboutTabs';
 import breakpoints from '../../styles/breakpoints';
 import { introStyle } from '../../styles/global';
 import colors from '../../styles/colors';
-import { fontFamilies } from '../../styles/typography';
 
 const AboutIntro = styled.p`
   ${breakpointsRange(
@@ -30,9 +28,6 @@ const AboutIntro = styled.p`
 `;
 
 const sectionTitle = css`
-  color: ${colors.blueberry90};
-
-  font-family: ${fontFamilies.redaction10};
   text-align: center;
 
   ${breakpointsRange(
@@ -50,7 +45,7 @@ const VolunteersTitle = styled.h2`
   display: inline-flex;
   justify-content: center;
 
-  font-family: ${fontFamilies.redaction10};
+  color: ${colors.blueberry};
 `;
 
 const TitleLines = styled.div`
@@ -67,28 +62,6 @@ const TitleLines = styled.div`
         breakpoints.spacings
       )};
     }
-  }
-`;
-
-const Container = styled(SectionContainer)`
-  padding-bottom: 0;
-
-  ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [90, 242] }],
-    breakpoints.spacings,
-    { bases: [16, 20] }
-  )};
-
-  ::before {
-    top: -60vh;
-
-    height: 60vh;
-  }
-
-  ::after {
-    bottom: -40vh;
-
-    height: 40vh;
   }
 `;
 
@@ -426,15 +399,13 @@ const OurTeamPage = () => {
         </VolunteersTitle>
       </Center>
 
-      <Container forwardedAs='div' faded>
-        <Center maxWidth='1080px' intrinsic>
-          <GalleriesWrapper>
-            {data.map((item) => (
-              <TeamGallery key={`gallery${item.id}`} membersData={item} />
-            ))}
-          </GalleriesWrapper>
-        </Center>
-      </Container>
+      <Center maxWidth='1080px' intrinsic>
+        <GalleriesWrapper>
+          {data.map((item) => (
+            <TeamGallery key={`gallery${item.id}`} membersData={item} />
+          ))}
+        </GalleriesWrapper>
+      </Center>
     </>
   );
 };

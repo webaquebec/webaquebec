@@ -89,13 +89,13 @@ export const Link = styled.a`
 
   color: ${colors.blueberry10};
 
-  background-color: ${colors.white};
+  background-color: ${colors.peach};
   border: 2px solid;
   border-radius: 16px;
 
   :focus,
   :hover {
-    background-color: ${colors.white};
+    background-color: ${colors.peach};
     outline: 0;
 
     img {

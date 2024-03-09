@@ -5,11 +5,13 @@ import styled from 'styled-components';
 
 // components
 import Center from '../components/LayoutSections/Center';
-import SectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
+
+// images
+import bubbleWrap from '../images/textures/bubbleWrap.png';
 
 // views
 import Prices from '../views/TicketsView/Prices';
@@ -25,9 +27,28 @@ const TicketsTitle = styled.h1`
   margin-bottom: 0;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [60, 110], bases: [16, 20] }],
     breakpoints.spacings
   )};
+`;
+
+const TextureWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  ${breakpointsRange(
+    [{ prop: 'top', sizes: [0, 150], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+const BubbleTexture = styled.img`
+  width: 100%;
 `;
 
 const TicketsIntro = styled.div`
@@ -41,31 +62,6 @@ const TicketsIntro = styled.div`
   )};
 `;
 
-const Container = styled(SectionContainer)`
-  padding-bottom: 0;
-
-  ${breakpointsRange(
-    [
-      { prop: 'paddingTop', sizes: [98, 105] },
-      { prop: 'marginBottom', sizes: [202, 242] },
-    ],
-    breakpoints.spacings,
-    { bases: [16, 20] }
-  )};
-
-  ::before {
-    top: -60vh;
-
-    height: 60vh;
-  }
-
-  ::after {
-    bottom: -40vh;
-
-    height: 40vh;
-  }
-`;
-
 const TicketsPage = () => (
   <>
     <SEO
@@ -74,12 +70,16 @@ const TicketsPage = () => (
     />
 
     <Center
-      maxWidth='625px'
+      maxWidth='800px'
       gutters='var(--container-gutter)'
       withText
       intrinsic
     >
       <TicketsTitle css={h1AltStyle}>billetterie</TicketsTitle>
+
+      <TextureWrapper>
+        <BubbleTexture src={bubbleWrap} alt='' />
+      </TextureWrapper>
 
       <TicketsIntro css={introStyle}>
         <Stack>
@@ -95,10 +95,8 @@ const TicketsPage = () => (
 
     <Prices />
 
-    <Container forwardedAs='div' faded>
-      {/* <CallToAction /> */}
-      <TermsAndConditions />
-    </Container>
+    {/* <CallToAction /> */}
+    <TermsAndConditions />
   </>
 );
 

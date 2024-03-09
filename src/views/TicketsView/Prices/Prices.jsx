@@ -33,7 +33,7 @@ const Prices = () => (
           lightColor={colors.blueberry10}
           darkColor={colors.peach}
           rounded
-          elevation={elevation.large}
+          elevation={elevation.none}
           css={blockContainerStyle}
         >
           <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
@@ -73,8 +73,8 @@ const Prices = () => (
           lightColor={colors.peach}
           darkColor={colors.blueberry10}
           rounded
-          overlaid
-          elevation={elevation.large}
+          outlined
+          elevation={elevation.none}
           css={blockContainerStyle}
         >
           <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
@@ -112,8 +112,8 @@ const Prices = () => (
           lightColor={colors.peach}
           darkColor={colors.blueberry10}
           rounded
-          overlaid
-          elevation={elevation.large}
+          outlined
+          elevation={elevation.none}
           css={blockContainerStyle}
         >
           <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
@@ -160,8 +160,8 @@ const Prices = () => (
           lightColor={colors.peach}
           darkColor={colors.blueberry10}
           rounded
-          overlaid
-          elevation={elevation.large}
+          outlined
+          elevation={elevation.none}
           css={blockContainerStyle}
         >
           <Center maxWidth='320px' intrinsic withText css={ContentContainer}>

@@ -106,7 +106,7 @@ export const h1AltStyle = css`
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [36, 164], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [39, 100], bases: [36, 96], unit: '' },
+      { prop: 'lineHeight', sizes: [39, 90], bases: [36, 96], unit: '' },
     ],
     breakpoints.spacings
   )};
@@ -195,7 +195,6 @@ export const magnifyStyle = css`
   color: ${colors.blueberry10};
 
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [
@@ -446,6 +445,7 @@ export const unorderedListStyle = css`
   }
 
   li {
+    display: flex;
     margin-bottom: 16px;
   }
 
@@ -493,6 +493,34 @@ export const unorderedListStyleAlt = css`
     line-height: 0;
 
     content: '•';
+  }
+`;
+
+export const pictureFilter = css`
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-color: ${colors.blueberry};
+    opacity: 0.5;
+    mix-blend-mode: color;
+
+    transition: background-color ${speed.fast};
+
+    content: '';
+  }
+
+  img {
+    filter: grayscale();
+
+    transition: filter ${speed.fast};
   }
 `;
 

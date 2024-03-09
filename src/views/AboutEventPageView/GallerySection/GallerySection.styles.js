@@ -9,7 +9,6 @@ import { greaterThan } from '../../../utils/mediaQuery';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { fontFamilies } from '../../../styles/typography';
 
 export const GalleryContainer = styled.section`
   position: relative;
@@ -34,8 +33,6 @@ export const GalleryTitle = styled.h4`
   margin-top: 0;
 
   color: ${colors.white};
-
-  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [
