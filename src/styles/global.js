@@ -213,8 +213,8 @@ export const billboardStyle = css`
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [64, 200], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [58, 180], bases: [64, 200], unit: '' },
+      { prop: 'fontSize', sizes: [125, 200], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [50, 160], bases: [64, 200], unit: '' },
     ],
     breakpoints.spacings
   )};

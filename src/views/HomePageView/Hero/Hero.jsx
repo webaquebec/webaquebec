@@ -7,13 +7,12 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 // styles
 import { fontWeights } from '../../../styles/typography';
 import breakpoints from '../../../styles/breakpoints';
-import {
-  billboardStyle,
-  billboardAltStyle,
-  linkStyle,
-} from '../../../styles/global';
+import { billboardStyle, linkStyle } from '../../../styles/global';
 import {
   StyledHero,
+  HeroTitle,
+  TextureWrapper,
+  PlasticTexture,
   HeroIntro,
   // linkStyleHover,
   Address,
@@ -27,16 +26,24 @@ import Center from '../../../components/LayoutSections/Center';
 
 // images
 import vectorMapPin from '../../../images/vectorMapPin.svg';
+import sticker2024 from '../../../images/stickers/2024.svg';
+import plasticWrap from '../../../images/textures/plasticWrap.png';
 
 const Hero = () => (
   <StyledHero>
     <Center maxWidth='var(--max-container-width)' gutters='12px' withText>
-      <h2 css={billboardStyle}>
-        28 au 30&nbsp;&nbsp;
+      <HeroTitle css={billboardStyle}>
+        28
         <br />
-        &nbsp;&nbsp;mai&nbsp;
-        <span css={billboardAltStyle}>2024</span>
-      </h2>
+        au 30
+        <br />
+        mai
+        <img src={sticker2024} alt='2024' />
+      </HeroTitle>
+
+      <TextureWrapper>
+        <PlasticTexture src={plasticWrap} alt='' />
+      </TextureWrapper>
 
       <Center maxWidth='850px' gutters='0' withText>
         <HeroIntro>

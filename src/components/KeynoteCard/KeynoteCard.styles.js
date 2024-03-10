@@ -21,7 +21,7 @@ export const Wrapper = styled(Link)`
   text-align: center;
   text-decoration: none;
 
-  background-color: ${colors.gris30};
+  background-color: ${colors.peach};
 
   border: 3px solid ${colors.blueberry};
   border-radius: 16px;
@@ -105,7 +105,7 @@ export const TextWrapper = styled.div`
 export const SpeakerName = styled.p`
   margin: 0;
 
-  font-weight: ${fontWeights.medium};
+  font-weight: ${fontWeights.ultrabold};
 
   ${breakpointsRange(
     [

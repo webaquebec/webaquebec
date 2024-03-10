@@ -7,8 +7,7 @@ import { greaterThan } from '../../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../../styles/breakpoints';
-import { fontFamilies } from '../../../styles/typography';
-import { magnifyStyle, pixelatedStyle } from '../../../styles/global';
+import { magnifyStyle } from '../../../styles/global';
 
 export const wrapper = css`
   position: relative;
@@ -27,15 +26,11 @@ export const wrapper = css`
 export const Title = styled.h2`
   text-align: center;
 
-  /* font-family: ${fontFamilies.redaction10}; */
-
   ${magnifyStyle}
-
-  ${pixelatedStyle}
 
   ${breakpointsRange(
     [
-      // { prop: 'marginTop', sizes: [80, 160], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [30, 60], bases: [16, 20] },
       { prop: 'marginBottom', sizes: [48, 64], bases: [16, 20] },
     ],
     breakpoints.spacings

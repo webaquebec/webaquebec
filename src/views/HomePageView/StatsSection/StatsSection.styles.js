@@ -1,9 +1,6 @@
 // vendors
 import styled from 'styled-components';
 
-// utils
-import { em } from 'polished';
-
 // styles
 import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
@@ -21,6 +18,7 @@ export const SectionContainer = styled.section`
 `;
 
 export const StatsList = styled.ul`
+  align-items: flex-end;
   padding: 0;
 `;
 
@@ -42,24 +40,23 @@ export const StatImg = styled.img`
 `;
 
 export const StatDescription = styled.p`
+  margin-right: auto;
+  margin-left: auto;
+
   color: ${colors.blueberry10};
   font-weight: ${fontWeights.bold};
+
   text-align: center;
   word-break: normal;
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [24, 40], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [24, 30], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [29, 48], bases: [24, 40], unit: '' },
-      { prop: 'margin-top', sizes: [16, 40], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [16, 40], bases: [16, 20] },
+      { prop: 'maxWidth', sizes: [200, 290], bases: [16, 20] },
     ],
 
     breakpoints.spacings
   )};
-
-  @media (max-width: ${em(992)}) {
-    max-width: 230px;
-    margin-right: auto;
-    margin-left: auto;
-  }
 `;

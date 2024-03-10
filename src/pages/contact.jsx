@@ -98,7 +98,7 @@ export const query = graphql`
         maxWidth: 780
         maxHeight: 577
         quality: 99
-        duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+        duotone: { highlight: "#EBEBEB", shadow: "#262626" }
       ) {
         ...GatsbyImageSharpFluid_withWebp
       }

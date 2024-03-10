@@ -15,7 +15,7 @@ const CTASpeakersCall = () => (
       <div>
         <CTATitle>
           Vous aimeriez être
-          <br /> <span>conférencier</span> en 2024&nbsp;?
+          <br /> conférencier en 2024&nbsp;?
         </CTATitle>
 
         <CTAIntro>

@@ -8,11 +8,7 @@ import { lessThan } from '../../../../utils/mediaQuery';
 // styles
 import breakpoints from '../../../../styles/breakpoints';
 import colors from '../../../../styles/colors';
-import {
-  introStyle,
-  magnifyStyle,
-  pixelatedStyle,
-} from '../../../../styles/global';
+import { introStyle, magnifyStyle } from '../../../../styles/global';
 
 export const CTAWrap = styled.div`
   display: flex;
@@ -23,6 +19,7 @@ export const CTAWrap = styled.div`
 
   margin-top: 110px;
 
+  background-color: ${colors.peach};
   border: 2px solid ${colors.blueberry10};
   border-radius: 16px;
 
@@ -43,7 +40,6 @@ export const CTAWrap = styled.div`
 
 export const Title = styled.h3`
   ${magnifyStyle}
-  ${pixelatedStyle}
 
   padding-bottom: 16px;
 `;
