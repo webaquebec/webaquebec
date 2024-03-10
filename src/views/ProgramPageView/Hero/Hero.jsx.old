@@ -1,14 +1,14 @@
 // vendors
-// import { useInView } from 'react-intersection-observer';
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { useInView } from 'react-intersection-observer';
+import styled, { css } from 'styled-components';
 import { useMedia } from 'react-use';
 import { navigate } from 'gatsby';
 
 // components
-// import { hideVisually } from 'polished';
-// import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
+import { hideVisually } from 'polished';
+import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
 import DropDown from '../../../components/Dropdown';
 import Center from '../../../components/LayoutSections/Center';
@@ -25,12 +25,13 @@ import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
 // import useHasMounted from '../../../hooks/useHasMounted';
 
 // styles
-import { titleStyle } from '../../../styles/global';
+import { h1AltStyle } from '../../../styles/global';
 import breakpoints from '../../../styles/breakpoints';
 import {
   selfBreakpoints,
   Wrapper,
   HeaderContent,
+  StickyTitle,
   DateList,
   DateListItem,
   dateTabStyle,
@@ -47,19 +48,19 @@ const PageTitle = styled.h1`
   )};
 `;
 
-// const willChangeOpacityStyle = css`
-//   will-change: opacity;
-// `;
+const willChangeOpacityStyle = css`
+  will-change: opacity;
+`;
 
 const Hero = ({ location, datePaths }) => {
-  // const [ref, inView] = useInView();
+  const [ref, inView] = useInView();
 
   const { getTotalAppliedFilters } = useProgramFilters();
 
-  // const isVisible = inView;
+  const isVisible = inView;
 
   // < 1060
-  // const tablet = useMedia(lessThanCondition(selfBreakpoints[3]));
+  const tablet = useMedia(lessThanCondition(selfBreakpoints[3]));
   // < 832
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
 
@@ -81,24 +82,41 @@ const Hero = ({ location, datePaths }) => {
 
   const totalDates = datePaths.length;
 
-  // const minWidth = totalDates > 3 ? '736px' : '632px';
+  const minWidth = totalDates > 3 ? '736px' : '632px';
 
   return (
     <>
       <Center
-        // ref={ref}
+        ref={ref}
         maxWidth='var(--max-container-width)'
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <PageTitle css={titleStyle}>
-          <span>program</span>mation
-          {current.edition <= 2023 && <span>&nbsp;{current.edition}</span>}
-        </PageTitle>
+        <PageTitle css={h1AltStyle}>programmation</PageTitle>
       </Center>
 
       <Wrapper>
-        <HeaderContent maxWidth='1096px' gutters={mobile ? '16px' : '32px'}>
+        <HeaderGradient
+          css={willChangeOpacityStyle}
+          style={{ opacity: !isVisible ? 1 : 0 }}
+        />
+
+        <HeaderContent
+          maxWidth={!isVisible ? '1066px' : minWidth}
+          gutters={mobile ? '16px' : '32px'}
+        >
+          {!isVisible && !tablet && (
+            <StickyTitle>
+              <span>program</span>mation
+              <span css={current.edition > 2023 && hideVisually}>
+                &nbsp;{current.edition}
+              </span>
+              {/* {current.edition === 2021 && (
+                <YearSticker src={vectorYear2021} alt='2021' />
+              )} */}
+            </StickyTitle>
+          )}
+
           {mobile ? (
             <div
               css={`

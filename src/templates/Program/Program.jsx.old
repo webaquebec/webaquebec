@@ -1,5 +1,5 @@
 // vendors
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
@@ -13,25 +13,24 @@ import StyledSectionContainer from '../../components/SectionContainer';
 import Switcher from '../../components/LayoutSections/Switcher';
 
 // contexts
-// import { useProgramFilters } from '../../contexts/ProgramFiltersContext';
+import { useProgramFilters } from '../../contexts/ProgramFiltersContext';
 
 // views
-// import Filters from '../../views/ProgramPageView/Filters';
 import Hero from '../../views/ProgramPageView/Hero';
+import Filters from '../../views/ProgramPageView/Filters';
 import NoResults from '../../views/ProgramPageView/NoResults';
 
 // utils
-// import unSlugify from '../../utils/strings/unSlugify';
 import breakpointsRange from '../../utils/breakpointsRange';
-// import { lessThan } from '../../utils/mediaQuery';
+import { lessThan } from '../../utils/mediaQuery';
 import slugify from '../../utils/strings/slugify';
-import { categoriesMap } from '../../utils/dataMapping';
+// import unSlugify from '../../utils/strings/unSlugify';
+import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
 
 // styles
-// import Layout from '../../components/Layout/Layout';
 import breakpoints from '../../styles/breakpoints';
-// import { selfBreakpoints as filtersSelfBreakpoints } from '../../views/ProgramPageView/Filters/Filters.styles';
-import colors from '../../styles/colors';
+import { selfBreakpoints as filtersSelfBreakpoints } from '../../views/ProgramPageView/Filters/Filters.styles';
+// import Layout from '../../components/Layout/Layout';
 
 const SectionContainer = styled(StyledSectionContainer)`
   min-height: 800px;
@@ -45,14 +44,14 @@ const SectionContainer = styled(StyledSectionContainer)`
   )};
 `;
 
-// const FiltersWrapper = styled.div`
-//   max-width: 340px;
-//
-//   ${lessThan(filtersSelfBreakpoints[0])} {
-//     max-width: 0;
-//     margin: 0;
-//   }
-// `;
+const FiltersWrapper = styled.div`
+  max-width: 340px;
+
+  ${lessThan(filtersSelfBreakpoints[0])} {
+    max-width: 0;
+    margin: 0;
+  }
+`;
 
 /**
  * Template used to display daily plannings from Swapcard API
@@ -69,13 +68,13 @@ const Program = ({
     swapcard: { plannings },
   } = data;
 
-  // const { state } = location;
+  const { state } = location;
 
-  // const {
-  //   filters,
-  //   dispatch: filterDispatcher,
-  //   applyFilter,
-  // } = useProgramFilters();
+  const {
+    filters,
+    dispatch: filterDispatcher,
+    applyFilter,
+  } = useProgramFilters();
 
   const formatDateStr = (value) => value.replace(/-/g, '/');
 
@@ -131,7 +130,6 @@ const Program = ({
       categories: planning.categories
         .map((category) => category.value)
         .filter((category) => categoriesMap[category]),
-      place: `Salle du ${planning.categories[0].value}`,
       type: slugify(planning.type),
       time: {
         beginsAt: getFormattedTime(planning.beginsAt),
@@ -142,55 +140,118 @@ const Program = ({
     return modifiedPlannings;
   }, [plannings]);
 
-  const groupedByTimeProgram = {};
-  program.forEach((session) => {
-    const { beginsAt } = session.time;
-    if (!groupedByTimeProgram[beginsAt]) {
-      groupedByTimeProgram[beginsAt] = [];
+  // Initialize filters once we got plannings from Swapcard
+  useEffect(() => {
+    // const places = [];
+    const categories = [];
+    const eventTypes = [];
+
+    const addChoices = (value, array) => {
+      if (value === null || array.some((v) => v === value)) return;
+
+      array.push(value);
+    };
+
+    program.forEach((session) => {
+      // Get all places for filters
+      // addChoices(session.place, places);
+      // Get all categories for filters
+      session.categories.forEach((category) => {
+        addChoices(category, categories);
+      });
+      // Get all types for filters
+      addChoices(session.type, eventTypes);
+    });
+
+    if (filters.length > 0) {
+      filterDispatcher({
+        type: 'UPDATE',
+        options: {
+          name: 'categories',
+          values: categories.map((value) => ({
+            name: categoriesMap[value],
+            value,
+          })),
+        },
+      });
+
+      filterDispatcher({
+        type: 'UPDATE',
+        options: {
+          name: 'type',
+          values: eventTypes.map((value) => ({
+            name: eventTypesMap[value],
+            value,
+          })),
+        },
+      });
+
+      return;
     }
-    groupedByTimeProgram[beginsAt].push(session);
-  });
 
-  const groupedByTime = Object.entries(groupedByTimeProgram);
-  const groupedByTimeRangeProgram = {};
-  for (let i = 0; i < groupedByTime.length; i += 1) {
-    const numberOfSessionsAtTimeI = groupedByTime[i][1].length;
-    const time = groupedByTime[i][0];
-    const sessions = groupedByTime[i][1].slice(1);
-    if (numberOfSessionsAtTimeI >= 4) {
-      const numberOfSessionsAtTimeI1 = groupedByTime[i + 1][1].length;
-      const timeI1 = groupedByTime[i + 1][0];
-      const sessionsI1 = groupedByTime[i + 1][1];
-      if (numberOfSessionsAtTimeI1 >= 4) {
-        const sessionsPlace = sessions.map((session) => session.place);
-        const sessionsI1Place = sessionsI1.map((session) => session.place);
-        const allPlaces = [
-          ...new Set([sessionsPlace, sessionsI1Place].flat()).values(),
-        ];
-        const missingPlacesSessions = allPlaces.filter(
-          (place) => !sessionsPlace.includes(place)
-        );
-        const missingPlacesSessionsI1 = allPlaces.filter(
-          (place) => !sessionsI1Place.includes(place)
-        );
+    filterDispatcher({
+      type: 'ADD',
+      options: {
+        name: 'categories',
+        title: 'Thématique',
+        values: categories.map((value) => ({
+          name: categoriesMap[value],
+          value,
+        })),
+      },
+    });
 
-        missingPlacesSessions.forEach((place) =>
-          sessions.push({ place, noEvent: true })
-        );
-        missingPlacesSessionsI1.forEach((place) =>
-          sessionsI1.push({ place, noEvent: true })
-        );
+    filterDispatcher({
+      type: 'ADD',
+      options: {
+        name: 'type',
+        title: 'Type',
+        values: eventTypes.map((value) => ({
+          name: eventTypesMap[value],
+          value,
+        })),
+      },
+    });
 
-        groupedByTimeRangeProgram[`${time};${timeI1}`] = [sessions, sessionsI1];
-        i += 1;
-      } else {
-        groupedByTimeRangeProgram[time] = sessions;
-      }
-    } else {
-      groupedByTimeRangeProgram[time] = sessions;
-    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [program]);
+
+  // Scroll to the last selected session
+  useEffect(() => {
+    if (typeof window === 'undefined' || state === null) return;
+
+    const anchor = document.querySelector(`#${CSS.escape(state.sessionId)}`);
+
+    if (anchor === null) return;
+
+    const offset = anchor.getBoundingClientRect().top + window.scrollY - 140;
+
+    window.scrollTo({ top: offset, behavior: `smooth` });
+  }, [state]);
+
+  // Update filter value
+  const handleFilterChange = (event) => {
+    filterDispatcher({
+      type: 'UPDATE_VALUE',
+      options: {
+        name: event.target.name,
+        value: event.target.value,
+        isChecked: event.target.checked,
+      },
+    });
+  };
+
+  // Uncheck all filters
+  const handleClickReset = () => {
+    filterDispatcher({ type: 'UNCHECK_ALL' });
+  };
+
+  let filteredProgram = program;
+  if (filters.length > 0) {
+    filteredProgram = program
+      .filter((session) => applyFilter('categories', session.categories))
+      .filter((session) => applyFilter('type', session.type));
   }
-  console.log(groupedByTimeRangeProgram);
 
   return (
     <>
@@ -201,19 +262,21 @@ const Program = ({
 
       <Hero datePaths={datePaths} location={location} />
 
-      <SectionContainer
-        id='program-section'
-        forwardedAs='div'
-        faded
-        bgColor={colors.pineapple50}
-      >
+      <SectionContainer id='program-section' forwardedAs='div' faded>
         <Center maxWidth='1066px'>
           <Switcher threshold='768px' space='24px'>
             <div>
+              <FiltersWrapper>
+                <Filters
+                  onChange={handleFilterChange}
+                  onReset={handleClickReset}
+                />
+              </FiltersWrapper>
+
               <div>
-                {program.length > 0 ? (
+                {filteredProgram.length > 0 ? (
                   <ScheduleCardList>
-                    {program.map((session) => (
+                    {filteredProgram.map((session) => (
                       <ScheduleCard
                         id={session.id}
                         key={session.id}

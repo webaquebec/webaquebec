@@ -18,10 +18,10 @@ import { fontWeights } from '../../../styles/typography';
 export const Container = styled(Paper)`
   ${breakpointsRange(
     [
-      { prop: 'padding-top', sizes: [16, 20], bases: [16, 20] },
-      { prop: 'padding-right', sizes: [16, 20], bases: [16, 20] },
-      { prop: 'padding-bottom', sizes: [16, 20], bases: [16, 20] },
-      { prop: 'padding-left', sizes: [16, 20], bases: [16, 20] },
+      { prop: 'padding-top', sizes: [40, 40], bases: [16, 20] },
+      { prop: 'padding-right', sizes: [16, 40], bases: [16, 20] },
+      { prop: 'padding-bottom', sizes: [40, 40], bases: [16, 20] },
+      { prop: 'padding-left', sizes: [75, 80], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -56,7 +56,7 @@ export const noTimeStyle = css`
 export const StyledTimeStamp = styled(TimeStamp)``;
 
 export const Title = styled.h2`
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
   font-weight: ${fontWeights.bold};
   ${breakpointsRange(

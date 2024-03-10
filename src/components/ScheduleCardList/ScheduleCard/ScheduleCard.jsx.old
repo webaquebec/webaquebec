@@ -15,6 +15,7 @@ import truncate from '../../../utils/strings/truncate';
 import {
   Container,
   Content,
+  StyledTimeStamp,
   StyledScheduleCard,
   Title,
   noTimeStyle,
@@ -39,14 +40,11 @@ const ScheduleCard = ({
   ...rest
 }) => {
   const categoryColors = {
-    design: colors.mauve,
-    developpement: colors.ciel,
-    innovation: colors.turquoise,
-    'communication-and-marketing': colors.jaune,
-    'communication-et-marketing': colors.jaune,
-    'jeux-video': colors.rose100,
-    'competences-transversales': colors.rose100,
-    'communication-dans-ladministration-publique': colors.rose100,
+    design: colors.plum,
+    developpement: colors.kiwi,
+    innovation: colors.pineapple,
+    'communication-and-marketing': colors.watermelon,
+    'communication-et-marketing': colors.watermelon,
   };
 
   return (
@@ -60,9 +58,19 @@ const ScheduleCard = ({
         darkColor={colors.gris90}
         css={time ? undefined : noTimeStyle}
       >
-        <Stack>
-          <div>{place}</div>
+        {time && (
+          <div
+            css={`
+              position: absolute;
+              top: ${content ? '40px' : '20px'};
+              left: -8px;
+            `}
+          >
+            <StyledTimeStamp beginsAt={time.beginsAt} endsAt={time.endsAt} />
+          </div>
+        )}
 
+        <Stack>
           <Title as={titleAs}>{title}</Title>
 
           {content && (

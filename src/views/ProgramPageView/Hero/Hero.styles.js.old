@@ -23,15 +23,13 @@ export const Wrapper = styled.div`
   top: 60px;
   z-index: ${zIndexes.sticky};
 
+  padding: 32px 0;
+
   transform: translateY(-50%);
 `;
 
 export const HeaderContent = styled(Center)`
   display: flex;
-  margin: auto;
-  padding: 32px 16px;
-
-  background: ${colors.pineapple50};
 `;
 
 export const StickyTitle = styled.div`
@@ -45,9 +43,9 @@ export const StickyTitle = styled.div`
   margin-right: 1.5rem;
   padding-left: 0.5rem;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [24, 32], bases: [16, 20] }],
@@ -69,13 +67,21 @@ export const DateList = styled.ul`
   z-index: 1;
 
   display: flex;
-  justify-content: flex-start;
 
   width: 100%;
   margin: 0;
   padding: 0;
 
   list-style: none;
+
+  ${greaterThan(selfBreakpoints[1])} {
+    justify-content: space-evenly;
+  }
+
+  ${greaterThan(selfBreakpoints[3])} {
+    justify-content: ${({ $shrunk }) =>
+      $shrunk ? 'space-around' : 'space-between'};
+  }
 `;
 
 export const DateListItem = styled.li`
@@ -99,9 +105,9 @@ export const dateTabStyle = css`
   &&.active,
   &&:focus,
   &&:hover {
-    color: ${colors.pineapple50};
+    color: ${colors.gris30};
 
-    background-color: ${colors.bleu};
+    background-color: ${colors.blueberry};
   }
 
   > * {
@@ -122,13 +128,13 @@ export const dateTabStyle = css`
 
     &&.active {
       font-weight: ${fontWeights.bold};
-      font-family: ${fontFamilies.redaction};
+      font-family: ${fontFamilies.redaction10};
     }
 
     &&.active,
     &&:focus,
     &&:hover {
-      color: ${colors.bleu};
+      color: ${colors.blueberry};
 
       background-color: transparent;
       border-color: transparent;
@@ -157,14 +163,14 @@ export const dateTabStyle = css`
 
     /* &&.active,
     &&:focus {
-      color: ${colors.bleu90};
+      color: ${colors.blueberry90};
     } */
   }
 `;
 
 export const dateTabTypoStyle = css`
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [18, 20], bases: [16, 20] }],
