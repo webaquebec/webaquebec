@@ -154,7 +154,7 @@ export const blogPostQuery = graphql`
     }
     featuredPosts: allWpPost(
       filter: { id: { nin: [$id] } }
-      sort: { fields: date, order: DESC }
+      sort: { date: DESC }
       limit: 3
     ) {
       edges {

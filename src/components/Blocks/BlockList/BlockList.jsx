@@ -47,8 +47,10 @@ export const query = graphql`
     name
     order
     attributes {
-      values
-      ordered
+      ... on WpCoreListBlockAttributes {
+        ordered
+        values
+      }
     }
   }
 `;

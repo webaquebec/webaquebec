@@ -147,7 +147,7 @@ export default BlogPage;
 
 export const blogArchiveQuery = graphql`
   query blogArchives {
-    allWpPost(sort: { order: DESC, fields: date }) {
+    allWpPost(sort: { date: DESC }) {
       edges {
         node {
           id
