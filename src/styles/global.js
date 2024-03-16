@@ -445,12 +445,17 @@ export const unorderedListStyle = css`
   }
 
   li {
-    display: flex;
+    position: relative;
+
     margin-bottom: 16px;
+    padding-left: 30px;
   }
 
   li::before {
-    display: inline-block;
+    position: absolute;
+    left: 0;
+
+    display: block;
 
     /* width: 1em; */
     margin-inline-end: 0.5em;
@@ -512,7 +517,9 @@ export const pictureFilter = css`
     opacity: 0.5;
     mix-blend-mode: color;
 
-    transition: background-color ${speed.fast};
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background-color ${speed.fast};
+    }
 
     content: '';
   }

@@ -40,7 +40,7 @@ export const SpeakerInfo = styled.span`
 export const eventTypeStyle = css`
   color: ${colors.blueberry};
 
-  background-color: ${colors.blueberry10};
+  background-color: ${colors.blueberry90};
 `;
 
 export const outlinedStyle = css`
