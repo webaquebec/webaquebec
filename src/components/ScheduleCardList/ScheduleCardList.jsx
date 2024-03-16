@@ -8,27 +8,17 @@ import ScheduleCard from './ScheduleCard';
 import colors from '../../styles/colors';
 
 const List = styled.ul`
+  display: flex;
+  flex-flow: row nowrap;
+
   margin: 0;
   padding: 0;
 
   list-style: none;
 
-  > * + * {
-    position: relative;
-
-    ::before {
-      position: absolute;
-      top: -1px;
-      left: 0;
-      z-index: 1;
-
-      width: 100%;
-      height: 2px;
-
-      background-color: ${colors.gris30};
-
-      content: '';
-    }
+  li {
+    flex: 1 1 0;
+    height: 100%;
   }
 `;
 
@@ -46,31 +36,45 @@ const borderBottomRadiusStyle = css`
   }
 `;
 
-const ScheduleCardList = ({ children }) => {
+const timeColumnStyle = css`
+  display: flex;
+  flex-flow: row nowrap;
+  margin-left: -88px;
+`;
+
+const timeStyle = css`
+  font-size: 16px;
+  min-width: 60px;
+  text-align: right;
+  margin-top: 24px;
+  margin-right: 28px;
+`;
+
+const ScheduleCardList = ({ children, time, groupedUp }) => {
   const nodes = React.Children.toArray(children);
 
   return (
-    <List>
-      {nodes.map(({ key, props }, index) => (
-        <li key={`schedule-card-${key}`}>
-          <ScheduleCard
-            css={`
-              ${index === 0 ? borderTopRadiusStyle : undefined}
-
-              ${index === nodes.length - 1
-                ? borderBottomRadiusStyle
-                : undefined}
-            `}
-            {...props}
-          />
-        </li>
-      ))}
-    </List>
+    <div css={{ marginTop: groupedUp ? "0" : "36px" }}>
+      <div css={timeColumnStyle}>
+        <div css={timeStyle}>{ time }</div>
+        <List>
+          {nodes.map(({ key, props }, index) => (
+            <li key={`schedule-card-${key}`}>
+              <ScheduleCard
+                groupedUp={groupedUp}
+                {...props}
+              />
+            </li>
+          ))}
+        </List>
+      </div>
+    </div>
   );
 };
 
 ScheduleCardList.propTypes = {
   children: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  time: PropTypes.string,
 };
 
 export default ScheduleCardList;

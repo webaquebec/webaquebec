@@ -22,9 +22,12 @@ export const Container = styled(Paper)`
       { prop: 'padding-right', sizes: [16, 20], bases: [16, 20] },
       { prop: 'padding-bottom', sizes: [16, 20], bases: [16, 20] },
       { prop: 'padding-left', sizes: [16, 20], bases: [16, 20] },
+      { prop: 'margin-bottom', sizes: [20, 36], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
+
+height: 100%;
 
   ::after {
     position: absolute;
@@ -85,6 +88,9 @@ export const StyledScheduleCard = styled(Link)`
   text-decoration: none;
 
   cursor: pointer;
+
+  display: block;
+  height: 100%;
 
   :hover,
   :focus {

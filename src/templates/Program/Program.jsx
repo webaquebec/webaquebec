@@ -151,12 +151,14 @@ const Program = ({
     groupedByTimeProgram[beginsAt].push(session);
   });
 
+  const sortSessionsByPlace = (sessions) => sessions.sort((a, b) => a.place >= b.place);
+
   const groupedByTime = Object.entries(groupedByTimeProgram);
-  const groupedByTimeRangeProgram = {};
+  let groupedByTimeRangeProgram = {};
   for (let i = 0; i < groupedByTime.length; i += 1) {
     const numberOfSessionsAtTimeI = groupedByTime[i][1].length;
     const time = groupedByTime[i][0];
-    const sessions = groupedByTime[i][1].slice(1);
+    const sessions = groupedByTime[i][1]
     if (numberOfSessionsAtTimeI >= 4) {
       const numberOfSessionsAtTimeI1 = groupedByTime[i + 1][1].length;
       const timeI1 = groupedByTime[i + 1][0];
@@ -181,16 +183,20 @@ const Program = ({
           sessionsI1.push({ place, noEvent: true })
         );
 
-        groupedByTimeRangeProgram[`${time};${timeI1}`] = [sessions, sessionsI1];
+        groupedByTimeRangeProgram[`${time};${timeI1}`] = [
+          sortSessionsByPlace(sessions),
+          sortSessionsByPlace(sessionsI1),
+        ];
         i += 1;
       } else {
-        groupedByTimeRangeProgram[time] = sessions;
+        groupedByTimeRangeProgram[time] = sortSessionsByPlace(sessions);
       }
     } else {
-      groupedByTimeRangeProgram[time] = sessions;
+      groupedByTimeRangeProgram[time] = sortSessionsByPlace(sessions);
     }
   }
-  console.log(groupedByTimeRangeProgram);
+  groupedByTimeRangeProgram = Object.entries(groupedByTimeRangeProgram);
+  console.log(groupedByTimeRangeProgram)
 
   return (
     <>
@@ -207,27 +213,65 @@ const Program = ({
         faded
         bgColor={colors.pineapple50}
       >
-        <Center maxWidth='1066px'>
+        <Center maxWidth='1220px'>
           <Switcher threshold='768px' space='24px'>
             <div>
               <div>
-                {program.length > 0 ? (
-                  <ScheduleCardList>
-                    {program.map((session) => (
-                      <ScheduleCard
-                        id={session.id}
-                        key={session.id}
-                        to={`/programmation/${slugify(session.title)}/`}
-                        title={session.title}
-                        content={session.description}
-                        place={session.place}
-                        time={session.time}
-                        type={session.type}
-                        categories={session.categories}
-                        speakers={session.speakers}
-                      />
-                    ))}
-                  </ScheduleCardList>
+                {groupedByTimeRangeProgram.length > 0 ? (
+                  groupedByTimeRangeProgram.map(([timerange, sessions]) => (
+                    timerange.includes(";") ?
+                      (<div key={timerange}>
+                        <ScheduleCardList time={timerange.split(";")[0]}>
+                          {sessions[0].map((session) => (
+                            <ScheduleCard
+                              id={session.id}
+                              key={session.id}
+                              to={`/programmation/${slugify(session.title)}/`}
+                              title={session.title}
+                              content={session.description}
+                              place={session.place}
+                              time={session.time}
+                              type={session.type}
+                              categories={session.categories}
+                              speakers={session.speakers}
+                            />
+                          ))}
+                        </ScheduleCardList>
+                        <ScheduleCardList groupedUp={true} time={timerange.split(";")[1]}>
+                          {sessions[1].map((session) => (
+                            <ScheduleCard
+                              id={session.id}
+                              key={session.id}
+                              to={`/programmation/${slugify(session.title)}/`}
+                              title={session.title}
+                              content={session.description}
+                              place={session.place}
+                              time={session.time}
+                              type={session.type}
+                              categories={session.categories}
+                              speakers={session.speakers}
+                            />
+                          ))}
+                        </ScheduleCardList>
+                      </div>
+                      ) :
+                      (<ScheduleCardList time={timerange}>
+                        {sessions.map((session) => (
+                          <ScheduleCard
+                            id={session.id}
+                            key={session.id}
+                            to={`/programmation/${slugify(session.title)}/`}
+                            title={session.title}
+                            content={session.description}
+                            place={session.place}
+                            time={session.time}
+                            type={session.type}
+                            categories={session.categories}
+                            speakers={session.speakers}
+                          />
+                        ))}
+                      </ScheduleCardList>)
+                  ))
                 ) : (
                   <NoResults />
                 )}

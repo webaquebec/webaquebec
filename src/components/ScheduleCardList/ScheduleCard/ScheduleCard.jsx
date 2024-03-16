@@ -36,6 +36,7 @@ const ScheduleCard = ({
   categories,
   speakers,
   to,
+  groupedUp,
   ...rest
 }) => {
   const categoryColors = {
@@ -61,7 +62,12 @@ const ScheduleCard = ({
         css={time ? undefined : noTimeStyle}
       >
         <Stack>
-          <div>{place}</div>
+          {place && !groupedUp && (
+            <>
+              <div>{place}</div>
+              <hr/>
+            </>
+          )}
 
           <Title as={titleAs}>{title}</Title>
 
@@ -80,16 +86,12 @@ const ScheduleCard = ({
             </div>
           ))}
 
-          {(categories.length > 0 || type || place) && (
+          {(categories.length > 0) && (
             <Cluster>
               <div>
                 {categories.map((category) => (
                   <Tag key={category} category={category} />
                 ))}
-
-                {type && <Tag eventType={type} />}
-
-                {place && <Tag place={place} />}
               </div>
             </Cluster>
           )}
@@ -166,6 +168,10 @@ ScheduleCard.propTypes = {
       organization: PropTypes.string,
     })
   ),
+  /**
+   * Specifies if the card should merge with the one above
+   */
+  groupedUp: PropTypes.boolean,
 };
 
 ScheduleCard.defaultProps = {
@@ -177,6 +183,7 @@ ScheduleCard.defaultProps = {
   type: null,
   categories: [],
   speakers: [],
+  groupedUp: false,
 };
 
 export default ScheduleCard;
