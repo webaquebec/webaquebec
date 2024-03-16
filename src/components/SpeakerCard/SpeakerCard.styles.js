@@ -12,9 +12,6 @@ import breakpoints from '../../styles/breakpoints';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 export const StyledSpeakerCard = styled.div`
-  background-color: ${colors.gris20};
-  border-radius: 8px;
-
   ${breakpointsRange(
     [
       { prop: '--gap', sizes: [12, 24] },
@@ -142,7 +139,7 @@ export const HeaderInfo = styled.span`
 export const SpeakerDescription = styled.div`
   margin: 0;
 
-  color: ${colors.gris90};
+  color: ${colors.blueberry30};
 
   ${breakpointsRange(
     [
