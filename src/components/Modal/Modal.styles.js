@@ -14,7 +14,7 @@ import { speed } from '../../styles/animation';
 export const Wrapper = styled.div``;
 
 export const IconCross = styled(IconPlus)`
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
   transform: rotate(45deg);
 `;
@@ -39,7 +39,7 @@ export const ActionButton = styled.button`
   margin: 0;
   padding: 0;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
   line-height: 0;
 
   background: none;
@@ -180,7 +180,9 @@ export const StyledModal = styled(ReactModalAdapter).attrs({
 
       opacity: 0;
 
-      transition: opacity ${speed.default};
+      @media screen and (prefers-reduced-motion: no-preference) {
+        transition: opacity ${speed.default};
+      }
 
       content: '';
 
@@ -212,7 +214,9 @@ export const StyledModal = styled(ReactModalAdapter).attrs({
 
     transform: translate3d(0, 100%, 0);
 
-    transition: transform ${speed.fast};
+    @media screen and (prefers-reduced-motion: no-preference) {
+      transition: transform ${speed.fast};
+    }
 
     will-change: transform;
 

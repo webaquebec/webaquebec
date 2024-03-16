@@ -8,6 +8,8 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 // styles
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
+import { pictureFilter } from '../../../styles/global';
+import colors from '../../../styles/colors';
 
 // images
 import VectorStar from '../../../images/VectorStar';
@@ -32,6 +34,8 @@ export const Content = styled.div`
 `;
 
 export const Picture = styled(Img)`
+  ${pictureFilter}
+
   ${breakpointsRange(
     [{ prop: 'minHeight', sizes: [214, 434], bases: [16, 20] }],
     breakpoints.spacings
@@ -47,6 +51,7 @@ export const Title = styled.h2`
     [
       { prop: 'marginTop', sizes: [0, 40], bases: [16, 20] },
       { prop: 'fontSize', sizes: [20, 40], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [18, 24], bases: [16, 20], unit: '' },
     ],
     breakpoints.spacings
   )};
@@ -65,6 +70,7 @@ export const Star = styled(VectorStar)`
 `;
 
 export const Date = styled.p`
+  color: ${colors.watermelon};
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(

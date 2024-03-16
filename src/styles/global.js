@@ -71,7 +71,7 @@ export const bodyMediumStyle = css`
 export const bodyAltStyle = css`
   font-weight: ${fontWeights.regular};
   font-size: 1.05em;
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction10};
   ${breakpointsRange(
     [{ prop: 'lineHeight', sizes: [26, 28], bases: [16, 23], unit: '' }],
     breakpoints.spacings
@@ -98,25 +98,18 @@ export const h1Style = css`
 `;
 
 export const h1AltStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry};
 
-  font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
+  font-weight: ${fontWeights.ultrabold};
+  font-family: ${fontFamilies.radioGrotesk};
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [36, 96], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [39, 105], bases: [36, 96], unit: '' },
+      { prop: 'fontSize', sizes: [36, 164], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [39, 90], bases: [36, 96], unit: '' },
     ],
     breakpoints.spacings
   )};
-`;
-
-export const h1AltItalicStyle = css`
-  ${h1AltStyle}
-
-  font-weight: ${fontWeights.regular};
-  font-style: italic;
 `;
 
 export const h2Style = css`
@@ -176,7 +169,7 @@ export const h6Style = css`
 
 export const h6AltStyle = css`
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction10};
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [21, 27], bases: [16, 20] },
@@ -187,7 +180,7 @@ export const h6AltStyle = css`
 `;
 
 export const introStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
 
   ${breakpointsRange(
     [
@@ -199,10 +192,9 @@ export const introStyle = css`
 `;
 
 export const magnifyStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
 
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
 
   ${breakpointsRange(
     [
@@ -214,15 +206,15 @@ export const magnifyStyle = css`
 `;
 
 export const billboardStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
 
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [64, 200], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [58, 180], bases: [64, 200], unit: '' },
+      { prop: 'fontSize', sizes: [125, 200], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [50, 160], bases: [64, 200], unit: '' },
     ],
     breakpoints.spacings
   )};
@@ -242,14 +234,6 @@ export const unbreakableStringStyle = css`
 export const unstyledLinkStyle = css`
   color: inherit;
   text-decoration: inherit;
-`;
-
-export const titleStyle = css`
-  ${h1AltStyle}
-
-  > span {
-    ${h1AltItalicStyle}
-  }
 `;
 
 export const captionStyle = css`
@@ -324,35 +308,11 @@ export const caption3MediumStyle = css`
 `;
 
 export const pixelatedStyle = css`
-  font-family: ${fontFamilies.redaction};
-`;
-
-export const pixelated10Style = css`
   font-family: ${fontFamilies.redaction10};
 `;
 
-export const pixelated20Style = css`
-  font-family: ${fontFamilies.redaction20};
-`;
-
-export const pixelated35Style = css`
-  font-family: ${fontFamilies.redaction35};
-`;
-
-export const pixelated50Style = css`
-  font-family: ${fontFamilies.redaction50};
-`;
-
-export const pixelated70Style = css`
-  font-family: ${fontFamilies.redaction70};
-`;
-
-export const pixelated100Style = css`
-  font-family: ${fontFamilies.redaction100};
-`;
-
 export const linkStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
   font-weight: ${fontWeights.medium};
 
   :focus,
@@ -369,7 +329,7 @@ export const linkStyleAlt = css`
 
   display: inline-block;
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
   text-decoration: none;
 
   outline-offset: -1px;
@@ -387,7 +347,7 @@ export const linkStyleAlt = css`
     width: 100%;
     height: 100%;
 
-    background-color: ${colors.bleu};
+    background-color: ${colors.blueberry};
 
     scale: 1 0.1;
     transform-origin: bottom;
@@ -426,7 +386,7 @@ export const orderedListCounterStyle = css`
   /* width: 1.3em; */
   margin-inline-end: 0.3em;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.bold};
 
   /* direction: rtl; */
@@ -485,17 +445,23 @@ export const unorderedListStyle = css`
   }
 
   li {
+    position: relative;
+
     margin-bottom: 16px;
+    padding-left: 30px;
   }
 
   li::before {
-    display: inline-block;
+    position: absolute;
+    left: 0;
+
+    display: block;
 
     /* width: 1em; */
     margin-inline-end: 0.5em;
     margin-inline-start: 0.7em;
 
-    color: ${colors.bleu};
+    color: ${colors.blueberry};
     font-weight: ${fontWeights.bold};
 
     content: '•';
@@ -527,11 +493,43 @@ export const unorderedListStyleAlt = css`
     margin-right: 12px;
     margin-left: 8px;
 
-    color: ${colors.bleu};
+    color: ${colors.blueberry};
     font-size: 30px;
     line-height: 0;
 
     content: '•';
+  }
+`;
+
+export const pictureFilter = css`
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-color: ${colors.blueberry};
+    opacity: 0.5;
+    mix-blend-mode: color;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background-color ${speed.fast};
+    }
+
+    content: '';
+  }
+
+  img {
+    filter: grayscale();
+
+    @media (prefers-reduced-motion) {
+      transition: filter ${speed.fast};
+    }
   }
 `;
 

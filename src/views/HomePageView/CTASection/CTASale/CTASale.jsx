@@ -21,7 +21,7 @@ const CTASale = () => (
           billets seront disponibles!
         </CTAIntro>
 
-        <Button to='/billetterie' tag='link' primary animated>
+        <Button to='/billetterie' tag='link' animated>
           Réserve maintenant
         </Button>
       </div>

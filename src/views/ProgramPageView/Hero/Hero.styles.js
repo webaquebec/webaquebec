@@ -43,9 +43,9 @@ export const StickyTitle = styled.div`
   margin-right: 1.5rem;
   padding-left: 0.5rem;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [24, 32], bases: [16, 20] }],
@@ -107,7 +107,7 @@ export const dateTabStyle = css`
   &&:hover {
     color: ${colors.gris30};
 
-    background-color: ${colors.bleu};
+    background-color: ${colors.blueberry};
   }
 
   > * {
@@ -128,13 +128,13 @@ export const dateTabStyle = css`
 
     &&.active {
       font-weight: ${fontWeights.bold};
-      font-family: ${fontFamilies.redaction};
+      font-family: ${fontFamilies.redaction10};
     }
 
     &&.active,
     &&:focus,
     &&:hover {
-      color: ${colors.bleu};
+      color: ${colors.blueberry};
 
       background-color: transparent;
       border-color: transparent;
@@ -163,14 +163,14 @@ export const dateTabStyle = css`
 
     /* &&.active,
     &&:focus {
-      color: ${colors.bleu90};
+      color: ${colors.blueberry90};
     } */
   }
 `;
 
 export const dateTabTypoStyle = css`
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction35};
+  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [18, 20], bases: [16, 20] }],

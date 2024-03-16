@@ -24,5 +24,5 @@ export const CTATitle = styled.h2`
     breakpoints.spacings
   )};
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 `;

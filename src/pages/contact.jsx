@@ -17,10 +17,10 @@ import Info from '../views/ContactPageView/Info';
 // styles
 import breakpointsRange from '../utils/breakpointsRange';
 import breakpoints from '../styles/breakpoints';
-import { titleStyle } from '../styles/global';
+import { h1AltStyle } from '../styles/global';
 
 const ContactTitle = styled.h1`
-  ${titleStyle};
+  ${h1AltStyle};
 
   ${breakpointsRange(
     [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
@@ -65,9 +65,7 @@ const ContactPage = ({ data }) => {
         withText
         intrinsic
       >
-        <ContactTitle>
-          nous <span>joindre</span>
-        </ContactTitle>
+        <ContactTitle>nous joindre</ContactTitle>
       </Center>
 
       <StyledSection forwardedAs='div' faded>
@@ -100,7 +98,7 @@ export const query = graphql`
         maxWidth: 780
         maxHeight: 577
         quality: 99
-        duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+        duotone: { highlight: "#EBEBEB", shadow: "#262626" }
       ) {
         ...GatsbyImageSharpFluid_withWebp
       }

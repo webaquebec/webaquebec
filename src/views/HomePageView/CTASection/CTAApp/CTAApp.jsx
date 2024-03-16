@@ -37,7 +37,8 @@ const CTAApp = () => {
   return (
     <CTAWrap>
       <ContentWrap>
-        <Title>rediffusions en cours</Title>
+        <Title>découvrez notre application</Title>
+        {/* <Title>rediffusions en cours</Title> */}
 
         <Text>
           Les rediffusions des conférences du WAQ23 sont en cours dans

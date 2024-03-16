@@ -10,7 +10,7 @@ import { fontWeights } from '../../styles/typography';
 import breakpoints from '../../styles/breakpoints';
 
 export const speakerStyle = css`
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.normal};
 `;
 
@@ -38,9 +38,9 @@ export const SpeakerInfo = styled.span`
 `;
 
 export const eventTypeStyle = css`
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
-  background-color: ${colors.bleu10};
+  background-color: ${colors.blueberry90};
 `;
 
 export const outlinedStyle = css`

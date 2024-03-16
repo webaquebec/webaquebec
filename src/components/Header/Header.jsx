@@ -8,17 +8,12 @@ import Center from '../LayoutSections/Center';
 import Logo from './Logo';
 import Menu from './Menu';
 
-// images
-// import vectorBurgerMenu from '../../images/vectorBurgerMenu.svg';
-
 // styles
 import {
   StyledHeader,
   Container,
   LogoWrapper,
   MenuButtonWrapper,
-  // BurgerButton,
-  // BurgerImg,
 } from './Header.styles';
 import BurgerButton from './BurgerButton';
 
@@ -28,35 +23,35 @@ const primaryNavigation = [
   //   label: 'programmation',
   //   slug: '/programmation/2023',
   //   type: 'internal',
-  //   color: 'apricot',
+  //   color: 'pineapple',
   // },
   {
     id: 'blog',
     label: 'blogue',
     slug: '/blogue',
     type: 'internal',
-    color: 'apricot',
+    color: 'watermelon',
   },
   {
     id: 'tickets',
     label: 'billetterie',
     slug: '/billetterie',
     type: 'internal',
-    color: 'cherry',
+    color: 'kiwi',
   },
   // {
   //   id: 'speakers',
   //   label: 'appel à conférences',
   //   slug: '/appel-a-conferences',
   //   type: 'internal',
-  //   color: 'cherry',
+  //   color: 'pineapple',
   // },
   // {
   //   id: 'waqademy',
   //   label: 'WAQadémie',
   //   slug: '/waqademie',
   //   type: 'internal',
-  //   color: 'cherry',
+  //   color: 'watermelon',
   // },
 ];
 
@@ -66,43 +61,49 @@ const secondaryNavigation = [
     label: 'à propos',
     slug: '/a-propos/evenement',
     type: 'internal',
-    color: 'apricot',
+    color: 'plum',
   },
   {
     id: 'partners',
     label: 'partenaires',
     slug: '/partenaires',
     type: 'internal',
+    color: 'pineapple',
   },
   {
     id: 'faq',
     label: 'FAQ',
     slug: '/faq',
     type: 'internal',
+    color: 'plum',
   },
   {
     id: 'contact',
     label: 'nous joindre',
     slug: '/contact',
     type: 'internal',
+    color: 'watermelon',
   },
   {
     id: 'code-of-conduct',
     label: 'code de conduite',
     slug: '/code-de-conduite',
     type: 'internal',
+    color: 'kiwi',
   },
   {
     id: 'edition2023',
     label: 'édition 2023',
     slug: '/programmation/2023',
     type: 'internal',
+    color: 'pineapple',
   },
   // {
   //   id: 'edition2021',
   //   label: 'édition 2021',
   //   slug: '/programmation/2021',
   //   type: 'internal',
+  //   color: 'pineapple',
   // },
 ];
 
@@ -143,9 +144,6 @@ const Header = ({ pathname }) => {
           </LogoWrapper>
 
           <MenuButtonWrapper>
-            {/* <BurgerButton onClick={handleClick}>
-              <BurgerImg src={vectorBurgerMenu} alt='Menu' focusable='false' />
-            </BurgerButton> */}
             <BurgerButton onClick={handleClick} opened={opened} />
           </MenuButtonWrapper>
         </Container>

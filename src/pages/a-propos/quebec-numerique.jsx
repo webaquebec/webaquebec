@@ -58,11 +58,11 @@ const AboutQuebecNumeriquePage = ({ data }) => {
 
       <AboutTabs activeTabId={2} />
 
-      <IntroSection title='Québec numérique' text={intro} />
-
-      <ImagesSection images={images} />
-
       <Container forwardedAs='div' faded>
+        <IntroSection title='Québec numérique' text={intro} />
+
+        <ImagesSection images={images} />
+
         <WhoWeAreSection />
 
         <JoinUsSection />
@@ -95,7 +95,7 @@ export const query = graphql`
         maxWidth: 621
         maxHeight: 465
         quality: 99
-        duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+        duotone: { highlight: "#EBEBEB", shadow: "#262626" }
       ) {
         ...GatsbyImageSharpFluid_withWebp
       }

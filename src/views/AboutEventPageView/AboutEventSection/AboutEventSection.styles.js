@@ -2,8 +2,6 @@
 import styled, { css } from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 
-import SectionContainer from '../../../components/SectionContainer';
-
 // utils
 import { greaterThan } from '../../../utils/mediaQuery';
 
@@ -11,28 +9,11 @@ import { greaterThan } from '../../../utils/mediaQuery';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { fontFamilies, fontWeights } from '../../../styles/typography';
+import { fontWeights } from '../../../styles/typography';
 import { linkStyle } from '../../../styles/global';
 
 export const atRight = css`
   margin-left: auto;
-`;
-
-export const Container = styled(SectionContainer)`
-  ${breakpointsRange(
-    [{ prop: 'paddingBottom', sizes: [64, 207], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-
-  ::before {
-    top: -30vh;
-
-    height: 30vh;
-  }
-
-  ::after {
-    content: none;
-  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -58,9 +39,7 @@ export const SectionPicture = styled(GatsbyImage)`
 `;
 
 export const SectionTitle = styled.h4`
-  color: ${colors.bleu};
-
-  font-family: ${fontFamilies.redaction};
+  color: ${colors.blueberry};
 
   ${breakpointsRange(
     [
@@ -101,7 +80,7 @@ export const ArchiveItem = styled.li`
 `;
 
 export const ArchiveLink = styled.a`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
   font-weight: ${fontWeights.bold};
   text-decoration: none;
 

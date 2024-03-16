@@ -21,40 +21,34 @@ const SpeakersGraphics = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        speaker1Picture: file(
-          relativePath: { eq: "img-speaker-draplin-600x400.jpg" }
-        ) {
+        speaker1Picture: file(relativePath: { eq: "imgSpeaker1-600x400.jpg" }) {
           childImageSharp {
             fluid(
               quality: 100
               maxWidth: 400
-              duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+              duotone: { highlight: "#EBEBEB", shadow: "#262626" }
             ) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
-        speaker2Picture: file(
-          relativePath: { eq: "img-speaker-2-600x400.jpg" }
-        ) {
+        speaker2Picture: file(relativePath: { eq: "imgSpeaker2-600x400.jpg" }) {
           childImageSharp {
             fluid(
               quality: 100
               maxWidth: 400
-              duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+              duotone: { highlight: "#EBEBEB", shadow: "#262626" }
             ) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
-        speaker3Picture: file(
-          relativePath: { eq: "img-speaker-3-600x400.jpg" }
-        ) {
+        speaker3Picture: file(relativePath: { eq: "imgSpeaker3-600x400.jpg" }) {
           childImageSharp {
             fluid(
               quality: 100
               maxWidth: 400
-              duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+              duotone: { highlight: "#EBEBEB", shadow: "#262626" }
             ) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }

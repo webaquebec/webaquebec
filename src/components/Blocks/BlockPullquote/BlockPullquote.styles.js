@@ -11,7 +11,7 @@ export const Blockquote = styled.blockquote`
 
   ${contentStyle};
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
   font-weight: ${fontWeights.bold};
   text-align: center;

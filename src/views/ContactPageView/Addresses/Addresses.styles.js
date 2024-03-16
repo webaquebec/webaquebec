@@ -30,7 +30,7 @@ export const MapContainer = styled.div`
   overflow: hidden;
 
   background-color: white;
-  border: 3px solid ${colors.bleu100};
+  border: 3px solid ${colors.blueberry10};
   border-radius: 16px;
 
   canvas {
@@ -51,9 +51,9 @@ export const OurAddresses = styled.h2`
     breakpoints.spacings
   )};
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
 
-  font-family: ${fontFamilies.redaction};
+  font-family: ${fontFamilies.redaction10};
 
   @media (max-width: 800px) {
     ${breakpointsRange(
@@ -64,7 +64,7 @@ export const OurAddresses = styled.h2`
 `;
 
 // export const AddressesSpan = styled.span`
-//   font-family: ${fontFamilies.redaction20};
+//   font-family: ${fontFamilies.redaction10};
 // `;
 
 export const StickerHeaderSpan = styled.div`
@@ -84,7 +84,7 @@ export const AddressName = styled.h3`
   margin: 0;
   padding-left: 14px;
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
 `;
 
 export const ContactInfo = styled.div`

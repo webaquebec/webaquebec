@@ -40,14 +40,11 @@ const ScheduleCard = ({
   ...rest
 }) => {
   const categoryColors = {
-    design: colors.mauve,
-    developpement: colors.ciel,
-    innovation: colors.turquoise,
-    'communication-and-marketing': colors.jaune,
-    'communication-et-marketing': colors.jaune,
-    'jeux-video': colors.rose100,
-    'competences-transversales': colors.rose100,
-    'communication-dans-ladministration-publique': colors.rose100,
+    design: colors.plum,
+    developpement: colors.kiwi,
+    innovation: colors.pineapple,
+    'communication-and-marketing': colors.watermelon,
+    'communication-et-marketing': colors.watermelon,
   };
 
   return (

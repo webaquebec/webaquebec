@@ -9,7 +9,7 @@ import { lessThan } from '../../../../utils/mediaQuery';
 // styles
 import breakpoints from '../../../../styles/breakpoints';
 import colors from '../../../../styles/colors';
-import { fontFamilies, fontWeights } from '../../../../styles/typography';
+import { fontWeights } from '../../../../styles/typography';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -63,6 +63,7 @@ export const Container = styled.div`
 `;
 
 export const SpeakerPicture = styled(GatsbyImage)`
+  border: 2px solid ${colors.blueberry};
   border-radius: 16px;
   ${breakpointsRange(
     [
@@ -102,11 +103,10 @@ export const SpeakerSticker = styled.img`
 export const SpeakerTag = styled.div`
   position: relative;
 
-  font-weight: ${fontWeights.semiBold};
-  font-family: ${fontFamilies.redaction35};
+  font-weight: ${fontWeights.ultrabold};
 
   background-color: ${colors.gris};
-  border: 2px solid ${colors.bleu};
+  border: 2px solid ${colors.blueberry};
 
   border-radius: 16px;
 

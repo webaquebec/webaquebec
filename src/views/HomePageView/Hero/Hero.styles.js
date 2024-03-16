@@ -21,8 +21,55 @@ export const StyledHero = styled.header`
 
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [120, 160], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [128, 173], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [100, 64], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [100, 100], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
+`;
+
+export const HeroTitle = styled.h2`
+  position: relative;
+
+  display: inline-block;
+
+  text-align: left;
+
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [100, 200], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+
+  img {
+    position: absolute;
+
+    transform: translateY(100%);
+
+    ${breakpointsRange(
+      [
+        { prop: 'width', sizes: [230, 650], bases: [16, 20] },
+        { prop: 'bottom', sizes: [50, 150], bases: [16, 20] },
+        { prop: 'left', sizes: [100, 200], bases: [16, 20] },
+      ],
+      breakpoints.spacings
+    )};
+  }
+`;
+
+export const TextureWrapper = styled.div`
+  position: absolute;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  transform: rotate(-180deg);
+
+  ${breakpointsRange(
+    [
+      { prop: 'top', sizes: [-150, -200], bases: [16, 20] },
+      { prop: 'left', sizes: [0, 200], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
@@ -32,7 +79,7 @@ export const HeroIntro = styled.h3`
   margin-top: 12px;
   margin-bottom: 0;
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(

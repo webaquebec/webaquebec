@@ -12,7 +12,7 @@ import breakpoints from '../../../styles/breakpoints';
 export const selfBreakpoints = [breakpoints[0], breakpoints[2], breakpoints[7]];
 
 export const premiumStyle = css`
-  background-color: ${colors.bleu100};
+  background-color: ${colors.blueberry10};
 
   ${breakpointsRange(
     [
@@ -87,15 +87,15 @@ export const Link = styled.a`
   align-items: center;
   justify-content: center;
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
 
-  background-color: ${colors.white};
+  background-color: ${colors.peach};
   border: 2px solid;
   border-radius: 16px;
 
   :focus,
   :hover {
-    background-color: ${colors.white};
+    background-color: ${colors.peach};
     outline: 0;
 
     img {

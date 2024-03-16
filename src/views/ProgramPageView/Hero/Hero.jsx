@@ -25,7 +25,7 @@ import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
 // import useHasMounted from '../../../hooks/useHasMounted';
 
 // styles
-import { titleStyle } from '../../../styles/global';
+import { h1AltStyle } from '../../../styles/global';
 import breakpoints from '../../../styles/breakpoints';
 import {
   selfBreakpoints,
@@ -92,10 +92,7 @@ const Hero = ({ location, datePaths }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <PageTitle css={titleStyle}>
-          <span>program</span>mation
-          {current.edition <= 2023 && <span>&nbsp;{current.edition}</span>}
-        </PageTitle>
+        <PageTitle css={h1AltStyle}>programmation</PageTitle>
       </Center>
 
       <Wrapper>

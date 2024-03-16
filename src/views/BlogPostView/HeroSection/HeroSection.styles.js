@@ -31,7 +31,7 @@ export const BackButton = styled(Button)`
 export const PostTitle = styled.h1`
   margin-top: 0;
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry10};
   font-weight: ${fontWeights.medium};
 
   text-align: center;

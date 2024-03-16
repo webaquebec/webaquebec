@@ -15,7 +15,7 @@ export const defaultStyle = css`
 
   z-index: 1;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
   ${breakpointsRange(
     [
@@ -61,7 +61,7 @@ export const TextInputOutline = styled.span`
   height: calc(100% + var(--outline-width) * 2);
 
   background-color: transparent;
-  border: var(--outline-width) solid ${colors.bleu};
+  border: var(--outline-width) solid ${colors.blueberry};
   border-radius: 16px;
 
   content: '';
@@ -80,14 +80,14 @@ export const TextInputOutline = styled.span`
   ${(props) =>
     props.error &&
     css`
-      border-color: ${colors.red};
+      border-color: ${colors.cherry};
     `}
 
   ${(props) =>
     props.error &&
     props.disabled &&
     css`
-      border-color: ${lighten(0.16, colors.red)};
+      border-color: ${lighten(0.16, colors.cherry)};
     `}
 `;
 
