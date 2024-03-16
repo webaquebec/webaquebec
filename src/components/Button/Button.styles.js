@@ -289,7 +289,8 @@ const StyledButton = styled.button`
   appearance: none;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: all ${speed.fast};
+    transition: background-color ${speed.fast}, color ${speed.fast},
+      transform ${speed.fast};
   }
 
   &.active,

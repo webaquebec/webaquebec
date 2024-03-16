@@ -41,11 +41,12 @@ const TermsAndConditions = () => (
         peut être présente dans le Terminal de croisière - Port de Québec.
       </li>
       <li>
-        En participant à l’événement, tu t’engages à respecter à la lettre le{' '}
+        En participant à l’événement, tu t’engages à respecter à la lettre
+        le&nbsp;
         <GatsbyLink to='/code-de-conduite' css={linkStyle}>
           code de conduite
-        </GatsbyLink>{' '}
-        du WAQ.
+        </GatsbyLink>
+        &nbsp;du WAQ.
       </li>
       <li>
         Il est de ta responsabilité d’attribuer chacun des billets réservés à

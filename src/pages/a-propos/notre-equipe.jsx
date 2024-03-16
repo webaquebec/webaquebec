@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 // components
 import { graphql, useStaticQuery } from 'gatsby';
 import SEO from '../../components/SEO';
+import SectionContainer from '../../components/SectionContainer';
 import Center from '../../components/LayoutSections/Center';
 import TeamGallery from '../../views/OurTeamPageView/TeamGallery';
 
@@ -19,6 +20,27 @@ import AboutTabs from '../../views/AboutPagesView/AboutTabs';
 import breakpoints from '../../styles/breakpoints';
 import { introStyle } from '../../styles/global';
 import colors from '../../styles/colors';
+
+const Container = styled(SectionContainer)`
+  padding-bottom: 0;
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [90, 242] }],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
+
+  ::before {
+    top: -60vh;
+
+    height: 60vh;
+  }
+
+  ::after {
+    bottom: -40vh;
+
+    height: 40vh;
+  }
+`;
 
 const AboutIntro = styled.p`
   ${breakpointsRange(
@@ -375,37 +397,39 @@ const OurTeamPage = () => {
 
       <AboutTabs activeTabId={1} />
 
-      <Center
-        maxWidth='736px'
-        gutters='var(--container-gutter)'
-        withText
-        intrinsic
-      >
-        <AboutIntro css={introStyle}>
-          Créé par et pour la communauté numérique, et rendu possible grâce au
-          dévouement d’une équipe de plus de 100 bénévoles qui investit temps et
-          amour ❤️ Chaque personne qui s’implique amène son talent, son
-          expertise et sa personnalité. C’est ce qui fait du WAQ un événement
-          aussi unique et exceptionnel!
-        </AboutIntro>
-      </Center>
+      <Container forwardedAs='div' faded>
+        <Center
+          maxWidth='736px'
+          gutters='var(--container-gutter)'
+          withText
+          intrinsic
+        >
+          <AboutIntro css={introStyle}>
+            Créé par et pour la communauté numérique, et rendu possible grâce au
+            dévouement d’une équipe de plus de 100 bénévoles qui investit temps
+            et amour ❤️ Chaque personne qui s’implique amène son talent, son
+            expertise et sa personnalité. C’est ce qui fait du WAQ un événement
+            aussi unique et exceptionnel!
+          </AboutIntro>
+        </Center>
 
-      <Center maxWidth='1080px' intrinsic>
-        <VolunteersTitle css={sectionTitle}>
-          <TitleLines>
-            <span>nos bénévoles</span>
-            <span>annuels de feu</span>
-          </TitleLines>
-        </VolunteersTitle>
-      </Center>
+        <Center maxWidth='1080px' intrinsic>
+          <VolunteersTitle css={sectionTitle}>
+            <TitleLines>
+              <span>nos bénévoles</span>
+              <span>annuels de feu</span>
+            </TitleLines>
+          </VolunteersTitle>
+        </Center>
 
-      <Center maxWidth='1080px' intrinsic>
-        <GalleriesWrapper>
-          {data.map((item) => (
-            <TeamGallery key={`gallery${item.id}`} membersData={item} />
-          ))}
-        </GalleriesWrapper>
-      </Center>
+        <Center maxWidth='1080px' intrinsic>
+          <GalleriesWrapper>
+            {data.map((item) => (
+              <TeamGallery key={`gallery${item.id}`} membersData={item} />
+            ))}
+          </GalleriesWrapper>
+        </Center>
+      </Container>
     </>
   );
 };

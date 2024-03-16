@@ -520,7 +520,9 @@ export const pictureFilter = css`
   img {
     filter: grayscale();
 
-    transition: filter ${speed.fast};
+    @media (prefers-reduced-motion) {
+      transition: filter ${speed.fast};
+    }
   }
 `;
 

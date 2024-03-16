@@ -2,8 +2,6 @@
 import styled, { css } from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 
-import SectionContainer from '../../../components/SectionContainer';
-
 // utils
 import { greaterThan } from '../../../utils/mediaQuery';
 
@@ -16,23 +14,6 @@ import { linkStyle } from '../../../styles/global';
 
 export const atRight = css`
   margin-left: auto;
-`;
-
-export const Container = styled(SectionContainer)`
-  ${breakpointsRange(
-    [{ prop: 'paddingBottom', sizes: [64, 207], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-
-  ::before {
-    top: -30vh;
-
-    height: 30vh;
-  }
-
-  ::after {
-    content: none;
-  }
 `;
 
 export const ContentWrapper = styled.div`

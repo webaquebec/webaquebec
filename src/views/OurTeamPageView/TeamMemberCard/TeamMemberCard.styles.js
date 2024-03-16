@@ -14,23 +14,11 @@ import { breakpoint } from '../TeamGallery/TeamGallery.styles';
 import { speed } from '../../../styles/animation';
 
 export const galleryStyleCard = css`
-  @media screen and (prefers-reduced-motion: reduce) {
+  @media screen and (prefers-reduced-motion: no-preference) {
     &:hover,
     &:focus {
-      transition: none;
+      transition: transform ${speed.fast};
     }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    &:hover,
-    &:focus {
-      transition: none;
-    }
-  }
-
-  &:hover,
-  &:focus {
-    transition: transform ${speed.fast};
   }
 `;
 

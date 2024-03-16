@@ -58,11 +58,11 @@ const AboutQuebecNumeriquePage = ({ data }) => {
 
       <AboutTabs activeTabId={2} />
 
-      <IntroSection title='Québec numérique' text={intro} />
-
-      <ImagesSection images={images} />
-
       <Container forwardedAs='div' faded>
+        <IntroSection title='Québec numérique' text={intro} />
+
+        <ImagesSection images={images} />
+
         <WhoWeAreSection />
 
         <JoinUsSection />
