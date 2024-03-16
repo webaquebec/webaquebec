@@ -25,32 +25,6 @@ export const galleryStyleCard = css`
 export const MemberCard = styled.div`
   position: relative;
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    &::after {
-      position: absolute;
-      top: 0;
-
-      display: block;
-      width: 100%;
-      height: 100%;
-
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0) 60%,
-        rgba(30, 30, 80, 0.8) 100%
-      );
-
-      border-radius: 12px;
-
-      opacity: 0;
-
-      transition: none;
-
-      content: '';
-    }
-  }
-
   &::after {
     position: absolute;
     top: 0;
@@ -70,7 +44,9 @@ export const MemberCard = styled.div`
 
     opacity: 0;
 
-    transition: opacity ${speed.fast};
+    @media screen and (prefers-reduced-motion: no-preference) {
+      transition: opacity ${speed.fast};
+    }
 
     content: '';
   }
