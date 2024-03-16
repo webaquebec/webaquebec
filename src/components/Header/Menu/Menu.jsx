@@ -17,8 +17,10 @@ import useHasMounted from '../../../hooks/useHasMounted';
 // images
 import facebook from '../../../images/socialMedia/facebook.svg';
 import twitter from '../../../images/socialMedia/twitter.svg';
+import youtube from '../../../images/socialMedia/youtube.svg';
 import instagram from '../../../images/socialMedia/instagram.svg';
 import linkedin from '../../../images/socialMedia/linkedin.svg';
+import tiktok from '../../../images/socialMedia/tiktok.svg';
 
 // styles
 import colors from '../../../styles/colors';
@@ -48,6 +50,11 @@ const socialMedia = [
     link: 'https://twitter.com/webaquebec',
   },
   {
+    name: 'Youtube',
+    img: youtube,
+    link: 'https://www.youtube.com/@waqwebaquebec/videos',
+  },
+  {
     name: 'Instagram',
     img: instagram,
     link: 'https://www.instagram.com/webaquebec/',
@@ -56,6 +63,11 @@ const socialMedia = [
     name: 'Linkedin',
     img: linkedin,
     link: 'https://www.linkedin.com/company/web-qu-bec',
+  },
+  {
+    name: 'Tiktok',
+    img: tiktok,
+    link: 'https://www.tiktok.com/@webaquebec',
   },
 ];
 
