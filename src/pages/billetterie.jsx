@@ -2,16 +2,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
 // components
+import { graphql, useStaticQuery } from 'gatsby';
 import Center from '../components/LayoutSections/Center';
 import SEO from '../components/SEO';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
-
-// images
-import bubbleWrap from '../images/textures/bubbleWrap.png';
 
 // views
 import Prices from '../views/TicketsView/Prices';
@@ -47,10 +46,6 @@ const TextureWrapper = styled.div`
   )};
 `;
 
-const BubbleTexture = styled.img`
-  width: 100%;
-`;
-
 const TicketsIntro = styled.div`
   ${breakpointsRange(
     [
@@ -62,43 +57,64 @@ const TicketsIntro = styled.div`
   )};
 `;
 
-const TicketsPage = () => (
-  <>
-    <SEO
-      title='Billetterie'
-      description='Viens vivre le WAQ du 28 au 30 mai 2024. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
-    />
+const TicketsPage = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        bubbleTexture: file(relativePath: { eq: "textures/bubbleWrap.png" }) {
+          childImageSharp {
+            fixed(width: 800) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  );
 
-    <Center
-      maxWidth='800px'
-      gutters='var(--container-gutter)'
-      withText
-      intrinsic
-    >
-      <TicketsTitle css={h1AltStyle}>billetterie</TicketsTitle>
+  return (
+    <>
+      <SEO
+        title='Billetterie'
+        description='Viens vivre le WAQ du 28 au 30 mai 2024. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
+      />
 
-      <TextureWrapper>
-        <BubbleTexture src={bubbleWrap} alt='' />
-      </TextureWrapper>
+      <Center
+        maxWidth='800px'
+        gutters='var(--container-gutter)'
+        withText
+        intrinsic
+      >
+        <TicketsTitle css={h1AltStyle}>billetterie</TicketsTitle>
 
-      <TicketsIntro css={introStyle}>
-        <Stack>
-          <p>
-            Chaque année, des centaines de passionné.es de numérique participent
-            au Web à Québec (WAQ). Que ce soit pour réseauter, découvrir les
-            nouvelles tendances ou simplement vivre l&apos;ambiance unique du
-            WAQ, toutes les raisons sont bonnes de te joindre à nous!
-          </p>
-        </Stack>
-      </TicketsIntro>
-    </Center>
+        <TextureWrapper>
+          <GatsbyImage
+            fixed={data.bubbleTexture?.childImageSharp?.fixed}
+            alt=''
+            role='presentation'
+          />
+        </TextureWrapper>
 
-    <Prices />
+        <TicketsIntro css={introStyle}>
+          <Stack>
+            <p>
+              Chaque année, des centaines de passionné.es de numérique
+              participent au Web à Québec (WAQ). Que ce soit pour réseauter,
+              découvrir les nouvelles tendances ou simplement vivre
+              l&apos;ambiance unique du WAQ, toutes les raisons sont bonnes de
+              te joindre à nous!
+            </p>
+          </Stack>
+        </TicketsIntro>
+      </Center>
 
-    {/* <CallToAction /> */}
-    <TermsAndConditions />
-  </>
-);
+      <Prices />
+
+      {/* <CallToAction /> */}
+      <TermsAndConditions />
+    </>
+  );
+};
 
 TicketsPage.propTypes = {
   location: PropTypes.shape({

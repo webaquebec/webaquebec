@@ -1,7 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
 // components
+import { graphql, useStaticQuery } from 'gatsby';
 import Button from '../components/Button';
 
 // utils
@@ -9,7 +11,6 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // images
 import notFound from '../images/stickers/404.svg';
-import bubbleWrap from '../images/textures/bubbleWrap.png';
 
 // styles
 import colors from '../styles/colors';
@@ -45,10 +46,6 @@ const TextureWrapper = styled.div`
   )};
 `;
 
-const BubbleTexture = styled.img`
-  width: 100%;
-`;
-
 const NotFound = styled.img`
   ${breakpointsRange(
     [
@@ -80,20 +77,40 @@ const CTAButton = styled(Button)`
 `;
 
 // markup
-const NotFoundPage = () => (
-  <Container>
-    <TextureWrapper>
-      <BubbleTexture src={bubbleWrap} alt='' />
-    </TextureWrapper>
-    <NotFound src={notFound} alt='404' />
+const NotFoundPage = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        bubbleTexture: file(relativePath: { eq: "textures/bubbleWrap.png" }) {
+          childImageSharp {
+            fixed(width: 800) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  );
 
-    <Info>Oups!</Info>
-    <Info>La page que vous recherchez semble introuvable.</Info>
+  return (
+    <Container>
+      <TextureWrapper>
+        <GatsbyImage
+          fixed={data.bubbleTexture?.childImageSharp?.fixed}
+          alt=''
+          role='presentation'
+        />
+      </TextureWrapper>
+      <NotFound src={notFound} alt='404' />
 
-    <CTAButton to='/' tag='link'>
-      retourner à l&apos;accueil
-    </CTAButton>
-  </Container>
-);
+      <Info>Oups!</Info>
+      <Info>La page que vous recherchez semble introuvable.</Info>
+
+      <CTAButton to='/' tag='link'>
+        retourner à l&apos;accueil
+      </CTAButton>
+    </Container>
+  );
+};
 
 export default NotFoundPage;

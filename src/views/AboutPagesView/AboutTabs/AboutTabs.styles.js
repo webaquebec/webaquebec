@@ -24,16 +24,12 @@ export const PageTitle = styled.h1`
 export const TextureWrapper = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   z-index: -1;
 
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
-`;
-
-export const PlasticTexture = styled.img`
-  width: 90%;
 `;
 
 export const hoverFocusStyle = css`

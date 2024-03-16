@@ -2,8 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
 // components
+import { graphql, useStaticQuery } from 'gatsby';
 import SEO from '../components/SEO';
 import Center from '../components/LayoutSections/Center';
 import Accordion from '../components/Accordion';
@@ -12,9 +14,6 @@ import Stack from '../components/LayoutSections/Stack';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
-
-// images
-import plasticBag from '../images/textures/plasticBag.png';
 
 // styles
 import breakpoints from '../styles/breakpoints';
@@ -52,10 +51,6 @@ const TextureWrapper = styled.div`
     [{ prop: 'top', sizes: [100, 150], bases: [16, 20] }],
     breakpoints.spacings
   )};
-`;
-
-const PlasticTexture = styled.img`
-  width: 100%;
 `;
 
 const faqItem = css`
@@ -125,50 +120,70 @@ const data = [
   },
 ];
 
-const FaqPage = () => (
-  <>
-    <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ.' />
+const FaqPage = () => {
+  const texture = useStaticQuery(
+    graphql`
+      query {
+        plasticTexture: file(relativePath: { eq: "textures/plasticWrap.png" }) {
+          childImageSharp {
+            fixed(width: 600) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  );
 
-    <Center
-      maxWidth='625px'
-      gutters='var(--container-gutter)'
-      withText
-      intrinsic
-    >
-      <FaqTitle css={h1AltStyle}>FAQ</FaqTitle>
-      <FaqIntro css={introStyle}>
-        On tente de répondre à toutes tes questions ici!
-        <br />
-        <span>👇</span>
-      </FaqIntro>
-    </Center>
+  return (
+    <>
+      <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ.' />
 
-    <TextureWrapper>
-      <PlasticTexture src={plasticBag} alt='' />
-    </TextureWrapper>
+      <Center
+        maxWidth='625px'
+        gutters='var(--container-gutter)'
+        withText
+        intrinsic
+      >
+        <FaqTitle css={h1AltStyle}>FAQ</FaqTitle>
+        <FaqIntro css={introStyle}>
+          On tente de répondre à toutes tes questions ici!
+          <br />
+          <span>👇</span>
+        </FaqIntro>
+      </Center>
 
-    <Center maxWidth='850px' gutters='var(--container-gutter)'>
-      <Accordion multiple collapsible>
-        {data.map((item) => (
-          <AccordionItem
-            key={`faq-${item.id}`}
-            titleAs='h2'
-            title={item.question}
-            color={colors.blueberry10}
-            lightColor={colors.peach}
-            bordered
-            rounded
-          >
-            <Stack
-              css={faqItem}
-              dangerouslySetInnerHTML={{ __html: item.answer }}
-            />
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </Center>
-  </>
-);
+      <TextureWrapper>
+        <GatsbyImage
+          fixed={texture.plasticTexture?.childImageSharp?.fixed}
+          alt=''
+          role='presentation'
+        />
+      </TextureWrapper>
+
+      <Center maxWidth='850px' gutters='var(--container-gutter)'>
+        <Accordion multiple collapsible>
+          {data.map((item) => (
+            <AccordionItem
+              key={`faq-${item.id}`}
+              titleAs='h2'
+              title={item.question}
+              color={colors.blueberry10}
+              lightColor={colors.peach}
+              bordered
+              rounded
+            >
+              <Stack
+                css={faqItem}
+                dangerouslySetInnerHTML={{ __html: item.answer }}
+              />
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Center>
+    </>
+  );
+};
 
 FaqPage.propTypes = {
   location: PropTypes.shape({

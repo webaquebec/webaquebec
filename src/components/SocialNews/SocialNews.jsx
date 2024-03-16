@@ -104,6 +104,7 @@ const SocialNews = () => {
         <img css={stickerStyle} src={stickerWaq} alt='WAQ' />
         <Paper
           lightColor={colors.peach}
+          darkColor={colors.blueberry}
           rounded
           elevation={elevation.none}
           outlined
@@ -137,6 +138,7 @@ const SocialNews = () => {
 
         <Paper
           lightColor={colors.peach}
+          darkColor={colors.blueberry}
           rounded
           elevation={elevation.none}
           outlined

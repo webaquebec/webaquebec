@@ -3,10 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
 // images
 import VectorStar from '../images/VectorStar';
-import plasticWrap from '../images/textures/plasticWrap.png';
 
 // components
 import SEO from '../components/SEO';
@@ -35,16 +35,16 @@ const PageTitle = styled.h1`
 const TextureWrapper = styled.div`
   position: absolute;
   top: 0;
-  left: 10%;
   z-index: -1;
 
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
-`;
 
-const PlasticTexture = styled.img`
-  width: 100%;
+  ${breakpointsRange(
+    [{ prop: 'left', sizes: [0, 400], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 const Star = styled(VectorStar)`
@@ -90,7 +90,11 @@ const BlogPage = ({ data }) => {
       </Center>
 
       <TextureWrapper>
-        <PlasticTexture src={plasticWrap} alt='' />
+        <GatsbyImage
+          fixed={data.plasticTexture?.childImageSharp?.fixed}
+          alt=''
+          role='presentation'
+        />
       </TextureWrapper>
 
       <Center
@@ -147,6 +151,13 @@ BlogPage.propTypes = {
     allWpPost: PropTypes.shape({
       edges: PropTypes.arrayOf(PropTypes.shape({})),
     }),
+    plasticTexture: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fixed: PropTypes.shape({
+          src: PropTypes.string.isRequired,
+        }),
+      }),
+    }),
   }).isRequired,
 };
 
@@ -186,6 +197,13 @@ export const blogArchiveQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    plasticTexture: file(relativePath: { eq: "textures/plasticWrap.png" }) {
+      childImageSharp {
+        fixed(width: 600) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

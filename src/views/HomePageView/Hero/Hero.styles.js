@@ -58,7 +58,6 @@ export const HeroTitle = styled.h2`
 
 export const TextureWrapper = styled.div`
   position: absolute;
-  left: 10%;
   z-index: -1;
 
   max-width: 100%;
@@ -68,13 +67,12 @@ export const TextureWrapper = styled.div`
   transform: rotate(-180deg);
 
   ${breakpointsRange(
-    [{ prop: 'top', sizes: [-150, -200], bases: [16, 20] }],
+    [
+      { prop: 'top', sizes: [-150, -200], bases: [16, 20] },
+      { prop: 'left', sizes: [0, 200], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
-`;
-
-export const PlasticTexture = styled.img`
-  width: 100%;
 `;
 
 export const HeroIntro = styled.h3`

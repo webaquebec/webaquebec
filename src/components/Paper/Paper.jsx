@@ -82,6 +82,7 @@ Paper.propTypes = {
     elevationStyle.small,
     elevationStyle.medium,
     elevationStyle.large,
+    elevationStyle.none,
   ]),
   /**
    * Whether to apply a border.
