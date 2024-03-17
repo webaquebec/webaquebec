@@ -19,9 +19,10 @@ import { speed } from '../../../styles/animation';
 export const selfBreakpoints = [480, breakpoints[1], breakpoints[3], 1060];
 
 export const Wrapper = styled.div`
-  position: sticky;
+  /* position: sticky; */
   top: 60px;
-  z-index: ${zIndexes.sticky};
+
+  /* z-index: ${zIndexes.sticky}; */
 
   transform: translateY(-50%);
 `;

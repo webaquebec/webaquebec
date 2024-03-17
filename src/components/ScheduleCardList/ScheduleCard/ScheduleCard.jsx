@@ -14,10 +14,12 @@ import truncate from '../../../utils/strings/truncate';
 // styles
 import {
   Container,
-  Content,
   StyledScheduleCard,
   Title,
   noTimeStyle,
+  groupedUpContainer,
+  groupedDownContainer,
+  placeStyle,
 } from './ScheduleCard.styles';
 
 /**
@@ -28,8 +30,6 @@ import {
 const ScheduleCard = ({
   title,
   titleAs,
-  content,
-  contentAs,
   place,
   time,
   type,
@@ -37,6 +37,7 @@ const ScheduleCard = ({
   speakers,
   to,
   groupedUp,
+  groupedDown,
   ...rest
 }) => {
   const categoryColors = {
@@ -56,26 +57,21 @@ const ScheduleCard = ({
       <Container
         lightColor={colors.white}
         darkColor={colors.gris90}
-        css={time ? undefined : noTimeStyle}
+        css={{
+          ...time ? undefined : noTimeStyle,
+          ...groupedUp ? groupedUpContainer : undefined,
+          ...groupedDown ? groupedDownContainer : undefined,
+        }}
       >
-        <Stack>
-          {place && !groupedUp && (
-            <>
-              <div>{place}</div>
-              <hr/>
-            </>
+        <Stack space="16px">
+          {(place && !groupedUp) && (
+            <div>
+              <div css={placeStyle}>{place}</div>
+              <hr css={{ margin: "16px -16px 0 -16px" }} />
+            </div>
           )}
 
           <Title as={titleAs}>{title}</Title>
-
-          {content && (
-            <Content
-              as={contentAs}
-              dangerouslySetInnerHTML={{
-                __html: truncate(content, 168, true),
-              }}
-            />
-          )}
 
           {speakers.map((speaker) => (
             <div key={speaker.id}>
@@ -113,16 +109,6 @@ ScheduleCard.propTypes = {
    * @see [https://www.w3.org/WAI/tutorials/page-structure/headings/](https://www.w3.org/WAI/tutorials/page-structure/headings/)
    */
   titleAs: PropTypes.string,
-  /**
-   * Specifies the content of the schedule card. Could be a simple string, a single or multiple HTML element(s) or custom React component(s)
-   */
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /**
-   * Specifies a different HTML tag applied to the content.
-   * When using an HTML heading tag, choose wisely to respect the semantic of the document for accessibility reasons.
-   * @see [https://www.w3.org/WAI/tutorials/page-structure/headings/](https://www.w3.org/WAI/tutorials/page-structure/headings/)
-   */
-  contentAs: PropTypes.string,
   /**
    * Specifies where a session takes place
    */
@@ -169,18 +155,16 @@ ScheduleCard.propTypes = {
    * Specifies if the card should merge with the one above
    */
   groupedUp: PropTypes.boolean,
+  groupedDown: PropTypes.boolean,
 };
 
 ScheduleCard.defaultProps = {
   titleAs: undefined,
-  content: undefined,
-  contentAs: undefined,
   time: undefined,
   place: null,
   type: null,
   categories: [],
   speakers: [],
-  groupedUp: false,
 };
 
 export default ScheduleCard;

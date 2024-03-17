@@ -71,8 +71,6 @@ export const StyledTag = styled.div`
   display: inline-flex;
   align-items: center;
 
-  padding: 12px;
-
   color: ${({ $category }) => ($category && $category.color) || colors.gris90};
   font-weight: ${fontWeights.medium};
 
@@ -83,7 +81,7 @@ export const StyledTag = styled.div`
   ${breakpointsRange(
     [
       { prop: 'fontSize', sizes: [12, 12], bases: [16, 20] },
-      { prop: 'padding', sizes: [12, 12], bases: [16, 20] },
+      { prop: 'padding', sizes: [8, 8], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};

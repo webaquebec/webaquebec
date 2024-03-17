@@ -221,7 +221,7 @@ const Program = ({
                   groupedByTimeRangeProgram.map(([timerange, sessions]) => (
                     timerange.includes(";") ?
                       (<div key={timerange}>
-                        <ScheduleCardList time={timerange.split(";")[0]}>
+                        <ScheduleCardList groupedDown={true} time={timerange.split(";")[0]}>
                           {sessions[0].map((session) => (
                             <ScheduleCard
                               id={session.id}

@@ -95,7 +95,7 @@ const Hero = ({ location, datePaths }) => {
       </Center>
 
       <Wrapper>
-        <HeaderContent maxWidth='1096px' gutters={mobile ? '16px' : '32px'}>
+        <HeaderContent maxWidth='1220px' gutters={mobile ? '16px' : '32px'}>
           {mobile ? (
             <div
               css={`

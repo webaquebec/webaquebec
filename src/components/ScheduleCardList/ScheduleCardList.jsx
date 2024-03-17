@@ -10,6 +10,7 @@ import colors from '../../styles/colors';
 const List = styled.ul`
   display: flex;
   flex-flow: row nowrap;
+  flex-grow: 1;
 
   margin: 0;
   padding: 0;
@@ -19,6 +20,10 @@ const List = styled.ul`
   li {
     flex: 1 1 0;
     height: 100%;
+  }
+
+  li + li {
+    margin-left: 16px;
   }
 `;
 
@@ -43,14 +48,22 @@ const timeColumnStyle = css`
 `;
 
 const timeStyle = css`
-  font-size: 16px;
   min-width: 60px;
-  text-align: right;
+
   margin-top: 24px;
   margin-right: 28px;
+
+  font-size: 16px;
+
+  text-align: right;
 `;
 
-const ScheduleCardList = ({ children, time, groupedUp }) => {
+export const placeStyle = css`
+  color: ${colors.blueberry40};
+  font-size: 24px;
+`;
+
+const ScheduleCardList = ({ children, time, groupedUp, groupedDown }) => {
   const nodes = React.Children.toArray(children);
 
   return (
@@ -61,7 +74,8 @@ const ScheduleCardList = ({ children, time, groupedUp }) => {
           {nodes.map(({ key, props }, index) => (
             <li key={`schedule-card-${key}`}>
               <ScheduleCard
-                groupedUp={groupedUp}
+                groupedUp={!!groupedUp}
+                groupedDown={!!groupedDown}
                 {...props}
               />
             </li>
@@ -75,6 +89,8 @@ const ScheduleCardList = ({ children, time, groupedUp }) => {
 ScheduleCardList.propTypes = {
   children: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   time: PropTypes.string,
+  groupedUp: PropTypes.boolean,
+  groupedDown: PropTypes.boolean,
 };
 
 export default ScheduleCardList;
