@@ -58,6 +58,7 @@ export const GameTitle = styled.div`
   margin-bottom: 2rem;
   padding-top: 1.5rem;
 
+  color: ${colors.peach};
   font-weight: ${fontWeights.regular};
   font-size: 2.5rem;
   font-family: ${fontFamilies.pressStart2P};

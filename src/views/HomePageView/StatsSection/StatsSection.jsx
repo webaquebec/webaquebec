@@ -18,9 +18,9 @@ import {
 } from './StatsSection.styles';
 
 // images
-import imgStat80 from '../../../images/stats/img-stat-80.png';
-import imgStat3 from '../../../images/stats/img-stat-3.png';
-import imgStat50 from '../../../images/stats/img-stat-50.png';
+import imgStat80 from '../../../images/stats/imgStat80.svg';
+import imgStat3 from '../../../images/stats/imgStat3.svg';
+import imgStat50 from '../../../images/stats/imgStat50.svg';
 
 const Stats = () => {
   const data = [
@@ -40,7 +40,7 @@ const Stats = () => {
       id: 2,
       number: 50,
       img: imgStat50,
-      description: "bénévoles fantastiques à l'année",
+      description: 'bénévoles annuels passionnés',
     },
   ];
 

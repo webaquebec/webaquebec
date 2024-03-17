@@ -31,7 +31,7 @@ import IconArrow from '../../../images/IconArrow';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
-// import { titleStyle } from '../../../styles/global';
+// import { h1AltStyle } from '../../../styles/global';
 
 // styles
 const Container = styled(SectionContainer)`
@@ -96,7 +96,7 @@ const EventTitle = styled.h1`
   margin-top: 0;
   margin-bottom: 16px;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
@@ -158,7 +158,7 @@ const EventDescription = styled.div`
       width: 1em;
       margin-left: -1em;
 
-      color: ${colors.bleu};
+      color: ${colors.blueberry};
       font-weight: ${fontWeights.bold};
 
       content: '•';
@@ -201,7 +201,7 @@ const EventDescription = styled.div`
       width: 1.3em;
       margin-left: -1.3em;
 
-      color: ${colors.bleu};
+      color: ${colors.blueberry};
       font-weight: ${fontWeights.bold};
 
       direction: rtl;
@@ -310,7 +310,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <PageTitle css={titleStyle}>
+        <PageTitle css={h1AltStyle}>
           <span>program</span>mation
           {edition === 2021 && <span>&nbsp;{edition}</span>}
         </PageTitle>
@@ -464,7 +464,7 @@ export const sessionQuery = graphql`
                 width: 100
                 height: 100
                 quality: 90
-                duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+                duotone: { highlight: "#EBEBEB", shadow: "#262626" }
               ) {
                 ...GatsbyImageSharpFixed_withWebp
               }

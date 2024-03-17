@@ -37,27 +37,131 @@ export const onRenderBody = ({ setHeadComponents }) => {
   const preloadFonts = [
     <link
       rel='preload'
-      href='/fonts/Redaction/Redaction-Regular.woff2'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-Thin.woff2'
       as='font'
       type='font/woff2'
       crossOrigin='anonymous'
-      key='redactionFont'
+      key='radioGroteskThinFont'
     />,
     <link
       rel='preload'
-      href='/fonts/Redaction/Redaction-Bold.woff2'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-ThinItalic.woff2'
       as='font'
       type='font/woff2'
       crossOrigin='anonymous'
-      key='redactionBoldFont'
+      key='radioGroteskThinItalicFont'
     />,
     <link
       rel='preload'
-      href='/fonts/Redaction/Redaction-Italic.woff2'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-Ultralight.woff2'
       as='font'
       type='font/woff2'
       crossOrigin='anonymous'
-      key='redactionItalicFont'
+      key='radioGroteskUltralightFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-UltralightItalic.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskUltralightItalicFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-Light.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskLightFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-LightItalic.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskLightItalicFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-Regular.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-RegularItalic.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskItalicFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-Medium.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskMediumFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-MediumItalic.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskMediumItalicFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-Bold.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskBoldFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-BoldItalic.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskBoldItalicFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-Ultrabold.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskUltraboldFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-UltraboldItalic.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskUltraboldItalicFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-Black.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskBlackFont'
+    />,
+    <link
+      rel='preload'
+      href='/fonts/PPRadioGrotesk/PPRadioGrotesk-BlackItalic.woff2'
+      as='font'
+      type='font/woff2'
+      crossOrigin='anonymous'
+      key='radioGroteskBlackItalicFont'
     />,
     <link
       rel='preload'
@@ -82,126 +186,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
       type='font/woff2'
       crossOrigin='anonymous'
       key='redaction10ItalicFont'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_20-Regular.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction20Font'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_20-Bold.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction20BoldFont'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_20-Italic.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction20ItalicFont'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_35-Regular.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction35Font'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_35-Bold.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction35BoldFont'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_35-Italic.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction35ItalicFont'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_50-Regular.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction50Font'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_50-Bold.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction50BoldFont'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_50-Italic.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction50ItalicFont'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_70-Regular.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction70Font'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_70-Bold.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction70BoldFont'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_70-Italic.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction70ItalicFont'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_100-Regular.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction100Font'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_100-Bold.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction100BoldFont'
-    />,
-    <link
-      rel='preload'
-      href='/fonts/Redaction/Redaction_100-Italic.woff2'
-      as='font'
-      type='font/woff2'
-      crossOrigin='anonymous'
-      key='redaction100ItalicFont'
     />,
   ];
 

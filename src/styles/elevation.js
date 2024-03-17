@@ -1,4 +1,5 @@
 const elevation = {
+  none: `none`,
   small: `
     0.5px 1px 1px hsl(var(--shadow-color) / 0.5)
   `,

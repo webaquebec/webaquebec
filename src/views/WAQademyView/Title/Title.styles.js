@@ -1,9 +1,9 @@
 // vendors
 import styled from 'styled-components';
-import { introStyle, titleStyle } from '../../../styles/global';
+import { introStyle, h1AltStyle } from '../../../styles/global';
 
 export const WAQademyTitle = styled.h1`
-  ${titleStyle};
+  ${h1AltStyle};
 `;
 
 export const WAQademyIntro = styled.p`

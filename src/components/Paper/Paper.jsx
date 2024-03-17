@@ -26,6 +26,7 @@ const Paper = ({
   inverted,
   overlaid,
   elevation,
+  outlined,
   children,
   ...rest
 }) => (
@@ -37,6 +38,7 @@ const Paper = ({
     $rounded={rounded}
     $overlaid={overlaid}
     $elevation={elevation}
+    $outlined={outlined}
     noBorder
     {...rest}
   >
@@ -80,7 +82,12 @@ Paper.propTypes = {
     elevationStyle.small,
     elevationStyle.medium,
     elevationStyle.large,
+    elevationStyle.none,
   ]),
+  /**
+   * Whether to apply a border.
+   */
+  outlined: PropTypes.bool,
 };
 
 Paper.defaultProps = {
@@ -89,6 +96,7 @@ Paper.defaultProps = {
   inverted: false,
   overlaid: false,
   elevation: undefined,
+  outlined: false,
 };
 
 export default Paper;

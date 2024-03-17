@@ -1,5 +1,5 @@
 // vendors
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // components
 import Box from '../../LayoutSections/Box';
@@ -14,58 +14,19 @@ import zIndexes from '../../../styles/zIndexes';
 import colors from '../../../styles/colors';
 import { speed } from '../../../styles/animation';
 
-// const gradientAnimation = keyframes`
-//   0% {
-//     background-position: 0;
-//   }
-
-//   50% {
-//     background-position: 1200%;
-//   }
-
-//   100% {
-//     background-position: 0;
-//   }
-// `;
-
-const blobAnimation = keyframes`
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-
-  38% {
-    transform: translate(50%, -50%) scale(1.45);
-  }
-
-  50% {
-    transform: translate(50%, -50%) scale(1.455);
-  }
-
-  65% {
-    transform: translate(50%, -50%) scale(1.45);
-  }
-
-  95% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-`;
-
-export const closeButtonStyle = css`
-  position: relative;
-  inset: 0;
-`;
-
 export const disableAnimationStyle = css`
   animation-name: none;
 `;
 
+export const MenuWrapper = styled.div`
+  height: 100%;
+
+  transition: background-color 200ms ease-in-out;
+`;
+
 export const containerStyle = css`
   ${breakpointsRange(
-    [{ prop: '--top-height', sizes: [99, 227], bases: [16, 20] }],
+    [{ prop: '--top-height', sizes: [80, 230], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -80,46 +41,6 @@ export const navStyle = css`
   overflow-y: auto;
 `;
 
-export const Blob = styled.div`
-  --cherry: ${colors.cherry};
-  --apricot: ${colors.apricot};
-  --mauve: ${colors.mauve};
-  --blob-color: ${({ color }) => `var(--${color})`};
-
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-
-  width: 60rem;
-  height: 60rem;
-
-  background-color: var(--blob-color);
-
-  border-radius: 50%;
-
-  opacity: 0.3;
-
-  filter: blur(64px);
-
-  mix-blend-mode: multiply;
-
-  transition: background-color ${speed.default};
-
-  animation: ${blobAnimation} 15s infinite;
-  animation-play-state: ${({ isVisible }) =>
-    isVisible ? 'running' : 'paused'};
-
-  /* ${({ isActive, restartAnimation }) =>
-    (!isActive || restartAnimation) && disableAnimationStyle}; */
-
-  will-change: background-position;
-
-  @media (prefers-reduced-motion: reduce) {
-    ${disableAnimationStyle};
-  }
-`;
-
 export const Top = styled.div`
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -132,7 +53,7 @@ export const Top = styled.div`
 
   ${breakpointsRange(
     [
-      { prop: '--top-height', sizes: [75, 116], bases: [16, 20] },
+      { prop: '--top-height', sizes: [80, 230], bases: [16, 20] },
       { prop: 'marginRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'marginLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -140,22 +61,10 @@ export const Top = styled.div`
   )};
 `;
 
-export const LogoWrapper = styled.div`
-  grid-row: 1;
-  grid-column: 2;
-`;
-
-export const ButtonWrapper = styled.div`
-  grid-row: 1;
-  grid-column: 3;
-  justify-self: flex-end;
-`;
-
 export const primaryNavListStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
-      // { prop: 'marginBottom', sizes: [35, 145], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [48, 40], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -164,7 +73,7 @@ export const primaryNavListStyle = css`
 
   > * + * {
     ${breakpointsRange(
-      [{ prop: 'marginTop', sizes: [32, 80], bases: [16, 20] }],
+      [{ prop: 'marginTop', sizes: [32, 40], bases: [16, 20] }],
       breakpoints.spacings
     )};
   }
@@ -173,7 +82,7 @@ export const primaryNavListStyle = css`
 export const secondaryNavListStyle = css`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [35, 145], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [64, 40], bases: [16, 20] },
       { prop: 'paddingRight', sizes: [10, 40], bases: [16, 20] },
       { prop: 'paddingLeft', sizes: [10, 40], bases: [16, 20] },
     ],
@@ -189,7 +98,7 @@ export const secondaryNavListStyle = css`
 
   > :last-child {
     ${breakpointsRange(
-      [{ prop: 'marginTop', sizes: [65, 114], bases: [16, 20] }],
+      [{ prop: 'marginTop', sizes: [65, 65], bases: [16, 20] }],
       breakpoints.spacings
     )};
   }
@@ -243,12 +152,13 @@ export const ListItem = styled.li`
 `;
 
 export const NavPrimaryLink = styled.a`
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [32, 40], bases: [16, 20] },
-      { prop: 'lineHeight', sizes: [60, 48], bases: [32, 40], unit: '' },
+      { prop: 'fontSize', sizes: [30, 48], bases: [16, 20] },
+      { prop: 'lineHeight', sizes: [38, 60], bases: [32, 40], unit: '' },
     ],
     breakpoints.spacings
   )};
@@ -258,12 +168,48 @@ export const NavPrimaryLink = styled.a`
   &.active,
   :hover,
   :focus {
+    position: relative;
+
     font-weight: ${fontWeights.bold};
     font-family: ${fontFamilies.redaction10};
+  }
+
+  &.active {
+    display: block;
+
+    transform: rotate(-6deg);
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      font-weight: inherit;
+      font-family: inherit;
+
+      content: attr(data-text);
+    }
+
+    &::before {
+      color: var(--sticker-color);
+
+      -webkit-text-stroke: 10px var(--sticker-color);
+    }
+
+    &::after {
+      z-index: -2;
+
+      color: ${colors.blueberry};
+
+      -webkit-text-stroke: 16px ${colors.blueberry};
+    }
   }
 `;
 
 export const NavSecondaryLink = styled.a`
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
@@ -327,4 +273,15 @@ export const Container = styled(Box)`
   will-change: opacity, visibility;
 
   ${({ $opened }) => $opened && openedMenuStyle};
+`;
+
+export const SocialLink = styled.a`
+  display: inline-block;
+
+  transition: transform ${speed.fast};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;

@@ -59,7 +59,7 @@ export const noTimeStyle = css`
 export const StyledTimeStamp = styled(TimeStamp)``;
 
 export const Title = styled.h2`
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
   font-weight: ${fontWeights.bold};
   ${breakpointsRange(

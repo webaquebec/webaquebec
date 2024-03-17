@@ -81,18 +81,10 @@ export const TicketBadge = styled.p`
     breakpoints.spacings
   )};
 
-  color: ${colors.white};
+  color: ${colors.blueberry};
   text-transform: uppercase;
 
-  background: ${`linear-gradient(45deg, ${colors.apricot}, hsl(
-    ${colors.blushHsl.hue},
-    80%,
-    65%
-  ) 30%, hsl(
-    ${colors.blushHsl.hue},
-    80%,
-    68%
-  ) 75%, ${colors.apricot})`};
+  background: ${colors.watermelon};
 
   border-radius: 4px;
   transform: rotate(-7deg);

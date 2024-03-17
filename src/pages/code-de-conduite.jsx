@@ -1,10 +1,11 @@
 // vendors
 import React from 'react';
 import styled, { css } from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
 // components
+import { graphql, useStaticQuery } from 'gatsby';
 import Stack from '../components/LayoutSections/Stack';
-import SectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 import Center from '../components/LayoutSections/Center';
 
@@ -14,18 +15,34 @@ import breakpointsRange from '../utils/breakpointsRange';
 // styles
 import breakpoints from '../styles/breakpoints';
 import {
-  titleStyle,
+  h1AltStyle,
   h2Style,
   orderedListStyle,
   unorderedListStyle,
   linkStyle,
 } from '../styles/global';
 
+const TextureWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  transform: rotate(180deg);
+`;
+
 const PageTitle = styled.h1`
   margin-bottom: 0;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    [
+      { prop: 'marginTop', sizes: [60, 110], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [60, 110], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -57,7 +74,7 @@ const stackStyle = css`
 const headingStyle = css`
   ${h2Style}
 
-  display: inline-block;
+  display: inline;
 
   ${breakpointsRange(
     [{ prop: 'marginBottom', sizes: [20, 30], bases: [16, 20] }],
@@ -77,37 +94,42 @@ const Link = styled.a`
   ${linkStyle}
 `;
 
-const Container = styled(SectionContainer)`
-  ::before,
-  ::after {
-    height: 30vh;
-  }
+const CodeConductPage = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        plasticTexture: file(relativePath: { eq: "textures/plasticBag.png" }) {
+          childImageSharp {
+            fixed(width: 800) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  );
 
-  ::before {
-    top: -30vh;
-  }
+  return (
+    <>
+      <SEO title='Code de conduite' description='' />
 
-  ::after {
-    bottom: -30vh;
-  }
-`;
+      <TextureWrapper>
+        <GatsbyImage
+          fixed={data.plasticTexture?.childImageSharp?.fixed}
+          alt=''
+          role='presentation'
+        />
+      </TextureWrapper>
 
-const CodeConductPage = () => (
-  <>
-    <SEO title='Code de conduite' description='' />
+      <Center
+        maxWidth='854px'
+        gutters='var(--container-gutter)'
+        withText
+        intrinsic
+      >
+        <PageTitle css={h1AltStyle}>code de conduite</PageTitle>
+      </Center>
 
-    <Center
-      maxWidth='854px'
-      gutters='var(--container-gutter)'
-      withText
-      intrinsic
-    >
-      <PageTitle css={titleStyle}>
-        code <span>de</span> conduite
-      </PageTitle>
-    </Center>
-
-    <Container forwardedAs='div' faded padded>
       <Center maxWidth='854px' gutters='var(--container-gutter)'>
         <OrderedList>
           <li>
@@ -239,8 +261,8 @@ const CodeConductPage = () => (
           </li>
         </OrderedList>
       </Center>
-    </Container>
-  </>
-);
+    </>
+  );
+};
 
 export default CodeConductPage;

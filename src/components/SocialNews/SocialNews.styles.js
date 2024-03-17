@@ -10,11 +10,43 @@ import breakpoints from '../../styles/breakpoints';
 import { fontWeights } from '../../styles/typography';
 import { speed } from '../../styles/animation';
 
+export const stickerStyle = css`
+  position: absolute;
+  z-index: -1;
+
+  &:first-child {
+    transform: translate(-100%, -100%);
+
+    ${breakpointsRange(
+      [
+        { prop: 'top', sizes: [32, 50], bases: [16, 20] },
+        { prop: 'left', sizes: [80, 150], bases: [16, 20] },
+        { prop: 'width', sizes: [140, 240], bases: [16, 20] },
+      ],
+      breakpoints.spacings
+    )};
+  }
+
+  &:last-child {
+    transform: translate(50%, 50%);
+
+    ${breakpointsRange(
+      [
+        { prop: 'bottom', sizes: [0, 40], bases: [16, 20] },
+        { prop: 'right', sizes: [0, 20], bases: [16, 20] },
+        { prop: 'width', sizes: [260, 340], bases: [16, 20] },
+      ],
+      breakpoints.spacings
+    )};
+  }
+`;
+
 export const ContactTitle = styled.h2`
   margin: 0;
   margin-bottom: 16px;
 
-  font-weight: ${fontWeights.medium};
+  color: ${colors.blueberry};
+  font-weight: ${fontWeights.ultrabold};
   text-align: center;
 
   ${breakpointsRange(
@@ -29,6 +61,8 @@ export const ContactTitle = styled.h2`
 export const ContactText = styled.p`
   margin-bottom: 30px;
 
+  color: ${colors.blueberry};
+
   text-align: center;
 
   ${breakpointsRange(
@@ -41,7 +75,7 @@ export const ContactText = styled.p`
 `;
 
 export const MediaText = css`
-  color: ${colors.gris90};
+  color: ${colors.blueberry};
 `;
 
 export const MediaList = styled.ul`
@@ -52,6 +86,17 @@ export const MediaList = styled.ul`
   padding: 0;
 
   list-style: none;
+`;
+
+export const SocialLink = styled.a`
+  display: inline-block;
+
+  transition: transform ${speed.fast};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
 
 export const SocialIcon = styled.img`
@@ -90,7 +135,7 @@ export const GameWrapper = styled.div`
 
   font-size: 4em;
 
-  border-radius: inherit;
+  border-radius: 12px;
 `;
 
 export const gameContainerStyle = css`
@@ -102,7 +147,7 @@ export const gameContainerStyle = css`
   height: 100%;
   padding: 1rem;
 
-  border-radius: inherit;
+  border-radius: 12px;
 `;
 
 export const SnakyButton = styled.button`
@@ -118,11 +163,6 @@ export const SnakyButton = styled.button`
   font-size: 2rem;
   line-height: 1;
 
-  background-color: ${`hsl(
-    ${colors.mauve80hsl.hue},
-    ${colors.mauve80hsl.saturation}%,
-    15%
-  )`};
   border: 0;
   border-bottom-right-radius: 16px;
 
@@ -138,7 +178,7 @@ export const SnakyButton = styled.button`
 
     background: ${`radial-gradient(
       transparent 30%,
-      ${colors.bleu100} 55%)`};
+      ${colors.peach} 55%)`};
 
     border-radius: inherit;
 
@@ -149,7 +189,7 @@ export const SnakyButton = styled.button`
     position: absolute;
     inset: 0;
 
-    background-color: ${colors.bleu100};
+    background-color: ${colors.peach};
     border-radius: inherit;
     opacity: var(--opacity);
 

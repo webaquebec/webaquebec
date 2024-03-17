@@ -5,9 +5,9 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.formatDocument": true,
-    "source.fixAll": true,
-    "source.fixAll.stylelint": false
+    "source.formatDocument": "explicit",
+    "source.fixAll": "explicit",
+    "source.fixAll.stylelint": "never"
   },
   "eslint.run": "onSave",
   "eslint.lintTask.enable": true,

@@ -1,10 +1,11 @@
 // vendors
 import React from 'react';
 import styled, { css } from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
 // components
+import { graphql, useStaticQuery } from 'gatsby';
 import Stack from '../components/LayoutSections/Stack';
-import SectionContainer from '../components/SectionContainer';
 import Center from '../components/LayoutSections/Center';
 import SEO from '../components/SEO';
 
@@ -14,18 +15,34 @@ import breakpointsRange from '../utils/breakpointsRange';
 // styles
 import breakpoints from '../styles/breakpoints';
 import {
-  titleStyle,
+  h1AltStyle,
   h2Style,
   unorderedListStyle,
   orderedListStyle,
 } from '../styles/global';
 import colors from '../styles/colors';
 
+const TextureWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  transform: rotate(180deg);
+`;
+
 const PageTitle = styled.h1`
   margin-bottom: 0;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    [
+      { prop: 'marginTop', sizes: [60, 110], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [60, 110], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -52,22 +69,7 @@ const Link = styled.a`
   color: inherit;
   text-decoration: none;
 
-  border-bottom: 2px solid ${colors.bleu};
-`;
-
-const Container = styled(SectionContainer)`
-  ::before,
-  ::after {
-    height: 30vh;
-  }
-
-  ::before {
-    top: -30vh;
-  }
-
-  ::after {
-    bottom: -30vh;
-  }
+  border-bottom: 2px solid ${colors.blueberry};
 `;
 
 const ContactInformation = () => (
@@ -94,22 +96,42 @@ const ContactInformation = () => (
   </Stack>
 );
 
-const PolicyPrivacyPage = () => (
-  <>
-    <SEO title='Politique et confidentialité' description='' />
+const PolicyPrivacyPage = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        plasticTexture: file(relativePath: { eq: "textures/plasticBag.png" }) {
+          childImageSharp {
+            fixed(width: 800) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  );
 
-    <Center
-      maxWidth='854px'
-      gutters='var(--container-gutter)'
-      withText
-      intrinsic
-    >
-      <PageTitle css={titleStyle}>
-        politique <span>et</span> confidentialité
-      </PageTitle>
-    </Center>
+  return (
+    <>
+      <SEO title='Politique et confidentialité' description='' />
 
-    <Container forwardedAs='div' faded padded>
+      <TextureWrapper>
+        <GatsbyImage
+          fixed={data.plasticTexture?.childImageSharp?.fixed}
+          alt=''
+          role='presentation'
+        />
+      </TextureWrapper>
+
+      <Center
+        maxWidth='1100px'
+        gutters='var(--container-gutter)'
+        withText
+        intrinsic
+      >
+        <PageTitle css={h1AltStyle}>politique et confidentialité</PageTitle>
+      </Center>
+
       <Center maxWidth='854px' gutters='var(--container-gutter)'>
         <Stack space='4rem'>
           <Stack>
@@ -415,8 +437,8 @@ const PolicyPrivacyPage = () => (
           </Stack>
         </Stack>
       </Center>
-    </Container>
-  </>
-);
+    </>
+  );
+};
 
 export default PolicyPrivacyPage;

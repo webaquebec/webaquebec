@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 // components
 import SEO from '../../components/SEO';
+import SectionContainer from '../../components/SectionContainer';
 import Center from '../../components/LayoutSections/Center';
 
 // utils
@@ -22,6 +23,27 @@ import GallerySection from '../../views/AboutEventPageView/GallerySection';
 // styles
 import breakpoints from '../../styles/breakpoints';
 import { introStyle } from '../../styles/global';
+
+const Container = styled(SectionContainer)`
+  padding-bottom: 0;
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [90, 242] }],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
+
+  ::before {
+    top: -60vh;
+
+    height: 60vh;
+  }
+
+  ::after {
+    bottom: -40vh;
+
+    height: 40vh;
+  }
+`;
 
 const GallerySectionImg = styled(GatsbyImage)`
   max-width: 100%;
@@ -118,36 +140,38 @@ const AboutEventPage = ({ data }) => {
 
       <AboutTabs activeTabId={0} />
 
-      <IntroSection title={`l'événement`} text={intro}>
-        <VideoWrapper>
-          <Center maxWidth='1280px' gutters='var(--container-gutter)'>
-            <VideoContainer>
-              <Video
-                src={video.src}
-                title={video.title}
-                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-              />
-            </VideoContainer>
-          </Center>
-          <Center maxWidth='1064px' gutters='var(--container-gutter)'>
-            <IntroParagraph css={introStyle}>
-              Le Web à Québec est chapeauté par Québec numérique, un organisme à
-              but non lucratif dont la mission est de former, accompagner et
-              rassembler l’écosystème numérique de Québec.
-            </IntroParagraph>
-            <IntroParagraph css={introStyle}>
-              Au WAQ, on rassemble une communauté créative, solidaire et
-              stimulante. Que tu sois designer, développeur, communicateur ou au
-              coeur de l’innovation, on t’invite à propager ta passion du
-              numérique tant à l’échelle locale qu’internationale. Viens
-              apprendre des meilleur(e)s et faire des rencontres qui changeront
-              ton parcours.
-            </IntroParagraph>
-          </Center>
-        </VideoWrapper>
-      </IntroSection>
+      <Container forwardedAs='div' faded>
+        <IntroSection title={`l'événement`} text={intro}>
+          <VideoWrapper>
+            <Center maxWidth='1280px' gutters='var(--container-gutter)'>
+              <VideoContainer>
+                <Video
+                  src={video.src}
+                  title={video.title}
+                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                />
+              </VideoContainer>
+            </Center>
+            <Center maxWidth='1064px' gutters='var(--container-gutter)'>
+              <IntroParagraph css={introStyle}>
+                Le Web à Québec est chapeauté par Québec numérique, un organisme
+                à but non lucratif dont la mission est de former, accompagner et
+                rassembler l’écosystème numérique de Québec.
+              </IntroParagraph>
+              <IntroParagraph css={introStyle}>
+                Au WAQ, on rassemble une communauté créative, solidaire et
+                stimulante. Que tu sois designer, développeur, communicateur ou
+                au coeur de l’innovation, on t’invite à propager ta passion du
+                numérique tant à l’échelle locale qu’internationale. Viens
+                apprendre des meilleur(e)s et faire des rencontres qui
+                changeront ton parcours.
+              </IntroParagraph>
+            </Center>
+          </VideoWrapper>
+        </IntroSection>
 
-      <AboutEventSection items={sectionsData} />
+        <AboutEventSection items={sectionsData} />
+      </Container>
 
       <GallerySection title='Un p’tit coup d’oeil' pictures={galleryPictures}>
         <p>Comme qu’y disent… une image vaut mille mots 🤭</p>

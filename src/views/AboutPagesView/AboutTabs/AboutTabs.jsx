@@ -1,19 +1,22 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import GatsbyImage from 'gatsby-image';
 
 // components
+import { graphql, useStaticQuery } from 'gatsby';
 import Center from '../../../components/LayoutSections/Center';
 
 // styles
 import {
   PageTitle,
+  TextureWrapper,
   AboutNav,
   AboutList,
   AboutItem,
   AboutLink,
 } from './AboutTabs.styles';
-import { titleStyle } from '../../../styles/global';
+import { h1AltStyle } from '../../../styles/global';
 
 const AboutTabs = ({ activeTabId }) => {
   const tabs = [
@@ -34,6 +37,20 @@ const AboutTabs = ({ activeTabId }) => {
     },
   ];
 
+  const data = useStaticQuery(
+    graphql`
+      query {
+        plasticTexture: file(relativePath: { eq: "textures/plasticBag.png" }) {
+          childImageSharp {
+            fixed(width: 800) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  );
+
   return (
     <header>
       <Center
@@ -42,9 +59,15 @@ const AboutTabs = ({ activeTabId }) => {
         withText
         intrinsic
       >
-        <PageTitle css={titleStyle}>
-          <span>à</span> propos
-        </PageTitle>
+        <PageTitle css={h1AltStyle}>à propos</PageTitle>
+
+        <TextureWrapper>
+          <GatsbyImage
+            fixed={data.plasticTexture?.childImageSharp?.fixed}
+            alt=''
+            role='presentation'
+          />
+        </TextureWrapper>
 
         <AboutNav>
           <AboutList>

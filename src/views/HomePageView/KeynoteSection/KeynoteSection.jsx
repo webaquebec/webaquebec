@@ -16,7 +16,7 @@ const speakersPictureQuery = graphql`
       fluid(
         quality: 100
         maxWidth: 425
-        duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+        duotone: { highlight: "#EBEBEB", shadow: "#262626" }
       ) {
         ...GatsbyImageSharpFluid_withWebp
       }

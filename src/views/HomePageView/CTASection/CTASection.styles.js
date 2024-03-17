@@ -13,7 +13,7 @@ export const SectionContainer = styled.section`
     Find a better way to fix it globally */
   overflow: hidden;
 
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 
   ${breakpointsRange(
     [{ prop: 'paddingBottom', sizes: [115, 210], bases: [16, 20] }],
@@ -32,7 +32,7 @@ export const CTATitle = styled.p`
   ${magnifyStyle}
 
   span {
-    font-family: ${fontFamilies.redaction35};
+    font-family: ${fontFamilies.redaction10};
   }
 `;
 

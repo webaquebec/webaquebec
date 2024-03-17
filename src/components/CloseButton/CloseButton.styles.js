@@ -14,7 +14,7 @@ import breakpoints from '../../styles/breakpoints';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 const buttonDarkStyle = css`
-  color: ${colors.bleu};
+  color: ${colors.blueberry};
 `;
 
 export const Button = styled.button`

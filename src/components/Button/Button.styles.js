@@ -38,14 +38,14 @@ export const animatedPrimaryStyle = css`
 `;
 
 export const primaryStyle = css`
-  --btn-color: ${colors.bleu100};
+  --btn-color: ${colors.blueberry10};
   --btn-bg-color: transparent;
   --btn-border-color: currentColor;
 
   &.active,
   :focus,
   :hover:not([disabled]) {
-    --btn-color: ${colors.bleu100};
+    --btn-color: ${colors.blueberry10};
     --btn-bg-color: transparent;
   }
 
@@ -53,9 +53,9 @@ export const primaryStyle = css`
 `;
 
 export const outlinedFocusHoverStyle = css`
-  --btn-color: ${colors.earlyDawn};
-  --btn-bg-color: ${colors.bleu100};
-  --btn-border-color: ${colors.bleu100};
+  --btn-color: ${colors.peach};
+  --btn-bg-color: ${colors.blueberry10};
+  --btn-border-color: ${colors.blueberry10};
 `;
 
 export const outlinedIconStyle = css`
@@ -107,7 +107,7 @@ export const outlinedIconFirstStyle = css`
 `;
 
 export const outlinedStyle = css`
-  --btn-color: ${colors.bleu100};
+  --btn-color: ${colors.blueberry10};
   --btn-bg-color: transparent;
   --btn-border-color: currentColor;
 
@@ -135,38 +135,39 @@ export const outlinedStyle = css`
 `;
 
 export const invertedPrimaryStyle = css`
-  --btn-color: ${colors.earlyDawn};
+  --btn-color: ${colors.peach};
   --btn-bg-color: transparent;
   --btn-border-color: currentColor;
 
   &.active,
   &:focus,
   &:hover:not([disabled]) {
-    --btn-color: ${colors.darkEarlyDawn};
+    --btn-color: ${colors.peach};
     --btn-border-color: currentColor;
   }
 `;
 
 export const invertedStyle = css`
-  --btn-color: ${colors.bleu100};
-  --btn-bg-color: ${colors.earlyDawn};
+  --btn-color: ${colors.blueberry10};
+  --btn-bg-color: ${colors.peach};
   --btn-border-color: var(--btn-bg-color);
 
   &.active,
   &:focus,
   &:hover:not([disabled]) {
-    --btn-color: ${colors.bleu100};
-    --btn-bg-color: ${colors.darkEarlyDawn};
-    --btn-border-color: var(--btn-bg-color);
+    --btn-color: ${colors.peach};
+    --btn-bg-color: ${colors.blueberry};
+    --btn-border-color: var(--btn-color);
   }
 
   &[disabled] {
     --btn-color: hsl(
-      ${colors.bleu80hsl.hue}deg ${colors.bleu80hsl.saturation}% 76% / 0.5
+      ${colors.blueberry80hsl.hue}deg ${colors.blueberry80hsl.saturation}% 76% /
+        0.5
     );
     --btn-bg-color: hsl(
-      ${colors.bleu80hsl.hue}deg ${colors.bleu80hsl.saturation}%
-        ${colors.bleu80hsl.lightness}% / 0.5
+      ${colors.blueberry80hsl.hue}deg ${colors.blueberry80hsl.saturation}%
+        ${colors.blueberry80hsl.lightness}% / 0.5
     );
     --btn-border-color: var(--btn-bg-color);
   }
@@ -252,8 +253,8 @@ export const animatedStyle = css`
 
 /* Default button styled */
 const StyledButton = styled.button`
-  --btn-color: ${colors.earlyDawn};
-  --btn-bg-color: ${colors.bleu100};
+  --btn-color: ${colors.peach};
+  --btn-bg-color: ${colors.blueberry10};
   --btn-border-color: var(--btn-bg-color);
 
   display: inline-flex;
@@ -264,7 +265,7 @@ const StyledButton = styled.button`
     [
       { prop: 'fontSize', sizes: [16, 20], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [19, 24], bases: [16, 20], unit: '' },
-      { prop: '--paddingVertical', sizes: [28, 28], bases: [16, 20] },
+      { prop: '--paddingVertical', sizes: [16, 16], bases: [16, 20] },
       { prop: '--paddingHorizontal', sizes: [32, 32], bases: [16, 20] },
     ],
     breakpoints.spacings
@@ -274,32 +275,34 @@ const StyledButton = styled.button`
 
   color: var(--btn-color);
 
-  font-weight: ${fontWeights.medium};
+  font-weight: ${fontWeights.bold};
   text-align: center;
   text-decoration: none;
 
   background-color: var(--btn-bg-color);
 
   border: 2px solid var(--btn-border-color);
-  border-radius: 96px;
+  border-radius: 8px;
   outline: 0;
   cursor: pointer;
 
   appearance: none;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: transform ${speed.fast};
+    transition: background-color ${speed.fast}, color ${speed.fast},
+      transform ${speed.fast};
   }
 
   &.active,
   &:focus,
   &:hover:not([disabled]) {
-    --btn-bg-color: ${colors.bleu100};
+    --btn-color: ${colors.blueberry10};
+    --btn-bg-color: transparent;
+    --btn-border-color: var(--btn-color);
   }
 
   &[disabled] {
-    --btn-color: ${colors.gris90};
-    --btn-bg-color: ${colors.gris40};
+    --btn-bg-color: ${colors.blueberry60};
 
     cursor: not-allowed;
 

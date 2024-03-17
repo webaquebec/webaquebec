@@ -318,6 +318,7 @@ export const ScoreTitle = styled.div`
   }
 `;
 export const ScoreValue = styled.div`
+  color: ${colors.peach};
   font-size: 0.5em;
 
   @media (prefers-reduced-motion: no-preference) {
@@ -378,6 +379,8 @@ export const MenuButton = styled.button`
   align-items: center;
   margin: 0;
   padding: 0;
+
+  color: ${colors.peach};
 
   text-shadow: 0 0 8px ${colors.blush};
 
