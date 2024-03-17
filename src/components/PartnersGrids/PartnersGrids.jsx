@@ -6,14 +6,18 @@ import LogoCard from './LogoCard';
 import Center from '../LayoutSections/Center';
 
 // images
+import logoAxeptio from '../../images/logoPartners/expert/logo-axeptio.svg';
+import logoMambomambo from '../../images/logoPartners/community/logo-mambomambo.svg';
+import logoBeneva from '../../images/logoPartners/community/logo-beneva.svg';
+import logoMirego from '../../images/logoPartners/community/logo-mirego.svg';
 import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
 import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
 import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
 import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg';
 import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
 import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
-import logoNooe from '../../images/logoPartners/associates/logo-nooe.png';
-import logoPangram from '../../images/logoPartners/associates/logo-pangram-pangram.svg';
+import logoNooe from '../../images/logoPartners/community/logo-nooe.png';
+import logoPangram from '../../images/logoPartners/community/logo-pangram-pangram.svg';
 import logoBarberie from '../../images/logoPartners/associates/logo-barberie.png';
 import logoCiao from '../../images/logoPartners/associates/logo-ciao.png';
 import logoBobba from '../../images/logoPartners/associates/logo-bobba.svg';
@@ -21,7 +25,16 @@ import logoEvive from '../../images/logoPartners/associates/logo-evive.png';
 import logoNovicom from '../../images/logoPartners/associates/logo-novicom.svg';
 
 // styles
+
 import { Title, Grid, GridItem } from './PartnersGrids.styles';
+
+const expertPartners = [
+  {
+    src: logoAxeptio,
+    alt: 'Axeptio',
+    url: 'https://www.axept.io/fr-ca/',
+  },
+];
 
 const creativePartners = [
   {
@@ -75,6 +88,21 @@ const communityPartners = [
     alt: 'Pangram Pangram Foundry',
     url: 'https://pangrampangram.com/',
   },
+  {
+    src: logoMambomambo,
+    alt: 'MamboMambo',
+    url: 'https://mambomambo.ca/',
+  },
+  {
+    src: logoBeneva,
+    alt: 'Beneva',
+    url: 'https://www.beneva.ca/fr',
+  },
+  {
+    src: logoMirego,
+    alt: 'Mirego',
+    url: 'https://www.mirego.com/fr',
+  },
 ];
 
 const providerPartners = [
@@ -101,6 +129,10 @@ const providerPartners = [
 ];
 
 const partners = [
+  {
+    title: 'partenaires experts',
+    images: expertPartners,
+  },
   {
     title: 'partenaires créatifs',
     images: creativePartners,
