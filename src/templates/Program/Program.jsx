@@ -160,10 +160,18 @@ const Program = ({
         );
 
         missingPlacesSessions.forEach((place) =>
-          sessions.push({ place, noEvent: true })
+          sessions.push({
+            place,
+            title: 'Aucune activité',
+            time: sessions[0].time,
+          })
         );
         missingPlacesSessionsI1.forEach((place) =>
-          sessionsI1.push({ place, noEvent: true })
+          sessionsI1.push({
+            place,
+            title: 'Aucune activité',
+            time: sessionsI1[0].time,
+          })
         );
 
         groupedByTimeRangeProgram[`${time};${timeI1}`] = [
