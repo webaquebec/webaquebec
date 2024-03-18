@@ -2,14 +2,12 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
 
 // components
 import SEO from '../../components/SEO';
 import Center from '../../components/LayoutSections/Center';
 import ScheduleCardList from '../../components/ScheduleCardList';
 import ScheduleCard from '../../components/ScheduleCardList/ScheduleCard';
-import StyledSectionContainer from '../../components/SectionContainer';
 import Switcher from '../../components/LayoutSections/Switcher';
 
 // contexts
@@ -22,28 +20,13 @@ import NoResults from '../../views/ProgramPageView/NoResults';
 
 // utils
 // import unSlugify from '../../utils/strings/unSlugify';
-import breakpointsRange from '../../utils/breakpointsRange';
 // import { lessThan } from '../../utils/mediaQuery';
 import slugify from '../../utils/strings/slugify';
 import { categoriesMap } from '../../utils/dataMapping';
 
 // styles
 // import Layout from '../../components/Layout/Layout';
-import breakpoints from '../../styles/breakpoints';
 // import { selfBreakpoints as filtersSelfBreakpoints } from '../../views/ProgramPageView/Filters/Filters.styles';
-import colors from '../../styles/colors';
-
-const SectionContainer = styled(StyledSectionContainer)`
-  min-height: 800px;
-
-  margin-top: -40px;
-  padding: 0 16px;
-
-  ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [168, 134], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
 
 // const FiltersWrapper = styled.div`
 //   max-width: 340px;
@@ -131,7 +114,9 @@ const Program = ({
       categories: planning.categories
         .map((category) => category.value)
         .filter((category) => categoriesMap[category]),
-      place: `Salle du ${planning.categories[0].value}`,
+      place: planning.categories[0].value
+        ? `Salle ${planning.categories[0].value}`
+        : null,
       type: slugify(planning.type),
       time: {
         beginsAt: getFormattedTime(planning.beginsAt),
@@ -151,14 +136,15 @@ const Program = ({
     groupedByTimeProgram[beginsAt].push(session);
   });
 
-  const sortSessionsByPlace = (sessions) => sessions.sort((a, b) => a.place >= b.place);
+  const sortSessionsByPlace = (sessions) =>
+    sessions.sort((a, b) => a.place >= b.place);
 
   const groupedByTime = Object.entries(groupedByTimeProgram);
   let groupedByTimeRangeProgram = {};
   for (let i = 0; i < groupedByTime.length; i += 1) {
     const numberOfSessionsAtTimeI = groupedByTime[i][1].length;
     const time = groupedByTime[i][0];
-    const sessions = groupedByTime[i][1]
+    const sessions = groupedByTime[i][1];
     if (numberOfSessionsAtTimeI >= 4) {
       const numberOfSessionsAtTimeI1 = groupedByTime[i + 1][1].length;
       const timeI1 = groupedByTime[i + 1][0];
@@ -196,7 +182,7 @@ const Program = ({
     }
   }
   groupedByTimeRangeProgram = Object.entries(groupedByTimeRangeProgram);
-  console.log(groupedByTimeRangeProgram)
+  console.log(groupedByTimeRangeProgram);
 
   return (
     <>
@@ -206,57 +192,19 @@ const Program = ({
       />
 
       <Hero datePaths={datePaths} location={location} />
-
-      <SectionContainer
-        id='program-section'
-        forwardedAs='div'
-        faded
-        bgColor={colors.pineapple50}
-      >
-        <Center maxWidth='1220px'>
-          <Switcher threshold='768px' space='24px'>
+      <Center maxWidth='1220px' gutters='16px'>
+        <Switcher threshold='768px' space='24px'>
+          <div>
             <div>
-              <div>
-                {groupedByTimeRangeProgram.length > 0 ? (
-                  groupedByTimeRangeProgram.map(([timerange, sessions]) => (
-                    timerange.includes(";") ?
-                      (<div key={timerange}>
-                        <ScheduleCardList groupedDown={true} time={timerange.split(";")[0]}>
-                          {sessions[0].map((session) => (
-                            <ScheduleCard
-                              id={session.id}
-                              key={session.id}
-                              to={`/programmation/${slugify(session.title)}/`}
-                              title={session.title}
-                              content={session.description}
-                              place={session.place}
-                              time={session.time}
-                              type={session.type}
-                              categories={session.categories}
-                              speakers={session.speakers}
-                            />
-                          ))}
-                        </ScheduleCardList>
-                        <ScheduleCardList groupedUp={true} time={timerange.split(";")[1]}>
-                          {sessions[1].map((session) => (
-                            <ScheduleCard
-                              id={session.id}
-                              key={session.id}
-                              to={`/programmation/${slugify(session.title)}/`}
-                              title={session.title}
-                              content={session.description}
-                              place={session.place}
-                              time={session.time}
-                              type={session.type}
-                              categories={session.categories}
-                              speakers={session.speakers}
-                            />
-                          ))}
-                        </ScheduleCardList>
-                      </div>
-                      ) :
-                      (<ScheduleCardList time={timerange}>
-                        {sessions.map((session) => (
+              {groupedByTimeRangeProgram.length > 0 ? (
+                groupedByTimeRangeProgram.map(([timerange, sessions]) =>
+                  timerange.includes(';') ? (
+                    <div key={timerange}>
+                      <ScheduleCardList
+                        groupedDown
+                        time={timerange.split(';')[0]}
+                      >
+                        {sessions[0].map((session) => (
                           <ScheduleCard
                             id={session.id}
                             key={session.id}
@@ -270,16 +218,53 @@ const Program = ({
                             speakers={session.speakers}
                           />
                         ))}
-                      </ScheduleCardList>)
-                  ))
-                ) : (
-                  <NoResults />
-                )}
-              </div>
+                      </ScheduleCardList>
+                      <ScheduleCardList
+                        groupedUp
+                        time={timerange.split(';')[1]}
+                      >
+                        {sessions[1].map((session) => (
+                          <ScheduleCard
+                            id={session.id}
+                            key={session.id}
+                            to={`/programmation/${slugify(session.title)}/`}
+                            title={session.title}
+                            content={session.description}
+                            place={session.place}
+                            time={session.time}
+                            type={session.type}
+                            categories={session.categories}
+                            speakers={session.speakers}
+                          />
+                        ))}
+                      </ScheduleCardList>
+                    </div>
+                  ) : (
+                    <ScheduleCardList time={timerange}>
+                      {sessions.map((session) => (
+                        <ScheduleCard
+                          id={session.id}
+                          key={session.id}
+                          to={`/programmation/${slugify(session.title)}/`}
+                          title={session.title}
+                          content={session.description}
+                          place={session.place}
+                          time={session.time}
+                          type={session.type}
+                          categories={session.categories}
+                          speakers={session.speakers}
+                        />
+                      ))}
+                    </ScheduleCardList>
+                  )
+                )
+              ) : (
+                <NoResults />
+              )}
             </div>
-          </Switcher>
-        </Center>
-      </SectionContainer>
+          </div>
+        </Switcher>
+      </Center>
     </>
   );
 };

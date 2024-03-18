@@ -3,80 +3,40 @@ import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 
 // components
-import Paper from '../../Paper';
 import TimeStamp from '../../TimeStamp';
 
 // utils
+import { greaterThan } from '../../../utils/mediaQuery';
 import breakpointsRange from '../../../utils/breakpointsRange';
-import getContrast from '../../../utils/getContrast';
 
 // styles
+import { speed } from '../../../styles/animation';
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
-import { fontWeights, fontFamilies } from '../../../styles/typography';
-
-export const Container = styled(Paper)`
-  ${breakpointsRange(
-    [
-      { prop: 'padding-top', sizes: [12, 16], bases: [16, 20] },
-      { prop: 'padding-right', sizes: [12, 16], bases: [16, 20] },
-      { prop: 'padding-bottom', sizes: [12, 16], bases: [16, 20] },
-      { prop: 'padding-left', sizes: [12, 16], bases: [16, 20] },
-      { prop: 'margin-bottom', sizes: [20, 36], bases: [16, 20] },
-    ],
-    breakpoints.spacings
-  )};
-
-  height: 100%;
-
-  border-radius: 16px;
-
-  ::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-
-    width: 100%;
-    height: 100%;
-
-    border: 2px solid ${colors.blueberry30};
-    border-radius: 16px;
-
-    opacity: 0;
-
-    content: '';
-
-    will-change: opacity;
-  }
-`;
+import { fontWeights } from '../../../styles/typography';
 
 export const groupedUpContainer = css`
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-
-  ::after {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
+  border-radius: 0 0 16px 16px;
 `;
 
 export const groupedDownContainer = css`
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-
-  ::after {
-    border-bottom: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
+  border-radius: 16px 16px 0 0;
 `;
 
 export const placeStyle = css`
-  color: ${colors.blueberry20};
-  font-weight: 800;
+  position: relative;
+  z-index: 1;
+
+  color: ${colors.blueberry30};
+  font-weight: ${fontWeights.ultrabold};
   font-size: 24px;
-  font-family: ${fontFamilies.radioGrotesk};
+
+  border-bottom: 2px solid ${colors.blueberry};
+
+  ${breakpointsRange(
+    [{ prop: 'padding', sizes: [12, 16], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 export const noTimeStyle = css`
@@ -92,27 +52,39 @@ export const Title = styled.h2`
   color: ${colors.blueberry};
 
   font-weight: ${fontWeights.bold};
+
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [20, 20], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [20, 20], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [16, 16], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
-  font-family: ${fontFamilies.radioGrotesk};
-
-  line-height: ${26 / 20};
 `;
 
-export const Content = styled.div`
-  font-weight: ${fontWeights.regular};
+export const CardContent = styled.div`
+  position: relative;
+  z-index: 1;
+
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+    [
+      { prop: 'paddingLeft', sizes: [12, 16], bases: [16, 20] },
+      { prop: 'paddingRight', sizes: [12, 16], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [12, 16], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 
-  line-height: ${23 / 16};
+  &:first-child {
+    ${breakpointsRange(
+      [{ prop: 'paddingTop', sizes: [12, 16], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
 `;
 
 export const StyledScheduleCard = styled(Link)`
-  --accentColor: ${colors.blueberry30}
+  --accentColor: ${({ $accentColor }) => $accentColor || colors.gris90};
 
   position: relative;
 
@@ -120,15 +92,55 @@ export const StyledScheduleCard = styled(Link)`
 
   width: 100%;
   height: 100%;
-  max-height: 350px;
 
   text-decoration: none;
 
+  background-color: ${colors.peach};
+  border: 2px solid ${colors.blueberry};
   outline: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: border-color ${speed.fast} ease;
+  }
 
   cursor: pointer;
 
-  ${Container}::after {
-    opacity: 1;
+  ${breakpointsRange(
+    [{ prop: 'margin-bottom', sizes: [20, 36], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+
+  ${greaterThan(768)} {
+    border-radius: 16px;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--accentColor);
+    border-radius: 16px;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity ${speed.fast} ease;
+    }
+
+    opacity: 0;
+
+    content: '';
+  }
+
+  :hover,
+  :focus {
+    border-color: var(--accentColor);
+
+    &::after {
+      opacity: 0.1;
+    }
   }
 `;

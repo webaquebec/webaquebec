@@ -4,22 +4,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useMedia } from 'react-use';
-import { navigate } from 'gatsby';
+import { graphql, useStaticQuery, navigate } from 'gatsby';
+import GatsbyImage from 'gatsby-image';
 
 // components
 // import { hideVisually } from 'polished';
-// import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
 import DropDown from '../../../components/Dropdown';
 import Center from '../../../components/LayoutSections/Center';
 
 // utils
-import { lessThanCondition } from '../../../utils/mediaQuery';
+import { lessThanCondition, lessThan } from '../../../utils/mediaQuery';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
 // contexts
-import { useModal } from '../../../contexts/ModalContext';
-import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
+// import { useModal } from '../../../contexts/ModalContext';
+// import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
 
 // hooks
 // import useHasMounted from '../../../hooks/useHasMounted';
@@ -34,27 +34,40 @@ import {
   DateList,
   DateListItem,
   dateTabStyle,
-  dateTabTypoStyle,
+  // dateTabTypoStyle,
 } from './Hero.styles';
 
 const PageTitle = styled.h1`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [80, 200], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [80, 200], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [48, 110], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [24, 175], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 `;
 
-// const willChangeOpacityStyle = css`
-//   will-change: opacity;
-// `;
+const TextureWrapper = styled.div`
+  position: absolute;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  ${breakpointsRange(
+    [{ prop: 'top', sizes: [-500, -200], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+  ${lessThan(768)} {
+    display: none;
+  }
+`;
 
 const Hero = ({ location, datePaths }) => {
   // const [ref, inView] = useInView();
 
-  const { getTotalAppliedFilters } = useProgramFilters();
+  // const { getTotalAppliedFilters } = useProgramFilters();
 
   // const isVisible = inView;
 
@@ -63,7 +76,7 @@ const Hero = ({ location, datePaths }) => {
   // < 832
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
 
-  const { open: openModal } = useModal();
+  // const { open: openModal } = useModal();
 
   const handleClick = (path) => {
     navigate(path, {
@@ -77,11 +90,25 @@ const Hero = ({ location, datePaths }) => {
 
   const current = datePaths.find((item) => item.path === location.pathname);
 
-  const totalAppliedFilters = getTotalAppliedFilters();
+  // const totalAppliedFilters = getTotalAppliedFilters();
 
   const totalDates = datePaths.length;
 
   // const minWidth = totalDates > 3 ? '736px' : '632px';
+
+  const data = useStaticQuery(
+    graphql`
+      query {
+        bubbleTexture: file(relativePath: { eq: "textures/bubbleWrap.png" }) {
+          childImageSharp {
+            fixed(width: 800) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  );
 
   return (
     <>
@@ -94,6 +121,14 @@ const Hero = ({ location, datePaths }) => {
         <PageTitle css={h1AltStyle}>programmation</PageTitle>
       </Center>
 
+      <TextureWrapper>
+        <GatsbyImage
+          fixed={data.bubbleTexture?.childImageSharp?.fixed}
+          alt=''
+          role='presentation'
+        />
+      </TextureWrapper>
+
       <Wrapper>
         <HeaderContent maxWidth='1220px' gutters={mobile ? '16px' : '32px'}>
           {mobile ? (
@@ -101,6 +136,8 @@ const Hero = ({ location, datePaths }) => {
               css={`
                 display: inline-flex;
                 width: 100%;
+
+                gap: 12px;
               `}
             >
               <DropDown
@@ -108,8 +145,6 @@ const Hero = ({ location, datePaths }) => {
                 css={`
                   flex-basis: 0;
                   flex-grow: 999;
-
-                  margin-right: 12px;
                 `}
               >
                 {datePaths
@@ -130,7 +165,7 @@ const Hero = ({ location, datePaths }) => {
                   ))}
               </DropDown>
 
-              <div
+              {/* <div
                 css={`
                   flex-grow: 1;
                   flex-basis: 25%;
@@ -157,7 +192,7 @@ const Hero = ({ location, datePaths }) => {
                     <span>{`(${totalAppliedFilters})`}</span>
                   )}
                 </Button>
-              </div>
+              </div> */}
             </div>
           ) : (
             <DateList $shrunk={totalDates <= 3}>

@@ -40,6 +40,8 @@ export const hoverFocusStyle = css`
 
 export const isActiveStyle = css`
   ${hoverFocusStyle};
+
+  font-weight: ${fontWeights.ultrabold};
 `;
 
 export const AboutNav = styled.nav`
@@ -98,7 +100,7 @@ export const AboutLink = styled(Link)`
   align-items: center;
 
   color: ${colors.blueberry};
-  font-weight: ${fontWeights.ultrabold};
+  font-weight: ${fontWeights.medium};
   text-decoration: none;
 
   @media (prefers-reduced-motion: no-preference) {
@@ -114,8 +116,8 @@ export const AboutLink = styled(Link)`
 
   &::after {
     display: block;
-    width: 85%;
-    height: 2px;
+    width: 100%;
+    height: 4px;
 
     background-color: transparent;
 

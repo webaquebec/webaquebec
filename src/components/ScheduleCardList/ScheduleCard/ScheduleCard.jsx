@@ -8,13 +8,10 @@ import Stack from '../../LayoutSections/Stack/Stack';
 import Cluster from '../../LayoutSections/Cluster/Cluster';
 import Tag from '../../Tag';
 
-// utils
-import truncate from '../../../utils/strings/truncate';
-
 // styles
 import {
-  Container,
   StyledScheduleCard,
+  CardContent,
   Title,
   noTimeStyle,
   groupedUpContainer,
@@ -43,7 +40,7 @@ const ScheduleCard = ({
   const categoryColors = {
     design: colors.plum,
     developpement: colors.kiwi,
-    innovation: colors.pineapple,
+    innovation: colors.pineapple35,
     'communication-and-marketing': colors.watermelon,
     'communication-et-marketing': colors.watermelon,
   };
@@ -52,25 +49,21 @@ const ScheduleCard = ({
     <StyledScheduleCard
       to={to}
       $accentColor={categoryColors[categories[0]] || colors.gris90}
+      css={{
+        ...(time ? undefined : noTimeStyle),
+        ...(groupedUp ? groupedUpContainer : undefined),
+        ...(groupedDown ? groupedDownContainer : undefined),
+      }}
       {...rest}
     >
-      <Container
-        lightColor={colors.white}
-        darkColor={colors.gris90}
-        css={{
-          ...time ? undefined : noTimeStyle,
-          ...groupedUp ? groupedUpContainer : undefined,
-          ...groupedDown ? groupedDownContainer : undefined,
-        }}
-      >
-        <Stack space="16px">
-          {(place && !groupedUp) && (
-            <div>
-              <div css={placeStyle}>{place}</div>
-              <hr css={{ margin: "16px -16px 0 -16px" }} />
-            </div>
-          )}
+      <Stack space='16px'>
+        {place && !groupedUp && (
+          <div>
+            <div css={placeStyle}>{place}</div>
+          </div>
+        )}
 
+        <CardContent>
           <Title as={titleAs}>{title}</Title>
 
           {speakers.map((speaker) => (
@@ -79,7 +72,7 @@ const ScheduleCard = ({
             </div>
           ))}
 
-          {(categories.length > 0) && (
+          {categories.length > 0 && (
             <Cluster>
               <div>
                 {categories.map((category) => (
@@ -88,8 +81,8 @@ const ScheduleCard = ({
               </div>
             </Cluster>
           )}
-        </Stack>
-      </Container>
+        </CardContent>
+      </Stack>
     </StyledScheduleCard>
   );
 };
@@ -154,8 +147,8 @@ ScheduleCard.propTypes = {
   /**
    * Specifies if the card should merge with the one above
    */
-  groupedUp: PropTypes.boolean,
-  groupedDown: PropTypes.boolean,
+  groupedUp: PropTypes.bool,
+  groupedDown: PropTypes.bool,
 };
 
 ScheduleCard.defaultProps = {
@@ -165,6 +158,8 @@ ScheduleCard.defaultProps = {
   type: null,
   categories: [],
   speakers: [],
+  groupedUp: false,
+  groupedDown: false,
 };
 
 export default ScheduleCard;

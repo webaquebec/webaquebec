@@ -19,12 +19,10 @@ import { speed } from '../../../styles/animation';
 export const selfBreakpoints = [480, breakpoints[1], breakpoints[3], 1060];
 
 export const Wrapper = styled.div`
-  /* position: sticky; */
-  top: 60px;
+  position: sticky;
+  top: 0;
 
-  /* z-index: ${zIndexes.sticky}; */
-
-  transform: translateY(-50%);
+  z-index: ${zIndexes.sticky};
 `;
 
 export const HeaderContent = styled(Center)`
@@ -32,7 +30,13 @@ export const HeaderContent = styled(Center)`
   margin: auto;
   padding: 32px 16px;
 
-  background: ${colors.pineapple50};
+  background: linear-gradient(
+      to bottom,
+      ${colors.pineapple} 0,
+      ${colors.pineapple} 80%,
+      transparent
+    )
+    100%;
 `;
 
 export const StickyTitle = styled.div`
@@ -87,10 +91,10 @@ export const dateTabStyle = css`
   min-width: 140px;
   height: 100%;
 
-  /* min-height: 75px; */
+  font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 20], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [18, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
@@ -122,8 +126,7 @@ export const dateTabStyle = css`
     will-change: color;
 
     &&.active {
-      font-weight: ${fontWeights.bold};
-      font-family: ${fontFamilies.redaction10};
+      font-weight: ${fontWeights.ultrabold};
     }
 
     &&.active,
@@ -135,25 +138,29 @@ export const dateTabStyle = css`
       border-color: transparent;
 
       &::after {
-        position: absolute;
-        bottom: 16px;
-        left: 50%;
-
-        display: block;
-        width: calc(100% - 80px);
-        height: 2px;
-
-        background-color: currentColor;
-        transform: translateX(-50%);
-
-        @media (prefers-reduced-motion: no-preference) {
-          transition: background-color ${speed.default};
-        }
-
-        content: '';
-
-        will-change: background-color;
+        background-color: ${colors.blueberry};
       }
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+
+      display: block;
+      width: calc(100% - 48px);
+      height: 4px;
+
+      background-color: transparent;
+      transform: translateX(-50%);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: background-color ${speed.default};
+      }
+
+      content: '';
+
+      will-change: background-color;
     }
 
     /* &&.active,

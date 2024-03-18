@@ -3,43 +3,67 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
+// utils
+import { greaterThan, lessThan } from '../../utils/mediaQuery';
+
 // Components
 import ScheduleCard from './ScheduleCard';
 import colors from '../../styles/colors';
 
 const List = styled.ul`
   display: flex;
-  flex-flow: row nowrap;
+  flex-direction: column;
   flex-grow: 1;
+  gap: 0 16px;
 
-  margin: 0;
+  margin: 0 0 32px;
   padding: 0;
 
   list-style: none;
 
+  ${greaterThan(768)} {
+    flex-flow: row nowrap;
+  }
+
   li {
     flex: 1 1 0;
     height: 100%;
-  }
 
-  li + li {
-    margin-left: 16px;
+    ${lessThan(768)} {
+      a {
+        border-bottom-width: 0;
+      }
+
+      &:first-child a {
+        border-radius: 16px 16px 0 0;
+      }
+
+      &:last-child a {
+        border-bottom-width: 2px;
+        border-radius: 0 0 16px 16px;
+      }
+
+      &:first-child:last-child a {
+        border-bottom-width: 2px;
+        border-radius: 16px;
+      }
+    }
   }
 `;
 
-const borderTopRadiusStyle = css`
-  > * {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-`;
+// const borderTopRadiusStyle = css`
+//   > * {
+//     border-top-left-radius: 20px;
+//     border-top-right-radius: 20px;
+//   }
+// `;
 
-const borderBottomRadiusStyle = css`
-  > * {
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-  }
-`;
+// const borderBottomRadiusStyle = css`
+//   > * {
+//     border-bottom-right-radius: 20px;
+//     border-bottom-left-radius: 20px;
+//   }
+// `;
 
 const timeColumnStyle = css`
   display: flex;
@@ -67,11 +91,11 @@ const ScheduleCardList = ({ children, time, groupedUp, groupedDown }) => {
   const nodes = React.Children.toArray(children);
 
   return (
-    <div css={{ marginTop: groupedUp ? "0" : "36px" }}>
+    <div css={{ marginTop: groupedUp ? '0' : '36px' }}>
       <div css={timeColumnStyle}>
-        <div css={timeStyle}>{ time }</div>
+        <div css={timeStyle}>{time}</div>
         <List>
-          {nodes.map(({ key, props }, index) => (
+          {nodes.map(({ key, props }) => (
             <li key={`schedule-card-${key}`}>
               <ScheduleCard
                 groupedUp={!!groupedUp}
@@ -89,8 +113,14 @@ const ScheduleCardList = ({ children, time, groupedUp, groupedDown }) => {
 ScheduleCardList.propTypes = {
   children: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   time: PropTypes.string,
-  groupedUp: PropTypes.boolean,
-  groupedDown: PropTypes.boolean,
+  groupedUp: PropTypes.bool,
+  groupedDown: PropTypes.bool,
+};
+
+ScheduleCardList.defaultProps = {
+  time: undefined,
+  groupedUp: false,
+  groupedDown: false,
 };
 
 export default ScheduleCardList;

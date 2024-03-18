@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledTag, TagIcon, SpeakerInfo } from './Tag.styles';
+import {
+  StyledTag,
+  TagIcon,
+  SpeakerNameWrapper,
+  SpeakerName,
+  SpeakerCompany,
+} from './Tag.styles';
 
 // images
 import IconRoom from '../../images/tags/IconRoom';
@@ -69,18 +75,15 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
       {tagType === 'category' && <span>{categoriesMap[category]}</span>}
       {tagType === 'speaker' && (
         <>
-          <img css={TagIcon} src={vectorSpeaker} alt='' role='presentation' />
-          <div>
-            <SpeakerInfo>
+          <SpeakerNameWrapper>
+            <img css={TagIcon} src={vectorSpeaker} alt='' role='presentation' />
+            <SpeakerName>
               {`${speaker.firstName} ${speaker.lastName}`}
-            </SpeakerInfo>
-
-            {speaker.jobTitle && <SpeakerInfo>{speaker.jobTitle}</SpeakerInfo>}
-
-            {speaker.organization && (
-              <SpeakerInfo> {speaker.organization}</SpeakerInfo>
-            )}
-          </div>
+            </SpeakerName>
+          </SpeakerNameWrapper>
+          {speaker.organization && (
+            <SpeakerCompany>{speaker.organization}</SpeakerCompany>
+          )}
         </>
       )}
       {tagType === 'eventType' && (
