@@ -114,9 +114,6 @@ const Program = ({
       categories: planning.categories
         .map((category) => category.value)
         .filter((category) => categoriesMap[category]),
-      place: planning.categories[0].value
-        ? `Salle ${planning.categories[0].value}`
-        : null,
       type: slugify(planning.type),
       time: {
         beginsAt: getFormattedTime(planning.beginsAt),
