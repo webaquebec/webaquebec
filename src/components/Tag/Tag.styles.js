@@ -52,10 +52,7 @@ export const outlinedStyle = css`
   border: 2px solid ${colors.gris30};
 
   ${breakpointsRange(
-    [
-      { prop: 'fontSize', sizes: [12, 16], bases: [16, 20] },
-      { prop: 'padding', sizes: [16, 16], bases: [16, 20] },
-    ],
+    [{ prop: 'fontSize', sizes: [12, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -71,7 +68,7 @@ export const StyledTag = styled.div`
   display: inline-flex;
   align-items: center;
 
-  padding: 12px;
+  padding: 8px;
 
   color: ${({ $category }) => ($category && $category.color) || colors.gris90};
   font-weight: ${fontWeights.medium};
@@ -81,10 +78,7 @@ export const StyledTag = styled.div`
   border-radius: 8px;
 
   ${breakpointsRange(
-    [
-      { prop: 'fontSize', sizes: [12, 12], bases: [16, 20] },
-      { prop: 'padding', sizes: [12, 12], bases: [16, 20] },
-    ],
+    [{ prop: 'fontSize', sizes: [12, 12], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
