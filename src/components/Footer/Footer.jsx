@@ -32,6 +32,11 @@ import {
 const Footer = () => {
   const archives = [
     {
+      year: '2023',
+      link: '/programmation/2023',
+      type: 'internal',
+    },
+    {
       year: '2022',
       link: '/programmation/2022',
       type: 'internal',

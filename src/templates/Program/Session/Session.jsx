@@ -35,6 +35,8 @@ import { fontWeights } from '../../../styles/typography';
 
 // styles
 const Container = styled(SectionContainer)`
+  background-color: ${colors.pineapple50};
+
   ${breakpointsRange(
     [
       { prop: 'marginTop', sizes: [40, 80], bases: [16, 20] },
@@ -80,7 +82,8 @@ const backButton = css`
 const EventContainer = styled.div`
   width: 100%;
 
-  background-color: ${colors.white};
+  background-color: ${colors.peach95};
+  border: solid 2px;
   border-radius: 16px;
 
   ${breakpointsRange(
@@ -96,8 +99,8 @@ const EventTitle = styled.h1`
   margin-top: 0;
   margin-bottom: 16px;
 
-  color: ${colors.blueberry};
-  font-weight: ${fontWeights.medium};
+  color: ${colors.blueberry10};
+  font-weight: 800;
 
   ${breakpointsRange(
     [
@@ -109,7 +112,7 @@ const EventTitle = styled.h1`
 `;
 
 const EventDescription = styled.div`
-  color: ${colors.gris90};
+  color: ${colors.blueberry30};
 
   ${breakpointsRange(
     [
@@ -222,6 +225,12 @@ const EventDescription = styled.div`
   }
 `;
 
+const dateStyle = css`
+  color: ${colors.blueberry10};
+  font-weight: 700;
+  font-size: 18px;
+`;
+
 /**
  * Template used to build each session page
  * @param {Object} data — Data fetched from Swapcard API at build time
@@ -305,18 +314,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
     <>
       <SEO title={title} description={description} />
 
-      {/* <Center
-        maxWidth='var(--max-container-width)'
-        gutters='var(--container-gutter)'
-        intrinsic
-      >
-        <PageTitle css={h1AltStyle}>
-          <span>program</span>mation
-          {edition === 2021 && <span>&nbsp;{edition}</span>}
-        </PageTitle>
-      </Center> */}
-
-      <Container forwardedAs='div' faded>
+      <Container forwardedAs='div'>
         <Center maxWidth='1064px' gutters='var(--container-gutter)' intrinsic>
           <Button
             to={pagePath}
@@ -336,10 +334,11 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
                 {!isLastPage && (
                   <Cluster>
                     <div>
-                      <Tag outlined>{date}</Tag>
-                      <Tag
-                        outlined
-                      >{`de ${time.beginsAt} à ${time.endsAt}`}</Tag>
+                      <span css={dateStyle}>
+                        {date}
+                        <span css={{ padding: '12px' }}>|</span>
+                        {time.beginsAt} à {time.endsAt}
+                      </span>
                     </div>
                   </Cluster>
                 )}

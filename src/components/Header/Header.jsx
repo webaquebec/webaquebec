@@ -92,19 +92,12 @@ const secondaryNavigation = [
     color: 'kiwi',
   },
   {
-    id: 'edition2023',
-    label: 'édition 2023',
-    slug: '/programmation/2023',
+    id: 'edition2024',
+    label: 'édition 2024',
+    slug: '/programmation/2024',
     type: 'internal',
     color: 'pineapple',
   },
-  // {
-  //   id: 'edition2021',
-  //   label: 'édition 2021',
-  //   slug: '/programmation/2021',
-  //   type: 'internal',
-  //   color: 'pineapple',
-  // },
 ];
 
 const navigation = {

@@ -12,7 +12,6 @@ import breakpoints from '../../styles/breakpoints';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 export const StyledSpeakerCard = styled.div`
-  background-color: ${colors.gris20};
   border-radius: 8px;
 
   ${breakpointsRange(
