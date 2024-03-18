@@ -322,7 +322,7 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
         </Button>
 
         <EventContainer>
-          <Center maxWidth='645px' gutters='var(--container-gutter)'>
+          <Center maxWidth='680px' gutters='var(--container-gutter)'>
             <Stack space='40px'>
               {!isLastPage && (
                 <DateTime>
