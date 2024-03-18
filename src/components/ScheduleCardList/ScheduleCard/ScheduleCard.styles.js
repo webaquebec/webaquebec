@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 import TimeStamp from '../../TimeStamp';
 
 // utils
-import { greaterThan } from '../../../utils/mediaQuery';
+import { greaterThan, lessThan } from '../../../utils/mediaQuery';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
 // styles
@@ -14,14 +14,6 @@ import { speed } from '../../../styles/animation';
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
-
-export const groupedUpContainer = css`
-  border-radius: 0 0 16px 16px;
-`;
-
-export const groupedDownContainer = css`
-  border-radius: 16px 16px 0 0;
-`;
 
 export const placeStyle = css`
   position: relative;
@@ -37,6 +29,36 @@ export const placeStyle = css`
     [{ prop: 'padding', sizes: [12, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
+`;
+
+export const timeTag = css`
+  display: none;
+
+  ${lessThan(1384)} {
+    display: block;
+
+    width: max-content;
+
+    margin-bottom: 12px;
+
+    color: white;
+
+    font-weight: 800;
+
+    line-height: ${20 / 14};
+
+    background-color: ${colors.blueberry10};
+
+    border-radius: 8px;
+
+    ${breakpointsRange(
+      [
+        { prop: 'fontSize', sizes: [12, 12], bases: [16, 20] },
+        { prop: 'padding', sizes: [8, 8], bases: [16, 20] },
+      ],
+      breakpoints.spacings
+    )};
+  }
 `;
 
 export const noTimeStyle = css`
@@ -110,8 +132,11 @@ export const StyledScheduleCard = styled(Link)`
     breakpoints.spacings
   )};
 
-  ${greaterThan(768)} {
+  ${greaterThan(1024)} {
     border-radius: 16px;
+    ${({ $groupedUp }) =>
+      $groupedUp && 'border-radius: 0 0 16px 16px;\nborder-top: 0;'}
+    ${({ $groupedDown }) => $groupedDown && 'border-radius: 16px 16px 0 0;'}
   }
 
   &::after {
@@ -124,7 +149,13 @@ export const StyledScheduleCard = styled(Link)`
     height: 100%;
 
     background-color: var(--accentColor);
-    border-radius: 16px;
+
+    ${greaterThan(1024)} {
+      border-radius: 16px;
+      ${({ $groupedUp }) =>
+        $groupedUp && 'border-radius: 0 0 16px 16px;\nborder-top: 0;'}
+      ${({ $groupedDown }) => $groupedDown && 'border-radius: 16px 16px 0 0;'}
+    }
 
     @media (prefers-reduced-motion: no-preference) {
       transition: opacity ${speed.fast} ease;

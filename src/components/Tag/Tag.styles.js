@@ -13,7 +13,7 @@ export const speakerStyle = css`
   flex-direction: column;
   align-items: flex-start;
 
-  padding: 0;
+  padding: 0 !important;
 
   color: ${colors.blueberry30};
   font-weight: ${fontWeights.normal};
@@ -89,6 +89,7 @@ export const StyledTag = styled.div`
     [
       { prop: 'fontSize', sizes: [12, 12], bases: [16, 20] },
       { prop: 'padding', sizes: [8, 8], bases: [16, 20] },
+      { prop: 'margin-bottom', sizes: [12, 16], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};

@@ -16,12 +16,16 @@ const List = styled.ul`
   flex-grow: 1;
   gap: 0 16px;
 
-  margin: 0 0 32px;
+  margin: 0;
   padding: 0;
 
   list-style: none;
 
-  ${greaterThan(768)} {
+  ${lessThan(1024)} {
+    margin: 0 0 32px;
+  }
+
+  ${greaterThan(1024)} {
     flex-flow: row nowrap;
   }
 
@@ -29,7 +33,7 @@ const List = styled.ul`
     flex: 1 1 0;
     height: 100%;
 
-    ${lessThan(768)} {
+    ${lessThan(1024)} {
       a {
         border-bottom-width: 0;
       }
@@ -72,6 +76,8 @@ const timeColumnStyle = css`
 `;
 
 const timeStyle = css`
+  display: block;
+
   min-width: 60px;
 
   margin-top: 24px;
@@ -80,6 +86,10 @@ const timeStyle = css`
   font-size: 16px;
 
   text-align: right;
+
+  ${lessThan(1384)} {
+    opacity: 0;
+  }
 `;
 
 export const placeStyle = css`
@@ -98,8 +108,8 @@ const ScheduleCardList = ({ children, time, groupedUp, groupedDown }) => {
           {nodes.map(({ key, props }) => (
             <li key={`schedule-card-${key}`}>
               <ScheduleCard
-                groupedUp={!!groupedUp}
-                groupedDown={!!groupedDown}
+                groupedUp={groupedUp}
+                groupedDown={groupedDown}
                 {...props}
               />
             </li>

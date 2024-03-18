@@ -14,9 +14,8 @@ import {
   CardContent,
   Title,
   noTimeStyle,
-  groupedUpContainer,
-  groupedDownContainer,
   placeStyle,
+  timeTag,
 } from './ScheduleCard.styles';
 
 /**
@@ -49,10 +48,10 @@ const ScheduleCard = ({
     <StyledScheduleCard
       to={to}
       $accentColor={categoryColors[categories[0]] || colors.gris90}
+      $groupedUp={groupedUp}
+      $groupedDown={groupedDown}
       css={{
         ...(time ? undefined : noTimeStyle),
-        ...(groupedUp ? groupedUpContainer : undefined),
-        ...(groupedDown ? groupedDownContainer : undefined),
       }}
       {...rest}
     >
@@ -64,6 +63,10 @@ const ScheduleCard = ({
         )}
 
         <CardContent>
+          <div css={timeTag}>
+            {time.beginsAt} à {time.endsAt}
+          </div>
+
           <Title as={titleAs}>{title}</Title>
 
           {speakers.map((speaker) => (

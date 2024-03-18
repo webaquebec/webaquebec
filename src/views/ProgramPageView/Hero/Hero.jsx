@@ -59,7 +59,7 @@ const TextureWrapper = styled.div`
     [{ prop: 'top', sizes: [-500, -200], bases: [16, 20] }],
     breakpoints.spacings
   )};
-  ${lessThan(768)} {
+  ${lessThan(1024)} {
     display: none;
   }
 `;

@@ -216,6 +216,7 @@ const Program = ({
                             type={session.type}
                             categories={session.categories}
                             speakers={session.speakers}
+                            groupedDown
                           />
                         ))}
                       </ScheduleCardList>
@@ -235,6 +236,7 @@ const Program = ({
                             type={session.type}
                             categories={session.categories}
                             speakers={session.speakers}
+                            groupedUp
                           />
                         ))}
                       </ScheduleCardList>
