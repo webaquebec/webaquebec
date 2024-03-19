@@ -59,10 +59,7 @@ export const outlinedStyle = css`
   border: 2px solid ${colors.gris30};
 
   ${breakpointsRange(
-    [
-      { prop: 'fontSize', sizes: [12, 16], bases: [16, 20] },
-      { prop: 'padding', sizes: [16, 16], bases: [16, 20] },
-    ],
+    [{ prop: 'fontSize', sizes: [12, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
