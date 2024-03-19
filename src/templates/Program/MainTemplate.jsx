@@ -1,7 +1,6 @@
 // vendors
 import React, { useMemo, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 // components
@@ -29,6 +28,7 @@ import { eventTypesMap } from '../../utils/dataMapping';
 // styles
 import breakpoints from '../../styles/breakpoints';
 import { selfBreakpoints as filtersSelfBreakpoints } from '../../views/ProgramPageView/Filters/Filters.styles';
+// import Layout from '../../components/Layout/Layout';
 
 const SectionContainer = styled(StyledSectionContainer)`
   min-height: 800px;
@@ -52,21 +52,16 @@ const FiltersWrapper = styled.div`
 `;
 
 /**
- * TODO: Use MainTemplate once merged with new brand changes
- * Template used to display daily plannings from Swapcard API
- * @param {Object} data — Data fetched from Swapcard API at build time
+ * Main template used to display daily plannings from Swapcard API
+ * @param {Object} Data — Data fetched at build time
  * @param {Object} pageContext — Received context from the automatically created pages
  * {@Link gatsby/createProgramSessionPages.js} and use that as variables GraphQL query.
  */
-const Program = ({
+const MainTemplate = ({
   location,
   data,
   pageContext: { eventDates, pagePaths },
 }) => {
-  const {
-    swapcard: { plannings },
-  } = data;
-
   const { state } = location;
 
   const {
@@ -122,7 +117,7 @@ const Program = ({
       return date.toLocaleTimeString('fr', options);
     };
 
-    const modifiedPlannings = plannings.map((planning) => ({
+    const modifiedPlannings = data.map((planning) => ({
       ...planning,
       categories: planning.categories.filter((c) => c), // remove undefined category
       type: slugify(planning.type),
@@ -133,7 +128,7 @@ const Program = ({
     }));
 
     return modifiedPlannings;
-  }, [plannings]);
+  }, [data]);
 
   // Initialize filters once we got plannings from Swapcard
   useEffect(() => {
@@ -142,7 +137,9 @@ const Program = ({
     const eventTypes = [];
 
     const addChoices = (value, array) => {
-      if (value === null || array.some((v) => v === value)) return;
+      if (value === null || array.some((v) => v === value)) {
+        return;
+      }
 
       array.push(value);
     };
@@ -309,22 +306,20 @@ const Program = ({
   );
 };
 
+export default MainTemplate;
+
 /**
  * See existing PropTypes validator
  * https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes
  */
-Program.propTypes = {
+MainTemplate.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
     state: PropTypes.shape({
       sessionId: PropTypes.string,
     }),
   }).isRequired,
-  data: PropTypes.shape({
-    swapcard: PropTypes.shape({
-      plannings: PropTypes.arrayOf(PropTypes.shape({})),
-    }),
-  }).isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   pageContext: PropTypes.shape({
     nextPagePath: PropTypes.string,
     previousPagePath: PropTypes.string,
@@ -332,60 +327,3 @@ Program.propTypes = {
     pagePaths: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
 };
-
-export default Program;
-
-/**
- * Query to get schedules from a list of IDs
- * @param {string} $eventId — Id of the Swapcard event
- * @param {number} $page — Index of our loop is the offset of which planning we want to display
- * @param {number} $pageSize — Number of plannings we want to display per page
- * @param {string[]} $planningIds — List of planning Ids we want to filter from
- * See @link gatsby/createScheduleSessionPages.js
- */
-export const programQuery = graphql`
-  query ProgramByIds(
-    $eventId: String!
-    $page: Int!
-    $pageSize: Int!
-    $planningIds: [ID!]
-  ) {
-    swapcard {
-      plannings(
-        eventId: $eventId
-        page: $page
-        pageSize: $pageSize
-        filters: { planningIds: $planningIds }
-        sort: { field: BEGINS_AT, order: ASC }
-      ) {
-        id
-        beginsAt
-        endsAt
-        categories
-        description
-        descriptionTranslations {
-          language
-          value
-        }
-        htmlDescription
-        isPrivate
-        place
-        type
-        title
-        titleTranslations {
-          language
-          value
-        }
-        speakers {
-          id
-          firstName
-          lastName
-          biography
-          organization
-          jobTitle
-          photoUrl
-        }
-      }
-    }
-  }
-`;
