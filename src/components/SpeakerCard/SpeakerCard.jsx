@@ -7,58 +7,16 @@ import { useMedia } from 'react-use';
 import {
   StyledSpeakerCard,
   SpeakerPicture,
-  // SpeakerLinks,
-  // SpeakerLinkItem,
-  // LinkIcon,
   SpeakerHeader,
   HeaderInfo,
   SpeakerDescription,
 } from './SpeakerCard.styles';
 import { greaterThan, lessThanCondition } from '../../utils/mediaQuery';
 
-// images
-// import iconEmail from '../../images/socialMedia/email.svg';
-// import iconInstagram from '../../images/socialMedia/instagram.svg';
-// import iconLinkedin from '../../images/socialMedia/linkedin.svg';
-// import iconTwitter from '../../images/socialMedia/twitter.svg';
-// import iconWebsite from '../../images/socialMedia/website.svg';
-// import groupBy from '../../utils/groupBy';
-
 const SpeakerCard = ({ speaker }) => {
-  // const socialNetworksGroupByType = groupBy(speaker.socialNetworks, 'type');
   const mobile = useMedia(lessThanCondition(768));
 
   const picture = speaker.photoUrlSharp?.childImageSharp?.fixed;
-
-  // const contactLinks = [
-  //   {
-  //     email: { name: 'Adresse courriel', icon: iconEmail, url: speaker.email },
-  //   },
-  //   {
-  //     instagram: {
-  //       name: 'Compte Instagram',
-  //       icon: iconInstagram,
-  //       url: socialNetworksGroupByType.instagram?.profile,
-  //     },
-  //   },
-  //   {
-  //     linkedin: {
-  //       name: 'Compte LinkedIn',
-  //       icon: iconLinkedin,
-  //       url: socialNetworksGroupByType.linkedin?.profile,
-  //     },
-  //   },
-  //   {
-  //     twitter: {
-  //       name: 'Compte Twitter',
-  //       icon: iconTwitter,
-  //       url: socialNetworksGroupByType.twitter?.profile,
-  //     },
-  //   },
-  //   {
-  //     website: { name: 'Site Web', icon: iconWebsite, url: speaker.websiteUrl },
-  //   },
-  // ];
 
   const fullName = `${speaker.firstName} ${speaker.lastName}`;
 
@@ -83,18 +41,6 @@ const SpeakerCard = ({ speaker }) => {
             `}
           />
         )}
-
-        {/* {contactLinks.length > 0 && (
-          <SpeakerLinks css={`grid-row: 2; grid-column: 1;`}>
-            {contactLinks.map((link) => (
-              <SpeakerLinkItem key={link.type}>
-                <a href={link.url} rel='noopener noreferrer' target='_blank'>
-                  <LinkIcon src={link.icon} alt={link.name} />
-                </a>
-              </SpeakerLinkItem>
-            ))}
-          </SpeakerLinks>
-        )} */}
 
         <div
           css={`

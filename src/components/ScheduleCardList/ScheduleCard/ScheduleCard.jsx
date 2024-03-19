@@ -153,19 +153,7 @@ ScheduleCard.propTypes = {
   /**
    * Specifies which categories a session is attached to
    */
-  categories: PropTypes.arrayOf(
-    PropTypes.oneOf([
-      'design',
-      'developpement',
-      'innovation',
-      'communication-and-marketing',
-      'communication-et-marketing',
-      'pitch-ton-waq',
-      'jeux-video',
-      'competences-transversales',
-      'communication-dans-ladministration-publique',
-    ])
-  ),
+  categories: PropTypes.arrayOf(PropTypes.string),
   /**
    * Specifies speakers identity information
    */

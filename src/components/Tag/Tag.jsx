@@ -9,8 +9,9 @@ import vectorSpeaker from '../../images/tags/vectorSpeaker.svg';
 import unSlugify from '../../utils/strings/unSlugify';
 
 // utils
-import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
+import { eventTypesMap } from '../../utils/dataMapping';
 import colors from '../../styles/colors';
+import slugify from '../../utils/strings/slugify';
 
 const categoryColors = {
   design: {
@@ -73,12 +74,12 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
 
   return (
     <StyledTag
-      $category={tagType === 'category' && categoryColors[category]}
+      $category={tagType === 'category' && categoryColors[slugify(category)]}
       $speaker={tagType === 'speaker'}
       $eventType={tagType === 'eventType'}
       $outlined={outlined}
     >
-      {tagType === 'category' && <span>{categoriesMap[category]}</span>}
+      {tagType === 'category' && <span>{category}</span>}
       {tagType === 'speaker' && (
         <>
           <img css={TagIcon} src={vectorSpeaker} alt='' role='presentation' />
@@ -95,7 +96,7 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
           </div>
         </>
       )}
-      {tagType === 'eventType' && (
+      {tagType === 'eventType' && eventType && (
         <>
           <span css={TagIcon}>
             <img src={vectorEventType} alt='' role='presentation' />
@@ -103,7 +104,7 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
           <span>{eventTypesMap[eventType]}</span>
         </>
       )}
-      {tagType === 'place' && (
+      {tagType === 'place' && place && (
         <>
           <span css={TagIcon}>
             <IconRoom />
@@ -120,17 +121,7 @@ Tag.propTypes = {
   /**
    * Specifies which category to display if the tag is a category one
    */
-  category: PropTypes.oneOf([
-    'design',
-    'developpement',
-    'innovation',
-    'communication-and-marketing',
-    'communication-et-marketing',
-    'pitch-ton-waq',
-    'jeux-video',
-    'competences-transversales',
-    'communication-dans-ladministration-publique',
-  ]),
+  category: PropTypes.string,
   /**
    * Specifies which data to show if the tag is a speaker one
    */
