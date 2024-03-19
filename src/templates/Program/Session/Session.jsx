@@ -87,18 +87,18 @@ export const sessionQuery = graphql`
             type
           }
           photoUrl
-          # photoUrlSharp {
-          #   childImageSharp {
-          #     fixed(
-          #       width: 100
-          #       height: 100
-          #       quality: 90
-          #       duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
-          #     ) {
-          #       ...GatsbyImageSharpFixed_withWebp
-          #     }
-          #   }
-          # }
+          photoUrlSharp {
+            childImageSharp {
+              fixed(
+                width: 100
+                height: 100
+                quality: 90
+                duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+              ) {
+                ...GatsbyImageSharpFixed_withWebp
+              }
+            }
+          }
         }
       }
     }
