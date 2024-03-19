@@ -197,7 +197,7 @@ const Program = ({
       />
 
       <Hero datePaths={datePaths} location={location} />
-      <Center maxWidth='1220px' gutters='16px'>
+      <Center maxWidth='1320px' gutters='16px'>
         <Switcher threshold='768px' space='24px'>
           <div>
             <div>

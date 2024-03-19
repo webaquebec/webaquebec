@@ -58,7 +58,9 @@ const ScheduleCard = ({
       <Stack space='16px'>
         {place && !groupedUp && (
           <div>
-            <div css={placeStyle}>{place}</div>
+            <div css={placeStyle} className='card-place'>
+              {place}
+            </div>
           </div>
         )}
 

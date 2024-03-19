@@ -5,10 +5,15 @@ import styled, { css } from 'styled-components';
 
 // utils
 import { greaterThan, lessThan } from '../../utils/mediaQuery';
+import breakpointsRange from '../../utils/breakpointsRange';
 
-// Components
+// components
 import ScheduleCard from './ScheduleCard';
+
+// styles
 import colors from '../../styles/colors';
+import breakpoints from '../../styles/breakpoints';
+import { fontWeights } from '../../styles/typography';
 
 const List = styled.ul`
   display: flex;
@@ -20,10 +25,6 @@ const List = styled.ul`
   padding: 0;
 
   list-style: none;
-
-  ${lessThan(1024)} {
-    margin: 0 0 32px;
-  }
 
   ${greaterThan(1024)} {
     flex-flow: row nowrap;
@@ -69,32 +70,42 @@ const List = styled.ul`
 //   }
 // `;
 
-const timeColumnStyle = css`
+const Row = styled.div`
   display: flex;
-  flex-flow: row nowrap;
-  margin-left: -88px;
+  flex-direction: column;
+  gap: 0 16px;
+
+  ${greaterThan(768)} {
+    flex-flow: row nowrap;
+  }
 `;
 
 const timeStyle = css`
   display: block;
 
-  min-width: 60px;
+  flex-shrink: 0;
 
-  margin-top: 24px;
-  margin-right: 28px;
+  color: ${colors.blueberry};
+  font-weight: ${fontWeights.ultrabold};
+  text-align: center;
 
-  font-size: 16px;
-
-  text-align: right;
-
-  ${lessThan(1384)} {
-    opacity: 0;
-  }
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'padding', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'width', sizes: [80, 80], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
 `;
 
 export const placeStyle = css`
   color: ${colors.blueberry40};
-  font-size: 24px;
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [24, 24], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 const ScheduleCardList = ({ children, time, groupedUp, groupedDown }) => {
@@ -102,7 +113,7 @@ const ScheduleCardList = ({ children, time, groupedUp, groupedDown }) => {
 
   return (
     <div css={{ marginTop: groupedUp ? '0' : '36px' }}>
-      <div css={timeColumnStyle}>
+      <Row>
         <div css={timeStyle}>{time}</div>
         <List>
           {nodes.map(({ key, props }) => (
@@ -115,7 +126,7 @@ const ScheduleCardList = ({ children, time, groupedUp, groupedDown }) => {
             </li>
           ))}
         </List>
-      </div>
+      </Row>
     </div>
   );
 };

@@ -130,7 +130,7 @@ const Hero = ({ location, datePaths }) => {
       </TextureWrapper>
 
       <Wrapper>
-        <HeaderContent maxWidth='1220px' gutters={mobile ? '16px' : '32px'}>
+        <HeaderContent maxWidth='1320px' gutters={mobile ? '16px' : '32px'}>
           {mobile ? (
             <div
               css={`

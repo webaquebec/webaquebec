@@ -25,6 +25,10 @@ export const placeStyle = css`
 
   border-bottom: 2px solid ${colors.blueberry};
 
+  @media (prefers-reduced-motion: no-preference) {
+    transition: border-color ${speed.fast} ease;
+  }
+
   ${breakpointsRange(
     [{ prop: 'padding', sizes: [12, 16], bases: [16, 20] }],
     breakpoints.spacings
@@ -43,6 +47,7 @@ export const timeTag = css`
 
     color: white;
 
+    color: ${colors.peach};
     font-weight: 800;
 
     line-height: ${20 / 14};
@@ -53,7 +58,7 @@ export const timeTag = css`
 
     ${breakpointsRange(
       [
-        { prop: 'fontSize', sizes: [12, 12], bases: [16, 20] },
+        { prop: 'fontSize', sizes: [14, 14], bases: [16, 20] },
         { prop: 'padding', sizes: [8, 8], bases: [16, 20] },
       ],
       breakpoints.spacings
@@ -172,6 +177,10 @@ export const StyledScheduleCard = styled(Link)`
 
     &::after {
       opacity: 0.1;
+    }
+
+    .card-place {
+      border-color: var(--accentColor);
     }
   }
 `;

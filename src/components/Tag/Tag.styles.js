@@ -87,7 +87,7 @@ export const StyledTag = styled.div`
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [12, 12], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [12, 14], bases: [16, 20] },
       { prop: 'padding', sizes: [8, 8], bases: [16, 20] },
       { prop: 'margin-bottom', sizes: [12, 16], bases: [16, 20] },
     ],
