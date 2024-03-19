@@ -25,7 +25,8 @@ const Prices = () => {
   const [isRegularPrice, setIsRegularPrice] = useState(true);
 
   useEffect(() => {
-    const currentDate = new Date();
+    const currentDate = new Date().getTime();
+    const targetDate = new Date('2024-03-21').setHours(24, 0, 0, 0) // set pour minuit
     const targetDate = new Date('2024-03-21');
     const isAfter = currentDate > targetDate;
     setIsRegularPrice(isAfter);
