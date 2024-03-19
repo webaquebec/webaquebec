@@ -10,7 +10,7 @@
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/.bin/gatsby",
       "args": ["develop"],
-      // "runtimeArgs": ["--nolazy"],
+      "runtimeArgs": ["--nolazy"],
       "console": "integratedTerminal"
     },
     {
@@ -19,7 +19,11 @@
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/.bin/gatsby",
       "args": ["build"],
-      // "runtimeArgs": ["--nolazy"],
+      "env": {
+        "PARCEL_WORKERS": "0",
+        "GATSBY_CPU_COUNT": "8"
+      },
+      "runtimeArgs": ["--nolazy"],
       "console": "integratedTerminal"
     },
     {
@@ -30,8 +34,4 @@
       "webRoot": "${workspaceFolder}"
     }
   ]
-  // "env": {
-  //   "name": "NODE_TLS_REJECT_UNAUTHORIZED",
-  //   "value": "0"
-  // }
 }
