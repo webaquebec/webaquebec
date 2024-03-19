@@ -114,9 +114,6 @@ const Hero = ({ location, datePaths }) => {
               <span css={current.edition > 2023 && hideVisually}>
                 &nbsp;{current.edition}
               </span>
-              {/* {current.edition === 2021 && (
-                <YearSticker src={vectorYear2021} alt='2021' />
-              )} */}
             </StickyTitle>
           )}
 
