@@ -96,14 +96,16 @@ const Program = ({
 
   const groupedByTimeProgram = useMemo(
     () =>
-      program.reduce((acc, current) => {
-        const { beginsAt } = current.time;
-        if (!acc[beginsAt]) {
-          acc[beginsAt] = [];
-        }
-        acc[beginsAt].push(current);
-        return acc;
-      }, {}),
+      Object.entries(
+        program.reduce((acc, current) => {
+          const { beginsAt } = current.time;
+          if (!acc[beginsAt]) {
+            acc[beginsAt] = [];
+          }
+          acc[beginsAt].push(current);
+          return acc;
+        }, {})
+      ),
     [program]
   );
 
@@ -114,51 +116,53 @@ const Program = ({
 
   // FIXME: A little bit of refactor here is needed in order to ease comprehension and future modifications
   const groupedByTimeRangeProgram = useMemo(() => {
-    const groupedByTime = Object.entries(groupedByTimeProgram);
     const output = {};
 
-    for (let i = 0; i < groupedByTime.length; i += 1) {
-      const numberOfSessionsAtTimeI = groupedByTime[i][1].length;
-      const time = groupedByTime[i][0];
-      const sessions = groupedByTime[i][1];
+    for (let i = 0; i < groupedByTimeProgram.length; i += 1) {
+      const time = groupedByTimeProgram[i][0];
+      const sessions = groupedByTimeProgram[i][1];
+      const numberOfSessionsAtTimeI = sessions.length;
 
+      // If could be grouped down check next time
       if (numberOfSessionsAtTimeI >= 4) {
-        const numberOfSessionsAtTimeI1 = groupedByTime[i + 1][1].length;
-        const timeI1 = groupedByTime[i + 1][0];
-        const sessionsI1 = groupedByTime[i + 1][1];
+        const timeI2 = groupedByTimeProgram[i + 1][0];
+        const sessionsI2 = groupedByTimeProgram[i + 1][1];
+        const numberOfSessionsAtTimeI2 = sessionsI2.length;
 
-        if (numberOfSessionsAtTimeI1 >= 4) {
-          const sessionsPlace = sessions.map((session) => session.place);
-          const sessionsI1Place = sessionsI1.map((session) => session.place);
+        // If next time is also conf time the group
+        if (numberOfSessionsAtTimeI2 >= 4) {
+          // Fill in missing sessions
+          const sessionsPlaces = sessions.map((session) => session.place);
+          const sessionsI2Places = sessionsI2.map((session) => session.place);
           const allPlaces = [
-            ...new Set([sessionsPlace, sessionsI1Place].flat()).values(),
+            ...new Set([sessionsPlaces, sessionsI2Places].flat()).values(),
           ];
 
-          const missingPlacesSessions = allPlaces.filter(
-            (place) => !sessionsPlace.includes(place)
+          const missingPlacesForSessions = allPlaces.filter(
+            (place) => !sessionsPlaces.includes(place)
           );
-          const missingPlacesSessionsI1 = allPlaces.filter(
-            (place) => !sessionsI1Place.includes(place)
+          const missingPlacesForSessionsI2 = allPlaces.filter(
+            (place) => !sessionsI2Places.includes(place)
           );
 
-          missingPlacesSessions.forEach((place) =>
+          missingPlacesForSessions.forEach((place) =>
             sessions.push({
               place,
               title: 'Aucune activité',
-              time: sessions[0].time,
+              time,
             })
           );
-          missingPlacesSessionsI1.forEach((place) =>
-            sessionsI1.push({
+          missingPlacesForSessionsI2.forEach((place) =>
+            sessionsI2.push({
               place,
               title: 'Aucune activité',
-              time: sessionsI1[0].time,
+              time: timeI2,
             })
           );
 
-          output[`${time};${timeI1}`] = [
+          output[`${time};${timeI2}`] = [
             sortSessionsByPlace(sessions),
-            sortSessionsByPlace(sessionsI1),
+            sortSessionsByPlace(sessionsI2),
           ];
 
           i += 1;
