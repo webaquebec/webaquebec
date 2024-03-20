@@ -80,46 +80,6 @@ const Prices = () => {
               </TicketText>
             </Center>
           </Paper>
-
-          <Paper
-            lightColor={colors.peach}
-            darkColor={colors.blueberry10}
-            rounded
-            outlined
-            elevation={elevation.none}
-            css={blockContainerStyle}
-          >
-            <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
-              <TicketTitle color={colors.gris90}>Billet journalier</TicketTitle>
-              {/* <TicketBadge>Complet</TicketBadge> */}
-
-              <TicketPrice>450$</TicketPrice>
-
-              <Button
-                to='https://ti.to/web-a-quebec/waq24/fr'
-                tag='href'
-                small
-                animated
-                rel='noopener noreferrer'
-                target='_blank'
-                css={buttonStyle}
-              >
-                Disponible le 21 mars
-              </Button>
-
-              <TicketText>
-                <p>Tu n’es pas disponible les 3 jours? On a pensé à toi.</p>
-                <ul>
-                  <li>une journée de conférence;</li>
-                  <li>tes repas et boissons;</li>
-                  <li>un 5 à 7 exceptionnel.</li>
-                </ul>
-              </TicketText>
-            </Center>
-          </Paper>
-        </BlocksWrapper>
-
-        <BlocksWrapper>
           <Paper
             lightColor={colors.peach}
             darkColor={colors.blueberry10}
@@ -167,7 +127,45 @@ const Prices = () => {
               </TicketText>
             </Center>
           </Paper>
+        </BlocksWrapper>
 
+        <BlocksWrapper>
+          <Paper
+            lightColor={colors.peach}
+            darkColor={colors.blueberry10}
+            rounded
+            outlined
+            elevation={elevation.none}
+            css={blockContainerStyle}
+          >
+            <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
+              <TicketTitle color={colors.gris90}>Billet journalier</TicketTitle>
+              {/* <TicketBadge>Complet</TicketBadge> */}
+
+              <TicketPrice>450$</TicketPrice>
+
+              <Button
+                to='https://ti.to/web-a-quebec/waq24/fr'
+                tag='href'
+                small
+                animated
+                rel='noopener noreferrer'
+                target='_blank'
+                css={buttonStyle}
+              >
+                Disponible le 21 mars
+              </Button>
+
+              <TicketText>
+                <p>Tu n’es pas disponible les 3 jours? On a pensé à toi.</p>
+                <ul>
+                  <li>une journée de conférence;</li>
+                  <li>tes repas et boissons;</li>
+                  <li>un 5 à 7 exceptionnel.</li>
+                </ul>
+              </TicketText>
+            </Center>
+          </Paper>
           <Paper
             lightColor={colors.peach}
             darkColor={colors.blueberry10}
