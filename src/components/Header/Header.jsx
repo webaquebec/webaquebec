@@ -18,13 +18,13 @@ import {
 import BurgerButton from './BurgerButton';
 
 const primaryNavigation = [
-  // {
-  //   id: 'Programmation',
-  //   label: 'programmation',
-  //   slug: '/programmation/2023',
-  //   type: 'internal',
-  //   color: 'pineapple',
-  // },
+  {
+    id: 'Programmation',
+    label: 'programmation',
+    slug: '/programmation/2024',
+    type: 'internal',
+    color: 'pineapple',
+  },
   {
     id: 'blog',
     label: 'blogue',
@@ -92,9 +92,9 @@ const secondaryNavigation = [
     color: 'kiwi',
   },
   {
-    id: 'edition2024',
-    label: 'édition 2024',
-    slug: '/programmation/2024',
+    id: 'edition2023',
+    label: 'édition 2023',
+    slug: '/programmation/2023',
     type: 'internal',
     color: 'pineapple',
   },
