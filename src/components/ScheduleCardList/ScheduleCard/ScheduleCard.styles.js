@@ -94,11 +94,7 @@ export const CardContent = styled.div`
   z-index: 1;
 
   ${breakpointsRange(
-    [
-      { prop: 'paddingLeft', sizes: [12, 16], bases: [16, 20] },
-      { prop: 'paddingRight', sizes: [12, 16], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [12, 16], bases: [16, 20] },
-    ],
+    [{ prop: 'padding', sizes: [12, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
 

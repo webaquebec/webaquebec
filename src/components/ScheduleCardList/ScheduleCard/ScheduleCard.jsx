@@ -59,20 +59,20 @@ const ScheduleCard = ({
       }}
       {...rest}
     >
-      <Stack space='16px'>
-        {place && (!groupedUp || mobile) && (
-          <div css={placeStyle} className='card-place'>
-            {place}
-          </div>
-        )}
+      {place && (!groupedUp || mobile) && (
+        <div css={placeStyle} className='card-place'>
+          {place}
+        </div>
+      )}
 
-        <CardContent>
-          <div css={timeTag}>
-            {time.beginsAt} à {time.endsAt}
-          </div>
+      <CardContent>
+        <div css={timeTag}>
+          {time.beginsAt} à {time.endsAt}
+        </div>
 
-          <Title as={titleAs}>{title}</Title>
+        <Title as={titleAs}>{title}</Title>
 
+        <Stack space='calc(var(--container-gutter) * 2)'>
           {speakers.map((speaker) => (
             <div key={speaker.id}>
               <Tag speaker={speaker} />
@@ -80,7 +80,7 @@ const ScheduleCard = ({
           ))}
 
           {categories.length > 0 && (
-            <Cluster>
+            <Cluster space='8px'>
               <div>
                 {categories.map((category) => (
                   <Tag key={category} category={category} />
@@ -88,8 +88,8 @@ const ScheduleCard = ({
               </div>
             </Cluster>
           )}
-        </CardContent>
-      </Stack>
+        </Stack>
+      </CardContent>
     </StyledScheduleCard>
   );
 };
