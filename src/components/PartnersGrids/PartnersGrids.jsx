@@ -1,11 +1,15 @@
 // vendors
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // components
+import Button from '../Button';
 import LogoCard from './LogoCard';
 import Center from '../LayoutSections/Center';
+import Switcher from '../LayoutSections/Switcher';
 
 // images
+import logoCossette from '../../images/logoPartners/logo-cossette.svg';
 import logoAxeptio from '../../images/logoPartners/expert/logo-axeptio.svg';
 import logoMambomambo from '../../images/logoPartners/community/logo-mambomambo.svg';
 import logoBeneva from '../../images/logoPartners/community/logo-beneva.svg';
@@ -25,8 +29,20 @@ import logoEvive from '../../images/logoPartners/associates/logo-evive.png';
 import logoNovicom from '../../images/logoPartners/associates/logo-novicom.svg';
 
 // styles
+import {
+  Title,
+  PresentingWrapper,
+  PresentingText,
+  Grid,
+  GridItem,
+  presentingContentStyle,
+} from './PartnersGrids.styles';
 
-import { Title, Grid, GridItem } from './PartnersGrids.styles';
+const presentingPartner = {
+  src: logoCossette,
+  alt: 'Cossette',
+  url: 'https://www.cossette.com/fr/accueil',
+};
 
 const expertPartners = [
   {
@@ -151,8 +167,54 @@ const partners = [
   },
 ];
 
-const PartnersGrids = () => (
+const PartnersGrids = ({ hasDetails }) => (
   <>
+    <Center
+      as='section'
+      maxWidth='1024px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title>le WAQ 2024 est présenté par</Title>
+
+      <Switcher
+        threshold='768px'
+        space='calc(var(--container-gutter) * 2)'
+        limit={2}
+      >
+        <PresentingWrapper>
+          <div>
+            <LogoCard image={presentingPartner} isPresenting />
+          </div>
+
+          {hasDetails && (
+            <div>
+              <Center maxWidth='625px' gutters='0' css={presentingContentStyle}>
+                <PresentingText>
+                  Ubisoft est reconnu internationalement, mais la franchise de
+                  la ville de Québec se démarque particulièrement. Ayant acquis
+                  une solide expertise dans le développement de jeux d’envergure
+                  AAA, le studio assume maintenant le leadership sur plusieurs
+                  projets. Le WAQ est très fier d’être présenté par Ubisoft!
+                </PresentingText>
+                <Button
+                  to='https://www.ubisoft.com/fr-ca/'
+                  tag='href'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  small
+                  animated
+                >
+                  En savoir plus
+                </Button>
+              </Center>
+            </div>
+          )}
+        </PresentingWrapper>
+      </Switcher>
+    </Center>
+
     {partners.map((partner) => (
       <Center
         key={`partner-${partner.title}`}
@@ -175,5 +237,16 @@ const PartnersGrids = () => (
     ))}
   </>
 );
+
+PartnersGrids.propTypes = {
+  /**
+   * Whether the grid has details or not.
+   */
+  hasDetails: PropTypes.bool,
+};
+
+PartnersGrids.defaultProps = {
+  hasDetails: false,
+};
 
 export default PartnersGrids;
