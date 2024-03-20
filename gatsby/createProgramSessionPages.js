@@ -38,6 +38,19 @@ const getPlannings = async ({ graphql, reporter, variables }) => {
   const { eventIds, page, pageSize } = variables;
   const result = await graphql(`
     {
+      edition2024: swapcard {
+        plannings(
+          eventId: "${eventIds[2024]}"
+          page: ${page}
+          pageSize: ${pageSize}
+        ) {
+          beginsAt
+          id
+          title
+          type
+        }
+      }
+
       edition2023: swapcard {
         plannings(
           eventId: "${eventIds[2023]}"
@@ -88,13 +101,14 @@ const getPlannings = async ({ graphql, reporter, variables }) => {
   }
 
   const {
-    data: { edition2021, edition2022, edition2023 },
+    data: { edition2021, edition2022, edition2023, edition2024 },
   } = result;
 
   const plannings = [
     ...edition2022.plannings,
     ...edition2021.plannings,
     ...edition2023.plannings,
+    ...edition2024.plannings,
   ];
   // const plannings = { edition2022, edition2021 };
 
@@ -227,6 +241,7 @@ const createProgram = async ({
 module.exports = async ({ graphql, actions, reporter }) => {
   const variables = {
     eventIds: {
+      2024: `${process.env.SWAPCARD_EVENT_ID}`,
       2023: `${process.env.SWAPCARD_EVENT_ID_2023}`,
       2022: `${process.env.SWAPCARD_EVENT_ID_2022}`,
       2021: `${process.env.SWAPCARD_EVENT_ID_2021}`,

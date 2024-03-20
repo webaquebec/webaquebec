@@ -28,7 +28,7 @@ const Dropdown = ({ title, children, ...rest }) => {
   return (
     <Container
       padding='0'
-      lightColor={colors.white}
+      lightColor={colors.peach}
       darkColor={colors.blueberry}
       {...rest}
     >

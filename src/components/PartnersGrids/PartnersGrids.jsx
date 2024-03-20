@@ -217,6 +217,7 @@ const PartnersGrids = ({ hasDetails }) => (
 
     {partners.map((partner) => (
       <Center
+        key={`partner-${partner.title}`}
         as='section'
         maxWidth='900px'
         gutters='var(--container-gutter)'

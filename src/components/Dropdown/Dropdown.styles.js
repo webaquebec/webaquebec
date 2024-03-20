@@ -35,16 +35,16 @@ export const DropdownButtonWrapper = styled.div`
 
   margin: 0;
 
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeights.ultrabold};
 
-  background-color: ${colors.white};
+  background-color: ${colors.peach};
 
   border: 2px solid ${colors.blueberry};
   border-radius: 4px;
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [16, 18], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [18, 18], bases: [16, 20] },
       {
         prop: 'lineHeight',
         sizes: [24, 24],
@@ -111,7 +111,7 @@ export const DropdownMenu = styled.section`
   width: 100%;
   overflow: hidden;
 
-  background-color: ${colors.white};
+  background-color: ${colors.peach};
   border: 2px solid ${colors.blueberry};
   border-top: 0;
   border-radius: 0 0 4px 4px;
@@ -133,6 +133,7 @@ export const DropdownMenu = styled.section`
 `;
 
 export const LinkButton = styled(Button)`
+  justify-content: flex-start;
   width: 100%;
 
   border: 0;
@@ -141,7 +142,7 @@ export const LinkButton = styled(Button)`
   ${breakpointsRange(
     [
       { prop: 'padding', sizes: [24, 24], bases: [16, 20] },
-      { prop: 'fontSize', sizes: [16, 18], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [18, 18], bases: [16, 20] },
       {
         prop: 'lineHeight',
         sizes: [24, 24],

@@ -10,31 +10,38 @@ import { fontWeights } from '../../styles/typography';
 import breakpoints from '../../styles/breakpoints';
 
 export const speakerStyle = css`
-  color: ${colors.blueberry};
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 0 !important;
+
+  color: ${colors.blueberry30};
   font-weight: ${fontWeights.normal};
+
+  background-color: transparent;
 `;
 
-export const SpeakerInfo = styled.span`
+export const SpeakerNameWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const SpeakerName = styled.span`
+  font-weight: ${fontWeights.bold};
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+export const SpeakerCompany = styled.span`
   font-weight: ${fontWeights.regular};
 
-  :first-child {
-    font-weight: ${fontWeights.bold};
-  }
-
-  ::after {
-    display: inline-block;
-    margin: 0 8px;
-
-    color: ${colors.gris40};
-
-    content: '|';
-  }
-
-  :last-child {
-    &::after {
-      display: none;
-    }
-  }
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [14, 14], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 export const eventTypeStyle = css`
@@ -68,8 +75,6 @@ export const StyledTag = styled.div`
   display: inline-flex;
   align-items: center;
 
-  padding: 8px;
-
   color: ${({ $category }) => ($category && $category.color) || colors.gris90};
   font-weight: ${fontWeights.medium};
 
@@ -78,7 +83,10 @@ export const StyledTag = styled.div`
   border-radius: 8px;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [12, 12], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [12, 14], bases: [16, 20] },
+      { prop: 'padding', sizes: [8, 8], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 

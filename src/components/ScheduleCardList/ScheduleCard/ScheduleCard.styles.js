@@ -3,46 +3,66 @@ import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 
 // components
-import Paper from '../../Paper';
 import TimeStamp from '../../TimeStamp';
 
 // utils
+import { greaterThan, lessThan } from '../../../utils/mediaQuery';
 import breakpointsRange from '../../../utils/breakpointsRange';
-import getContrast from '../../../utils/getContrast';
 
 // styles
+import { speed } from '../../../styles/animation';
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
 
-export const Container = styled(Paper)`
+export const placeStyle = css`
+  position: relative;
+  z-index: 1;
+
+  color: ${colors.blueberry30};
+  font-weight: ${fontWeights.ultrabold};
+  font-size: 24px;
+
+  border-bottom: 2px solid ${colors.blueberry};
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: border-color ${speed.fast} ease;
+  }
+
   ${breakpointsRange(
-    [
-      { prop: 'padding-top', sizes: [40, 40], bases: [16, 20] },
-      { prop: 'padding-right', sizes: [16, 40], bases: [16, 20] },
-      { prop: 'padding-bottom', sizes: [40, 40], bases: [16, 20] },
-      { prop: 'padding-left', sizes: [75, 80], bases: [16, 20] },
-    ],
+    [{ prop: 'padding', sizes: [12, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
+`;
 
-  ::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
+export const timeTag = css`
+  display: none;
 
-    width: 100%;
-    height: 100%;
+  ${lessThan(1248)} {
+    display: block;
 
-    border: 2px solid var(--accentColor);
-    border-radius: inherit;
+    width: max-content;
 
-    opacity: 0;
+    margin-bottom: 12px;
 
-    content: '';
+    color: white;
 
-    will-change: opacity;
+    color: ${colors.peach};
+    font-weight: 800;
+
+    line-height: ${20 / 14};
+
+    background-color: ${colors.blueberry10};
+
+    border-radius: 8px;
+
+    ${breakpointsRange(
+      [
+        { prop: 'fontSize', sizes: [14, 14], bases: [16, 20] },
+        { prop: 'padding', sizes: [8, 8], bases: [16, 20] },
+      ],
+      breakpoints.spacings
+    )};
   }
 `;
 
@@ -59,22 +79,31 @@ export const Title = styled.h2`
   color: ${colors.blueberry};
 
   font-weight: ${fontWeights.bold};
+
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [20, 20], bases: [16, 20] }],
+    [
+      { prop: 'fontSize', sizes: [20, 20], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [16, 16], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
-
-  line-height: ${26 / 20};
 `;
 
-export const Content = styled.div`
-  font-weight: ${fontWeights.regular};
+export const CardContent = styled.div`
+  position: relative;
+  z-index: 1;
+
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+    [{ prop: 'padding', sizes: [12, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
-  line-height: ${23 / 16};
+  &:first-child {
+    ${breakpointsRange(
+      [{ prop: 'paddingTop', sizes: [12, 16], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
 `;
 
 export const StyledScheduleCard = styled(Link)`
@@ -82,26 +111,72 @@ export const StyledScheduleCard = styled(Link)`
 
   position: relative;
 
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
   text-decoration: none;
+
+  background-color: ${colors.peach};
+  border: 2px solid ${colors.blueberry};
+  outline: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: border-color ${speed.fast} ease;
+  }
 
   cursor: pointer;
 
-  :hover,
-  :focus {
-    outline: none;
+  ${breakpointsRange(
+    [{ prop: 'margin-bottom', sizes: [20, 36], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 
-    ${Container}::after {
-      opacity: 1;
+  ${greaterThan(1248)} {
+    border-radius: 16px;
+    ${({ $groupedUp }) =>
+      $groupedUp && 'border-radius: 0 0 16px 16px;\nborder-top: 0;'}
+    ${({ $groupedDown }) => $groupedDown && 'border-radius: 16px 16px 0 0;'}
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--accentColor);
+
+    ${greaterThan(1248)} {
+      border-radius: 16px;
+      ${({ $groupedUp }) =>
+        $groupedUp && 'border-radius: 0 0 16px 16px;\nborder-top: 0;'}
+      ${({ $groupedDown }) => $groupedDown && 'border-radius: 16px 16px 0 0;'}
     }
 
-    ${StyledTimeStamp} {
-      background-color: var(--accentColor);
-      border-color: var(--accentColor);
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity ${speed.fast} ease;
+    }
 
-      > * {
-        color: ${({ $accentColor }) =>
-          $accentColor && getContrast($accentColor)};
-      }
+    opacity: 0;
+
+    content: '';
+  }
+
+  :hover,
+  :focus {
+    border-color: var(--accentColor);
+
+    &::after {
+      opacity: 0.1;
+    }
+
+    .card-place {
+      border-color: var(--accentColor);
     }
   }
 `;

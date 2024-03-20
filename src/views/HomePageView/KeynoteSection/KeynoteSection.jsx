@@ -23,31 +23,33 @@ const speakersPictureQuery = graphql`
     }
   }
   query {
-    speakerJoshuaDavis: file(
-      relativePath: { eq: "keynotes/speaker-joshua-davis.jpg" }
+    speakerEleniBeveratou: file(
+      relativePath: { eq: "keynotes/speaker-eleni-beveratou.jpg" }
     ) {
       ...speakerPhotoFragment
     }
-    speakerSnask: file(relativePath: { eq: "keynotes/speaker-snask.jpg" }) {
-      ...speakerPhotoFragment
-    }
-    speakerGregGifford: file(
-      relativePath: { eq: "keynotes/speaker-greg-gifford.jpg" }
+    speakerFredHebert: file(
+      relativePath: { eq: "keynotes/speaker-fred-hebert.jpg" }
     ) {
       ...speakerPhotoFragment
     }
-    speakerFaraiMadzima: file(
-      relativePath: { eq: "keynotes/speaker-farai-madzima.jpg" }
+    speakerLouisPhilippeMathieu: file(
+      relativePath: { eq: "keynotes/speaker-louis-philippe-mathieu.jpg" }
     ) {
       ...speakerPhotoFragment
     }
-    speakerMariePierStHilaire: file(
-      relativePath: { eq: "keynotes/speaker-marie-pier-st-hilaire.jpg" }
+    speakerJayGrandmont: file(
+      relativePath: { eq: "keynotes/speaker-jay-grandmont.jpg" }
     ) {
       ...speakerPhotoFragment
     }
-    speakerSashaLuccioni: file(
-      relativePath: { eq: "keynotes/speaker-sasha-luccioni.jpg" }
+    speakerZoeRaymond: file(
+      relativePath: { eq: "keynotes/speaker-zoe-raymond.jpg" }
+    ) {
+      ...speakerPhotoFragment
+    }
+    speakerCharlotteRudelle: file(
+      relativePath: { eq: "keynotes/speaker-charlotte-rudelle.jpg" }
     ) {
       ...speakerPhotoFragment
     }
@@ -58,72 +60,72 @@ const KeynoteSection = () => {
   const data = useStaticQuery(speakersPictureQuery);
 
   const {
-    speakerJoshuaDavis: {
-      childImageSharp: { fluid: speakerJoshuaDavis },
+    speakerEleniBeveratou: {
+      childImageSharp: { fluid: speakerEleniBeveratou },
     },
-    speakerSnask: {
-      childImageSharp: { fluid: speakerSnask },
+    speakerFredHebert: {
+      childImageSharp: { fluid: speakerFredHebert },
     },
-    speakerGregGifford: {
-      childImageSharp: { fluid: speakerGregGifford },
+    speakerLouisPhilippeMathieu: {
+      childImageSharp: { fluid: speakerLouisPhilippeMathieu },
     },
-    speakerFaraiMadzima: {
-      childImageSharp: { fluid: speakerFaraiMadzima },
+    speakerJayGrandmont: {
+      childImageSharp: { fluid: speakerJayGrandmont },
     },
-    speakerMariePierStHilaire: {
-      childImageSharp: { fluid: speakerMariePierStHilaire },
+    speakerZoeRaymond: {
+      childImageSharp: { fluid: speakerZoeRaymond },
     },
-    speakerSashaLuccioni: {
-      childImageSharp: { fluid: speakerSashaLuccioni },
+    speakerCharlotteRudelle: {
+      childImageSharp: { fluid: speakerCharlotteRudelle },
     },
   } = data;
 
   const speakers = [
     {
-      firstName: 'Joshua',
-      lastName: 'Davis',
-      organization: 'Joshua Davis Studios',
-      detailPageUrl: '/programmation/26-years-of-random/',
-      picture: speakerJoshuaDavis,
+      firstName: 'Eleni',
+      lastName: 'Beveratou',
+      organization: 'Dalton Maag',
+      detailPageUrl: '/programmation/conference-deleni-beveratou/',
+      picture: speakerEleniBeveratou,
     },
     {
-      firstName: 'Freddie Öst &',
-      lastName: 'Erik Kockum',
-      organization: 'SNASK',
-      detailPageUrl: '/programmation/change-is-fuking-inevitable/',
-      picture: speakerSnask,
-    },
-    {
-      firstName: 'Greg',
-      lastName: 'Gifford',
-      organization: 'Search Lab Digital',
+      firstName: 'Fred',
+      lastName: 'Hebert',
+      organization: 'Honeycomb.io',
       detailPageUrl:
-        '/programmation/a-tactical-guide-to-superhero-level-local-seo/',
-      picture: speakerGregGifford,
+        '/programmation/ca-sen-va-tout-chez-le-diable-anyway-on-peut-juste-influencer-combien-de-temps-ca-va-prendre/',
+      picture: speakerFredHebert,
     },
     {
-      firstName: 'Farai',
-      lastName: 'Madzima',
-      organization: 'Shopify',
+      firstName: 'Louis-Philippe',
+      lastName: 'Mathieu',
+      organization: 'Cossette',
       detailPageUrl:
-        '/programmation/the-only-one-of-your-kind-in-the-room-perils-and-opportunities/',
-      picture: speakerFaraiMadzima,
+        '/programmation/preparez-votre-organisation-a-ladoption-de-projets-dia/',
+      picture: speakerLouisPhilippeMathieu,
     },
     {
-      firstName: 'Marie-Pier',
-      lastName: 'St-Hilaire',
-      organization: 'Edgenda/AFI',
+      firstName: 'Jay',
+      lastName: 'Grandmont',
+      organization: '',
       detailPageUrl:
-        '/programmation/competences-transversales-a-lere-numerique-es-tu-strategique/',
-      picture: speakerMariePierStHilaire,
+        '/programmation/le-contenu-authentique-grace-au-branding-personnel/',
+      picture: speakerJayGrandmont,
     },
     {
-      firstName: 'Sasha',
-      lastName: 'Luccioni',
-      organization: 'Hugging Face',
+      firstName: 'Zoé',
+      lastName: 'Raymond',
+      organization: 'Hydro-Québec',
+      detailPageUrl: '/programmation/sauver-la-planete-un-contenu-a-la-fois-/',
+      picture: speakerZoeRaymond,
+    },
+    {
+      firstName: 'Charlotte',
+      lastName: 'Rudelle',
+      organization: 'Moment Factory',
       detailPageUrl:
-        '/programmation/generative-ai-the-good-the-bad-and-the-bias/',
-      picture: speakerSashaLuccioni,
+        '/programmation/au-cur-de-la-creation-le-role-des-concept-artists-chez-moment-factory/',
+      picture: speakerCharlotteRudelle,
     },
   ];
 
@@ -146,7 +148,7 @@ const KeynoteSection = () => {
         <KeynoteCard speaker={speakers[5]} big mobileRotationAngle={5} />
       </CardsWrapper>
 
-      <Button tag='link' to='/programmation/2023'>
+      <Button tag='link' to='/programmation/2024'>
         voir la programmation
       </Button>
     </Center>

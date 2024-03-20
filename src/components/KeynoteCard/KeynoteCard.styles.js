@@ -46,7 +46,7 @@ export const Wrapper = styled(Link)`
     background-color: ${colors.blueberry};
   }
 
-  ${greaterThan(1024)} {
+  ${greaterThan(1248)} {
     :not(:hover, :focus) {
       transform: rotate(0) !important;
     }
