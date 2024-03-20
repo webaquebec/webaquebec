@@ -82,7 +82,7 @@ const ScheduleCard = ({
           {categories.length > 0 && (
             <Cluster>
               <div>
-                {categories.sort().map((category) => (
+                {categories.map((category) => (
                   <Tag key={category} category={category} />
                 ))}
               </div>

@@ -83,7 +83,8 @@ const Program = ({
       ...planning,
       categories: planning.categories
         .map((category) => category.value)
-        .filter((category) => categoriesMap[category]),
+        .filter((category) => categoriesMap[category])
+        .sort(),
       type: slugify(planning.type),
       time: {
         beginsAt: getFormattedTime(planning.beginsAt),
