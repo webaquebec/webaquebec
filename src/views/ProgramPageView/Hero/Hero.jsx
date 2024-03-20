@@ -1,5 +1,4 @@
 // vendors
-// import { useInView } from 'react-intersection-observer';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -8,7 +7,6 @@ import { graphql, useStaticQuery, navigate } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 
 // components
-// import { hideVisually } from 'polished';
 import Button from '../../../components/Button';
 import DropDown from '../../../components/Dropdown';
 import Center from '../../../components/LayoutSections/Center';
@@ -16,13 +14,6 @@ import Center from '../../../components/LayoutSections/Center';
 // utils
 import { lessThanCondition, lessThan } from '../../../utils/mediaQuery';
 import breakpointsRange from '../../../utils/breakpointsRange';
-
-// contexts
-// import { useModal } from '../../../contexts/ModalContext';
-// import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
-
-// hooks
-// import useHasMounted from '../../../hooks/useHasMounted';
 
 // styles
 import { h1AltStyle } from '../../../styles/global';
@@ -34,7 +25,6 @@ import {
   DateList,
   DateListItem,
   dateTabStyle,
-  // dateTabTypoStyle,
 } from './Hero.styles';
 
 const PageTitle = styled.h1`
@@ -65,18 +55,7 @@ const TextureWrapper = styled.div`
 `;
 
 const Hero = ({ location, datePaths }) => {
-  // const [ref, inView] = useInView();
-
-  // const { getTotalAppliedFilters } = useProgramFilters();
-
-  // const isVisible = inView;
-
-  // < 1060
-  // const tablet = useMedia(lessThanCondition(selfBreakpoints[3]));
-  // < 832
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
-
-  // const { open: openModal } = useModal();
 
   const handleClick = (path) => {
     navigate(path, {
@@ -90,11 +69,7 @@ const Hero = ({ location, datePaths }) => {
 
   const current = datePaths.find((item) => item.path === location.pathname);
 
-  // const totalAppliedFilters = getTotalAppliedFilters();
-
   const totalDates = datePaths.length;
-
-  // const minWidth = totalDates > 3 ? '736px' : '632px';
 
   const data = useStaticQuery(
     graphql`
@@ -113,7 +88,6 @@ const Hero = ({ location, datePaths }) => {
   return (
     <>
       <Center
-        // ref={ref}
         maxWidth='var(--max-container-width)'
         gutters='var(--container-gutter)'
         intrinsic
@@ -164,35 +138,6 @@ const Hero = ({ location, datePaths }) => {
                     </Button>
                   ))}
               </DropDown>
-
-              {/* <div
-                css={`
-                  flex-grow: 1;
-                  flex-basis: 25%;
-
-                  z-index: 1;
-
-                  > * {
-                    width: 100%;
-                  }
-                `}
-              >
-                <Button
-                  outlined
-                  medium
-                  onClick={openModal}
-                  css={`
-                    ${dateTabStyle}
-                    ${dateTabTypoStyle}
-                  `}
-                >
-                  <span>Filtres</span>
-
-                  {totalAppliedFilters > 0 && (
-                    <span>{`(${totalAppliedFilters})`}</span>
-                  )}
-                </Button>
-              </div> */}
             </div>
           ) : (
             <DateList $shrunk={totalDates <= 3}>

@@ -13,7 +13,6 @@ import {
   BlocksWrapper,
   ContentContainer,
   TicketTitle,
-  // TicketBadge,
   TicketPrice,
   TicketText,
   buttonStyle,
@@ -27,7 +26,6 @@ const Prices = () => {
   useEffect(() => {
     const currentDate = new Date().getTime();
     const targetDate = new Date('2024-03-21').setHours(24, 0, 0, 0); // set for midnight
-
     const isAfter = currentDate > targetDate;
     setIsRegularPrice(isAfter);
   }, []);
