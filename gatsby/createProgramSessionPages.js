@@ -227,7 +227,7 @@ const createProgram = async ({
 module.exports = async ({ graphql, actions, reporter }) => {
   const variables = {
     eventIds: {
-      2023: `${process.env.SWAPCARD_EVENT_ID}`,
+      2023: `${process.env.SWAPCARD_EVENT_ID_2023}`,
       2022: `${process.env.SWAPCARD_EVENT_ID_2022}`,
       2021: `${process.env.SWAPCARD_EVENT_ID_2021}`,
     },
