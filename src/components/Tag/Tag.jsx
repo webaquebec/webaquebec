@@ -117,6 +117,7 @@ Tag.propTypes = {
     'innovation',
     'communication-and-marketing',
     'communication-et-marketing',
+    'competences-transversales',
   ]),
   /**
    * Specifies which data to show if the tag is a speaker one
