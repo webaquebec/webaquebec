@@ -9,7 +9,7 @@ import PartnersGrids from '../components/PartnersGrids';
 // views
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
-// import KeynoteSection from '../views/HomePageView/KeynoteSection';
+import KeynoteSection from '../views/HomePageView/KeynoteSection';
 import CTASection from '../views/HomePageView/CTASection/CTASection';
 
 const IndexPage = () => (
@@ -25,7 +25,7 @@ const IndexPage = () => (
 
     <CTASection />
 
-    {/* <KeynoteSection /> */}
+    <KeynoteSection />
 
     <PartnersGrids titled />
   </>

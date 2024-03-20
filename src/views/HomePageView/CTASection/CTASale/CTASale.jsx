@@ -16,13 +16,14 @@ const CTASale = () => (
         <CTATitle>Réserve ta place</CTATitle>
 
         <CTAIntro>
-          Ne manque pas la prévente des billets pour la prochaine édition du WAQ
-          et inscris-toi sur la liste d’attente. Tu seras avisé dès que les
-          billets seront disponibles!
+          Ne manque pas la vente des billets pour la prochaine édition du WAQ.
+          Viens assister à des conférences et des 5 à 7 incroyables! En plus de
+          profiter des nouveautés qui seront annoncées dans les prochaines
+          semaines.
         </CTAIntro>
 
         <Button to='/billetterie' tag='link' animated>
-          Réserve maintenant
+          Achète ton billet
         </Button>
       </div>
       <div>

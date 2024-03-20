@@ -133,6 +133,7 @@ export const DropdownMenu = styled.section`
 `;
 
 export const LinkButton = styled(Button)`
+  justify-content: flex-start;
   width: 100%;
 
   border: 0;
