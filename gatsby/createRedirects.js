@@ -11,7 +11,7 @@ module.exports = async ({ actions, reporter }) => {
     },
     {
       fromPath: '/programmation',
-      toPath: '/programmation/2023',
+      toPath: '/programmation/2024',
       isPermanent: false,
     },
     {
