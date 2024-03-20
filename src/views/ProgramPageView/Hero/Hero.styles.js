@@ -162,11 +162,6 @@ export const dateTabStyle = css`
 
       will-change: background-color;
     }
-
-    /* &&.active,
-    &&:focus {
-      color: ${colors.blueberry90};
-    } */
   }
 `;
 
