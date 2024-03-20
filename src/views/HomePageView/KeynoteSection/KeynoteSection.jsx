@@ -148,7 +148,7 @@ const KeynoteSection = () => {
         <KeynoteCard speaker={speakers[5]} big mobileRotationAngle={5} />
       </CardsWrapper>
 
-      <Button tag='link' to='/programmation/2023'>
+      <Button tag='link' to='/programmation/2024'>
         voir la programmation
       </Button>
     </Center>
