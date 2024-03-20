@@ -110,7 +110,7 @@ const Program = ({
   );
 
   const sortSessionsByPlace = useCallback(
-    (sessions) => sessions.sort((a, b) => a.place >= b.place),
+    (sessions) => sessions.sort((a, b) => (a.place <= b.place ? -1 : 1)),
     []
   );
 
