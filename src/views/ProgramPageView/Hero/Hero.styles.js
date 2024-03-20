@@ -32,8 +32,8 @@ export const HeaderContent = styled(Center)`
 
   background: linear-gradient(
       to bottom,
-      ${colors.pineapple} 0,
-      ${colors.pineapple} 80%,
+      var(--page-bg-color) 0,
+      var(--page-bg-color) 80%,
       transparent
     )
     100%;

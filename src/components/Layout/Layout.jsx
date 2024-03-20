@@ -13,6 +13,21 @@ import Footer from '../Footer';
 import Header from '../Header';
 import PageBackground from '../PageBackground/PageBackground';
 
+// styles
+import colors from '../../styles/colors';
+
+const optionsByLocation = {
+  home: 'kiwi',
+  programmation: 'pineapple',
+  blogue: 'watermelon',
+  faq: 'plum',
+  billetterie: 'kiwi',
+  partenaires: 'pineapple',
+  'a-propos': 'plum',
+  waqademie: 'watermelon',
+  404: 'watermelon',
+};
+
 /**
  * The common Layout shared across all pages
  *
@@ -25,6 +40,15 @@ const Layout = ({ children, location }) => {
       ? location.pathname
       : location.pathname.split('/').filter((current) => current)[0];
 
+  const getOptionsByLocation = () => {
+    if (pathname === undefined || pathname === '/')
+      return optionsByLocation.home;
+
+    return optionsByLocation[pathname];
+  };
+
+  const current = getOptionsByLocation() || optionsByLocation.home;
+
   return (
     <>
       <GlobalStyle />
@@ -33,7 +57,13 @@ const Layout = ({ children, location }) => {
 
       <Header pathname={pathname} />
 
-      <main>{children}</main>
+      <main
+        css={`
+          --page-bg-color: ${colors[current]};
+        `}
+      >
+        {children}
+      </main>
 
       <Footer />
     </>
