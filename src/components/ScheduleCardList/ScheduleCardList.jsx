@@ -2,9 +2,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import { useMedia } from 'react-use';
 
 // utils
-import { greaterThan, lessThan } from '../../utils/mediaQuery';
+import {
+  greaterThan,
+  lessThan,
+  lessThanCondition,
+} from '../../utils/mediaQuery';
 import breakpointsRange from '../../utils/breakpointsRange';
 
 // components
@@ -19,14 +24,14 @@ const List = styled.ul`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  gap: 0 16px;
+  gap: 12px;
 
   margin: 0;
   padding: 0;
 
   list-style: none;
 
-  ${greaterThan(1024)} {
+  ${greaterThan(1248)} {
     flex-flow: row nowrap;
   }
 
@@ -34,41 +39,13 @@ const List = styled.ul`
     flex: 1 1 0;
     height: 100%;
 
-    ${lessThan(1024)} {
+    ${lessThan(1248)} {
       a {
-        border-bottom-width: 0;
-      }
-
-      &:first-child a {
-        border-radius: 16px 16px 0 0;
-      }
-
-      &:last-child a {
-        border-bottom-width: 2px;
-        border-radius: 0 0 16px 16px;
-      }
-
-      &:first-child:last-child a {
-        border-bottom-width: 2px;
         border-radius: 16px;
       }
     }
   }
 `;
-
-// const borderTopRadiusStyle = css`
-//   > * {
-//     border-top-left-radius: 20px;
-//     border-top-right-radius: 20px;
-//   }
-// `;
-
-// const borderBottomRadiusStyle = css`
-//   > * {
-//     border-bottom-right-radius: 20px;
-//     border-bottom-left-radius: 20px;
-//   }
-// `;
 
 const Row = styled.div`
   display: flex;
@@ -109,10 +86,11 @@ export const placeStyle = css`
 `;
 
 const ScheduleCardList = ({ children, time, groupedUp, groupedDown }) => {
+  const mobile = useMedia(lessThanCondition(1248));
   const nodes = React.Children.toArray(children);
 
   return (
-    <div css={{ marginTop: groupedUp ? '0' : '36px' }}>
+    <div css={{ marginTop: groupedUp && !mobile ? '0' : '44px' }}>
       <Row>
         <div css={timeStyle}>{time}</div>
         <List>

@@ -1,6 +1,7 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useMedia } from 'react-use';
 import colors from '../../../styles/colors';
 import Stack from '../../LayoutSections/Stack/Stack';
 
@@ -17,6 +18,7 @@ import {
   placeStyle,
   timeTag,
 } from './ScheduleCard.styles';
+import { lessThanCondition } from '../../../utils/mediaQuery';
 
 /**
  *
@@ -36,6 +38,8 @@ const ScheduleCard = ({
   groupedDown,
   ...rest
 }) => {
+  const mobile = useMedia(lessThanCondition(1248));
+
   const categoryColors = {
     design: colors.plum,
     developpement: colors.kiwi,
@@ -56,11 +60,9 @@ const ScheduleCard = ({
       {...rest}
     >
       <Stack space='16px'>
-        {place && !groupedUp && (
-          <div>
-            <div css={placeStyle} className='card-place'>
-              {place}
-            </div>
+        {place && (!groupedUp || mobile) && (
+          <div css={placeStyle} className='card-place'>
+            {place}
           </div>
         )}
 

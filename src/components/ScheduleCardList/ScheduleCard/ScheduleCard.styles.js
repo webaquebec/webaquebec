@@ -38,7 +38,7 @@ export const placeStyle = css`
 export const timeTag = css`
   display: none;
 
-  ${lessThan(1384)} {
+  ${lessThan(1248)} {
     display: block;
 
     width: max-content;
@@ -137,7 +137,7 @@ export const StyledScheduleCard = styled(Link)`
     breakpoints.spacings
   )};
 
-  ${greaterThan(1024)} {
+  ${greaterThan(1248)} {
     border-radius: 16px;
     ${({ $groupedUp }) =>
       $groupedUp && 'border-radius: 0 0 16px 16px;\nborder-top: 0;'}
@@ -155,7 +155,7 @@ export const StyledScheduleCard = styled(Link)`
 
     background-color: var(--accentColor);
 
-    ${greaterThan(1024)} {
+    ${greaterThan(1248)} {
       border-radius: 16px;
       ${({ $groupedUp }) =>
         $groupedUp && 'border-radius: 0 0 16px 16px;\nborder-top: 0;'}
