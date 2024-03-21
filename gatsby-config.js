@@ -10,7 +10,7 @@ module.exports = {
     description:
       'Le plus grand événement numérique francophone en Amérique du Nord.',
     siteUrl: 'https://webaquebec.org',
-    image: '/og-img-waq-24.png',
+    image: '/og-img-waq-24.jpg',
   },
   plugins: [
     {
@@ -70,31 +70,6 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/archives/`,
-      },
-    },
-    {
-      /**
-       * A Gatsby plugin to handle cdn, base64 and self hosted webfonts
-       * see https://www.gatsbyjs.com/plugins/gatsby-plugin-webfonts/?=gatsby-plugin-webfonts
-       */
-      resolve: `gatsby-plugin-webfonts`,
-      options: {
-        fonts: {
-          google: [
-            {
-              family: 'DM Sans',
-              variants: ['400', '500', '700'],
-              fontDisplay: 'swap',
-              strategy: 'selfHosted', // 'base64' || 'cdn'
-            },
-            {
-              family: 'Press Start 2P',
-              variants: ['400'],
-              fontDisplay: 'swap',
-              strategy: 'selfHosted', // 'base64' || 'cdn'
-            },
-          ],
-        },
       },
     },
     {
