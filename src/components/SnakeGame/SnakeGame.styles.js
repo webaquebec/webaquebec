@@ -451,6 +451,7 @@ export const PlayInstructions = styled.div`
 `;
 
 export const GameOver = styled.div`
+  color: ${colors.peach};
   font-weight: ${fontWeights.regular};
   font-size: 1.4rem;
   font-family: ${fontFamilies.pressStart2P};

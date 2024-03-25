@@ -79,7 +79,7 @@ const SplashScreen = ({ onExit, ...rest }) => {
         </MenuList>
       )}
 
-      <Copyright>&copy; 2023 WAQ</Copyright>
+      <Copyright>&copy; 2024 WAQ</Copyright>
     </Center>
   );
 };
