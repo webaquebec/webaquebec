@@ -21,7 +21,9 @@ const SpeakersGraphics = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        speaker1Picture: file(relativePath: { eq: "imgSpeaker1-600x400.jpg" }) {
+        speaker1Picture: file(
+          relativePath: { eq: "img-speaker1-600x400.jpg" }
+        ) {
           childImageSharp {
             fluid(
               quality: 100
@@ -32,7 +34,9 @@ const SpeakersGraphics = () => {
             }
           }
         }
-        speaker2Picture: file(relativePath: { eq: "imgSpeaker2-600x400.jpg" }) {
+        speaker2Picture: file(
+          relativePath: { eq: "img-speaker2-600x400.jpg" }
+        ) {
           childImageSharp {
             fluid(
               quality: 100
@@ -43,7 +47,9 @@ const SpeakersGraphics = () => {
             }
           }
         }
-        speaker3Picture: file(relativePath: { eq: "imgSpeaker3-600x400.jpg" }) {
+        speaker3Picture: file(
+          relativePath: { eq: "img-speaker3-600x400.jpg" }
+        ) {
           childImageSharp {
             fluid(
               quality: 100
