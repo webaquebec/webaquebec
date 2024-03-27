@@ -11,22 +11,23 @@ import Switcher from '../LayoutSections/Switcher';
 // images
 import logoCossette from '../../images/logoPartners/logo-cossette.svg';
 import logoAxeptio from '../../images/logoPartners/expert/logo-axeptio.svg';
-import logoMambomambo from '../../images/logoPartners/community/logo-mambomambo.svg';
+import logoUbisoft from '../../images/logoPartners/creative/logo-ubisoft.png';
+import logoVooban from '../../images/logoPartners/creative/logo-vooban.svg';
+import logoFernandez from '../../images/logoPartners/creative/logo-fernandez-rp.svg';
+import logoDeMarque from '../../images/logoPartners/creative/logo-demarque.svg';
+import logoThirdbridge from '../../images/logoPartners/creative/logo-thirdbridge.svg';
+import logoPetal from '../../images/logoPartners/creative/logo-petal.svg';
+import logoRadioCanada from '../../images/logoPartners/creative/logo-radio-canada.svg';
+import logoCiao from '../../images/logoPartners/festive/logo-ciao.png';
+import logoMambomambo from '../../images/logoPartners/community/logo-mambo-mambo.svg';
+import logoNooe from '../../images/logoPartners/community/logo-nooe.png';
 import logoBeneva from '../../images/logoPartners/community/logo-beneva.svg';
 import logoMirego from '../../images/logoPartners/community/logo-mirego.svg';
-import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
-import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
-import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
-import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg';
-import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
-import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
-import logoNooe from '../../images/logoPartners/community/logo-nooe.png';
 import logoPangram from '../../images/logoPartners/community/logo-pangram-pangram.svg';
-import logoBarberie from '../../images/logoPartners/associates/logo-barberie.png';
-import logoCiao from '../../images/logoPartners/associates/logo-ciao.png';
-import logoBobba from '../../images/logoPartners/associates/logo-bobba.svg';
-import logoEvive from '../../images/logoPartners/associates/logo-evive.png';
-import logoNovicom from '../../images/logoPartners/associates/logo-novicom.svg';
+import logoBarberie from '../../images/logoPartners/provider/logo-barberie.png';
+import logoBobba from '../../images/logoPartners/provider/logo-bobba.svg';
+import logoNovicom from '../../images/logoPartners/provider/logo-novicom.svg';
+import logoFouGin from '../../images/logoPartners/provider/logo-fou-gin.svg';
 
 // styles
 import {
@@ -67,6 +68,7 @@ const creativePartners = [
     src: logoThirdbridge,
     alt: 'Thirdbridge',
     url: 'https://www.thirdbridge.ca',
+    bigger: true,
   },
   {
     src: logoFernandez,
@@ -82,6 +84,12 @@ const creativePartners = [
     src: logoVooban,
     alt: 'Vooban',
     url: 'https://vooban.com',
+  },
+  {
+    src: logoRadioCanada,
+    alt: 'Radio-Canada',
+    url: 'https://ici.radio-canada.ca/',
+    bigger: true,
   },
 ];
 
@@ -128,11 +136,6 @@ const providerPartners = [
     url: 'https://www.labarberie.com',
   },
   {
-    src: logoEvive,
-    alt: 'Evive',
-    url: 'https://evivenutrition.ca',
-  },
-  {
     src: logoNovicom,
     alt: 'Novicom - Groupe CLR',
     url: 'https://www.groupeclr.com/novicom',
@@ -142,27 +145,32 @@ const providerPartners = [
     alt: 'Bobba',
     url: 'https://bobbadrink.com',
   },
+  {
+    src: logoFouGin,
+    alt: 'Fou Gin',
+    url: 'https://fougin.ca/',
+  },
 ];
 
 const partners = [
   {
-    title: 'partenaires experts',
+    title: 'experts',
     images: expertPartners,
   },
   {
-    title: 'partenaires créatifs',
+    title: 'créatifs',
     images: creativePartners,
   },
   {
-    title: 'partenaires festifs',
+    title: 'festifs',
     images: festivePartners,
   },
   {
-    title: 'partenaires communauté',
+    title: 'communauté',
     images: communityPartners,
   },
   {
-    title: 'partenaires fournisseurs',
+    title: 'fournisseurs',
     images: providerPartners,
   },
 ];
@@ -224,7 +232,7 @@ const PartnersGrids = ({ hasDetails }) => (
         intrinsic
         withText
       >
-        <Title>{partner.title}</Title>
+        <Title>partenaires {partner.title}</Title>
 
         <Grid>
           {partner.images.map((image) => (
