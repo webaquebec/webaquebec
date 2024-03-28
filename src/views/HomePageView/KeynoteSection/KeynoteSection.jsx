@@ -137,7 +137,7 @@ const KeynoteSection = () => {
       gutters='16px'
       intrinsic
     >
-      <Title>conférences vedettes</Title>
+      <Title>quelques conférences</Title>
 
       <CardsWrapper>
         <KeynoteCard speaker={speakers[0]} mobileRotationAngle={-5} />

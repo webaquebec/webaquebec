@@ -70,9 +70,11 @@ export const bigStyle = css`
 export const SpeakerPicture = styled(Img)`
   position: relative;
 
+  width: 100%;
+
   ${breakpointsRange(
     [
-      { prop: 'width', sizes: [216, 320], bases: [16, 20] },
+      { prop: 'minWidth', sizes: [216, 320], bases: [16, 20] },
       { prop: 'height', sizes: [216, 320], bases: [16, 20] },
     ],
     breakpoints.spacings
