@@ -154,23 +154,23 @@ const providerPartners = [
 
 const partners = [
   {
-    title: 'experts',
+    category: 'experts',
     images: expertPartners,
   },
   {
-    title: 'créatifs',
+    category: 'créatifs',
     images: creativePartners,
   },
   {
-    title: 'festifs',
+    category: 'festifs',
     images: festivePartners,
   },
   {
-    title: 'communauté',
+    category: 'communauté',
     images: communityPartners,
   },
   {
-    title: 'fournisseurs',
+    category: 'fournisseurs',
     images: providerPartners,
   },
 ];
@@ -225,14 +225,14 @@ const PartnersGrids = ({ hasDetails }) => (
 
     {partners.map((partner) => (
       <Center
-        key={`partner-${partner.title}`}
+        key={`partners-${partner.category}`}
         as='section'
         maxWidth='900px'
         gutters='var(--container-gutter)'
         intrinsic
         withText
       >
-        <Title>partenaires {partner.title}</Title>
+        <Title>partenaires {partner.category}</Title>
 
         <Grid>
           {partner.images.map((image) => (
