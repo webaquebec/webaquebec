@@ -64,7 +64,7 @@ const swing = keyframes`
   100% { transform: rotate(-3deg); }
 `;
 
-const FishWrapper1 = styled.span`
+const FishWrapperTop = styled.span`
   display: none;
 
   animation: ${swing} ease-in-out 1s infinite alternate;
@@ -82,7 +82,7 @@ const FishWrapper1 = styled.span`
   }
 `;
 
-const FishWrapper2 = styled.span`
+const FishWrapperBottom = styled.span`
   animation: ${swing} ease-in-out 1s infinite alternate;
 
   ${breakpointsRange(
@@ -160,9 +160,9 @@ const NotFoundPage = () => {
       <NotFound src={notFound} alt='404' />
 
       {!isAprilFirst && (
-        <FishWrapper1>
+        <FishWrapperTop>
           <img src={imgFish} alt='' role='presentation' />
-        </FishWrapper1>
+        </FishWrapperTop>
       )}
 
       <Info>Oups!</Info>
@@ -170,9 +170,9 @@ const NotFoundPage = () => {
 
       {/* @TODO: À changer pour le contraire une fois approuvé */}
       {!isAprilFirst && (
-        <FishWrapper2>
+        <FishWrapperBottom>
           <img src={imgFish} alt='' role='presentation' />
-        </FishWrapper2>
+        </FishWrapperBottom>
       )}
 
       <CTAButton to='/' tag='link'>

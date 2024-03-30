@@ -9,7 +9,7 @@ import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
 
-export const ActivityWrapper = styled.div`
+export const ActivityWrapper = styled.section`
   ${breakpointsRange(
     [
       { prop: 'paddingTop', sizes: [100, 64], bases: [16, 20] },
@@ -24,10 +24,7 @@ export const activityImage = css`
   border-radius: 16px;
 `;
 
-export const ActivityIntro = styled.h3`
-  margin-top: 12px;
-  margin-bottom: 0;
-
+export const ActivityIntro = styled.p`
   color: ${colors.blueberry10};
   font-weight: ${fontWeights.bold};
 

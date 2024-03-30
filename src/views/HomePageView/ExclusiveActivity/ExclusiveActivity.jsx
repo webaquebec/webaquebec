@@ -1,6 +1,7 @@
 // vendors
 import React from 'react';
 import GatsbyImage from 'gatsby-image';
+import { hideVisually } from 'polished';
 
 // utils
 import { graphql, useStaticQuery } from 'gatsby';
@@ -46,6 +47,7 @@ const ExclusiveActivity = () => {
 
   return (
     <ActivityWrapper id='activite'>
+      <h2 css={hideVisually}>Activité exclusive</h2>
       <Center maxWidth='850px' gutters='12px' withText>
         <GatsbyImage
           css={activityImage}
