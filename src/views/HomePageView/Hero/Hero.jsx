@@ -82,7 +82,7 @@ const Hero = () => {
           <p
             css={`
               ${breakpointsRange(
-                [{ prop: 'fontSize', sizes: [17, 20], bases: [16, 20] }],
+                [{ prop: 'fontSize', sizes: [18, 24], bases: [16, 20] }],
                 breakpoints.spacings
               )};
             `}
@@ -94,7 +94,7 @@ const Hero = () => {
               css={`
                 ${linkStyle};
 
-                font-weight: ${fontWeights.semiBold};
+                font-weight: ${fontWeights.bold};
               `}
             >
               Au Terminal — Port de Québec
