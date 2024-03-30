@@ -1,5 +1,5 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 
 // components
@@ -8,9 +8,11 @@ import Button from '../components/Button';
 
 // utils
 import breakpointsRange from '../utils/breakpointsRange';
+import { greaterThan } from '../utils/mediaQuery';
 
 // images
 import notFound from '../images/stickers/404.svg';
+import imgFish from '../images/img-fish.png';
 
 // styles
 import colors from '../styles/colors';
@@ -56,6 +58,49 @@ const NotFound = styled.img`
   )};
 `;
 
+const swing = keyframes`
+  0% { transform: rotate(3deg); }
+
+  100% { transform: rotate(-3deg); }
+`;
+
+const FishWrapper1 = styled.span`
+  display: none;
+
+  animation: ${swing} ease-in-out 1s infinite alternate;
+
+  ${greaterThan(1024)} {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+
+    display: block;
+  }
+
+  img {
+    transform: scale(-1, 1);
+  }
+`;
+
+const FishWrapper2 = styled.span`
+  animation: ${swing} ease-in-out 1s infinite alternate;
+
+  ${breakpointsRange(
+    [{ prop: 'width', sizes: [150, 250], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+
+  ${greaterThan(1024)} {
+    position: absolute;
+    top: 15%;
+    right: 15%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+`;
+
 const Info = styled.p`
   color: ${colors.blueberry};
   font-weight: ${fontWeights.ultrabold};
@@ -92,6 +137,17 @@ const NotFoundPage = () => {
     `
   );
 
+  const [isAprilFirst, setIsAprilFirst] = useState(false);
+
+  useEffect(() => {
+    const currentDate = new Date();
+    const targetDate = new Date(currentDate.getFullYear(), 3, 1);
+    setIsAprilFirst(
+      currentDate.getMonth() === targetDate.getMonth() &&
+        currentDate.getDate() === targetDate.getDate()
+    );
+  }, []);
+
   return (
     <Container>
       <TextureWrapper>
@@ -103,8 +159,21 @@ const NotFoundPage = () => {
       </TextureWrapper>
       <NotFound src={notFound} alt='404' />
 
+      {!isAprilFirst && (
+        <FishWrapper1>
+          <img src={imgFish} alt='' role='presentation' />
+        </FishWrapper1>
+      )}
+
       <Info>Oups!</Info>
       <Info>La page que vous recherchez semble introuvable.</Info>
+
+      {/* @TODO: À changer pour le contraire une fois approuvé */}
+      {!isAprilFirst && (
+        <FishWrapper2>
+          <img src={imgFish} alt='' role='presentation' />
+        </FishWrapper2>
+      )}
 
       <CTAButton to='/' tag='link'>
         retourner à l&apos;accueil
