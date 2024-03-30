@@ -159,7 +159,7 @@ const NotFoundPage = () => {
       </TextureWrapper>
       <NotFound src={notFound} alt='404' />
 
-      {!isAprilFirst && (
+      {isAprilFirst && (
         <FishWrapperTop>
           <img src={imgFish} alt='' role='presentation' />
         </FishWrapperTop>
@@ -168,8 +168,7 @@ const NotFoundPage = () => {
       <Info>Oups!</Info>
       <Info>La page que vous recherchez semble introuvable.</Info>
 
-      {/* @TODO: À changer pour le contraire une fois approuvé */}
-      {!isAprilFirst && (
+      {isAprilFirst && (
         <FishWrapperBottom>
           <img src={imgFish} alt='' role='presentation' />
         </FishWrapperBottom>

@@ -36,8 +36,7 @@ const IndexPage = () => {
 
       <StatsSection />
 
-      {/* @TODO: À changer pour le contraire une fois approuvé */}
-      {!isAprilFirst && <ExclusiveActivity />}
+      {isAprilFirst && <ExclusiveActivity />}
 
       <CTASection />
 
