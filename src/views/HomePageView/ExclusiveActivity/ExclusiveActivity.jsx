@@ -56,7 +56,7 @@ const ExclusiveActivity = () => {
         />
         <ActivityIntro>
           Le WAQ se dépasse cette année en t’offrant une activité exclusive. Les
-          places sont <strong>très limitées</strong>, donc n’attend pas pour
+          places sont <strong>très limitées</strong>, donc n’attends pas pour
           réserver!
         </ActivityIntro>
         <CTAWrapper>
