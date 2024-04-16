@@ -1,4 +1,4 @@
-export const getAuth0CurrentLanguage = (currentLanguage) => {
+export const getCurrentLanguage = (currentLanguage) => {
   if (currentLanguage.includes('fr')) {
     return 'fr-CA';
   }

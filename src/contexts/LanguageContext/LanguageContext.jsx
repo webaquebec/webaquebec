@@ -5,33 +5,33 @@ import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 
 // utils
-import { getAuth0CurrentLanguage } from '../../utils/language';
+import { getCurrentLanguage } from '../../utils/language';
 import './i18n';
 
 const LanguageContext = createContext({
   changeLanguage: () => {},
-  auth0CurrentLanguage: '',
+  currentLanguage: '',
   t: (key) => key,
 });
 
 const LanguageProvider = ({ children }) => {
   const { t, i18n: i18nInstance } = useTranslation();
-  const [auth0CurrentLanguage, setAuth0CurrentLanguage] = useState(
-    getAuth0CurrentLanguage(i18nInstance.language)
+  const [currentLanguage, setCurrentLanguage] = useState(
+    getCurrentLanguage(i18nInstance.language)
   );
 
   const changeLanguage = useMemo(
     () => (language) => {
       i18nInstance.changeLanguage(language);
       localStorage.setItem('language', language);
-      setAuth0CurrentLanguage(getAuth0CurrentLanguage(language));
+      setCurrentLanguage(getCurrentLanguage(language));
     },
     [i18nInstance]
   );
 
   const contextValue = useMemo(
-    () => ({ changeLanguage, t, auth0CurrentLanguage }),
-    [changeLanguage, t, auth0CurrentLanguage]
+    () => ({ changeLanguage, t, currentLanguage }),
+    [changeLanguage, t, currentLanguage]
   );
 
   useEffect(() => {
