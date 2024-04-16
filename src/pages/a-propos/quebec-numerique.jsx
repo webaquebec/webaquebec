@@ -45,7 +45,7 @@ const Container = styled(SectionContainer)`
 
 const AboutQuebecNumeriquePage = ({ data }) => {
   const intro =
-    'Synergie et partage sont l’essence de la mission de Québec numérique (QN). Plus qu’une simple organisation sans but lucratif, Québec numérique joue un rôle rassembleur auprès de l’ensemble des acteurs et actrices du numérique à Québec. Depuis 13 ans, Québec numérique s’engage à rassembler, innover, accompagner et former la communauté du numérique.';
+    'Synergie et partage sont l’essence de la mission de Québec numérique (QN). Plus qu’une simple organisation sans but lucratif, Québec numérique joue un rôle rassembleur auprès de l’ensemble des acteurs et actrices du numérique à Québec. Depuis 14 ans, Québec numérique s’engage à rassembler, innover, accompagner et former la communauté du numérique.';
 
   const images = {
     first: data?.QN01Picture?.childImageSharp?.fluid,
@@ -95,7 +95,7 @@ export const query = graphql`
         maxWidth: 621
         maxHeight: 465
         quality: 99
-        duotone: { highlight: "#EBEBEB", shadow: "#262626" }
+        duotone: { highlight: "#cccccc", shadow: "#080808" }
       ) {
         ...GatsbyImageSharpFluid_withWebp
       }

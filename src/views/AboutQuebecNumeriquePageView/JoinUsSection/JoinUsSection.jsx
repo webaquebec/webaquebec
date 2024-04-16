@@ -7,7 +7,7 @@ import Button from '../../../components/Button';
 import Switcher from '../../../components/LayoutSections/Switcher/Switcher';
 
 // images
-import logoQuebecNumerique from '../../../images/about/quebec-numerique/logo-quebecnumerique.svg';
+import logoQuebecNumerique from '../../../images/about/quebec-numerique/logo-quebecnumerique.png';
 
 // styles
 import {
