@@ -4,6 +4,4 @@
  * @returns entry space value or 0px
  *
  */
-export default (space) => {
-  return space === '0' ? '0px' : space;
-};
+export default (space) => (space === '0' ? '0px' : space);

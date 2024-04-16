@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // components
+import { useTranslation } from 'react-i18next';
 import SEO from '../components/SEO';
 import PartnersGrids from '../components/PartnersGrids';
 
@@ -15,6 +16,10 @@ import CTASection from '../views/HomePageView/CTASection/CTASection';
 
 const IndexPage = () => {
   const [isAprilFirst, setIsAprilFirst] = useState(false);
+
+  const { t } = useTranslation();
+
+  console.log(t('home.helloThere'));
 
   useEffect(() => {
     const currentDate = new Date();

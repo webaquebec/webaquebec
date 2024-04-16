@@ -15,6 +15,7 @@ import { ProgramFiltersProvider } from './src/contexts/ProgramFiltersContext';
 
 // components
 import Layout from './src/components/Layout/Layout';
+import LanguageProvider from './src/contexts/LanguageContext/LanguageContext';
 
 // Apply Layout component to every page and template
 export const wrapPageElement = ({ element, props }) => (
@@ -25,9 +26,11 @@ export const wrapPageElement = ({ element, props }) => (
 
 export const wrapRootElement = ({ element }) => (
   <GlobalProvider>
-    <ModalProvider>
-      <ProgramFiltersProvider>{element}</ProgramFiltersProvider>
-    </ModalProvider>
+    <LanguageProvider>
+      <ModalProvider>
+        <ProgramFiltersProvider>{element}</ProgramFiltersProvider>
+      </ModalProvider>
+    </LanguageProvider>
   </GlobalProvider>
 );
 
