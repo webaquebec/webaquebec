@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // import { Link } from 'gatsby';
 
 // components
+import { useTranslation } from 'react-i18next';
 import Center from '../LayoutSections/Center';
 import Logo from './Logo';
 import Menu from './Menu';
@@ -14,6 +15,7 @@ import {
   Container,
   LogoWrapper,
   MenuButtonWrapper,
+  LangSwitcher,
 } from './Header.styles';
 import BurgerButton from './BurgerButton';
 
@@ -106,7 +108,12 @@ const navigation = {
 };
 
 const Header = ({ pathname }) => {
+  const { i18n } = useTranslation();
+
   const [opened, setOpened] = useState(false);
+  const [otherLocale, setOtherLocale] = useState(
+    i18n.language === 'fr-CA' ? 'EN' : 'FR'
+  );
 
   const isHomePage = !!pathname && pathname === '/';
 
@@ -125,6 +132,16 @@ const Header = ({ pathname }) => {
     document.body.removeAttribute('style');
   };
 
+  const handleClickLangSwitcher = () => {
+    if (i18n.language === 'fr-CA') {
+      i18n.changeLanguage('en-CA');
+      setOtherLocale('FR');
+    } else {
+      i18n.changeLanguage('fr-CA');
+      setOtherLocale('EN');
+    }
+  };
+
   return (
     <StyledHeader opened={opened}>
       <Center
@@ -137,6 +154,9 @@ const Header = ({ pathname }) => {
           </LogoWrapper>
 
           <MenuButtonWrapper>
+            <LangSwitcher type='button' onClick={handleClickLangSwitcher}>
+              {otherLocale}
+            </LangSwitcher>
             <BurgerButton onClick={handleClick} opened={opened} />
           </MenuButtonWrapper>
         </Container>
