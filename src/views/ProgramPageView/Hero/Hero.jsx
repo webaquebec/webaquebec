@@ -8,6 +8,7 @@ import GatsbyImage from 'gatsby-image';
 
 // components
 import Button from '../../../components/Button';
+import ButtonWithPopover from '../../../components/ButtonWithPopover';
 import DropDown from '../../../components/Dropdown';
 import Center from '../../../components/LayoutSections/Center';
 
@@ -138,25 +139,40 @@ const Hero = ({ location, datePaths }) => {
                     </Button>
                   ))}
               </DropDown>
+              <ButtonWithPopover label='Filtres'>
+                <div>Allo!</div>
+              </ButtonWithPopover>
             </div>
           ) : (
-            <DateList $shrunk={totalDates <= 3}>
-              {datePaths.map((item) => (
-                <DateListItem key={item.date}>
-                  <Button
-                    className={
-                      item.path === location.pathname ? 'active' : undefined
-                    }
-                    outlined
-                    medium
-                    onClick={() => handleClick(item.path)}
-                    css={dateTabStyle}
-                  >
-                    <span>{item.date}</span>
-                  </Button>
-                </DateListItem>
-              ))}
-            </DateList>
+            <div
+              css={`
+                display: inline-flex;
+                width: 100%;
+
+                gap: 12px;
+              `}
+            >
+              <DateList $shrunk={totalDates <= 3}>
+                {datePaths.map((item) => (
+                  <DateListItem key={item.date}>
+                    <Button
+                      className={
+                        item.path === location.pathname ? 'active' : undefined
+                      }
+                      outlined
+                      medium
+                      onClick={() => handleClick(item.path)}
+                      css={dateTabStyle}
+                    >
+                      <span>{item.date}</span>
+                    </Button>
+                  </DateListItem>
+                ))}
+              </DateList>
+              <ButtonWithPopover label='Filtres'>
+                <div>Allo!</div>
+              </ButtonWithPopover>
+            </div>
           )}
         </HeaderContent>
       </Wrapper>
