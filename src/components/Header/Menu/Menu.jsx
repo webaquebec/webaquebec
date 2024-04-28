@@ -15,29 +15,27 @@ import Cluster from '../../LayoutSections/Cluster';
 import useHasMounted from '../../../hooks/useHasMounted';
 
 // images
-// import logoSVG from '../../../images/logo-waq-22.svg';
 import facebook from '../../../images/socialMedia/facebook.svg';
 import twitter from '../../../images/socialMedia/twitter.svg';
+import youtube from '../../../images/socialMedia/youtube.svg';
 import instagram from '../../../images/socialMedia/instagram.svg';
 import linkedin from '../../../images/socialMedia/linkedin.svg';
+import tiktok from '../../../images/socialMedia/tiktok.svg';
 
 // styles
 import colors from '../../../styles/colors';
 import {
-  // closeButtonStyle,
   containerStyle,
   navStyle,
   primaryNavListStyle,
   secondaryNavListStyle,
+  MenuWrapper,
   Container,
-  // Gradient,
   Top,
-  // LogoWrapper,
   ListItem,
   NavPrimaryLink,
   NavSecondaryLink,
-  // ButtonWrapper,
-  Blob,
+  SocialLink,
 } from './Menu.styles';
 
 const socialMedia = [
@@ -52,6 +50,11 @@ const socialMedia = [
     link: 'https://twitter.com/webaquebec',
   },
   {
+    name: 'Youtube',
+    img: youtube,
+    link: 'https://www.youtube.com/@waqwebaquebec/videos',
+  },
+  {
     name: 'Instagram',
     img: instagram,
     link: 'https://www.instagram.com/webaquebec/',
@@ -61,27 +64,24 @@ const socialMedia = [
     img: linkedin,
     link: 'https://www.linkedin.com/company/web-qu-bec',
   },
+  {
+    name: 'Tiktok',
+    img: tiktok,
+    link: 'https://www.tiktok.com/@webaquebec',
+  },
 ];
 
 const Menu = ({ pathname, opened, onClose, navigation }) => {
   const navLinkRefs = useRef([]);
-  const gradientRef = useRef(null);
-  const [gradient, setGradient] = useState({
-    isVisible: false,
+  const [backgroundColor, setBackgroundColor] = useState({
     hasChanged: false,
     defaultColor: '',
     color: '',
   });
 
-  // const [gradient, setGradient] = useState({
-  //   isVisible: false,
-  //   hasChanged: false,
-  //   color: '',
-  // });
-
   const hasMounted = useHasMounted();
 
-  // Set default gradient color based on active pathname
+  // Set default background color based on active pathname
   useEffect(() => {
     const navItems = [...navigation.primary, ...navigation.secondary];
     const navItem = navItems.find((current) => {
@@ -90,24 +90,23 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
     });
 
     if (hasMounted) {
-      setGradient((state) => ({
+      setBackgroundColor((state) => ({
         ...state,
-        isVisible: true,
-        defaultColor: navItem ? navItem.color : 'gris',
+        defaultColor: navItem ? navItem.color : 'kiwi',
+        color: navItem ? navItem.color : 'kiwi',
       }));
     }
   }, [hasMounted, pathname, navigation]);
 
   const handleMouseOver = (color) => (e) => {
-    setGradient((state) => ({
+    setBackgroundColor((state) => ({
       ...state,
-      isVisible: true,
       hasChanged: state.defaultColor !== color,
-      color: color || 'gris',
+      color,
     }));
 
     setTimeout(() => {
-      setGradient((state) => ({
+      setBackgroundColor((state) => ({
         ...state,
         hasChanged: false,
       }));
@@ -119,15 +118,14 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
   const handleMouseOut = (color) => (e) => {
     e.preventDefault();
 
-    setGradient((state) => ({
+    setBackgroundColor((state) => ({
       ...state,
-      isVisible: !!state.defaultColor,
       hasChanged: state.defaultColor !== color,
-      color: '',
+      color: state.defaultColor,
     }));
 
     setTimeout(() => {
-      setGradient((state) => ({
+      setBackgroundColor((state) => ({
         ...state,
         hasChanged: false,
       }));
@@ -141,164 +139,158 @@ const Menu = ({ pathname, opened, onClose, navigation }) => {
       lightColor={colors.white}
       darkColor={colors.bleu}
       $opened={opened}
-      css={containerStyle}
+      css={[
+        containerStyle,
+        `background-color: ${colors[backgroundColor.color]};`,
+      ]}
     >
-      {/* <Gradient
-        ref={gradientRef}
-        isActive={opened}
-        isVisible={gradient.isVisible}
-        restartAnimation={gradient.hasChanged}
-        color={gradient.color ? gradient.color : gradient.defaultColor}
-      /> */}
-      {/* <PixelGradient pathname='home' /> */}
+      <MenuWrapper
+        css={`
+          background-color: ${colors[backgroundColor.color]};
+        `}
+      >
+        <Center maxWidth='var(--max-container-width)'>
+          <Top />
 
-      <Blob
-        ref={gradientRef}
-        isActive={opened}
-        isVisible={gradient.isVisible}
-        restartAnimation={gradient.hasChanged}
-        color={gradient.color ? gradient.color : gradient.defaultColor}
-      />
-
-      <Center maxWidth='var(--max-container-width)'>
-        <Top>
-          {/* <LogoWrapper>
-            <img src={logoSVG} alt='' role='presentation' />
-          </LogoWrapper> */}
-
-          {/* <ButtonWrapper>
-            <CloseButton onClose={onClose} darked css={closeButtonStyle} />
-          </ButtonWrapper> */}
-        </Top>
-
-        <Grid as='nav' space='38px' minWidth='300px' collapsed css={navStyle}>
-          <Stack as='ul' css={primaryNavListStyle}>
-            {navigation.primary.map((item) => (
-              <ListItem key={item.id}>
-                {item.type === 'internal' ? (
-                  <NavPrimaryLink
-                    ref={(el) => {
-                      navLinkRefs.current[item.id] = el;
-                      return navLinkRefs.current[item.id];
-                    }}
-                    as={Link}
-                    to={item.slug}
-                    activeClassName='active'
-                    partiallyActive
-                    onClick={onClose}
-                    onMouseOver={handleMouseOver(item.color)}
-                    onMouseOut={handleMouseOut(item.color)}
-                    onFocus={handleMouseOver(item.color)}
-                    onBlur={handleMouseOut(item.color)}
-                  >
-                    {item.label}
-                  </NavPrimaryLink>
-                ) : (
-                  <NavPrimaryLink
-                    ref={(el) => {
-                      navLinkRefs.current[item.id] = el;
-                      return navLinkRefs.current[item.id];
-                    }}
-                    href={item.slug}
-                    activeClassName='active'
-                    partiallyActive
-                    onClick={onClose}
-                    onMouseOver={handleMouseOver(item.color)}
-                    onMouseOut={handleMouseOut(item.color)}
-                    onFocus={handleMouseOver(item.color)}
-                    onBlur={handleMouseOut(item.color)}
-                    rel='noopener noreferrer'
-                    target='_blank'
-                  >
-                    {item.label}
-                  </NavPrimaryLink>
-                )}
-              </ListItem>
-            ))}
-          </Stack>
-          <Stack as='ul' css={secondaryNavListStyle}>
-            {navigation.secondary.map((item) => (
-              <ListItem
-                key={item.id}
-                css={`
-                  --transition-additional-delay: 300ms;
-                  --translate-y: -20px;
-
-                  ${opened &&
-                  css`
-                    transition-delay: 0ms;
-                  `}
-                `}
-              >
-                {item.type === 'internal' ? (
-                  <NavSecondaryLink
-                    ref={(el) => {
-                      navLinkRefs.current[item.id] = el;
-                      return navLinkRefs.current[item.id];
-                    }}
-                    as={Link}
-                    to={item.slug}
-                    activeClassName='active'
-                    partiallyActive
-                    onClick={onClose}
-                    onMouseOver={handleMouseOver(item.color)}
-                    onMouseOut={handleMouseOut(item.color)}
-                    onFocus={handleMouseOver(item.color)}
-                    onBlur={handleMouseOut(item.color)}
-                  >
-                    {item.label}
-                  </NavSecondaryLink>
-                ) : (
-                  <NavSecondaryLink
-                    ref={(el) => {
-                      navLinkRefs.current[item.id] = el;
-                      return navLinkRefs.current[item.id];
-                    }}
-                    href={item.slug}
-                    activeClassName='active'
-                    partiallyActive
-                    onClick={onClose}
-                    onMouseOver={handleMouseOver(item.color)}
-                    onMouseOut={handleMouseOut(item.color)}
-                    onFocus={handleMouseOver(item.color)}
-                    onBlur={handleMouseOut(item.color)}
-                    rel='noopener noreferrer'
-                    target='_blank'
-                  >
-                    {item.label}
-                  </NavSecondaryLink>
-                )}
-              </ListItem>
-            ))}
-
-            <Cluster as='li' space='2rem'>
-              <ul>
-                {socialMedia.map((media) => (
-                  <ListItem
-                    key={`media-item-${media.name}`}
-                    css={`
-                      --transition-additional-delay: 300ms;
-
-                      ${opened &&
-                      css`
-                        transition-delay: 0ms;
+          <Grid
+            as='nav'
+            space='0 38px'
+            minWidth='300px'
+            collapsed
+            css={navStyle}
+          >
+            <Stack as='ul' css={primaryNavListStyle}>
+              {navigation.primary.map((item) => (
+                <ListItem key={item.id}>
+                  {item.type === 'internal' ? (
+                    <NavPrimaryLink
+                      ref={(el) => {
+                        navLinkRefs.current[item.id] = el;
+                        return navLinkRefs.current[item.id];
+                      }}
+                      as={Link}
+                      to={item.slug}
+                      activeClassName='active'
+                      partiallyActive
+                      data-text={item.label}
+                      css={`
+                        --sticker-color: ${colors[item.color]};
                       `}
-                    `}
-                  >
-                    <a
-                      href={media.link}
+                      onClick={onClose}
+                      onMouseOver={handleMouseOver(item.color)}
+                      onMouseOut={handleMouseOut(item.color)}
+                      onFocus={handleMouseOver(item.color)}
+                      onBlur={handleMouseOut(item.color)}
+                    >
+                      {item.label}
+                    </NavPrimaryLink>
+                  ) : (
+                    <NavPrimaryLink
+                      ref={(el) => {
+                        navLinkRefs.current[item.id] = el;
+                        return navLinkRefs.current[item.id];
+                      }}
+                      href={item.slug}
+                      activeClassName='active'
+                      partiallyActive
+                      onClick={onClose}
+                      onMouseOver={handleMouseOver(item.color)}
+                      onMouseOut={handleMouseOut(item.color)}
+                      onFocus={handleMouseOver(item.color)}
+                      onBlur={handleMouseOut(item.color)}
                       rel='noopener noreferrer'
                       target='_blank'
                     >
-                      <img src={media.img} alt={media.name} />
-                    </a>
-                  </ListItem>
-                ))}
-              </ul>
-            </Cluster>
-          </Stack>
-        </Grid>
-      </Center>
+                      {item.label}
+                    </NavPrimaryLink>
+                  )}
+                </ListItem>
+              ))}
+            </Stack>
+            <Stack as='ul' css={secondaryNavListStyle}>
+              {navigation.secondary.map((item) => (
+                <ListItem
+                  key={item.id}
+                  css={`
+                    --transition-additional-delay: 300ms;
+                    --translate-y: -20px;
+
+                    ${opened &&
+                    css`
+                      transition-delay: 0ms;
+                    `}
+                  `}
+                >
+                  {item.type === 'internal' ? (
+                    <NavSecondaryLink
+                      ref={(el) => {
+                        navLinkRefs.current[item.id] = el;
+                        return navLinkRefs.current[item.id];
+                      }}
+                      as={Link}
+                      to={item.slug}
+                      activeClassName='active'
+                      partiallyActive
+                      onClick={onClose}
+                      onMouseOver={handleMouseOver(item.color)}
+                      onMouseOut={handleMouseOut(item.color)}
+                      onFocus={handleMouseOver(item.color)}
+                      onBlur={handleMouseOut(item.color)}
+                    >
+                      {item.label}
+                    </NavSecondaryLink>
+                  ) : (
+                    <NavSecondaryLink
+                      ref={(el) => {
+                        navLinkRefs.current[item.id] = el;
+                        return navLinkRefs.current[item.id];
+                      }}
+                      href={item.slug}
+                      activeClassName='active'
+                      partiallyActive
+                      onClick={onClose}
+                      onMouseOver={handleMouseOver(item.color)}
+                      onMouseOut={handleMouseOut(item.color)}
+                      onFocus={handleMouseOver(item.color)}
+                      onBlur={handleMouseOut(item.color)}
+                      rel='noopener noreferrer'
+                      target='_blank'
+                    >
+                      {item.label}
+                    </NavSecondaryLink>
+                  )}
+                </ListItem>
+              ))}
+
+              <Cluster as='li' space='1.5rem'>
+                <ul>
+                  {socialMedia.map((media) => (
+                    <ListItem
+                      key={`media-item-${media.name}`}
+                      css={`
+                        --transition-additional-delay: 300ms;
+
+                        ${opened &&
+                        css`
+                          transition-delay: 0ms;
+                        `}
+                      `}
+                    >
+                      <SocialLink
+                        href={media.link}
+                        rel='noopener noreferrer'
+                        target='_blank'
+                      >
+                        <img src={media.img} alt={media.name} />
+                      </SocialLink>
+                    </ListItem>
+                  ))}
+                </ul>
+              </Cluster>
+            </Stack>
+          </Grid>
+        </Center>
+      </MenuWrapper>
     </Container>
   );
 };

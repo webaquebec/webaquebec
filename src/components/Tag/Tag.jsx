@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledTag, TagIcon, SpeakerInfo } from './Tag.styles';
+import {
+  StyledTag,
+  TagIcon,
+  SpeakerNameWrapper,
+  SpeakerName,
+  SpeakerCompany,
+} from './Tag.styles';
 
 // images
 import IconRoom from '../../images/tags/IconRoom';
@@ -14,36 +20,24 @@ import colors from '../../styles/colors';
 
 const categoryColors = {
   design: {
-    color: colors.mauve80,
-    bgColor: colors.mauve10,
+    color: colors.plum35,
+    bgColor: colors.plum90,
   },
   developpement: {
-    color: colors.ciel80,
-    bgColor: colors.ciel10,
+    color: colors.kiwi25,
+    bgColor: colors.kiwi80,
   },
   innovation: {
-    color: colors.turquoise90,
-    bgColor: colors.turquoise10,
+    color: colors.pineapple25,
+    bgColor: colors.pineapple80,
   },
   'communication-and-marketing': {
-    color: `hsl(${colors.jaune80hsl.hue} ${colors.jaune80hsl.saturation}% 24%)`,
-    bgColor: colors.jaune20,
+    color: colors.watermelon35,
+    bgColor: colors.watermelon90,
   },
   'communication-et-marketing': {
-    color: `hsl(${colors.jaune80hsl.hue} ${colors.jaune80hsl.saturation}% 24%)`,
-    bgColor: colors.jaune20,
-  },
-  'jeux-video': {
-    color: colors.rose100,
-    bgColor: colors.rose10,
-  },
-  'competences-transversales': {
-    color: colors.rose100,
-    bgColor: colors.rose10,
-  },
-  'communication-dans-ladministration-publique': {
-    color: colors.rose100,
-    bgColor: colors.rose10,
+    color: colors.watermelon35,
+    bgColor: colors.watermelon90,
   },
 };
 
@@ -81,18 +75,15 @@ const Tag = ({ category, speaker, eventType, place, outlined, children }) => {
       {tagType === 'category' && <span>{categoriesMap[category]}</span>}
       {tagType === 'speaker' && (
         <>
-          <img css={TagIcon} src={vectorSpeaker} alt='' role='presentation' />
-          <div>
-            <SpeakerInfo>
+          <SpeakerNameWrapper>
+            <img css={TagIcon} src={vectorSpeaker} alt='' role='presentation' />
+            <SpeakerName>
               {`${speaker.firstName} ${speaker.lastName}`}
-            </SpeakerInfo>
-
-            {speaker.jobTitle && <SpeakerInfo>{speaker.jobTitle}</SpeakerInfo>}
-
-            {speaker.organization && (
-              <SpeakerInfo> {speaker.organization}</SpeakerInfo>
-            )}
-          </div>
+            </SpeakerName>
+          </SpeakerNameWrapper>
+          {speaker.organization && (
+            <SpeakerCompany>{speaker.organization}</SpeakerCompany>
+          )}
         </>
       )}
       {tagType === 'eventType' && (
@@ -126,10 +117,7 @@ Tag.propTypes = {
     'innovation',
     'communication-and-marketing',
     'communication-et-marketing',
-    'pitch-ton-waq',
-    'jeux-video',
     'competences-transversales',
-    'communication-dans-ladministration-publique',
   ]),
   /**
    * Specifies which data to show if the tag is a speaker one

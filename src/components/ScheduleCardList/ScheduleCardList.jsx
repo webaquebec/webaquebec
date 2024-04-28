@@ -2,75 +2,124 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import { useMedia } from 'react-use';
 
-// Components
+// utils
+import {
+  greaterThan,
+  lessThan,
+  lessThanCondition,
+} from '../../utils/mediaQuery';
+import breakpointsRange from '../../utils/breakpointsRange';
+
+// components
 import ScheduleCard from './ScheduleCard';
+
+// styles
 import colors from '../../styles/colors';
+import breakpoints from '../../styles/breakpoints';
+import { fontWeights } from '../../styles/typography';
 
 const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 12px;
+
   margin: 0;
   padding: 0;
 
   list-style: none;
 
-  > * + * {
-    position: relative;
+  ${greaterThan(1248)} {
+    flex-flow: row nowrap;
+  }
 
-    ::before {
-      position: absolute;
-      top: -1px;
-      left: 0;
-      z-index: 1;
+  li {
+    flex: 1 1 0;
+    height: 100%;
 
-      width: 100%;
-      height: 2px;
-
-      background-color: ${colors.gris30};
-
-      content: '';
+    ${lessThan(1248)} {
+      a {
+        border-radius: 16px;
+      }
     }
   }
 `;
 
-const borderTopRadiusStyle = css`
-  > * {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+const Row = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0 16px;
+
+  ${greaterThan(768)} {
+    flex-flow: row nowrap;
   }
 `;
 
-const borderBottomRadiusStyle = css`
-  > * {
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-  }
+const timeStyle = css`
+  display: block;
+
+  flex-shrink: 0;
+
+  color: ${colors.blueberry};
+  font-weight: ${fontWeights.ultrabold};
+  text-align: center;
+
+  ${breakpointsRange(
+    [
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'padding', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'width', sizes: [80, 80], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
 `;
 
-const ScheduleCardList = ({ children }) => {
+export const placeStyle = css`
+  color: ${colors.blueberry40};
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [24, 24], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+const ScheduleCardList = ({ children, time, groupedUp, groupedDown }) => {
+  const mobile = useMedia(lessThanCondition(1248));
   const nodes = React.Children.toArray(children);
 
   return (
-    <List>
-      {nodes.map(({ key, props }, index) => (
-        <li key={`schedule-card-${key}`}>
-          <ScheduleCard
-            css={`
-              ${index === 0 ? borderTopRadiusStyle : undefined}
-
-              ${index === nodes.length - 1
-                ? borderBottomRadiusStyle
-                : undefined}
-            `}
-            {...props}
-          />
-        </li>
-      ))}
-    </List>
+    <div css={{ marginTop: groupedUp && !mobile ? '0' : '44px' }}>
+      <Row>
+        <div css={timeStyle}>{time}</div>
+        <List>
+          {nodes.map(({ key, props }) => (
+            <li key={`schedule-card-${key}`}>
+              <ScheduleCard
+                groupedUp={groupedUp}
+                groupedDown={groupedDown}
+                {...props}
+              />
+            </li>
+          ))}
+        </List>
+      </Row>
+    </div>
   );
 };
 
 ScheduleCardList.propTypes = {
   children: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  time: PropTypes.string,
+  groupedUp: PropTypes.bool,
+  groupedDown: PropTypes.bool,
+};
+
+ScheduleCardList.defaultProps = {
+  time: undefined,
+  groupedUp: false,
+  groupedDown: false,
 };
 
 export default ScheduleCardList;

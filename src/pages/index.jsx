@@ -1,55 +1,51 @@
 // vendors
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 // components
 import SEO from '../components/SEO';
-import StyledSectionContainer from '../components/SectionContainer';
 import PartnersGrids from '../components/PartnersGrids';
-
-// utils
-import breakpointsRange from '../utils/breakpointsRange';
 
 // views
 import Hero from '../views/HomePageView/Hero';
 import StatsSection from '../views/HomePageView/StatsSection';
-// import KeynoteSection from '../views/HomePageView/KeynoteSection';
+import ExclusiveActivity from '../views/HomePageView/ExclusiveActivity';
+import KeynoteSection from '../views/HomePageView/KeynoteSection';
 import CTASection from '../views/HomePageView/CTASection/CTASection';
 
-// styles
-import breakpoints from '../styles/breakpoints';
+const IndexPage = () => {
+  const [isAprilFirst, setIsAprilFirst] = useState(false);
 
-const SectionContainer = styled(StyledSectionContainer)`
-  ${breakpointsRange(
-    [
-      { prop: 'marginTop', sizes: [80, 188], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [168, 134], bases: [16, 20] },
-    ],
-    breakpoints.spacings
-  )};
-`;
+  useEffect(() => {
+    const currentDate = new Date();
+    const targetDate = new Date(currentDate.getFullYear(), 3, 1);
+    setIsAprilFirst(
+      currentDate.getMonth() === targetDate.getMonth() &&
+        currentDate.getDate() === targetDate.getDate()
+    );
+  }, []);
 
-const IndexPage = () => (
-  <>
-    <SEO
-      title='Web à Québec | 28 au 30 mai 2024'
-      description='Le WAQ, c’est une communauté de passionnés qui déploie annuellement un événement numérique local de calibre international. Trois jours de conférences et de rencontres exceptionnelles.'
-    />
+  return (
+    <>
+      <SEO
+        title='Web à Québec | 28 au 30 mai 2024'
+        description='Le WAQ, c’est une communauté de passionnés qui déploie annuellement un événement numérique local de calibre international. Trois jours de conférences et de rencontres exceptionnelles.'
+      />
 
-    <Hero />
+      <Hero />
 
-    <SectionContainer forwardedAs='div' faded>
       <StatsSection />
+
+      {isAprilFirst && <ExclusiveActivity />}
 
       <CTASection />
 
-      {/* <KeynoteSection /> */}
+      <KeynoteSection />
 
       <PartnersGrids titled />
-    </SectionContainer>
-  </>
-);
+    </>
+  );
+};
 
 export default IndexPage;
 

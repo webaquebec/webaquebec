@@ -2,13 +2,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
 // components
+import { graphql, useStaticQuery } from 'gatsby';
 import SEO from '../components/SEO';
 import Center from '../components/LayoutSections/Center';
 import Accordion from '../components/Accordion';
 import AccordionItem from '../components/Accordion/AccordionItem';
-import SectionContainer from '../components/SectionContainer';
 import Stack from '../components/LayoutSections/Stack';
 
 // utils
@@ -16,44 +17,40 @@ import breakpointsRange from '../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { titleStyle, introStyle, linkStyle } from '../styles/global';
+import { h1AltStyle, introStyle, linkStyle } from '../styles/global';
 import colors from '../styles/colors';
 
 const FaqTitle = styled.h1`
   margin-bottom: 0;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [60, 110], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
 
 const FaqIntro = styled.div`
-  margin-top: 1rem;
-`;
-
-const Container = styled(SectionContainer)`
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [98, 105], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [148, 114], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [48, 68], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [16, 24], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [60, 100], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
+`;
 
-  ::before,
-  ::after {
-    height: 30vh;
-  }
+const TextureWrapper = styled.div`
+  position: absolute;
+  z-index: -1;
 
-  ::before {
-    top: -30vh;
-  }
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
 
-  ::after {
-    bottom: -30vh;
-  }
+  ${breakpointsRange(
+    [{ prop: 'top', sizes: [100, 150], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 const faqItem = css`
@@ -123,25 +120,47 @@ const data = [
   },
 ];
 
-const FaqPage = () => (
-  <>
-    <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ.' />
+const FaqPage = () => {
+  const texture = useStaticQuery(
+    graphql`
+      query {
+        plasticTexture: file(relativePath: { eq: "textures/plasticWrap.png" }) {
+          childImageSharp {
+            fixed(width: 600) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  );
 
-    <Center
-      maxWidth='625px'
-      gutters='var(--container-gutter)'
-      withText
-      intrinsic
-    >
-      <FaqTitle css={titleStyle}>FAQ</FaqTitle>
-      <FaqIntro css={introStyle}>
-        On tente de répondre à toutes tes questions ici!
-        <br />
-        <span>👇</span>
-      </FaqIntro>
-    </Center>
+  return (
+    <>
+      <SEO title='FAQ' description='Tout ce que tu dois savoir sur le WAQ.' />
 
-    <Container forwardedAs='div' faded>
+      <Center
+        maxWidth='625px'
+        gutters='var(--container-gutter)'
+        withText
+        intrinsic
+      >
+        <FaqTitle css={h1AltStyle}>FAQ</FaqTitle>
+        <FaqIntro css={introStyle}>
+          On tente de répondre à toutes tes questions ici!
+          <br />
+          <span>👇</span>
+        </FaqIntro>
+      </Center>
+
+      <TextureWrapper>
+        <GatsbyImage
+          fixed={texture.plasticTexture?.childImageSharp?.fixed}
+          alt=''
+          role='presentation'
+        />
+      </TextureWrapper>
+
       <Center maxWidth='850px' gutters='var(--container-gutter)'>
         <Accordion multiple collapsible>
           {data.map((item) => (
@@ -149,7 +168,8 @@ const FaqPage = () => (
               key={`faq-${item.id}`}
               titleAs='h2'
               title={item.question}
-              color={colors.bleu100}
+              color={colors.blueberry10}
+              lightColor={colors.peach}
               bordered
               rounded
             >
@@ -161,9 +181,9 @@ const FaqPage = () => (
           ))}
         </Accordion>
       </Center>
-    </Container>
-  </>
-);
+    </>
+  );
+};
 
 FaqPage.propTypes = {
   location: PropTypes.shape({

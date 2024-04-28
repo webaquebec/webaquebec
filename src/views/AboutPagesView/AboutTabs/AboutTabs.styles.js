@@ -9,41 +9,39 @@ import { greaterThan, lessThan } from '../../../utils/mediaQuery';
 // styles
 import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
-import { fontFamilies, fontWeights } from '../../../styles/typography';
+import { fontWeights } from '../../../styles/typography';
 import { speed } from '../../../styles/animation';
 
 export const PageTitle = styled.h1`
   margin-bottom: 0;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [60, 110], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
 
+export const TextureWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+`;
+
 export const hoverFocusStyle = css`
   &::after {
-    display: block;
-    width: 85%;
-    height: 2px;
-
-    background-color: currentColor;
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: background-color ${speed.fast};
-    }
-
-    content: '';
-
-    will-change: background-color;
+    background-color: ${colors.blueberry};
   }
 `;
 
 export const isActiveStyle = css`
-  font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction};
-
   ${hoverFocusStyle};
+
+  font-weight: ${fontWeights.ultrabold};
 `;
 
 export const AboutNav = styled.nav`
@@ -101,7 +99,7 @@ export const AboutLink = styled(Link)`
 
   align-items: center;
 
-  color: ${({ $isActive }) => ($isActive ? colors.bleu90 : colors.bleu)};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.medium};
   text-decoration: none;
 
@@ -115,6 +113,22 @@ export const AboutLink = styled(Link)`
     [{ prop: 'fontSize', sizes: [16, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
+
+  &::after {
+    display: block;
+    width: 100%;
+    height: 4px;
+
+    background-color: transparent;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background-color ${speed.fast};
+    }
+
+    content: '';
+
+    will-change: background-color;
+  }
 
   &:hover,
   &:focus {

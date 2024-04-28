@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
 // images
 import VectorStar from '../images/VectorStar';
@@ -10,7 +11,6 @@ import VectorStar from '../images/VectorStar';
 // components
 import SEO from '../components/SEO';
 import Center from '../components/LayoutSections/Center';
-import SectionContainer from '../components/SectionContainer';
 import CardGrid from '../components/CardGrid';
 import Card from '../components/CardGrid/Card';
 
@@ -20,24 +20,29 @@ import breakpointsRange from '../utils/breakpointsRange';
 import breakpoints from '../styles/breakpoints';
 
 // styles
-import { titleStyle } from '../styles/global';
+import { h1AltStyle } from '../styles/global';
 
 const PageTitle = styled.h1`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [80, 200], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [80, 200], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [80, 110], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [80, 110], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 `;
 
-const Container = styled(SectionContainer)`
+const TextureWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
   ${breakpointsRange(
-    [
-      { prop: 'paddingTop', sizes: [56, 72], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [158, 138], bases: [16, 20] },
-    ],
+    [{ prop: 'left', sizes: [0, 400], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -81,8 +86,16 @@ const BlogPage = ({ data }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <PageTitle css={titleStyle}>blogue</PageTitle>
+        <PageTitle css={h1AltStyle}>blogue</PageTitle>
       </Center>
+
+      <TextureWrapper>
+        <GatsbyImage
+          fixed={data.plasticTexture?.childImageSharp?.fixed}
+          alt=''
+          role='presentation'
+        />
+      </TextureWrapper>
 
       <Center
         maxWidth='var(--max-container-width)'
@@ -91,43 +104,41 @@ const BlogPage = ({ data }) => {
         <FeaturedBlogPost post={blogArchives[0]} />
       </Center>
 
-      <Container forwardedAs='div' faded padded>
-        <Center
-          maxWidth='var(--max-container-width)'
-          gutters='var(--container-gutter)'
-        >
-          <CardGrid>
-            {blogArchives.map((item) => {
-              const picture = {
-                ...item.pictures?.featuredSmall,
-                sizes: `
+      <Center
+        maxWidth='var(--max-container-width)'
+        gutters='var(--container-gutter)'
+      >
+        <CardGrid>
+          {blogArchives.map((item) => {
+            const picture = {
+              ...item.pictures?.featuredSmall,
+              sizes: `
                 (min-width: 576px) ${(695 / 734) * 100}vw,
                 (min-width: 734px) ${(516 / 1138) * 100}vw,
                 (min-width: 1138px) ${(378 / 1280) * 100}vw,
                 (min-width: 1280px) 378px,
                 ${(538 / 576) * 100}vw`,
-              };
+            };
 
-              return (
-                <Card
-                  key={item.id}
-                  title={item.title}
-                  titleAs='h2'
-                  complement={
-                    <>
-                      <Star /> {item.date}
-                    </>
-                  }
-                  content={item.excerpt}
-                  picture={picture}
-                  to={item.to}
-                  buttonText={`Lire l'article`}
-                />
-              );
-            })}
-          </CardGrid>
-        </Center>
-      </Container>
+            return (
+              <Card
+                key={item.id}
+                title={item.title}
+                titleAs='h2'
+                complement={
+                  <>
+                    <Star /> {item.date}
+                  </>
+                }
+                content={item.excerpt}
+                picture={picture}
+                to={item.to}
+                buttonText={`Lire l'article`}
+              />
+            );
+          })}
+        </CardGrid>
+      </Center>
     </>
   );
 };
@@ -139,6 +150,13 @@ BlogPage.propTypes = {
   data: PropTypes.shape({
     allWpPost: PropTypes.shape({
       edges: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+    plasticTexture: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fixed: PropTypes.shape({
+          src: PropTypes.string.isRequired,
+        }),
+      }),
     }),
   }).isRequired,
 };
@@ -179,6 +197,13 @@ export const blogArchiveQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    plasticTexture: file(relativePath: { eq: "textures/plasticWrap.png" }) {
+      childImageSharp {
+        fixed(width: 600) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

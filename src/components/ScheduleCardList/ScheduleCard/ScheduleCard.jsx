@@ -1,6 +1,7 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useMedia } from 'react-use';
 import colors from '../../../styles/colors';
 import Stack from '../../LayoutSections/Stack/Stack';
 
@@ -8,18 +9,16 @@ import Stack from '../../LayoutSections/Stack/Stack';
 import Cluster from '../../LayoutSections/Cluster/Cluster';
 import Tag from '../../Tag';
 
-// utils
-import truncate from '../../../utils/strings/truncate';
-
 // styles
 import {
-  Container,
-  Content,
-  StyledTimeStamp,
   StyledScheduleCard,
+  CardContent,
   Title,
   noTimeStyle,
+  placeStyle,
+  timeTag,
 } from './ScheduleCard.styles';
+import { lessThanCondition } from '../../../utils/mediaQuery';
 
 /**
  *
@@ -29,83 +28,68 @@ import {
 const ScheduleCard = ({
   title,
   titleAs,
-  content,
-  contentAs,
   place,
   time,
   type,
   categories,
   speakers,
   to,
+  groupedUp,
+  groupedDown,
   ...rest
 }) => {
+  const mobile = useMedia(lessThanCondition(1248));
+
   const categoryColors = {
-    design: colors.mauve,
-    developpement: colors.ciel,
-    innovation: colors.turquoise,
-    'communication-and-marketing': colors.jaune,
-    'communication-et-marketing': colors.jaune,
-    'jeux-video': colors.rose100,
-    'competences-transversales': colors.rose100,
-    'communication-dans-ladministration-publique': colors.rose100,
+    design: colors.plum,
+    developpement: colors.kiwi,
+    innovation: colors.pineapple35,
+    'communication-and-marketing': colors.watermelon,
+    'communication-et-marketing': colors.watermelon,
   };
 
   return (
     <StyledScheduleCard
       to={to}
       $accentColor={categoryColors[categories[0]] || colors.gris90}
+      $groupedUp={groupedUp}
+      $groupedDown={groupedDown}
+      css={{
+        ...(time ? undefined : noTimeStyle),
+      }}
       {...rest}
     >
-      <Container
-        lightColor={colors.white}
-        darkColor={colors.gris90}
-        css={time ? undefined : noTimeStyle}
-      >
-        {time && (
-          <div
-            css={`
-              position: absolute;
-              top: ${content ? '40px' : '20px'};
-              left: -8px;
-            `}
-          >
-            <StyledTimeStamp beginsAt={time.beginsAt} endsAt={time.endsAt} />
-          </div>
-        )}
+      {place && (!groupedUp || mobile) && (
+        <div css={placeStyle} className='card-place'>
+          {place}
+        </div>
+      )}
 
-        <Stack>
-          <Title as={titleAs}>{title}</Title>
+      <CardContent>
+        <div css={timeTag}>
+          {time.beginsAt} à {time.endsAt}
+        </div>
 
-          {content && (
-            <Content
-              as={contentAs}
-              dangerouslySetInnerHTML={{
-                __html: truncate(content, 168, true),
-              }}
-            />
-          )}
+        <Title as={titleAs}>{title}</Title>
 
+        <Stack space='calc(var(--container-gutter) * 2)'>
           {speakers.map((speaker) => (
             <div key={speaker.id}>
               <Tag speaker={speaker} />
             </div>
           ))}
 
-          {(categories.length > 0 || type || place) && (
-            <Cluster>
+          {categories.length > 0 && (
+            <Cluster space='8px'>
               <div>
                 {categories.map((category) => (
                   <Tag key={category} category={category} />
                 ))}
-
-                {type && <Tag eventType={type} />}
-
-                {place && <Tag place={place} />}
               </div>
             </Cluster>
           )}
         </Stack>
-      </Container>
+      </CardContent>
     </StyledScheduleCard>
   );
 };
@@ -125,16 +109,6 @@ ScheduleCard.propTypes = {
    * @see [https://www.w3.org/WAI/tutorials/page-structure/headings/](https://www.w3.org/WAI/tutorials/page-structure/headings/)
    */
   titleAs: PropTypes.string,
-  /**
-   * Specifies the content of the schedule card. Could be a simple string, a single or multiple HTML element(s) or custom React component(s)
-   */
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /**
-   * Specifies a different HTML tag applied to the content.
-   * When using an HTML heading tag, choose wisely to respect the semantic of the document for accessibility reasons.
-   * @see [https://www.w3.org/WAI/tutorials/page-structure/headings/](https://www.w3.org/WAI/tutorials/page-structure/headings/)
-   */
-  contentAs: PropTypes.string,
   /**
    * Specifies where a session takes place
    */
@@ -177,17 +151,22 @@ ScheduleCard.propTypes = {
       organization: PropTypes.string,
     })
   ),
+  /**
+   * Specifies if the card should merge with the one above
+   */
+  groupedUp: PropTypes.bool,
+  groupedDown: PropTypes.bool,
 };
 
 ScheduleCard.defaultProps = {
   titleAs: undefined,
-  content: undefined,
-  contentAs: undefined,
   time: undefined,
   place: null,
   type: null,
   categories: [],
   speakers: [],
+  groupedUp: false,
+  groupedDown: false,
 };
 
 export default ScheduleCard;

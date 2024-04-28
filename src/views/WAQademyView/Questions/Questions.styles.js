@@ -18,7 +18,7 @@ const waqademyItem = css`
   )};
 
   a {
-    color: ${colors.bleu};
+    color: ${colors.blueberry};
   }
 `;
 

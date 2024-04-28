@@ -10,7 +10,6 @@ import Center from '../../../components/LayoutSections/Center';
 // styles
 import {
   atRight,
-  Container,
   ContentWrapper,
   SectionText,
   SectionPicture,
@@ -56,7 +55,7 @@ const AboutEventSection = ({ items }) => {
   ];
 
   return (
-    <Container faded>
+    <>
       <h3 css={hideVisually}>Points forts de l&apos;événement</h3>
 
       <Center maxWidth='1080px' gutters='16px'>
@@ -91,7 +90,7 @@ const AboutEventSection = ({ items }) => {
           </ContentWrapper>
         ))}
       </Center>
-    </Container>
+    </>
   );
 };
 

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 // styles
 import colors from '../../../styles/colors';
-import zIndexes from '../../../styles/zIndexes';
 import { fontFamilies } from '../../../styles/typography';
 import { glow } from '../SnakeGame.styles';
 
@@ -11,7 +10,6 @@ export const Container = styled.div`
   position: absolute;
   inset: 0;
 
-  /* z-index: ${zIndexes.modal}; */
   z-index: 1;
 
   background: ${`linear-gradient(
@@ -26,6 +24,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   padding: 1.5rem 2.2rem;
 
+  color: ${colors.peach};
   font-size: 0.875rem;
   font-family: ${fontFamilies.pressStart2P};
 

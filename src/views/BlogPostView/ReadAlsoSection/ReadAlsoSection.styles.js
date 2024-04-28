@@ -21,7 +21,7 @@ export const sectionWrapper = css`
 `;
 
 export const Title = styled.h2`
-  color: ${colors.bleu90};
+  color: ${colors.blueberry};
   text-align: center;
 
   ${breakpointsRange(

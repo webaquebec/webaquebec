@@ -7,14 +7,12 @@ import { greaterThan } from '../../utils/mediaQuery';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
-import { magnifyStyle, pixelatedStyle } from '../../styles/global';
+import { magnifyStyle } from '../../styles/global';
 
 export const Title = styled.h2`
   text-align: center;
 
   ${magnifyStyle}
-
-  ${pixelatedStyle}
 
   ${breakpointsRange(
     [

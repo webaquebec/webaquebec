@@ -1,27 +1,57 @@
 // vendors
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // components
+import Button from '../Button';
 import LogoCard from './LogoCard';
 import Center from '../LayoutSections/Center';
+import Switcher from '../LayoutSections/Switcher';
 
 // images
-import logoUbisoft from '../../images/logoPartners/premium/logo-ubisoft.png';
-import logoVooban from '../../images/logoPartners/premium/logo-vooban.svg';
-import logoFernandez from '../../images/logoPartners/associates/logo-fernandez-rp.svg';
-import logoDeMarque from '../../images/logoPartners/associates/logo-demarque.svg';
-import logoPetal from '../../images/logoPartners/associates/logo-petal.svg';
-import logoThirdbridge from '../../images/logoPartners/associates/logo-thirdbridge.svg';
-import logoNooe from '../../images/logoPartners/associates/logo-nooe.png';
-import logoPangram from '../../images/logoPartners/associates/logo-pangram-pangram.svg';
-import logoBarberie from '../../images/logoPartners/associates/logo-barberie.png';
-import logoCiao from '../../images/logoPartners/associates/logo-ciao.png';
-import logoBobba from '../../images/logoPartners/associates/logo-bobba.svg';
-import logoEvive from '../../images/logoPartners/associates/logo-evive.png';
-import logoNovicom from '../../images/logoPartners/associates/logo-novicom.svg';
+import logoCossette from '../../images/logoPartners/logo-cossette.svg';
+import logoAxeptio from '../../images/logoPartners/expert/logo-axeptio.svg';
+import logoUbisoft from '../../images/logoPartners/creative/logo-ubisoft.png';
+import logoVooban from '../../images/logoPartners/creative/logo-vooban.svg';
+import logoFernandez from '../../images/logoPartners/creative/logo-fernandez-rp.svg';
+import logoDeMarque from '../../images/logoPartners/creative/logo-demarque.svg';
+import logoThirdbridge from '../../images/logoPartners/creative/logo-thirdbridge.svg';
+import logoPetal from '../../images/logoPartners/creative/logo-petal.svg';
+import logoRadioCanada from '../../images/logoPartners/creative/logo-radio-canada.svg';
+import logoCiao from '../../images/logoPartners/festive/logo-ciao.png';
+import logoMambomambo from '../../images/logoPartners/community/logo-mambo-mambo.svg';
+import logoNooe from '../../images/logoPartners/community/logo-nooe.png';
+import logoBeneva from '../../images/logoPartners/community/logo-beneva.svg';
+import logoMirego from '../../images/logoPartners/community/logo-mirego.svg';
+import logoPangram from '../../images/logoPartners/community/logo-pangram-pangram.svg';
+import logoBarberie from '../../images/logoPartners/provider/logo-barberie.png';
+import logoBobba from '../../images/logoPartners/provider/logo-bobba.svg';
+import logoNovicom from '../../images/logoPartners/provider/logo-novicom.svg';
+import logoFouGin from '../../images/logoPartners/provider/logo-fou-gin.svg';
 
 // styles
-import { Title, Grid, GridItem } from './PartnersGrids.styles';
+import {
+  Title,
+  PresentingWrapper,
+  PresentingText,
+  Grid,
+  GridItem,
+  presentingContentStyle,
+} from './PartnersGrids.styles';
+
+const presentingPartner = {
+  src: logoCossette,
+  alt: 'Cossette',
+  url: 'https://www.cossette.com/fr/accueil',
+};
+
+const expertPartners = [
+  {
+    src: logoAxeptio,
+    alt: 'Axeptio',
+    url: 'https://www.axept.io/fr-ca/',
+  },
+];
 
 const creativePartners = [
   {
@@ -38,6 +68,7 @@ const creativePartners = [
     src: logoThirdbridge,
     alt: 'Thirdbridge',
     url: 'https://www.thirdbridge.ca',
+    bigger: true,
   },
   {
     src: logoFernandez,
@@ -53,6 +84,12 @@ const creativePartners = [
     src: logoVooban,
     alt: 'Vooban',
     url: 'https://vooban.com',
+  },
+  {
+    src: logoRadioCanada,
+    alt: 'Radio-Canada',
+    url: 'https://ici.radio-canada.ca/',
+    bigger: true,
   },
 ];
 
@@ -75,6 +112,21 @@ const communityPartners = [
     alt: 'Pangram Pangram Foundry',
     url: 'https://pangrampangram.com/',
   },
+  {
+    src: logoMambomambo,
+    alt: 'MamboMambo',
+    url: 'https://mambomambo.ca/',
+  },
+  {
+    src: logoBeneva,
+    alt: 'Beneva',
+    url: 'https://www.beneva.ca/fr',
+  },
+  {
+    src: logoMirego,
+    alt: 'Mirego',
+    url: 'https://www.mirego.com/fr',
+  },
 ];
 
 const providerPartners = [
@@ -82,11 +134,6 @@ const providerPartners = [
     src: logoBarberie,
     alt: 'Barberie',
     url: 'https://www.labarberie.com',
-  },
-  {
-    src: logoEvive,
-    alt: 'Evive',
-    url: 'https://evivenutrition.ca',
   },
   {
     src: logoNovicom,
@@ -98,15 +145,24 @@ const providerPartners = [
     alt: 'Bobba',
     url: 'https://bobbadrink.com',
   },
+  {
+    src: logoFouGin,
+    alt: 'Fou Gin',
+    url: 'https://fougin.ca/',
+  },
 ];
 
 const partners = [
+  {
+    title: 'partenaire expert',
+    images: expertPartners,
+  },
   {
     title: 'partenaires créatifs',
     images: creativePartners,
   },
   {
-    title: 'partenaires festifs',
+    title: 'partenaire festif',
     images: festivePartners,
   },
   {
@@ -119,10 +175,57 @@ const partners = [
   },
 ];
 
-const PartnersGrids = () => (
+const PartnersGrids = ({ hasDetails }) => (
   <>
+    <Center
+      as='section'
+      maxWidth='1024px'
+      gutters='var(--container-gutter)'
+      intrinsic
+      withText
+    >
+      <Title>le WAQ 2024 est présenté par</Title>
+
+      <Switcher
+        threshold='768px'
+        space='calc(var(--container-gutter) * 2)'
+        limit={2}
+      >
+        <PresentingWrapper>
+          <div>
+            <LogoCard image={presentingPartner} isPresenting />
+          </div>
+
+          {hasDetails && (
+            <div>
+              <Center maxWidth='625px' gutters='0' css={presentingContentStyle}>
+                <PresentingText>
+                  Ubisoft est reconnu internationalement, mais la franchise de
+                  la ville de Québec se démarque particulièrement. Ayant acquis
+                  une solide expertise dans le développement de jeux d’envergure
+                  AAA, le studio assume maintenant le leadership sur plusieurs
+                  projets. Le WAQ est très fier d’être présenté par Ubisoft!
+                </PresentingText>
+                <Button
+                  to='https://www.ubisoft.com/fr-ca/'
+                  tag='href'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  small
+                  animated
+                >
+                  En savoir plus
+                </Button>
+              </Center>
+            </div>
+          )}
+        </PresentingWrapper>
+      </Switcher>
+    </Center>
+
     {partners.map((partner) => (
       <Center
+        key={`partners-${partner.title}`}
         as='section'
         maxWidth='900px'
         gutters='var(--container-gutter)'
@@ -142,5 +245,16 @@ const PartnersGrids = () => (
     ))}
   </>
 );
+
+PartnersGrids.propTypes = {
+  /**
+   * Whether the grid has details or not.
+   */
+  hasDetails: PropTypes.bool,
+};
+
+PartnersGrids.defaultProps = {
+  hasDetails: false,
+};
 
 export default PartnersGrids;

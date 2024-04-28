@@ -17,7 +17,10 @@ import { ProgramFiltersProvider } from './src/contexts/ProgramFiltersContext';
 import Layout from './src/components/Layout/Layout';
 
 // fonts
+import './static/fonts/PPRadioGrotesk/radio-grotesk.css';
 import './static/fonts/Redaction/redaction.css';
+import '@fontsource/press-start-2p';
+import '@fontsource/press-start-2p/400.css';
 
 // Apply Layout component to every page/template
 export const wrapPageElement = ({ element, props }) => (

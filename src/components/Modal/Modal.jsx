@@ -82,7 +82,7 @@ Modal.defaultProps = {
   noTransition: false,
   borderWidth: '1px',
   bgColor: undefined,
-  color: colors.bleu,
+  color: colors.blueberry,
   invert: false,
 };
 

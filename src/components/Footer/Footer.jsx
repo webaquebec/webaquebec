@@ -10,7 +10,7 @@ import Stack from '../LayoutSections/Stack/Stack';
 import SocialNews from '../SocialNews';
 
 // images
-import logo from '../../images/logo-waq.png';
+import logo from '../../images/logo-waq.svg';
 import logoVilleDeQuebec from '../../images/logoPartners/footer/logo-ville-de-quebec.svg';
 import logoQuebec from '../../images/logoPartners/footer/logo-quebec.svg';
 import logoPortQuebec from '../../images/logoPartners/footer/logo-port-quebec.svg';
@@ -23,7 +23,6 @@ import {
   Link,
   Logo,
   ArchivesList,
-  ArchiveItem,
   ArchiveLink,
   StyledFooter,
   FooterPartners,
@@ -32,6 +31,11 @@ import {
 
 const Footer = () => {
   const archives = [
+    {
+      year: '2023',
+      link: '/programmation/2023',
+      type: 'internal',
+    },
     {
       year: '2022',
       link: '/programmation/2022',
@@ -90,7 +94,7 @@ const Footer = () => {
           <SocialNews />
 
           <Switcher
-            threshold='832px'
+            threshold='768px'
             space='1.5rem'
             limit={4}
             css={footerWrapperStyle}
@@ -107,7 +111,7 @@ const Footer = () => {
 
                 <p
                   css={`
-                    max-width: 200px;
+                    max-width: 130px;
                   `}
                 >
                   Événement coordonné par{' '}
@@ -136,7 +140,7 @@ const Footer = () => {
 
                 <ArchivesList>
                   {archives.map((archive) => (
-                    <ArchiveItem key={archive.year}>
+                    <li key={archive.year}>
                       {archive.type && archive.type === 'internal' ? (
                         <ArchiveLink as={GatsbyLink} to={archive.link}>
                           {archive.year}
@@ -150,7 +154,7 @@ const Footer = () => {
                           {archive.year}
                         </ArchiveLink>
                       )}
-                    </ArchiveItem>
+                    </li>
                   ))}
                 </ArchivesList>
               </Block>

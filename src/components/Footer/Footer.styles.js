@@ -17,12 +17,12 @@ export const footerWrapperStyle = css`
 `;
 
 export const footerTextStyle = css`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.medium};
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [12, 12], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [24, 24], bases: [16, 16], unit: '' },
     ],
     breakpoints.spacings
@@ -33,12 +33,12 @@ export const Title = styled.h2`
   margin: 0;
   margin-bottom: 14px;
 
-  color: ${colors.bleu100};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.bold};
 
   ${breakpointsRange(
     [
-      { prop: 'fontSize', sizes: [20, 20], bases: [16, 20] },
+      { prop: 'fontSize', sizes: [16, 16], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [24, 24], bases: [16, 16], unit: '' },
     ],
     breakpoints.spacings
@@ -50,10 +50,6 @@ export const Block = styled.div`
 `;
 
 export const Link = styled.a`
-  /* display: block; */
-
-  /* color: ${colors.bleu};
-  font-weight: ${fontWeights.medium}; */
   text-decoration: none;
 
   word-break: normal;
@@ -70,25 +66,17 @@ export const Logo = styled.img`
 `;
 
 export const ArchivesList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0 16px;
+  max-width: 220px;
   padding: 0;
 
   list-style: none;
-
-  ${breakpointsRange(
-    [{ prop: 'marginRight', sizes: [0, -40], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
-
-export const ArchiveItem = styled.li`
-  margin-right: 40px;
 `;
 
 export const ArchiveLink = styled.a`
-  color: ${colors.bleu100};
+  color: ${colors.blueberry};
   font-weight: ${fontWeights.bold};
   text-decoration: none;
 
@@ -107,9 +95,10 @@ export const ArchiveLink = styled.a`
 `;
 
 export const StyledFooter = styled.footer`
+  overflow: hidden;
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [60, 134], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [200, 320], bases: [16, 20] },
       { prop: 'paddingBottom', sizes: [60, 96], bases: [16, 20] },
     ],
     breakpoints.spacings
@@ -118,20 +107,17 @@ export const StyledFooter = styled.footer`
 
 export const FooterPartners = styled.div`
   display: flex;
+  gap: 40px;
   align-items: flex-end;
-
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [50, 50], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [20, 40], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
 
 export const FooterLogo = styled.a`
   ${breakpointsRange(
-    [
-      { prop: 'marginRight', sizes: [50, 50], bases: [16, 20] },
-      { prop: 'maxWidth', sizes: [100, 100], bases: [16, 20] },
-    ],
+    [{ prop: 'maxWidth', sizes: [60, 80], bases: [16, 20] }],
     breakpoints.spacings
   )};
 

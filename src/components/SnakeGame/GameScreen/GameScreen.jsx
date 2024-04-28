@@ -79,7 +79,7 @@ const GameScreen = ({ fit, strokeColor, onReset }) => {
   const head = useRef({
     x: 2,
     y: 1,
-    color: randomColor([colors.rose60, colors.turquoise80]),
+    color: randomColor([colors.rose, colors.turquoise]),
     vX: 0,
     vY: 0,
     draw: (ctx, cellSize, padding) => {
@@ -230,7 +230,7 @@ const GameScreen = ({ fit, strokeColor, onReset }) => {
         // remove furthest item from snake part if we have more than our tail size
         snakeParts.current.shift();
       }
-      head.current.color = randomColor([colors.rose60, colors.turquoise80]);
+      head.current.color = randomColor([colors.rose, colors.turquoise]);
       head.current.draw(ctx, grid.current.cellSize, grid.current.padding);
     },
     [head, snakeParts]

@@ -2,10 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
 // components
+import { graphql, useStaticQuery } from 'gatsby';
 import Center from '../components/LayoutSections/Center';
-import SectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 
 // utils
@@ -18,14 +19,29 @@ import TermsAndConditions from '../views/TicketsView/TermsAndConditions/TermsAnd
 
 // styles
 import breakpoints from '../styles/breakpoints';
-import { titleStyle, introStyle } from '../styles/global';
+import { h1AltStyle, introStyle } from '../styles/global';
 import Stack from '../components/LayoutSections/Stack';
 
 const TicketsTitle = styled.h1`
   margin-bottom: 0;
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [60, 110], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+const TextureWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  ${breakpointsRange(
+    [{ prop: 'top', sizes: [0, 150], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -41,68 +57,64 @@ const TicketsIntro = styled.div`
   )};
 `;
 
-const Container = styled(SectionContainer)`
-  padding-bottom: 0;
+const TicketsPage = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        bubbleTexture: file(relativePath: { eq: "textures/bubbleWrap.png" }) {
+          childImageSharp {
+            fixed(width: 800) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  );
 
-  ${breakpointsRange(
-    [
-      { prop: 'paddingTop', sizes: [98, 105] },
-      { prop: 'marginBottom', sizes: [202, 242] },
-    ],
-    breakpoints.spacings,
-    { bases: [16, 20] }
-  )};
+  return (
+    <>
+      <SEO
+        title='Billetterie'
+        description='Viens vivre le WAQ du 28 au 30 mai 2024. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
+      />
 
-  ::before {
-    top: -60vh;
+      <Center
+        maxWidth='800px'
+        gutters='var(--container-gutter)'
+        withText
+        intrinsic
+      >
+        <TicketsTitle css={h1AltStyle}>billetterie</TicketsTitle>
 
-    height: 60vh;
-  }
+        <TextureWrapper>
+          <GatsbyImage
+            fixed={data.bubbleTexture?.childImageSharp?.fixed}
+            alt=''
+            role='presentation'
+          />
+        </TextureWrapper>
 
-  ::after {
-    bottom: -40vh;
+        <TicketsIntro css={introStyle}>
+          <Stack>
+            <p>
+              Chaque année, des centaines de passionné.es de numérique
+              participent au Web à Québec (WAQ). Que ce soit pour réseauter,
+              découvrir les nouvelles tendances ou simplement vivre
+              l&apos;ambiance unique du WAQ, toutes les raisons sont bonnes de
+              te joindre à nous!
+            </p>
+          </Stack>
+        </TicketsIntro>
+      </Center>
 
-    height: 40vh;
-  }
-`;
+      <Prices />
 
-const TicketsPage = () => (
-  <>
-    <SEO
-      title='Billetterie'
-      description='Viens vivre le WAQ du 28 au 30 mai 2024. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
-    />
-
-    <Center
-      maxWidth='625px'
-      gutters='var(--container-gutter)'
-      withText
-      intrinsic
-    >
-      <TicketsTitle css={titleStyle}>
-        bille<span>tterie</span>
-      </TicketsTitle>
-
-      <TicketsIntro css={introStyle}>
-        <Stack>
-          <p>
-            Chaque année, des centaines de passionné.es de numérique participent
-            au Web à Québec (WAQ). Que ce soit pour réseauter, découvrir les
-            nouvelles tendances ou simplement vivre l&apos;ambiance unique du
-            WAQ, toutes les raisons sont bonnes de te joindre à nous!
-          </p>
-        </Stack>
-      </TicketsIntro>
-    </Center>
-
-    <Prices />
-
-    <Container forwardedAs='div' faded>
       {/* <CallToAction /> */}
       <TermsAndConditions />
-    </Container>
-  </>
-);
+    </>
+  );
+};
 
 TicketsPage.propTypes = {
   location: PropTypes.shape({

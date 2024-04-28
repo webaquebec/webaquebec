@@ -1,70 +1,61 @@
 // vendors
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useInView } from 'react-intersection-observer';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useMedia } from 'react-use';
-import { navigate } from 'gatsby';
+import { graphql, useStaticQuery, navigate } from 'gatsby';
+import GatsbyImage from 'gatsby-image';
 
 // components
-import { hideVisually } from 'polished';
-import HeaderGradient from '../../../components/HeaderGradient/HeaderGradient';
 import Button from '../../../components/Button';
 import DropDown from '../../../components/Dropdown';
 import Center from '../../../components/LayoutSections/Center';
 
 // utils
-import { lessThanCondition } from '../../../utils/mediaQuery';
+import { lessThanCondition, lessThan } from '../../../utils/mediaQuery';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
-// contexts
-import { useModal } from '../../../contexts/ModalContext';
-import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
-
-// hooks
-// import useHasMounted from '../../../hooks/useHasMounted';
-
 // styles
-import { titleStyle } from '../../../styles/global';
+import { h1AltStyle } from '../../../styles/global';
 import breakpoints from '../../../styles/breakpoints';
 import {
   selfBreakpoints,
   Wrapper,
   HeaderContent,
-  StickyTitle,
   DateList,
   DateListItem,
   dateTabStyle,
-  dateTabTypoStyle,
 } from './Hero.styles';
 
 const PageTitle = styled.h1`
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [80, 200], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [80, 200], bases: [16, 20] },
+      { prop: 'marginTop', sizes: [48, 110], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [24, 175], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 `;
 
-const willChangeOpacityStyle = css`
-  will-change: opacity;
+const TextureWrapper = styled.div`
+  position: absolute;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  ${breakpointsRange(
+    [{ prop: 'top', sizes: [-500, -200], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+  ${lessThan(1024)} {
+    display: none;
+  }
 `;
 
 const Hero = ({ location, datePaths }) => {
-  const [ref, inView] = useInView();
-
-  const { getTotalAppliedFilters } = useProgramFilters();
-
-  const isVisible = inView;
-
-  // < 1060
-  const tablet = useMedia(lessThanCondition(selfBreakpoints[3]));
-  // < 832
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
-
-  const { open: openModal } = useModal();
 
   const handleClick = (path) => {
     navigate(path, {
@@ -78,53 +69,49 @@ const Hero = ({ location, datePaths }) => {
 
   const current = datePaths.find((item) => item.path === location.pathname);
 
-  const totalAppliedFilters = getTotalAppliedFilters();
-
   const totalDates = datePaths.length;
 
-  const minWidth = totalDates > 3 ? '736px' : '632px';
+  const data = useStaticQuery(
+    graphql`
+      query {
+        bubbleTexture: file(relativePath: { eq: "textures/bubbleWrap.png" }) {
+          childImageSharp {
+            fixed(width: 800) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  );
 
   return (
     <>
       <Center
-        ref={ref}
         maxWidth='var(--max-container-width)'
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <PageTitle css={titleStyle}>
-          <span>program</span>mation
-          {current.edition <= 2023 && <span>&nbsp;{current.edition}</span>}
-        </PageTitle>
+        <PageTitle css={h1AltStyle}>programmation</PageTitle>
       </Center>
 
-      <Wrapper>
-        <HeaderGradient
-          css={willChangeOpacityStyle}
-          style={{ opacity: !isVisible ? 1 : 0 }}
+      <TextureWrapper>
+        <GatsbyImage
+          fixed={data.bubbleTexture?.childImageSharp?.fixed}
+          alt=''
+          role='presentation'
         />
+      </TextureWrapper>
 
-        <HeaderContent
-          maxWidth={!isVisible ? '1066px' : minWidth}
-          gutters={mobile ? '16px' : '32px'}
-        >
-          {!isVisible && !tablet && (
-            <StickyTitle>
-              <span>program</span>mation
-              <span css={current.edition > 2023 && hideVisually}>
-                &nbsp;{current.edition}
-              </span>
-              {/* {current.edition === 2021 && (
-                <YearSticker src={vectorYear2021} alt='2021' />
-              )} */}
-            </StickyTitle>
-          )}
-
+      <Wrapper>
+        <HeaderContent maxWidth='1320px' gutters={mobile ? '16px' : '32px'}>
           {mobile ? (
             <div
               css={`
                 display: inline-flex;
                 width: 100%;
+
+                gap: 12px;
               `}
             >
               <DropDown
@@ -132,8 +119,6 @@ const Hero = ({ location, datePaths }) => {
                 css={`
                   flex-basis: 0;
                   flex-grow: 999;
-
-                  margin-right: 12px;
                 `}
               >
                 {datePaths
@@ -153,35 +138,6 @@ const Hero = ({ location, datePaths }) => {
                     </Button>
                   ))}
               </DropDown>
-
-              <div
-                css={`
-                  flex-grow: 1;
-                  flex-basis: 25%;
-
-                  z-index: 1;
-
-                  > * {
-                    width: 100%;
-                  }
-                `}
-              >
-                <Button
-                  outlined
-                  medium
-                  onClick={openModal}
-                  css={`
-                    ${dateTabStyle}
-                    ${dateTabTypoStyle}
-                  `}
-                >
-                  <span>Filtres</span>
-
-                  {totalAppliedFilters > 0 && (
-                    <span>{`(${totalAppliedFilters})`}</span>
-                  )}
-                </Button>
-              </div>
             </div>
           ) : (
             <DateList $shrunk={totalDates <= 3}>

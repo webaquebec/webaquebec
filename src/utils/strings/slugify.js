@@ -1,14 +1,9 @@
 module.exports = (text) => {
-  // return text
-  //   .toString()
-  //   .toLowerCase()
-  //   .replace(/\s+/g, '-') // Replace spaces with -
-  //   .replace(/[^\w-]+/g, '') // Remove all non-word chars
-  //   .replace(/--+/g, '-') // Replace multiple - with single -
-  //   .replace(/^-+/, '') // Trim - from start of text
-  //   .replace(/-+$/, ''); // Trim - from end of text
-  let str = text.replace(/^\s+|\s+$/g, '');
+  if (!text || typeof text !== 'string') {
+    return null;
+  }
 
+  let str = text?.replace(/^\s+|\s+$/g, '');
   // Make the string lowercase
   str = str.toLowerCase();
 

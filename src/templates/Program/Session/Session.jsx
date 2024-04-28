@@ -15,7 +15,6 @@ import Center from '../../../components/LayoutSections/Center';
 import Button from '../../../components/Button';
 import Tag from '../../../components/Tag';
 import SpeakerCard from '../../../components/SpeakerCard';
-import SectionContainer from '../../../components/SectionContainer';
 import Cluster from '../../../components/LayoutSections/Cluster';
 import Stack from '../../../components/LayoutSections/Stack';
 
@@ -31,31 +30,9 @@ import IconArrow from '../../../images/IconArrow';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
-// import { titleStyle } from '../../../styles/global';
+// import { h1AltStyle } from '../../../styles/global';
 
 // styles
-const Container = styled(SectionContainer)`
-  ${breakpointsRange(
-    [
-      { prop: 'marginTop', sizes: [40, 80], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [192, 256], bases: [16, 20] },
-    ],
-    breakpoints.spacings
-  )};
-
-  ::before,
-  ::after {
-    height: 10vh;
-  }
-
-  ::before {
-    top: -10vh;
-  }
-
-  ::after {
-    bottom: -10vh;
-  }
-`;
 
 // const PageTitle = styled.h1`
 //   ${breakpointsRange(
@@ -72,7 +49,10 @@ const backButton = css`
   margin-right: auto;
 
   ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [32, 32], bases: [16, 20] }],
+    [
+      { prop: 'marginTop', sizes: [32, 16], bases: [16, 20] },
+      { prop: 'marginBottom', sizes: [16, 32], bases: [16, 20] },
+    ],
     breakpoints.spacings
   )};
 `;
@@ -80,14 +60,27 @@ const backButton = css`
 const EventContainer = styled.div`
   width: 100%;
 
-  background-color: ${colors.white};
+  background-color: ${colors.peach};
+  border: 2px solid ${colors.blueberry};
   border-radius: 16px;
 
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [16, 105], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [32, 105], bases: [16, 20] },
       { prop: 'paddingBottom', sizes: [16, 120], bases: [16, 20] },
     ],
+    breakpoints.spacings
+  )};
+`;
+
+const DateTime = styled.div`
+  display: flex;
+
+  color: ${colors.blueberry30};
+  font-weight: ${fontWeights.bold};
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [18, 18], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
@@ -96,8 +89,8 @@ const EventTitle = styled.h1`
   margin-top: 0;
   margin-bottom: 16px;
 
-  color: ${colors.bleu};
-  font-weight: ${fontWeights.medium};
+  color: ${colors.blueberry};
+  font-weight: ${fontWeights.ultrabold};
 
   ${breakpointsRange(
     [
@@ -109,7 +102,7 @@ const EventTitle = styled.h1`
 `;
 
 const EventDescription = styled.div`
-  color: ${colors.gris90};
+  color: ${colors.blueberry30};
 
   ${breakpointsRange(
     [
@@ -158,7 +151,7 @@ const EventDescription = styled.div`
       width: 1em;
       margin-left: -1em;
 
-      color: ${colors.bleu};
+      color: ${colors.blueberry};
       font-weight: ${fontWeights.bold};
 
       content: '•';
@@ -201,7 +194,7 @@ const EventDescription = styled.div`
       width: 1.3em;
       margin-left: -1.3em;
 
-      color: ${colors.bleu};
+      color: ${colors.blueberry};
       font-weight: ${fontWeights.bold};
 
       direction: rtl;
@@ -310,77 +303,70 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <PageTitle css={titleStyle}>
+        <PageTitle css={h1AltStyle}>
           <span>program</span>mation
           {edition === 2021 && <span>&nbsp;{edition}</span>}
         </PageTitle>
       </Center> */}
 
-      <Container forwardedAs='div' faded>
-        <Center maxWidth='1064px' gutters='var(--container-gutter)' intrinsic>
-          <Button
-            to={pagePath}
-            tag='link'
-            outlined
-            iconFirst
-            renderIcon={<IconArrow css={backArrow} />}
-            state={{ sessionId: id }}
-            css={backButton}
-          >
-            Retour à la programmation
-          </Button>
+      <Center maxWidth='1130px' gutters='var(--container-gutter)' intrinsic>
+        <Button
+          to={pagePath}
+          tag='link'
+          iconFirst
+          renderIcon={<IconArrow css={backArrow} />}
+          state={{ sessionId: id }}
+          css={backButton}
+        >
+          Retour à la programmation
+        </Button>
 
-          <EventContainer>
-            <Center maxWidth='645px' gutters='var(--container-gutter)'>
-              <Stack space='40px'>
-                {!isLastPage && (
-                  <Cluster>
-                    <div>
-                      <Tag outlined>{date}</Tag>
-                      <Tag
-                        outlined
-                      >{`de ${time.beginsAt} à ${time.endsAt}`}</Tag>
-                    </div>
-                  </Cluster>
+        <EventContainer>
+          <Center maxWidth='680px' gutters='var(--container-gutter)'>
+            <Stack space='40px'>
+              {!isLastPage && (
+                <DateTime>
+                  {date}&nbsp;&nbsp;|&nbsp;&nbsp;
+                  {`de ${time.beginsAt} à ${time.endsAt}`}
+                </DateTime>
+              )}
+
+              <div>
+                <EventTitle>{title}</EventTitle>
+
+                {htmlDescription && (
+                  <EventDescription
+                    dangerouslySetInnerHTML={{ __html: htmlDescription }}
+                  />
                 )}
+              </div>
 
-                <div>
-                  <EventTitle>{title}</EventTitle>
+              {(categories.length > 0 || type || place) && (
+                <Cluster>
+                  <div>
+                    {categories
+                      .filter((category) => categoriesMap[category.value])
+                      .map((category) => (
+                        <Tag
+                          key={`category-${category.value}`}
+                          category={category.value}
+                        />
+                      ))}
 
-                  {htmlDescription && (
-                    <EventDescription
-                      dangerouslySetInnerHTML={{ __html: htmlDescription }}
-                    />
-                  )}
-                </div>
+                    {type && <Tag eventType={type} />}
 
-                {(categories.length > 0 || type || place) && (
-                  <Cluster>
-                    <div>
-                      {categories
-                        .filter((category) => categoriesMap[category.value])
-                        .map((category) => (
-                          <Tag
-                            key={`category-${category.value}`}
-                            category={category.value}
-                          />
-                        ))}
+                    {place && <Tag place={place} />}
+                  </div>
+                </Cluster>
+              )}
 
-                      {type && <Tag eventType={type} />}
-
-                      {place && <Tag place={place} />}
-                    </div>
-                  </Cluster>
-                )}
-
-                {speakers.map((speaker) => (
-                  <SpeakerCard key={speaker.id} speaker={speaker} />
-                ))}
-              </Stack>
-            </Center>
-          </EventContainer>
-        </Center>
-      </Container>
+              {speakers.map((speaker) => (
+                <SpeakerCard key={speaker.id} speaker={speaker} />
+              ))}
+            </Stack>
+          </Center>
+        </EventContainer>
+      </Center>
     </>
   );
 };
@@ -464,7 +450,7 @@ export const sessionQuery = graphql`
                 width: 100
                 height: 100
                 quality: 90
-                duotone: { highlight: "#EBEBEB", shadow: "#00086B" }
+                duotone: { highlight: "#EBEBEB", shadow: "#262626" }
               ) {
                 ...GatsbyImageSharpFixed_withWebp
               }

@@ -1,57 +1,21 @@
 // vendors
-import React, { useMemo, useEffect } from 'react';
+import React, { Fragment, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
 
 // components
 import SEO from '../../components/SEO';
 import Center from '../../components/LayoutSections/Center';
 import ScheduleCardList from '../../components/ScheduleCardList';
 import ScheduleCard from '../../components/ScheduleCardList/ScheduleCard';
-import StyledSectionContainer from '../../components/SectionContainer';
-import Switcher from '../../components/LayoutSections/Switcher';
-
-// contexts
-import { useProgramFilters } from '../../contexts/ProgramFiltersContext';
 
 // views
 import Hero from '../../views/ProgramPageView/Hero';
-import Filters from '../../views/ProgramPageView/Filters';
 import NoResults from '../../views/ProgramPageView/NoResults';
 
 // utils
-import breakpointsRange from '../../utils/breakpointsRange';
-import { lessThan } from '../../utils/mediaQuery';
 import slugify from '../../utils/strings/slugify';
-// import unSlugify from '../../utils/strings/unSlugify';
-import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
-
-// styles
-import breakpoints from '../../styles/breakpoints';
-import { selfBreakpoints as filtersSelfBreakpoints } from '../../views/ProgramPageView/Filters/Filters.styles';
-// import Layout from '../../components/Layout/Layout';
-
-const SectionContainer = styled(StyledSectionContainer)`
-  min-height: 800px;
-
-  margin-top: -40px;
-  padding: 0 16px;
-
-  ${breakpointsRange(
-    [{ prop: 'marginBottom', sizes: [168, 134], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
-`;
-
-const FiltersWrapper = styled.div`
-  max-width: 340px;
-
-  ${lessThan(filtersSelfBreakpoints[0])} {
-    max-width: 0;
-    margin: 0;
-  }
-`;
+import { categoriesMap } from '../../utils/dataMapping';
 
 /**
  * Template used to display daily plannings from Swapcard API
@@ -68,14 +32,6 @@ const Program = ({
     swapcard: { plannings },
   } = data;
 
-  const { state } = location;
-
-  const {
-    filters,
-    dispatch: filterDispatcher,
-    applyFilter,
-  } = useProgramFilters();
-
   const formatDateStr = (value) => value.replace(/-/g, '/');
 
   /**
@@ -90,8 +46,6 @@ const Program = ({
     const displayableDates = eventDates.map((current) => {
       const date = new Date(formatDateStr(current));
       const eventYear = date.getFullYear();
-
-      // const isBonus = eventYear === 2021 && index === array.length - 1;
 
       const options = { weekday: 'long', day: 'numeric', month: 'long' };
 
@@ -129,7 +83,8 @@ const Program = ({
       ...planning,
       categories: planning.categories
         .map((category) => category.value)
-        .filter((category) => categoriesMap[category]),
+        .filter((category) => categoriesMap[category])
+        .sort(),
       type: slugify(planning.type),
       time: {
         beginsAt: getFormattedTime(planning.beginsAt),
@@ -140,118 +95,87 @@ const Program = ({
     return modifiedPlannings;
   }, [plannings]);
 
-  // Initialize filters once we got plannings from Swapcard
-  useEffect(() => {
-    // const places = [];
-    const categories = [];
-    const eventTypes = [];
+  const groupedByTimeProgram = useMemo(
+    () =>
+      Object.entries(
+        program.reduce((acc, current) => {
+          const { beginsAt } = current.time;
+          if (!acc[beginsAt]) {
+            acc[beginsAt] = [];
+          }
+          acc[beginsAt].push(current);
+          return acc;
+        }, {})
+      ),
+    [program]
+  );
 
-    const addChoices = (value, array) => {
-      if (value === null || array.some((v) => v === value)) return;
+  const sortSessionsByPlace = useCallback(
+    (sessions) => sessions.sort((a, b) => (a.place <= b.place ? -1 : 1)),
+    []
+  );
 
-      array.push(value);
-    };
+  // FIXME: A little bit of refactor here is needed in order to ease comprehension and future modifications
+  const groupedByTimeRangeProgram = useMemo(() => {
+    const output = {};
 
-    program.forEach((session) => {
-      // Get all places for filters
-      // addChoices(session.place, places);
-      // Get all categories for filters
-      session.categories.forEach((category) => {
-        addChoices(category, categories);
-      });
-      // Get all types for filters
-      addChoices(session.type, eventTypes);
-    });
+    for (let i = 0; i < groupedByTimeProgram.length; i += 1) {
+      const time = groupedByTimeProgram[i][0];
+      const sessions = groupedByTimeProgram[i][1];
+      const numberOfSessionsAtTimeI = sessions.length;
 
-    if (filters.length > 0) {
-      filterDispatcher({
-        type: 'UPDATE',
-        options: {
-          name: 'categories',
-          values: categories.map((value) => ({
-            name: categoriesMap[value],
-            value,
-          })),
-        },
-      });
+      // If could be grouped down check next time
+      if (numberOfSessionsAtTimeI >= 4) {
+        const timeI2 = groupedByTimeProgram[i + 1][0];
+        const sessionsI2 = groupedByTimeProgram[i + 1][1];
+        const numberOfSessionsAtTimeI2 = sessionsI2.length;
 
-      filterDispatcher({
-        type: 'UPDATE',
-        options: {
-          name: 'type',
-          values: eventTypes.map((value) => ({
-            name: eventTypesMap[value],
-            value,
-          })),
-        },
-      });
+        // If next time is also conf time the group
+        if (numberOfSessionsAtTimeI2 >= 4) {
+          // Fill in missing sessions
+          const sessionsPlaces = sessions.map((session) => session.place);
+          const sessionsI2Places = sessionsI2.map((session) => session.place);
+          const allPlaces = [
+            ...new Set([sessionsPlaces, sessionsI2Places].flat()).values(),
+          ];
 
-      return;
+          const missingPlacesForSessions = allPlaces.filter(
+            (place) => !sessionsPlaces.includes(place)
+          );
+          const missingPlacesForSessionsI2 = allPlaces.filter(
+            (place) => !sessionsI2Places.includes(place)
+          );
+
+          missingPlacesForSessions.forEach((place) =>
+            sessions.push({
+              place,
+              title: 'Aucune activité',
+              time,
+            })
+          );
+          missingPlacesForSessionsI2.forEach((place) =>
+            sessionsI2.push({
+              place,
+              title: 'Aucune activité',
+              time: timeI2,
+            })
+          );
+
+          output[`${time};${timeI2}`] = [
+            sortSessionsByPlace(sessions),
+            sortSessionsByPlace(sessionsI2),
+          ];
+
+          i += 1;
+        } else {
+          output[time] = sortSessionsByPlace(sessions);
+        }
+      } else {
+        output[time] = sortSessionsByPlace(sessions);
+      }
     }
-
-    filterDispatcher({
-      type: 'ADD',
-      options: {
-        name: 'categories',
-        title: 'Thématique',
-        values: categories.map((value) => ({
-          name: categoriesMap[value],
-          value,
-        })),
-      },
-    });
-
-    filterDispatcher({
-      type: 'ADD',
-      options: {
-        name: 'type',
-        title: 'Type',
-        values: eventTypes.map((value) => ({
-          name: eventTypesMap[value],
-          value,
-        })),
-      },
-    });
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [program]);
-
-  // Scroll to the last selected session
-  useEffect(() => {
-    if (typeof window === 'undefined' || state === null) return;
-
-    const anchor = document.querySelector(`#${CSS.escape(state.sessionId)}`);
-
-    if (anchor === null) return;
-
-    const offset = anchor.getBoundingClientRect().top + window.scrollY - 140;
-
-    window.scrollTo({ top: offset, behavior: `smooth` });
-  }, [state]);
-
-  // Update filter value
-  const handleFilterChange = (event) => {
-    filterDispatcher({
-      type: 'UPDATE_VALUE',
-      options: {
-        name: event.target.name,
-        value: event.target.value,
-        isChecked: event.target.checked,
-      },
-    });
-  };
-
-  // Uncheck all filters
-  const handleClickReset = () => {
-    filterDispatcher({ type: 'UNCHECK_ALL' });
-  };
-
-  let filteredProgram = program;
-  if (filters.length > 0) {
-    filteredProgram = program
-      .filter((session) => applyFilter('categories', session.categories))
-      .filter((session) => applyFilter('type', session.type));
-  }
+    return Object.entries(output);
+  }, [groupedByTimeProgram, sortSessionsByPlace]);
 
   return (
     <>
@@ -262,43 +186,69 @@ const Program = ({
 
       <Hero datePaths={datePaths} location={location} />
 
-      <SectionContainer id='program-section' forwardedAs='div' faded>
-        <Center maxWidth='1066px'>
-          <Switcher threshold='768px' space='24px'>
-            <div>
-              <FiltersWrapper>
-                <Filters
-                  onChange={handleFilterChange}
-                  onReset={handleClickReset}
-                />
-              </FiltersWrapper>
-
-              <div>
-                {filteredProgram.length > 0 ? (
-                  <ScheduleCardList>
-                    {filteredProgram.map((session) => (
+      <Center maxWidth='1320px' gutters='16px'>
+        {groupedByTimeRangeProgram.length > 0 ? (
+          groupedByTimeRangeProgram.map(([timerange, sessions]) => (
+            <Fragment key={timerange}>
+              {timerange.includes(';') ? (
+                <>
+                  <ScheduleCardList groupedDown time={timerange.split(';')[0]}>
+                    {sessions[0].map((session) => (
                       <ScheduleCard
                         id={session.id}
                         key={session.id}
                         to={`/programmation/${slugify(session.title)}/`}
                         title={session.title}
-                        content={session.description}
                         place={session.place}
                         time={session.time}
                         type={session.type}
                         categories={session.categories}
                         speakers={session.speakers}
+                        groupedDown
                       />
                     ))}
                   </ScheduleCardList>
-                ) : (
-                  <NoResults />
-                )}
-              </div>
-            </div>
-          </Switcher>
-        </Center>
-      </SectionContainer>
+                  <ScheduleCardList groupedUp time={timerange.split(';')[1]}>
+                    {sessions[1].map((session) => (
+                      <ScheduleCard
+                        id={session.id}
+                        key={session.id}
+                        to={`/programmation/${slugify(session.title)}/`}
+                        title={session.title}
+                        place={session.place}
+                        time={session.time}
+                        type={session.type}
+                        categories={session.categories}
+                        speakers={session.speakers}
+                        groupedUp
+                      />
+                    ))}
+                  </ScheduleCardList>
+                </>
+              ) : (
+                <ScheduleCardList time={timerange}>
+                  {sessions.map((session) => (
+                    <ScheduleCard
+                      id={session.id}
+                      key={session.id}
+                      to={`/programmation/${slugify(session.title)}/`}
+                      title={session.title}
+                      content={session.description}
+                      place={session.place}
+                      time={session.time}
+                      type={session.type}
+                      categories={session.categories}
+                      speakers={session.speakers}
+                    />
+                  ))}
+                </ScheduleCardList>
+              )}
+            </Fragment>
+          ))
+        ) : (
+          <NoResults />
+        )}
+      </Center>
     </>
   );
 };

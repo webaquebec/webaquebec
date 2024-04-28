@@ -6,6 +6,7 @@ import breakpointsRange from '../../utils/breakpointsRange';
 
 // styles
 import breakpoints from '../../styles/breakpoints';
+import colors from '../../styles/colors';
 
 export const LogoWrapper = styled.div`
   z-index: 1051;
@@ -46,16 +47,33 @@ export const BurgerImg = styled.img`
 export const StyledHeader = styled.header`
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [24, 32], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [24, 32], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [8, 64], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [8, 64], bases: [16, 20] },
     ],
     breakpoints.spacings
   )};
 `;
 
 export const Container = styled.div`
+  position: relative;
+  z-index: 1052;
+
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
+
+  background-color: ${colors.peach};
+  border: 2px solid ${colors.blueberry};
+
+  ${breakpointsRange(
+    [
+      { prop: 'border-radius', sizes: [12, 16], bases: [16, 20] },
+      { prop: 'paddingTop', sizes: [16, 24], bases: [16, 20] },
+      { prop: 'paddingBottom', sizes: [16, 24], bases: [16, 20] },
+      { prop: 'paddingLeft', sizes: [24, 48], bases: [16, 20] },
+      { prop: 'paddingRight', sizes: [24, 48], bases: [16, 20] },
+    ],
+    breakpoints.spacings
+  )};
 `;
