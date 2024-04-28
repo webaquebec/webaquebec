@@ -124,13 +124,13 @@ const Program = ({
       const sessions = groupedByTimeProgram[i][1];
       const numberOfSessionsAtTimeI = sessions.length;
 
-      // If could be grouped down check next time
-      if (numberOfSessionsAtTimeI >= 4) {
+      // If could be grouped down check sessions for the next available time
+      if (numberOfSessionsAtTimeI >= 4 && groupedByTimeProgram[i + 1]) {
         const timeI2 = groupedByTimeProgram[i + 1][0];
         const sessionsI2 = groupedByTimeProgram[i + 1][1];
         const numberOfSessionsAtTimeI2 = sessionsI2.length;
 
-        // If next time is also conf time the group
+        // If sessions found for the next available time could also be grouped down
         if (numberOfSessionsAtTimeI2 >= 4) {
           // Fill in missing sessions
           const sessionsPlaces = sessions.map((session) => session.place);
@@ -161,6 +161,7 @@ const Program = ({
             })
           );
 
+          // Group them down together
           output[`${time};${timeI2}`] = [
             sortSessionsByPlace(sessions),
             sortSessionsByPlace(sessionsI2),
