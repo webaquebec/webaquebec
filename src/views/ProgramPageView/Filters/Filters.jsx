@@ -135,7 +135,6 @@ const Filters = ({ onChange, onReset }) => {
           noClose
         >
           {FiltersContent}
-
           <CTAWrapper>
             <CTAButton onClick={handleClick}>voir les résultats</CTAButton>
           </CTAWrapper>

@@ -17,13 +17,6 @@ export const selfBreakpoints = [breakpoints[3]];
 const headerHeight = '86px';
 
 export const Container = styled.div`
-  --top-position: 150px;
-
-  position: sticky;
-  top: var(--top-position, 0);
-
-  overflow: hidden;
-
   background-color: ${colors.white};
   border-radius: 16px;
 `;

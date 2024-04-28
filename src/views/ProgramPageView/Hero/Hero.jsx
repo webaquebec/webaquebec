@@ -11,10 +11,15 @@ import Button from '../../../components/Button';
 import ButtonWithPopover from '../../../components/ButtonWithPopover';
 import DropDown from '../../../components/Dropdown';
 import Center from '../../../components/LayoutSections/Center';
+import Filters from '../Filters';
 
 // utils
 import { lessThanCondition, lessThan } from '../../../utils/mediaQuery';
 import breakpointsRange from '../../../utils/breakpointsRange';
+
+// contexts
+import { useModal } from '../../../contexts/ModalContext';
+import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
 
 // styles
 import { h1AltStyle } from '../../../styles/global';
@@ -58,6 +63,10 @@ const TextureWrapper = styled.div`
 const Hero = ({ location, datePaths }) => {
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
 
+  const { getTotalAppliedFilters } = useProgramFilters();
+
+  const { open: openModal } = useModal();
+
   const handleClick = (path) => {
     navigate(path, {
       state: {
@@ -69,6 +78,12 @@ const Hero = ({ location, datePaths }) => {
   };
 
   const current = datePaths.find((item) => item.path === location.pathname);
+
+  const totalAppliedFilters = getTotalAppliedFilters();
+
+  const totalAppliedFiltersLabel = `Filtres${
+    totalAppliedFilters > 0 ? <span>{`(${totalAppliedFilters})`}</span> : ''
+  }`;
 
   const totalDates = datePaths.length;
 
@@ -139,9 +154,8 @@ const Hero = ({ location, datePaths }) => {
                     </Button>
                   ))}
               </DropDown>
-              <ButtonWithPopover label='Filtres'>
-                <div>Allo!</div>
-              </ButtonWithPopover>
+              <Button onClick={openModal}>{totalAppliedFiltersLabel}</Button>
+              <Filters rooms={[]} themes={[]} types={[]} />
             </div>
           ) : (
             <div
@@ -169,8 +183,8 @@ const Hero = ({ location, datePaths }) => {
                   </DateListItem>
                 ))}
               </DateList>
-              <ButtonWithPopover label='Filtres'>
-                <div>Allo!</div>
+              <ButtonWithPopover label={totalAppliedFiltersLabel}>
+                <Filters rooms={[]} themes={[]} types={[]} />
               </ButtonWithPopover>
             </div>
           )}
