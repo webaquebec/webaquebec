@@ -57,7 +57,7 @@ const BlogPost = ({ data }) => {
 
           <Center intrinsic>
             <Button
-              to='/blogue'
+              to='/blogue/'
               tag='link'
               outlined
               iconFirst
