@@ -1,5 +1,5 @@
 // vendors
-import React, { Fragment, useCallback, useMemo } from 'react';
+import React, { Fragment, useCallback, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -28,6 +28,8 @@ const Program = ({
   data,
   pageContext: { eventDates, pagePaths },
 }) => {
+  const { state } = location;
+
   const {
     swapcard: { plannings },
   } = data;
@@ -178,6 +180,21 @@ const Program = ({
     return Object.entries(output);
   }, [groupedByTimeProgram, sortSessionsByPlace]);
 
+  // Scroll to the last selected session
+  useEffect(() => {
+    if (typeof window === 'undefined' || state === null) return;
+
+    const anchor = document.querySelector(`[id='${state.sessionId}']`);
+
+    if (anchor === null) return;
+
+    const offset = anchor.getBoundingClientRect().top + window.scrollY - 140;
+
+    setTimeout(() => {
+      window.scrollTo({ top: offset, behavior: `smooth` });
+    }, 0);
+  }, [state]);
+
   return (
     <>
       <SEO
@@ -187,7 +204,7 @@ const Program = ({
 
       <Hero datePaths={datePaths} location={location} />
 
-      <Center maxWidth='1320px' gutters='16px'>
+      <Center id='program-section' maxWidth='1320px' gutters='16px'>
         {groupedByTimeRangeProgram.length > 0 ? (
           groupedByTimeRangeProgram.map(([timerange, sessions]) => (
             <Fragment key={timerange}>
