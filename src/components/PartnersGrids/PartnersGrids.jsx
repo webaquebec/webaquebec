@@ -28,6 +28,10 @@ import logoBarberie from '../../images/logoPartners/provider/logo-barberie.png';
 import logoBobba from '../../images/logoPartners/provider/logo-bobba.svg';
 import logoNovicom from '../../images/logoPartners/provider/logo-novicom.svg';
 import logoFouGin from '../../images/logoPartners/provider/logo-fou-gin.svg';
+import logoMCN from '../../images/logoPartners/festive/logo-quebec.svg';
+import logoOnibi from '../../images/logoPartners/provider/logo-onibi.svg';
+import logoConnecte from '../../images/logoPartners/provider/logo-connecte.png';
+import logoGutsyKombucha from '../../images/logoPartners/provider/logo-gutsy-kombucha.png';
 
 // styles
 import {
@@ -91,6 +95,12 @@ const creativePartners = [
     url: 'https://ici.radio-canada.ca/',
     bigger: true,
   },
+  {
+    src: logoMCN,
+    alt: 'Ministère de la Cybersécurité et du Numérique',
+    url: 'https://www.quebec.ca/gouvernement/ministere/cybersecurite-numerique',
+    bigger: true,
+  },
 ];
 
 const festivePartners = [
@@ -149,6 +159,22 @@ const providerPartners = [
     src: logoFouGin,
     alt: 'Fou Gin',
     url: 'https://fougin.ca/',
+  },
+  {
+    src: logoOnibi,
+    alt: 'Onibi',
+    url: 'https://onibi.ca/',
+  },
+  {
+    src: logoConnecte,
+    alt: 'Connecte',
+    url: 'https://connecteofficiel.ca/',
+  },
+  {
+    src: logoGutsyKombucha,
+    alt: 'Gutsy Kombucha',
+    url: 'https://gutsykombucha.com/fr',
+    bigger: true,
   },
 ];
 
