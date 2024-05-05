@@ -10,13 +10,13 @@ module.exports = async ({ actions, reporter }) => {
       isPermanent: true,
     },
     {
-      fromPath: '/programmation',
-      toPath: '/programmation/2024',
+      fromPath: '/programmation/',
+      toPath: '/programmation/2024/',
       isPermanent: false,
     },
     {
-      fromPath: '/a-propos',
-      toPath: '/a-propos/evenement',
+      fromPath: '/a-propos/',
+      toPath: '/a-propos/evenement/',
       isPermanent: false,
     },
     {

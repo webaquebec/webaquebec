@@ -194,8 +194,8 @@ const createProgram = async ({
         if (page <= 0 || page > totalPages) return null;
 
         return page === 1
-          ? `/programmation/${eventYear}`
-          : `/programmation/${eventYear}/${page}`;
+          ? `/programmation/${eventYear}/`
+          : `/programmation/${eventYear}/${page}/`;
       };
 
       const pageNumber = index + 1;

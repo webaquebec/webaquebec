@@ -60,7 +60,7 @@ const ExclusiveActivity = () => {
           réserver!
         </ActivityIntro>
         <CTAWrapper>
-          <Button to='/activite-exclusive' tag='link' animated>
+          <Button to='/activite-exclusive/' tag='link' animated>
             Réserver ma place
           </Button>
         </CTAWrapper>

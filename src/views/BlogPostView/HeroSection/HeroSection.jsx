@@ -34,7 +34,7 @@ const HeroSection = ({ title, publishDate, featuredImage }) => (
     >
       <TitleWrapper>
         <BackButton
-          to='/blogue'
+          to='/blogue/'
           tag='link'
           outlined
           iconFirst
