@@ -103,7 +103,7 @@ const Hero = () => {
         </Address>
 
         {/* <CTAWrapper>
-          <Button to='/billetterie' tag='link' animated>
+          <Button to='/billetterie/' tag='link' animated>
             Réserver ma place
           </Button>
         </CTAWrapper> */}

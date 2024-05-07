@@ -39,8 +39,11 @@ export const wrapRootElement = ({ element }) => (
 );
 
 // Define a custom scroll behavior
-export const shouldUpdateScroll = ({ routerProps }) => {
-  const { state } = routerProps.location;
+export const shouldUpdateScroll = ({
+  routerProps: { location },
+  getSavedScrollPosition,
+}) => {
+  const { state } = location;
 
   if (state === null) return true;
 
@@ -52,12 +55,23 @@ export const shouldUpdateScroll = ({ routerProps }) => {
   // Get anchor from page
   const anchor = document.querySelector(hash);
 
-  if (anchor === null) return true;
+  if (anchor === null) {
+    const currentPosition = getSavedScrollPosition(location);
+
+    setTimeout(() => {
+      window.scrollTo(...(currentPosition || [0, 0]));
+    }, 0);
+
+    return false;
+  }
 
   // Define anchor position
   const top = anchor.getBoundingClientRect().top + window.scrollY + offset || 0;
   // Scroll to anchor position
-  window.scrollTo({ top, behavior: `smooth` });
+  // window.scrollTo({ top, behavior: `smooth` });
+  setTimeout(() => {
+    window.scrollTo({ top, behavior: `smooth` });
+  }, 0);
 
   return !disableScrollUpdate;
 };

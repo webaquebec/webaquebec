@@ -22,7 +22,7 @@ const CTASale = () => (
           semaines.
         </CTAIntro>
 
-        <Button to='/billetterie' tag='link' animated>
+        <Button to='/billetterie/' tag='link' animated>
           Achète ton billet
         </Button>
       </div>

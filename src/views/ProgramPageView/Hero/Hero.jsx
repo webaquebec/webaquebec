@@ -62,7 +62,7 @@ const Hero = ({ location, datePaths }) => {
       state: {
         disableScrollUpdate: true,
         hash: '#program-section',
-        offset: -86,
+        offset: -186,
       },
     });
   };
