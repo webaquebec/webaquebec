@@ -153,7 +153,7 @@ const Prices = () => {
                 target='_blank'
                 css={buttonStyle}
               >
-                Disponible le 21 mars
+                Acheter mon billet
               </Button>
 
               <TicketText>
