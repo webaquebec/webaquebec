@@ -13,59 +13,65 @@ const defaultTags = {
   button: 'button',
 };
 
-const Button = ({
-  to,
-  tag,
-  type,
-  primary,
-  outlined,
-  inverted,
-  small,
-  medium,
-  renderIcon,
-  iconFirst,
-  animated,
-  disabled,
-  children,
-  ...rest
-}) => {
-  const selectedTag = defaultTags[tag || `button`] || tag;
+const Button = React.forwardRef(
+  (
+    {
+      to,
+      tag,
+      type,
+      primary,
+      outlined,
+      inverted,
+      small,
+      medium,
+      renderIcon,
+      iconFirst,
+      animated,
+      disabled,
+      children,
+      ...rest
+    },
+    ref
+  ) => {
+    const selectedTag = defaultTags[tag || `button`] || tag;
 
-  const props = {
-    to: tag === `link` ? to : undefined,
-    href: tag === `href` ? to : undefined,
-    type: !tag || tag === `button` ? type || `button` : undefined,
-    ...rest,
-  };
+    const props = {
+      to: tag === `link` ? to : undefined,
+      href: tag === `href` ? to : undefined,
+      type: !tag || tag === `button` ? type || `button` : undefined,
+      ...rest,
+    };
 
-  return (
-    <StyledButton
-      as={selectedTag}
-      disabled={disabled}
-      $primary={primary}
-      $small={small}
-      $medium={medium}
-      $hasIcon={!!renderIcon}
-      $iconFirst={iconFirst}
-      $outlined={outlined}
-      $inverted={inverted}
-      $animated={animated}
-      {...props}
-    >
-      {renderIcon ? (
-        <>
-          <TextWrapper>{children}</TextWrapper>
+    return (
+      <StyledButton
+        ref={ref}
+        as={selectedTag}
+        disabled={disabled}
+        $primary={primary}
+        $small={small}
+        $medium={medium}
+        $hasIcon={!!renderIcon}
+        $iconFirst={iconFirst}
+        $outlined={outlined}
+        $inverted={inverted}
+        $animated={animated}
+        {...props}
+      >
+        {renderIcon ? (
+          <>
+            <TextWrapper>{children}</TextWrapper>
 
-          <IconContainer>
-            <IconWrapper>{renderIcon}</IconWrapper>
-          </IconContainer>
-        </>
-      ) : (
-        children
-      )}
-    </StyledButton>
-  );
-};
+            <IconContainer>
+              <IconWrapper>{renderIcon}</IconWrapper>
+            </IconContainer>
+          </>
+        ) : (
+          children
+        )}
+      </StyledButton>
+    );
+  }
+);
 
 Button.propTypes = {
   /**

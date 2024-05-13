@@ -121,7 +121,7 @@ export const outlinedStyle = css`
 
   padding: var('--paddingVertical') var('--paddingHorizontal');
 
-  border-radius: 5px;
+  border-radius: 8px;
 
   &.active,
   :focus,
