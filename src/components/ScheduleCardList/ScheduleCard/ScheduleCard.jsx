@@ -158,6 +158,7 @@ ScheduleCard.propTypes = {
    */
   groupedUp: PropTypes.bool,
   groupedDown: PropTypes.bool,
+  faded: PropTypes.bool,
 };
 
 ScheduleCard.defaultProps = {
@@ -169,6 +170,7 @@ ScheduleCard.defaultProps = {
   speakers: [],
   groupedUp: false,
   groupedDown: false,
+  faded: false,
 };
 
 export default ScheduleCard;

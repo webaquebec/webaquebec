@@ -26,6 +26,10 @@ import {
   DateListItem,
   dateTabStyle,
 } from './Hero.styles';
+import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
+import { useModal } from '../../../contexts/ModalContext';
+import Popover from '../../../components/Popover';
+import Filters from '../Filters/Filters';
 
 const PageTitle = styled.h1`
   ${breakpointsRange(
@@ -54,8 +58,12 @@ const TextureWrapper = styled.div`
   }
 `;
 
-const Hero = ({ location, datePaths }) => {
+const Hero = ({ location, datePaths, onFilterChange, onFilterReset }) => {
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
+
+  const { getTotalAppliedFilters } = useProgramFilters();
+
+  const { open: openModal } = useModal();
 
   const handleClick = (path) => {
     navigate(path, {
@@ -70,6 +78,8 @@ const Hero = ({ location, datePaths }) => {
   const current = datePaths.find((item) => item.path === location.pathname);
 
   const totalDates = datePaths.length;
+
+  const totalAppliedFilters = getTotalAppliedFilters();
 
   const data = useStaticQuery(
     graphql`
@@ -140,23 +150,41 @@ const Hero = ({ location, datePaths }) => {
               </DropDown>
             </div>
           ) : (
-            <DateList $shrunk={totalDates <= 3}>
-              {datePaths.map((item) => (
-                <DateListItem key={item.date}>
-                  <Button
-                    className={
-                      item.path === location.pathname ? 'active' : undefined
-                    }
-                    outlined
-                    medium
-                    onClick={() => handleClick(item.path)}
-                    css={dateTabStyle}
-                  >
-                    <span>{item.date}</span>
-                  </Button>
-                </DateListItem>
-              ))}
-            </DateList>
+            <>
+              <DateList $shrunk={totalDates <= 3}>
+                {datePaths.map((item) => (
+                  <DateListItem key={item.date}>
+                    <Button
+                      className={
+                        item.path === location.pathname ? 'active' : undefined
+                      }
+                      outlined
+                      medium
+                      onClick={() => handleClick(item.path)}
+                      css={dateTabStyle}
+                    >
+                      <span>{item.date}</span>
+                    </Button>
+                  </DateListItem>
+                ))}
+              </DateList>
+
+              <div>
+                <Popover
+                  renderTarget={
+                    <Button small onClick={openModal}>
+                      <span>Filtres</span>
+
+                      {totalAppliedFilters > 0 && (
+                        <span>&nbsp;{`(${totalAppliedFilters})`}</span>
+                      )}
+                    </Button>
+                  }
+                >
+                  <Filters onChange={onFilterChange} onReset={onFilterReset} />
+                </Popover>
+              </div>
+            </>
           )}
         </HeaderContent>
       </Wrapper>
@@ -175,6 +203,12 @@ Hero.propTypes = {
       path: PropTypes.string.isRequired,
     })
   ).isRequired,
+  onFilterChange: PropTypes.func,
+  onFilterReset: PropTypes.func,
+};
+Hero.defaultProps = {
+  onFilterChange: () => {},
+  onFilterReset: () => {},
 };
 
 export default Hero;

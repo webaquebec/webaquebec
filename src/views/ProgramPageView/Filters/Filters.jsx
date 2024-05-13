@@ -26,7 +26,7 @@ import randomString from '../../../utils/math/randomString';
 import colors from '../../../styles/colors';
 import {
   selfBreakpoints,
-  Container,
+  // Container,
   CTAWrapper,
   CTAButton,
   Header,
@@ -34,6 +34,8 @@ import {
   Title,
   Wrapper,
 } from './Filters.styles';
+import Paper from '../../../components/Paper';
+import elevation from '../../../styles/elevation';
 
 const checkboxStyle = css`
   :not(:first-child) {
@@ -59,7 +61,7 @@ const Filters = ({ onChange, onReset }) => {
 
   const totalAppliedFilters = getTotalAppliedFilters();
 
-  const FiltersContent = (
+  const renderContent = (
     <>
       <Header>
         <Title id={customId}>
@@ -134,14 +136,22 @@ const Filters = ({ onChange, onReset }) => {
           noBorder
           noClose
         >
-          {FiltersContent}
+          {renderContent}
 
           <CTAWrapper>
             <CTAButton onClick={handleClick}>voir les résultats</CTAButton>
           </CTAWrapper>
         </Modal>
       ) : (
-        <Container>{FiltersContent}</Container>
+        <Paper
+          lightColor={colors.white}
+          darkColor={colors.blueberry}
+          elevation={elevation.large}
+          outlined
+          rounded
+        >
+          {renderContent}
+        </Paper>
       )}
     </>
   );

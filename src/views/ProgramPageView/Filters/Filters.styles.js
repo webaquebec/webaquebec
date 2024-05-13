@@ -30,14 +30,18 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   max-height: calc(100vh - (${headerHeight} + 8px));
-  padding-bottom: 180px;
+
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [12, 12] }],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
 
   overflow-x: hidden;
   overflow-y: auto;
 
   ${greaterThan(selfBreakpoints[0])} {
     max-height: calc(80vh - (var(--top-position, 0) - 60px));
-    padding: 0;
   }
 `;
 
