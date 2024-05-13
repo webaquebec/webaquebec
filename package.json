@@ -109,7 +109,7 @@
     "lint:style": "npx stylelint \"**/*.{css,jsx,js}\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "build:noindex": "npm run build && echo '/*\n\tX-Robots-Tag: noindex' >> public/_headers",
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "serve": "gatsby serve",
