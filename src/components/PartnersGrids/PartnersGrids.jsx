@@ -32,6 +32,7 @@ import logoMCN from '../../images/logoPartners/festive/logo-quebec.svg';
 import logoOnibi from '../../images/logoPartners/provider/logo-onibi.svg';
 import logoConnecte from '../../images/logoPartners/provider/logo-connecte.png';
 import logoGutsyKombucha from '../../images/logoPartners/provider/logo-gutsy-kombucha.png';
+import logoAWS from '../../images/logoPartners/creative/logo-aws.svg';
 
 // styles
 import {
@@ -100,6 +101,12 @@ const creativePartners = [
     alt: 'Ministère de la Cybersécurité et du Numérique',
     url: 'https://www.quebec.ca/gouvernement/ministere/cybersecurite-numerique',
     bigger: true,
+  },
+  {
+    src: logoAWS,
+    alt: 'AWS',
+    url: 'https://aws.amazon.com/fr/',
+    smaller: true,
   },
 ];
 
