@@ -38,13 +38,18 @@ const CTAApp = () => {
     <CTAWrap>
       <ContentWrap>
         <Title>découvrez notre application</Title>
-        {/* <Title>rediffusions en cours</Title> */}
+
+        <Text>TODO</Text>
+
+        {/*
+        <Title>rediffusions en cours</Title>
 
         <Text>
-          Les rediffusions des conférences du WAQ23 sont en cours dans
+          Les rediffusions des conférences du WAQ24 sont en cours dans
           l’application de l’événement! Disponibles pour les détenteur·rices de
           billets seulement.
         </Text>
+        */}
 
         <Button
           to={appLink}
