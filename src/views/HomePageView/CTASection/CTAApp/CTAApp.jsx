@@ -22,7 +22,7 @@ const CTAApp = () => {
   const [appLink, setAppLink] = useState(null);
 
   useEffect(() => {
-    let link = 'https://app.swapcard.com/event/web-a-quebec-waq23';
+    let link = 'https://app.swapcard.com/event/web-a-quebec-waq24';
 
     if (isAndroid) {
       link =
