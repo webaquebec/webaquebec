@@ -3,11 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-// import { useQuery } from '@apollo/client';
-
-// Client queries
-// import clientSwapcard from '../../../../apollo/clientSwapcard';
-// import sessionByIdQuery from '../../../../graphql/swapcard/get-session-by-id-query.gql';
 
 // components
 import SEO from '../../../components/SEO';
@@ -30,16 +25,6 @@ import IconArrow from '../../../images/IconArrow';
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 import { fontWeights } from '../../../styles/typography';
-// import { h1AltStyle } from '../../../styles/global';
-
-// styles
-
-// const PageTitle = styled.h1`
-//   ${breakpointsRange(
-//     [{ prop: 'marginTop', sizes: [80, 200], bases: [16, 20] }],
-//     breakpoints.spacings
-//   )};
-// `;
 
 const backArrow = css`
   transform: rotate(180deg);
@@ -222,21 +207,6 @@ const EventDescription = styled.div`
  * (@Link gatsby/createScheduleSessionPages.js) and use that as variables GraphQL query.
  */
 const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
-  /**
-   * Query to fetch data from Swapcard API at client side only.
-   * Useful if we want to get up-to-date data that may change during an event (e.g. time, room)
-   */
-  // const { error, data: dataClient } = useQuery(sessionByIdQuery, {
-  //   client: clientSwapcard,
-  //   variables: { eventId, page, pageSize, planningIds },
-  // });
-
-  // if (error) {
-  //   console.log('ERROR', error);
-  // } else {
-  //   console.log(dataClient);
-  // }
-
   const {
     swapcard: { plannings },
   } = data;
@@ -297,17 +267,6 @@ const Session = ({ data, pageContext: { pageNumber, isLastPage } }) => {
   return (
     <>
       <SEO title={title} description={description} />
-
-      {/* <Center
-        maxWidth='var(--max-container-width)'
-        gutters='var(--container-gutter)'
-        intrinsic
-      >
-        <PageTitle css={h1AltStyle}>
-          <span>program</span>mation
-          {edition === 2021 && <span>&nbsp;{edition}</span>}
-        </PageTitle>
-      </Center> */}
 
       <Center maxWidth='1130px' gutters='var(--container-gutter)' intrinsic>
         <Button

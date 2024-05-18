@@ -51,6 +51,11 @@ export const biggerStyle = css`
   max-height: 75%;
 `;
 
+export const smallerStyle = css`
+  width: 45%;
+  max-height: 45%;
+`;
+
 export const Image = styled.img`
   display: flex;
   align-items: center;
@@ -61,6 +66,7 @@ export const Image = styled.img`
   max-height: 60%;
 
   ${({ $bigger }) => $bigger && biggerStyle};
+  ${({ $smaller }) => $smaller && smallerStyle};
 
   /* filter: invert(14%) sepia(100%) saturate(4664%) hue-rotate(211deg)
     brightness(61%) contrast(148%); */

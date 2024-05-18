@@ -25,7 +25,7 @@ const CTASpeakersCall = () => (
           soumettre ta candidature!
         </CTAIntro>
 
-        <Button to='/appel-a-conferences' tag='href' animated>
+        <Button to='/appel-a-conferences/' tag='href' animated>
           Ma candidature
         </Button>
       </div>

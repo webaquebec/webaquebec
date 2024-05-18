@@ -9,6 +9,9 @@ import Stack from '../../LayoutSections/Stack/Stack';
 import Cluster from '../../LayoutSections/Cluster/Cluster';
 import Tag from '../../Tag';
 
+// utils
+import { lessThanCondition } from '../../../utils/mediaQuery';
+
 // styles
 import {
   StyledScheduleCard,
@@ -18,7 +21,6 @@ import {
   placeStyle,
   timeTag,
 } from './ScheduleCard.styles';
-import { lessThanCondition } from '../../../utils/mediaQuery';
 
 /**
  *
@@ -72,15 +74,15 @@ const ScheduleCard = ({
 
         <Title as={titleAs}>{title}</Title>
 
-        <Stack space='calc(var(--container-gutter) * 2)'>
-          {speakers.map((speaker) => (
-            <div key={speaker.id}>
-              <Tag speaker={speaker} />
-            </div>
-          ))}
+        <Stack space='var(--container-gutter)'>
+          <Stack space='calc(var(--container-gutter) / 1.3333)'>
+            {speakers.map((speaker) => (
+              <Tag key={speaker.id} speaker={speaker} />
+            ))}
+          </Stack>
 
           {categories.length > 0 && (
-            <Cluster space='8px'>
+            <Cluster space='calc(var(--container-gutter) / 2)'>
               <div>
                 {categories.map((category) => (
                   <Tag key={category} category={category} />
