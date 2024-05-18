@@ -28,6 +28,18 @@ export const StyledHero = styled.header`
   )};
 `;
 
+export const englishTitleStyle = css`
+  line-height: 1 !important;
+  text-align: center;
+
+  img {
+    ${breakpointsRange(
+      [{ prop: 'bottom', sizes: [50, 80], bases: [16, 20] }],
+      breakpoints.spacings
+    )};
+  }
+`;
+
 export const HeroTitle = styled.h2`
   position: relative;
 
@@ -54,6 +66,8 @@ export const HeroTitle = styled.h2`
       breakpoints.spacings
     )};
   }
+
+  ${({ $english }) => $english && englishTitleStyle};
 `;
 
 export const TextureWrapper = styled.div`

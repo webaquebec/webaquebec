@@ -19,8 +19,6 @@ const IndexPage = () => {
 
   const { t } = useTranslation();
 
-  console.log(t('home.helloThere'));
-
   useEffect(() => {
     const currentDate = new Date();
     const targetDate = new Date(currentDate.getFullYear(), 3, 1);
@@ -33,8 +31,8 @@ const IndexPage = () => {
   return (
     <>
       <SEO
-        title='Web à Québec | 28 au 30 mai 2024'
-        description='Le WAQ, c’est une communauté de passionnés qui déploie annuellement un événement numérique local de calibre international. Trois jours de conférences et de rencontres exceptionnelles.'
+        title={`Web à Québec | ${t('home.title')}`}
+        description={t('home.description')}
       />
 
       <Hero />

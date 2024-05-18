@@ -1,5 +1,66 @@
 {
+  "footer": {
+    "socials": {
+      "title": "Suis-nous en ligne",
+      "description": "Annonces, événements, concours, anecdotes, contenu inédit et une belle communauté t’y attendent."
+    },
+    "newsletter": {
+      "title": "Ne manque rien",
+      "description": "Pour des nouveautés, des promotions, du contenu exclusif et une bonne dose de WAQ, abonne-toi à notre infolettre.",
+      "cta": "Je veux m’abonner!"
+    },
+    "coordinatedBy": "Événement coordonné par",
+    "contact": "Pour nous contacter"
+  },
   "home": {
-    "helloThere": "Allo!"
+    "title": "28 au 30 mai 2024",
+    "description": "Le WAQ, c’est une communauté de passionnés qui déploie annuellement un événement numérique local de calibre international. Trois jours de conférences et de rencontres exceptionnelles.",
+    "hero": {
+      "dates": "28<br /> au 30<br /> mai",
+      "slogan": "l’événement numérique local de calibre international",
+      "eventLocation": "Au Terminal — Port de Québec"
+    },
+    "statistics": {
+      "conferences": "conférences, ateliers et plus",
+      "days": "journées<br /> intensives",
+      "volunteers": "bénévoles annuels passionnés"
+    },
+    "ctaSection": {
+      "sale": {
+        "title": "Réserve ta place",
+        "description": "Ne manque pas la vente des billets pour la prochaine édition du WAQ. Viens assister à des conférences et des 5 à 7 incroyables! En plus de profiter des nouveautés qui seront annoncées dans les prochaines semaines.",
+        "cta": "Achète ton billet"
+      },
+      "stickers": {
+        "innovation": "innovation",
+        "design": "design",
+        "communication": "comm / mktg",
+        "development": "développement"
+      },
+      "mobileApp": {
+        "duringEvent": {
+          "title": "découvrez notre application",
+          "description": "Que ce soit pour faire ton horaire, réseauter, écouter les conférences, ou tout simplement vivre le WAQ à 100%, l’application sera ton meilleur compagnon pour l’événement!"
+        },
+        "postEvent": {
+          "title": "rediffusions en cours",
+          "description": "Les rediffusions des conférences du WAQ23 sont en cours dans l’application de l’événement! Disponibles pour les détenteur·rices de billets seulement."
+        },
+        "desktopCta": "accéder à l’application",
+        "mobileCta": "télécharger l’application"
+      }
+    },
+    "keynotes": {
+      "title": "quelques conférences",
+      "cta": "voir la programmation"
+    },
+    "partners": {
+      "hosting": "le WAQ 2024 est présenté par",
+      "expert": "partenaire expert",
+      "creative": "partenaires créatifs",
+      "festive": "partenaire festif",
+      "community": "partenaires communauté",
+      "supplier": "partenaires fournisseurs"
+    }
   }
 }

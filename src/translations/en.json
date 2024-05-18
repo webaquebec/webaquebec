@@ -1,5 +1,66 @@
 {
+  "footer": {
+    "socials": {
+      "title": "Follow us online",
+      "description": "Announcements, events, contests, anecdotes, new content and a great community await you."
+    },
+    "newsletter": {
+      "title": "Don’t miss a thing",
+      "description": "For news, promotions, exclusive content and a good dose of WAQ, subscribe to our newsletter.",
+      "cta": "I want to subscribe!"
+    },
+    "coordinatedBy": "Event coordinated by",
+    "contact": "To contact us"
+  },
   "home": {
-    "helloThere": "Hello there!"
+    "title": "May 28-30, 2024",
+    "description": "The WAQ is a community of passionate individuals that annually organizes a local digital world-class event. It is three days of exceptional conferences and meetings.",
+    "hero": {
+      "dates": "may<br /> 28 - 30",
+      "slogan": "the local, world-class digital event",
+      "eventLocation": "Cruise Terminal - Port of Québec"
+    },
+    "statistics": {
+      "conferences": "conferences, workshops and more",
+      "days": "intensive<br /> days",
+      "volunteers": "dedicated annual volunteers"
+    },
+    "ctaSection": {
+      "sale": {
+        "title": "Book your place",
+        "description": "Don’t miss out on ticket sales for the upcoming WAQ. Come and enjoy incredible conferences and Happy Hours! Not to mention all the new features to be announced in the coming weeks.",
+        "cta": "Book my ticket"
+      },
+      "stickers": {
+        "innovation": "innovation",
+        "design": "design",
+        "communication": "comm / mktg",
+        "development": "web development"
+      },
+      "mobileApp": {
+        "duringEvent": {
+          "title": "discover our mobile app",
+          "description": "Whether it’s to create your schedule, network, listen to the conferences, or simply experience the WAQ to the fullest, the app will be your best companion for the event!"
+        },
+        "postEvent": {
+          "title": "replays in progress",
+          "description": "The replays of the WAQ23 conferences are in progress in the event app! Available only to ticket holders."
+        },
+        "desktopCta": "access the app",
+        "mobileCta": "download the app"
+      }
+    },
+    "keynotes": {
+      "title": "a few speakers",
+      "cta": "see program"
+    },
+    "partners": {
+      "hosting": "WAQ 2024 is hosted by",
+      "expert": "expert partner",
+      "creative": "creative partners",
+      "festive": "festive partner",
+      "community": "community partners",
+      "supplier": "supplier partners"
+    }
   }
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // components
+import { useTranslation } from 'react-i18next';
 import Button from '../Button';
 import LogoCard from './LogoCard';
 import Center from '../LayoutSections/Center';
@@ -185,99 +186,108 @@ const providerPartners = [
   },
 ];
 
-const partners = [
-  {
-    title: 'partenaire expert',
-    images: expertPartners,
-  },
-  {
-    title: 'partenaires créatifs',
-    images: creativePartners,
-  },
-  {
-    title: 'partenaire festif',
-    images: festivePartners,
-  },
-  {
-    title: 'partenaires communauté',
-    images: communityPartners,
-  },
-  {
-    title: 'partenaires fournisseurs',
-    images: providerPartners,
-  },
-];
+const PartnersGrids = ({ hasDetails }) => {
+  const { t } = useTranslation();
 
-const PartnersGrids = ({ hasDetails }) => (
-  <>
-    <Center
-      as='section'
-      maxWidth='1024px'
-      gutters='var(--container-gutter)'
-      intrinsic
-      withText
-    >
-      <Title>le WAQ 2024 est présenté par</Title>
+  const partners = [
+    {
+      title: t('home.partners.expert'),
+      images: expertPartners,
+    },
+    {
+      title: t('home.partners.creative'),
+      images: creativePartners,
+    },
+    {
+      title: t('home.partners.festive'),
+      images: festivePartners,
+    },
+    {
+      title: t('home.partners.community'),
+      images: communityPartners,
+    },
+    {
+      title: t('home.partners.supplier'),
+      images: providerPartners,
+    },
+  ];
 
-      <Switcher
-        threshold='768px'
-        space='calc(var(--container-gutter) * 2)'
-        limit={2}
-      >
-        <PresentingWrapper>
-          <div>
-            <LogoCard image={presentingPartner} isPresenting />
-          </div>
-
-          {hasDetails && (
-            <div>
-              <Center maxWidth='625px' gutters='0' css={presentingContentStyle}>
-                <PresentingText>
-                  Ubisoft est reconnu internationalement, mais la franchise de
-                  la ville de Québec se démarque particulièrement. Ayant acquis
-                  une solide expertise dans le développement de jeux d’envergure
-                  AAA, le studio assume maintenant le leadership sur plusieurs
-                  projets. Le WAQ est très fier d’être présenté par Ubisoft!
-                </PresentingText>
-                <Button
-                  to='https://www.ubisoft.com/fr-ca/'
-                  tag='href'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                  small
-                  animated
-                >
-                  En savoir plus
-                </Button>
-              </Center>
-            </div>
-          )}
-        </PresentingWrapper>
-      </Switcher>
-    </Center>
-
-    {partners.map((partner) => (
+  return (
+    <>
       <Center
-        key={`partners-${partner.title}`}
         as='section'
-        maxWidth='900px'
+        maxWidth='1024px'
         gutters='var(--container-gutter)'
         intrinsic
         withText
       >
-        <Title>{partner.title}</Title>
+        <Title>{t('home.partners.hosting')}</Title>
 
-        <Grid>
-          {partner.images.map((image) => (
-            <GridItem key={image.url}>
-              <LogoCard image={image} />
-            </GridItem>
-          ))}
-        </Grid>
+        <Switcher
+          threshold='768px'
+          space='calc(var(--container-gutter) * 2)'
+          limit={2}
+        >
+          <PresentingWrapper>
+            <div>
+              <LogoCard image={presentingPartner} isPresenting />
+            </div>
+
+            {hasDetails && (
+              <div>
+                <Center
+                  maxWidth='625px'
+                  gutters='0'
+                  css={presentingContentStyle}
+                >
+                  <PresentingText>
+                    Ubisoft est reconnu internationalement, mais la franchise de
+                    la ville de Québec se démarque particulièrement. Ayant
+                    acquis une solide expertise dans le développement de jeux
+                    d’envergure AAA, le studio assume maintenant le leadership
+                    sur plusieurs projets. Le WAQ est très fier d’être présenté
+                    par Ubisoft!
+                  </PresentingText>
+                  <Button
+                    to='https://www.ubisoft.com/fr-ca/'
+                    tag='href'
+                    rel='noopener noreferrer'
+                    target='_blank'
+                    small
+                    animated
+                  >
+                    En savoir plus
+                  </Button>
+                </Center>
+              </div>
+            )}
+          </PresentingWrapper>
+        </Switcher>
       </Center>
-    ))}
-  </>
-);
+
+      {partners.map((partner) => (
+        <Center
+          key={`partners-${partner.title}`}
+          as='section'
+          maxWidth='900px'
+          gutters='var(--container-gutter)'
+          intrinsic
+          withText
+        >
+          <Title>{partner.title}</Title>
+
+          <Grid>
+            {partner.images.map((image) => (
+              <GridItem key={image.url}>
+                <LogoCard image={image} />
+              </GridItem>
+            ))}
+          </Grid>
+        </Center>
+      ))}
+    </>
+  );
+};
 
 PartnersGrids.propTypes = {
   /**
