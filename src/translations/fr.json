@@ -62,5 +62,46 @@
       "community": "partenaires communauté",
       "supplier": "partenaires fournisseurs"
     }
+  },
+  "ticketing": {
+    "title": "Billetterie",
+    "description": "Viens vivre le WAQ du 28 au 30 mai 2024. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.",
+    "intro": "Chaque année, des centaines de passionné.es de numérique participent au Web à Québec (WAQ). Que ce soit pour réseauter, découvrir les nouvelles tendances ou simplement vivre l’ambiance unique du WAQ, toutes les raisons sont bonnes de te joindre à nous!",
+    "buyCta": "Acheter mon billet",
+    "soldOut": "Complet",
+    "fullAccess": {
+      "name": "Billet accès complet",
+      "description": "Tu ne veux rien manquer du WAQ?",
+      "bullet1": "3 journées de conférences;",
+      "bullet2": "un accès pour écouter les contenus de la salle principale en rediffusion;",
+      "bullet3": "tes repas et boissons durant les 3 jours;",
+      "bullet4": "les meilleurs 5 à 7 en ville."
+    },
+    "corporate": {
+      "name": "Billet entreprise",
+      "description": "Tu veux assister aux conférences du matin et passer le relais à ta collègue en pm? C’est le billet qu’il vous faut!",
+      "bullet1": "3 journées de conférences;",
+      "bullet2": "6 accès pour écouter les contenus de la salle principale en rediffusion;",
+      "bullet3": "tes repas et boissons durant les 3 jours;",
+      "bullet4": "les meilleurs 5 à 7 en ville;",
+      "bullet5": "une gestion des billets pour faciliter la cueillette de ta cocarde."
+    },
+    "daily": {
+      "name": "Billet journalier",
+      "description": "Tu n’es pas disponible les 3 jours? On a pensé à toi.",
+      "bullet1": "une journée de conférences;",
+      "bullet2": "un accès pour écouter les contenus de la salle principale en rediffusion;",
+      "bullet3": "tes repas et boissons;",
+      "bullet4": "un 5 à 7 exceptionnel."
+    },
+    "student": {
+      "name": "Billet étudiant",
+      "description": "Te former, réseauter et 5à7ter. Quoi demander de plus?",
+      "bullet1": "un billet à un prix réduit;",
+      "bullet2": "3 journées de conférences;",
+      "bullet3": "un accès pour écouter les contenus de la salle principale en rediffusion;",
+      "bullet4": "tes repas et boissons durant les 3 jours;",
+      "bullet5": "les meilleurs 5 à 7 en ville."
+    }
   }
 }

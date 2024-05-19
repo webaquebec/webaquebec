@@ -62,5 +62,46 @@
       "community": "community partners",
       "supplier": "supplier partners"
     }
+  },
+  "ticketing": {
+    "title": "Ticketing",
+    "description": "Experience the WAQ from May 28 to 30, 2024. Reserve your ticket today to participate in the largest French-speaking digital event in North America.",
+    "intro": "Every year, hundreds of digital enthusiasts attend Web à Québec (WAQ). Whether you're networking, discovering new trends or simply enjoying the unique atmosphere of WAQ, every reason is good to join us!",
+    "buyCta": "Book my ticket",
+    "soldOut": "Sold out",
+    "fullAccess": {
+      "name": "Full access ticket",
+      "description": "Don't want to miss a thing?",
+      "bullet1": "3 days of conferences;",
+      "bullet2": "replay access to all the main room content;",
+      "bullet3": "your meals and beverages over the 3 days;",
+      "bullet4": "the best Happy Hours in town."
+    },
+    "corporate": {
+      "name": "Corporate ticket",
+      "description": "Want to attend the morning conferences and pass the baton to your colleague in the afternoon? This is the ticket for you!",
+      "bullet1": "3 days of conferences;",
+      "bullet2": "6 replay accesses to all the main room content;",
+      "bullet3": "your meals and beverages over the 3 days;",
+      "bullet4": "the best Happy Hours in town;",
+      "bullet5": "ticket management to make it easy for you and your colleagues to pick up your badge."
+    },
+    "daily": {
+      "name": "Daily ticket",
+      "description": "You're not available all 3 days? We've got you covered.",
+      "bullet1": "one day of conferences;",
+      "bullet2": "replay access to all the main room content;",
+      "bullet3": "your meals and beverages for the day;",
+      "bullet4": "an exceptional Happy Hour."
+    },
+    "student": {
+      "name": "Student ticket",
+      "description": "Learn, network and experience Happy Hours. What more could you ask for?",
+      "bullet1": "a ticket at a reduced price;",
+      "bullet2": "3 days of conferences;",
+      "bullet3": "replay access to all the main room content;",
+      "bullet4": "your meals and beverages over the 3 days;",
+      "bullet5": "the best Happy Hours in town."
+    }
   }
 }
