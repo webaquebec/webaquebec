@@ -39,7 +39,11 @@ const CTAApp = () => {
       <ContentWrap>
         <Title>découvrez notre application</Title>
 
-        <Text>TODO</Text>
+        <Text>
+          Que ce soit pour faire ton horaire, réseauter, écouter les
+          conférences, ou tout simplement vivre le WAQ à 100%, l’application
+          sera ton meilleur compagnon pour l’événement!
+        </Text>
 
         {/*
         <Title>rediffusions en cours</Title>
