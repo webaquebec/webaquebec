@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 // components
+import { useTranslation } from 'react-i18next';
 import SEO from '../../components/SEO';
 import SectionContainer from '../../components/SectionContainer';
 
@@ -44,8 +45,9 @@ const Container = styled(SectionContainer)`
 `;
 
 const AboutQuebecNumeriquePage = ({ data }) => {
-  const intro =
-    'Synergie et partage sont l’essence de la mission de Québec numérique (QN). Plus qu’une simple organisation sans but lucratif, Québec numérique joue un rôle rassembleur auprès de l’ensemble des acteurs et actrices du numérique à Québec. Depuis 13 ans, Québec numérique s’engage à rassembler, innover, accompagner et former la communauté du numérique.';
+  const { t } = useTranslation();
+
+  const intro = t('about.qn.intro');
 
   const images = {
     first: data?.QN01Picture?.childImageSharp?.fluid,
@@ -54,12 +56,12 @@ const AboutQuebecNumeriquePage = ({ data }) => {
 
   return (
     <>
-      <SEO title='Québec numérique' description={intro} />
+      <SEO title={t('about.qn.title')} description={intro} />
 
       <AboutTabs activeTabId={2} />
 
       <Container forwardedAs='div' faded>
-        <IntroSection title='Québec numérique' text={intro} />
+        <IntroSection title={t('about.qn.title')} text={intro} />
 
         <ImagesSection images={images} />
 

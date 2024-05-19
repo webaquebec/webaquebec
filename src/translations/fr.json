@@ -103,5 +103,62 @@
       "bullet4": "tes repas et boissons durant les 3 jours;",
       "bullet5": "les meilleurs 5 à 7 en ville."
     }
+  },
+  "about": {
+    "title": "à propos",
+    "event": {
+      "title": "L’événement",
+      "tab": "l’événement",
+      "intro1": "Le WAQ, c’est une communauté de passionné(e)s qui déploie annuellement un événement <strong>authentique, ludique, festif et accessible</strong>. C’est trois jours composés de conférences et de rencontres exceptionnelles.",
+      "intro2": "Le Web à Québec est chapeauté par Québec numérique, un organisme à but non lucratif dont la mission est de former, accompagner et rassembler l’écosystème numérique de Québec.",
+      "intro3": "Au WAQ, on rassemble une communauté créative, solidaire et stimulante. Que tu sois designer, développeur, communicateur ou au coeur de l’innovation, on t’invite à propager ta passion du numérique tant à l’échelle locale qu’internationale. Viens apprendre des meilleur(e)s et faire des rencontres qui changeront ton parcours.",
+      "section1": {
+        "title": "Une programmation unique",
+        "text": "Couvrant le numérique sous toutes ses facettes, le WAQ propose des conférences sur la communication, le marketing, le design, le développement, l’innovation et toutautres thèmes intéressants et pertinents pour la communauté rassemblée à l’événement. Des conférencières et des conférenciers reconnu(.e)s du Québec comme de l’international se relaient sur scène pour satisfaire ta curiosité."
+      },
+      "section2": {
+        "title": "Un retour sur notre histoire",
+        "text": "Après avoir vu le jour en 2010, le WAQ a su s’adapter aux dernières tendances du numérique, faire connaître son offre de conférences à l’international et même d’offrir un événement virtuel durant… l’année qu’on connaît tous. 🤷 Après tout ça, le WAQ est maintenant l’événement local de calibre international que tu connais. Quelle est vraiment l’évolution du WAQ à travers les années? Découvre le en visitant les dernières éditions. 👇"
+      },
+      "section3": {
+        "title": "Merci à nos précieux partenaires",
+        "text": "Le WAQ n’existerait pas sans le soutien inestimable de ses précieux partenaires. Que ce soit par leur contribution à la mise en place de l’événement ou par leur animation sur les lieux, ils nous en mettent toujours plein la vue - et les papilles gustatives! 😛"
+      },
+      "gallery": {
+        "title": "Un p’tit coup d’oeil",
+        "text": "Comme qu’y disent… une image vaut mille mots 🤭"
+      }
+    },
+    "team": {
+      "title": "Notre équipe",
+      "description": "Nos bénévoles annuels de feu",
+      "tab": "notre équipe",
+      "intro": "Créé par et pour la communauté numérique, et rendu possible grâce au dévouement d’une équipe de plus de 100 bénévoles qui investit temps et amour ❤️ Chaque personne qui s’implique amène son talent, son expertise et sa personnalité. C’est ce qui fait du WAQ un événement aussi unique et exceptionnel!",
+      "subtitle": "<span>nos bénévoles</span><span>annuels de feu</span>",
+      "programCommittee": "comité de programmation",
+      "developmentTrack": "Piste développement",
+      "designTrack": "Piste design",
+      "communicationTrack": "Piste communication",
+      "innovationTrack": "Piste innovation",
+      "communicationsCommittee": "comité des communications",
+      "committeeLeader": "Responsable du comité",
+      "designCommittee": "comité design",
+      "webCommittee": "comité web"
+    },
+    "qn": {
+      "title": "Québec numérique",
+      "tab": "Québec numérique",
+      "intro": "Synergie et partage sont l’essence de la mission de Québec numérique (QN). Plus qu’une simple organisation sans but lucratif, Québec numérique joue un rôle rassembleur auprès de l’ensemble des acteurs et actrices du numérique à Québec. Depuis 13 ans, Québec numérique s’engage à rassembler, innover, accompagner et former la communauté du numérique.",
+      "whoAreWe": {
+        "title": "Qui sommes-nous?",
+        "text1": "Cette grande aventure débuta en 2010 grâce au Web à Québec, un événement unique imaginé par des mordus du numérique qui ont eu la folle idée d’organiser un événement pour rassembler les acteurs du Web. La première édition a attiré plus de 200 personnes!",
+        "text2": "Avec le succès grandissant du WAQ, l’organisation se structure officiellement. C’est la naissance de l’OBNL Québec numérique."
+      },
+      "reachUs": {
+        "title": "Pour nous joindre",
+        "text": "L’équipe de bénévoles derrière le WAQ est supportée par Québec numérique. Tu as des questions ou besoin d’information? Lâche-nous un coup de fil ou écris-nous, on est pas gênants!",
+        "cta": "en savoir plus"
+      }
+    }
   }
 }

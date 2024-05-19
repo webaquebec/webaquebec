@@ -66,12 +66,12 @@
   "ticketing": {
     "title": "Ticketing",
     "description": "Experience the WAQ from May 28 to 30, 2024. Reserve your ticket today to participate in the largest French-speaking digital event in North America.",
-    "intro": "Every year, hundreds of digital enthusiasts attend Web à Québec (WAQ). Whether you're networking, discovering new trends or simply enjoying the unique atmosphere of WAQ, every reason is good to join us!",
+    "intro": "Every year, hundreds of digital enthusiasts attend Web à Québec (WAQ). Whether you’re networking, discovering new trends or simply enjoying the unique atmosphere of WAQ, every reason is good to join us!",
     "buyCta": "Book my ticket",
     "soldOut": "Sold out",
     "fullAccess": {
       "name": "Full access ticket",
-      "description": "Don't want to miss a thing?",
+      "description": "Don’t want to miss a thing?",
       "bullet1": "3 days of conferences;",
       "bullet2": "replay access to all the main room content;",
       "bullet3": "your meals and beverages over the 3 days;",
@@ -88,7 +88,7 @@
     },
     "daily": {
       "name": "Daily ticket",
-      "description": "You're not available all 3 days? We've got you covered.",
+      "description": "You’re not available all 3 days? We’ve got you covered.",
       "bullet1": "one day of conferences;",
       "bullet2": "replay access to all the main room content;",
       "bullet3": "your meals and beverages for the day;",
@@ -102,6 +102,63 @@
       "bullet3": "replay access to all the main room content;",
       "bullet4": "your meals and beverages over the 3 days;",
       "bullet5": "the best Happy Hours in town."
+    }
+  },
+  "about": {
+    "title": "about",
+    "event": {
+      "title": "The event",
+      "tab": "the event",
+      "intro1": "The WAQ is a community of enthusiasts who put on an authentic, fun, festive and accessible event every year. It's three days of exceptional conferences and meetings.",
+      "intro2": "The WAQ is overseen by Québec numérique, a non-profit organization whose mission is to train, support and bring together Québec's digital ecosystem.",
+      "intro3": "At WAQ, we bring together a creative, supportive and stimulating community. Whether you're a designer, developer, communicator or at the heart of innovation, we invite you to spread your passion for digital both locally and internationally. Come and learn from the best, and meet people who will change your path.",
+      "section1": {
+        "title": "Unique program",
+        "text": "Covering every facet of the digital world, the WAQ offers conferences on communication, marketing, design, development, innovation and other topics of interest and relevance to the community gathered at the event. Renowned speakers from Quebec and around the world take turns on stage to satisfy your curiosity."
+      },
+      "section2": {
+        "title": "A look back at our history",
+        "text": "After seeing the light of day in 2010, the WAQ has adapted to the latest digital trends, taken its conference offering internationally and even offered a virtual event during... the year we all remember. 🤷 After all that, the WAQ is now the world-class local event you know. How has WAQ really evolved over the years? Find out by visiting the latest editions. 👇"
+      },
+      "section3": {
+        "title": "Thanks to our valued partners",
+        "text": "The WAQ would not exist without the invaluable support of our partners. Whether it's their contribution to setting up the event or their onsite entertainment, they always put on a show for us - and our taste buds! 😛"
+      },
+      "gallery": {
+        "title": "A little peek",
+        "text": "As they say... a picture's worth a thousand words 🤭"
+      }
+    },
+    "team": {
+      "title": "Our team",
+      "description": "Our amazing annual volunteers",
+      "tab": "our team",
+      "intro": "Created by and for the digital community, and made possible by the dedication of a team of over 100 volunteers who invest their time and love ❤️ Everyone who gets involved brings their own talent, expertise and personality. That's what makes WAQ such a unique and exceptional event!",
+      "subtitle": "<span>our amazing</span><span>annual volunteers</span>",
+      "programCommittee": "program committee",
+      "developmentTrack": "Development track",
+      "designTrack": "Design track",
+      "communicationTrack": "Communication track",
+      "innovationTrack": "Innovation track",
+      "communicationsCommittee": "communications committee",
+      "committeeLeader": "Committee leader",
+      "designCommittee": "design committee",
+      "webCommittee": "web committee"
+    },
+    "qn": {
+      "title": "Québec numérique",
+      "tab": "Québec numérique",
+      "intro": "Synergy and sharing are the essence of Québec numérique's (QN) mission. More than just a non-profit organization, QN plays a unifying role for all digital players in Quebec City. For 13 years, QN has been committed to bringing together, innovating, supporting and training the digital community.",
+      "whoAreWe": {
+        "title": "Who are we?",
+        "text1": "This great adventure began in 2010 with Web à Québec, a unique event dreamed up by a group of digital enthusiasts who had the crazy idea of organizing an event to bring together those involved in the web. The first edition attracted over 200 people!",
+        "text2": "With the WAQ's growing success, the organization officially took shape. Québec numérique was born."
+      },
+      "reachUs": {
+        "title": "How to reach us",
+        "text": "The team of volunteers behind WAQ is supported by Québec numérique. Got questions or need information? Give us a call or drop us a line. We're not embarrassing!",
+        "cta": "learn more"
+      }
     }
   }
 }
