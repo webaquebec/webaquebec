@@ -1,4 +1,15 @@
 {
+  "menu": {
+    "program": "program",
+    "blog": "blog",
+    "ticketing": "ticketing",
+    "about": "about",
+    "partners": "partners",
+    "faq": "FAQ",
+    "contact": "contact us",
+    "codeOfConduct": "code of conduct",
+    "previousEdition": "2023 edition"
+  },
   "footer": {
     "socials": {
       "title": "Follow us online",
@@ -14,7 +25,7 @@
   },
   "home": {
     "title": "May 28-30, 2024",
-    "description": "The WAQ is a community of passionate individuals that annually organizes a local digital world-class event. It is three days of exceptional conferences and meetings.",
+    "description": "The WAQ is a community of passionate individuals that annually organizes a local digital world-class event. It's three days of exceptional conferences and meetings.",
     "hero": {
       "dates": "may<br /> 28 - 30",
       "slogan": "the local, world-class digital event",
@@ -62,6 +73,10 @@
       "community": "community partners",
       "supplier": "supplier partners"
     }
+  },
+  "program": {
+    "title": "Program",
+    "description": "More than 50 conferences over 3 days with workshops, networking, and a multitude of activities. Discover the program of Web à Québec."
   },
   "ticketing": {
     "title": "Ticketing",

@@ -19,96 +19,96 @@ import {
 } from './Header.styles';
 import BurgerButton from './BurgerButton';
 
-const primaryNavigation = [
-  {
-    id: 'Programmation',
-    label: 'programmation',
-    slug: '/programmation/2024',
-    type: 'internal',
-    color: 'pineapple',
-  },
-  {
-    id: 'blog',
-    label: 'blogue',
-    slug: '/blogue',
-    type: 'internal',
-    color: 'watermelon',
-  },
-  {
-    id: 'tickets',
-    label: 'billetterie',
-    slug: '/billetterie',
-    type: 'internal',
-    color: 'kiwi',
-  },
-  // {
-  //   id: 'speakers',
-  //   label: 'appel à conférences',
-  //   slug: '/appel-a-conferences',
-  //   type: 'internal',
-  //   color: 'pineapple',
-  // },
-  // {
-  //   id: 'waqademy',
-  //   label: 'WAQadémie',
-  //   slug: '/waqademie',
-  //   type: 'internal',
-  //   color: 'watermelon',
-  // },
-];
-
-const secondaryNavigation = [
-  {
-    id: 'about',
-    label: 'à propos',
-    slug: '/a-propos/evenement',
-    type: 'internal',
-    color: 'plum',
-  },
-  {
-    id: 'partners',
-    label: 'partenaires',
-    slug: '/partenaires',
-    type: 'internal',
-    color: 'pineapple',
-  },
-  {
-    id: 'faq',
-    label: 'FAQ',
-    slug: '/faq',
-    type: 'internal',
-    color: 'plum',
-  },
-  {
-    id: 'contact',
-    label: 'nous joindre',
-    slug: '/contact',
-    type: 'internal',
-    color: 'watermelon',
-  },
-  {
-    id: 'code-of-conduct',
-    label: 'code de conduite',
-    slug: '/code-de-conduite',
-    type: 'internal',
-    color: 'kiwi',
-  },
-  {
-    id: 'edition2023',
-    label: 'édition 2023',
-    slug: '/programmation/2023',
-    type: 'internal',
-    color: 'pineapple',
-  },
-];
-
-const navigation = {
-  primary: [...primaryNavigation],
-  secondary: [...secondaryNavigation],
-};
-
 const Header = ({ pathname }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const primaryNavigation = [
+    {
+      id: 'Programmation',
+      label: t('menu.program'),
+      slug: '/programmation/2024',
+      type: 'internal',
+      color: 'pineapple',
+    },
+    {
+      id: 'blog',
+      label: t('menu.blog'),
+      slug: '/blogue',
+      type: 'internal',
+      color: 'watermelon',
+    },
+    {
+      id: 'tickets',
+      label: t('menu.ticketing'),
+      slug: '/billetterie',
+      type: 'internal',
+      color: 'kiwi',
+    },
+    // {
+    //   id: 'speakers',
+    //   label: 'appel à conférences',
+    //   slug: '/appel-a-conferences',
+    //   type: 'internal',
+    //   color: 'pineapple',
+    // },
+    // {
+    //   id: 'waqademy',
+    //   label: 'WAQadémie',
+    //   slug: '/waqademie',
+    //   type: 'internal',
+    //   color: 'watermelon',
+    // },
+  ];
+
+  const secondaryNavigation = [
+    {
+      id: 'about',
+      label: t('menu.about'),
+      slug: '/a-propos/evenement',
+      type: 'internal',
+      color: 'plum',
+    },
+    {
+      id: 'partners',
+      label: t('menu.partners'),
+      slug: '/partenaires',
+      type: 'internal',
+      color: 'pineapple',
+    },
+    {
+      id: 'faq',
+      label: t('menu.faq'),
+      slug: '/faq',
+      type: 'internal',
+      color: 'plum',
+    },
+    {
+      id: 'contact',
+      label: t('menu.contact'),
+      slug: '/contact',
+      type: 'internal',
+      color: 'watermelon',
+    },
+    {
+      id: 'code-of-conduct',
+      label: t('menu.codeOfConduct'),
+      slug: '/code-de-conduite',
+      type: 'internal',
+      color: 'kiwi',
+    },
+    {
+      id: 'edition2023',
+      label: t('menu.previousEdition'),
+      slug: '/programmation/2023',
+      type: 'internal',
+      color: 'pineapple',
+    },
+  ];
+
+  const navigation = {
+    primary: [...primaryNavigation],
+    secondary: [...secondaryNavigation],
+  };
 
   const [opened, setOpened] = useState(false);
   const [otherLocale, setOtherLocale] = useState(

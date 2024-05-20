@@ -92,6 +92,7 @@ export const dateTabStyle = css`
   height: 100%;
 
   font-weight: ${fontWeights.medium};
+  text-transform: lowercase;
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [18, 24], bases: [16, 20] }],

@@ -1,4 +1,15 @@
 {
+  "menu": {
+    "program": "programmation",
+    "blog": "blogue",
+    "ticketing": "billetterie",
+    "about": "à propos",
+    "partners": "partenaires",
+    "faq": "FAQ",
+    "contact": "nous joindre",
+    "codeOfConduct": "code de conduite",
+    "previousEdition": "édition 2023"
+  },
   "footer": {
     "socials": {
       "title": "Suis-nous en ligne",
@@ -62,6 +73,10 @@
       "community": "partenaires communauté",
       "supplier": "partenaires fournisseurs"
     }
+  },
+  "program": {
+    "title": "Programmation",
+    "description": "Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec."
   },
   "ticketing": {
     "title": "Billetterie",
