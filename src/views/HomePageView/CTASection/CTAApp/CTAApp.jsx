@@ -26,9 +26,10 @@ const CTAApp = () => {
 
     if (isAndroid) {
       link =
-        'https://play.google.com/store/apps/details?id=com.swapcard.apps.android.snqc21';
+        'https://play.google.com/store/apps/details?id=com.swapcard.apps.android.snqc21&pcampaignid=web_share';
     } else if (isIOS) {
-      link = 'https://apps.apple.com/ca/app/waq/id1559771285?l=fr';
+      link =
+        'https://apps.apple.com/ca/app/waq-web-%C3%A0-qu%C3%A9bec/id1559771285?l=fr-CA';
     }
 
     setAppLink(link);
