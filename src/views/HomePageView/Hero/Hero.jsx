@@ -76,7 +76,10 @@ const Hero = () => {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <MapPinIcon src={vectorMapPin} alt='Au Terminal — Port de Québec' />
+            <MapPinIcon
+              src={vectorMapPin}
+              alt='Terminal de croisière — Port de Québec'
+            />
           </a>
 
           <p
@@ -97,7 +100,7 @@ const Hero = () => {
                 font-weight: ${fontWeights.bold};
               `}
             >
-              Au Terminal — Port de Québec
+              Terminal de croisière — Port de Québec
             </a>
           </p>
         </Address>
