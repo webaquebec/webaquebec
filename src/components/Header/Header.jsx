@@ -44,6 +44,13 @@ const Header = ({ pathname }) => {
       type: 'internal',
       color: 'kiwi',
     },
+    {
+      id: 'liveTheWAQ',
+      label: t('menu.liveTheWAQ'),
+      slug: '/vivre-le-waq',
+      type: 'internal',
+      color: 'pineapple',
+    },
     // {
     //   id: 'speakers',
     //   label: 'appel à conférences',

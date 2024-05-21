@@ -3,6 +3,7 @@
     "program": "programmation",
     "blog": "blogue",
     "ticketing": "billetterie",
+    "liveTheWAQ": "live the WAQ",
     "about": "à propos",
     "partners": "partenaires",
     "faq": "FAQ",
@@ -117,6 +118,49 @@
       "bullet3": "un accès pour écouter les contenus de la salle principale en rediffusion;",
       "bullet4": "tes repas et boissons durant les 3 jours;",
       "bullet5": "les meilleurs 5 à 7 en ville."
+    }
+  },
+  "liveTheWAQ": {
+    "title": "Vivre le WAQ",
+    "description": "Plonge dans l'expérience WAQ à 100%! Besoin de conseils pour dormir, manger ou optimiser ta participation? Trouve toutes les réponses ici.",
+    "intro": "Plonge dans l'expérience WAQ à 100%! Besoin de conseils pour dormir, manger ou optimiser ta participation? Trouve toutes les réponses ici.",
+    "city": {
+      "title": "Au coeur de la ville",
+      "text": "En plein centre-ville de Québec, le Web à Québec est un événement numérique local de calibre international. Dans une ambiance électrique et festive, une communauté fidèle se rassemble pendant 3 jours intenses de rencontres, de conférences de haut calibre et de festivités. Situé au Terminal de croisière - Port de Québec, l’événement est un incontournable pour tous les créateurs et créatrices du Web d’ici et d’ailleurs."
+    },
+    "sleep": {
+      "title": "Où dormir ?",
+      "text": "Envie de vivre l’expérience du WAQ en mode touriste? Regarde ces options d'hébergement juste à côté de l'événement. On te recommande de vérifier les disponibilités aux endroits suivants :"
+    },
+    "eat": {
+      "title": "Où manger ?",
+      "text": "Ton billet de l’événement inclut les repas du midi, cafés, thés, collations, bouchées et boissons sans frais. Tenté par les saveurs locales du quartier Petit-Champlain? Voici notre sélection de favoris à ne pas manquer :"
+    },
+    "getThere": {
+      "title": "Comment s’y rendre ?",
+      "text": "Le <a href='https://goo.gl/maps/WK7R5d4oBHQgyhHT6' rel='noopener noreferrer' target='_blank'>Terminal de croisière – Port de Québec</a> est très accessible. Arrive tôt pour ne pas manquer la première conférence vedette du matin, qui attire toujours une grande foule.",
+      "bullet1": "Le Terminal est bien desservi par plusieurs lignes de bus du Réseau de transport de la Capitale (RTC), dont les lignes #1 et #11. Pour plus de détails, visite le site Web ou installe l’application.",
+      "bullet2": "Un parking payant est disponible au coût de 20$ par jour : on encourage le covoiturage entre collègues ou amis.",
+      "bullet3": "Les <a href='http://www.taxiscoop-quebec.com/?q=en' rel='noopener noreferrer' target='_blank'>Taxis Coop Québec</a> ou Uber sont aussi d'excellentes options, sans oublier la <a href='https://aveloquebec.ca/' rel='noopener noreferrer' target='_blank'>station àVélo</a> à deux minutes à pied, une alternative écologique et pratique!"
+    },
+    "party": {
+      "title": "Faire la fête",
+      "text1": "Chaque journée bien remplie se termine par un 5 à 7 dans le Bistro WAQ, avec une vue imprenable sur le Fleuve Saint-Laurent. La terrasse est l’endroit parfait pour prendre un verre à l’extérieur et faire des rencontres professionnelles dans une atmosphère décontractée.",
+      "text2": "Le WAQ est bien connu pour ses apéros festifs. Tu ne veux absolument pas manquer ses soirées légendaires animées par ses partenaires! Et surtout, sois responsable et n’utilise pas ta voiture si tu consommes de l’alcool."
+    },
+    "closing": {
+      "title": "Show de fermeture - DJ set",
+      "text1": "Clôture ton WAQ24 en grand avec le tout premier show de fermeture à la nouvelle salle de BLEUFEU, le Grizzly Fuzz, situé en plein cœur de St-Roch ! Cet événement exclusif pour les participants du WAQ promet d'être incroyable.",
+      "text2": "Ton billet d'entrée n’inclut pas les consommations. Les places sont limitées et sont disponibles aux détenteurs d’un billet Accès complet pour le WAQ, la réservation requise.",
+      "text3": "Prépare-toi à danser sur les DJ sets de Claude Bégin (Alaclair Ensemble), Dominic Pelletier (Caravane, Bonanza) et Raphaël Potvin (Caravane). Les portes ouvrent à 19h, après le dernier 5 à 7 du WAQ au Terminal de croisière - Port de Québec. Le DJ set commence à 20h. La soirée se poursuit dans une ambiance-bar pour fêter jusqu’aux petites heures avec tes nouvelles connaissances et amis du WAQ."
+    },
+    "accessibility": {
+      "title": "Mobilité réduite",
+      "text": "Dans le but de faciliter l’accès à l’événement, le WAQ propose un ascenseur pour les conférences au deuxième étage, des stationnements réservés près de l'entrée et des aménagements pour les fauteuils roulants. Pour toute assistance supplémentaire, contacte-nous à <a href='mailto:info@webaquebec.org'>info@webaquebec.org</a>."
+    },
+    "nutshell": {
+      "title": "Le Web à Québec en bref…",
+      "text": "Le WAQ est une expérience inoubliable de 3 jours, alliant conférences de haute qualité, rencontres inspirantes et divertissements. L'édition 2024 se déroule exclusivement en personne pour offrir un événement plus humain et chaleureux. Les conférences de la salle principale (Cossette) seront disponibles en rediffusion après l’événement. Ne rate pas cette occasion de découvrir les dernières tendances du numérique et de réseauter dans une ambiance conviviale ! Des événements comme celui-là, il n’en existe pas d'autres… 👀"
     }
   },
   "about": {

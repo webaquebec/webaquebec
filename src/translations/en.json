@@ -3,6 +3,7 @@
     "program": "program",
     "blog": "blog",
     "ticketing": "ticketing",
+    "liveTheWAQ": "live the WAQ",
     "about": "about",
     "partners": "partners",
     "faq": "FAQ",
@@ -117,6 +118,49 @@
       "bullet3": "replay access to all the main room content;",
       "bullet4": "your meals and beverages over the 3 days;",
       "bullet5": "the best Happy Hours in town."
+    }
+  },
+  "liveTheWAQ": {
+    "title": "Live the WAQ",
+    "description": "Immerse yourself 100% in the WAQ experience! Need advice on sleeping, eating or optimizing your attendance? Find all the answers here.",
+    "intro": "Immerse yourself 100% in the WAQ experience! Need advice on sleeping, eating or optimizing your attendance? Find all the answers here.",
+    "city": {
+      "title": "In the heart of the city",
+      "text": "Right in downtown Quebec City, the WAQ is a local digital event of international caliber. In an electric and festive atmosphere, a loyal community gathers for 3 intense days of meetings, high-caliber conferences and festivities. Located at the Cruise Terminal - Port of Quebec, the event is a must for all Web creators from here and abroad."
+    },
+    "sleep": {
+      "title": "Where to sleep?",
+      "text": "Want to experience WAQ in tourist mode? Check out these accommodation options right next to the event. We recommend checking availability at the following locations:"
+    },
+    "eat": {
+      "title": "Where to eat?",
+      "text": "Your event ticket includes lunch, coffee, tea, snacks, appetizers and beverages free of charge. Tempted by the local flavors of the Petit-Champlain district? Here's our selection of not-to-be-missed favorites:"
+    },
+    "getThere": {
+      "title": "How do to get there?",
+      "text": "The <a href='https://goo.gl/maps/WK7R5d4oBHQgyhHT6' rel='noopener noreferrer' target='_blank'>Cruise Terminal - Port of Quebec</a> is very accessible. Arrive early so you don't miss the first keynote lecture of the morning, which always draws a big crowd.",
+      "bullet1": "The Terminal is well served by several Réseau de transport de la Capitale (RTC) bus lines, including #1 and #11. For more details, visit the website or install the app.",
+      "bullet2": "Parking is available at a cost of $20 per day: carpooling between colleagues or friends is encouraged.",
+      "bullet3": "<a href='http://www.taxiscoop-quebec.com/?q=en' rel='noopener noreferrer' target='_blank'>Taxis Coop Québec</a> or Uber are also excellent options, not to mention the <a href='https://aveloquebec.ca/' rel='noopener noreferrer' target='_blank'>àVélo station</a> just a two-minute walk away, an ecological and practical alternative!"
+    },
+    "party": {
+      "title": "Live it up",
+      "text1": "Every busy day ends with a Happy Hour in the Bistro WAQ, overlooking the St. Lawrence River. The terrace is the perfect place to enjoy an outdoor drink and make business contacts in a relaxed atmosphere.",
+      "text2": "WAQ is well known for its festive aperitifs. You don't want to miss these legendary parties hosted by our partners! Above all, be responsible and don't use your car if you're drinking."
+    },
+    "closing": {
+      "title": "Closing show - DJ set",
+      "text1": "Close your WAQ24 in style with the first-ever closing show at BLEUFEU's new venue, Grizzly Fuzz, located in the heart of St-Roch! This exclusive event for WAQ attendees promises to be incredible.",
+      "text2": "Your ticket does not include drinks. Places are limited and available to holders of a WAQ Full Access ticket only, reservation required.",
+      "text3": "Get ready to dance to DJ sets by Claude Bégin (Alaclair Ensemble), Dominic Pelletier (Caravane, Bonanza) and Raphaël Potvin (Caravane). Doors open at 7pm, after the last WAQ Happy Hour at the Cruise Terminal - Port of Quebec. The DJ set begins at 8pm. The evening continues in a bar atmosphere, where you can party into the wee hours with your new WAQ friends and contacts."
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "text": "To facilitate access to the event, WAQ offers a second-floor conference elevator, reserved parking near the entrance and wheelchair facilities. For further assistance, please contact us at <a href='mailto:info@webaquebec.org'>info@webaquebec.org</a>."
+    },
+    "nutshell": {
+      "title": "The WAQ in a nutshell...",
+      "text": "The WAQ is an unforgettable 3-day experience, combining high-quality conferences, inspiring encounters and entertainment. The 2024 edition will take place exclusively in person, to offer a more human and friendly event. Conferences in the main room (Cossette) will be available for replay after the event. Don't miss this opportunity to discover the latest digital trends and network in a friendly atmosphere! Events like this are hard to find anywhere else... 👀"
     }
   },
   "about": {
