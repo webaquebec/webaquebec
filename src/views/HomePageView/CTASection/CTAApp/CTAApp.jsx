@@ -22,13 +22,14 @@ const CTAApp = () => {
   const [appLink, setAppLink] = useState(null);
 
   useEffect(() => {
-    let link = 'https://app.swapcard.com/event/web-a-quebec-waq23';
+    let link = 'https://app.swapcard.com/event/web-a-quebec-waq24';
 
     if (isAndroid) {
       link =
-        'https://play.google.com/store/apps/details?id=com.swapcard.apps.android.snqc21';
+        'https://play.google.com/store/apps/details?id=com.swapcard.apps.android.snqc21&pcampaignid=web_share';
     } else if (isIOS) {
-      link = 'https://apps.apple.com/ca/app/waq/id1559771285?l=fr';
+      link =
+        'https://apps.apple.com/ca/app/waq-web-%C3%A0-qu%C3%A9bec/id1559771285?l=fr-CA';
     }
 
     setAppLink(link);
@@ -38,13 +39,22 @@ const CTAApp = () => {
     <CTAWrap>
       <ContentWrap>
         <Title>découvrez notre application</Title>
-        {/* <Title>rediffusions en cours</Title> */}
 
         <Text>
-          Les rediffusions des conférences du WAQ23 sont en cours dans
+          Que ce soit pour faire ton horaire, réseauter, écouter les
+          conférences, ou tout simplement vivre le WAQ à 100%, l’application
+          sera ton meilleur compagnon pour l’événement!
+        </Text>
+
+        {/*
+        <Title>rediffusions en cours</Title>
+
+        <Text>
+          Les rediffusions des conférences du WAQ24 sont en cours dans
           l’application de l’événement! Disponibles pour les détenteur·rices de
           billets seulement.
         </Text>
+        */}
 
         <Button
           to={appLink}

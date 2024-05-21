@@ -37,7 +37,12 @@ const LogoCard = ({ image, isPremium, isPresenting }) => {
       $isPremium={isPremium}
       $isPresenting={isPresenting}
     >
-      <Image src={imageSrc} alt={image.alt} $bigger={image.bigger} />
+      <Image
+        src={imageSrc}
+        alt={image.alt}
+        $bigger={image.bigger}
+        $smaller={image.smaller}
+      />
     </Link>
   );
 };
@@ -49,6 +54,7 @@ LogoCard.propTypes = {
     srcAlt: PropTypes.string,
     alt: PropTypes.string.isRequired,
     bigger: PropTypes.bool,
+    smaller: PropTypes.bool,
   }).isRequired,
   isPremium: PropTypes.bool,
   isPresenting: PropTypes.bool,
