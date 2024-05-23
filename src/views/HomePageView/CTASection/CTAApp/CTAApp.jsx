@@ -25,13 +25,14 @@ const CTAApp = () => {
   const [appLink, setAppLink] = useState(null);
 
   useEffect(() => {
-    let link = 'https://app.swapcard.com/event/web-a-quebec-waq23';
+    let link = 'https://app.swapcard.com/event/web-a-quebec-waq24';
 
     if (isAndroid) {
       link =
-        'https://play.google.com/store/apps/details?id=com.swapcard.apps.android.snqc21';
+        'https://play.google.com/store/apps/details?id=com.swapcard.apps.android.snqc21&pcampaignid=web_share';
     } else if (isIOS) {
-      link = 'https://apps.apple.com/ca/app/waq/id1559771285?l=fr';
+      link =
+        'https://apps.apple.com/ca/app/waq-web-%C3%A0-qu%C3%A9bec/id1559771285?l=fr-CA';
     }
 
     setAppLink(link);
@@ -43,6 +44,12 @@ const CTAApp = () => {
         <Title>{t('home.ctaSection.mobileApp.duringEvent.title')}</Title>
 
         <Text>{t('home.ctaSection.mobileApp.duringEvent.description')}</Text>
+
+        {/*
+        <Title>{t('home.ctaSection.mobileApp.postEvent.title')}</Title>
+
+        <Text>{t('home.ctaSection.mobileApp.postEvent.description')}</Text>
+        */}
 
         <Button
           to={appLink}
