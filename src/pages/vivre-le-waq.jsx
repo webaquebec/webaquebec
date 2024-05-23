@@ -20,6 +20,11 @@ import { h1AltStyle, introStyle } from '../styles/global';
 import Stack from '../components/LayoutSections/Stack';
 import colors from '../styles/colors';
 
+// images
+// import imgTerminal from '../images/liveTheWAQ/img-terminal.jpg';
+// import img5a7 from '../images/liveTheWAQ/img-5-a-7.jpg';
+// import imgGrizzlyFuzz from '../images/liveTheWAQ/img-grizzly-fuzz.jpg';
+
 const LiveTheWAQTitle = styled.h1`
   ${breakpointsRange(
     [
@@ -133,6 +138,90 @@ const LiveTheWAQ = () => {
     `
   );
 
+  const hotels = [
+    {
+      id: 1,
+      name: 'Hôtel 71',
+      link: 'https://hotel71.ca/?gclid=CjwKCAiA_vKeBhAdEiwAFb_nrXGP73ERo9V2B50lx_djtw-nQPs7LZfmpF-sOFpstzBAOwOJPpk7pxoCzRAQAvD_BwE',
+    },
+    {
+      id: 2,
+      name: 'Auberge Saint-Pierre',
+      link: 'https://auberge.qc.ca/',
+    },
+    {
+      id: 3,
+      name: 'Hôtel Le Germain Québec',
+      link: 'https://bookings.travelclick.com/12418?groupID=4216751&hotelID=12418&languageid=3#/guestsandrooms',
+    },
+    {
+      id: 4,
+      name: 'Hôtel Port Royal',
+      link: 'https://www.leportroyal.com/fr',
+    },
+    {
+      id: 5,
+      name: 'Les Lofts Vieux-Québec',
+      link: 'https://loftsvieuxquebec.com/',
+    },
+    {
+      id: 6,
+      name: 'Hôtel Québec Centre-Ville – Best Western Plus',
+      link: 'https://www.bestwestern.com/fr_FR/book/hotel-rooms.67020.html?promoCode=ECBXIGJ',
+    },
+  ];
+
+  const restaurants = [
+    {
+      id: 1,
+      name: 'Café du Monde',
+      price: '($$$)',
+      link: 'https://www.lecafedumonde.com/#/',
+    },
+    {
+      id: 2,
+      name: 'Q-de-Sac Resto-Pub',
+      price: '($$)',
+      link: 'http://restopubqdesac.com/',
+    },
+    {
+      id: 3,
+      name: 'Le Cochon Dingue',
+      price: '($$)',
+      link: 'https://www.cochondingue.com/',
+    },
+    {
+      id: 4,
+      name: 'Archibald',
+      price: '($$)',
+      link: 'https://www.archibaldmicrobrasserie.ca/',
+    },
+    {
+      id: 5,
+      name: 'Sapristi',
+      price: '($$)',
+      link: 'https://sapristi.ca/',
+    },
+    {
+      id: 6,
+      name: 'Il Matto',
+      price: '($$$)',
+      link: 'https://ilmatto.ca/',
+    },
+    {
+      id: 7,
+      name: 'Chez Rioux et Pettigrew',
+      price: '($$$)',
+      link: 'https://chezriouxetpettigrew.com/',
+    },
+    {
+      id: 8,
+      name: 'Don Vegan',
+      price: '($$$)',
+      link: 'https://donresto.com/',
+    },
+  ];
+
   return (
     <>
       <SEO
@@ -180,144 +269,33 @@ const LiveTheWAQ = () => {
             <h2>{t('liveTheWAQ.sleep.title')}</h2>
             <p>{t('liveTheWAQ.sleep.text')}</p>
             <ul>
-              <li>
-                <a
-                  href='https://hotel71.ca/?gclid=CjwKCAiA_vKeBhAdEiwAFb_nrXGP73ERo9V2B50lx_djtw-nQPs7LZfmpF-sOFpstzBAOwOJPpk7pxoCzRAQAvD_BwE'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Hôtel 71
-                </a>
-              </li>
-              <li>
-                <a
-                  href='https://auberge.qc.ca/'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Auberge Saint-Pierre
-                </a>
-              </li>
-              <li>
-                <a
-                  href='https://bookings.travelclick.com/12418?groupID=4216751&hotelID=12418&languageid=3#/guestsandrooms'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Hôtel Le Germain Québec
-                </a>
-              </li>
-              <li>
-                <a
-                  href='https://www.leportroyal.com/fr'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Hôtel Port Royal
-                </a>
-              </li>
-              <li>
-                <a
-                  href='https://loftsvieuxquebec.com/'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Les Lofts Vieux-Québec
-                </a>
-              </li>
-              <li>
-                <a
-                  href='https://www.bestwestern.com/fr_FR/book/hotel-rooms.67020.html?promoCode=ECBXIGJ'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Hôtel Québec Centre-Ville – Best Western Plus
-                </a>
-              </li>
+              {hotels.map((hotel) => (
+                <li key={`hotel-${hotel.id}`}>
+                  <a
+                    href={hotel.link}
+                    rel='noopener noreferrer'
+                    target='_blank'
+                  >
+                    {hotel.name}
+                  </a>
+                </li>
+              ))}
             </ul>
             <h2>{t('liveTheWAQ.eat.title')}</h2>
             <p>{t('liveTheWAQ.eat.text')}</p>
             <ul>
-              <li>
-                <a
-                  href='https://www.lecafedumonde.com/#/'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Café du Monde
-                </a>{' '}
-                ($$$)
-              </li>
-              <li>
-                <a
-                  href='http://restopubqdesac.com/'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Q-de-Sac Resto-Pub
-                </a>{' '}
-                ($$)
-              </li>
-              <li>
-                <a
-                  href='https://www.cochondingue.com/'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Le Cochon Dingue
-                </a>{' '}
-                ($$)
-              </li>
-              <li>
-                <a
-                  href='https://www.archibaldmicrobrasserie.ca/'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Archibald
-                </a>{' '}
-                ($$)
-              </li>
-              <li>
-                <a
-                  href='https://sapristi.ca/'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Sapristi
-                </a>{' '}
-                ($$)
-              </li>
-              <li>
-                <a
-                  href='https://ilmatto.ca/'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Il Matto
-                </a>{' '}
-                ($$$)
-              </li>
-              <li>
-                <a
-                  href='https://chezriouxetpettigrew.com/'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Chez Rioux et Pettigrew
-                </a>{' '}
-                ($$$)
-              </li>
-              <li>
-                <a
-                  href='https://donresto.com/'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  Don Vegan
-                </a>{' '}
-                ($$$)
-              </li>
+              {restaurants.map((restaurant) => (
+                <li key={`restaurant-${restaurant.id}`}>
+                  <a
+                    href={restaurant.link}
+                    rel='noopener noreferrer'
+                    target='_blank'
+                  >
+                    {restaurant.name}
+                  </a>{' '}
+                  {restaurant.price}
+                </li>
+              ))}
             </ul>
             <h2>{t('liveTheWAQ.getThere.title')}</h2>
             <p
