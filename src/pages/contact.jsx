@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
 // components
 import SEO from '../components/SEO';
@@ -23,32 +24,43 @@ const ContactTitle = styled.h1`
   ${h1AltStyle};
 
   ${breakpointsRange(
-    [{ prop: 'marginTop', sizes: [60, 150], bases: [16, 20] }],
+    [{ prop: 'marginTop', sizes: [60, 110], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+const TextureWrapper = styled.div`
+  position: absolute;
+  z-index: -1;
+
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  ${breakpointsRange(
+    [{ prop: 'top', sizes: [100, 150], bases: [16, 20] }],
     breakpoints.spacings
   )};
 `;
 
 const StyledSection = styled(SectionContainer)`
+  padding-bottom: 0;
   ${breakpointsRange(
-    [
-      { prop: 'paddingTop', sizes: [98, 105], bases: [16, 20] },
-      { prop: 'paddingBottom', sizes: [148, 184], bases: [16, 20] },
-      { prop: 'marginBottom', sizes: [48, 68], bases: [16, 20] },
-    ],
-    breakpoints.spacings
+    [{ prop: 'marginBottom', sizes: [90, 242] }],
+    breakpoints.spacings,
+    { bases: [16, 20] }
   )};
 
-  ::before,
-  ::after {
-    height: 30vh;
-  }
-
   ::before {
-    top: -30vh;
+    top: -60vh;
+
+    height: 60vh;
   }
 
   ::after {
-    bottom: -30vh;
+    bottom: -40vh;
+
+    height: 40vh;
   }
 `;
 
@@ -67,6 +79,14 @@ const ContactPage = ({ data }) => {
       >
         <ContactTitle>nous joindre</ContactTitle>
       </Center>
+
+      <TextureWrapper>
+        <GatsbyImage
+          fixed={data.plasticTexture?.childImageSharp?.fixed}
+          alt=''
+          role='presentation'
+        />
+      </TextureWrapper>
 
       <StyledSection forwardedAs='div' faded>
         <Addresses />
@@ -88,6 +108,13 @@ ContactPage.propTypes = {
         fluid: PropTypes.shape({}).isRequired,
       }),
     }),
+    plasticTexture: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fixed: PropTypes.shape({
+          src: PropTypes.string.isRequired,
+        }),
+      }),
+    }),
   }).isRequired,
 };
 
@@ -107,6 +134,13 @@ export const query = graphql`
   query {
     picture: file(relativePath: { eq: "img-equipe-quebec-numerique.jpg" }) {
       ...TeamPicture
+    }
+    plasticTexture: file(relativePath: { eq: "textures/plasticWrap.png" }) {
+      childImageSharp {
+        fixed(width: 600) {
+          ...GatsbyImageSharpFixed
+        }
+      }
     }
   }
 `;
