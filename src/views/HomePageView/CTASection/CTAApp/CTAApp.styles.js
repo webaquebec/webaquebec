@@ -47,6 +47,8 @@ export const Title = styled.h3`
 export const Text = styled.p`
   ${introStyle}
 
+  margin-right: 16px;
+
   padding-bottom: 32px;
 
   color: ${colors.blueberry10};

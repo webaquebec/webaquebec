@@ -39,6 +39,13 @@ const primaryNavigation = [
     type: 'internal',
     color: 'kiwi',
   },
+  {
+    id: 'liveTheWAQ',
+    label: 'vivre le WAQ',
+    slug: '/vivre-le-waq',
+    type: 'internal',
+    color: 'pineapple',
+  },
   // {
   //   id: 'speakers',
   //   label: 'appel à conférences',
