@@ -137,6 +137,7 @@
       "text": "Ton billet de l’événement inclut les repas du midi, cafés, thés, collations, bouchées et boissons sans frais. Tenté par les saveurs locales du quartier Petit-Champlain? Voici notre sélection de favoris à ne pas manquer :"
     },
     "getThere": {
+      "alt": "Terminal de croisière — Port de Québec",
       "title": "Comment s’y rendre ?",
       "text": "Le <a href='https://goo.gl/maps/WK7R5d4oBHQgyhHT6' rel='noopener noreferrer' target='_blank'>Terminal de croisière – Port de Québec</a> est très accessible. Arrive tôt pour ne pas manquer la première conférence vedette du matin, qui attire toujours une grande foule.",
       "bullet1": "Le Terminal est bien desservi par plusieurs lignes de bus du Réseau de transport de la Capitale (RTC), dont les lignes #1 et #11. Pour plus de détails, visite le site Web ou installe l’application.",
@@ -144,11 +145,13 @@
       "bullet3": "Les <a href='http://www.taxiscoop-quebec.com/?q=en' rel='noopener noreferrer' target='_blank'>Taxis Coop Québec</a> ou Uber sont aussi d'excellentes options, sans oublier la <a href='https://aveloquebec.ca/' rel='noopener noreferrer' target='_blank'>station àVélo</a> à deux minutes à pied, une alternative écologique et pratique!"
     },
     "party": {
+      "alt": "5 à 7 karaoké",
       "title": "Faire la fête",
       "text1": "Chaque journée bien remplie se termine par un 5 à 7 dans le Bistro WAQ, avec une vue imprenable sur le Fleuve Saint-Laurent. La terrasse est l’endroit parfait pour prendre un verre à l’extérieur et faire des rencontres professionnelles dans une atmosphère décontractée.",
       "text2": "Le WAQ est bien connu pour ses apéros festifs. Tu ne veux absolument pas manquer ses soirées légendaires animées par ses partenaires! Et surtout, sois responsable et n’utilise pas ta voiture si tu consommes de l’alcool."
     },
     "closing": {
+      "alt": "Salle Grizzly Fuzz",
       "title": "Show de fermeture - DJ set",
       "text1": "Clôture ton WAQ24 en grand avec le tout premier show de fermeture à la nouvelle salle de BLEUFEU, le Grizzly Fuzz, situé en plein cœur de St-Roch ! Cet événement exclusif pour les participants du WAQ promet d'être incroyable.",
       "text2": "Ton billet d'entrée n’inclut pas les consommations. Les places sont limitées et sont disponibles aux détenteurs d’un billet Accès complet pour le WAQ, la réservation requise.",

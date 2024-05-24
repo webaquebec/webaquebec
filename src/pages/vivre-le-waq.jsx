@@ -8,6 +8,7 @@ import GatsbyImage from 'gatsby-image';
 import { useTranslation } from 'react-i18next';
 import { graphql, useStaticQuery } from 'gatsby';
 import Center from '../components/LayoutSections/Center';
+import PicturesSection from '../views/LiveTheWaqPageView/PicturesSection';
 import SectionContainer from '../components/SectionContainer';
 import SEO from '../components/SEO';
 
@@ -19,11 +20,6 @@ import breakpoints from '../styles/breakpoints';
 import { h1AltStyle, introStyle } from '../styles/global';
 import Stack from '../components/LayoutSections/Stack';
 import colors from '../styles/colors';
-
-// images
-// import imgTerminal from '../images/liveTheWAQ/img-terminal.jpg';
-// import img5a7 from '../images/liveTheWAQ/img-5-a-7.jpg';
-// import imgGrizzlyFuzz from '../images/liveTheWAQ/img-grizzly-fuzz.jpg';
 
 const LiveTheWAQTitle = styled.h1`
   ${breakpointsRange(
@@ -66,10 +62,7 @@ const Container = styled(SectionContainer)`
   padding-bottom: 0;
 
   ${breakpointsRange(
-    [
-      { prop: 'paddingTop', sizes: [98, 105] },
-      { prop: 'marginBottom', sizes: [202, 242] },
-    ],
+    [{ prop: 'paddingTop', sizes: [24, 48] }],
     breakpoints.spacings,
     { bases: [16, 20] }
   )};
@@ -262,7 +255,7 @@ const LiveTheWAQ = () => {
       </Center>
 
       <Container forwardedAs='div' faded>
-        <Center maxWidth='850px' gutters='var(--container-gutter)'>
+        <Center maxWidth='1024px' gutters='var(--container-gutter)'>
           <TextContent>
             <h2>{t('liveTheWAQ.city.title')}</h2>
             <p>{t('liveTheWAQ.city.text')}</p>
@@ -297,36 +290,11 @@ const LiveTheWAQ = () => {
                 </li>
               ))}
             </ul>
-            <h2>{t('liveTheWAQ.getThere.title')}</h2>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: t('liveTheWAQ.getThere.text'),
-              }}
-            />
-            <ul>
-              <li
-                dangerouslySetInnerHTML={{
-                  __html: t('liveTheWAQ.getThere.bullet1'),
-                }}
-              />
-              <li
-                dangerouslySetInnerHTML={{
-                  __html: t('liveTheWAQ.getThere.bullet2'),
-                }}
-              />
-              <li
-                dangerouslySetInnerHTML={{
-                  __html: t('liveTheWAQ.getThere.bullet3'),
-                }}
-              />
-            </ul>
-            <h2>{t('liveTheWAQ.party.title')}</h2>
-            <p>{t('liveTheWAQ.party.text1')}</p>
-            <p>{t('liveTheWAQ.party.text2')}</p>
-            <h2>{t('liveTheWAQ.closing.title')}</h2>
-            <p>{t('liveTheWAQ.closing.text1')}</p>
-            <p>{t('liveTheWAQ.closing.text2')}</p>
-            <p>{t('liveTheWAQ.closing.text3')}</p>
+          </TextContent>
+
+          <PicturesSection />
+
+          <TextContent>
             <h2>{t('liveTheWAQ.accessibility.title')}</h2>
             <p
               dangerouslySetInnerHTML={{

@@ -13,6 +13,7 @@ const optionsByLocation = {
   programmation: 'pineapple',
   blogue: 'watermelon',
   faq: 'plum',
+  'vivre-le-waq': 'pineapple',
   billetterie: 'kiwi',
   partenaires: 'pineapple',
   'a-propos': 'plum',

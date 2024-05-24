@@ -137,6 +137,7 @@
       "text": "Your event ticket includes lunch, coffee, tea, snacks, appetizers and beverages free of charge. Tempted by the local flavors of the Petit-Champlain district? Here's our selection of not-to-be-missed favorites:"
     },
     "getThere": {
+      "alt": "Cruise Terminal - Port of Québec",
       "title": "How to get there?",
       "text": "The <a href='https://goo.gl/maps/WK7R5d4oBHQgyhHT6' rel='noopener noreferrer' target='_blank'>Cruise Terminal - Port of Quebec</a> is very accessible. Arrive early so you don't miss the first keynote lecture of the morning, which always draws a big crowd.",
       "bullet1": "The Terminal is well served by several Réseau de transport de la Capitale (RTC) bus lines, including #1 and #11. For more details, visit the website or install the app.",
@@ -144,11 +145,13 @@
       "bullet3": "<a href='http://www.taxiscoop-quebec.com/?q=en' rel='noopener noreferrer' target='_blank'>Taxis Coop Québec</a> or Uber are also excellent options, not to mention the <a href='https://aveloquebec.ca/' rel='noopener noreferrer' target='_blank'>àVélo station</a> just a two-minute walk away, an ecological and practical alternative!"
     },
     "party": {
+      "alt": "Karaoke happy hour",
       "title": "Live it up",
       "text1": "Every busy day ends with a Happy Hour in the Bistro WAQ, overlooking the St. Lawrence River. The terrace is the perfect place to enjoy an outdoor drink and make business contacts in a relaxed atmosphere.",
       "text2": "WAQ is well known for its festive aperitifs. You don't want to miss these legendary parties hosted by our partners! Above all, be responsible and don't use your car if you're drinking."
     },
     "closing": {
+      "alt": "Grizzly Fuzz",
       "title": "Closing show - DJ set",
       "text1": "Close your WAQ24 in style with the first-ever closing show at BLEUFEU's new venue, Grizzly Fuzz, located in the heart of St-Roch! This exclusive event for WAQ attendees promises to be incredible.",
       "text2": "Your ticket does not include drinks. Places are limited and available to holders of a WAQ Full Access ticket only, reservation required.",
