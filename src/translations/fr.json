@@ -1,5 +1,7 @@
 {
   "menu": {
+    "openBurgerLabel": "Ouvrir le menu de navigation",
+    "closeBurgerLabel": "Fermer le menu de navigation",
     "program": "programmation",
     "blog": "blogue",
     "ticketing": "billetterie",
