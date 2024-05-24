@@ -21,64 +21,58 @@ const PicturesSection = () => {
 
   return (
     <div>
-      <SwitcherWrapper threshold='768px' space='4rem' limit={2}>
-        <div>
-          <PictureWrapper>
-            <img src={imgTerminal} alt={t('liveTheWAQ.getThere.alt')} />
-          </PictureWrapper>
-          <TextWrapper>
-            <h2>{t('liveTheWAQ.getThere.title')}</h2>
-            <p
+      <SwitcherWrapper>
+        <PictureWrapper>
+          <img src={imgTerminal} alt={t('liveTheWAQ.getThere.alt')} />
+        </PictureWrapper>
+        <TextWrapper>
+          <h2>{t('liveTheWAQ.getThere.title')}</h2>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: t('liveTheWAQ.getThere.text'),
+            }}
+          />
+          <ul>
+            <li
               dangerouslySetInnerHTML={{
-                __html: t('liveTheWAQ.getThere.text'),
+                __html: t('liveTheWAQ.getThere.bullet1'),
               }}
             />
-            <ul>
-              <li
-                dangerouslySetInnerHTML={{
-                  __html: t('liveTheWAQ.getThere.bullet1'),
-                }}
-              />
-              <li
-                dangerouslySetInnerHTML={{
-                  __html: t('liveTheWAQ.getThere.bullet2'),
-                }}
-              />
-              <li
-                dangerouslySetInnerHTML={{
-                  __html: t('liveTheWAQ.getThere.bullet3'),
-                }}
-              />
-            </ul>
-          </TextWrapper>
-        </div>
+            <li
+              dangerouslySetInnerHTML={{
+                __html: t('liveTheWAQ.getThere.bullet2'),
+              }}
+            />
+            <li
+              dangerouslySetInnerHTML={{
+                __html: t('liveTheWAQ.getThere.bullet3'),
+              }}
+            />
+          </ul>
+        </TextWrapper>
       </SwitcherWrapper>
 
-      <SwitcherWrapper threshold='768px' space='4rem' limit={2}>
-        <div>
-          <PictureWrapper>
-            <img src={img5a7} alt={t('liveTheWAQ.party.alt')} />
-          </PictureWrapper>
-          <TextWrapper>
-            <h2>{t('liveTheWAQ.party.title')}</h2>
-            <p>{t('liveTheWAQ.party.text1')}</p>
-            <p>{t('liveTheWAQ.party.text2')}</p>
-          </TextWrapper>
-        </div>
+      <SwitcherWrapper>
+        <PictureWrapper>
+          <img src={img5a7} alt={t('liveTheWAQ.party.alt')} />
+        </PictureWrapper>
+        <TextWrapper>
+          <h2>{t('liveTheWAQ.party.title')}</h2>
+          <p>{t('liveTheWAQ.party.text1')}</p>
+          <p>{t('liveTheWAQ.party.text2')}</p>
+        </TextWrapper>
       </SwitcherWrapper>
 
-      <SwitcherWrapper threshold='768px' space='4rem' limit={2}>
-        <div>
-          <PictureWrapper>
-            <img src={imgGrizzlyFuzz} alt={t('liveTheWAQ.closing.alt')} />
-          </PictureWrapper>
-          <TextWrapper>
-            <h2>{t('liveTheWAQ.closing.title')}</h2>
-            <p>{t('liveTheWAQ.closing.text1')}</p>
-            <p>{t('liveTheWAQ.closing.text2')}</p>
-            <p>{t('liveTheWAQ.closing.text3')}</p>
-          </TextWrapper>
-        </div>
+      <SwitcherWrapper>
+        <PictureWrapper>
+          <img src={imgGrizzlyFuzz} alt={t('liveTheWAQ.closing.alt')} />
+        </PictureWrapper>
+        <TextWrapper>
+          <h2>{t('liveTheWAQ.closing.title')}</h2>
+          <p>{t('liveTheWAQ.closing.text1')}</p>
+          <p>{t('liveTheWAQ.closing.text2')}</p>
+          <p>{t('liveTheWAQ.closing.text3')}</p>
+        </TextWrapper>
       </SwitcherWrapper>
     </div>
   );

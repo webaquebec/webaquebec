@@ -1,5 +1,7 @@
 {
   "menu": {
+    "openBurgerLabel": "Open menu",
+    "closeBurgerLabel": "Close menu",
     "program": "program",
     "blog": "blog",
     "ticketing": "ticketing",

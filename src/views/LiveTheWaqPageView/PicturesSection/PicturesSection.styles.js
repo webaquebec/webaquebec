@@ -3,16 +3,16 @@ import styled from 'styled-components';
 
 // utils
 import breakpointsRange from '../../../utils/breakpointsRange';
-import { greaterThan } from '../../../utils/mediaQuery';
-
-// components
-import Switcher from '../../../components/LayoutSections/Switcher';
+import { greaterThan, lessThan } from '../../../utils/mediaQuery';
 
 // styles
 import colors from '../../../styles/colors';
 import breakpoints from '../../../styles/breakpoints';
 
-export const SwitcherWrapper = styled(Switcher)`
+export const SwitcherWrapper = styled.div`
+  display: flex;
+  gap: 2rem 4rem;
+
   ${breakpointsRange(
     [
       { prop: 'marginTop', sizes: [60, 90], bases: [16, 20] },
@@ -21,15 +21,19 @@ export const SwitcherWrapper = styled(Switcher)`
     breakpoints.spacings
   )};
 
+  ${lessThan(768)} {
+    flex-wrap: wrap;
+  }
+
   &:nth-child(even) {
-    > div {
-      flex-direction: row-reverse;
-    }
+    flex-direction: row-reverse;
   }
 `;
 
 export const PictureWrapper = styled.div`
-  width: 50%;
+  ${greaterThan(768)} {
+    width: 50%;
+  }
 
   img {
     max-width: 100%;
@@ -48,9 +52,11 @@ export const PictureWrapper = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-  width: 50%;
-
   color: ${colors.gris100};
+
+  ${greaterThan(768)} {
+    width: 50%;
+  }
 
   h2 {
     ${breakpointsRange(
