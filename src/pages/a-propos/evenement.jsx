@@ -6,6 +6,7 @@ import GatsbyImage from 'gatsby-image';
 import styled from 'styled-components';
 
 // components
+import { useTranslation } from 'react-i18next';
 import SEO from '../../components/SEO';
 import SectionContainer from '../../components/SectionContainer';
 import Center from '../../components/LayoutSections/Center';
@@ -95,6 +96,8 @@ const IntroParagraph = styled.p`
 `;
 
 const AboutEventPage = ({ data }) => {
+  const { t } = useTranslation();
+
   const {
     adaptabilitySectionPicture: {
       childImageSharp: { fluid: adaptabilitySectionPicture },
@@ -111,23 +114,23 @@ const AboutEventPage = ({ data }) => {
   const sectionsData = [
     {
       id: 0,
-      title: 'Une programmation unique',
-      text: '<p>Couvrant le numérique sous toutes ses facettes, le WAQ propose des conférences sur la communication, le marketing, le design, le développement, l’innovation et toutautres thèmes intéressants et pertinents pour la communauté rassemblée à l’événement. Des conférencières et des conférenciers reconnu(.e)s du Québec comme de l’international se relaient sur scène pour satisfaire ta curiosité.</p>',
+      title: t('about.event.section1.title'),
+      text: `<p>${t('about.event.section1.text')}</p>`,
     },
     {
       id: 1,
-      title: 'Un retour sur notre histoire',
-      text: '<p>Après avoir vu le jour en 2010, le WAQ a su s’adapter aux dernières tendances du numérique, faire connaître son offre de conférences à l’international et même d’offrir un événement virtuel durant… l’année qu’on connaît tous. 🤷 Après tout ça, le WAQ est maintenant l’événement local de calibre international que tu connais.</p><p>Quelle est vraiment l’évolution du WAQ à travers les années? Découvre le en visitant les dernières éditions. 👇</p>',
+      title: t('about.event.section2.title'),
+      text: `<p>${t('about.event.section2.text')}</p>`,
       hasArchives: true,
     },
     {
       id: 2,
-      title: 'Merci à nos précieux partenaires',
-      text: 'Le WAQ n’existerait pas sans le soutien inestimable de ses précieux partenaires. Que ce soit par leur contribution à la mise en place de l’événement ou par leur animation sur les lieux, ils nous en mettent toujours plein la vue - et les papilles gustatives! 😛',
+      title: t('about.event.section3.title'),
+      text: `<p>${t('about.event.section3.text')}</p>`,
     },
   ];
 
-  const intro = `Le WAQ, c’est une communauté de passionné(e)s qui déploie annuellement un événement <strong>authentique, ludique, festif et accessible</strong>. C’est trois jours composés de conférences et de rencontres exceptionnelles.`;
+  const intro = t('about.event.intro1');
 
   const video = {
     src: 'https://www.youtube.com/embed/34lvNZ9WW1k?si=DgYvBSX9KRdVLV8h',
@@ -136,7 +139,7 @@ const AboutEventPage = ({ data }) => {
 
   return (
     <>
-      <SEO title="L'événement" description='' />
+      <SEO title={t('about.event.title')} description='' />
 
       <AboutTabs activeTabId={0} />
 
@@ -154,17 +157,10 @@ const AboutEventPage = ({ data }) => {
             </Center>
             <Center maxWidth='1064px' gutters='var(--container-gutter)'>
               <IntroParagraph css={introStyle}>
-                Le Web à Québec est chapeauté par Québec numérique, un organisme
-                à but non lucratif dont la mission est de former, accompagner et
-                rassembler l’écosystème numérique de Québec.
+                {t('about.event.intro2')}
               </IntroParagraph>
               <IntroParagraph css={introStyle}>
-                Au WAQ, on rassemble une communauté créative, solidaire et
-                stimulante. Que tu sois designer, développeur, communicateur ou
-                au coeur de l’innovation, on t’invite à propager ta passion du
-                numérique tant à l’échelle locale qu’internationale. Viens
-                apprendre des meilleur(e)s et faire des rencontres qui
-                changeront ton parcours.
+                {t('about.event.intro3')}
               </IntroParagraph>
             </Center>
           </VideoWrapper>
@@ -173,8 +169,11 @@ const AboutEventPage = ({ data }) => {
         <AboutEventSection items={sectionsData} />
       </Container>
 
-      <GallerySection title='Un p’tit coup d’oeil' pictures={galleryPictures}>
-        <p>Comme qu’y disent… une image vaut mille mots 🤭</p>
+      <GallerySection
+        title={t('about.event.gallery.title')}
+        pictures={galleryPictures}
+      >
+        <p>{t('about.event.gallery.text')}</p>
 
         <GallerySectionImg fluid={adaptabilitySectionPicture} alt='' />
       </GallerySection>

@@ -15,8 +15,6 @@ const BurgerButton = ({ opened, onClick, ...rest }) => (
     $active={opened}
     {...rest}
   >
-    <span>{opened && `Fermer`}</span>
-
     <Lines>
       <Line />
       <Line />

@@ -1,5 +1,226 @@
 {
+  "menu": {
+    "program": "programmation",
+    "blog": "blogue",
+    "ticketing": "billetterie",
+    "liveTheWAQ": "live the WAQ",
+    "about": "à propos",
+    "partners": "partenaires",
+    "faq": "FAQ",
+    "contact": "nous joindre",
+    "codeOfConduct": "code de conduite",
+    "previousEdition": "édition 2023"
+  },
+  "footer": {
+    "socials": {
+      "title": "Suis-nous en ligne",
+      "description": "Annonces, événements, concours, anecdotes, contenu inédit et une belle communauté t’y attendent."
+    },
+    "newsletter": {
+      "title": "Ne manque rien",
+      "description": "Pour des nouveautés, des promotions, du contenu exclusif et une bonne dose de WAQ, abonne-toi à notre infolettre.",
+      "cta": "Je veux m’abonner!"
+    },
+    "coordinatedBy": "Événement coordonné par",
+    "contact": "Pour nous contacter"
+  },
   "home": {
-    "helloThere": "Allo!"
+    "title": "28 au 30 mai 2024",
+    "description": "Le WAQ, c’est une communauté de passionnés qui déploie annuellement un événement numérique local de calibre international. Trois jours de conférences et de rencontres exceptionnelles.",
+    "hero": {
+      "dates": "28<br /> au 30<br /> mai",
+      "slogan": "l’événement numérique local de calibre international",
+      "eventLocation": "Terminal de croisière — Port de Québec"
+    },
+    "statistics": {
+      "conferences": "conférences, ateliers et plus",
+      "days": "journées<br /> intensives",
+      "volunteers": "bénévoles annuels passionnés"
+    },
+    "ctaSection": {
+      "sale": {
+        "title": "Réserve ta place",
+        "description": "Ne manque pas la vente des billets pour la prochaine édition du WAQ. Viens assister à des conférences et des 5 à 7 incroyables! En plus de profiter des nouveautés qui seront annoncées dans les prochaines semaines.",
+        "cta": "Achète ton billet"
+      },
+      "stickers": {
+        "innovation": "innovation",
+        "design": "design",
+        "communication": "comm / mktg",
+        "development": "développement"
+      },
+      "mobileApp": {
+        "duringEvent": {
+          "title": "découvrez notre application",
+          "description": "Que ce soit pour faire ton horaire, réseauter, écouter les conférences, ou tout simplement vivre le WAQ à 100%, l’application sera ton meilleur compagnon pour l’événement!"
+        },
+        "postEvent": {
+          "title": "rediffusions en cours",
+          "description": "Les rediffusions des conférences du WAQ23 sont en cours dans l’application de l’événement! Disponibles pour les détenteur·rices de billets seulement."
+        },
+        "desktopCta": "accéder à l’application",
+        "mobileCta": "télécharger l’application"
+      }
+    },
+    "keynotes": {
+      "title": "quelques conférences",
+      "cta": "voir la programmation"
+    },
+    "partners": {
+      "hosting": "le WAQ 2024 est présenté par",
+      "expert": "partenaire expert",
+      "creative": "partenaires créatifs",
+      "festive": "partenaire festif",
+      "community": "partenaires communauté",
+      "supplier": "partenaires fournisseurs"
+    }
+  },
+  "program": {
+    "title": "Programmation",
+    "description": "Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec."
+  },
+  "ticketing": {
+    "title": "Billetterie",
+    "description": "Viens vivre le WAQ du 28 au 30 mai 2024. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.",
+    "intro": "Chaque année, des centaines de passionné.es de numérique participent au Web à Québec (WAQ). Que ce soit pour réseauter, découvrir les nouvelles tendances ou simplement vivre l’ambiance unique du WAQ, toutes les raisons sont bonnes de te joindre à nous!",
+    "buyCta": "Acheter mon billet",
+    "soldOut": "Complet",
+    "fullAccess": {
+      "name": "Billet accès complet",
+      "description": "Tu ne veux rien manquer du WAQ?",
+      "bullet1": "3 journées de conférences;",
+      "bullet2": "un accès pour écouter les contenus de la salle principale en rediffusion;",
+      "bullet3": "tes repas et boissons durant les 3 jours;",
+      "bullet4": "les meilleurs 5 à 7 en ville."
+    },
+    "corporate": {
+      "name": "Billet entreprise",
+      "description": "Tu veux assister aux conférences du matin et passer le relais à ta collègue en pm? C’est le billet qu’il vous faut!",
+      "bullet1": "3 journées de conférences;",
+      "bullet2": "6 accès pour écouter les contenus de la salle principale en rediffusion;",
+      "bullet3": "tes repas et boissons durant les 3 jours;",
+      "bullet4": "les meilleurs 5 à 7 en ville;",
+      "bullet5": "une gestion des billets pour faciliter la cueillette de ta cocarde."
+    },
+    "daily": {
+      "name": "Billet journalier",
+      "description": "Tu n’es pas disponible les 3 jours? On a pensé à toi.",
+      "bullet1": "une journée de conférences;",
+      "bullet2": "un accès pour écouter les contenus de la salle principale en rediffusion;",
+      "bullet3": "tes repas et boissons;",
+      "bullet4": "un 5 à 7 exceptionnel."
+    },
+    "student": {
+      "name": "Billet étudiant",
+      "description": "Te former, réseauter et 5à7ter. Quoi demander de plus?",
+      "bullet1": "un billet à un prix réduit;",
+      "bullet2": "3 journées de conférences;",
+      "bullet3": "un accès pour écouter les contenus de la salle principale en rediffusion;",
+      "bullet4": "tes repas et boissons durant les 3 jours;",
+      "bullet5": "les meilleurs 5 à 7 en ville."
+    }
+  },
+  "liveTheWAQ": {
+    "title": "Vivre le WAQ",
+    "description": "Plonge dans l'expérience WAQ à 100%! Besoin de conseils pour dormir, manger ou optimiser ta participation? Trouve toutes les réponses ici.",
+    "intro": "Plonge dans l'expérience WAQ à 100%! Besoin de conseils pour dormir, manger ou optimiser ta participation? Trouve toutes les réponses ici.",
+    "city": {
+      "title": "Au coeur de la ville",
+      "text": "En plein centre-ville de Québec, le Web à Québec est un événement numérique local de calibre international. Dans une ambiance électrique et festive, une communauté fidèle se rassemble pendant 3 jours intenses de rencontres, de conférences de haut calibre et de festivités. Situé au Terminal de croisière - Port de Québec, l’événement est un incontournable pour tous les créateurs et créatrices du Web d’ici et d’ailleurs."
+    },
+    "sleep": {
+      "title": "Où dormir ?",
+      "text": "Envie de vivre l’expérience du WAQ en mode touriste? Regarde ces options d'hébergement juste à côté de l'événement. On te recommande de vérifier les disponibilités aux endroits suivants :"
+    },
+    "eat": {
+      "title": "Où manger ?",
+      "text": "Ton billet de l’événement inclut les repas du midi, cafés, thés, collations, bouchées et boissons sans frais. Tenté par les saveurs locales du quartier Petit-Champlain? Voici notre sélection de favoris à ne pas manquer :"
+    },
+    "getThere": {
+      "alt": "Terminal de croisière — Port de Québec",
+      "title": "Comment s’y rendre ?",
+      "text": "Le <a href='https://goo.gl/maps/WK7R5d4oBHQgyhHT6' rel='noopener noreferrer' target='_blank'>Terminal de croisière – Port de Québec</a> est très accessible. Arrive tôt pour ne pas manquer la première conférence vedette du matin, qui attire toujours une grande foule.",
+      "bullet1": "Le Terminal est bien desservi par plusieurs lignes de bus du Réseau de transport de la Capitale (RTC), dont les lignes #1 et #11. Pour plus de détails, visite le site Web ou installe l’application.",
+      "bullet2": "Un parking payant est disponible au coût de 20$ par jour : on encourage le covoiturage entre collègues ou amis.",
+      "bullet3": "Les <a href='http://www.taxiscoop-quebec.com/?q=en' rel='noopener noreferrer' target='_blank'>Taxis Coop Québec</a> ou Uber sont aussi d'excellentes options, sans oublier la <a href='https://aveloquebec.ca/' rel='noopener noreferrer' target='_blank'>station àVélo</a> à deux minutes à pied, une alternative écologique et pratique!"
+    },
+    "party": {
+      "alt": "5 à 7 karaoké",
+      "title": "Faire la fête",
+      "text1": "Chaque journée bien remplie se termine par un 5 à 7 dans le Bistro WAQ, avec une vue imprenable sur le Fleuve Saint-Laurent. La terrasse est l’endroit parfait pour prendre un verre à l’extérieur et faire des rencontres professionnelles dans une atmosphère décontractée.",
+      "text2": "Le WAQ est bien connu pour ses apéros festifs. Tu ne veux absolument pas manquer ses soirées légendaires animées par ses partenaires! Et surtout, sois responsable et n’utilise pas ta voiture si tu consommes de l’alcool."
+    },
+    "closing": {
+      "alt": "Salle Grizzly Fuzz",
+      "title": "Show de fermeture - DJ set",
+      "text1": "Clôture ton WAQ24 en grand avec le tout premier show de fermeture à la nouvelle salle de BLEUFEU, le Grizzly Fuzz, situé en plein cœur de St-Roch ! Cet événement exclusif pour les participants du WAQ promet d'être incroyable.",
+      "text2": "Ton billet d'entrée n’inclut pas les consommations. Les places sont limitées et sont disponibles aux détenteurs d’un billet Accès complet pour le WAQ, la réservation requise.",
+      "text3": "Prépare-toi à danser sur les DJ sets de Claude Bégin (Alaclair Ensemble), Dominic Pelletier (Caravane, Bonanza) et Raphaël Potvin (Caravane). Les portes ouvrent à 19h, après le dernier 5 à 7 du WAQ au Terminal de croisière - Port de Québec. Le DJ set commence à 20h. La soirée se poursuit dans une ambiance-bar pour fêter jusqu’aux petites heures avec tes nouvelles connaissances et amis du WAQ."
+    },
+    "accessibility": {
+      "title": "Mobilité réduite",
+      "text": "Dans le but de faciliter l’accès à l’événement, le WAQ propose un ascenseur pour les conférences au deuxième étage, des stationnements réservés près de l'entrée et des aménagements pour les fauteuils roulants. Pour toute assistance supplémentaire, contacte-nous à <a href='mailto:info@webaquebec.org'>info@webaquebec.org</a>."
+    },
+    "nutshell": {
+      "title": "Le Web à Québec en bref…",
+      "text": "Le WAQ est une expérience inoubliable de 3 jours, alliant conférences de haute qualité, rencontres inspirantes et divertissements. L'édition 2024 se déroule exclusivement en personne pour offrir un événement plus humain et chaleureux. Les conférences de la salle principale (Cossette) seront disponibles en rediffusion après l’événement. Ne rate pas cette occasion de découvrir les dernières tendances du numérique et de réseauter dans une ambiance conviviale ! Des événements comme celui-là, il n’en existe pas d'autres… 👀"
+    }
+  },
+  "about": {
+    "title": "à propos",
+    "event": {
+      "title": "L’événement",
+      "tab": "l’événement",
+      "intro1": "Le WAQ, c’est une communauté de passionné(e)s qui déploie annuellement un événement <strong>authentique, ludique, festif et accessible</strong>. C’est trois jours composés de conférences et de rencontres exceptionnelles.",
+      "intro2": "Le Web à Québec est chapeauté par Québec numérique, un organisme à but non lucratif dont la mission est de former, accompagner et rassembler l’écosystème numérique de Québec.",
+      "intro3": "Au WAQ, on rassemble une communauté créative, solidaire et stimulante. Que tu sois designer, développeur, communicateur ou au coeur de l’innovation, on t’invite à propager ta passion du numérique tant à l’échelle locale qu’internationale. Viens apprendre des meilleur(e)s et faire des rencontres qui changeront ton parcours.",
+      "section1": {
+        "title": "Une programmation unique",
+        "text": "Couvrant le numérique sous toutes ses facettes, le WAQ propose des conférences sur la communication, le marketing, le design, le développement, l’innovation et toutautres thèmes intéressants et pertinents pour la communauté rassemblée à l’événement. Des conférencières et des conférenciers reconnu(.e)s du Québec comme de l’international se relaient sur scène pour satisfaire ta curiosité."
+      },
+      "section2": {
+        "title": "Un retour sur notre histoire",
+        "text": "Après avoir vu le jour en 2010, le WAQ a su s’adapter aux dernières tendances du numérique, faire connaître son offre de conférences à l’international et même d’offrir un événement virtuel durant… l’année qu’on connaît tous. 🤷 Après tout ça, le WAQ est maintenant l’événement local de calibre international que tu connais. Quelle est vraiment l’évolution du WAQ à travers les années? Découvre le en visitant les dernières éditions. 👇"
+      },
+      "section3": {
+        "title": "Merci à nos précieux partenaires",
+        "text": "Le WAQ n’existerait pas sans le soutien inestimable de ses précieux partenaires. Que ce soit par leur contribution à la mise en place de l’événement ou par leur animation sur les lieux, ils nous en mettent toujours plein la vue - et les papilles gustatives! 😛"
+      },
+      "gallery": {
+        "title": "Un p’tit coup d’oeil",
+        "text": "Comme qu’y disent… une image vaut mille mots 🤭"
+      }
+    },
+    "team": {
+      "title": "Notre équipe",
+      "description": "Nos bénévoles annuels de feu",
+      "tab": "notre équipe",
+      "intro": "Créé par et pour la communauté numérique, et rendu possible grâce au dévouement d’une équipe de plus de 100 bénévoles qui investit temps et amour ❤️ Chaque personne qui s’implique amène son talent, son expertise et sa personnalité. C’est ce qui fait du WAQ un événement aussi unique et exceptionnel!",
+      "subtitle": "<span>nos bénévoles</span><span>annuels de feu</span>",
+      "programCommittee": "comité de programmation",
+      "developmentTrack": "Piste développement",
+      "designTrack": "Piste design",
+      "communicationTrack": "Piste communication",
+      "innovationTrack": "Piste innovation",
+      "communicationsCommittee": "comité des communications",
+      "committeeLeader": "Responsable du comité",
+      "designCommittee": "comité design",
+      "webCommittee": "comité web"
+    },
+    "qn": {
+      "title": "Québec numérique",
+      "tab": "Québec numérique",
+      "intro": "Synergie et partage sont l’essence de la mission de Québec numérique (QN). Plus qu’une simple organisation sans but lucratif, Québec numérique joue un rôle rassembleur auprès de l’ensemble des acteurs et actrices du numérique à Québec. Depuis 13 ans, Québec numérique s’engage à rassembler, innover, accompagner et former la communauté du numérique.",
+      "whoAreWe": {
+        "title": "Qui sommes-nous?",
+        "text1": "Cette grande aventure débuta en 2010 grâce au Web à Québec, un événement unique imaginé par des mordus du numérique qui ont eu la folle idée d’organiser un événement pour rassembler les acteurs du Web. La première édition a attiré plus de 200 personnes!",
+        "text2": "Avec le succès grandissant du WAQ, l’organisation se structure officiellement. C’est la naissance de l’OBNL Québec numérique."
+      },
+      "reachUs": {
+        "title": "Pour nous joindre",
+        "text": "L’équipe de bénévoles derrière le WAQ est supportée par Québec numérique. Tu as des questions ou besoin d’information? Lâche-nous un coup de fil ou écris-nous, on est pas gênants!",
+        "cta": "en savoir plus"
+      }
+    }
   }
 }

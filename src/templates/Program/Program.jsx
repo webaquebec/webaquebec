@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 // components
+import { useTranslation } from 'react-i18next';
 import SEO from '../../components/SEO';
 import Center from '../../components/LayoutSections/Center';
 import ScheduleCardList from '../../components/ScheduleCardList';
@@ -28,6 +29,8 @@ const Program = ({
   data,
   pageContext: { eventDates, pagePaths },
 }) => {
+  const { t, i18n } = useTranslation();
+
   const { state } = location;
 
   const {
@@ -53,7 +56,7 @@ const Program = ({
 
       return {
         edition: eventYear,
-        date: date.toLocaleDateString('fr-ca', options),
+        date: date.toLocaleDateString(i18n.language, options),
       };
     });
 
@@ -63,7 +66,7 @@ const Program = ({
     }));
 
     return tempDatePaths;
-  }, [eventDates, pagePaths]);
+  }, [eventDates, pagePaths, i18n.language]);
 
   /**
    * Re-arrange data from Swapcard the way we want to display it in our template
@@ -197,10 +200,7 @@ const Program = ({
 
   return (
     <>
-      <SEO
-        title='Programmation'
-        description='Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec.'
-      />
+      <SEO title={t('program.title')} description={t('program.description')} />
 
       <Hero datePaths={datePaths} location={location} />
 
