@@ -1,12 +1,12 @@
 // vendors
 import React from 'react';
+import { graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 
 // components
-import { useTranslation } from 'react-i18next';
-import { graphql, useStaticQuery } from 'gatsby';
 import Center from '../components/LayoutSections/Center';
 import PicturesSection from '../views/LiveTheWaqPageView/PicturesSection';
 import SectionContainer from '../components/SectionContainer';
@@ -114,106 +114,99 @@ const TextContent = styled.div`
   }
 `;
 
-const LiveTheWAQ = () => {
+const hotels = [
+  {
+    id: 1,
+    name: 'Hôtel 71',
+    link: 'https://hotel71.ca/?gclid=CjwKCAiA_vKeBhAdEiwAFb_nrXGP73ERo9V2B50lx_djtw-nQPs7LZfmpF-sOFpstzBAOwOJPpk7pxoCzRAQAvD_BwE',
+  },
+  {
+    id: 2,
+    name: 'Auberge Saint-Pierre',
+    link: 'https://auberge.qc.ca/',
+  },
+  {
+    id: 3,
+    name: 'Hôtel Le Germain Québec',
+    link: 'https://bookings.travelclick.com/12418?groupID=4216751&hotelID=12418&languageid=3#/guestsandrooms',
+  },
+  {
+    id: 4,
+    name: 'Hôtel Port Royal',
+    link: 'https://www.leportroyal.com/fr',
+  },
+  {
+    id: 5,
+    name: 'Les Lofts Vieux-Québec',
+    link: 'https://loftsvieuxquebec.com/',
+  },
+  {
+    id: 6,
+    name: 'Hôtel Québec Centre-Ville – Best Western Plus',
+    link: 'https://www.bestwestern.com/fr_FR/book/hotel-rooms.67020.html?promoCode=ECBXIGJ',
+  },
+];
+
+const restaurants = [
+  {
+    id: 1,
+    name: 'Café du Monde',
+    price: '($$$)',
+    link: 'https://www.lecafedumonde.com/#/',
+  },
+  {
+    id: 2,
+    name: 'Q-de-Sac Resto-Pub',
+    price: '($$)',
+    link: 'http://restopubqdesac.com/',
+  },
+  {
+    id: 3,
+    name: 'Le Cochon Dingue',
+    price: '($$)',
+    link: 'https://www.cochondingue.com/',
+  },
+  {
+    id: 4,
+    name: 'Archibald',
+    price: '($$)',
+    link: 'https://www.archibaldmicrobrasserie.ca/',
+  },
+  {
+    id: 5,
+    name: 'Sapristi',
+    price: '($$)',
+    link: 'https://sapristi.ca/',
+  },
+  {
+    id: 6,
+    name: 'Il Matto',
+    price: '($$$)',
+    link: 'https://ilmatto.ca/',
+  },
+  {
+    id: 7,
+    name: 'Chez Rioux et Pettigrew',
+    price: '($$$)',
+    link: 'https://chezriouxetpettigrew.com/',
+  },
+  {
+    id: 8,
+    name: 'Don Vegan',
+    price: '($$$)',
+    link: 'https://donresto.com/',
+  },
+];
+
+const LiveTheWAQ = ({ data }) => {
   const { t } = useTranslation();
 
-  const data = useStaticQuery(
-    graphql`
-      query {
-        plasticTexture: file(relativePath: { eq: "textures/plasticWrap.png" }) {
-          childImageSharp {
-            fixed(width: 600) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-      }
-    `
-  );
-
-  const hotels = [
-    {
-      id: 1,
-      name: 'Hôtel 71',
-      link: 'https://hotel71.ca/?gclid=CjwKCAiA_vKeBhAdEiwAFb_nrXGP73ERo9V2B50lx_djtw-nQPs7LZfmpF-sOFpstzBAOwOJPpk7pxoCzRAQAvD_BwE',
-    },
-    {
-      id: 2,
-      name: 'Auberge Saint-Pierre',
-      link: 'https://auberge.qc.ca/',
-    },
-    {
-      id: 3,
-      name: 'Hôtel Le Germain Québec',
-      link: 'https://bookings.travelclick.com/12418?groupID=4216751&hotelID=12418&languageid=3#/guestsandrooms',
-    },
-    {
-      id: 4,
-      name: 'Hôtel Port Royal',
-      link: 'https://www.leportroyal.com/fr',
-    },
-    {
-      id: 5,
-      name: 'Les Lofts Vieux-Québec',
-      link: 'https://loftsvieuxquebec.com/',
-    },
-    {
-      id: 6,
-      name: 'Hôtel Québec Centre-Ville – Best Western Plus',
-      link: 'https://www.bestwestern.com/fr_FR/book/hotel-rooms.67020.html?promoCode=ECBXIGJ',
-    },
-  ];
-
-  const restaurants = [
-    {
-      id: 1,
-      name: 'Café du Monde',
-      price: '($$$)',
-      link: 'https://www.lecafedumonde.com/#/',
-    },
-    {
-      id: 2,
-      name: 'Q-de-Sac Resto-Pub',
-      price: '($$)',
-      link: 'http://restopubqdesac.com/',
-    },
-    {
-      id: 3,
-      name: 'Le Cochon Dingue',
-      price: '($$)',
-      link: 'https://www.cochondingue.com/',
-    },
-    {
-      id: 4,
-      name: 'Archibald',
-      price: '($$)',
-      link: 'https://www.archibaldmicrobrasserie.ca/',
-    },
-    {
-      id: 5,
-      name: 'Sapristi',
-      price: '($$)',
-      link: 'https://sapristi.ca/',
-    },
-    {
-      id: 6,
-      name: 'Il Matto',
-      price: '($$$)',
-      link: 'https://ilmatto.ca/',
-    },
-    {
-      id: 7,
-      name: 'Chez Rioux et Pettigrew',
-      price: '($$$)',
-      link: 'https://chezriouxetpettigrew.com/',
-    },
-    {
-      id: 8,
-      name: 'Don Vegan',
-      price: '($$$)',
-      link: 'https://donresto.com/',
-    },
-  ];
+  const images = {
+    texture: data?.plasticTexture?.childImageSharp?.fixed,
+    first: data?.imageTerminal?.childImageSharp?.fluid,
+    second: data?.image5a7?.childImageSharp?.fluid,
+    third: data?.imageGrizzlyFuzz?.childImageSharp?.fluid,
+  };
 
   return (
     <>
@@ -234,11 +227,7 @@ const LiveTheWAQ = () => {
       </Center>
 
       <TextureWrapper>
-        <GatsbyImage
-          fixed={data.plasticTexture?.childImageSharp?.fixed}
-          alt=''
-          role='presentation'
-        />
+        <GatsbyImage fixed={images.texture} alt='' role='presentation' />
       </TextureWrapper>
 
       <Center
@@ -292,7 +281,7 @@ const LiveTheWAQ = () => {
             </ul>
           </TextContent>
 
-          <PicturesSection />
+          <PicturesSection pictures={images} />
 
           <TextContent>
             <h2>{t('liveTheWAQ.accessibility.title')}</h2>
@@ -311,9 +300,58 @@ const LiveTheWAQ = () => {
 };
 
 LiveTheWAQ.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    plasticTexture: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fixed: PropTypes.shape({}).isRequired,
+      }),
+    }),
+    imageTerminal: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fluid: PropTypes.shape({}).isRequired,
+      }),
+    }),
+    image5a7: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fluid: PropTypes.shape({}).isRequired,
+      }),
+    }),
+    imageGrizzlyFuzz: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fluid: PropTypes.shape({}).isRequired,
+      }),
+    }),
   }).isRequired,
 };
 
 export default LiveTheWAQ;
+
+export const query = graphql`
+  fragment PictureSection on File {
+    childImageSharp {
+      fluid(maxWidth: 500, maxHeight: 400, quality: 100) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+  query {
+    plasticTexture: file(relativePath: { eq: "textures/plasticWrap.png" }) {
+      childImageSharp {
+        fixed(width: 600) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    imageTerminal: file(relativePath: { eq: "liveTheWAQ/img-terminal.jpg" }) {
+      ...PictureSection
+    }
+    image5a7: file(relativePath: { eq: "liveTheWAQ/img-5-a-7.jpg" }) {
+      ...PictureSection
+    }
+    imageGrizzlyFuzz: file(
+      relativePath: { eq: "liveTheWAQ/img-grizzly-fuzz.jpg" }
+    ) {
+      ...PictureSection
+    }
+  }
+`;

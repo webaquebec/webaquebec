@@ -1,13 +1,10 @@
 // vendors
 import React from 'react';
+import PropTypes from 'prop-types';
+import GatsbyImage from 'gatsby-image';
 
 // components
 import { useTranslation } from 'react-i18next';
-
-// images
-import imgTerminal from '../../../images/liveTheWAQ/img-terminal.jpg';
-import img5a7 from '../../../images/liveTheWAQ/img-5-a-7.jpg';
-import imgGrizzlyFuzz from '../../../images/liveTheWAQ/img-grizzly-fuzz.jpg';
 
 // styles
 import {
@@ -16,14 +13,18 @@ import {
   SwitcherWrapper,
 } from './PicturesSection.styles';
 
-const PicturesSection = () => {
+const PicturesSection = ({ pictures }) => {
   const { t } = useTranslation();
 
   return (
     <div>
       <SwitcherWrapper>
         <PictureWrapper>
-          <img src={imgTerminal} alt={t('liveTheWAQ.getThere.alt')} />
+          <GatsbyImage
+            fluid={pictures.first}
+            alt={t('liveTheWAQ.getThere.alt')}
+            role='presentation'
+          />
         </PictureWrapper>
         <TextWrapper>
           <h2>{t('liveTheWAQ.getThere.title')}</h2>
@@ -54,7 +55,11 @@ const PicturesSection = () => {
 
       <SwitcherWrapper>
         <PictureWrapper>
-          <img src={img5a7} alt={t('liveTheWAQ.party.alt')} />
+          <GatsbyImage
+            fluid={pictures.second}
+            alt={t('liveTheWAQ.party.alt')}
+            role='presentation'
+          />
         </PictureWrapper>
         <TextWrapper>
           <h2>{t('liveTheWAQ.party.title')}</h2>
@@ -65,7 +70,11 @@ const PicturesSection = () => {
 
       <SwitcherWrapper>
         <PictureWrapper>
-          <img src={imgGrizzlyFuzz} alt={t('liveTheWAQ.closing.alt')} />
+          <GatsbyImage
+            fluid={pictures.third}
+            alt={t('liveTheWAQ.closing.alt')}
+            role='presentation'
+          />
         </PictureWrapper>
         <TextWrapper>
           <h2>{t('liveTheWAQ.closing.title')}</h2>
@@ -76,6 +85,14 @@ const PicturesSection = () => {
       </SwitcherWrapper>
     </div>
   );
+};
+
+PicturesSection.propTypes = {
+  pictures: PropTypes.shape({
+    first: PropTypes.shape({}).isRequired,
+    second: PropTypes.shape({}).isRequired,
+    third: PropTypes.shape({}).isRequired,
+  }).isRequired,
 };
 
 export default PicturesSection;

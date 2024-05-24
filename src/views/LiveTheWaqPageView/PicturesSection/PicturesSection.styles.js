@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 
 // utils
+import GatsbyImage from 'gatsby-image';
 import breakpointsRange from '../../../utils/breakpointsRange';
 import { greaterThan, lessThan } from '../../../utils/mediaQuery';
 
@@ -31,24 +32,28 @@ export const SwitcherWrapper = styled.div`
 `;
 
 export const PictureWrapper = styled.div`
+  width: 100%;
+  max-width: 500px;
+
   ${greaterThan(768)} {
     width: 50%;
   }
 
   img {
-    max-width: 100%;
-    max-height: 400px;
-
-    ${greaterThan(768)} {
-      height: 100%;
-      object-fit: cover;
-    }
-
     ${breakpointsRange(
       [{ prop: 'borderRadius', sizes: [5, 12], bases: [16, 20] }],
       breakpoints.spacings
     )};
   }
+`;
+
+export const Image = styled(GatsbyImage)`
+  width: 50%;
+
+  ${breakpointsRange(
+    [{ prop: 'borderRadius', sizes: [5, 12], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 export const TextWrapper = styled.div`
