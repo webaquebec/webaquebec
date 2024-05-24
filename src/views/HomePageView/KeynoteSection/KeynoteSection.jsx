@@ -3,6 +3,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 // styles
+import { useTranslation } from 'react-i18next';
 import { wrapper, CardsWrapper, Title } from './KeynoteSection.styles';
 
 // components
@@ -57,6 +58,8 @@ const speakersPictureQuery = graphql`
 `;
 
 const KeynoteSection = () => {
+  const { t } = useTranslation();
+
   const data = useStaticQuery(speakersPictureQuery);
 
   const {
@@ -137,7 +140,7 @@ const KeynoteSection = () => {
       gutters='16px'
       intrinsic
     >
-      <Title>quelques conférences</Title>
+      <Title>{t('home.keynotes.title')}</Title>
 
       <CardsWrapper>
         <KeynoteCard speaker={speakers[0]} mobileRotationAngle={-5} />
@@ -149,7 +152,7 @@ const KeynoteSection = () => {
       </CardsWrapper>
 
       <Button tag='link' to='/programmation/2024/'>
-        voir la programmation
+        {t('home.keynotes.cta')}
       </Button>
     </Center>
   );

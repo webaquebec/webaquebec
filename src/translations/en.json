@@ -1,0 +1,228 @@
+{
+  "menu": {
+    "openBurgerLabel": "Open menu",
+    "closeBurgerLabel": "Close menu",
+    "program": "program",
+    "blog": "blog",
+    "ticketing": "ticketing",
+    "liveTheWAQ": "live the WAQ",
+    "about": "about",
+    "partners": "partners",
+    "faq": "FAQ",
+    "contact": "contact us",
+    "codeOfConduct": "code of conduct",
+    "previousEdition": "2023 edition"
+  },
+  "footer": {
+    "socials": {
+      "title": "Follow us online",
+      "description": "Announcements, events, contests, anecdotes, new content and a great community await you."
+    },
+    "newsletter": {
+      "title": "Don’t miss a thing",
+      "description": "For news, promotions, exclusive content and a good dose of WAQ, subscribe to our newsletter.",
+      "cta": "I want to subscribe!"
+    },
+    "coordinatedBy": "Event coordinated by",
+    "contact": "To contact us"
+  },
+  "home": {
+    "title": "May 28-30, 2024",
+    "description": "The WAQ is a community of passionate individuals that annually organizes a local digital world-class event. It's three days of exceptional conferences and meetings.",
+    "hero": {
+      "dates": "may<br /> 28 - 30",
+      "slogan": "the local, world-class digital event",
+      "eventLocation": "Cruise Terminal - Port of Québec"
+    },
+    "statistics": {
+      "conferences": "conferences, workshops and more",
+      "days": "intensive<br /> days",
+      "volunteers": "dedicated annual volunteers"
+    },
+    "ctaSection": {
+      "sale": {
+        "title": "Book your place",
+        "description": "Don’t miss out on ticket sales for the upcoming WAQ. Come and enjoy incredible conferences and Happy Hours! Not to mention all the new features to be announced in the coming weeks.",
+        "cta": "Book my ticket"
+      },
+      "stickers": {
+        "innovation": "innovation",
+        "design": "design",
+        "communication": "comm / mktg",
+        "development": "web development"
+      },
+      "mobileApp": {
+        "duringEvent": {
+          "title": "discover our mobile app",
+          "description": "Whether it’s to create your schedule, network, listen to the conferences, or simply experience the WAQ to the fullest, the app will be your best companion for the event!"
+        },
+        "postEvent": {
+          "title": "replays in progress",
+          "description": "The replays of the WAQ23 conferences are in progress in the event app! Available only to ticket holders."
+        },
+        "desktopCta": "access the app",
+        "mobileCta": "download the app"
+      }
+    },
+    "keynotes": {
+      "title": "a few speakers",
+      "cta": "see program"
+    },
+    "partners": {
+      "hosting": "WAQ 2024 is hosted by",
+      "expert": "expert partner",
+      "creative": "creative partners",
+      "festive": "festive partner",
+      "community": "community partners",
+      "supplier": "supplier partners"
+    }
+  },
+  "program": {
+    "title": "Program",
+    "description": "More than 50 conferences over 3 days with workshops, networking, and a multitude of activities. Discover the program of Web à Québec."
+  },
+  "ticketing": {
+    "title": "Ticketing",
+    "description": "Experience the WAQ from May 28 to 30, 2024. Reserve your ticket today to participate in the largest French-speaking digital event in North America.",
+    "intro": "Every year, hundreds of digital enthusiasts attend Web à Québec (WAQ). Whether you’re networking, discovering new trends or simply enjoying the unique atmosphere of WAQ, every reason is good to join us!",
+    "buyCta": "Book my ticket",
+    "soldOut": "Sold out",
+    "fullAccess": {
+      "name": "Full access ticket",
+      "description": "Don’t want to miss a thing?",
+      "bullet1": "3 days of conferences;",
+      "bullet2": "replay access to all the main room content;",
+      "bullet3": "your meals and beverages over the 3 days;",
+      "bullet4": "the best Happy Hours in town."
+    },
+    "corporate": {
+      "name": "Corporate ticket",
+      "description": "Want to attend the morning conferences and pass the baton to your colleague in the afternoon? This is the ticket for you!",
+      "bullet1": "3 days of conferences;",
+      "bullet2": "6 replay accesses to all the main room content;",
+      "bullet3": "your meals and beverages over the 3 days;",
+      "bullet4": "the best Happy Hours in town;",
+      "bullet5": "ticket management to make it easy for you and your colleagues to pick up your badge."
+    },
+    "daily": {
+      "name": "Daily ticket",
+      "description": "You’re not available all 3 days? We’ve got you covered.",
+      "bullet1": "one day of conferences;",
+      "bullet2": "replay access to all the main room content;",
+      "bullet3": "your meals and beverages for the day;",
+      "bullet4": "an exceptional Happy Hour."
+    },
+    "student": {
+      "name": "Student ticket",
+      "description": "Learn, network and experience Happy Hours. What more could you ask for?",
+      "bullet1": "a ticket at a reduced price;",
+      "bullet2": "3 days of conferences;",
+      "bullet3": "replay access to all the main room content;",
+      "bullet4": "your meals and beverages over the 3 days;",
+      "bullet5": "the best Happy Hours in town."
+    }
+  },
+  "liveTheWAQ": {
+    "title": "Live the WAQ",
+    "description": "Immerse yourself 100% in the WAQ experience! Need advice on sleeping, eating or optimizing your attendance? Find all the answers here.",
+    "intro": "Immerse yourself 100% in the WAQ experience! Need advice on sleeping, eating or optimizing your attendance? Find all the answers here.",
+    "city": {
+      "title": "In the heart of the city",
+      "text": "Right in downtown Quebec City, the WAQ is a local digital event of international caliber. In an electric and festive atmosphere, a loyal community gathers for 3 intense days of meetings, high-caliber conferences and festivities. Located at the Cruise Terminal - Port of Quebec, the event is a must for all Web creators from here and abroad."
+    },
+    "sleep": {
+      "title": "Where to sleep?",
+      "text": "Want to experience WAQ in tourist mode? Check out these accommodation options right next to the event. We recommend checking availability at the following locations:"
+    },
+    "eat": {
+      "title": "Where to eat?",
+      "text": "Your event ticket includes lunch, coffee, tea, snacks, appetizers and beverages free of charge. Tempted by the local flavors of the Petit-Champlain district? Here's our selection of not-to-be-missed favorites:"
+    },
+    "getThere": {
+      "alt": "Cruise Terminal - Port of Québec",
+      "title": "How to get there?",
+      "text": "The <a href='https://goo.gl/maps/WK7R5d4oBHQgyhHT6' rel='noopener noreferrer' target='_blank'>Cruise Terminal - Port of Quebec</a> is very accessible. Arrive early so you don't miss the first keynote lecture of the morning, which always draws a big crowd.",
+      "bullet1": "The Terminal is well served by several Réseau de transport de la Capitale (RTC) bus lines, including #1 and #11. For more details, visit the website or install the app.",
+      "bullet2": "Parking is available at a cost of $20 per day: carpooling between colleagues or friends is encouraged.",
+      "bullet3": "<a href='http://www.taxiscoop-quebec.com/?q=en' rel='noopener noreferrer' target='_blank'>Taxis Coop Québec</a> or Uber are also excellent options, not to mention the <a href='https://aveloquebec.ca/' rel='noopener noreferrer' target='_blank'>àVélo station</a> just a two-minute walk away, an ecological and practical alternative!"
+    },
+    "party": {
+      "alt": "Karaoke happy hour",
+      "title": "Live it up",
+      "text1": "Every busy day ends with a Happy Hour in the Bistro WAQ, overlooking the St. Lawrence River. The terrace is the perfect place to enjoy an outdoor drink and make business contacts in a relaxed atmosphere.",
+      "text2": "WAQ is well known for its festive aperitifs. You don't want to miss these legendary parties hosted by our partners! Above all, be responsible and don't use your car if you're drinking."
+    },
+    "closing": {
+      "alt": "Grizzly Fuzz",
+      "title": "Closing show - DJ set",
+      "text1": "Close your WAQ24 in style with the first-ever closing show at BLEUFEU's new venue, Grizzly Fuzz, located in the heart of St-Roch! This exclusive event for WAQ attendees promises to be incredible.",
+      "text2": "Your ticket does not include drinks. Places are limited and available to holders of a WAQ Full Access ticket only, reservation required.",
+      "text3": "Get ready to dance to DJ sets by Claude Bégin (Alaclair Ensemble), Dominic Pelletier (Caravane, Bonanza) and Raphaël Potvin (Caravane). Doors open at 7pm, after the last WAQ Happy Hour at the Cruise Terminal - Port of Quebec. The DJ set begins at 8pm. The evening continues in a bar atmosphere, where you can party into the wee hours with your new WAQ friends and contacts."
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "text": "To facilitate access to the event, WAQ offers a second-floor conference elevator, reserved parking near the entrance and wheelchair facilities. For further assistance, please contact us at <a href='mailto:info@webaquebec.org'>info@webaquebec.org</a>."
+    },
+    "nutshell": {
+      "title": "The WAQ in a nutshell...",
+      "text": "The WAQ is an unforgettable 3-day experience, combining high-quality conferences, inspiring encounters and entertainment. The 2024 edition will take place exclusively in person, to offer a more human and friendly event. Conferences in the main room (Cossette) will be available for replay after the event. Don't miss this opportunity to discover the latest digital trends and network in a friendly atmosphere! Events like this are hard to find anywhere else... 👀"
+    }
+  },
+  "about": {
+    "title": "about",
+    "event": {
+      "title": "The event",
+      "tab": "the event",
+      "intro1": "The WAQ is a community of enthusiasts who put on an authentic, fun, festive and accessible event every year. It's three days of exceptional conferences and meetings.",
+      "intro2": "The WAQ is overseen by Québec numérique, a non-profit organization whose mission is to train, support and bring together Québec's digital ecosystem.",
+      "intro3": "At WAQ, we bring together a creative, supportive and stimulating community. Whether you're a designer, developer, communicator or at the heart of innovation, we invite you to spread your passion for digital both locally and internationally. Come and learn from the best, and meet people who will change your path.",
+      "section1": {
+        "title": "Unique program",
+        "text": "Covering every facet of the digital world, the WAQ offers conferences on communication, marketing, design, development, innovation and other topics of interest and relevance to the community gathered at the event. Renowned speakers from Quebec and around the world take turns on stage to satisfy your curiosity."
+      },
+      "section2": {
+        "title": "A look back at our history",
+        "text": "After seeing the light of day in 2010, the WAQ has adapted to the latest digital trends, taken its conference offering internationally and even offered a virtual event during... the year we all remember. 🤷 After all that, the WAQ is now the world-class local event you know. How has WAQ really evolved over the years? Find out by visiting the latest editions. 👇"
+      },
+      "section3": {
+        "title": "Thanks to our valued partners",
+        "text": "The WAQ would not exist without the invaluable support of our partners. Whether it's their contribution to setting up the event or their onsite entertainment, they always put on a show for us - and our taste buds! 😛"
+      },
+      "gallery": {
+        "title": "A little peek",
+        "text": "As they say... a picture's worth a thousand words 🤭"
+      }
+    },
+    "team": {
+      "title": "Our team",
+      "description": "Our amazing annual volunteers",
+      "tab": "our team",
+      "intro": "Created by and for the digital community, and made possible by the dedication of a team of over 100 volunteers who invest their time and love ❤️ Everyone who gets involved brings their own talent, expertise and personality. That's what makes WAQ such a unique and exceptional event!",
+      "subtitle": "<span>our amazing</span><span>annual volunteers</span>",
+      "programCommittee": "program committee",
+      "developmentTrack": "Development track",
+      "designTrack": "Design track",
+      "communicationTrack": "Communication track",
+      "innovationTrack": "Innovation track",
+      "communicationsCommittee": "communications committee",
+      "committeeLeader": "Committee leader",
+      "designCommittee": "design committee",
+      "webCommittee": "web committee"
+    },
+    "qn": {
+      "title": "Québec numérique",
+      "tab": "Québec numérique",
+      "intro": "Synergy and sharing are the essence of Québec numérique's (QN) mission. More than just a non-profit organization, QN plays a unifying role for all digital players in Quebec City. For 13 years, QN has been committed to bringing together, innovating, supporting and training the digital community.",
+      "whoAreWe": {
+        "title": "Who are we?",
+        "text1": "This great adventure began in 2010 with Web à Québec, a unique event dreamed up by a group of digital enthusiasts who had the crazy idea of organizing an event to bring together those involved in the web. The first edition attracted over 200 people!",
+        "text2": "With the WAQ's growing success, the organization officially took shape. Québec numérique was born."
+      },
+      "reachUs": {
+        "title": "How to reach us",
+        "text": "The team of volunteers behind WAQ is supported by Québec numérique. Got questions or need information? Give us a call or drop us a line. We're not embarrassing!",
+        "cta": "learn more"
+      }
+    }
+  }
+}

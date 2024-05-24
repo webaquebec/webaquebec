@@ -1,9 +1,9 @@
 // vendors
 import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 // components
+import { useTranslation } from 'react-i18next';
 import { graphql, useStaticQuery } from 'gatsby';
 import SEO from '../../components/SEO';
 import SectionContainer from '../../components/SectionContainer';
@@ -121,256 +121,261 @@ const volunteersPictureQuery = graphql`
   }
 `;
 
-const sectionsData = [
-  {
-    id: 0,
-    name: 'comité de programmation',
-    members: [
-      {
-        id: 0,
-        pictureId: 'annie_deshaies',
-        name: 'Annie Deshaies',
-        job: 'Piste développement',
-      },
-      {
-        id: 1,
-        pictureId: 'antoine_lefrancois',
-        name: 'Antoine Lefrançois',
-        job: 'Piste développement',
-      },
-      {
-        id: 2,
-        pictureId: 'jean-philippe_bougie',
-        name: 'Jean-Philippe Bougie',
-        job: 'Piste développement',
-      },
-      {
-        id: 3,
-        pictureId: 'mathieu_larouche',
-        name: 'Mathieu Larouche',
-        job: 'Piste développement',
-      },
-      {
-        id: 4,
-        pictureId: 'bertrand_lirette',
-        name: 'Bertrand Lirette',
-        job: 'Piste design',
-      },
-      {
-        id: 5,
-        pictureId: 'chany_lagueux',
-        name: 'Chany Lagueux',
-        job: 'Piste design',
-      },
-      {
-        id: 6,
-        pictureId: 'julie_royer',
-        name: 'Julie Royer',
-        job: 'Piste design',
-      },
-      {
-        id: 7,
-        pictureId: 'placeholder',
-        name: 'Olivier Caron',
-        job: 'Piste design',
-      },
-      {
-        id: 8,
-        pictureId: 'alexis_rodrigue',
-        name: 'Alexis Rodrigue',
-        job: 'Piste communication',
-      },
-      {
-        id: 9,
-        pictureId: 'placeholder2',
-        name: 'Jean-François Verville',
-        job: 'Piste communication',
-      },
-      {
-        id: 10,
-        pictureId: 'marie-pier_roy_dube',
-        name: 'Marie-Pier Roy Dubé',
-        job: 'Piste communication',
-      },
-      {
-        id: 11,
-        pictureId: 'placeholder2',
-        name: 'Jean Benoît Dubé',
-        job: 'Piste communication',
-      },
-      {
-        id: 12,
-        pictureId: 'placeholder2',
-        name: 'Claudine Beaudoin',
-        job: 'Piste innovation',
-      },
-      {
-        id: 13,
-        pictureId: 'placeholder',
-        name: 'Élodie Monette',
-        job: 'Piste innovation',
-      },
-      {
-        id: 14,
-        pictureId: 'placeholder2',
-        name: 'Rosalie Simard',
-        job: 'Piste innovation',
-      },
-      {
-        id: 15,
-        pictureId: 'placeholder',
-        name: 'Pierre Prévot',
-        job: 'Piste innovation',
-      },
-    ],
-  },
-  {
-    id: 1,
-    name: 'comité des communications',
-    members: [
-      {
-        id: 0,
-        pictureId: 'marie-pier_amyot',
-        name: 'Marie-Pier Amyot',
-        job: 'Responsable du comité',
-      },
-      {
-        id: 1,
-        pictureId: 'oceane_colling',
-        name: 'Océane Colling',
-        job: 'Responsable du comité',
-      },
-      {
-        id: 2,
-        pictureId: 'kariann_giroux',
-        name: 'Kariann Giroux',
-      },
-      {
-        id: 3,
-        pictureId: 'alexandra_plante',
-        name: 'Alexandra Plante',
-      },
-      {
-        id: 4,
-        pictureId: 'nadia_chih',
-        name: 'Nadia Chih',
-      },
-      {
-        id: 5,
-        pictureId: 'marc-vincent_letellier',
-        name: 'Marc-Vincent Letellier',
-      },
-      {
-        id: 6,
-        pictureId: 'mary-elizabeth_lagace',
-        name: 'Mary-Élizabeth Lagacé',
-      },
-      {
-        id: 7,
-        pictureId: 'placeholder',
-        name: 'Léanne Deblois',
-      },
-      {
-        id: 8,
-        pictureId: 'placeholder2',
-        name: 'Sandrine Thivierge',
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: 'comité design',
-    members: [
-      {
-        id: 0,
-        pictureId: 'marie-michele_bouchard',
-        name: 'Marie-Michèle Bouchard',
-        job: 'Responsable du comité',
-      },
-      {
-        id: 1,
-        pictureId: 'jean-nicolas_gauthier',
-        name: 'Jean-Nicolas Gauthier',
-        job: 'Responsable du comité',
-      },
-      {
-        id: 2,
-        pictureId: 'josianne_picard',
-        name: 'Josianne Picard',
-      },
-      {
-        id: 3,
-        pictureId: 'claudie_mathieu',
-        name: 'Claudie Mathieu',
-      },
-      {
-        id: 4,
-        pictureId: 'placeholder2',
-        name: 'Geneviève Nadeau',
-      },
-      {
-        id: 5,
-        pictureId: 'placeholder',
-        name: 'Miguël Lapointe Duchesne',
-      },
-      {
-        id: 6,
-        pictureId: 'placeholder2',
-        name: 'Kathleen Higgins',
-      },
-      {
-        id: 7,
-        pictureId: 'placeholder',
-        name: 'Andréanne Boucher',
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: 'comité web',
-    members: [
-      {
-        id: 0,
-        pictureId: 'jean-david_rheaume',
-        name: 'Jean-David Rhéaume',
-        job: 'Responsable du comité',
-      },
-      {
-        id: 1,
-        pictureId: 'florian_martin',
-        name: 'Florian Martin',
-      },
-      {
-        id: 2,
-        pictureId: 'krystina_hamel',
-        name: 'Krystina Hamel',
-      },
-      {
-        id: 3,
-        pictureId: 'laurent_harel',
-        name: 'Laurent Harel',
-      },
-    ],
-  },
-  // {
-  //   id: 4,
-  //   name: 'comité VIP',
-  //   members: [
-  //     {
-  //       id: 0,
-  //       pictureId: 'placeholder2',
-  //       name: 'Jessica Sinclair',
-  //     },
-  //     {
-  //       id: 1,
-  //       pictureId: 'placeholder',
-  //       name: 'Cynthia Lafontaine',
-  //     },
-  //   ],
-  // },
-];
-
 const OurTeamPage = () => {
+  const { t } = useTranslation();
+
+  const sectionsData = useMemo(
+    () => [
+      {
+        id: 0,
+        name: t('about.team.programCommittee'),
+        members: [
+          {
+            id: 0,
+            pictureId: 'annie_deshaies',
+            name: 'Annie Deshaies',
+            job: t('about.team.developmentTrack'),
+          },
+          {
+            id: 1,
+            pictureId: 'antoine_lefrancois',
+            name: 'Antoine Lefrançois',
+            job: t('about.team.developmentTrack'),
+          },
+          {
+            id: 2,
+            pictureId: 'jean-philippe_bougie',
+            name: 'Jean-Philippe Bougie',
+            job: t('about.team.developmentTrack'),
+          },
+          {
+            id: 3,
+            pictureId: 'mathieu_larouche',
+            name: 'Mathieu Larouche',
+            job: t('about.team.developmentTrack'),
+          },
+          {
+            id: 4,
+            pictureId: 'bertrand_lirette',
+            name: 'Bertrand Lirette',
+            job: t('about.team.designTrack'),
+          },
+          {
+            id: 5,
+            pictureId: 'chany_lagueux',
+            name: 'Chany Lagueux',
+            job: t('about.team.designTrack'),
+          },
+          {
+            id: 6,
+            pictureId: 'julie_royer',
+            name: 'Julie Royer',
+            job: t('about.team.designTrack'),
+          },
+          {
+            id: 7,
+            pictureId: 'placeholder',
+            name: 'Olivier Caron',
+            job: t('about.team.designTrack'),
+          },
+          {
+            id: 8,
+            pictureId: 'alexis_rodrigue',
+            name: 'Alexis Rodrigue',
+            job: t('about.team.communicationTrack'),
+          },
+          {
+            id: 9,
+            pictureId: 'placeholder2',
+            name: 'Jean-François Verville',
+            job: t('about.team.communicationTrack'),
+          },
+          {
+            id: 10,
+            pictureId: 'marie-pier_roy_dube',
+            name: 'Marie-Pier Roy Dubé',
+            job: t('about.team.communicationTrack'),
+          },
+          {
+            id: 11,
+            pictureId: 'placeholder2',
+            name: 'Jean Benoît Dubé',
+            job: t('about.team.communicationTrack'),
+          },
+          {
+            id: 12,
+            pictureId: 'placeholder2',
+            name: 'Claudine Beaudoin',
+            job: t('about.team.innovationTrack'),
+          },
+          {
+            id: 13,
+            pictureId: 'placeholder',
+            name: 'Élodie Monette',
+            job: t('about.team.innovationTrack'),
+          },
+          {
+            id: 14,
+            pictureId: 'placeholder2',
+            name: 'Rosalie Simard',
+            job: t('about.team.innovationTrack'),
+          },
+          {
+            id: 15,
+            pictureId: 'placeholder',
+            name: 'Pierre Prévot',
+            job: t('about.team.innovationTrack'),
+          },
+        ],
+      },
+      {
+        id: 1,
+        name: t('about.team.communicationsCommittee'),
+        members: [
+          {
+            id: 0,
+            pictureId: 'marie-pier_amyot',
+            name: 'Marie-Pier Amyot',
+            job: t('about.team.committeeLeader'),
+          },
+          {
+            id: 1,
+            pictureId: 'oceane_colling',
+            name: 'Océane Colling',
+            job: t('about.team.committeeLeader'),
+          },
+          {
+            id: 2,
+            pictureId: 'kariann_giroux',
+            name: 'Kariann Giroux',
+          },
+          {
+            id: 3,
+            pictureId: 'alexandra_plante',
+            name: 'Alexandra Plante',
+          },
+          {
+            id: 4,
+            pictureId: 'nadia_chih',
+            name: 'Nadia Chih',
+          },
+          {
+            id: 5,
+            pictureId: 'marc-vincent_letellier',
+            name: 'Marc-Vincent Letellier',
+          },
+          {
+            id: 6,
+            pictureId: 'mary-elizabeth_lagace',
+            name: 'Mary-Élizabeth Lagacé',
+          },
+          {
+            id: 7,
+            pictureId: 'placeholder',
+            name: 'Léanne Deblois',
+          },
+          {
+            id: 8,
+            pictureId: 'placeholder2',
+            name: 'Sandrine Thivierge',
+          },
+        ],
+      },
+      {
+        id: 2,
+        name: t('about.team.designCommittee'),
+        members: [
+          {
+            id: 0,
+            pictureId: 'marie-michele_bouchard',
+            name: 'Marie-Michèle Bouchard',
+            job: t('about.team.committeeLeader'),
+          },
+          {
+            id: 1,
+            pictureId: 'jean-nicolas_gauthier',
+            name: 'Jean-Nicolas Gauthier',
+            job: t('about.team.committeeLeader'),
+          },
+          {
+            id: 2,
+            pictureId: 'josianne_picard',
+            name: 'Josianne Picard',
+          },
+          {
+            id: 3,
+            pictureId: 'claudie_mathieu',
+            name: 'Claudie Mathieu',
+          },
+          {
+            id: 4,
+            pictureId: 'placeholder2',
+            name: 'Geneviève Nadeau',
+          },
+          {
+            id: 5,
+            pictureId: 'placeholder',
+            name: 'Miguël Lapointe Duchesne',
+          },
+          {
+            id: 6,
+            pictureId: 'placeholder2',
+            name: 'Kathleen Higgins',
+          },
+          {
+            id: 7,
+            pictureId: 'placeholder',
+            name: 'Andréanne Boucher',
+          },
+        ],
+      },
+      {
+        id: 3,
+        name: t('about.team.webCommittee'),
+        members: [
+          {
+            id: 0,
+            pictureId: 'jean-david_rheaume',
+            name: 'Jean-David Rhéaume',
+            job: t('about.team.committeeLeader'),
+          },
+          {
+            id: 1,
+            pictureId: 'florian_martin',
+            name: 'Florian Martin',
+          },
+          {
+            id: 2,
+            pictureId: 'krystina_hamel',
+            name: 'Krystina Hamel',
+          },
+          {
+            id: 3,
+            pictureId: 'laurent_harel',
+            name: 'Laurent Harel',
+          },
+        ],
+      },
+      // {
+      //   id: 4,
+      //   name: 'comité VIP',
+      //   members: [
+      //     {
+      //       id: 0,
+      //       pictureId: 'placeholder2',
+      //       name: 'Jessica Sinclair',
+      //     },
+      //     {
+      //       id: 1,
+      //       pictureId: 'placeholder',
+      //       name: 'Cynthia Lafontaine',
+      //     },
+      //   ],
+      // },
+    ],
+    [t]
+  );
+
   const picturesData = useStaticQuery(volunteersPictureQuery);
 
   const data = useMemo(
@@ -388,12 +393,15 @@ const OurTeamPage = () => {
           };
         }),
       })),
-    [picturesData.allFile.edges]
+    [picturesData.allFile.edges, sectionsData]
   );
 
   return (
     <>
-      <SEO title='Notre équipe' description='Nos bénévoles annuels de feu' />
+      <SEO
+        title={t('about.team.title')}
+        description={t('about.team.description')}
+      />
 
       <AboutTabs activeTabId={1} />
 
@@ -404,21 +412,14 @@ const OurTeamPage = () => {
           withText
           intrinsic
         >
-          <AboutIntro css={introStyle}>
-            Créé par et pour la communauté numérique, et rendu possible grâce au
-            dévouement d’une équipe de plus de 100 bénévoles qui investit temps
-            et amour ❤️ Chaque personne qui s’implique amène son talent, son
-            expertise et sa personnalité. C’est ce qui fait du WAQ un événement
-            aussi unique et exceptionnel!
-          </AboutIntro>
+          <AboutIntro css={introStyle}>{t('about.team.intro')}</AboutIntro>
         </Center>
 
         <Center maxWidth='1080px' intrinsic>
           <VolunteersTitle css={sectionTitle}>
-            <TitleLines>
-              <span>nos bénévoles</span>
-              <span>annuels de feu</span>
-            </TitleLines>
+            <TitleLines
+              dangerouslySetInnerHTML={{ __html: t('about.team.subtitle') }}
+            />
           </VolunteersTitle>
         </Center>
 
@@ -432,12 +433,6 @@ const OurTeamPage = () => {
       </Container>
     </>
   );
-};
-
-OurTeamPage.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default OurTeamPage;

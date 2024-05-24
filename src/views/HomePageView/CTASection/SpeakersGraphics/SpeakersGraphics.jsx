@@ -2,6 +2,7 @@
 import React from 'react';
 
 // components
+import { useTranslation } from 'react-i18next';
 import { graphql, useStaticQuery } from 'gatsby';
 import LazyAnimation from '../../../../components/LazyAnimation';
 
@@ -18,6 +19,8 @@ import {
 import { easing } from '../../../../styles/animation';
 
 const SpeakersGraphics = () => {
+  const { t } = useTranslation();
+
   const data = useStaticQuery(
     graphql`
       query {
@@ -105,7 +108,7 @@ const SpeakersGraphics = () => {
             `}
           >
             <SpeakerTag>
-              <span>innovation</span>
+              <span>{t('home.ctaSection.stickers.innovation')}</span>
             </SpeakerTag>
           </LazyAnimation>
 
@@ -128,7 +131,7 @@ const SpeakersGraphics = () => {
             `}
           >
             <SpeakerTag>
-              <span>design</span>
+              <span>{t('home.ctaSection.stickers.design')}</span>
             </SpeakerTag>
           </LazyAnimation>
         </div>
@@ -155,7 +158,7 @@ const SpeakersGraphics = () => {
             `}
           >
             <SpeakerTag>
-              <span>comm / mktg</span>
+              <span>{t('home.ctaSection.stickers.communication')}</span>
             </SpeakerTag>
           </LazyAnimation>
         </div>
@@ -176,18 +179,18 @@ const SpeakersGraphics = () => {
             }}
             css={`
               position: absolute;
-              top: 65px;
+              top: 24px;
               right: -10%;
               z-index: 2;
 
               ${lessThan(420)} {
-                top: 33px;
+                top: 0;
                 right: 6%;
               }
             `}
           >
             <SpeakerTag>
-              <span>développement</span>
+              <span>{t('home.ctaSection.stickers.development')}</span>
             </SpeakerTag>
           </LazyAnimation>
         </div>

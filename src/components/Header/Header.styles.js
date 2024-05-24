@@ -7,6 +7,7 @@ import breakpointsRange from '../../utils/breakpointsRange';
 // styles
 import breakpoints from '../../styles/breakpoints';
 import colors from '../../styles/colors';
+import { fontWeights } from '../../styles/typography';
 
 export const LogoWrapper = styled.div`
   z-index: 1051;
@@ -18,9 +19,28 @@ export const LogoWrapper = styled.div`
 export const Logo = styled.img``;
 
 export const MenuButtonWrapper = styled.div`
+  display: flex;
   grid-row: 1;
   grid-column: 3;
+  align-items: center;
   justify-self: flex-end;
+
+  ${breakpointsRange(
+    [{ prop: 'gap', sizes: [12, 32], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+`;
+
+export const LangSwitcher = styled.button`
+  font-weight: ${fontWeights.ultrabold};
+
+  border: 0;
+  cursor: pointer;
+
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [16, 18], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
 `;
 
 export const BurgerButton = styled.button`

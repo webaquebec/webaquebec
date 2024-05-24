@@ -54,7 +54,7 @@ export const StatDescription = styled.p`
       { prop: 'fontSize', sizes: [24, 30], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [29, 48], bases: [24, 40], unit: '' },
       { prop: 'marginTop', sizes: [16, 40], bases: [16, 20] },
-      { prop: 'maxWidth', sizes: [200, 290], bases: [16, 20] },
+      { prop: 'maxWidth', sizes: [200, 300], bases: [16, 20] },
     ],
 
     breakpoints.spacings

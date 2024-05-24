@@ -21,6 +21,7 @@ import './static/fonts/PPRadioGrotesk/radio-grotesk.css';
 import './static/fonts/Redaction/redaction.css';
 import '@fontsource/press-start-2p';
 import '@fontsource/press-start-2p/400.css';
+import LanguageProvider from './src/contexts/LanguageContext/LanguageContext';
 
 // Apply Layout component to every page/template
 export const wrapPageElement = ({ element, props }) => (
@@ -32,9 +33,11 @@ export const wrapPageElement = ({ element, props }) => (
 // Enable Modal and Program filters on every page/template
 export const wrapRootElement = ({ element }) => (
   <GlobalProvider>
-    <ModalProvider>
-      <ProgramFiltersProvider>{element}</ProgramFiltersProvider>
-    </ModalProvider>
+    <LanguageProvider>
+      <ModalProvider>
+        <ProgramFiltersProvider>{element}</ProgramFiltersProvider>
+      </ModalProvider>
+    </LanguageProvider>
   </GlobalProvider>
 );
 

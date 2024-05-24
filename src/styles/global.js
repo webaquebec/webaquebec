@@ -102,6 +102,7 @@ export const h1AltStyle = css`
 
   font-weight: ${fontWeights.ultrabold};
   font-family: ${fontFamilies.radioGrotesk};
+  text-transform: lowercase;
 
   ${breakpointsRange(
     [

@@ -71,7 +71,7 @@ const data = [
   {
     id: 1,
     question: `Quand et où se déroulera la prochaine édition du WAQ?`,
-    answer: `<p>La prochaine édition se tiendra du <strong>28 au 30 mai 2024</strong>, au <a href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492' target='_blank' rel='noopener noreferrer'>Terminal - Port de Québec</a>, dans la buccolique ville de Québec.</p>`,
+    answer: `<p>La prochaine édition se tiendra du <strong>28 au 30 mai 2024</strong>, au <a href='https://www.google.com/maps/place/84+Rue+Dalhousie,+Québec,+QC+G1K+8M5/@46.8165604,-71.2004492,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb895e7bbc6a0fb:0x1ca117d2a8f16a27!8m2!3d46.8165604!4d-71.2004492' target='_blank' rel='noopener noreferrer'>Terminal de croisière - Port de Québec</a>, dans la buccolique ville de Québec.</p>`,
   },
   // Prévente non débutée
   // {

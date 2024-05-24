@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { isAndroid, isIOS, isDesktop } from 'react-device-detect';
 
 // images
+import { useTranslation } from 'react-i18next';
 import vectorPhone from '../../../../images/vectorPhone.svg';
 
 // components
@@ -19,6 +20,8 @@ import {
 } from './CTAApp.styles';
 
 const CTAApp = () => {
+  const { t } = useTranslation();
+
   const [appLink, setAppLink] = useState(null);
 
   useEffect(() => {
@@ -38,22 +41,14 @@ const CTAApp = () => {
   return (
     <CTAWrap>
       <ContentWrap>
-        <Title>découvrez notre application</Title>
+        <Title>{t('home.ctaSection.mobileApp.duringEvent.title')}</Title>
 
-        <Text>
-          Que ce soit pour faire ton horaire, réseauter, écouter les
-          conférences, ou tout simplement vivre le WAQ à 100%, l’application
-          sera ton meilleur compagnon pour l’événement!
-        </Text>
+        <Text>{t('home.ctaSection.mobileApp.duringEvent.description')}</Text>
 
         {/*
-        <Title>rediffusions en cours</Title>
+        <Title>{t('home.ctaSection.mobileApp.postEvent.title')}</Title>
 
-        <Text>
-          Les rediffusions des conférences du WAQ24 sont en cours dans
-          l’application de l’événement! Disponibles pour les détenteur·rices de
-          billets seulement.
-        </Text>
+        <Text>{t('home.ctaSection.mobileApp.postEvent.description')}</Text>
         */}
 
         <Button
@@ -64,7 +59,9 @@ const CTAApp = () => {
           small
           animated
         >
-          {isDesktop ? `accéder à` : `télécharger`} l&lsquo;application
+          {isDesktop
+            ? t('home.ctaSection.mobileApp.desktopCta')
+            : t('home.ctaSection.mobileApp.mobileCta')}
         </Button>
       </ContentWrap>
 

@@ -5,6 +5,7 @@ module.exports = {
     'formatjs/no-offset': 'error',
     'prettier/prettier': 'error',
     'no-restricted-exports': 0,
+    'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': [
       'error',
       {

@@ -7,6 +7,7 @@ import { graphql, useStaticQuery, navigate } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 
 // components
+import { useTranslation } from 'react-i18next';
 import Button from '../../../components/Button';
 import DropDown from '../../../components/Dropdown';
 import Center from '../../../components/LayoutSections/Center';
@@ -55,6 +56,8 @@ const TextureWrapper = styled.div`
 `;
 
 const Hero = ({ location, datePaths }) => {
+  const { t } = useTranslation();
+
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
 
   const handleClick = (path) => {
@@ -92,7 +95,7 @@ const Hero = ({ location, datePaths }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <PageTitle css={h1AltStyle}>programmation</PageTitle>
+        <PageTitle css={h1AltStyle}>{t('program.title')}</PageTitle>
       </Center>
 
       <TextureWrapper>
