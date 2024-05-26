@@ -54,9 +54,10 @@ const Prices = () => {
           >
             <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
               <TicketTitle>{t('ticketing.fullAccess.name')}</TicketTitle>
-              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <TicketPrice>{completeAccessPrice}$</TicketPrice>
+
+              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
@@ -94,9 +95,10 @@ const Prices = () => {
               <TicketTitle color={colors.gris90}>
                 {t('ticketing.corporate.name')}
               </TicketTitle>
-              <TicketBadge>{t('ticketing.soldOut')}</TicketBadge>
 
               <TicketPrice>{enterprisePrice}$</TicketPrice>
+
+              <TicketBadge>{t('ticketing.soldOut')}</TicketBadge>
 
               {/* <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
@@ -137,9 +139,10 @@ const Prices = () => {
               <TicketTitle color={colors.gris90}>
                 {t('ticketing.daily.name')}
               </TicketTitle>
-              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <TicketPrice>450$</TicketPrice>
+
+              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
@@ -176,9 +179,10 @@ const Prices = () => {
               <TicketTitle color={colors.gris90}>
                 {t('ticketing.student.name')}
               </TicketTitle>
-              <TicketBadge>{t('ticketing.soldOut')}</TicketBadge>
 
               <TicketPrice>300$</TicketPrice>
+
+              <TicketBadge>{t('ticketing.soldOut')}</TicketBadge>
 
               {/* <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
