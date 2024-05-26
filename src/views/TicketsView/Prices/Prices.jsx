@@ -13,7 +13,7 @@ import {
   blockContainerStyle,
   BlocksWrapper,
   ContentContainer,
-  // TicketBadge,
+  TicketBadge,
   TicketTitle,
   TicketPrice,
   TicketText,
@@ -54,9 +54,10 @@ const Prices = () => {
           >
             <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
               <TicketTitle>{t('ticketing.fullAccess.name')}</TicketTitle>
-              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <TicketPrice>{completeAccessPrice}$</TicketPrice>
+
+              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
@@ -94,11 +95,12 @@ const Prices = () => {
               <TicketTitle color={colors.gris90}>
                 {t('ticketing.corporate.name')}
               </TicketTitle>
-              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <TicketPrice>{enterprisePrice}$</TicketPrice>
 
-              <Button
+              <TicketBadge>{t('ticketing.soldOut')}</TicketBadge>
+
+              {/* <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
                 tag='href'
                 small
@@ -108,7 +110,7 @@ const Prices = () => {
                 css={buttonStyle}
               >
                 {t('ticketing.buyCta')}
-              </Button>
+              </Button> */}
 
               <TicketText>
                 <p>{t('ticketing.corporate.description')}</p>
@@ -137,9 +139,10 @@ const Prices = () => {
               <TicketTitle color={colors.gris90}>
                 {t('ticketing.daily.name')}
               </TicketTitle>
-              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <TicketPrice>450$</TicketPrice>
+
+              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
@@ -176,11 +179,12 @@ const Prices = () => {
               <TicketTitle color={colors.gris90}>
                 {t('ticketing.student.name')}
               </TicketTitle>
-              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <TicketPrice>300$</TicketPrice>
 
-              <Button
+              <TicketBadge>{t('ticketing.soldOut')}</TicketBadge>
+
+              {/* <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
                 tag='href'
                 small
@@ -190,7 +194,7 @@ const Prices = () => {
                 css={buttonStyle}
               >
                 {t('ticketing.buyCta')}
-              </Button>
+              </Button> */}
 
               <TicketText>
                 <p>{t('ticketing.student.description')}</p>

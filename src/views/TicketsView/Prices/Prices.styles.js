@@ -74,7 +74,6 @@ export const TicketBadge = styled.p`
 
   ${breakpointsRange(
     [
-      { prop: 'marginTop', sizes: [20, 20], bases: [16, 20] },
       { prop: 'fontSize', sizes: [22, 22], bases: [16, 20] },
       { prop: 'lineHeight', sizes: [24, 32], bases: [18, 24], unit: '' },
     ],
