@@ -1,20 +1,33 @@
 // vendors
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { autoUpdate, offset, useFloating } from '@floating-ui/react';
+import {
+  autoUpdate,
+  offset,
+  useDismiss,
+  useFloating,
+  useInteractions,
+} from '@floating-ui/react';
 
 const Popover = ({ renderTarget, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { refs, floatingStyles } = useFloating({
+  const { refs, floatingStyles, context } = useFloating({
     placement: 'bottom-end',
     whileElementsMounted: autoUpdate,
     middleware: [offset(4)],
+    open: isOpen,
+    onOpenChange: setIsOpen,
   });
+
+  const dismiss = useDismiss(context);
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([dismiss]);
 
   const targetElement = React.cloneElement(renderTarget, {
     ref: refs.setReference,
     onClick: () => setIsOpen(!isOpen),
+    ...getReferenceProps(),
   });
 
   return (
@@ -27,6 +40,7 @@ const Popover = ({ renderTarget, children }) => {
           style={{
             ...floatingStyles,
           }}
+          {...getFloatingProps()}
         >
           {children}
         </div>
