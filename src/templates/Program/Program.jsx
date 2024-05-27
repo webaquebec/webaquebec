@@ -15,7 +15,7 @@ import NoResults from '../../views/ProgramPageView/NoResults';
 
 // utils
 import slugify from '../../utils/strings/slugify';
-import { categoriesMap, eventTypesMap } from '../../utils/dataMapping';
+import { categoriesMap } from '../../utils/dataMapping';
 import { useProgramFilters } from '../../contexts/ProgramFiltersContext';
 
 /**
@@ -237,16 +237,16 @@ const Program = ({
         },
       });
 
-      filterDispatcher({
-        type: 'UPDATE',
-        options: {
-          name: 'type',
-          values: eventTypes.map((value) => ({
-            name: eventTypesMap[value],
-            value,
-          })),
-        },
-      });
+      // filterDispatcher({
+      //   type: 'UPDATE',
+      //   options: {
+      //     name: 'type',
+      //     values: eventTypes.map((value) => ({
+      //       name: eventTypesMap[value],
+      //       value,
+      //     })),
+      //   },
+      // });
 
       return;
     }
@@ -263,17 +263,17 @@ const Program = ({
       },
     });
 
-    filterDispatcher({
-      type: 'ADD',
-      options: {
-        name: 'type',
-        title: 'Type',
-        values: eventTypes.map((value) => ({
-          name: eventTypesMap[value],
-          value,
-        })),
-      },
-    });
+    // filterDispatcher({
+    //   type: 'ADD',
+    //   options: {
+    //     name: 'type',
+    //     title: 'Type',
+    //     values: eventTypes.map((value) => ({
+    //       name: eventTypesMap[value],
+    //       value,
+    //     })),
+    //   },
+    // });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [program]);
@@ -298,16 +298,20 @@ const Program = ({
     filterDispatcher({ type: 'UNCHECK_ALL' });
   }, [filterDispatcher]);
 
-  // const filteredProgram = useMemo(
-  //   () =>
-  const filteredProgram = program;
-  if (filters.length > 0) {
-    program
-      .filter((session) => applyFilter('categories', session.categories))
-      .filter((session) => applyFilter('type', session.type));
-  }
-  //   [applyFilter, program]
-  // );
+  const filteredProgram = useMemo(
+    () =>
+      filters.length > 0
+        ? program.filter((session) =>
+            applyFilter('categories', session.categories)
+          )
+        : program,
+    [applyFilter, filters.length, program]
+  );
+
+  const isFiltered = useCallback(
+    (id) => filters.length > 0 && !filteredProgram.some((f) => f.id === id),
+    [filteredProgram, filters.length]
+  );
 
   return (
     <>
@@ -345,9 +349,7 @@ const Program = ({
                         type={session.type}
                         categories={session.categories}
                         speakers={session.speakers}
-                        faded={filteredProgram.includes(
-                          (f) => f.id !== session.id
-                        )}
+                        faded={isFiltered(session.id)}
                         groupedDown
                       />
                     ))}
@@ -364,9 +366,7 @@ const Program = ({
                         type={session.type}
                         categories={session.categories}
                         speakers={session.speakers}
-                        faded={filteredProgram.includes(
-                          (f) => f.id !== session.id
-                        )}
+                        faded={isFiltered(session.id)}
                         groupedUp
                       />
                     ))}
@@ -386,9 +386,7 @@ const Program = ({
                       type={session.type}
                       categories={session.categories}
                       speakers={session.speakers}
-                      faded={filteredProgram.includes(
-                        (f) => f.id !== session.id
-                      )}
+                      faded={isFiltered(session.id)}
                     />
                   ))}
                 </ScheduleCardList>
