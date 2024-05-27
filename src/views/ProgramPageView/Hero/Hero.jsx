@@ -10,6 +10,7 @@ import GatsbyImage from 'gatsby-image';
 import Button from '../../../components/Button';
 import DropDown from '../../../components/Dropdown';
 import Center from '../../../components/LayoutSections/Center';
+import Filters from '../Filters';
 
 // utils
 import { lessThanCondition, lessThan } from '../../../utils/mediaQuery';
@@ -18,6 +19,7 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 // styles
 import { h1AltStyle } from '../../../styles/global';
 import breakpoints from '../../../styles/breakpoints';
+import colors from '../../../styles/colors';
 import {
   selfBreakpoints,
   Wrapper,
@@ -25,11 +27,12 @@ import {
   DateList,
   DateListItem,
   dateTabStyle,
+  dateTabTypoStyle,
 } from './Hero.styles';
+
+// contexts
 import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
 import { useModal } from '../../../contexts/ModalContext';
-import Popover from '../../../components/Popover';
-import Filters from '../Filters/Filters';
 
 const PageTitle = styled.h1`
   ${breakpointsRange(
@@ -114,7 +117,14 @@ const Hero = ({ location, datePaths, onFilterChange, onFilterReset }) => {
       </TextureWrapper>
 
       <Wrapper>
-        <HeaderContent maxWidth='1320px' gutters={mobile ? '16px' : '32px'}>
+        <HeaderContent
+          maxWidth='1320px'
+          gutters={
+            mobile
+              ? 'var(--container-gutter)'
+              : 'calc(var(--container-gutter) * 2)'
+          }
+        >
           {mobile ? (
             <div
               css={`
@@ -148,44 +158,61 @@ const Hero = ({ location, datePaths, onFilterChange, onFilterReset }) => {
                     </Button>
                   ))}
               </DropDown>
+
+              <div
+                css={`
+                  flex-grow: 1;
+                  flex-basis: 25%;
+
+                  z-index: 1;
+
+                  > * {
+                    width: 100%;
+                  }
+                `}
+              >
+                <Button
+                  medium
+                  onClick={openModal}
+                  css={`
+                    ${dateTabStyle};
+                    ${dateTabTypoStyle};
+
+                    background-color: ${colors.blueberry};
+                    border-color: ${colors.blueberry};
+                  `}
+                >
+                  <span>Filtres</span>
+
+                  {totalAppliedFilters > 0 && (
+                    <span>&nbsp;&nbsp;{`(${totalAppliedFilters})`}</span>
+                  )}
+                </Button>
+              </div>
             </div>
           ) : (
-            <>
-              <DateList $shrunk={totalDates <= 3}>
-                {datePaths.map((item) => (
-                  <DateListItem key={item.date}>
-                    <Button
-                      className={
-                        item.path === location.pathname ? 'active' : undefined
-                      }
-                      outlined
-                      medium
-                      onClick={() => handleClick(item.path)}
-                      css={dateTabStyle}
-                    >
-                      <span>{item.date}</span>
-                    </Button>
-                  </DateListItem>
-                ))}
-              </DateList>
-
-              <div>
-                <Popover
-                  renderTarget={
-                    <Button small onClick={openModal}>
-                      <span>Filtres</span>
-
-                      {totalAppliedFilters > 0 && (
-                        <span>&nbsp;{`(${totalAppliedFilters})`}</span>
-                      )}
-                    </Button>
-                  }
-                >
-                  <Filters onChange={onFilterChange} onReset={onFilterReset} />
-                </Popover>
-              </div>
-            </>
+            <DateList $shrunk={totalDates <= 3}>
+              {datePaths.map((item) => (
+                <DateListItem key={item.date}>
+                  <Button
+                    className={
+                      item.path === location.pathname ? 'active' : undefined
+                    }
+                    outlined
+                    medium
+                    onClick={() => handleClick(item.path)}
+                    css={dateTabStyle}
+                  >
+                    <span>{item.date}</span>
+                  </Button>
+                </DateListItem>
+              ))}
+            </DateList>
           )}
+
+          <div>
+            <Filters onChange={onFilterChange} onReset={onFilterReset} />
+          </div>
         </HeaderContent>
       </Wrapper>
     </>

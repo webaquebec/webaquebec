@@ -114,13 +114,9 @@ export const dateTabStyle = css`
   &&.active,
   &&:focus,
   &&:hover {
-    color: ${colors.pineapple50};
+    color: ${colors.white};
 
     background-color: ${colors.blueberry};
-  }
-
-  > * {
-    flex-grow: 1;
   }
 
   ${greaterThan(831)} {
@@ -176,8 +172,8 @@ export const dateTabStyle = css`
 `;
 
 export const dateTabTypoStyle = css`
+  color: ${colors.white};
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [18, 20], bases: [16, 20] }],
