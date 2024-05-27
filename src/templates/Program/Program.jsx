@@ -207,9 +207,7 @@ const Program = ({
 
   // Initialize filters once we got plannings from Swapcard
   useEffect(() => {
-    // const places = [];
     const categories = [];
-    const eventTypes = [];
 
     const addChoices = (value, array) => {
       if (value === null || array.some((v) => v === value)) return;
@@ -218,14 +216,10 @@ const Program = ({
     };
 
     program.forEach((session) => {
-      // Get all places for filters
-      // addChoices(session.place, places);
       // Get all categories for filters
       session.categories.forEach((category) => {
         addChoices(category, categories);
       });
-      // Get all types for filters
-      addChoices(session.type, eventTypes);
     });
 
     if (filters.length > 0) {
@@ -240,17 +234,6 @@ const Program = ({
         },
       });
 
-      // filterDispatcher({
-      //   type: 'UPDATE',
-      //   options: {
-      //     name: 'type',
-      //     values: eventTypes.map((value) => ({
-      //       name: eventTypesMap[value],
-      //       value,
-      //     })),
-      //   },
-      // });
-
       return;
     }
 
@@ -258,25 +241,13 @@ const Program = ({
       type: 'ADD',
       options: {
         name: 'categories',
-        title: 'Thématique',
+        title: t('filters.themes'),
         values: categories.map((value) => ({
           name: categoriesMap[value],
           value,
         })),
       },
     });
-
-    // filterDispatcher({
-    //   type: 'ADD',
-    //   options: {
-    //     name: 'type',
-    //     title: 'Type',
-    //     values: eventTypes.map((value) => ({
-    //       name: eventTypesMap[value],
-    //       value,
-    //     })),
-    //   },
-    // });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [program]);
