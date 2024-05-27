@@ -94,24 +94,20 @@ export const CardHeader = styled.div`
   position: relative;
   z-index: 1;
 
-  color: ${colors.blueberry30};
-  font-weight: ${fontWeights.ultrabold};
-
   ${breakpointsRange(
+    [{ prop: 'padding', sizes: [12, 16], bases: [16, 20] }],
     [{ prop: 'fontSize', sizes: [22, 24], bases: [16, 20] }],
     breakpoints.spacings
   )};
+
+  color: ${colors.blueberry30};
+  font-weight: ${fontWeights.ultrabold};
 
   border-bottom: 2px solid ${colors.blueberry};
 
   @media (prefers-reduced-motion: no-preference) {
     transition: border-color ${speed.fast} ease;
   }
-
-  ${breakpointsRange(
-    [{ prop: 'padding', sizes: [12, 16], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
 `;
 
 export const CardContent = styled.div`
