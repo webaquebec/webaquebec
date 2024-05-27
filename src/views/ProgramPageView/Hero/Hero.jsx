@@ -181,6 +181,8 @@ const Hero = ({ location, datePaths, onFilterChange, onFilterReset }) => {
                     ${dateTabStyle};
                     ${dateTabTypoStyle};
 
+                    text-transform: initial;
+
                     background-color: ${colors.blueberry};
                     border-color: ${colors.blueberry};
                   `}

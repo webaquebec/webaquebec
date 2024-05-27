@@ -16,7 +16,7 @@ import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
 
 export const fadedStyle = css`
-  filter: grayscale(1) opacity(0.4) contrast(0.8) brightness(1);
+  filter: grayscale(1) opacity(0.5) contrast(0.8) brightness(1);
 `;
 
 export const timeTag = css`
