@@ -187,7 +187,7 @@ const Hero = ({ location, datePaths, onFilterChange, onFilterReset }) => {
                     border-color: ${colors.blueberry};
                   `}
                 >
-                  <span>Filtres</span>
+                  <span>{t('filters.title')}</span>
 
                   {totalAppliedFilters > 0 && (
                     <span>&nbsp;&nbsp;{`(${totalAppliedFilters})`}</span>

@@ -86,7 +86,8 @@
     "description": "Plus de 50 conférences sur 3 jours avec des ateliers, du réseautage et une multitude d’activités. Découvre la programmation du Web à Québec."
   },
   "filters": {
-    "title": "Filtres"
+    "title": "Filtres",
+    "themes": "Thématiques"
   },
   "ticketing": {
     "title": "Billetterie",
