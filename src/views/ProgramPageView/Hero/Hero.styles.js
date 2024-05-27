@@ -27,8 +27,19 @@ export const Wrapper = styled.div`
 
 export const HeaderContent = styled(Center)`
   display: flex;
-  margin: auto;
-  padding: 32px 16px;
+  align-items: center;
+  justify-content: space-between;
+
+  ${breakpointsRange(
+    [
+      { prop: 'paddingTop', sizes: [32, 32] },
+      { prop: 'paddingRight', sizes: [16, 16] },
+      { prop: 'paddingBottom', sizes: [32, 32] },
+      { prop: 'paddingLeft', sizes: [16, 16] },
+    ],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
 
   background: linear-gradient(
       to bottom,
@@ -76,7 +87,6 @@ export const DateList = styled.ul`
   display: flex;
   justify-content: flex-start;
 
-  width: 100%;
   margin: 0;
   padding: 0;
 
@@ -105,13 +115,9 @@ export const dateTabStyle = css`
   &&.active,
   &&:focus,
   &&:hover {
-    color: ${colors.pineapple50};
+    color: ${colors.white};
 
     background-color: ${colors.blueberry};
-  }
-
-  > * {
-    flex-grow: 1;
   }
 
   ${greaterThan(831)} {
@@ -167,8 +173,8 @@ export const dateTabStyle = css`
 `;
 
 export const dateTabTypoStyle = css`
+  color: ${colors.white};
   font-weight: ${fontWeights.bold};
-  font-family: ${fontFamilies.redaction10};
 
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [18, 20], bases: [16, 20] }],

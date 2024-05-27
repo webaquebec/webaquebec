@@ -15,24 +15,8 @@ import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 import { fontWeights } from '../../../styles/typography';
 
-export const placeStyle = css`
-  position: relative;
-  z-index: 1;
-
-  color: ${colors.blueberry30};
-  font-weight: ${fontWeights.ultrabold};
-  font-size: 24px;
-
-  border-bottom: 2px solid ${colors.blueberry};
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition: border-color ${speed.fast} ease;
-  }
-
-  ${breakpointsRange(
-    [{ prop: 'padding', sizes: [12, 16], bases: [16, 20] }],
-    breakpoints.spacings
-  )};
+export const fadedStyle = css`
+  filter: grayscale(1) opacity(0.5) contrast(0.8) brightness(1);
 `;
 
 export const timeTag = css`
@@ -73,6 +57,15 @@ export const noTimeStyle = css`
   )};
 `;
 
+export const groupedUpStyle = css`
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+`;
+
+export const groupedDownStyle = css`
+  border-radius: 16px 16px 0 0;
+`;
+
 export const StyledTimeStamp = styled(TimeStamp)``;
 
 export const Title = styled.h2`
@@ -87,6 +80,34 @@ export const Title = styled.h2`
     ],
     breakpoints.spacings
   )};
+`;
+
+export const CardWrapper = styled.div`
+  ${({ $faded }) => $faded && fadedStyle};
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: filter ${speed.fast} ease;
+  }
+`;
+
+export const CardHeader = styled.div`
+  position: relative;
+  z-index: 1;
+
+  ${breakpointsRange(
+    [{ prop: 'padding', sizes: [12, 16], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [22, 24], bases: [16, 20] }],
+    breakpoints.spacings
+  )};
+
+  color: ${colors.blueberry30};
+  font-weight: ${fontWeights.ultrabold};
+
+  border-bottom: 2px solid ${colors.blueberry};
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: border-color ${speed.fast} ease;
+  }
 `;
 
 export const CardContent = styled.div`
@@ -107,9 +128,10 @@ export const CardContent = styled.div`
 `;
 
 export const StyledScheduleCard = styled(Link)`
-  --accentColor: ${({ $accentColor }) => $accentColor || colors.gris90};
+  --accentColor: ${({ $accentColor }) => $accentColor};
 
   position: relative;
+  z-index: 1;
 
   display: block;
 
@@ -135,27 +157,30 @@ export const StyledScheduleCard = styled(Link)`
 
   ${greaterThan(1248)} {
     border-radius: 16px;
-    ${({ $groupedUp }) =>
-      $groupedUp && 'border-radius: 0 0 16px 16px;\nborder-top: 0;'}
-    ${({ $groupedDown }) => $groupedDown && 'border-radius: 16px 16px 0 0;'}
+
+    ${({ $groupedUp }) => $groupedUp && groupedUpStyle}
+
+    ${({ $groupedDown }) => $groupedDown && groupedDownStyle}
   }
 
   &::after {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -2px;
+    z-index: 0;
 
     display: block;
-    width: 100%;
+    width: calc(100% + 4px);
     height: 100%;
 
     background-color: var(--accentColor);
 
     ${greaterThan(1248)} {
-      border-radius: 16px;
-      ${({ $groupedUp }) =>
-        $groupedUp && 'border-radius: 0 0 16px 16px;\nborder-top: 0;'}
-      ${({ $groupedDown }) => $groupedDown && 'border-radius: 16px 16px 0 0;'}
+      border-radius: inherit;
+
+      ${({ $groupedUp }) => $groupedUp && groupedUpStyle}
+
+      ${({ $groupedDown }) => $groupedDown && groupedDownStyle}
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -175,7 +200,11 @@ export const StyledScheduleCard = styled(Link)`
       opacity: 0.1;
     }
 
-    .card-place {
+    ${CardWrapper} {
+      filter: none;
+    }
+
+    ${CardHeader} {
       border-color: var(--accentColor);
     }
   }

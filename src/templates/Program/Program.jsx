@@ -17,6 +17,7 @@ import NoResults from '../../views/ProgramPageView/NoResults';
 // utils
 import slugify from '../../utils/strings/slugify';
 import { categoriesMap } from '../../utils/dataMapping';
+import { useProgramFilters } from '../../contexts/ProgramFiltersContext';
 
 /**
  * Template used to display daily plannings from Swapcard API
@@ -36,6 +37,12 @@ const Program = ({
   const {
     swapcard: { plannings },
   } = data;
+
+  const {
+    filters,
+    dispatch: filterDispatcher,
+    applyFilter,
+  } = useProgramFilters();
 
   const formatDateStr = (value) => value.replace(/-/g, '/');
 
@@ -198,13 +205,104 @@ const Program = ({
     }, 0);
   }, [state]);
 
+  // Initialize filters once we got plannings from Swapcard
+  useEffect(() => {
+    const categories = [];
+
+    const addChoices = (value, array) => {
+      if (value === null || array.some((v) => v === value)) return;
+
+      array.push(value);
+    };
+
+    program.forEach((session) => {
+      // Get all categories for filters
+      session.categories.forEach((category) => {
+        addChoices(category, categories);
+      });
+    });
+
+    if (filters.length > 0) {
+      filterDispatcher({
+        type: 'UPDATE',
+        options: {
+          name: 'categories',
+          values: categories.map((value) => ({
+            name: categoriesMap[value],
+            value,
+          })),
+        },
+      });
+
+      return;
+    }
+
+    filterDispatcher({
+      type: 'ADD',
+      options: {
+        name: 'categories',
+        title: t('filters.themes'),
+        values: categories.map((value) => ({
+          name: categoriesMap[value],
+          value,
+        })),
+      },
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [program]);
+
+  // Update filter value
+  const handleFilterChange = useCallback(
+    (event) => {
+      filterDispatcher({
+        type: 'UPDATE_VALUE',
+        options: {
+          name: event.target.name,
+          value: event.target.value,
+          isChecked: event.target.checked,
+        },
+      });
+    },
+    [filterDispatcher]
+  );
+
+  // Uncheck all filters
+  const handleClickReset = useCallback(() => {
+    filterDispatcher({ type: 'UNCHECK_ALL' });
+  }, [filterDispatcher]);
+
+  const filteredProgram = useMemo(
+    () =>
+      filters.length > 0
+        ? program.filter((session) =>
+            applyFilter('categories', session.categories)
+          )
+        : program,
+    [applyFilter, filters.length, program]
+  );
+
+  const isFiltered = useCallback(
+    (id) => filters.length > 0 && !filteredProgram.some((f) => f.id === id),
+    [filteredProgram, filters.length]
+  );
+
   return (
     <>
       <SEO title={t('program.title')} description={t('program.description')} />
 
-      <Hero datePaths={datePaths} location={location} />
+      <Hero
+        datePaths={datePaths}
+        location={location}
+        onFilterChange={handleFilterChange}
+        onFilterReset={handleClickReset}
+      />
 
-      <Center id='program-section' maxWidth='1320px' gutters='16px'>
+      <Center
+        id='program-section'
+        maxWidth='1320px'
+        gutters='var(--container-gutter)'
+      >
         {groupedByTimeRangeProgram.length > 0 ? (
           groupedByTimeRangeProgram.map(([timerange, sessions]) => (
             <Fragment key={timerange}>
@@ -222,6 +320,7 @@ const Program = ({
                         type={session.type}
                         categories={session.categories}
                         speakers={session.speakers}
+                        faded={isFiltered(session.id)}
                         groupedDown
                       />
                     ))}
@@ -238,6 +337,7 @@ const Program = ({
                         type={session.type}
                         categories={session.categories}
                         speakers={session.speakers}
+                        faded={isFiltered(session.id)}
                         groupedUp
                       />
                     ))}
@@ -257,6 +357,7 @@ const Program = ({
                       type={session.type}
                       categories={session.categories}
                       speakers={session.speakers}
+                      faded={isFiltered(session.id)}
                     />
                   ))}
                 </ScheduleCardList>

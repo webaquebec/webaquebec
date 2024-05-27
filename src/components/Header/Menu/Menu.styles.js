@@ -35,7 +35,7 @@ export const navStyle = css`
   max-height: calc(100vh - var(--top-height));
 
   padding-right: var(--container-gutter);
-  padding-bottom: calc(var(--container-gutter) * 4);
+  padding-bottom: calc(var(--container-gutter) * 6);
   padding-left: var(--container-gutter);
 
   overflow-y: auto;
@@ -91,7 +91,7 @@ export const secondaryNavListStyle = css`
 
   > * + * {
     ${breakpointsRange(
-      [{ prop: 'marginTop', sizes: [28, 40], bases: [16, 20] }],
+      [{ prop: 'marginTop', sizes: [20, 36], bases: [16, 20] }],
       breakpoints.spacings
     )};
   }
@@ -178,6 +178,7 @@ export const NavPrimaryLink = styled.a`
     display: block;
 
     transform: rotate(-6deg);
+    transform-origin: left center;
 
     &::before,
     &::after {

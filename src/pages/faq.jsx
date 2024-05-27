@@ -112,7 +112,7 @@ const data = [
   },
   {
     id: 8,
-    question: `Comment se connecter une première fois à l’application?`,
+    question: `Est-ce que les conférences seront disponibles en rediffusion?`,
     answer: `<p>Les conférences de la Salle Cossette seront disponibles pendant 90 jours à partir du 31 mai 2024.</p><p>Seules les personnes détentrices d’un billet pour l’événement auront accès aux conférences.</p><p>Elles seront accessibles dans l’application.</p>`,
   },
   {

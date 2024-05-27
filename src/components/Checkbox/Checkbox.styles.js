@@ -41,7 +41,7 @@ export const CheckboxLabel = styled.label`
   color: ${({ theme }) => theme.color.label};
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 16], bases: [16, 20] }],
+    [{ prop: 'fontSize', sizes: [18, 16], bases: [16, 20] }],
     breakpoints.spacings
   )};
 
@@ -63,8 +63,8 @@ const StyledCheckbox = styled.div`
 
   ${breakpointsRange(
     [
-      { prop: 'width', sizes: [12, 12], bases: [16, 20] },
-      { prop: 'height', sizes: [12, 12], bases: [16, 20] },
+      { prop: 'width', sizes: [14, 14], bases: [16, 20], unit: 'em' },
+      { prop: 'height', sizes: [14, 14], bases: [16, 20], unit: 'em' },
       { prop: 'marginRight', sizes: [8, 8], bases: [16, 20] },
     ],
     breakpoints.spacings

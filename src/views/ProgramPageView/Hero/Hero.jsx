@@ -1,5 +1,6 @@
 // vendors
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useMedia } from 'react-use';
@@ -7,10 +8,10 @@ import { graphql, useStaticQuery, navigate } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 
 // components
-import { useTranslation } from 'react-i18next';
 import Button from '../../../components/Button';
 import DropDown from '../../../components/Dropdown';
 import Center from '../../../components/LayoutSections/Center';
+import Filters from '../Filters';
 
 // utils
 import { lessThanCondition, lessThan } from '../../../utils/mediaQuery';
@@ -19,6 +20,7 @@ import breakpointsRange from '../../../utils/breakpointsRange';
 // styles
 import { h1AltStyle } from '../../../styles/global';
 import breakpoints from '../../../styles/breakpoints';
+import colors from '../../../styles/colors';
 import {
   selfBreakpoints,
   Wrapper,
@@ -26,7 +28,12 @@ import {
   DateList,
   DateListItem,
   dateTabStyle,
+  dateTabTypoStyle,
 } from './Hero.styles';
+
+// contexts
+import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
+import { useModal } from '../../../contexts/ModalContext';
 
 const PageTitle = styled.h1`
   ${breakpointsRange(
@@ -55,10 +62,14 @@ const TextureWrapper = styled.div`
   }
 `;
 
-const Hero = ({ location, datePaths }) => {
+const Hero = ({ location, datePaths, onFilterChange, onFilterReset }) => {
   const { t } = useTranslation();
 
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
+
+  const { getTotalAppliedFilters } = useProgramFilters();
+
+  const { open: openModal } = useModal();
 
   const handleClick = (path) => {
     navigate(path, {
@@ -73,6 +84,8 @@ const Hero = ({ location, datePaths }) => {
   const current = datePaths.find((item) => item.path === location.pathname);
 
   const totalDates = datePaths.length;
+
+  const totalAppliedFilters = getTotalAppliedFilters();
 
   const data = useStaticQuery(
     graphql`
@@ -107,7 +120,14 @@ const Hero = ({ location, datePaths }) => {
       </TextureWrapper>
 
       <Wrapper>
-        <HeaderContent maxWidth='1320px' gutters={mobile ? '16px' : '32px'}>
+        <HeaderContent
+          maxWidth='1320px'
+          gutters={
+            mobile
+              ? 'var(--container-gutter)'
+              : 'calc(var(--container-gutter) * 2)'
+          }
+        >
           {mobile ? (
             <div
               css={`
@@ -141,6 +161,39 @@ const Hero = ({ location, datePaths }) => {
                     </Button>
                   ))}
               </DropDown>
+
+              <div
+                css={`
+                  flex-grow: 1;
+                  flex-basis: 25%;
+
+                  z-index: 1;
+
+                  > * {
+                    width: 100%;
+                  }
+                `}
+              >
+                <Button
+                  medium
+                  onClick={openModal}
+                  css={`
+                    ${dateTabStyle};
+                    ${dateTabTypoStyle};
+
+                    text-transform: initial;
+
+                    background-color: ${colors.blueberry};
+                    border-color: ${colors.blueberry};
+                  `}
+                >
+                  <span>{t('filters.title')}</span>
+
+                  {totalAppliedFilters > 0 && (
+                    <span>&nbsp;&nbsp;{`(${totalAppliedFilters})`}</span>
+                  )}
+                </Button>
+              </div>
             </div>
           ) : (
             <DateList $shrunk={totalDates <= 3}>
@@ -161,6 +214,10 @@ const Hero = ({ location, datePaths }) => {
               ))}
             </DateList>
           )}
+
+          <div>
+            <Filters onChange={onFilterChange} onReset={onFilterReset} />
+          </div>
         </HeaderContent>
       </Wrapper>
     </>
@@ -178,6 +235,12 @@ Hero.propTypes = {
       path: PropTypes.string.isRequired,
     })
   ).isRequired,
+  onFilterChange: PropTypes.func,
+  onFilterReset: PropTypes.func,
+};
+Hero.defaultProps = {
+  onFilterChange: () => {},
+  onFilterReset: () => {},
 };
 
 export default Hero;

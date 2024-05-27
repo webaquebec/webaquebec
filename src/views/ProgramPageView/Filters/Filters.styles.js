@@ -1,6 +1,7 @@
 // vendors
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { hideVisually } from 'polished';
 import Button from '../../../components/Button';
 
 // utils
@@ -16,28 +17,28 @@ export const selfBreakpoints = [breakpoints[3]];
 
 const headerHeight = '86px';
 
-export const Container = styled.div`
-  --top-position: 150px;
-
-  position: sticky;
-  top: var(--top-position, 0);
-
-  overflow: hidden;
-
-  background-color: ${colors.white};
-  border-radius: 16px;
+export const checkboxStyle = css`
+  ${breakpointsRange(
+    [{ prop: 'fontSize', sizes: [20, 18] }],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
 `;
 
 export const Wrapper = styled.div`
   max-height: calc(100vh - (${headerHeight} + 8px));
-  padding-bottom: 180px;
+
+  ${breakpointsRange(
+    [{ prop: 'marginBottom', sizes: [12, 12] }],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
 
   overflow-x: hidden;
   overflow-y: auto;
 
   ${greaterThan(selfBreakpoints[0])} {
     max-height: calc(80vh - (var(--top-position, 0) - 60px));
-    padding: 0;
   }
 `;
 
@@ -50,10 +51,10 @@ export const Header = styled.div`
 
   ${breakpointsRange(
     [
-      { prop: 'paddingTop', sizes: [40, 40] },
+      { prop: 'paddingTop', sizes: [40, 10] },
       { prop: 'paddingRight', sizes: [40, 40] },
       { prop: 'paddingLeft', sizes: [40, 40] },
-      { prop: 'marginBottom', sizes: [8, 8] },
+      { prop: 'marginBottom', sizes: [20, 8] },
     ],
     breakpoints.spacings,
     { bases: [16, 20] }
@@ -72,18 +73,38 @@ export const Title = styled.h2`
     breakpoints.spacings,
     { bases: [16, 20] }
   )};
+
+  ${greaterThan(selfBreakpoints[0])} {
+    ${hideVisually}
+  }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${breakpointsRange(
+    [
+      { prop: 'gap', sizes: [12, 4] },
+      { prop: 'paddingRight', sizes: [40, 40] },
+      { prop: 'paddingLeft', sizes: [40, 40] },
+      { prop: 'marginBottom', sizes: [40, 20] },
+    ],
+    breakpoints.spacings,
+    { bases: [16, 20] }
+  )};
 `;
 
 export const ResetButton = styled.button`
   padding: 0;
 
-  color: ${colors.gris80};
+  color: ${colors.blueberry};
   text-decoration: underline;
 
   border: 0;
 
   ${breakpointsRange(
-    [{ prop: 'fontSize', sizes: [16, 16] }],
+    [{ prop: 'fontSize', sizes: [18, 18] }],
     breakpoints.spacings,
     { bases: [16, 20] }
   )};
@@ -108,8 +129,6 @@ export const CTAWrapper = styled.div`
 `;
 
 export const CTAButton = styled(Button)`
-  color: ${colors.gris};
-
   ${breakpointsRange(
     [{ prop: 'fontSize', sizes: [20, 20], bases: [16, 20] }],
     breakpoints.spacings
