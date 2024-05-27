@@ -1,56 +1,55 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 // vendors
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'styled-components';
 import { useMedia } from 'react-use';
 
 // components
 import Accordion from '../../../components/Accordion';
 import AccordionItem from '../../../components/Accordion/AccordionItem';
 import Checkbox from '../../../components/Checkbox';
+import Paper from '../../../components/Paper';
+import Popover from '../../../components/Popover';
+import Button from '../../../components/Button';
+import Modal from '../../../components/Modal';
 
 // contexts
 import { useProgramFilters } from '../../../contexts/ProgramFiltersContext';
+import { useModal } from '../../../contexts/ModalContext';
 
 // hooks
 import useHasMounted from '../../../hooks/useHasMounted';
 
 // utils
 import { lessThanCondition } from '../../../utils/mediaQuery';
-import Modal from '../../../components/Modal';
-import { useModal } from '../../../contexts/ModalContext';
 import randomString from '../../../utils/math/randomString';
 
 // styles
 import colors from '../../../styles/colors';
+import elevation from '../../../styles/elevation';
 import {
   selfBreakpoints,
-  // Container,
   CTAWrapper,
   CTAButton,
   Header,
   ResetButton,
   Title,
   Wrapper,
+  Content,
+  checkboxStyle,
 } from './Filters.styles';
-import Paper from '../../../components/Paper';
-import elevation from '../../../styles/elevation';
-
-const checkboxStyle = css`
-  :not(:first-child) {
-    margin-top: 10px;
-  }
-`;
 
 const customId = randomString();
 
 const Filters = ({ onChange, onReset }) => {
+  const { filters, getTotalAppliedFilters } = useProgramFilters();
+  const totalAppliedFilters = getTotalAppliedFilters();
+  const previousAppliedFilters = useRef(totalAppliedFilters);
+
   const hasMounted = useHasMounted();
   // 832px
   const mobile = useMedia(lessThanCondition(selfBreakpoints[0]));
 
-  const { filters, getTotalAppliedFilters } = useProgramFilters();
   const { isOpen, close } = useModal();
 
   const sortByNameAsc = (a, b) => {
@@ -58,8 +57,6 @@ const Filters = ({ onChange, onReset }) => {
     if (a.name > b.name) return 1;
     return 0;
   };
-
-  const totalAppliedFilters = getTotalAppliedFilters();
 
   const renderContent = (
     <>
@@ -74,10 +71,9 @@ const Filters = ({ onChange, onReset }) => {
       </Header>
 
       <Wrapper>
-        <Accordion multiple collapsible divided space='0'>
-          {filters
-            .filter((f) => f.values.length > 0)
-            .map((filter) => (
+        {filters.filter((f) => f.values.length > 0).length > 1 ? (
+          <Accordion multiple collapsible divided space='0'>
+            {filters.map((filter) => (
               <AccordionItem
                 id={filter.id}
                 key={`filter-${filter.title}`}
@@ -100,7 +96,23 @@ const Filters = ({ onChange, onReset }) => {
                 ))}
               </AccordionItem>
             ))}
-        </Accordion>
+          </Accordion>
+        ) : (
+          <Content>
+            {filters[0]?.values.sort(sortByNameAsc).map((item) => (
+              <Checkbox
+                key={item.value}
+                name={filters[0].name}
+                value={item.value}
+                checked={item.isChecked}
+                onChange={onChange}
+                css={checkboxStyle}
+              >
+                {item.name}
+              </Checkbox>
+            ))}
+          </Content>
+        )}
       </Wrapper>
     </>
   );
@@ -112,7 +124,13 @@ const Filters = ({ onChange, onReset }) => {
   const handleClick = () => {
     close();
 
-    if (typeof window === 'undefined') return;
+    if (
+      typeof window === 'undefined' ||
+      previousAppliedFilters.current === totalAppliedFilters
+    ) {
+      return;
+    }
+    previousAppliedFilters.current = totalAppliedFilters;
 
     const anchor = document.querySelector(`#program-section`);
 
@@ -143,15 +161,27 @@ const Filters = ({ onChange, onReset }) => {
           </CTAWrapper>
         </Modal>
       ) : (
-        <Paper
-          lightColor={colors.white}
-          darkColor={colors.blueberry}
-          elevation={elevation.large}
-          outlined
-          rounded
+        <Popover
+          renderTarget={
+            <Button small>
+              <span>Filtres</span>
+
+              {totalAppliedFilters > 0 && (
+                <span>&nbsp;&nbsp;{`(${totalAppliedFilters})`}</span>
+              )}
+            </Button>
+          }
         >
-          {renderContent}
-        </Paper>
+          <Paper
+            lightColor={colors.white}
+            darkColor={colors.blueberry}
+            elevation={elevation.large}
+            outlined
+            rounded
+          >
+            {renderContent}
+          </Paper>
+        </Popover>
       )}
     </>
   );
