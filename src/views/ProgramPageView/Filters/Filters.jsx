@@ -3,9 +3,10 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useMedia } from 'react-use';
+import { useTranslation } from 'react-i18next';
+import { hideVisually } from 'polished';
 
 // components
-import { useTranslation } from 'react-i18next';
 import Accordion from '../../../components/Accordion';
 import AccordionItem from '../../../components/Accordion/AccordionItem';
 import Checkbox from '../../../components/Checkbox';
@@ -81,6 +82,7 @@ const Filters = ({ onChange, onReset }) => {
                 id={filter.id}
                 key={`filter-${filter.title}`}
                 title={filter.title}
+                titleAs='h3'
                 color={colors.gris80}
                 expanded={filter.values.some((v) => v.isChecked)}
                 big
@@ -101,20 +103,23 @@ const Filters = ({ onChange, onReset }) => {
             ))}
           </Accordion>
         ) : (
-          <Content>
-            {filters[0]?.values.sort(sortByNameAsc).map((item) => (
-              <Checkbox
-                key={item.value}
-                name={filters[0].name}
-                value={item.value}
-                checked={item.isChecked}
-                onChange={onChange}
-                css={checkboxStyle}
-              >
-                {item.name}
-              </Checkbox>
-            ))}
-          </Content>
+          <>
+            <h3 css={hideVisually}>{filters[0]?.title}</h3>
+            <Content>
+              {filters[0]?.values.sort(sortByNameAsc).map((item) => (
+                <Checkbox
+                  key={item.value}
+                  name={filters[0].name}
+                  value={item.value}
+                  checked={item.isChecked}
+                  onChange={onChange}
+                  css={checkboxStyle}
+                >
+                  {item.name}
+                </Checkbox>
+              ))}
+            </Content>
+          </>
         )}
       </Wrapper>
     </>
