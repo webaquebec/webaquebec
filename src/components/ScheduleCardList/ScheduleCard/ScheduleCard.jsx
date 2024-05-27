@@ -18,8 +18,9 @@ import {
   CardContent,
   Title,
   noTimeStyle,
-  placeStyle,
   timeTag,
+  CardHeader,
+  CardWrapper,
 } from './ScheduleCard.styles';
 
 /**
@@ -38,6 +39,7 @@ const ScheduleCard = ({
   to,
   groupedUp,
   groupedDown,
+  faded,
   ...rest
 }) => {
   const mobile = useMedia(lessThanCondition(1248));
@@ -61,37 +63,37 @@ const ScheduleCard = ({
       }}
       {...rest}
     >
-      {place && (!groupedUp || mobile) && (
-        <div css={placeStyle} className='card-place'>
-          {place}
-        </div>
-      )}
+      <CardWrapper $faded={faded}>
+        {place && (!groupedUp || mobile) && (
+          <CardHeader className='card-place'>{place}</CardHeader>
+        )}
 
-      <CardContent>
-        <div css={timeTag}>
-          {time.beginsAt} à {time.endsAt}
-        </div>
+        <CardContent>
+          <div css={timeTag}>
+            {time.beginsAt} à {time.endsAt}
+          </div>
 
-        <Title as={titleAs}>{title}</Title>
+          <Title as={titleAs}>{title}</Title>
 
-        <Stack space='var(--container-gutter)'>
-          <Stack space='calc(var(--container-gutter) / 1.3333)'>
-            {speakers.map((speaker) => (
-              <Tag key={speaker.id} speaker={speaker} />
-            ))}
+          <Stack space='var(--container-gutter)'>
+            <Stack space='calc(var(--container-gutter) / 1.3333)'>
+              {speakers.map((speaker) => (
+                <Tag key={speaker.id} speaker={speaker} />
+              ))}
+            </Stack>
+
+            {categories.length > 0 && (
+              <Cluster space='calc(var(--container-gutter) / 2)'>
+                <div>
+                  {categories.map((category) => (
+                    <Tag key={category} category={category} />
+                  ))}
+                </div>
+              </Cluster>
+            )}
           </Stack>
-
-          {categories.length > 0 && (
-            <Cluster space='calc(var(--container-gutter) / 2)'>
-              <div>
-                {categories.map((category) => (
-                  <Tag key={category} category={category} />
-                ))}
-              </div>
-            </Cluster>
-          )}
-        </Stack>
-      </CardContent>
+        </CardContent>
+      </CardWrapper>
     </StyledScheduleCard>
   );
 };
