@@ -1,4 +1,8 @@
 {
+  "button": {
+    "reset": "Reset",
+    "seeResults": "See results"
+  },
   "menu": {
     "openBurgerLabel": "Open menu",
     "closeBurgerLabel": "Close menu",
@@ -80,6 +84,9 @@
   "program": {
     "title": "Program",
     "description": "More than 50 conferences over 3 days with workshops, networking, and a multitude of activities. Discover the program of Web à Québec."
+  },
+  "filters": {
+    "title": "Filters"
   },
   "ticketing": {
     "title": "Ticketing",

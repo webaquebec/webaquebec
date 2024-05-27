@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { useMedia } from 'react-use';
 
 // components
+import { useTranslation } from 'react-i18next';
 import Accordion from '../../../components/Accordion';
 import AccordionItem from '../../../components/Accordion/AccordionItem';
 import Checkbox from '../../../components/Checkbox';
@@ -46,6 +47,8 @@ const Filters = ({ onChange, onReset }) => {
   const totalAppliedFilters = getTotalAppliedFilters();
   const previousAppliedFilters = useRef(totalAppliedFilters);
 
+  const { t } = useTranslation();
+
   const hasMounted = useHasMounted();
   // 832px
   const mobile = useMedia(lessThanCondition(selfBreakpoints[0]));
@@ -62,11 +65,11 @@ const Filters = ({ onChange, onReset }) => {
     <>
       <Header>
         <Title id={customId}>
-          Filtres{' '}
+          {t('filters.title')}{' '}
           {totalAppliedFilters > 0 && <span>{`(${totalAppliedFilters})`}</span>}
         </Title>
         <ResetButton type='button' onClick={onReset}>
-          Réinitialiser
+          {t('button.reset')}
         </ResetButton>
       </Header>
 
@@ -157,14 +160,16 @@ const Filters = ({ onChange, onReset }) => {
           {renderContent}
 
           <CTAWrapper>
-            <CTAButton onClick={handleClick}>voir les résultats</CTAButton>
+            <CTAButton onClick={handleClick}>
+              {t('button.seeResults')}
+            </CTAButton>
           </CTAWrapper>
         </Modal>
       ) : (
         <Popover
           renderTarget={
             <Button small>
-              <span>Filtres</span>
+              <span>{t('filters.title')}</span>
 
               {totalAppliedFilters > 0 && (
                 <span>&nbsp;&nbsp;{`(${totalAppliedFilters})`}</span>
