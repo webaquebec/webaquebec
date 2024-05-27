@@ -3,6 +3,7 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 
 // components
+import { useTranslation } from 'react-i18next';
 import { hideVisually } from 'polished';
 import Center from '../LayoutSections/Center';
 import Switcher from '../LayoutSections/Switcher';
@@ -30,6 +31,8 @@ import {
 } from './Footer.styles';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   const archives = [
     {
       year: '2023',
@@ -114,7 +117,7 @@ const Footer = () => {
                     max-width: 130px;
                   `}
                 >
-                  Événement coordonné par{' '}
+                  {t('footer.coordinatedBy')}{' '}
                   <Link
                     href='https://quebecnumerique.com/'
                     rel='noopener noreferrer'
@@ -126,7 +129,7 @@ const Footer = () => {
               </Block>
 
               <Block>
-                <Title>Pour nous contacter</Title>
+                <Title>{t('footer.contact')}</Title>
 
                 <Link href='tel:1-877-334-2547'>1-877-334-2547</Link>
                 <br />

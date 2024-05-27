@@ -1,12 +1,8 @@
 // vendors
 import styled, { css } from 'styled-components';
 
-// utils
-import { lessThan } from '../../../utils/mediaQuery';
-
 // styles
 import { speed } from '../../../styles/animation';
-import breakpoints from '../../../styles/breakpoints';
 import colors from '../../../styles/colors';
 
 export const Lines = styled.div`
@@ -91,36 +87,6 @@ export const Button = styled.button`
   cursor: pointer;
 
   appearance: none;
-
-  > span {
-    position: absolute;
-
-    color: ${colors.blueberry};
-
-    word-break: keep-all;
-
-    transform: translateX(-48px);
-
-    opacity: 0;
-
-    will-change: transform, opacity;
-
-    ${lessThan(breakpoints[3])} {
-      display: none;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform ${speed.fast}, opacity ${speed.fast};
-      transition-delay: ${speed.fast};
-    }
-  }
-
-  :hover > span,
-  :focus > span {
-    transform: translateX(-75px);
-
-    opacity: 1;
-  }
 
   :hover ${Lines} > span,
   :focus-visible ${Lines} > span {

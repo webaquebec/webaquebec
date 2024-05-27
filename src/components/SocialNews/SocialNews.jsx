@@ -4,6 +4,7 @@ import { hideVisually } from 'polished';
 import { isSafari, isDesktop } from 'react-device-detect';
 
 // styles
+import { useTranslation } from 'react-i18next';
 import {
   stickerStyle,
   ContactTitle,
@@ -41,6 +42,8 @@ import SnakeGame from '../SnakeGame';
 import { useGlobalContext } from '../../contexts/GlobalContext';
 
 const SocialNews = () => {
+  const { t } = useTranslation();
+
   const [flip, setFlip] = useState(false);
 
   const { setPauseAnimation } = useGlobalContext();
@@ -112,12 +115,11 @@ const SocialNews = () => {
         >
           <Center maxWidth='290px' intrinsic css={ContentContainer}>
             <ContactTitle color={colors.gris90}>
-              Suis-nous en ligne
+              {t('footer.socials.title')}
             </ContactTitle>
 
             <ContactText css={MediaText}>
-              Annonces, événements, concours, anecdotes, contenu inédit et une
-              belle communauté t’y attendent.
+              {t('footer.socials.description')}
             </ContactText>
 
             <MediaList>
@@ -169,19 +171,16 @@ const SocialNews = () => {
             `}
           >
             <Center maxWidth='290px' intrinsic css={ContentContainer}>
-              <ContactTitle>Ne manque rien</ContactTitle>
+              <ContactTitle>{t('footer.newsletter.title')}</ContactTitle>
 
-              <ContactText>
-                Pour des nouveautés, des promotions, du contenu exclusif et une
-                bonne dose de WAQ, abonne-toi à notre infolettre.
-              </ContactText>
+              <ContactText>{t('footer.newsletter.description')}</ContactText>
 
               <Button
                 tabIndex={flip ? '-1' : ''}
                 to='https://l.communication.quebecnumerique.com/T/WF/15110/SAbFfT/Optin/fr-CA/Form.ofsys'
                 tag='href'
               >
-                Je veux m&apos;abonner!
+                {t('footer.newsletter.cta')}
               </Button>
             </Center>
           </div>

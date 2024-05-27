@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 
 // components
+import { useTranslation } from 'react-i18next';
 import { graphql, useStaticQuery } from 'gatsby';
 import Center from '../components/LayoutSections/Center';
 import SEO from '../components/SEO';
@@ -58,6 +59,8 @@ const TicketsIntro = styled.div`
 `;
 
 const TicketsPage = () => {
+  const { t } = useTranslation();
+
   const data = useStaticQuery(
     graphql`
       query {
@@ -75,8 +78,8 @@ const TicketsPage = () => {
   return (
     <>
       <SEO
-        title='Billetterie'
-        description='Viens vivre le WAQ du 28 au 30 mai 2024. Réserve ton billet dès aujourd’hui pour participer au plus grand événement numérique francophone en Amérique du Nord.'
+        title={t('ticketing.title')}
+        description={t('ticketing.description')}
       />
 
       <Center
@@ -85,7 +88,7 @@ const TicketsPage = () => {
         withText
         intrinsic
       >
-        <TicketsTitle css={h1AltStyle}>billetterie</TicketsTitle>
+        <TicketsTitle css={h1AltStyle}>{t('ticketing.title')}</TicketsTitle>
 
         <TextureWrapper>
           <GatsbyImage
@@ -97,13 +100,7 @@ const TicketsPage = () => {
 
         <TicketsIntro css={introStyle}>
           <Stack>
-            <p>
-              Chaque année, des centaines de passionné.es de numérique
-              participent au Web à Québec (WAQ). Que ce soit pour réseauter,
-              découvrir les nouvelles tendances ou simplement vivre
-              l&apos;ambiance unique du WAQ, toutes les raisons sont bonnes de
-              te joindre à nous!
-            </p>
+            <p>{t('ticketing.intro')}</p>
           </Stack>
         </TicketsIntro>
       </Center>

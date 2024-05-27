@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 // components
+import { useTranslation } from 'react-i18next';
 import Button from '../../../components/Button';
 import Center from '../../../components/LayoutSections/Center';
 import Switcher from '../../../components/LayoutSections/Switcher';
@@ -12,6 +13,7 @@ import {
   blockContainerStyle,
   BlocksWrapper,
   ContentContainer,
+  TicketBadge,
   TicketTitle,
   TicketPrice,
   TicketText,
@@ -21,6 +23,8 @@ import colors from '../../../styles/colors';
 import elevation from '../../../styles/elevation';
 
 const Prices = () => {
+  const { t } = useTranslation();
+
   const [isRegularPrice, setIsRegularPrice] = useState(true);
 
   useEffect(() => {
@@ -49,10 +53,11 @@ const Prices = () => {
             css={blockContainerStyle}
           >
             <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
-              <TicketTitle>Billet accès complet</TicketTitle>
-              {/* <TicketBadge>Complet</TicketBadge> */}
+              <TicketTitle>{t('ticketing.fullAccess.name')}</TicketTitle>
 
               <TicketPrice>{completeAccessPrice}$</TicketPrice>
+
+              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
@@ -64,18 +69,16 @@ const Prices = () => {
                 target='_blank'
                 css={buttonStyle}
               >
-                Acheter mon billet
+                {t('ticketing.buyCta')}
               </Button>
 
               <TicketText color={colors.white}>
-                <p>Tu ne veux rien manquer du WAQ? </p>
+                <p>{t('ticketing.fullAccess.description')}</p>
                 <ul>
-                  <li>3 journées de conférences;</li>
-                  <li>
-                    un accès pour écouter les contenus de la salle principale en
-                    rediffusion; les meilleurs 5 à 7 en ville;
-                  </li>
-                  <li>tes repas et boissons durant les 3 jours.</li>
+                  <li>{t('ticketing.fullAccess.bullet1')}</li>
+                  <li>{t('ticketing.fullAccess.bullet2')}</li>
+                  <li>{t('ticketing.fullAccess.bullet3')}</li>
+                  <li>{t('ticketing.fullAccess.bullet4')}</li>
                 </ul>
               </TicketText>
             </Center>
@@ -89,12 +92,15 @@ const Prices = () => {
             css={blockContainerStyle}
           >
             <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
-              <TicketTitle color={colors.gris90}>Billet entreprise</TicketTitle>
-              {/* <TicketBadge>Complet</TicketBadge> */}
+              <TicketTitle color={colors.gris90}>
+                {t('ticketing.corporate.name')}
+              </TicketTitle>
 
               <TicketPrice>{enterprisePrice}$</TicketPrice>
 
-              <Button
+              <TicketBadge>{t('ticketing.soldOut')}</TicketBadge>
+
+              {/* <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
                 tag='href'
                 small
@@ -103,26 +109,17 @@ const Prices = () => {
                 target='_blank'
                 css={buttonStyle}
               >
-                Acheter mon billet
-              </Button>
+                {t('ticketing.buyCta')}
+              </Button> */}
 
               <TicketText>
-                <p>
-                  Tu veux assister aux conférences du matin et passer le relais
-                  à ta collègue en pm? C’est le billet qu’il vous faut!
-                </p>
+                <p>{t('ticketing.corporate.description')}</p>
                 <ul>
-                  <li>3 journées de conférences;</li>
-                  <li>
-                    6 accès pour écouter les contenus de la salle principale en
-                    rediffusion;
-                  </li>
-                  <li>les meilleurs 5 à 7 en ville;</li>
-                  <li>tes repas et boissons durant les 3 jours;</li>
-                  <li>
-                    une gestion des billets pour faciliter la cueillette de ta
-                    cocarde.
-                  </li>
+                  <li>{t('ticketing.corporate.bullet1')}</li>
+                  <li>{t('ticketing.corporate.bullet2')}</li>
+                  <li>{t('ticketing.corporate.bullet3')}</li>
+                  <li>{t('ticketing.corporate.bullet4')}</li>
+                  <li>{t('ticketing.corporate.bullet5')}</li>
                 </ul>
               </TicketText>
             </Center>
@@ -139,10 +136,13 @@ const Prices = () => {
             css={blockContainerStyle}
           >
             <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
-              <TicketTitle color={colors.gris90}>Billet journalier</TicketTitle>
-              {/* <TicketBadge>Complet</TicketBadge> */}
+              <TicketTitle color={colors.gris90}>
+                {t('ticketing.daily.name')}
+              </TicketTitle>
 
               <TicketPrice>450$</TicketPrice>
+
+              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
 
               <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
@@ -153,15 +153,16 @@ const Prices = () => {
                 target='_blank'
                 css={buttonStyle}
               >
-                Acheter mon billet
+                {t('ticketing.buyCta')}
               </Button>
 
               <TicketText>
-                <p>Tu n’es pas disponible les 3 jours? On a pensé à toi.</p>
+                <p>{t('ticketing.daily.description')}</p>
                 <ul>
-                  <li>une journée de conférence;</li>
-                  <li>tes repas et boissons;</li>
-                  <li>un 5 à 7 exceptionnel.</li>
+                  <li>{t('ticketing.daily.bullet1')}</li>
+                  <li>{t('ticketing.daily.bullet2')}</li>
+                  <li>{t('ticketing.daily.bullet3')}</li>
+                  <li>{t('ticketing.daily.bullet4')}</li>
                 </ul>
               </TicketText>
             </Center>
@@ -175,12 +176,15 @@ const Prices = () => {
             css={blockContainerStyle}
           >
             <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
-              <TicketTitle color={colors.gris90}>Billet étudiant</TicketTitle>
-              {/* <TicketBadge>Complet</TicketBadge> */}
+              <TicketTitle color={colors.gris90}>
+                {t('ticketing.student.name')}
+              </TicketTitle>
 
               <TicketPrice>300$</TicketPrice>
 
-              <Button
+              <TicketBadge>{t('ticketing.soldOut')}</TicketBadge>
+
+              {/* <Button
                 to='https://ti.to/web-a-quebec/waq24/fr'
                 tag='href'
                 small
@@ -189,20 +193,17 @@ const Prices = () => {
                 target='_blank'
                 css={buttonStyle}
               >
-                Acheter mon billet
-              </Button>
+                {t('ticketing.buyCta')}
+              </Button> */}
 
               <TicketText>
-                <p>Te former, réseauter et 5à7ter. Quoi demander de plus?</p>
+                <p>{t('ticketing.student.description')}</p>
                 <ul>
-                  <li>un billet à un prix réduit;</li>
-                  <li>3 journées de conférences;</li>
-                  <li>tes repas et boissons durant les 3 jours;</li>
-                  <li>
-                    un accès pour écouter les contenus de la salle principale en
-                    rediffusion;
-                  </li>
-                  <li>les meilleurs 5 à 7 en ville.</li>
+                  <li>{t('ticketing.student.bullet1')}</li>
+                  <li>{t('ticketing.student.bullet2')}</li>
+                  <li>{t('ticketing.student.bullet3')}</li>
+                  <li>{t('ticketing.student.bullet4')}</li>
+                  <li>{t('ticketing.student.bullet5')}</li>
                 </ul>
               </TicketText>
             </Center>

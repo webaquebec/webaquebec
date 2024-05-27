@@ -3,6 +3,7 @@ import React from 'react';
 import { hideVisually } from 'polished';
 
 // components
+import { useTranslation } from 'react-i18next';
 import Center from '../../../components/LayoutSections/Center';
 import Switcher from '../../../components/LayoutSections/Switcher';
 import LazyAnimation from '../../../components/LazyAnimation';
@@ -23,24 +24,26 @@ import imgStat3 from '../../../images/stats/imgStat3.svg';
 import imgStat50 from '../../../images/stats/imgStat50.svg';
 
 const Stats = () => {
+  const { t } = useTranslation();
+
   const data = [
     {
       id: 0,
       number: 80,
       img: imgStat80,
-      description: 'conférences, ateliers et plus',
+      description: t('home.statistics.conferences'),
     },
     {
       id: 1,
       number: 3,
       img: imgStat3,
-      description: 'journées<br />intensives',
+      description: t('home.statistics.days'),
     },
     {
       id: 2,
       number: 50,
       img: imgStat50,
-      description: 'bénévoles annuels passionnés',
+      description: t('home.statistics.volunteers'),
     },
   ];
 

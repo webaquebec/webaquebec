@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { isAndroid, isIOS, isDesktop } from 'react-device-detect';
 
 // images
+import { useTranslation } from 'react-i18next';
 import vectorPhone from '../../../../images/vectorPhone.svg';
 
 // components
@@ -19,16 +20,19 @@ import {
 } from './CTAApp.styles';
 
 const CTAApp = () => {
+  const { t } = useTranslation();
+
   const [appLink, setAppLink] = useState(null);
 
   useEffect(() => {
-    let link = 'https://app.swapcard.com/event/web-a-quebec-waq23';
+    let link = 'https://app.swapcard.com/event/web-a-quebec-waq24';
 
     if (isAndroid) {
       link =
-        'https://play.google.com/store/apps/details?id=com.swapcard.apps.android.snqc21';
+        'https://play.google.com/store/apps/details?id=com.swapcard.apps.android.snqc21&pcampaignid=web_share';
     } else if (isIOS) {
-      link = 'https://apps.apple.com/ca/app/waq/id1559771285?l=fr';
+      link =
+        'https://apps.apple.com/ca/app/waq-web-%C3%A0-qu%C3%A9bec/id1559771285?l=fr-CA';
     }
 
     setAppLink(link);
@@ -37,14 +41,15 @@ const CTAApp = () => {
   return (
     <CTAWrap>
       <ContentWrap>
-        <Title>découvrez notre application</Title>
-        {/* <Title>rediffusions en cours</Title> */}
+        <Title>{t('home.ctaSection.mobileApp.duringEvent.title')}</Title>
 
-        <Text>
-          Les rediffusions des conférences du WAQ23 sont en cours dans
-          l’application de l’événement! Disponibles pour les détenteur·rices de
-          billets seulement.
-        </Text>
+        <Text>{t('home.ctaSection.mobileApp.duringEvent.description')}</Text>
+
+        {/*
+        <Title>{t('home.ctaSection.mobileApp.postEvent.title')}</Title>
+
+        <Text>{t('home.ctaSection.mobileApp.postEvent.description')}</Text>
+        */}
 
         <Button
           to={appLink}
@@ -54,7 +59,9 @@ const CTAApp = () => {
           small
           animated
         >
-          {isDesktop ? `accéder à` : `télécharger`} l&lsquo;application
+          {isDesktop
+            ? t('home.ctaSection.mobileApp.desktopCta')
+            : t('home.ctaSection.mobileApp.mobileCta')}
         </Button>
       </ContentWrap>
 

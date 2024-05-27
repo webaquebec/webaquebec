@@ -1,5 +1,6 @@
 // vendors
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useMedia } from 'react-use';
@@ -62,6 +63,8 @@ const TextureWrapper = styled.div`
 `;
 
 const Hero = ({ location, datePaths, onFilterChange, onFilterReset }) => {
+  const { t } = useTranslation();
+
   const mobile = useMedia(lessThanCondition(selfBreakpoints[2]));
 
   const { getTotalAppliedFilters } = useProgramFilters();
@@ -105,7 +108,7 @@ const Hero = ({ location, datePaths, onFilterChange, onFilterReset }) => {
         gutters='var(--container-gutter)'
         intrinsic
       >
-        <PageTitle css={h1AltStyle}>programmation</PageTitle>
+        <PageTitle css={h1AltStyle}>{t('program.title')}</PageTitle>
       </Center>
 
       <TextureWrapper>

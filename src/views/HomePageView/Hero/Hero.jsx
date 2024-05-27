@@ -4,6 +4,7 @@ import GatsbyImage from 'gatsby-image';
 
 // utils
 import { graphql, useStaticQuery } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 import breakpointsRange from '../../../utils/breakpointsRange';
 
 // styles
@@ -30,6 +31,8 @@ import vectorMapPin from '../../../images/vectorMapPin.svg';
 import sticker2024 from '../../../images/stickers/2024.svg';
 
 const Hero = () => {
+  const { t, i18n } = useTranslation();
+
   const data = useStaticQuery(
     graphql`
       query {
@@ -47,12 +50,8 @@ const Hero = () => {
   return (
     <StyledHero>
       <Center maxWidth='var(--max-container-width)' gutters='12px' withText>
-        <HeroTitle css={billboardStyle}>
-          28
-          <br />
-          au 30
-          <br />
-          mai
+        <HeroTitle css={billboardStyle} $english={i18n.language === 'en-CA'}>
+          <span dangerouslySetInnerHTML={{ __html: t('home.hero.dates') }} />
           <img src={sticker2024} alt='2024' />
         </HeroTitle>
 
@@ -65,9 +64,7 @@ const Hero = () => {
         </TextureWrapper>
 
         <Center maxWidth='850px' gutters='0' withText>
-          <HeroIntro>
-            l’événement numérique local de calibre international
-          </HeroIntro>
+          <HeroIntro>{t('home.hero.slogan')}</HeroIntro>
         </Center>
 
         <Address>
@@ -76,7 +73,7 @@ const Hero = () => {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <MapPinIcon src={vectorMapPin} alt='Au Terminal — Port de Québec' />
+            <MapPinIcon src={vectorMapPin} alt={t('home.hero.eventLocation')} />
           </a>
 
           <p
@@ -97,7 +94,7 @@ const Hero = () => {
                 font-weight: ${fontWeights.bold};
               `}
             >
-              Au Terminal — Port de Québec
+              {t('home.hero.eventLocation')}
             </a>
           </p>
         </Address>

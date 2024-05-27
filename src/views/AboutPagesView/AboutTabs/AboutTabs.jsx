@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import GatsbyImage from 'gatsby-image';
 
 // components
+import { useTranslation } from 'react-i18next';
 import { graphql, useStaticQuery } from 'gatsby';
 import Center from '../../../components/LayoutSections/Center';
 
@@ -19,20 +20,22 @@ import {
 import { h1AltStyle } from '../../../styles/global';
 
 const AboutTabs = ({ activeTabId }) => {
+  const { t } = useTranslation();
+
   const tabs = [
     {
       id: 0,
-      name: 'l’événement',
+      name: t('about.event.tab'),
       pageUrl: '/a-propos/evenement',
     },
     {
       id: 1,
-      name: 'notre équipe',
+      name: t('about.team.tab'),
       pageUrl: '/a-propos/notre-equipe',
     },
     {
       id: 2,
-      name: 'Québec numérique',
+      name: t('about.qn.tab'),
       pageUrl: '/a-propos/quebec-numerique',
     },
   ];
@@ -59,7 +62,7 @@ const AboutTabs = ({ activeTabId }) => {
         withText
         intrinsic
       >
-        <PageTitle css={h1AltStyle}>à propos</PageTitle>
+        <PageTitle css={h1AltStyle}>{t('about.title')}</PageTitle>
 
         <TextureWrapper>
           <GatsbyImage
