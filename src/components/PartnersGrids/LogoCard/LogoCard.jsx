@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // styles
-import { Link, Image } from './LogoCard.styles';
+import { Link, Image, logo, Card } from './LogoCard.styles';
 
 const LogoCard = ({ image, isPremium, isPresenting }) => {
   const { src, srcAlt } = image;
@@ -26,24 +26,39 @@ const LogoCard = ({ image, isPremium, isPresenting }) => {
   );
 
   return (
-    <Link
-      href={image.url}
-      target='_blank'
-      rel='noopener noreferrer'
-      onMouseOver={srcAlt ? handleMouseOver : undefined}
-      onMouseOut={srcAlt ? handleMouseOut : undefined}
-      onFocus={srcAlt ? handleMouseOver : undefined}
-      onBlur={srcAlt ? handleMouseOut : undefined}
-      $isPremium={isPremium}
-      $isPresenting={isPresenting}
-    >
-      <Image
-        src={imageSrc}
-        alt={image.alt}
-        $bigger={image.bigger}
-        $smaller={image.smaller}
-      />
-    </Link>
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    <>
+      {image.url ? (
+        <Link
+          href={image.url}
+          target='_blank'
+          rel='noopener noreferrer'
+          css={logo}
+          onMouseOver={srcAlt ? handleMouseOver : undefined}
+          onMouseOut={srcAlt ? handleMouseOut : undefined}
+          onFocus={srcAlt ? handleMouseOver : undefined}
+          onBlur={srcAlt ? handleMouseOut : undefined}
+          $isPremium={isPremium}
+          $isPresenting={isPresenting}
+        >
+          <Image
+            src={imageSrc}
+            alt={image.alt}
+            $bigger={image.bigger}
+            $smaller={image.smaller}
+          />
+        </Link>
+      ) : (
+        <Card css={logo} $isPremium={isPremium} $isPresenting={isPresenting}>
+          <Image
+            src={imageSrc}
+            alt={image.alt}
+            $bigger={image.bigger}
+            $smaller={image.smaller}
+          />
+        </Card>
+      )}
+    </>
   );
 };
 
