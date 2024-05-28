@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // styles
-import { Link, Image } from './LogoCard.styles';
+import { Link, Image, logo, Card } from './LogoCard.styles';
 
 const LogoCard = ({ image, isPremium, isPresenting }) => {
   const { src, srcAlt } = image;
@@ -25,11 +25,12 @@ const LogoCard = ({ image, isPremium, isPresenting }) => {
     [src]
   );
 
-  return (
+  return image.url ? (
     <Link
       href={image.url}
       target='_blank'
       rel='noopener noreferrer'
+      css={logo}
       onMouseOver={srcAlt ? handleMouseOver : undefined}
       onMouseOut={srcAlt ? handleMouseOut : undefined}
       onFocus={srcAlt ? handleMouseOver : undefined}
@@ -44,6 +45,15 @@ const LogoCard = ({ image, isPremium, isPresenting }) => {
         $smaller={image.smaller}
       />
     </Link>
+  ) : (
+    <Card css={logo} $isPremium={isPremium} $isPresenting={isPresenting}>
+      <Image
+        src={imageSrc}
+        alt={image.alt}
+        $bigger={image.bigger}
+        $smaller={image.smaller}
+      />
+    </Card>
   );
 };
 
