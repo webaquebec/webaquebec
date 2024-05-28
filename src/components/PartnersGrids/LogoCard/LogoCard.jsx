@@ -25,40 +25,35 @@ const LogoCard = ({ image, isPremium, isPresenting }) => {
     [src]
   );
 
-  return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
-    <>
-      {image.url ? (
-        <Link
-          href={image.url}
-          target='_blank'
-          rel='noopener noreferrer'
-          css={logo}
-          onMouseOver={srcAlt ? handleMouseOver : undefined}
-          onMouseOut={srcAlt ? handleMouseOut : undefined}
-          onFocus={srcAlt ? handleMouseOver : undefined}
-          onBlur={srcAlt ? handleMouseOut : undefined}
-          $isPremium={isPremium}
-          $isPresenting={isPresenting}
-        >
-          <Image
-            src={imageSrc}
-            alt={image.alt}
-            $bigger={image.bigger}
-            $smaller={image.smaller}
-          />
-        </Link>
-      ) : (
-        <Card css={logo} $isPremium={isPremium} $isPresenting={isPresenting}>
-          <Image
-            src={imageSrc}
-            alt={image.alt}
-            $bigger={image.bigger}
-            $smaller={image.smaller}
-          />
-        </Card>
-      )}
-    </>
+  return image.url ? (
+    <Link
+      href={image.url}
+      target='_blank'
+      rel='noopener noreferrer'
+      css={logo}
+      onMouseOver={srcAlt ? handleMouseOver : undefined}
+      onMouseOut={srcAlt ? handleMouseOut : undefined}
+      onFocus={srcAlt ? handleMouseOver : undefined}
+      onBlur={srcAlt ? handleMouseOut : undefined}
+      $isPremium={isPremium}
+      $isPresenting={isPresenting}
+    >
+      <Image
+        src={imageSrc}
+        alt={image.alt}
+        $bigger={image.bigger}
+        $smaller={image.smaller}
+      />
+    </Link>
+  ) : (
+    <Card css={logo} $isPremium={isPremium} $isPresenting={isPresenting}>
+      <Image
+        src={imageSrc}
+        alt={image.alt}
+        $bigger={image.bigger}
+        $smaller={image.smaller}
+      />
+    </Card>
   );
 };
 
