@@ -192,15 +192,25 @@ export const onRenderBody = ({ setHeadComponents }) => {
     />,
   ];
 
-  const cookieyesScript = [
+  const scripts = [
     <script
-      id='cookieyes'
-      type='text/javascript'
-      src='https://cdn-cookieyes.com/client_data/e486fe454c7a6b64819c4ffd/script.js'
+      dangerouslySetInnerHTML={{
+        __html: `
+          window.axeptioSettings = {
+          clientId: "66449091b18ff7b3e3ed5f8b",
+          cookiesVersion: "webaquebecorg-fr-EU",
+          };
+          (function(d, s) {
+            var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+            e.async = true; e.src = "//static.axept.io/sdk.js";
+            t.parentNode.insertBefore(e, t);
+          })(document, "script");
+        `,
+      }}
     />,
   ];
 
-  setHeadComponents([...preloadFonts, ...cookieyesScript]);
+  setHeadComponents([...preloadFonts, ...scripts]);
 };
 
 wrapRootElement.propTypes = {
