@@ -118,7 +118,8 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "clean:modules": "rimraf node_modules yarn.lock"
+    "clean:modules": "rimraf node_modules yarn.lock",
+    "ci": "yarn install --frozen-lockfile"
   },
   "husky": {
     "hooks": {
