@@ -34,6 +34,8 @@ import logoOnibi from '../../images/logoPartners/provider/logo-onibi.svg';
 import logoConnecte from '../../images/logoPartners/provider/logo-connecte.png';
 import logoGutsyKombucha from '../../images/logoPartners/provider/logo-gutsy-kombucha.png';
 import logoAWS from '../../images/logoPartners/creative/logo-aws.svg';
+import logoOffside from '../../images/logoPartners/provider/logo-offside.svg';
+import logoBoreale from '../../images/logoPartners/provider/logo-boreale.svg';
 
 // styles
 import {
@@ -149,6 +151,10 @@ const communityPartners = [
 
 const providerPartners = [
   {
+    src: logoOffside,
+    alt: 'Offside',
+  },
+  {
     src: logoBarberie,
     alt: 'Barberie',
     url: 'https://www.labarberie.com',
@@ -182,6 +188,12 @@ const providerPartners = [
     src: logoGutsyKombucha,
     alt: 'Gutsy Kombucha',
     url: 'https://gutsykombucha.com/fr',
+    bigger: true,
+  },
+  {
+    src: logoBoreale,
+    alt: 'Boréale',
+    url: 'https://www.boreale.com/',
     bigger: true,
   },
 ];

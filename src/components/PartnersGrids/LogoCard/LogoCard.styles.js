@@ -89,16 +89,6 @@ export const Image = styled.img`
 `;
 
 export const Link = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: ${colors.blueberry10};
-
-  background-color: ${colors.peach};
-  border: 2px solid;
-  border-radius: 16px;
-
   :focus,
   :hover {
     background-color: ${colors.peach};
@@ -109,6 +99,26 @@ export const Link = styled.a`
     }
   }
 
+  ${({ $isPremium }) => $isPremium && premiumStyle};
+  ${({ $isPresenting }) => $isPresenting && presentingStyle};
+`;
+
+export const Card = styled.div`
+  ${({ $isPremium }) => $isPremium && premiumStyle};
+  ${({ $isPresenting }) => $isPresenting && presentingStyle};
+`;
+
+export const logo = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: ${colors.blueberry10};
+
+  background-color: ${colors.peach};
+  border: 2px solid;
+  border-radius: 16px;
+
   ${breakpointsRange(
     [
       { prop: 'width', sizes: [100, 160], bases: [16, 20] },
@@ -116,7 +126,4 @@ export const Link = styled.a`
     ],
     breakpoints.spacings
   )};
-
-  ${({ $isPremium }) => $isPremium && premiumStyle};
-  ${({ $isPresenting }) => $isPresenting && presentingStyle};
 `;
