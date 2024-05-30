@@ -93,7 +93,9 @@
     "title": "Ticketing",
     "description": "Experience the WAQ from May 28 to 30, 2024. Reserve your ticket today to participate in the largest French-speaking digital event in North America.",
     "intro": "Every year, hundreds of digital enthusiasts attend Web à Québec (WAQ). Whether you’re networking, discovering new trends or simply enjoying the unique atmosphere of WAQ, every reason is good to join us!",
+    "earlyBird": "Early bird",
     "buyCta": "Book my ticket",
+    "reserveCta": "Reserve my ticket",
     "soldOut": "Sold out",
     "fullAccess": {
       "name": "Full access ticket",

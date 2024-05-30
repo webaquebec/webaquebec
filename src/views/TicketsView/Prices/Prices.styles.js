@@ -22,6 +22,9 @@ export const blockContainerStyle = css`
     breakpoints.spacings,
     { bases: [16, 20] }
   )};
+
+  /* FIXME: Temp fix. Update Paper component with border. */
+  border: 2px solid ${colors.blueberry};
 `;
 
 export const buttonStyle = css`

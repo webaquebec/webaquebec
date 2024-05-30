@@ -1,5 +1,5 @@
 // vendors
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // components
 import { useTranslation } from 'react-i18next';
@@ -13,7 +13,6 @@ import {
   blockContainerStyle,
   BlocksWrapper,
   ContentContainer,
-  TicketBadge,
   TicketTitle,
   TicketPrice,
   TicketText,
@@ -21,21 +20,13 @@ import {
 } from './Prices.styles';
 import colors from '../../../styles/colors';
 import elevation from '../../../styles/elevation';
+import { fontWeights } from '../../../styles/typography';
 
 const Prices = () => {
   const { t } = useTranslation();
 
-  const [isRegularPrice, setIsRegularPrice] = useState(true);
-
-  useEffect(() => {
-    const currentDate = new Date().getTime();
-    const targetDate = new Date('2024-03-21').setHours(24, 0, 0, 0); // set for midnight
-    const isAfter = currentDate > targetDate;
-    setIsRegularPrice(isAfter);
-  }, []);
-
-  const completeAccessPrice = isRegularPrice ? 995 : 695;
-  const enterprisePrice = isRegularPrice ? 1205 : 905;
+  const completeAccessPrice = 595;
+  const enterprisePrice = 795;
 
   return (
     <Center maxWidth='1124px' gutters='var(--container-gutter)'>
@@ -53,14 +44,22 @@ const Prices = () => {
             css={blockContainerStyle}
           >
             <Center maxWidth='320px' intrinsic css={ContentContainer} withText>
-              <TicketTitle>{t('ticketing.fullAccess.name')}</TicketTitle>
+              <TicketTitle>
+                <span
+                  css={`
+                    font-weight: ${fontWeights.regular};
+                  `}
+                >
+                  {t(t('ticketing.earlyBird'))}
+                </span>
+                <br />
+                {t('ticketing.fullAccess.name')}
+              </TicketTitle>
 
               <TicketPrice>{completeAccessPrice}$</TicketPrice>
 
-              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
-
               <Button
-                to='https://ti.to/web-a-quebec/waq24/fr'
+                to='https://form.jotform.com/241493111485252'
                 tag='href'
                 inverted
                 small
@@ -69,7 +68,7 @@ const Prices = () => {
                 target='_blank'
                 css={buttonStyle}
               >
-                {t('ticketing.buyCta')}
+                {t('ticketing.reserveCta')}
               </Button>
 
               <TicketText color={colors.white}>
@@ -92,16 +91,22 @@ const Prices = () => {
             css={blockContainerStyle}
           >
             <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
-              <TicketTitle color={colors.gris90}>
+              <TicketTitle>
+                <span
+                  css={`
+                    font-weight: ${fontWeights.regular};
+                  `}
+                >
+                  {t(t('ticketing.earlyBird'))}
+                </span>
+                <br />
                 {t('ticketing.corporate.name')}
               </TicketTitle>
 
               <TicketPrice>{enterprisePrice}$</TicketPrice>
 
-              <TicketBadge>{t('ticketing.soldOut')}</TicketBadge>
-
-              {/* <Button
-                to='https://ti.to/web-a-quebec/waq24/fr'
+              <Button
+                to='https://form.jotform.com/241493111485252'
                 tag='href'
                 small
                 animated
@@ -109,8 +114,8 @@ const Prices = () => {
                 target='_blank'
                 css={buttonStyle}
               >
-                {t('ticketing.buyCta')}
-              </Button> */}
+                {t('ticketing.reserveCta')}
+              </Button>
 
               <TicketText>
                 <p>{t('ticketing.corporate.description')}</p>
@@ -120,90 +125,6 @@ const Prices = () => {
                   <li>{t('ticketing.corporate.bullet3')}</li>
                   <li>{t('ticketing.corporate.bullet4')}</li>
                   <li>{t('ticketing.corporate.bullet5')}</li>
-                </ul>
-              </TicketText>
-            </Center>
-          </Paper>
-        </BlocksWrapper>
-
-        <BlocksWrapper>
-          <Paper
-            lightColor={colors.peach}
-            darkColor={colors.blueberry10}
-            rounded
-            outlined
-            elevation={elevation.none}
-            css={blockContainerStyle}
-          >
-            <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
-              <TicketTitle color={colors.gris90}>
-                {t('ticketing.daily.name')}
-              </TicketTitle>
-
-              <TicketPrice>450$</TicketPrice>
-
-              {/* <TicketBadge>{t('ticketing.soldOut')}</TicketBadge> */}
-
-              <Button
-                to='https://ti.to/web-a-quebec/waq24/fr'
-                tag='href'
-                small
-                animated
-                rel='noopener noreferrer'
-                target='_blank'
-                css={buttonStyle}
-              >
-                {t('ticketing.buyCta')}
-              </Button>
-
-              <TicketText>
-                <p>{t('ticketing.daily.description')}</p>
-                <ul>
-                  <li>{t('ticketing.daily.bullet1')}</li>
-                  <li>{t('ticketing.daily.bullet2')}</li>
-                  <li>{t('ticketing.daily.bullet3')}</li>
-                  <li>{t('ticketing.daily.bullet4')}</li>
-                </ul>
-              </TicketText>
-            </Center>
-          </Paper>
-          <Paper
-            lightColor={colors.peach}
-            darkColor={colors.blueberry10}
-            rounded
-            outlined
-            elevation={elevation.none}
-            css={blockContainerStyle}
-          >
-            <Center maxWidth='320px' intrinsic withText css={ContentContainer}>
-              <TicketTitle color={colors.gris90}>
-                {t('ticketing.student.name')}
-              </TicketTitle>
-
-              <TicketPrice>300$</TicketPrice>
-
-              <TicketBadge>{t('ticketing.soldOut')}</TicketBadge>
-
-              {/* <Button
-                to='https://ti.to/web-a-quebec/waq24/fr'
-                tag='href'
-                small
-                animated
-                rel='noopener noreferrer'
-                target='_blank'
-                css={buttonStyle}
-              >
-                {t('ticketing.buyCta')}
-              </Button> */}
-
-              <TicketText>
-                <p>{t('ticketing.student.description')}</p>
-                <ul>
-                  <li>{t('ticketing.student.bullet1')}</li>
-                  <li>{t('ticketing.student.bullet2')}</li>
-                  <li>{t('ticketing.student.bullet3')}</li>
-                  <li>{t('ticketing.student.bullet4')}</li>
-                  <li>{t('ticketing.student.bullet5')}</li>
                 </ul>
               </TicketText>
             </Center>
